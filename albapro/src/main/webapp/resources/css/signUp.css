@@ -41,10 +41,10 @@ table {
 table, th, td{position: relative; border: none; font-family: '³ª´®½ºÄù¾î¶ó¿îµå'; padding: 8px 0; margin: 10px;}
 
 th{
-  background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: middle;
+  background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: top;
 }
 
-td{ height: 80px;}
+td{ height: 50px;}
 
 table td label{
   font-size: 14px;
@@ -68,8 +68,9 @@ table td.tLine{padding: 22px; 0;}
 table td.tLine > div{border-top: 1px solid #dfe2e8;}
 
 table td .tAddr{width: 167px;}
-table td #address, table td #detailAddress{margin-top: 10px;}
-table td #address{width: 180px;}
+table td #sample6_address, table td #sample6_detailAddress, table td #sample6_extraAddress{margin-top: 10px;}
+table td #sample6_address{width: 250px;}
+table td #sample6_extraAddress{width: 120px;}
 
 table td p.compul {color: #ec0101; margin-top: 6px; font-size: 12px;}
 
@@ -99,7 +100,7 @@ hr {
 
 img {
   float: left;
-  margin-top: -1%;
+  margin-top: -2%;
   margin-bottom: 0.5%;
   margin-left: 2%;
   margin-right: 5%;
@@ -128,5 +129,5 @@ button {
 input {
   vertical-align: middle;
   font: 12px arial;
-  height: 30px;
+  height: 15px;
 }
