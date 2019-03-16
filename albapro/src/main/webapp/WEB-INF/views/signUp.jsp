@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="resources/js/addressAPI.js"></script>
+<script src="resources/js/signUp.js"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 
@@ -16,7 +16,7 @@
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="resources/images/프로알바ver2.png" alt="logo" width="15%" height="110%" />
+			<img src="resources/images/프로알바ver3.png" alt="logo" width="200px" height="100%" />
 			<h1>회원가입</h1>
 		</div>
 		<div id="container">
@@ -141,8 +141,8 @@
 							<tr>
 								<th>주소</th>
 								<td>
-									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호"> 
-									<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호">
+									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
 									<input type="text" class="tBox tAddr" id="sample6_address" placeholder="주소"><br>
 									<input type="text" class="tBox tAddr" id="sample6_detailAddress" placeholder="상세주소">
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" placeholder="참고항목">
@@ -150,10 +150,10 @@
 							</tr>
 						</tbody>
 					</table>
-					<div class="btnfield">
-						<input type="submit" value="회원가입">
-					</div>
 				</form>
+				<div class="btnfield">
+					<input type="submit" id="btn_signup" value="가입하기">
+				</div>
 			</div>
 		</div>
 	</div>
