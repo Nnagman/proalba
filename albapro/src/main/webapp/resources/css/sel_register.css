@@ -1,0 +1,107 @@
+html {
+  _overflow-y: scroll;
+  _overflow-x: auto;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header {
+  width: 100%;
+  height: 10%;
+}
+
+img {
+  float: left;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  margin-left: 2%;
+  margin-right: 5%;
+}
+
+h1 {
+  position: relative;
+  top: 15px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+hr {
+  position: relative;
+  top: 130px;
+}
+
+#container {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 5%;
+  text-align: center;
+}
+
+#content_head{
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+span{
+  font-size: 30px;
+  color: #2255e7;
+  font-weight: bold;
+}
+
+i{font-size: 200px;}
+
+.contents{
+  margin-top: 80px;
+}
+
+.indi_member, .corp_member{
+  display: inline-block;
+  padding: 90px;
+}
+
+.corp_member{
+    margin-left: 100px;
+}
+
+.indi_member{
+  border-right: 1px solid gray;
+  padding-right: 180px;
+}
+
+.reg_btn{
+  margin-top: 30px;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 7px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+#indi_reg_btn{
+  background-color: #24C89A;
+  border: 1px solid #3EAB8C;
+}
+
+#corp_reg_btn{
+  background-color: #5882FA;
+  border: 1px solid #2E64FE;
+}
