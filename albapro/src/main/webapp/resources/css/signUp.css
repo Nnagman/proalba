@@ -6,7 +6,7 @@ html {
 html, body {
   width: 100%;
   height: 100%;
-  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
+  font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ';
 }
 
 body {
@@ -34,7 +34,7 @@ input {
   font: 12px arial;
 }
 
-/* Å×ÀÌºí */
+/* í…Œì´ë¸” */
 table {
   width: 60%;
   border-collapse: collapse;
@@ -44,7 +44,7 @@ table {
   left: 180px;
 
 }
-table, th, td{position: relative; border: none; font-family: '³ª´®½ºÄù¾î¶ó¿îµå'; padding: 8px 0; margin: 10px;}
+table, th, td{position: relative; border: none; font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ'; padding: 8px 0; margin: 10px;}
 
 th{
   background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: top;
@@ -91,7 +91,7 @@ table td p.compul {color: #ec0101; margin-top: 6px; font-size: 12px;}
   background-color: #58ACFA;
   border-radius: 7px;
   color: white;
-  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
+  font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ';
   font-size: 20px;
   font-weight: 750;
   letter-spacing:3px;
