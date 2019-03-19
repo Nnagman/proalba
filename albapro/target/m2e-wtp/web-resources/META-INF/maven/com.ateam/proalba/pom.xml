@@ -47,14 +47,6 @@
 			<version>2.9.8</version>
 		</dependency>
 
-		<!--ojdbc6 -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>12.1.0.1-atlassian-hosted</version>
-		</dependency>
-
-
 		<!-- 스프링에서 JDBC 를 사용하기 위한 라이브러리 입니다. -->
 		<dependency>
 			<groupId>org.springframework</groupId>
