@@ -1,32 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet"  type="text/css" href="resources/css/signUp.css">
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="resources/js/signUp.js"></script>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<link rel="stylesheet" type="text/css" href="../resources/css/signUp.css">
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="../resources/js/signUp.js"></script>
 </head>
-<%@ include file = "../include/header.jsp" %>
+<%@ include file="../include/header.jsp"%>
 
 <body>
-<%@ include file = "../include/menu.jsp" %>
 
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="resources/images/프로알바ver3.png" alt="logo" width="200px" height="100%" />
+			<img src="../resources/images/프로알바ver3.png" alt="logo" width="200px"
+				height="150px" />
 			<h1>회원가입</h1>
 		</div>
 		<div id="container">
 			<div id="content">
 				<div class="signUpForm-header">
-					<h1>개인 회원가입</h1>
+					<h1>개인회원 가입</h1>
 				</div>
+
+				<!--개인 정보 동의 -->
+				<form id="agree_form">
+					<div class="all_agree">
+						<p>
+							<label></label> <input type="checkbox" id="all" name="all" />
+							전체약관동의<br />
+						</p>
+
+						<p>
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c1" name="c1" />
+							 프로알바 이용약관 동의 (필수)<br />
+							</label>
+						</p>
+						<p>
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c2" name="c2" /> 
+							개인정보 처리방침 동의 (필수)<br />
+							</label>
+						</p>
+						<p>
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" /> 
+							이메일, SMS알림 수신 동의 (선택)<br />
+							</label>
+						</p>
+					</div>
+				</form>
 
 				<!-- 회원 정보 입력 폼 -->
 
@@ -37,35 +62,29 @@
 
 							<tr>
 								<th>아이디</th>
-								<td><input type="text" name="userId" id="dev_idchk"
-									class="tBox tPwd" maxlength="16" placeholder="6~16자 영문, 숫자"
-									title="아이디">
-									<p class="compul">아이디를 입력해주세요.</p> <input id="dev_userIdStat"
-									name="dev_userIdStat" type="hidden" value="N"></td>
+								<td>
+									<input type="text" name="userId" id="dev_idchk" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
+									<input type="button" id="double_check" value="중복확인" />
+								</td>
 							</tr>
 
 
 
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="password" name="userpPwd"
-									class="tBox tPwd" id="dev_pwd1" maxlength="16"
-									placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호"
-									autocomplete="off">
-									<p class="compul txtN" id="PwdSafeResult">비밀번호를 입력해주세요.</p> <input
-									id="dev_pwdchkStat" name="dev_pwdchkStat" type="hidden"
-									value="N"></td>
+								<td>
+									<input type="password" name="userpPwd" class="tBox tPwd" id="dev_pwd1" maxlength="16" placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호" autocomplete="off">
+								</td>
 							</tr>
-
 
 
 							<tr>
 								<th>비밀번호 확인</th>
-								<td><input type="password" name="userPwd2"
-									id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
+								<td>
+									<input type="password" name="userPwd2" id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
 									title="비밀번호확인" autocomplete="off">
-									<p class="compul" id="dev_chk_pwd_confirm">비밀번호가 일치하지 않습니다.</p>
-								</td>
+									<p class="compul" id="passwd_success">비밀번호가 일치합니다.</p>
+									<p class="compul" id="passwd_danger">비밀번호가 일치하지 않습니다.</p></td>
 							</tr>
 
 							<tr>
@@ -76,43 +95,41 @@
 
 							<tr>
 								<th>이름</th>
-								<td><input type="text" name="Name" class="tBox" title="이름"
-									id="dev_u_Name" maxlength="12">
-									<p class="compul">이름을 입력해주세요.</p> <input id="namechkStat"
-									name="dev_namechkStat" type="hidden" value="N"></td>
+								<td>
+									<input type="text" name="Name" class="tBox" title="이름" id="dev_u_Name" maxlength="12">
+								</td>
 							</tr>
 
 
 
 							<tr>
 								<th>생년월일</th>
-								<td><input type="text" class="tBox joinBx tBirth"
-									id="dev_born" name="birth" maxlength="8" title="생년월일"
+								<td>
+									<input type="text" class="tBox joinBx tBirth" id="dev_born" name="birth" maxlength="8" title="생년월일"
 									placeholder="ex) 19900101">
-									<p class="compul" id="txtBirth">생년월일을 입력해주세요.</p></td>
+								</td>
 							</tr>
 
 
 							<tr>
 								<th>성별</th>
-								<td><input type="radio" class="sex" title="남자"
-									id="sex_male" value="0"> <label for="sex_male">남자</label>
-									<input type="radio" class="sex" title="여자" id="sex_female"
-									value="1"> <label for="sex_female">여자</label>
-									<p class="compul" id="txtGender"></p></td>
+								<td>
+									<input type="radio" class="sex" title="남자" id="sex_male" value="0"> 
+										<label for="sex_male">남자</label>
+									<input type="radio" class="sex" title="여자" id="sex_female" value="1"> 
+										<label for="sex_female">여자</label>
+									<p class="compul" id="txtGender"></p>
+								</td>
 							</tr>
 
 							<tr>
 								<th>이메일</th>
-								<td><input type="text" id="emailId" class="tBox tEmail"
-									id="dev_M_Email" maxlength="25" title="이메일계정"
-									autocomplete="off"> <span> @</span> <input type="text"
-									name="EmailDomain" class="tBox tEmail" id="dev_mail_etc"
-									maxlength="25" title="이메일계정"
+								<td>
+									<input type="text" id="emailId" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+										<span> @</span> 
+									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정"
 									onfocus="mon.account.regist.core.reg.emailChk1()">
-									<p class="compul" id="txtEmail">이메일을 올바르게 입력해주세요.</p> <input
-									id="dev_mailChkStat" name="dev_mailChkStat" type="hidden"
-									value="N"></td>
+								</td>
 							</tr>
 
 							<tr>
@@ -124,28 +141,26 @@
 
 							<tr>
 								<th>휴대폰 번호</th>
-								<td><select id="dev_hPhone1" name="Phone1"
-									class="tBox joinBx tPhone" title="휴대폰 번호">
+								<td>
+									<select id="dev_hPhone1" name="Phone1" class="tBox joinBx tPhone" title="휴대폰 번호">
 										<option value="010" selected>010</option>
 										<option value="011">011</option>
 										<option value="016">017</option>
 										<option value="018">018</option>
 										<option value="019">019</option>
-								</select> - <input id="dev_hphone2" name="Phone2" class="tBox tPhone"
-									type="text" title="휴대폰 번호" value="" size="4" maxlength="4"
-									autocomplete="off"> - <input id="dev_hphone3"
-									name="Phone3" class="tBox tPhone" type="text" title="휴대폰 번호"
+									</select> - 
+									<input id="dev_hphone2" name="Phone2" class="tBox tPhone" type="text" title="휴대폰 번호" value="" size="4" maxlength="4"
+									autocomplete="off"> - 
+									<input id="dev_hphone3" name="Phone3" class="tBox tPhone" type="text" title="휴대폰 번호"
 									value="" size="4" maxlength="4" autocomplete="off">
-									<p class="compul" id="txtCert">휴대폰 번호를 입력해주세요.</p> <input
-									id="dev_phoneChkStat" name="dev_phoneChkStat" type="hidden"
-									value="N"></td>
+								</td>
 							</tr>
 
 							<tr>
 								<th>주소</th>
 								<td>
-									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호">
-									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호"> 
+									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br> 
 									<input type="text" class="tBox tAddr" id="sample6_address" placeholder="주소"><br>
 									<input type="text" class="tBox tAddr" id="sample6_detailAddress" placeholder="상세주소">
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" placeholder="참고항목">
@@ -155,11 +170,12 @@
 					</table>
 				</form>
 				<div class="btnfield">
-					<input type="submit" id="btn_signup" value="가입하기">
+					<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()">
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<script src="../resources/js/signUp_agree.js"></script>
 
 </html>
