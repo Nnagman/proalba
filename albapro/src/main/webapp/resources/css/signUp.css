@@ -6,13 +6,23 @@ html {
 html, body {
   width: 100%;
   height: 100%;
-  font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ';
+  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
 }
 
 body {
   padding: 0;
   margin: 0;
 }
+
+/* °³ÀÎÁ¤º¸¼öÁıÀÌ¿ë */
+.agree ul{margin-top: 10px;}
+.agree ul li {margin-bottom: 15px; list-style: none;}
+.agree ul li:after {display: block; clear: both; content: "";}
+.agree ul li input[type="checkbox"] {display: none;}
+.agree ul li input[type="checkbox"] + label { width: 17px; height: 17px; background: #fa3062; cursor: pointer; border-radius: 3px; float: right;}
+.agree ul li input[type="checkbox"]:checked + label {background-color: black;}
+.agree ul li input[type="checkbox"] + label span {position: absolute; left:0px; display: block; }
+
 
 #wrap {
   width: 100%;
@@ -25,16 +35,13 @@ body {
   position: relative;
   margin: 0 auto;
 }
-#content{
-
-}
 
 input {
   vertical-align: middle;
   font: 12px arial;
 }
 
-/* í…Œì´ë¸” */
+/* Å×ÀÌºí */
 table {
   width: 60%;
   border-collapse: collapse;
@@ -44,10 +51,10 @@ table {
   left: 180px;
 
 }
-table, th, td{position: relative; border: none; font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ'; padding: 8px 0; margin: 10px;}
+table, th, td{position: relative; border: none; font-family: '³ª´®½ºÄù¾î¶ó¿îµå'; padding: 8px 0; margin: 10px;}
 
 th{
-  background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: top;
+  background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: middle;
 }
 
 td{ height: 50px;}
@@ -61,6 +68,7 @@ table td .tBox{
   border: 1px solid #c0c0c0; width: 297px; background: #fdfdfd; border-bottom: 1px solid #dbdee1; padding: 6px 8px 5px;
 }
 
+table td .tId {width: 150px;}
 table td .tEmail{width: 150px;}
 
 table td .tPhone {width: 80px;}
@@ -70,7 +78,7 @@ table td .tBirth{width: 160px;}
 table td .sex{margin-right: 6px;}
 table td #sex_female{margin-left: 30px;}
 
-table td.tLine{padding: 22px; 0;}
+table td.tLine{padding: 15px; 0;}
 table td.tLine > div{border-top: 1px solid #dfe2e8;}
 
 table td .tAddr{width: 167px;}
@@ -80,6 +88,10 @@ table td #sample6_extraAddress{width: 120px;}
 table td #find_addr{width: 120px; height: 29px; background: #f2f2f2; border: 1px solid #a4a4a4; border-radius: 7px;}
 
 table td p.compul {color: #ec0101; margin-top: 6px; font-size: 12px;}
+
+table td .comName{width: 50px;}
+table td #comName_check{width: 50px; height: 29px; background: #f2f2f2; border: 1px solid #a4a4a4; border-radius: 7px;}
+
 
 .btnfield{
   margin-bottom: 40px;
@@ -91,7 +103,7 @@ table td p.compul {color: #ec0101; margin-top: 6px; font-size: 12px;}
   background-color: #58ACFA;
   border-radius: 7px;
   color: white;
-  font-family: 'ë‚˜ëˆ”ìŠ¤í€˜ì–´ë¼ìš´ë“œ';
+  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
   font-size: 20px;
   font-weight: 750;
   letter-spacing:3px;
@@ -106,6 +118,7 @@ form {
   margin-top: 2%;
   margin-bottom: 5%;
   padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .header {
@@ -145,4 +158,26 @@ button {
   border: 0 none;
   cursor: pointer;
   height: 20px;
+}
+
+#agree_form{
+	border: 0px;
+	padding: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+}
+
+#agree_form{
+	border: 0px;
+	padding: 1%;
+	margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+#double_check{
+  height: 29px;
+  width: 80px;
+  border-radius: 7px;
+  background-color:  #f2f2f2;
+  border: 1px solid #a4a4a4
 }

@@ -45,3 +45,24 @@ function execDaumPostcode(){
          }
      }).open();
  }
+
+
+$(function(){
+		$("#passwd_success").hide();
+		$("#passwd_danger").hide();
+		$("#dev_pwdconfirm").keyup(function(){
+				var pwd1=$("#dev_pwd1").val();
+				var pwd2=$("#dev_pwdconfirm").val();
+				if(pwd1 != "" || pwd2 != ""){
+						if(pwd1 == pwd2){
+								$("#passwd_success").show();
+								$("#passwd_danger").hide();
+								$("#submit").removeAttr("disabled");
+						}else{
+								$("#passwd_success").hide();
+								$("#passwd_danger").show();
+								$("#submit").attr("disabled", "disabled");
+						}
+				}
+		});
+});
