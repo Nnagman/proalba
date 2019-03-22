@@ -27,7 +27,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             httpSession.setAttribute(LOGIN, memberVO);
             //response.sendRedirect("/proalba/");
             Object destination = httpSession.getAttribute("destination");
-            response.sendRedirect(destination != null ? (String) destination : "/");
+            response.sendRedirect(destination != null ? (String) destination : "/proalba");
         }
 
     }
