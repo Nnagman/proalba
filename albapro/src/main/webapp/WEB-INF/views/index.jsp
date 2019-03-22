@@ -11,11 +11,13 @@
 </head>
 <body>
 <%@ include file = "include/menu.jsp" %>
-
-<h1>
+<div class="contents">
+	<h1>
 	Hello world!  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+	
+</div>
 </body>
 </html>
