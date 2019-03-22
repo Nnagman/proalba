@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.MemberMapper">
+
+    <resultMap id="memberVOResultMap" type="com.ateam.proalba.domain.MemberVO">
+        <id property="i_Id" column="i_id"/>
+        <result property="i_Pw" column="i_pw"/>
+        <result property="name" column="name"/>
+        <result property="p_Number" column="p_Number"/>
+        <result property="email" column="email"/>
+        <result property="education" column="education"/>
+        <result property="bank_Name" column="bank_Name"/>
+        <result property="bank_Num" column="bank_Num"/>
+        <result property="depositor" column="depositor"/>
+        <result property="military" column="military"/>
+    </resultMap>
+
+	<select id="getList" resultType="com.ateam.proalba.domain.MemberVO">
+		select * from imember
+	</select>
+
+	<insert id="register" >
+		insert into imember( i_Id, i_Pw, name, p_Number, email, address )
+		values ( #{i_Id}, #{i_Pw}, #{name}, #{p_Number}, #{email}, #{address} )
+	</insert>
+
+	<select id="login" resultMap="memberVOResultMap">
+  	  SELECT * FROM imember
+  	  WHERE i_Id = #{i_Id}
+	</select>
+
+</mapper>
