@@ -1,6 +1,6 @@
 body{
-    font-family:'Orienta', sans-serif;
-    color: #252525;
+    font-family:'³ª´®¶ó¿îµå½ºÄù¾î';
+    color: black;
     posiion: relative;
     padding:0;
     margin: 0;
@@ -9,31 +9,36 @@ body{
 .container{
     width:100%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px 0 22px 0;
+
 }
 
 .nav{
-    font-family: 'Orienta', sans-serif;
+    font-family: '³ª´®¶ó¿îµå½ºÄù¾î';
     font-weight:400;
     font-size: 13px;
-    line-height:13px;
+    line-height:20px;
 
     position: relative;
-    padding: 0 0 0 4px;
+    padding: 0 0 0px 200px;
     margin: 0;
 
-    background-color:lightgray;
+    background-color: #ffffff;
+
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 3px solid skyblue;
 }
 
 .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
 .nav > li{
     display: inline-block;
     text-align:center;
-    margin-left: -4px;
+    margin-left: 4px;
+    font-size: 20px;
 }
 
 .nav > li > a {
@@ -42,11 +47,15 @@ body{
 }
 
 .nav > li:hover > a{
-    color: #Fff;
+    color: #000;
 }
 
+/* .column > ul > li:hover{
+  background-color: #fff;
+} */
+
 .nav > li:hover{
-    background-color: #16a085;
+    background-color: #E0ECF8;
 }
 
 .nav > li > ul {
@@ -55,12 +64,12 @@ body{
     position: absolute;
     list-style: none;
     top: 53px;
-    background-color: #16a085;
+    background-color: #E0ECF8;
     width: 200px;
     text-align: left;
     margin-top: 30px;
     padding: 0px;
-    z-index: 99px; 
+    z-index: 99px;
 }
 
 .nav > li:hover > ul{
@@ -70,45 +79,45 @@ body{
 }
 
 .nav li > ul li{
-    font-size: 11px;
+    font-size: 15px;
     position: relative;
     display: block;
     padding: 15px 10px;
 }
 
 .nav > li > ul li:hover{
-    background-color: #006191;
+    background-color: #fff;
 }
 
 .nav ul li:hover > a{
-    color: white;
+    color: #000;
 }
 
 .nav > li > ul li ul li:hover{
-    background-color :#004b6f;
+    background-color :#fff;
 }
 
 .nav > li > ul li ul li ul {
-	background-color: #004b6f;
+	background-color: #fff;
 }
 
-.nav > li > ul li ul li ul li:hover {
-	background-color: #00344d;
-}
 
 .nav > li > .fulldrop {
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
 	list-style: none;
-	top:53px;
-	left: 0px;
-	background-color: #16a085;
-	width: 100%;
+	top:60px;
+	left: 150px;
+	background-color: #fff;
+  border: 1px solid gray;
+	width: 1100px;
+  height: 180px;
 	min-height: 100px;
 	text-align: left;
 	margin-top:30px;
 	padding: 0;
+  padding-top: 20px;
 	z-index: 99;
 	overflow: hidden;
 }
@@ -121,24 +130,29 @@ body{
 }
 
 .nav ul li:hover:after {
-	color: white;
+	color: black;
 }
-
-.nav > li:hover .coldrop {
-	opacity: 1;
-	visibility: visible;
-	margin-top: 0px;
-}
-
-.nav .coldrop .column {width: 130px;margin:0 9px;}
-
 
 
 .nav .column {
 	width: 14.1%;
+  height: 160px;
 	float: left;
-	color:white;
-	margin: 0 0 0 2.2%;
+	color: black;
+	margin: 0 20px 0 3%;
+  border-right: 1px solid #E6E6E6;
+  padding-right: 10px;
+
+}
+
+.nav .column:first-child{
+  margin-left: 30px;
+  padding-right: 40px;
+}
+
+.nav .column:last-child{
+  border: 0px;
+  margin-right: -40px;
 }
 
 .nav .column ul {
@@ -149,13 +163,13 @@ body{
 .nav .column ul li {
 	padding: 0;
 	list-style: none;
-	font-size: 11px;
+	font-size: 14px;
 }
 
 .nav .column h3 {
-	font-size: 14px;
+	font-size: 20px;
 	padding: 14px 0;
-	font-weight: 400;
+	font-weight: 600;
 	margin: 5px 0 5px 0;
 }
 
