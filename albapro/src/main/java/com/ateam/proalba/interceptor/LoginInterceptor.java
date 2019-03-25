@@ -18,10 +18,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
-        HttpSession httpSession = request.getSession();
+		HttpSession httpSession = request.getSession();
         ModelMap modelMap = modelAndView.getModelMap();
         Object memberVO =  modelMap.get("member");
-
+        
         if (memberVO != null) {
             logger.info("new login success");
             httpSession.setAttribute(LOGIN, memberVO);
@@ -41,6 +41,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             logger.info("clear login data before");
             httpSession.removeAttribute(LOGIN);
         }
+        logger.info("LoginInterceptor preHandler");
 
         return true;
     }

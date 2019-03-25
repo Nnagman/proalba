@@ -13,7 +13,7 @@
 	<body>
 		<div class="header">
 			<img alt="로고" src="resources/images/프로알바ver3.png" width="200" height="100" />
-			<p>xxx님 로그인</p>
+			<p>${login}님 로그인</p>
 		</div>
 	</body>
 </html>
