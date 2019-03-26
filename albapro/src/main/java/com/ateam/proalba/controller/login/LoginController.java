@@ -24,12 +24,12 @@ private final MemberService memberService;
 		this.memberService = memberService;
 	}
 	
-	@RequestMapping(value = "/login/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGET(@ModelAttribute("loginDTO") LoginDTO loginDTO) {
-		return "login";
+		return "login/login";
 	}
 	
-    // ·Î±×ÀÎ Ã³¸®
+    // ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
     @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 
