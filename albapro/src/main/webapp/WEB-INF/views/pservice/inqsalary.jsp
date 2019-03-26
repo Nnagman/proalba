@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
 <%@ include file = "../include/header.jsp" %>
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
-<%@ include file = "pservicemenu.jsp" %>
 
 <h2> ${message }</h2>
 </body>
