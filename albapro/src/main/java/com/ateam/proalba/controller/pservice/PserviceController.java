@@ -14,56 +14,56 @@ public class PserviceController {
 	@RequestMapping("/pservice")
 	public String pservice(Model model) {
 		logger.info("Welcome PservicePage");
-		model.addAttribute("message", "개인서비스 페이지 방문을 환영합니다");
+		model.addAttribute("message", "媛쒖씤�꽌鍮꾩뒪 �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/pservice";
 	}
 	
-	@RequestMapping(value = "/pservice/wresume", method = RequestMethod.GET)
+	@RequestMapping(value = "/wresume", method = RequestMethod.GET)
 	public String wresumeGET(Model model) throws Exception {
 		logger.info("Welcome wresumePage");
-		model.addAttribute("message", "wresumePage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "wresumePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/wresume";
 	}
 	
-	@RequestMapping(value = "/pservice/maresume", method = RequestMethod.GET)
+	@RequestMapping(value = "/maresume", method = RequestMethod.GET)
 	public String maresumeGET(Model model) throws Exception {
 		logger.info("Welcome maresumePage");
-		model.addAttribute("message", "maresumePage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "maresumePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/maresume";
 	}
 	
-	@RequestMapping(value = "/pservice/wcontract", method = RequestMethod.GET)
+	@RequestMapping(value = "/wcontract", method = RequestMethod.GET)
 	public String wcontractGET(Model model) throws Exception {
 		logger.info("Welcome wcontractPage");
-		model.addAttribute("message", "wcontractPage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "wcontractPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/wcontract";
 	}
 	
-	@RequestMapping(value = "/pservice/ecertifi", method = RequestMethod.GET)
+	@RequestMapping(value = "/ecertifi", method = RequestMethod.GET)
 	public String ecertifiGET(Model model) throws Exception {
 		logger.info("Welcome ecertifiPage");
-		model.addAttribute("message", "ecertifiPage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "ecertifiPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/ecertifi";
 	}
 	
-	@RequestMapping(value = "/pservice/workmanage", method = RequestMethod.GET)
+	@RequestMapping(value = "/workmanage", method = RequestMethod.GET)
 	public String workmanageGET(Model model) throws Exception {
 		logger.info("Welcome workmanagePage");
-		model.addAttribute("message", "workmanagePage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "workmanagePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/workmanage";
 	}
 	
-	@RequestMapping(value = "/pservice/inqsalary", method = RequestMethod.GET)
+	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
 	public String inqsalaryGET(Model model) throws Exception {
 		logger.info("Welcome inqsalaryPage");
-		model.addAttribute("message", "inqsalaryPage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "inqsalaryPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/inqsalary";
 	}
 	
-	@RequestMapping(value = "/pservice/inqcareer", method = RequestMethod.GET)
+	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
 	public String inqcareerGET(Model model) throws Exception {
 		logger.info("Welcome inqcareerPage");
-		model.addAttribute("message", "inqcareerPage 페이지 방문을 환영합니다");
+		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/inqcareer";
 	}
 }

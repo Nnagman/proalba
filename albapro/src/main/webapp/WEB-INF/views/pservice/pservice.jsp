@@ -10,7 +10,6 @@
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
-<%@ include file = "pservicemenu.jsp" %>
 
 <h2> ${message }</h2>
 </body>

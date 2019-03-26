@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+=======
+encoding//src/main/java/com/ateam/proalba/controller/pservice/PserviceController.java=UTF-8
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 encoding//src/main/webapp/WEB-INF/views/include/menu.jsp=UTF-8
