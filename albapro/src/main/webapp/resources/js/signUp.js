@@ -47,7 +47,7 @@ function execDaumPostcode(){
  }
 
 
-$(function(){
+$(document).ready(function(){
 		$("#passwd_success").hide();
 		$("#passwd_danger").hide();
 		$("#dev_pwdconfirm").keyup(function(){
@@ -64,5 +64,57 @@ $(function(){
 								$("#submit").attr("disabled", "disabled");
 						}
 				}
+		});
+		
+		var email1,email2,email;
+		$("#dev_M_Email").change(function(){
+			email1 = $("#dev_M_Email").val();
+		});
+		
+		$("#dev_mail_etc").change(function(){
+			email2 = $("#dev_mail_etc").val();
+			email = email1 + '@' + email2;
+			$("#dev_mail_etc").append('<input id="email" name="email" value="'+email+'" type="text"/>');
+			console.log(email1)
+			console.log(email2)
+			console.log(email)
+		});
+		
+		var pnum1,pnum2,pnum3,p_Number;
+		
+		pnum1 = $("#dev_hphone1").val();
+		
+		$("#dev_hphone1").select(function(){
+			pnum1 = $("select[name=Phone1]").val();
+		});
+		
+		$("#dev_hphone2").change(function(){
+			pnum2 = $("#dev_hphone2").val();
+		});
+		
+		$("#dev_hphone3").change(function(){
+			pnum3 = $("#dev_hphone3").val();
+			p_Number = pnum1+pnum2+pnum3;
+			$( "#p_Number" ).remove();
+			$("#dev_hphone3").append('<input id="p_Number" name="p_Number" value="'+p_Number+'" type="text"/>');
+			console.log(pnum1);
+			console.log(pnum2);
+			console.log(pnum3);
+		});
+		
+		var address1,address2,address3,address4,address;
+		
+		$("#sample6_detailAddress").change(function(){
+			address1 = $("#sample6_postcode").val();
+			address2 = $("#sample6_address").val();
+			address3 = $("#sample6_detailAddress").val();
+			address4 = $("#sample6_extraAddress").val();
+			address=address1+address2+address4+address3;
+			$("#sample6_extraAddress").append('<input name="address" value="'+address+'" type="text"/>');
+			console.log(address1);
+			console.log(address2);
+			console.log(address3);
+			console.log(address4);
+			
 		});
 });

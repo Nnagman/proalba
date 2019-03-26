@@ -55,8 +55,6 @@
 				<form name="signUpForm" method="post" action="">
 					<table>
 						<tbody>
-
-
 							<tr>
 								<th>아이디</th>
 								<td>
@@ -76,6 +74,7 @@
 									placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호"
 									autocomplete="off"></td>
 							</tr>
+
 
 
 							<tr>
@@ -148,8 +147,6 @@
 									<input type="text" class="tBox tAddr" id="sample6_detailAddress" placeholder="상세주소">
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" placeholder="참고항목"></td>
 							</tr>
-
-
 						</tbody>
 					</table>
 				</form>

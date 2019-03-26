@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/signUp.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="../resources/js/signUp.js"></script>
 </head>
 <%@ include file="../include/header.jsp"%>
 
@@ -55,7 +54,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" method="post" action="">
+				<form name="signUpForm" method="post" action="${path}/login/register">
 					<table>
 						<tbody>
 
@@ -63,7 +62,7 @@
 							<tr>
 								<th>아이디</th>
 								<td>
-									<input type="text" name="userId" id="dev_idchk" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
+									<input type="text" name="i_Id" id="dev_idchk" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
 									<input type="button" id="double_check" value="중복확인" />
 								</td>
 							</tr>
@@ -81,7 +80,7 @@
 							<tr>
 								<th>비밀번호 확인</th>
 								<td>
-									<input type="password" name="userPwd2" id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
+									<input type="password" name="i_Pw" id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
 									title="비밀번호확인" autocomplete="off">
 									<p class="compul" id="passwd_success">비밀번호가 일치합니다.</p>
 									<p class="compul" id="passwd_danger">비밀번호가 일치하지 않습니다.</p></td>
@@ -96,7 +95,7 @@
 							<tr>
 								<th>이름</th>
 								<td>
-									<input type="text" name="Name" class="tBox" title="이름" id="dev_u_Name" maxlength="12">
+									<input type="text" name="name" class="tBox" title="이름" id="dev_u_Name" maxlength="12">
 								</td>
 							</tr>
 
@@ -125,10 +124,9 @@
 							<tr>
 								<th>이메일</th>
 								<td>
-									<input type="text" id="emailId" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+									<input type="text" name="emailId" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
-									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정"
-									onfocus="mon.account.regist.core.reg.emailChk1()">
+									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
 								</td>
 							</tr>
 
@@ -142,7 +140,7 @@
 							<tr>
 								<th>휴대폰 번호</th>
 								<td>
-									<select id="dev_hPhone1" name="Phone1" class="tBox joinBx tPhone" title="휴대폰 번호">
+									<select id="dev_hphone1" name="Phone1" class="tBox joinBx tPhone" title="휴대폰 번호">
 										<option value="010" selected>010</option>
 										<option value="011">011</option>
 										<option value="016">017</option>
@@ -159,23 +157,23 @@
 							<tr>
 								<th>주소</th>
 								<td>
-									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호"> 
+									<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호"> 
 									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br> 
-									<input type="text" class="tBox tAddr" id="sample6_address" placeholder="주소"><br>
-									<input type="text" class="tBox tAddr" id="sample6_detailAddress" placeholder="상세주소">
-									<input type="text" class="tBox tAddr" id="sample6_extraAddress" placeholder="참고항목">
+									<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소"><br>
+									<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소">
+									<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
 								</td>
 							</tr>
 						</tbody>
 					</table>
+					<div class="btnfield">
+						<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()">
+					</div>
 				</form>
-				<div class="btnfield">
-					<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()">
-				</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script src="../resources/js/signUp_agree.js"></script>
-
+<script src="../resources/js/signUp_agree.js?ver=2"></script>
+<script src="../resources/js/signUp.js?ver=2"></script>	
 </html>

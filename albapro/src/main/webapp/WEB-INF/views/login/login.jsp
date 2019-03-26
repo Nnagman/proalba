@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
 <meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
 <link rel="stylesheet" type="text/css" href="resources/css/login.css">
@@ -58,7 +58,7 @@
       <h1>로그인</h1>
     </div>
     <div class="form-content">
-      <form>
+      <form name="signUpForm" method="post" action="${path}/login/loginPost">
         <div class="selLogin">
           <div class="indi">
             <input type="radio" id="indLogin" name="loginchk" checked/>
@@ -71,11 +71,11 @@
         </div>
         <div class="form-group">
           <label for="username">UserID</label>
-          <input type="text" id="username" name="username" required="required"/>
+          <input type="text" id="username" name="i_Id" required="required"/>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required="required"/>
+          <input type="password" id="password" name="i_Pw" required="required"/>
         </div>
         <div class="form-group">
           <button type="submit">로그인</button>
@@ -101,6 +101,12 @@
           			'onfailure': onFailure
           		});
           	}
+          	var msg = "${msg}";
+            if (msg === "REGISTERED") {
+                alert("회원가입이 완료되었습니다. 로그인해주세요~");
+            } else if (msg == "FAILURE") {
+                alert("아이디와 비밀번호를 확인해주세요.");
+            }
   </script>
       </form>
     </div>
