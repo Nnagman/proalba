@@ -1,0 +1,6 @@
+/*이력서 간편, 일반, 기본이력서 아이콘 표시*/
+.listForm table td.title {line-height:20px;vertical-align:middle}
+.listForm table td.title a {display:inline-block;*display:inline;zoom:1;margin-top:0;margin-top:3px\9;margin-top:3px\0;*margin-top:2px}
+.listForm table td.title strong.ico_default {display:inline-block;*display:inline;zoom:1;width:37px;height:20px;font-size:0;vertical-align:top;color:transparent}
+.listForm table td.title span.ico_simple {display:inline-block;*display:inline;zoom:1;width:48px;height:20px;font-size:0;vertical-align:top;color:transparent}
+.listForm table td.title span.ico_normal {display:inline-block;*display:inline;zoom:1;width:48px;height:20px;font-size:0;vertical-align:top;color:transparent}
