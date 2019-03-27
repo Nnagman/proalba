@@ -1,0 +1,101 @@
+body{
+  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
+}
+
+.contents{
+  text-align: center;
+}
+
+.main{
+  width: 400px;
+  height: 350px;
+  margin: 15px;
+  border: 2px solid #BDBDBD;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.maintop1_con{
+  float: left;
+  padding: 0 40px;
+}
+
+
+.maintop1 .title{
+  height: 60px;
+  margin-top: 0px;
+  background-color: #E0ECF8;
+  vertical-align: middle;
+  margin-bottom: 30px;
+}
+
+.maintop2{
+  margin-left: 80px;
+}
+
+.title h2{
+margin: 0 auto;
+position: relative;
+top: 13px;
+}
+
+.login{
+  position: relative;
+  top: 40px;
+}
+
+.i_text{
+  margin: 15px;
+  width: 250px;
+  height: 30px;
+}
+
+.login #passwd{
+  margin-bottom: 50px;
+}
+
+.login_btn{
+  width: 200px;
+  height: 40px;
+  border: 1px solid #A9BCF5;
+  border-radius: 7px;
+  background-color: #CEE3F6;
+}
+
+.mainbot1_con{
+  float: left;
+  padding: 0 40px;
+}
+
+.mainbot1 .title{
+  height: 60px;
+  margin-top: 0px;
+  background-color: #F5D0A9;
+  vertical-align: middle;
+  margin-bottom: 30px;
+}
+
+.mainbot2{
+  margin-left: 80px;
+}
+
+.mainbot2 .title{
+  height: 60px;
+  margin-top: 0px;
+  background-color: #F5ECCE;
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
+
+.mainbot2_con > span:first-child{
+font-size: 35px;
+font-weight: bold;
+}
+
+.mainbot2_con > span:last-child{
+  font-size: 45px;
+  color: #FE642E;
+  font-weight: bold;
+
+}

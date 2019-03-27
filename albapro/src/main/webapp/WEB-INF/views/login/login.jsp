@@ -8,11 +8,10 @@
 
 <!doctype html>
 <html lang="kr">
-	<head>
-	<%@ include file = "../include/header.jsp" %>
-	
+	<head>	
 	<meta charset="UTF-8">
 	<title>프로알바 로그인</title>
+	<%@ include file = "../include/header.jsp" %>
 	<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
     <script>
     	function init(){
@@ -48,8 +47,6 @@
 	</script>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
-
 
 <!-- Form-->
 <div class="form">
