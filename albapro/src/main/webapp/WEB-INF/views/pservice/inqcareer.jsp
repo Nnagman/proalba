@@ -11,20 +11,11 @@
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
-
-<<<<<<< HEAD
 <div class="contents">
 <div class="listForm" align="center">
 	<p class="count">나의 경력: <span>총 <strong>0</strong>건</span></p>
-=======
-<<<<<<< HEAD
 
-
-<h2> ${message }</h2>
-=======
 <div class="listForm">
-	<p class="count">나의 온라인 지원 현황 : <span>총 <strong>0</strong>건</span></p>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 	<!-- //탭메뉴 -->
 	<form id="frmList" name="frmList" method="post">
 		<table cellspacing="0" summary="경력 상세 목록" >
@@ -51,10 +42,5 @@
 		</table>
 	</form>
 </div>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </body>
 </html>
