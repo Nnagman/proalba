@@ -8,7 +8,7 @@
   integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
   crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=2">
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
 <script type="text/javascript" src="resources/js/contract.js"></script>
 <title>Insert title here</title>
 </head>
@@ -131,9 +131,10 @@
         <input class="tex10" type="text" /><br><br><br><br>
         <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="300" height="150">
         </canvas>
-        <button class="bt1" onclick="toDataURL();">서명 저장</button><br><br><br><br><br><br>
+        <button class="bt1" onclick="toDataURL();">서명 저장</button><br><br>
         <button class="bt2" onclick="toDataURL();">근로계약서 보내기</button>
         </div>
+        
       </div>
 </body>
 </html>
