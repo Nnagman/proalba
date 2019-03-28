@@ -77,19 +77,11 @@
         <span class="t1">ㅡ  월(일, 시간)급 : </span>
         <input class="tex6" type="text" />
         <span>원</span><br><br>
-        <span class="t1">ㅡ  상여금 : </span>
-        <input class="ra" id="y" name="gg" type="radio" /><span>있음 </span>
-        <input class="tex6" type="text" /><span>원 </span>
-        <input class="ra" id="n" name="gg" type="radio" /><span>없음 </span><br><br>
         <span class="t1">ㅡ  기타 급여(재수당 등) </span>
         <input class="ra" id="y" name="hh" type="radio" /><span>있음 </span>
         <input class="ra" id="n" name="hh" type="radio" /><span>없음 </span><br><br>
         <span class="t1">ㅡ  임금지급일 : 매월(매주 또는 매일) </span>
-        <input class="tex2" type="text" maxlength="2" /><span>일(휴일의 경우는 전일 지급)</span><br><br>
-        <span class="t1">ㅡ  지급방법 : </span>
-        <input class="ra" id="y" name="jj" type="radio" /><span>근로자에게 직접지급 </span>
-        <input class="ra" id="y" name="jj" type="radio" /><span>근로자 명의 예금 통장에 입금 </span>
-        <br><br><br>
+        <input class="tex2" type="text" maxlength="2" /><span>일(휴일의 경우는 전일 지급)</span><br><br><br>
 
         <h2 class="gg">7. 연차유급휴가</h2><br>
         <span class="t1">ㅡ  연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
