@@ -21,7 +21,6 @@
 		<table cellspacing="0" summary="경력 상세 목록" >
 		<thead>
 			<tr>
-				<th class="select" scope="col"><input type="checkbox" id="AllCheck"></th>
 				<th class="appDate" scope="col">입사일</th>
 				<th class="company" scope="col">회사명</th>
 				<th class="endDate" scope="col">퇴사일</th>
@@ -31,7 +30,6 @@
 		<tbody>
 			
 			<tr>
-				<td><input type="checkbox" id="AllCheck"></td>
 				<td>2018-12-28</td>
 				<td>본관300</td>
 				<td>~</td>
