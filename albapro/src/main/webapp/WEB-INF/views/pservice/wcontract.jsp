@@ -8,7 +8,7 @@
   integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
   crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=2">
 <script type="text/javascript" src="resources/js/contract.js"></script>
 <title>Insert title here</title>
 </head>
@@ -69,7 +69,7 @@
         <input class="tex2" type="text" maxlength="2" />
         <span>일(또는 매일단위) 근무, </span>
         <span class="t2">주휴일 매주 </span>
-        <input class="tex5" type="text" maxlength="2" />
+        <input class="tex5" type="text" maxlength="1" />
         <span class="t2">요일</span>
         <br><br><br>
 
