@@ -66,4 +66,10 @@ public class PserviceController {
 		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/inqcareer";
 	}
+	
+	@RequestMapping(value = "/contract", method = RequestMethod.GET)
+	public String cservice(Model model) {
+		logger.info("Welcome Contract");
+		return "pservice/contract";
+	}
 }
