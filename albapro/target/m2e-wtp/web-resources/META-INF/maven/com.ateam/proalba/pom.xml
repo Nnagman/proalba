@@ -208,7 +208,7 @@
                         <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
                     </additionalBuildcommands>
                     <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
+                    <downloadJavadocs>false</downloadJavadocs>
                 </configuration>
             </plugin>
             <plugin>
