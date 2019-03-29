@@ -2,10 +2,11 @@
 	display: inline-block;
     position: relative;
     vertical-align: middle;
+    
 	
 }
 
-table.workmanage_emp_table, .div_workmanage_table {
+table.workmanage_emp_table, table.workmanage_table {
 	border-collapse: collapse;
     text-align: center;
     line-height: 1.5;
@@ -14,43 +15,49 @@ table.workmanage_emp_table, .div_workmanage_table {
     
 	}
 	
+
 table.workmanage_emp_table td   {
 	width: 80px;
 	height: 50px;
     padding: 10px;
     font-weight: bold;
     font-size:12px;
+
    
     
 	}
 	
 table.workmanage_table td{
-	width: 80px;
-	height: 20px;
+	width: 60px;
+	height: 30px;
     padding: 10px;
     font-weight: bold;
     font-size:12px;
+    
 }
 
 	
-
+.div_workmanage_emp_table{
+	margin-left:250px;
+}
 .div_workmanage_table{
 	margin-left:100px;
 }
 
 .contents{
 	text-align:center;
+	width:1240px;
 }
 
  .searchbox{
-	margin-right:700px;
+	margin-right:550px;
 } 
 
 .title{
-	margin-right:920px;
+	margin-right:800px;
 }
 
 .table_title{
-	margin-right:500px;
+	margin-right:650px;
 	
 }
