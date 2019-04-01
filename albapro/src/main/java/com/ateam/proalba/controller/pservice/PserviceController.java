@@ -1,15 +1,28 @@
 package com.ateam.proalba.controller.pservice;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.service.CareerService;
 
 @Controller
 public class PserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(PserviceController.class);
+	private final CareerService careerService;
+	
+	@Inject
+	public PserviceController(CareerService careerService) {
+		this.careerService = careerService;
+	}
 
 	@RequestMapping("/pservice")
 	public String pservice(Model model) {
@@ -61,9 +74,18 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
-	public String inqcareerGET(Model model) throws Exception {
+	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
 		logger.info("Welcome inqcareerPage");
+		
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    
 		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
+		model.addAttribute("careers", careerService.listCriteria(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+//		logger.info(Integer.toString(criteria.getPageStart()));
+//		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "pservice/inqcareer";
 	}
 	
