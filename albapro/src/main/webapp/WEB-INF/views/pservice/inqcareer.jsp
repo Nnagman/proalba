@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,6 @@
 		<table cellspacing="0" summary="경력 상세 목록" >
 		<thead>
 			<tr>
-				<th class="select" scope="col"><input type="checkbox" id="AllCheck"></th>
 				<th class="appDate" scope="col">입사일</th>
 				<th class="company" scope="col">회사명</th>
 				<th class="endDate" scope="col">퇴사일</th>
@@ -29,17 +29,33 @@
 			</tr>
 		</thead>
 		<tbody>
-			
-			<tr>
-				<td><input type="checkbox" id="AllCheck"></td>
-				<td>2018-12-28</td>
-				<td>본관300</td>
-				<td>~</td>
-				<td>학생</td>
-			</tr>
-			
+			<c:forEach var="career" varStatus="i" items="${careers}">
+				<tr>
+					<td>${career.appDate}</td>
+					<td>${career.company}</td>
+					<td>${career.endDate}</td>
+					<td>${career.occupation}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 		</table>
+		<div class="box-footer">
+			<div class="text-center">
+        		<ul class="pagination">
+            		<c:if test="${pageMaker.prev}">
+                		<li><a href="inqcareer?page=${pageMaker.startPage - 1}">이전</a></li>
+            		</c:if>
+            		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                		<li <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
+                    		<a href="inqcareer?page=${idx}">${idx}</a>
+                		</li>
+            		</c:forEach>
+            		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                		<li><a href="inqcareer?page=${pageMaker.endPage + 1}">다음</a></li>
+            		</c:if>
+        		</ul>
+    		</div>
+		</div>
 	</form>
 </div>
 </body>
