@@ -8,11 +8,12 @@ public class MemberVO {
 	private String password;
 	private String name;
 	private String address;
-	private int p_Number;
+	private int phone;
 	private String email;
-	private String education;
+	private String birthday;
+	private boolean sex;
+	private String b_Number;
 	private String bank_Name;
 	private String bank_Num;
 	private String depositor;
-	private boolean military;
 }

@@ -20,17 +20,27 @@ public class MemberDAOImplement implements MemberDAO {
 		this.sqlSession = sqlSession;
 	}
 	
-	//È¸¿ø°¡ÀÔÃ³¸®
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@Override
 	public void register(MemberVO memberVO) throws Exception {
 		sqlSession.insert(NAMESPACE + ".register", memberVO);	
 		
 	}
 
-	//·Î±×ÀÎÃ³¸®
+	//ï¿½Î±ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@Override
 	public MemberVO login(LoginDTO loginDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".login", loginDTO);
+	}
+
+	@Override
+	public void pregister(MemberVO memberVO) throws Exception {
+		sqlSession.insert(NAMESPACE + ".pregister", memberVO);
+	}
+
+	@Override
+	public int idcheck(String id) throws Exception {
+		return sqlSession.insert(NAMESPACE + ".idcheck", id);
 	}
 
 }
