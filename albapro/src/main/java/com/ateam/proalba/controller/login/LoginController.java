@@ -35,7 +35,7 @@ private final MemberService memberService;
 
         MemberVO memberVO = memberService.login(loginDTO);
 
-        if (memberVO == null || !BCrypt.checkpw(loginDTO.getId(), memberVO.getPassword())) {
+        if (memberVO == null) {
             return;
         }
 
