@@ -18,17 +18,17 @@
     </resultMap>
 
 	<select id="getList" resultType="com.ateam.proalba.domain.MemberVO">
-		select * from imember
+		select * from member
 	</select>
 
 	<insert id="register" >
-		insert into imember( i_Id, i_Pw, name, p_Number, email, address )
+		insert into member( i_Id, i_Pw, name, p_Number, email, address )
 		values ( #{i_Id}, #{i_Pw}, #{name}, #{p_Number}, #{email}, #{address} )
 	</insert>
 
 	<select id="login" resultMap="memberVOResultMap">
-  	  SELECT * FROM imember
-  	  WHERE i_Id = #{i_Id}
+  	  SELECT * FROM member
+  	  WHERE id= #{id}
 	</select>
 
 </mapper>

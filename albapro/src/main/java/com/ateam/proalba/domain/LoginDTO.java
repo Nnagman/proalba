@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class LoginDTO {
 	
-	private String i_Id;
-	private String i_Pw;
+	private String id;
+	private String password;
 	private boolean userCookie;
 	
 }

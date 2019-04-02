@@ -40,8 +40,8 @@ public class SignUpController {
     	
     	
     	logger.info(Integer.toString(memberVO.getP_Number()));
-        String hashedPw = BCrypt.hashpw(memberVO.getI_Pw(), BCrypt.gensalt());
-        memberVO.setI_Pw(hashedPw);
+        String hashedPw = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
+        memberVO.setPassword(hashedPw);
         logger.info(hashedPw);
         memberService.register(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REGISTERED");
