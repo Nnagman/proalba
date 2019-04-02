@@ -1,12 +1,12 @@
 body{
-    font-family:'³ª´®¶ó¿îµå½ºÄù¾î';
+    font-family:'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å½ºï¿½ï¿½ï¿½ï¿½';
     color: black;
     posiion: relative;
     padding:0;
     margin: 0;
 }
 
-.contents{
+.menucontents{
 	padding-left:200px;
 	padding-right:200px;
 }
@@ -19,7 +19,7 @@ body{
 }
 
 .nav{
-    font-family: '³ª´®¶ó¿îµå½ºÄù¾î';
+    font-family: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å½ºï¿½ï¿½ï¿½ï¿½';
     font-weight:400;
     font-size: 13px;
     line-height:20px;

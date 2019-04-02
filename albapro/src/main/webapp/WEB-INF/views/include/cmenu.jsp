@@ -10,14 +10,14 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">개인서비스</a>
+			<a class="menuLink" href="#">기업서비스</a>
 <!-- 			Full Down Menu -->
 			<div class="fulldrop">
 				<div class="column">
 					<h3>이력서 등록 관리</h3>
 					<ul>
-						<li><a href="${path}/wresume">새 이력서 작성</a>
-						<li><a href="${path}/maresume">이력서 관리</a>
+						<li><a href="${path}/wresume">새 공고글 작성</a>
+						<li><a href="${path}/maresume">공고글 관리</a>
 					</ul>
 				</div>
 
@@ -40,8 +40,9 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary/">급여 조회</a>
-            <li>
+						<li><a href="${path}/inqsalary/">급여 조회</a><li>
+						<li><a href="${path}/detailssalary/">급여 상세</a><li>
+						
 					</ul>
 				</div>
 

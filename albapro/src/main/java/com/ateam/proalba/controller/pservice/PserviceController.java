@@ -66,4 +66,11 @@ public class PserviceController {
 		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		return "pservice/inqcareer";
 	}
+	
+	@RequestMapping(value = "/employmentinfo", method = RequestMethod.GET)
+	public String employmentinfoGET(Model model) throws Exception {
+		logger.info("Welcome inqcareerPage");
+		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
+		return "pservice/employmentinfo";
+	}
 }
