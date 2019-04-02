@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
 <script type="text/javascript" src="resources/js/contract.js"></script>
-<title>Insert title here</title>
+<title>전자 근로계약서-프로알바</title>
 </head>
 <body>
 <%@ include file = "../include/header.jsp" %>
