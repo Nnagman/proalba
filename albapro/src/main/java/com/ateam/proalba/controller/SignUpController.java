@@ -28,14 +28,39 @@ public class SignUpController {
 		this.memberService = memberService;
 	}
 	
-	@RequestMapping(value = "/login/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGET() {
+		return "login/sel_register";
+	}
+	
+	@RequestMapping(value = "/pregister", method = RequestMethod.GET)
+	public String pregisterGET() {
 		return "login/register";
 	}
 	
-    // È¸¿ø°¡ÀÔ Ã³¸®
-    @RequestMapping(value = "/login/register", method = RequestMethod.POST)
-    public String registerPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+	@RequestMapping(value = "/cregister", method = RequestMethod.GET)
+	public String cregisterGET() {
+		return "login/com_register";
+	}
+	
+    // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String pregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+    	
+    	
+    	
+    	logger.info(Integer.toString(memberVO.getP_Number()));
+        String hashedPw = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
+        memberVO.setPassword(hashedPw);
+        logger.info(hashedPw);
+        memberService.register(memberVO);
+        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
+
+        return "redirect:/";
+    }
+    
+    @RequestMapping(value = "/cregister", method = RequestMethod.POST)
+    public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
     	
     	
     	
