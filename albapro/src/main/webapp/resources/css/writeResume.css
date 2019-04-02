@@ -1,0 +1,191 @@
+/* 간편이력서 작성/수정----------------------------------------------- */
+/* 공통부문 */
+.memResSimple .mTitle{
+  padding:0 0 15px 0;
+  border-bottom: 2px solid #9c8d98;
+  font: bold 20px;
+  color: #222;
+  letter-spacing: -1px;
+}
+.memResSimple .rsSec{border-top: 1px solid #ecedef;}
+.memResSimple .rsSec input[type="text"]{
+  height: 20px;
+  padding: 4px 10px 6px 10px;
+  border-top: 1px solid #bbbdc0;
+  border-left: 1px solid #bbbdc0;
+  border-bottom: 1px solid #dbdee1;
+  border-right: 1px solid #dbdee1;
+  background: #fdfdfd;
+  color: #494949;
+}
+.memResSimple .rsSec input[type="checkbox"], .memResSimple .rsSec input[type="radio"] {
+  width: 13px;
+  height: 13px;
+  margin: -3px 4px 0 0;
+  vertical-align: middle;
+}
+.memResSimple .rsSec select{
+  width: 50px;
+  height: 32px;
+  padding: 0 0 0 10px;
+  border: 1px solid #dbdee1;
+  color: #494949
+}
+.memResSimple .rsSec select[disabled="disabled"]{
+  background: #e9eaeb;
+  color: #8a8b8d;
+}
+
+/* 공통테이블 */
+.memResSimple .rsTbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.memResSimple .rsTbl th{
+  padding: 5px 10px 10px 0;
+  font: bold 16px;
+  text-align: left;
+  letter-spacing: -1px;
+}
+
+.rsSecTitle .mTit{
+  vertical-align: top;
+}
+
+.memResSimple .rsTbl td{
+  padding: 15px 10px 15px 0;
+}
+
+/* 이력서 제목 */
+.memResSimple .rsSecTitle{border-top: none;}
+.memResSimple .rsSecTitle .rsTb1 tr td{ position: relative; padding: 15px 10px 8px 0;}
+.memResSimple .rsSecTitle .cont{padding: 6px 10px 0 0; text-align: right; color: #888; font-size: 11px;}
+.memResSimple .rsSecTitle .cont em{color: #ff6600;}
+
+/* 개인기본이력서 */
+.memResSimple .rsSecPersonal {padding:0 0 15px 0;}
+.memResSimple .rsSecPersonal .rsTbl tr th {padding:0 10px 0 0; }
+.memResSimple .rsSecPersonal .rsTbl tr th.sTit {font-size:14px;}
+.memResSimple .rsSecPersonal .rsTbl tr td {padding:5px 10px 5px 0;}
+.memResSimple .rsSecPersonal .rsTbl tr td .telWp {position:relative;}
+.memResSimple .rsSecPersonal .rsTbl .addrTr .sTit {position:relative;}
+.memResSimple .rsSecPersonal .rsTbl .addrTr .sTit .sq {position:absolute; left:-15px; top:18px;}
+
+
+/* 희망 근무지 */
+.memResSimple .rsSecArea select {margin-right:7px;}
+.memResSimple .rsSecArea .rsTbl tr td p {padding:0 0 10px 0;}
+.memResSimple .rsSecArea .rsTbl tr td p.aTit {padding:5px 0 13px 0; color:#888;}
+.memResSimple .rsSecArea .rsTbl tr td p.aTit .cont_1 {padding:0 0 0 3px;  font:12px dotum, "돋움", gulim, "굴림", sans-serif; }
+.memResSimple .rsSecArea .rsTbl tr td p.aTit .cont_1 em {color:#ff6600;}
+.memResSimple .rsSecArea .rsTbl tr td .home {padding:8px 0 0 0;}
+
+#content{
+  float: left;
+  padding: 17px 20px 20px 20px;
+  border-right: 1px solid #ddd;
+  background: #fff;
+}
+
+.memResWp #content{
+  width: 756px !important;
+  padding: 17px 20px 20px 20px;
+  border-right: 1px solid #ddd;
+  background: #ff
+}
+
+body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, input, textarea, p, th, td{
+  padding: 0;
+  margin: 0;
+}
+
+td, th{
+  display: table-cell;
+  color: #494949;
+}
+
+div{
+  display: block;
+}
+
+
+
+.psBasicInfo{
+  border-top: 2px solid black;
+}
+
+#dev_personal_info{
+  text-align: center;
+}
+
+#dev_personal_info td:first-child{
+  height: 200px;
+}
+
+#dev_personal_info #ps_photo{
+  width: 112px;
+  height: 148px;
+  margin-bottom: 8px;
+}
+
+/* table{
+  margin: 0px auto;
+  border-bottom: 1px solid lightgray;
+} */
+
+#dev_personal_info label{
+  padding: .5em .75em;
+  color: #fff;
+  font-size: 12px;
+  line-height: normal;
+  background-color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius:.25em;
+  vertical-align: middle;
+}
+
+input[type="file"]{
+  width: 0px;
+  height: 0px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+
+form, fieldset{
+  border: 0;
+}
+
+fieldset{
+  display: block
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+}
+
+input{
+  vertical-align: middle;
+  cursor: text;
+}
+
+
+
+#dev_sr_title{
+  width:555px;
+  height:15px;
+}
+
+#dev_duty_code_0 select{
+  display:inline;
+}
+
+.rsSecArea select{
+  margin-right: 7px;
+}

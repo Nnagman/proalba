@@ -31,11 +31,11 @@ public class PserviceController {
 		return "pservice/pservice";
 	}
 	
-	@RequestMapping(value = "/wresume", method = RequestMethod.GET)
+	@RequestMapping(value = "/writeResume", method = RequestMethod.GET)
 	public String wresumeGET(Model model) throws Exception {
 		logger.info("Welcome wresumePage");
 		model.addAttribute("message", "wresumePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
-		return "pservice/wresume";
+		return "pservice/writeResume";
 	}
 	
 	@RequestMapping(value = "/maresume", method = RequestMethod.GET)
