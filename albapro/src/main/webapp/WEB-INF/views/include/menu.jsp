@@ -63,7 +63,7 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">고객센터</a>
+			<a class="menuLink" href="${path}/qna">고객센터</a>
 			<ul class="subMenu">
 
 			</ul>

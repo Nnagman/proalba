@@ -117,4 +117,31 @@ $(document).ready(function(){
 			console.log(address4);
 			
 		});
+		
+		$("#double_check").click(function(){
+			var id = $("#dev_idchk").val();
+			
+			$.ajax({
+				async: true,
+				type: 'POST',
+				data: id,
+				url: 'idcheck',
+				dataType: 'json',
+				contentType: 'application/json; charset=UTF-8',
+				success: function(data){
+	                if (data.cnt > 0) {
+	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+	                    $("#dev_idchk").focus();
+	                } else {
+	                    alert("사용가능한 아이디입니다.");
+	                    $("#dev_pwd1").focus();
+	                    $("#btn_signup").removeAttr("disabled");
+	                    $("#dev_idchk").attr("disabled");
+	                }
+	            },
+	            error : function(error) {
+	                alert("error : " + error);
+	            }
+			});
+		});
 });

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -15,8 +15,6 @@
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="../resources/images/프로알바ver3.png" alt="logo" width="200px"
-				height="150px" />
 			<h1>회원가입</h1>
 		</div>
 		<div id="container">
@@ -53,7 +51,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" method="post" action="${path}/login/register">
+				<form name="signUpForm" method="post" action="pregister">
 					<table>
 						<tbody>
 
@@ -61,7 +59,7 @@
 							<tr>
 								<th>아이디</th>
 								<td>
-									<input type="text" name="i_Id" id="dev_idchk" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
+									<input type="text" name="id" id="dev_idchk" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
 									<input type="button" id="double_check" value="중복확인" />
 								</td>
 							</tr>
@@ -71,7 +69,7 @@
 							<tr>
 								<th>비밀번호</th>
 								<td>
-									<input type="password" name="userpPwd" class="tBox tPwd" id="dev_pwd1" maxlength="16" placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호" autocomplete="off">
+									<input type="password" name="password" class="tBox tPwd" id="dev_pwd1" maxlength="16" placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호" autocomplete="off">
 								</td>
 							</tr>
 
@@ -103,7 +101,7 @@
 							<tr>
 								<th>생년월일</th>
 								<td>
-									<input type="text" class="tBox joinBx tBirth" id="dev_born" name="birth" maxlength="8" title="생년월일"
+									<input type="text" class="tBox joinBx tBirth" id="dev_born" name="birthday" maxlength="8" title="생년월일"
 									placeholder="ex) 19900101">
 								</td>
 							</tr>
@@ -112,9 +110,9 @@
 							<tr>
 								<th>성별</th>
 								<td>
-									<input type="radio" class="sex" title="남자" id="sex_male" value="0"> 
+									<input type="radio" class="sex" title="남자" name="sex" id="sex1" value="0"> 
 										<label for="sex_male">남자</label>
-									<input type="radio" class="sex" title="여자" id="sex_female" value="1"> 
+									<input type="radio" class="sex" title="여자" name="sex" id="sex2" value="1"> 
 										<label for="sex_female">여자</label>
 									<p class="compul" id="txtGender"></p>
 								</td>
@@ -123,7 +121,7 @@
 							<tr>
 								<th>이메일</th>
 								<td>
-									<input type="text" name="emailId" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+									<input type="text" name="email" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
 									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
 								</td>
@@ -153,7 +151,7 @@
 								</td>
 							</tr>
 
-							<tr>
+							<!--<tr>
 								<th>주소</th>
 								<td>
 									<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호"> 
@@ -162,17 +160,17 @@
 									<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소">
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
 								</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()">
+						<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()" disabled>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
-<script src="../resources/js/signUp_agree.js?ver=2"></script>
-<script src="../resources/js/signUp.js?ver=2"></script>	
+<script src="resources/js/signUp_agree.js?ver=1"></script>
+<script src="resources/js/signUp.js?ver=1"></script>	
 </html>

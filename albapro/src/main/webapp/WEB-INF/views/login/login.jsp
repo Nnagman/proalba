@@ -41,7 +41,7 @@
 	<script>
   	$(document).ready(function(){
     	$(".btn-regist").on("click", function(){
-    		self.location = "${path }/login/register";
+    		self.location = "${path }/register";
     	});
   	});
 	</script>
@@ -68,11 +68,11 @@
         </div>
         <div class="form-group">
           <label for="username">UserID</label>
-          <input type="text" id="username" name="i_Id" required="required"/>
+          <input type="text" id="username" name="id" required="required"/>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="i_Pw" required="required"/>
+          <input type="password" id="password" name="password" required="required"/>
         </div>
         <div class="form-group">
           <button type="submit">로그인</button>

@@ -4,15 +4,13 @@ import lombok.Data;
 
 @Data
 public class MemberVO {
-	private String i_Id;
-	private String i_Pw;
+	private String m_code;
+	private String id;
+	private String password;
+	private int phone;
 	private String name;
-	private String address;
-	private int p_Number;
 	private String email;
-	private String education;
-	private String bank_Name;
-	private String bank_Num;
-	private String depositor;
-	private boolean military;
+	private String birthday;
+	private boolean sex;
+	private String b_Number;
 }
