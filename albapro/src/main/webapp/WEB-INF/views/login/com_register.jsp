@@ -7,14 +7,14 @@
 <title>기업회원 가입</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="signUp.js"></script>
-<link rel="stylesheet" href="signUp.css">
+<script src="resources/js/signUp.js"></script>
+<link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 <body>
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="프로알바ver3.png" alt="logo" width="200px"
+			<img src="resources/images/프로알바ver3.png" alt="logo" width="200px"
 				height="150px" />
 			<h1>회원가입</h1>
 		</div>
@@ -25,7 +25,7 @@
 				</div>
 
 				<!--개인 정보 동의 -->
-				<form id="agree_form">
+				<form id="agree_form" method="post" action="cregister">
 					<div class="all_agree">
 						<p>
 							<label></label> <input type="checkbox" id="all" name="all" />
@@ -102,16 +102,6 @@
 									value="" size="4" maxlength="4" autocomplete="off"></td>
 							</tr>
 
-              <tr>
-								<th>이메일</th>
-								<td><input type="text" id="emailId" class="tBox tEmail"
-									id="dev_M_Email" maxlength="25" title="이메일계정"
-									autocomplete="off"> <span> @</span>
-									<input type="text"
-									name="EmailDomain" class="tBox tEmail" id="dev_mail_etc"
-									maxlength="25" title="이메일계정"></td>
-							</tr>
-
 
 							<tr>
 								<td colspan="2" class="tLine">
@@ -123,39 +113,19 @@
               <tr>
                 <th>사업자등록번호</th>
                 <td>
-                  <input type="text" class="tBox comName" name="companyName" id="comName1" size="3" maxlength="3">
-                   - <input type="text" class="tBox comName" name="companyName" id="comName2" size="2" maxlength="2">
-                    -   <input type="text" class="tBox comName" name="companyName" id="comName3" size="5" maxlength="5">
+                  <input type="text" class="tBox comName" name="companyName" id="comName" size="10" maxlength="10">
                     <input type="button" name="comName_check" id="comName_check" value="확인">
                 </td>
               </tr>
-
-
-            	<tr>
-              	<th>회사/점표명</th>
-              	<td>
-                  <input type="text" name="Name" class="tBox" title="이름"id="dev_u_Name" maxlength="12">
-               </td>
-          	</tr>
-
-							<tr>
-								<th>회사/점포주소</th>
-								<td>
-									<input type="text" class="tBox tAddr" id="sample6_postcode" placeholder="우편번호">
-									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-									<input type="text" class="tBox tAddr" id="sample6_address" placeholder="주소"><br>
-									<input type="text" class="tBox tAddr" id="sample6_detailAddress" placeholder="상세주소">
-									<input type="text" class="tBox tAddr" id="sample6_extraAddress" placeholder="참고항목"></td>
-							</tr>
 						</tbody>
 					</table>
+					<div class="btnfield">
+						<input type="submit" id="btn_signup" value="가입하기">
+					</div>
 				</form>
-				<div class="btnfield">
-					<input type="submit" id="btn_signup" value="가입하기">
-				</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script src="signUp_agree.js"></script>
+<script src="resources/js/signUp_agree.js"></script>
 </html>

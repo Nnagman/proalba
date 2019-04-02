@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -16,8 +16,6 @@
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="../resources/images/프로알바ver3.png" alt="logo" width="200px"
-				height="150px" />
 			<h1>회원가입</h1>
 		</div>
 		<div id="container">
@@ -54,7 +52,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" method="post" action="${path}/login/register">
+				<form name="signUpForm" method="post" action="pregister">
 					<table>
 						<tbody>
 
@@ -113,9 +111,9 @@
 							<tr>
 								<th>성별</th>
 								<td>
-									<input type="radio" class="sex" title="남자" id="sex_male" value="0"> 
+									<input type="radio" class="sex" title="남자" name="gender" id="sex" value="0"> 
 										<label for="sex_male">남자</label>
-									<input type="radio" class="sex" title="여자" id="sex_female" value="1"> 
+									<input type="radio" class="sex" title="여자" name="gender" id="sex" value="1"> 
 										<label for="sex_female">여자</label>
 									<p class="compul" id="txtGender"></p>
 								</td>
@@ -154,7 +152,7 @@
 								</td>
 							</tr>
 
-							<tr>
+							<!--<tr>
 								<th>주소</th>
 								<td>
 									<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호"> 
@@ -163,7 +161,7 @@
 									<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소">
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
 								</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 					<div class="btnfield">
@@ -174,6 +172,6 @@
 		</div>
 	</div>
 </body>
-<script src="../resources/js/signUp_agree.js?ver=2"></script>
-<script src="../resources/js/signUp.js?ver=2"></script>	
+<script src="resources/js/signUp_agree.js?ver=2"></script>
+<script src="resources/js/signUp.js?ver=2"></script>	
 </html>
