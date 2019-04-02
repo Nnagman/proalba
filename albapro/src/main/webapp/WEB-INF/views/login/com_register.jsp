@@ -7,7 +7,7 @@
 <title>기업회원 가입</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="resources/js/signUp.js"></script>
+<script src="resources/js/signUp.js?ver=1"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
 					<div class="all_agree">
 						<p>
 							<label></label> <input type="checkbox" id="all" name="all" />
-							전체약관동의<br /> </label>
+							전체약관동의<br />
 						</p>
 
 						<p>
@@ -120,12 +120,12 @@
 						</tbody>
 					</table>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="가입하기">
+						<input type="submit" id="btn_signup" value="가입하기" disabled>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
-<script src="resources/js/signUp_agree.js"></script>
+<script src="resources/js/signUp_agree.js?ver=1"></script>
 </html>

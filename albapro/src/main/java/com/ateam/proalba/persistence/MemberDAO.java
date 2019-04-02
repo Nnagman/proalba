@@ -5,9 +5,13 @@ import com.ateam.proalba.domain.MemberVO;
 
 public interface MemberDAO {
 
-	//È¸¿ø°¡ÀÔ Ã³¸®
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	public void register(MemberVO memberVO) throws Exception;
 	
-	//·Î±×ÀÎ Ã³¸®
+	public void pregister(MemberVO memberVO) throws Exception;
+	
+	public int idcheck(String id) throws Exception;
+	
+	//ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	public MemberVO login(LoginDTO loginDTO) throws Exception;
 }
