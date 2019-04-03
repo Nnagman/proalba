@@ -33,7 +33,7 @@
 
 	<select id="login" resultMap="memberVOResultMap">
   	  SELECT * FROM member
-  	  WHERE  id = #{id} and password= #{password}
+  	  WHERE  id = #{id}
 	</select>
 	
 	<select id="idcheck" parameterType="String" resultType="Integer">
