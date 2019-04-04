@@ -1,13 +1,18 @@
 package com.ateam.proalba.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ateam.proalba.domain.MemberVO;
@@ -28,25 +33,63 @@ public class SignUpController {
 		this.memberService = memberService;
 	}
 	
-	@RequestMapping(value = "/login/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGET() {
+		return "login/sel_register";
+	}
+	
+	@RequestMapping(value = "/pregister", method = RequestMethod.GET)
+	public String pregisterGET() {
 		return "login/register";
 	}
 	
-    // È¸¿ø°¡ÀÔ Ã³¸®
-    @RequestMapping(value = "/login/register", method = RequestMethod.POST)
-    public String registerPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+	@RequestMapping(value = "/cregister", method = RequestMethod.GET)
+	public String cregisterGET() {
+		return "login/com_register";
+	}
+	
+    // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+    @RequestMapping(value = "/pregister", method = RequestMethod.POST)
+    public String pregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
     	
     	
     	
-    	logger.info(Integer.toString(memberVO.getP_Number()));
-        String hashedPw = BCrypt.hashpw(memberVO.getI_Pw(), BCrypt.gensalt());
-        memberVO.setI_Pw(hashedPw);
-        logger.info(hashedPw);
+    	logger.info(Integer.toString(memberVO.getPhone()));
+        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
+        memberVO.setPassword(hashedPassword);
+        logger.info(hashedPassword);
+        memberService.pregister(memberVO);
+        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
+
+        return "redirect:/";
+    }
+    
+    @RequestMapping(value = "/cregister", method = RequestMethod.POST)
+    public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+    	
+    	
+    	
+    	logger.info(Integer.toString(memberVO.getPhone()));
+        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
+        memberVO.setPassword(hashedPassword);
+        logger.info(hashedPassword);
         memberService.register(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
         return "redirect:/";
     }
+    
+    @RequestMapping(value = "/idcheck", method = RequestMethod.GET)
+    @ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody String id) throws Exception {
+    	
+    	int count = 0;
+    	Map<Object, Object> map = new HashMap<Object, Object>();
+    	
+    	count = memberService.idcheck(id);
+    	map.put("cnt", count);
+    	
+		return map;
+	}
 	
 }

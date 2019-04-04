@@ -5,10 +5,13 @@ import com.ateam.proalba.domain.MemberVO;
 
 public interface MemberService {
 
-	//È¸¿ø°¡ÀÔÃ³¸®
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	public void register(MemberVO memberVO) throws Exception;
+	public void pregister(MemberVO memberVO) throws Exception;
 	
-	//·Î±×ÀÎÃ³¸®
+	//ï¿½Î±ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	public MemberVO login(LoginDTO loginDTO) throws Exception;
+	
+	public int idcheck(String id) throws Exception;
 	
 }

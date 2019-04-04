@@ -1,7 +1,4 @@
-body{
-  font-family: '나눔스퀘어라운드';
-}
-
+/* 전체 css */
 .contents{
   text-align: center;
 }
@@ -16,6 +13,23 @@ body{
   vertical-align: middle;
 }
 
+.title h2{
+margin: 0 auto;
+position: relative;
+top: 18px;
+}
+
+a:link{
+	color: black;
+	text-decoration:none;
+}
+
+a:visited{
+	color: black;
+	text-decoration:none;
+}
+
+/* 이 달의 알바 */
 .maintop1_con{
   float: left;
   padding: 0 40px;
@@ -30,20 +44,23 @@ body{
   margin-bottom: 30px;
 }
 
+
+/* 로그인 */
 .maintop2{
   margin-left: 80px;
 }
 
-.title h2{
-margin: 0 auto;
-position: relative;
-top: 13px;
+.maintop2 .title{
+  height: 60px;
+  margin-top: 0px;
+  background-color: #E6E0F8;
+  vertical-align: middle;
+  margin-bottom: 30px;	
 }
 
-.login{
+/* .login{
   position: relative;
-  top: 40px;
-}
+} */
 
 .i_text{
   margin: 15px;
@@ -61,8 +78,14 @@ top: 13px;
   border: 1px solid #A9BCF5;
   border-radius: 7px;
   background-color: #CEE3F6;
+  font-size: 15px;
 }
 
+.login_bot{
+	margin-top:20px;
+}
+
+/* 알바 커뮤니티 */
 .mainbot1_con{
   float: left;
   padding: 0 40px;
@@ -76,6 +99,8 @@ top: 13px;
   margin-bottom: 30px;
 }
 
+
+/* 최저시급 */
 .mainbot2{
   margin-left: 80px;
 }
@@ -85,17 +110,43 @@ top: 13px;
   margin-top: 0px;
   background-color: #F5ECCE;
   vertical-align: middle;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 }
 
-.mainbot2_con > span:first-child{
+.mainbot2_con #text1{
 font-size: 35px;
 font-weight: bold;
 }
 
-.mainbot2_con > span:last-child{
+.mainbot2_con #text2{
   font-size: 45px;
   color: #FE642E;
   font-weight: bold;
-
 }
+
+.mainbot2_con #text3{
+	text-align: right;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+
+.mainbot2_con table{
+	text-align: center;
+	margin-top: 10px;
+	width: 90%;
+	height: 100px;
+	position: relative;
+	left: 20px;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.mainbot2_con table th,.mainbot2_con table td{
+	border-right: 1px dashed black;
+}
+
+.mainbot2_con table th:last-child, .mainbot2_con table td:last-child{
+	border:none;
+}
+

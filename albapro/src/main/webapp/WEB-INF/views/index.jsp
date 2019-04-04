@@ -5,6 +5,8 @@
 <head>
 	<title>프로알바</title>
 <link rel="stylesheet" href="resources/css/index.css" />
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script src="semantic/dist/semantic.min.js"></script>
 <%@ include file = "include/header.jsp" %>	
 </head>
 <body>
@@ -15,7 +17,9 @@
         <h2>이 달의 알바</h2>
       </div>
       <div class="maintop1_con">
-        <li><a href="#">맥도날드 라이더 모집</a></li>
+<%--       <c:forEach var="post" items="${공고글리스트 }" --%>
+        <li><a href="#">맥도날드 라이더 모집 <%-- ${공고글.제목} --%></a></li>
+<%--       </c:forEach> --%>
       </div>
     </div>
     <div class="main maintop2">
@@ -37,17 +41,43 @@
     <div class="main mainbot1">
       <div class="title">
         <h2>알바 커뮤니티</h2>
+        <i class="plus square outline icon"></i>
       </div>
       <div class="mainbot1_con">
-        <li><a href="#">알바 꿀팁 드림</a> </li>
+<%--       <c:forEach var="post" items="${커뮤니티리스트 }"> --%>
+        <li><a href="#">알바 꿀팁 드림<%-- ${커뮤니티.제목} --%></a></li>
+<%--       </c:forEach> --%>
       </div>
     </div>
         <div class="main mainbot2">
       <div class="title">
-        <h2>최저시급</h2>
+        <h2>2019 최저임금</h2>
       </div>
       <div class="mainbot2_con">
-      	<span>시급</span><span>8,350원</span>	
+      	<span id="text1">시급</span>
+      	<span id="text2">8,350원</span>	
+      	<div id="text3">*주 5일 근무 기준</div>
+      	<table>
+      		<tbody>
+      			<tr>
+      				<th>일급</th>
+      				<td>8시간</td>
+      				<td>66,800원</td>
+      			</tr>
+      			
+      			<tr>
+      				<th>주급</th>
+      				<td>40시간</td>
+      				<td>334,000</td>
+      			</tr>
+      			
+      			<tr>
+      				<th>월급</th>
+      				<td>209시간</td>
+      				<td>1,745,150원</td>
+      			</tr>
+      		</tbody>
+      	</table>
       </div>
     </div>
   </div>
