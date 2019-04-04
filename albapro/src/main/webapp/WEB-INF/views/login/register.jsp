@@ -148,6 +148,8 @@
 									autocomplete="off"> - 
 									<input id="dev_hphone3" name="Phone3" class="tBox tPhone" type="text" title="휴대폰 번호"
 									value="" size="4" maxlength="4" autocomplete="off">
+									<input name="b_number" type="hidden">
+									<input id="m_code" name="m_code" type="hidden" value="p">
 								</td>
 							</tr>
 
@@ -161,6 +163,7 @@
 									<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
 								</td>
 							</tr> -->
+							
 						</tbody>
 					</table>
 					<div class="btnfield">

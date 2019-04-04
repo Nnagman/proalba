@@ -7,7 +7,7 @@
   <div class="container">
 	<ul class="nav">
 		<li class="menuLi">
-			<a class="menuLink" href="#">MAIN</a>
+			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
@@ -41,7 +41,7 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary/">급여 조회</a>
+						<li><a href="${path}/inqsalary">급여 조회</a>
             <li>
 					</ul>
 				</div>
