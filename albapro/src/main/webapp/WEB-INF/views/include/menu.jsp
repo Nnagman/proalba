@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css?ver=2">
-=======
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <div class="container">
 	<ul class="nav">
@@ -45,12 +42,7 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-<<<<<<< HEAD
 						<li><a href="${path}/inqsalary">급여 조회</a>
-            <li>
-=======
-						<li><a href="${path}/inqsalary/">급여 조회</a>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 					</ul>
 				</div>
 
