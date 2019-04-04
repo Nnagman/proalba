@@ -1,6 +1,10 @@
 
 body{
+<<<<<<< HEAD
+    font-family:'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å½ºï¿½ï¿½ï¿½ï¿½';
+=======
     font-family:'NanumSquareRound', sans-serif;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
     color: black;
     posiion: relative;
     padding:0;
@@ -20,7 +24,7 @@ body{
 }
 
 .nav{
-    font-family: '³ª´®¶ó¿îµå½ºÄù¾î';
+    font-family: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å½ºï¿½ï¿½ï¿½ï¿½';
     font-weight:400;
     font-size: 13px;
     line-height:20px;
