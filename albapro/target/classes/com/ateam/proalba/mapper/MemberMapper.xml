@@ -6,6 +6,9 @@
 
     <resultMap id="memberVOResultMap" type="com.ateam.proalba.domain.MemberVO">
         <id property="id" column="id"/>
+        
+        
+        
         <result property="password" column="password"/>
         <result property="name" column="name"/>
         <result property="phone" column="phone"/>
