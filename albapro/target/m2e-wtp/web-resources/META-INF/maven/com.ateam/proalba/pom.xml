@@ -199,6 +199,7 @@
 		
 
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -238,4 +239,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	
+    	<!-- For AWS -->
+
 </project>

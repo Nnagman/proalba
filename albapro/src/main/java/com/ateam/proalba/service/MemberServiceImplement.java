@@ -18,16 +18,26 @@ public class MemberServiceImplement implements MemberService {
 		this.memberDAO = memberDAO;
 	}
 
-	//È¸¿ø°¡ÀÔÃ³¸®
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@Override
 	public void register(MemberVO memberVO) throws Exception {
 		memberDAO.register(memberVO);
 	}
 
-	//·Î±×ÀÎÃ³¸®
+	//ï¿½Î±ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@Override
 	public MemberVO login(LoginDTO loginDTO) throws Exception {
 		return memberDAO.login(loginDTO);
+	}
+
+	@Override
+	public void pregister(MemberVO memberVO) throws Exception {
+		memberDAO.pregister(memberVO);
+	}
+
+	@Override
+	public int idcheck(String id) throws Exception {
+		return memberDAO.idcheck(id);
 	}
 
 }

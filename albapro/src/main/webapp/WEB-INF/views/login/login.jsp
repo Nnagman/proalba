@@ -8,11 +8,10 @@
 
 <!doctype html>
 <html lang="kr">
-	<head>
-	<%@ include file = "../include/header.jsp" %>
-	
+	<head>	
 	<meta charset="UTF-8">
 	<title>프로알바 로그인</title>
+	<%@ include file = "../include/header.jsp" %>
 	<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
     <script>
     	function init(){
@@ -42,14 +41,12 @@
 	<script>
   	$(document).ready(function(){
     	$(".btn-regist").on("click", function(){
-    		self.location = "${path }/login/register";
+    		self.location = "${path}/register";
     	});
   	});
 	</script>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
-
 
 <!-- Form-->
 <div class="form">
@@ -71,11 +68,11 @@
         </div>
         <div class="form-group">
           <label for="username">UserID</label>
-          <input type="text" id="username" name="i_Id" required="required"/>
+          <input type="text" id="username" name="id" required="required"/>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="i_Pw" required="required"/>
+          <input type="password" id="password" name="password" required="required"/>
         </div>
         <div class="form-group">
           <button type="submit">로그인</button>

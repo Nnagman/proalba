@@ -8,4 +8,6 @@ public interface MemberMapper {
 
 	public ArrayList<MemberVO> getList();
 	public void register(MemberVO memberVO) throws Exception;
+	public void pregister(MemberVO memberVO) throws Exception;
+	public void idcheck(MemberVO memberVO) throws Exception;
 }

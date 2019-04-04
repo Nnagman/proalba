@@ -41,23 +41,25 @@ table.workmanage_table td{
 	margin-left:250px;
 }
 .div_workmanage_table{
-	margin-left:100px;
+	margin-left:1px;
 }
 
 .contents{
 	text-align:center;
-	width:1240px;
+	width:100%;
+	display: inline-block;
+    position: relative;
 }
 
  .searchbox{
-	margin-right:550px;
+	margin-right:150px;
 } 
 
 .title{
-	margin-right:800px;
+	margin-right:250px;
 }
 
 .table_title{
-	margin-right:650px;
+	margin-right:220px;
 	
 }

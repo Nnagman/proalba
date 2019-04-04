@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.CareerMapper">
+
+    <select id="listAll" resultType="com.ateam.proalba.domain.CareerVO">
+        <![CDATA[
+        SELECT
+            appdate,
+            company,
+            enddate,
+            occupation
+        FROM career
+        ]]>
+    </select>
+    
+    <select id="listPaging" resultMap="CareerVOResultMap">
+    	<![CDATA[
+    	SELECT
+    		appdate,
+            company,
+            enddate,
+            occupation
+    	FROM career
+    	WHERE appdate != null
+    	ORDER BY appdate DESC
+    	LIMIT #{page}, 10
+    	]]>
+	</select>
+	
+	<select id="listCriteria" resultMap="CareerVOResultMap">
+	    <![CDATA[
+	    SELECT
+        	appdate,
+        	company,
+        	enddate,
+        	occupation
+    	FROM (SELECT rownum rn, appdate, company, enddate, occupation from career order by appdate desc)
+    	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+    	]]>
+	</select>
+
+    <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
+        <id property="appDate" column="appDate" />
+        <result property="company" column="company" />
+        <result property="endDate" column="endDate" />
+        <result property="occupation" column="occupation" />
+    </resultMap>
+    
+    <select id="countCareers" resultType="int">
+    	<![CDATA[
+    	SELECT
+    		COUNT(rownum)
+    	FROM career
+    	WHERE rownum > 0
+    	]]>
+	</select>
+
+</mapper>
