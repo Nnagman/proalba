@@ -41,7 +41,7 @@
 	<script>
   	$(document).ready(function(){
     	$(".btn-regist").on("click", function(){
-    		self.location = "${path }/register";
+    		self.location = "${path}/register";
     	});
   	});
 	</script>
