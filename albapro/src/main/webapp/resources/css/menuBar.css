@@ -1,8 +1,13 @@
 
+<<<<<<< HEAD
 body{
 <<<<<<< HEAD
     font-family:'�������彺����';
 =======
+    font-family:'NanumSquareRound', sans-serif;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+=======
+body{
     font-family:'NanumSquareRound', sans-serif;
 >>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
     color: black;
@@ -11,7 +16,7 @@ body{
     margin: 0;
 }
 
-.contents{
+.menucontents{
 	padding-left:200px;
 	padding-right:200px;
 }

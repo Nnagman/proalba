@@ -56,16 +56,6 @@
     </div>
     <div class="form-content">
       <form name="signUpForm" method="post" action="${path}/login/loginPost">
-        <div class="selLogin">
-          <div class="indi">
-            <input type="radio" id="indLogin" name="loginchk" checked/>
-            <label for="indlogin"><span>개인로그인</span></label>
-          </div>
-          <div class="com">
-            <input type="radio" id="comLogin" name="loginchk" />
-            <label for="comlogin"><span>기업로그인</span></label>
-          </div>
-        </div>
         <div class="form-group">
           <label for="username">UserID</label>
           <input type="text" id="username" name="id" required="required"/>

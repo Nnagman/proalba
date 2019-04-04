@@ -54,10 +54,10 @@ public class SignUpController {
     	
     	
     	
-    	logger.info(Integer.toString(memberVO.getPhone()));
-        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
-        memberVO.setPassword(hashedPassword);
-        logger.info(hashedPassword);
+    	logger.info(memberVO.getPhone());
+//        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
+//        memberVO.setPassword(hashedPassword);
+//        logger.info(hashedPassword);
         memberService.pregister(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
@@ -69,17 +69,17 @@ public class SignUpController {
     	
     	
     	
-    	logger.info(Integer.toString(memberVO.getPhone()));
-        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
-        memberVO.setPassword(hashedPassword);
-        logger.info(hashedPassword);
-        memberService.register(memberVO);
+    	logger.info(memberVO.getPhone());
+//        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
+//        memberVO.setPassword(hashedPassword);
+//        logger.info(hashedPassword);
+        memberService.cregister(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
         return "redirect:/";
     }
     
-    @RequestMapping(value = "/idcheck", method = RequestMethod.GET)
+    @RequestMapping(value = "/idcheck", method = RequestMethod.POST)
     @ResponseBody
 	public Map<Object, Object> idcheck(@RequestBody String id) throws Exception {
     	

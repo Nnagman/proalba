@@ -1,27 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/workmanage.css" />
+<!--jQuery UI CSS파일 -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="resources/js/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
+ <link rel="stylesheet" href="resources/css/workmanage.css" /> 
+
+
+
+
 </head>
+
+<script>
+$(function() {
+	var d = new Date();
+	 var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일";
+	 var result = document.getElementById("time-result");
+     result.innerHTML = currentDate;
+    $( "#testDatepicker" ).datepicker({
+    });
+    
+    $( "#testDatepicker2" ).datepicker({
+    });
+});
+</script>
+
+
+
 <%@ include file = "../include/header.jsp" %>
-</head>
+
+
+
 <body>
 <%@ include file = "../include/menu.jsp" %>
+
+
 <div class="contents">
+
 <h2 class="title"> 근태기록</h2>
 <Br>
 <input type="text" class="searchbox" name="searchbox" id="searchbox" placeholder="알바검색"  />
 <br><br>
+<label class="table_title">직원목록</label>
 <div class="div_workmanage_emp_table">
-	<label class="table_title">직원목록</label>
+	
 	<table class="workmanage_emp_table">
 	
 	<tr>
@@ -50,7 +78,7 @@
 <div class="div_workmanage_table">
 	<table class="workmanage_table">
 	<Tr>
-		<td>입력일자</td><td>날짜들어감</td>
+		<td>입력일자</td><td><p id="time-result"></p></td>
 	</Tr>
 	
 	<Tr>
@@ -68,7 +96,7 @@
 	</Tr>
 	
 	<Tr>
-		<td>기간</td><td>날짜선택 api</td>
+		<td>기간</td><td><input type="text" id="testDatepicker" size="8px">~<input type="text" id="testDatepicker2" size="8px"></td>
 	</Tr>
 	
 	<Tr>
@@ -80,7 +108,7 @@
 	</Tr>
 	
 	<Tr>
-		<td>적요</td><td><input type="text"  placeholder="특이사항 작성"/></td>
+		<td class="bottom_border">적요</td><td><input type="text"  placeholder="특이사항 작성"/></td>
 	</Tr>
 	
 	<tr>
@@ -89,5 +117,6 @@
 	</table>
 	</div>
 </div>
+<%@ include file = "../include/footer.jsp" %>
 </body>
 </html>

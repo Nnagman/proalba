@@ -22,8 +22,8 @@ public class MemberDAOImplement implements MemberDAO {
 	
 	//ȸ������ó��
 	@Override
-	public void register(MemberVO memberVO) throws Exception {
-		sqlSession.insert(NAMESPACE + ".register", memberVO);	
+	public void cregister(MemberVO memberVO) throws Exception {
+		sqlSession.insert(NAMESPACE + ".cregister", memberVO);	
 		
 	}
 

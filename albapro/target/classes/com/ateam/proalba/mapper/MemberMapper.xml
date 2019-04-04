@@ -24,14 +24,18 @@
 		select * from member
 	</select>
 
-	<insert id="register" >
-		insert into member( id, password, phone, email, birthday, sex )
-		values ( #{id}, #{password}, #{phone}, #{email}, #{birthday}, #{sex} )
+	<insert id="pregister" >
+		<![CDATA[
+		insert into member( m_code, id, password, phone, name, email, birthday, sex, b_number )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{name}, #{email}, #{birthday}, #{sex}, #{b_number} )
+		]]>
 	</insert>
 	
-	<insert id="pregister" >
-		insert into member( id, password, phone, b_number )
-		values ( #{id}, #{password}, #{phone}, #{b_number} )
+	<insert id="cregister" >
+		<![CDATA[
+		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, #{email}, #{birthday}, #{sex}, #{name} )
+		]]>
 	</insert>
 
 	<select id="login" resultMap="memberVOResultMap">

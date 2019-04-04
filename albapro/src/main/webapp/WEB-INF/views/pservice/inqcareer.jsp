@@ -58,5 +58,11 @@
 		</div>
 	</form>
 </div>
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
+<%@ include file = "../include/footer.jsp" %>
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </body>
 </html>

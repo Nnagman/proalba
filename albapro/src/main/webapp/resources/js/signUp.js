@@ -95,8 +95,8 @@ $(document).ready(function(){
 		$("#dev_hphone3").change(function(){
 			pnum3 = $("#dev_hphone3").val();
 			p_Number = pnum1+pnum2+pnum3;
-			$( "#p_Number" ).remove();
-			$("#dev_hphone3").append('<input id="p_Number" name="p_Number" value="'+p_Number+'" type="text"/>');
+			$( "#phone" ).remove();
+			$("#dev_hphone3").append('<input id="phone" name="phone" value="'+p_Number+'" type="text"/>');
 			console.log(pnum1);
 			console.log(pnum2);
 			console.log(pnum3);
@@ -144,4 +144,9 @@ $(document).ready(function(){
 	            }
 			});
 		});
+		
+		var d = new Date();
+		var m_code = $("#m_code").val()+d.getFullYear()+""+(d.getMonth()+1)+""+d.getDate()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds();
+		console.log(m_code);
+		$("#m_code").val(m_code);
 });
