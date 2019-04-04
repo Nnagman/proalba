@@ -58,7 +58,7 @@
 							<tr>
 								<th>아이디</th>
 								<td>
-									<input type="text" name="userId" id="dev_idchk"
+									<input type="text" name="id" id="dev_idchk"
 									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자"
 									title="아이디">
 									<input type="button" id="double_check" value="중복확인" />
@@ -115,6 +115,11 @@
                 <td>
                   <input type="text" class="tBox comName" name="companyName" id="comName" size="10" maxlength="10">
                     <input type="button" name="comName_check" id="comName_check" value="확인">
+                    <input name="name" type="hidden">
+                    <input name="email" type="hidden">
+                    <input name="birthday" type="hidden">
+                    <input name="sex" type="hidden">
+                    <input id="m_code" name="m_code" type="hidden" value="c">
                 </td>
               </tr>
 						</tbody>

@@ -5,8 +5,6 @@
 <head>
 	<title>프로알바</title>
 <link rel="stylesheet" href="resources/css/index.css" />
-<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-<script src="semantic/dist/semantic.min.js"></script>
 <%@ include file = "include/header.jsp" %>	
 </head>
 <body>
@@ -32,15 +30,17 @@
       <div class="title">
         <h2>로그인</h2>
       </div>
+      <form name="signUpForm" method="post" action="${path}/login/loginPost">
       <div class="login">
-        <input type="text" id="userid" name="userid" class="i_text" placeholder="ID" required>
+        <input type="text" id="userid" name="id" class="i_text" placeholder="ID" required>
         <br>
-        <input type="password" id="passwd" name="passwd"  class="i_text" placeholder="PASSWORD" required>
+        <input type="password" id="passwd" name="password"  class="i_text" placeholder="PASSWORD" required>
         <br>
         <button type="submit" class="login_btn" id="login_btn" alt="로그인" name="login_btn">로그인</button>
       </div>
+      </form>
       <div class="login_bot">
-      	<a href="#">회원가입</a>
+      	<a href="register">회원가입</a>
       </div>
     </div>
     <br>

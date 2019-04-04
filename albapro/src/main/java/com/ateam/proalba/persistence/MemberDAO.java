@@ -6,7 +6,7 @@ import com.ateam.proalba.domain.MemberVO;
 public interface MemberDAO {
 
 	//ȸ������ ó��
-	public void register(MemberVO memberVO) throws Exception;
+	public void cregister(MemberVO memberVO) throws Exception;
 	
 	public void pregister(MemberVO memberVO) throws Exception;
 	
