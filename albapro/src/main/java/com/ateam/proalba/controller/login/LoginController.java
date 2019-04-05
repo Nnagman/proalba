@@ -71,8 +71,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
-        logger.info(memberVO.getId());
-        httpSession.setAttribute("id", memberVO.getId());
+
         if (memberVO == null) {
             return;
         }

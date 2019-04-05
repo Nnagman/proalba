@@ -1,22 +1,19 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!--jQuery UI CSS파일 -->
+<link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="resources/js/jquery.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
- <link rel="stylesheet" href="resources/css/workmanage.css" /> 
-
-
-
-
-</head>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script>
 $(function() {
 	var d = new Date();
@@ -30,26 +27,18 @@ $(function() {
     });
 });
 </script>
-
-
-
+</head>
 <%@ include file = "../include/header.jsp" %>
-
-
-
+</head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
-
-
 <div class="contents">
-
 <h2 class="title"> 근태기록</h2>
 <Br>
 <input type="text" class="searchbox" name="searchbox" id="searchbox" placeholder="알바검색"  />
 <br><br>
-<label class="table_title">직원목록</label>
 <div class="div_workmanage_emp_table">
-	
+	<label class="table_title">직원목록</label>
 	<table class="workmanage_emp_table">
 	
 	<tr>
@@ -108,7 +97,7 @@ $(function() {
 	</Tr>
 	
 	<Tr>
-		<td class="bottom_border">적요</td><td><input type="text"  placeholder="특이사항 작성"/></td>
+		<td>적요</td><td><input type="text"  placeholder="특이사항 작성"/></td>
 	</Tr>
 	
 	<tr>
@@ -117,6 +106,5 @@ $(function() {
 	</table>
 	</div>
 </div>
-<%@ include file = "../include/footer.jsp" %>
 </body>
 </html>
