@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -66,6 +65,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
+        
         if (memberVO == null) {
             return;
         }
