@@ -13,6 +13,5 @@
 
 <h2> ${message }</h2>
 
-<%@ include file = "../include/footer.jsp" %>
 </body>
 </html>

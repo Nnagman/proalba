@@ -20,5 +20,3 @@
 	<h5>경력 관리</h5>
 	<a href="${path }/pservice/inqcareer">경력 조회</a>
 </span>
-
-<%@ include file = "../include/footer.jsp" %>
