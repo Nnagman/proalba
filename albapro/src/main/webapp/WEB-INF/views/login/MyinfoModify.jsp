@@ -12,9 +12,10 @@
 
 </head>
 <body>
-<h2> ${message } 님 비밀번호를 입력해주세요</h2>
-<form action="${path}/login/MyinfoModify" method="post">
+<h2> ${login.id} 님 비밀번호를 입력해주세요</h2>
+<form action="${path}/MyinfoModify" method="post">
 	<label for="password">Password</label>
+	<input type="hidden" id="id" name="id" value='${login.id}'/>
     <input type="password" id="password" name="password" required="required"/>
     <button type="submit">확인</button>
 </form>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+//import com.ateam.proalba.controller.login.Requestmapping;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.service.MemberService;
 
@@ -54,6 +55,7 @@ public class SignUpController {
     	
     	
     	
+    	
     	logger.info(memberVO.getPhone());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
 //        memberVO.setPassword(hashedPassword);
@@ -63,6 +65,17 @@ public class SignUpController {
 
         return "redirect:/";
     }
+    
+    @RequestMapping(value = "/pregisterModify", method = RequestMethod.POST)
+    public String pregisterModifyPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+    	logger.info(memberVO.getId());
+    	memberService.pregisterModify(memberVO);
+    	
+    	return "redirect:../";
+    }
+    
+    
+  
     
     @RequestMapping(value = "/cregister", method = RequestMethod.POST)
     public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {

@@ -43,4 +43,10 @@ public class MemberDAOImplement implements MemberDAO {
 		return sqlSession.insert(NAMESPACE + ".idcheck", id);
 	}
 
+	@Override
+	public void pregisterModify(MemberVO memberVO) {
+		sqlSession.update(NAMESPACE + ".pregisterModify", memberVO);
+		
+	}
+
 }
