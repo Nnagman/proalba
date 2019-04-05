@@ -10,11 +10,6 @@
 <body>
 <%@ include file = "include/menu.jsp" %>
 
-<div class="contents">
-
-</div>
-
-
   <div class="contents">
     <div class="main maintop1">
       <div class="title">
