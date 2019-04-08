@@ -46,7 +46,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 //		  logger.info("input_pwd  "+loginDTO.getPassword());
 		  		
 		  if( memberVO != null ) {
-			  return "login/pMyinfo"; 
+			  return "login/pMyinfo";
 		  }else {
 			  System.out.println("다시입력하세요");
 			  return "redirect:MyinfoModify";
@@ -59,7 +59,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 			return "login/pMyinfo"; 
 
 	  }
-	
+
     // �α��� ó��
     @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {

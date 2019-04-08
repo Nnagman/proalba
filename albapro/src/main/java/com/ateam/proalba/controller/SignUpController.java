@@ -71,7 +71,7 @@ public class SignUpController {
     	logger.info(memberVO.getId());
     	memberService.pregisterModify(memberVO);
     	
-    	return "redirect:../";
+    	return "redirect:/";
     }
     
     
