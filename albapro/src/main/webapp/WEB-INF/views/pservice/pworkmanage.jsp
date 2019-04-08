@@ -82,6 +82,7 @@ $(function() {
 		});
 		
 		$('#search').click(function(){
+			year = searchYear; month = searchMonth;
 			searchMonth = $('#month').val();
 			searchYear = $("#year").val();
 			currentDate = searchYear + "년 " + searchMonth + "월 ";

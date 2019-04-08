@@ -43,6 +43,23 @@ n <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
       	</div>
       </div>
       </c:if>
+      <c:if test='${login.id != null}'>
+      	<div class="ui vertical menu">
+      		<div class="link item">
+    			<a href="${path}/MyinfoModify" class="item">
+    				회원정보 수정
+  				</a>
+  			</div>
+		</div>
+		<br/>
+		<div class="ui vertical menu">
+  			<div class="link item">
+    			<a href="${path}/logout" class="item">
+    				로그아웃
+  				</a>
+  			</div>
+		</div>
+      </c:if>
       </form>
     </div>
     <br>
