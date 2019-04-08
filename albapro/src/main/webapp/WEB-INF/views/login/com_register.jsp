@@ -69,7 +69,7 @@
 
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="password" name="userpPwd"
+								<td><input type="password" name="password"
 									class="tBox tPwd" id="dev_pwd1" maxlength="16"
 									placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호"
 									autocomplete="off"></td>
@@ -79,7 +79,7 @@
 
 							<tr>
 								<th>비밀번호 확인</th>
-								<td><input type="password" name="userPwd2"
+								<td><input type="password" name="password2"
 									id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
 									title="비밀번호확인" autocomplete="off">
 									<p class="compul" id="passwd_success">비밀번호가 일치합니다.</p>
@@ -88,7 +88,7 @@
 
               <tr>
 								<th>휴대폰 번호</th>
-								<td><select id="dev_hPhone1" name="Phone1"
+								<td><select id="dev_hphone1" name="Phone1"
 									class="tBox joinBx tPhone" title="휴대폰 번호">
 										<option value="010" selected>010</option>
 										<option value="011">011</option>
@@ -113,7 +113,7 @@
               <tr>
                 <th>사업자등록번호</th>
                 <td>
-                  <input type="text" class="tBox comName" name="companyName" id="comName" size="10" maxlength="10">
+                  <input type="text" class="tBox comName" name="b_number" id="comName" size="10" maxlength="10">
                     <input type="button" name="comName_check" id="comName_check" value="확인">
                     <input name="name" type="hidden">
                     <input name="email" type="hidden">

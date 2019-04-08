@@ -17,7 +17,9 @@
 </head>
 <%@ include file="../include/header.jsp"%>
 
-
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 
 
 
@@ -52,7 +54,6 @@
 </script>
 
 <body>
-	<%@ include file="../include/cmenu.jsp"%>
 	<div class="container">
 	<br>
 		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
