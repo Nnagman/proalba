@@ -1,7 +1,5 @@
 package com.ateam.proalba.controller.login;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -36,42 +33,39 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 	
 	
 	
-	  @RequestMapping(value = "/login/MyinfoModify", method = RequestMethod.GET)
+	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.GET)
 	  public String loginGET (HttpSession httpSession, Model model) { 
-			String user_id = (String) httpSession.getAttribute("id"); 
-			
-			model.addAttribute("message", user_id);
 			return "login/MyinfoModify"; 
 
 	  }
 	 
-	  @RequestMapping(value = "/login/MyinfoModify", method = RequestMethod.POST)
-	  public String PasswordGET (@RequestParam String password, HttpSession httpSession, Model model) throws Exception { 
-		  LoginDTO lVo = new LoginDTO();
-		  String id = (String) httpSession.getAttribute("id");
-		  lVo.setId(id);
-		  MemberVO list = memberService.login(lVo);
-		  logger.info("pwd: "+list.getPassword());
-		  logger.info("input_pwd  "+password);
-		  
-		
-		  if( list.getPassword().equals(password) ) {
-			  
-			  
-			  return "redirect:../"; 
+	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.POST)
+	  public String PasswordGET (LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception { 
+		  MemberVO memberVO = memberService.login(loginDTO);
+//		  logger.info("pwd: "+memberVO.getPassword());
+//		  logger.info("input_pwd  "+loginDTO.getPassword());
+		  		
+		  if( memberVO != null ) {
+			  return "login/pMyinfo"; 
 		  }else {
 			  System.out.println("다시입력하세요");
 			  return "redirect:MyinfoModify";
 		  } 
 
 	  }	
+	  
+	  @RequestMapping(value = "/pMyinfo", method = RequestMethod.GET)
+	  public String ModifyGet (HttpSession httpSession, Model model) {
+			return "login/pMyinfo"; 
+
+	  }
 	
     // �α��� ó��
     @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
-
+        
         if (memberVO == null) {
             return;
         }

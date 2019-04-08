@@ -13,5 +13,6 @@ public interface MemberService {
 	public MemberVO login(LoginDTO loginDTO) throws Exception;
 	
 	public int idcheck(String id) throws Exception;
+	public void pregisterModify(MemberVO memberVO) throws Exception;
 	
 }

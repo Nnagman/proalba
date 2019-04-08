@@ -6,9 +6,6 @@
 
     <resultMap id="memberVOResultMap" type="com.ateam.proalba.domain.MemberVO">
         <id property="id" column="id"/>
-        
-        
-        
         <result property="password" column="password"/>
         <result property="name" column="name"/>
         <result property="phone" column="phone"/>
@@ -30,19 +27,29 @@
 		values ( #{m_code}, #{id}, #{password}, #{phone}, #{name}, #{email}, #{birthday}, #{sex}, #{b_number} )
 		]]>
 	</insert>
-	
+	 
 	<insert id="cregister" >
 		<![CDATA[
 		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name )
 		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, #{email}, #{birthday}, #{sex}, #{name} )
 		]]>
 	</insert>
+	
+	<update id="pregisterModify">
+		<![CDATA[
+		update member set password=#{password}, phone=#{phone}, email=#{email}, birthday =#{birthday}, sex=#{sex}, name=#{name}
+		where id = #{id}
+		]]>
+	</update>
 
 	<select id="login" resultMap="memberVOResultMap">
-  	  SELECT * FROM member
-  	  WHERE  id = #{id} and password = #{password}
+		<![CDATA[
+		SELECT * FROM member
+		WHERE  id = #{id} and password = ${password}
+  	  	]]>
 	</select>
-	
+
+
 	<select id="idcheck" parameterType="String" resultType="Integer">
       SELECT COUNT(*) FROM member
       WHERE
