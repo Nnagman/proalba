@@ -26,9 +26,16 @@ public class CserviceController {
 	}
 	
 	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.GET)
-	public String addjobopening_freeGET(Model model) throws Exception {
+	public String addjobopeningfreeGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
 		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		return "cservice/addjobopening_free";
+	}
+	
+	@RequestMapping(value ="/coworkmanage", method = RequestMethod.GET)
+	public String cworkmanageGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "기업 근태기록입니다.");
 		return "cservice/addjobopening_free";
 	}
 }
