@@ -6,7 +6,7 @@
 
 
 .table_addjobopening{
-  width:800px;
+  width:850px;
   height:200px;
   border-spacing: 0px;
 border-collapse: separate;
@@ -33,7 +33,7 @@ float:center;
     border:5px solid lightgray;
     border-radius: 7px;
     padding: 10px 10px;
-    width:850px;
+    width:900px;
     margin-left:100px;
 
   }
@@ -53,6 +53,9 @@ float:center;
 	margin-left:800px;
 } 
 
+.addjobopening_title{
+	
+}
 
 
 
