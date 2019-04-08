@@ -32,10 +32,10 @@ public class CserviceController {
 		return "cservice/addjobopening_free";
 	}
 	
-	@RequestMapping(value ="/coworkmanage", method = RequestMethod.GET)
+	@RequestMapping(value ="/cworkmanage", method = RequestMethod.GET)
 	public String cworkmanageGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
 		model.addAttribute("message", "기업 근태기록입니다.");
-		return "cservice/addjobopening_free";
+		return "cservice/cworkmanage";
 	}
 }

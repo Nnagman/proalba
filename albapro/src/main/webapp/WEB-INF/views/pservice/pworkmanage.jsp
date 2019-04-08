@@ -17,14 +17,77 @@
 <script>
 $(function() {
 	var d = new Date();
-	 var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일";
-	 var result = document.getElementById("time-result");
-     result.innerHTML = currentDate;
-    $( "#testDatepicker" ).datepicker({
-    });
-    
-    $( "#testDatepicker2" ).datepicker({
-    });
+	var month = d.getMonth() + 1;
+	var year = d.getFullYear();
+	
+	var currentDate = year + "년 " + month + "월 ";
+	$("#date").text(currentDate);
+	
+	$("#back").click(function(){
+		month = month-1;
+		
+		if(month>0){
+			currentDate = year + "년 " + month + "월 ";
+			$("#date").text(currentDate);
+		}else{
+			year = year-1;
+			month = 12;
+			currentDate = year + "년 " + month + "월 ";
+			$("#date").text(currentDate);
+		}
+	});
+	
+	$("#forward").click(function(){
+		month = month+1;
+		
+		if(month<=12){
+			var currentDate = year + "년 " + month + "월 ";
+			$("#date").text(currentDate);
+		}else{
+			year = year+1;
+			month = 1;
+			var currentDate = year + "년 " + month + "월 ";
+			$("#date").text(currentDate);
+		}
+	});
+	
+	$("#date").click(function(){
+		var searchMonth = d.getMonth()+1 
+		var searchYear = d.getFullYear()
+		
+		$("#year").val(searchYear);
+		$("#month").val(searchMonth);
+		$('.ui.basic.modal').modal('show');
+		
+		$('#nextYear').click(function(){
+			searchYear = searchYear + 1;
+			$("#year").val(searchYear);
+		});
+		
+		$('#lastYear').click(function(){
+			searchYear = searchYear - 1;
+			$("#year").val(searchYear);
+		});
+		
+		$('#nextMonth').click(function(){
+			searchMonth = searchMonth + 1;
+			if(searchMonth>12){ searchMonth = 12; }
+			$("#month").val(searchMonth);
+		});
+		
+		$('#lastMonth').click(function(){
+			searchMonth = searchMonth - 1;
+			if(searchMonth<1){ searchMonth = 1; }
+			$("#month").val(searchMonth);
+		});
+		
+		$('#search').click(function(){
+			searchMonth = $('#month').val();
+			searchYear = $("#year").val();
+			currentDate = searchYear + "년 " + searchMonth + "월 ";
+			$("#date").text(currentDate);
+		});
+	});
 });
 </script>
 </head>
@@ -34,59 +97,56 @@ $(function() {
 <%@ include file = "../include/menu.jsp" %>
 <div class="contents">
 <h2 class="title"> 근태기록</h2>
-<table class="ui celled table">
+<i class="angle left icon" id="back"></i>
+<i id="date"></i>
+<i class="angle right icon" id="forward"></i>
+<table class="ui single line table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th>Edit</th>
+      <th>날짜</th>
+      <th>근태항목</th>
+      <th>근로시간</th>
+      <th>기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>John</td>
-      <td>No Action</td>
-      <td class="selectable">
-        <a href="#">Edit</a>
-      </td>
+      <td>John Lilki</td>
+      <td>September 14, 2013</td>
+      <td>jhlilk22@yahoo.com</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>Jamie</td>
-      <td>Approved</td>
-      <td class="selectable">
-        <a href="#">Edit</a>
-      </td>
+      <td>Jamie Harington</td>
+      <td>January 11, 2014</td>
+      <td>jamieharingonton@yahoo.com</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>Jill</td>
-      <td>Denied</td>
-      <td class="selectable">
-        <a href="#">Edit</a>
-      </td>
-    </tr>
-    <tr class="warning">
-      <td>John</td>
-      <td>No Action</td>
-      <td class="selectable warning">
-        <a href="#">Requires change</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Jamie</td>
-      <td class="positive">Approved</td>
-      <td class="selectable positive">
-        <a href="#">Approve</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Jill</td>
-      <td class="negative">Denied</td>
-      <td class="selectable negative">
-        <a href="#">Remove</a>
-      </td>
+      <td>Jill Lewis</td>
+      <td>May 11, 2014</td>
+      <td>jilsewris22@yahoo.com</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
+
+<div class="ui basic modal">
+	<table class="ui celled structured table">
+  		<tr>
+  			<td rowspan="2"><div class="ui transparent input"><input type="text" id="year"/></div></td>
+  			<td id="nextYear"><i class="angle up icon"></i></td>
+  			<td rowspan="2"><div class="ui transparent input"><input type="text" id="month"/></div></td>
+  			<td id="nextMonth"><i class="angle up icon"></i></td>
+  		</tr>
+  		<tr>
+  			<td id="lastYear"><i class="angle down icon"></i></td>
+  			<td id="lastMonth"><i class="angle down icon"></i></td>
+  		</tr>
+  	</table>
+  	<div class="actions" id="search"><div class="ui green ok inverted button"> 검색  </div></div>
+</div>
+
 </div>
 </body>
 </html>

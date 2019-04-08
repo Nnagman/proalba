@@ -31,7 +31,7 @@ n <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
         <h2>로그인</h2>
       </div>
       <form name="signUpForm" method="post" action="${path}/login/loginPost">
-      <c:if test='${login.id == ""}'>
+      <c:if test='${login.id == "" || login.id == null}'>
       <div class="login">
         <input type="text" id="userid" name="id" class="i_text" placeholder="ID" required>
         <br>
