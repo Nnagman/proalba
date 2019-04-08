@@ -37,11 +37,6 @@
         <span>일 까지</span>
         <br><br><br>
 
-<<<<<<< HEAD
-<h2> ${message }</h2>
-
-<%@ include file = "../include/footer.jsp" %>
-=======
         <h2 class="gg">2. 근무장소</h2><br>
         <input class="tex3" type="text" />
         <br><br><br>
@@ -141,6 +136,5 @@
         </div>
         
       </div>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </body>
 </html>

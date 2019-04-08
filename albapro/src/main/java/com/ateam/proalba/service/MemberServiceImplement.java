@@ -40,4 +40,10 @@ public class MemberServiceImplement implements MemberService {
 		return memberDAO.idcheck(id);
 	}
 
+	@Override
+	public void pregisterModify(MemberVO memberVO) throws Exception{
+		memberDAO.pregisterModify(memberVO);
+		
+	}
+
 }

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+
 <!--  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>  -->
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -10,6 +11,7 @@
 
 <script src="/resources/Semantic-UI-CSS-master/semantic.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/Semantic-UI-CSS-master/semantic.min.css">
+
 
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE>
@@ -22,7 +24,7 @@
 		<div class="header">
 
 			<img alt="로고" src="resources/images/rogo.png" class="rogoimg" width="200" height="100" />
-			<p>${login.i_Id}님 로그인</p>
+			<p>${login.id}님 로그인</p>
 
 		</div>
 	</body>
