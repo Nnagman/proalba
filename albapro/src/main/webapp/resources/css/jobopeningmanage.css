@@ -1,0 +1,94 @@
+body{
+  color: #555;
+  background: #eeeeee;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1{
+  padding: 50px 50px;
+  font-weight: 400;
+}
+
+p{
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.jobOpeningMenu{
+  min-width: 320px;
+  max-width: 800px;
+  padding: 50px;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+section{
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+label{
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:hover{
+  color: #2e9cdf;
+  cursor: pointer;
+}
+
+input:checked + label{
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #5998ed;
+  border-bottom: 1px solid #ffffff;
+}
+
+#jo_all:checked ~ #content1,
+#jo_ing:checked ~ #content2,
+#jo_end:checked ~ #content3,
+#jo_wait:checked ~ #content4 {
+  display: block;
+}
+
+/* 데이터 검색부분 */
+.date_setting{
+  margin: 10px 20px 5px;
+}
+
+button{
+  background: #fff;
+  border: 0
+}
+
+#startSearchDate, #endSearchDate{
+  margin-left: 10px;
+}
+
+img{
+  vertical-align: middle;
+  padding-bottom: 5px;
+}
+
+#search{
+  margin-left: 10px;
+}
+
+#searchBtn{
+  width: 25px;
+  height: 24px;
+  margin: -5px;
+  padding: 0;
+}
