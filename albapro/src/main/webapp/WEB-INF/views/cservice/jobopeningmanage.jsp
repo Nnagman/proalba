@@ -1,76 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>°ø°í°ü¸® - ÇÁ·Î¾Ë¹Ù</title>
-  <link rel="stylesheet" href="css/jobopeningManage.css">
+  <title>ê³µê³ ê´€ë¦¬ - í”„ë¡œì•Œë°”</title>
+  <link rel="stylesheet" href="resources/css/jobopeningmanage.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="resources/js/jquery.js"></script>
+  <%@ include file = "../include/header.jsp" %>	
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
     $(function() {
       $( "#startSearchDate, #endSearchDate").datepicker({
           dateFormat: 'yy-mm-dd',
-          prevText: 'ÀÌÀü ´Ş',
-          nextText: '´ÙÀ½ ´Ş',
+          prevText: 'ì´ì „ ë‹¬',
+          nextText: 'ë‹¤ìŒ ë‹¬',
           showOn: "both",
-          buttonImage: "images/date1.png",
+          buttonImage: "resources/images/date1.png",
           changeMonth: true,
           changeYear: true,
           changeMonth: true,
-          dayNames: ['¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ'],
-          dayNamesShort: ['¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ'],
-          dayNamesMin: ['¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ'],
-          monthNamesShort: ['1¿ù','2¿ù','3¿ù','4¿ù','5¿ù','6¿ù','7¿ù','8¿ù','9¿ù','10¿ù','11¿ù','12¿ù'],
-          monthNames: ['1¿ù','2¿ù','3¿ù','4¿ù','5¿ù','6¿ù','7¿ù','8¿ù','9¿ù','10¿ù','11¿ù','12¿ù'],
+          dayNames: ['ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼'],
+          dayNamesShort: ['ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼'],
+          dayNamesMin: ['ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼'],
+          monthNamesShort: ['1ì›”','2ì›”','3ì›”','4ì›”','5ì›”','6ì›”','7ì›”','8ì›”','9ì›”','10ì›”','11ì›”','12ì›”'],
+          monthNames: ['1ì›”','2ì›”','3ì›”','4ì›”','5ì›”','6ì›”','7ì›”','8ì›”','9ì›”','10ì›”','11ì›”','12ì›”'],
           showMonthAfterYear: true,
-          yearSuffix: '³â'
+          yearSuffix: 'ë…„'
       });
     });
 </script>
 </head>
 <body>
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
   <div class="contents">
-    <h1>°ø°í°ü¸®</h1>
+    <h1>ê³µê³ ê´€ë¦¬</h1>
     <div class="jobOpeningMenu">
-      <!-- µğÆúÆ® ¸Ş´º -->
+      <!-- ë””í´íŠ¸ ë©”ë‰´ -->
       <input type="radio" id="jo_all" name="tabs" checked>
-      <label for="jo_all">ÀüÃ¼</label>
+      <label for="jo_all">ì „ì²´</label>
       <input type="radio" id="jo_ing" name="tabs"/>
-      <label for="jo_ing">°ø°íÁß</label>
+      <label for="jo_ing">ê³µê³ ì¤‘</label>
       <input type="radio" id="jo_end" name="tabs"/>
-      <label for="jo_end">°ø°í¸¶°¨</label>
+      <label for="jo_end">ê³µê³ ë§ˆê°</label>
       <input type="radio" id="jo_wait" name="tabs"/>
-      <label for="jo_wait">°ø°í´ë±â</label>
+      <label for="jo_wait">ê³µê³ ëŒ€ê¸°</label>
 
       <div class="date_setting">
-        <button type="button" name="button">ÀüÃ¼</button>
-        <button type="button" name="button">3°³¿ù</button>
-        <button type="button" name="button">6°³¿ù</button>
-        <button type="button" name="button">1³â</button>
+        <button type="button" name="button">ì „ì²´</button>
+        <button type="button" name="button">3ê°œì›”</button>
+        <button type="button" name="button">6ê°œì›”</button>
+        <button type="button" name="button">1ë…„</button>
 
         <input type="text" id="startSearchDate" style="height:18px; width:120px"> - <input type="text" id="endSearchDate" style="height:18px; width:120px">
-        <input type="text" id="search" name="search" placeholder="°Ë»ö" style="height:18px; width:170px">
+        <input type="text" id="search" name="search" placeholder="ê²€ìƒ‰" style="height:18px; width:170px">
         <button type="button" id="searchBtn" name="button"><i class="fas fa-search"></i></button>
       </div>
 
       <section id="content1">
-        <p>ÀüÃ¼</p>
+        <p>ì „ì²´</p>
       </section>
 
       <section id="content2">
-        <p>°ø°íÁß</p>
+        <p>ê³µê³ ì¤‘</p>
       </section>
 
       <section id="content3">
-        <p>°ø°í¸¶°¨</p>
+        <p>ê³µê³ ë§ˆê°</p>
       </section>
 
       <section id="content4">
-        <p>°ø°í´ë±â</p>
+        <p>ê³µê³ ëŒ€ê¸°</p>
       </section>
     </div>
   </div>
