@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="resources/js/jquery.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/Semantic-UI-CSS-master/semantic.min.css">
 <script>
 $(function() {
 	var d = new Date();
