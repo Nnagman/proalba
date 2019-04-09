@@ -6,6 +6,7 @@ body{
   box-sizing: border-box;
 }
 
+/* 공고 메뉴 */
 h1{
   padding: 50px 50px;
   font-weight: 400;
@@ -22,12 +23,6 @@ p{
   padding: 50px;
   margin: 0 auto;
   background: #ffffff;
-}
-
-section{
-  display: none;
-  padding: 20px 0 0;
-  border-top: 1px solid #ddd;
 }
 
 input[type="radio"]{
@@ -56,6 +51,14 @@ input:checked + label{
   border-bottom: 1px solid #ffffff;
 }
 
+
+/* 공고 관리 본문 */
+section{
+  display: none;
+  padding: 10px 0 0;
+}
+
+
 #jo_all:checked ~ #content1,
 #jo_ing:checked ~ #content2,
 #jo_end:checked ~ #content3,
@@ -68,9 +71,10 @@ input:checked + label{
   margin: 10px 20px 5px;
 }
 
-button{
+.date_setting button{
   background: #fff;
-  border: 0
+  border: 0;
+  font-size: 14px;
 }
 
 #startSearchDate, #endSearchDate{
@@ -89,6 +93,39 @@ img{
 #searchBtn{
   width: 25px;
   height: 24px;
-  margin: -5px;
+  margin: -4px;
   padding: 0;
+}
+
+/* 공고상태변경버튼 */
+.jobOpeningStatus{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* 테이블 */
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, tr, th, td{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border: 0;
+}
+
+th{
+  background-color: lightgray;
+  height: 45px;
+  padding: 0 10px;
+}
+
+td{
+  height: 25px;
+  padding: 5px 10px;
+  border-bottom: 1px solid lightgray;
+  font-size: 14px;
 }

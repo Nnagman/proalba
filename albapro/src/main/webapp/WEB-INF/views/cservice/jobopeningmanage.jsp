@@ -60,8 +60,32 @@
         <button type="button" id="searchBtn" name="button"><i class="fas fa-search"></i></button>
       </div>
 
+	  <div class="jobOpeningStatus">
+        <input type="button" id="select_end" name="선택마감" value="선택마감">
+        <input type="button" id="re_register" name="재등록" value="재등록">
+      </div>
+	
       <section id="content1">
-        <p>전체</p>
+          <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>공고번호/등록일</th>
+              <th>게재현황</th>
+              <th>채용공고</th>
+              <th>열람 횟수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td><input type="checkbox" /></th>
+                <td>20180409</td>
+                <td>게재중</td>
+                <td>캡스톤 디자인 대리 구함</td>
+                <td>10</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="content2">
