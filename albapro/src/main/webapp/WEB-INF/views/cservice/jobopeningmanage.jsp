@@ -46,8 +46,6 @@
       <label for="jo_ing">공고중</label>
       <input type="radio" id="jo_end" name="tabs"/>
       <label for="jo_end">공고마감</label>
-      <input type="radio" id="jo_wait" name="tabs"/>
-      <label for="jo_wait">공고대기</label>
 
       <div class="date_setting">
         <button type="button" name="button">전체</button>
@@ -96,9 +94,6 @@
         <p>공고마감</p>
       </section>
 
-      <section id="content4">
-        <p>공고대기</p>
-      </section>
     </div>
   </div>
 </body>
