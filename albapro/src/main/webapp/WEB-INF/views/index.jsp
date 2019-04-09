@@ -21,8 +21,9 @@
         <h2>이 달의 알바</h2>
       </div>
       <div class="maintop1_con">
-n <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
-        <li><a href="#">맥도날드 라이더 모집 <%-- ${공고글.제목} --%></a></li>
+ <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
+			<ul>	
+        <li><a href="#">맥도날드 라이더 모집 <%-- ${공고글.제목} --%></a></li></ul>
 <%--       </c:forEach> --%>
       </div>
     </div>
@@ -70,7 +71,7 @@ n <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
       </div>
       <div class="mainbot1_con">
 <%--       <c:forEach var="post" items="${커뮤니티리스트 }"> --%>
-        <li><a href="#">알바 꿀팁 드림<%-- ${커뮤니티.제목} --%></a></li>
+       <ul> <li><a href="#">알바 꿀팁 드림<%-- ${커뮤니티.제목} --%></a></li></ul>
 <%--       </c:forEach> --%>
       </div>
     </div>

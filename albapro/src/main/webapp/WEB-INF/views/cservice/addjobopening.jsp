@@ -46,7 +46,7 @@
 					무료로 공고 등록을 할 수 있습니다.<br> 메인화면에 표기 되지 않습니다.
 				</p>
 				
-				<button type="button" class="btn btn-primary btn-lg">공고 등록</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick = "location.href = '${path}/addjobopening_free' ">공고등록</button>
 				
 			</div>
 		</div>
