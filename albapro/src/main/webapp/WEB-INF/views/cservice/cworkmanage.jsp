@@ -30,7 +30,9 @@ $(function() {
 <%@ include file = "../include/header.jsp" %>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 <div class="contents">
 <h2 class="title"> 근태기록</h2>
 <Br>

@@ -38,4 +38,11 @@ public class CserviceController {
 		model.addAttribute("message", "기업 근태기록입니다.");
 		return "cservice/cworkmanage";
 	}
+	
+	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
+	public String jobopeningmanageGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "공고관리");
+		return "cservice/jobopeningmanage";
+	}
 }

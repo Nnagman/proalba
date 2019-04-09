@@ -19,7 +19,9 @@
 
 <body>
 
-	<%@ include file="../include/cmenu.jsp"%>
+	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+		<%@ include file = "../include/cmenu.jsp" %>
+	</c:if>
 
 
 	<div class="container">
