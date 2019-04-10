@@ -43,23 +43,23 @@ $(function() {
 	<table class="workmanage_emp_table">
 	
 	<tr>
-		<Th>check</Th><Th>구분</Th><Th>사원번호</Th><Th>성명</Th><Th>직위</Th><Th>근태기록</Th>
+		<Th>check</Th><Th>사원번호</Th><Th>성명</Th><td>휴대번호</td><Th>근태기록</Th>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><td>(알바이름)</Td><td>휴대번호</td><Td>(근태기록)</Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td>(근태기록)</Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td>(근태기록)</Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td>(근태기록)</Td>
 	</tr>
 	
 	</table>
