@@ -13,7 +13,7 @@
 
       .box{
         position: relative;
-        width:1500px;
+        width:1250px;
         height: 2050px;
         border: 1px solid black;
         top:10px;
@@ -186,7 +186,7 @@
       }
 
       .bt2{
-        margin-left:1350px;
+        margin-left:800px;
         width: 150px;
       }
       
