@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2" -->>
+<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2" -->
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
