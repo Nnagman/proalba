@@ -44,3 +44,10 @@ function move(e) {
     startX = curX; startY = curY;
 }
 function out(e) { drawing = false; }
+
+function onlyNumber() {
+    if (((event.keyCode < 48) || (event.keyCode > 57)) && event.keyCode != 13){
+      alert("숫자만 입력할 수 있습니다.");
+      event.returnValue = false;
+    }
+  }

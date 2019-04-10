@@ -4,7 +4,7 @@
 <html>
 <head>
 	<title>프로알바</title>
-<link rel="stylesheet" href="resources/css/index.css" />
+<link rel="stylesheet" href="resources/css/index.css?ver=2" />
 <%@ include file = "include/header.jsp" %>	
 </head>
 <body>
@@ -15,11 +15,6 @@
 <c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 <%@ include file = "include/cmenu.jsp" %>
 </c:if>
-
-<div class="contents">
-
-</div>
-
 
   <div class="contents">
     <div class="main maintop1">
@@ -100,7 +95,7 @@
       			<tr>
       				<th>주급</th>
       				<td>40시간</td>
-      				<td>334,000</td>
+      				<td>334,000원</td>
       			</tr>
       			
       			<tr>
