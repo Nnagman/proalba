@@ -5,15 +5,44 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 
-	@RequestMapping("/cservice")
-	public String cservice(Model model) {
+	@RequestMapping(value = "/cservice", method = RequestMethod.GET)
+	public String cserviceGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "고객센터 페이지 방문을 환영합니다");
+		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
 		return "cservice/cservice";
+	}
+	
+	@RequestMapping(value ="/addjobopening", method = RequestMethod.GET)
+	public String addjobopeningGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		return "cservice/addjobopening";
+	}
+	
+	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.GET)
+	public String addjobopeningfreeGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		return "cservice/addjobopening_free";
+	}
+	
+	@RequestMapping(value ="/cworkmanage", method = RequestMethod.GET)
+	public String cworkmanageGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "기업 근태기록입니다.");
+		return "cservice/cworkmanage";
+	}
+	
+	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
+	public String jobopeningmanageGET(Model model) throws Exception {
+		logger.info("Welcome CserviceController");
+		model.addAttribute("message", "공고관리");
+		return "cservice/jobopeningmanage";
 	}
 }

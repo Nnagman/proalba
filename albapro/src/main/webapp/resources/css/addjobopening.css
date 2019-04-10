@@ -1,0 +1,42 @@
+div{
+	    font: 1em 'Malgun Gothic', Gulim, AppleGothic, Sans-serif;
+    color: #333;
+}
+
+.addjob_div{
+ 	overflow: hidden;
+    margin: 0 auto;
+    padding: 80px 0;
+    width: 1140px;
+    position:relative;
+    display:inline-block;
+}
+
+.addjob_title{
+	    font-size: 32px;
+    font-weight: bold;
+}
+
+.doller_addjob, .free_addjob{
+	position:relative;
+    display:inline-block;
+    float: left;
+    height:500px;
+    padding: 50px 0 60px;
+    width: 563px;
+    border: 1px solid #dfdfdf;
+    text-align: center;
+    background-color:#EAEAEA;
+}
+
+.free_addjob{
+	margin-left:10px;
+}
+.addjob_img{
+	width:150px;
+	height:200px;
+}
+
+.addjob_text{
+	margin-top:30px;
+}

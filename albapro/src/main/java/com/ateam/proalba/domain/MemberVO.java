@@ -7,10 +7,10 @@ public class MemberVO {
 	private String m_code;
 	private String id;
 	private String password;
-	private int phone;
+	private String phone;
 	private String name;
 	private String email;
 	private String birthday;
-	private boolean sex;
-	private String b_Number;
+	private String sex;
+	private String b_number;
 }

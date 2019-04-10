@@ -2,26 +2,26 @@ package com.ateam.proalba.domain;
 
 import lombok.Data;
 
-//페이징처리를 위한 기준 클래스
-//페이지 당 게시글의 갯수를 파라미터를 받을 경우, LIMIT #{pageStart} #{perPageNum} 처리를 위한 클래스
+//íŽ˜ì�´ì§•ì²˜ë¦¬ë¥¼ ìœ„í•œ ê¸°ì¤€ í�´ëž˜ìŠ¤
+//íŽ˜ì�´ì§€ ë‹¹ ê²Œì‹œê¸€ì�˜ ê°¯ìˆ˜ë¥¼ íŒŒë�¼ë¯¸í„°ë¥¼ ë°›ì�„ ê²½ìš°, LIMIT #{pageStart} #{perPageNum} ì²˜ë¦¬ë¥¼ ìœ„í•œ í�´ëž˜ìŠ¤
 @Data
 public class Criteria {
 
-	private int page; // 현재 페이지 번호
-	private int perPageNum; // 페이지 당 보여지는 게시글의 갯수
+	private int page; // í˜„ìž¬ íŽ˜ì�´ì§€ ë²ˆí˜¸
+	private int perPageNum; // íŽ˜ì�´ì§€ ë‹¹ ë³´ì—¬ì§€ëŠ” ê²Œì‹œê¸€ì�˜ ê°¯ìˆ˜
 
-	// 기본 생성자 : 1페이지, 페이지당 20개의 게시글로 초기화
+	// ê¸°ë³¸ ìƒ�ì„±ìž� : 1íŽ˜ì�´ì§€, íŽ˜ì�´ì§€ë‹¹ 20ê°œì�˜ ê²Œì‹œê¸€ë¡œ ì´ˆê¸°í™”
 	public Criteria() {
 
 		this.page = 1;
-		this.perPageNum = 10;
+		this.perPageNum =0; 
 
 	}
 
-	// setPage(), setPerPageNum() 메서드에 잘못된 값이 입력되는 경우, 강제로 값을 조정
+	// setPage(), setPerPageNum() ë©”ì„œë“œì—� ìž˜ëª»ë�œ ê°’ì�´ ìž…ë ¥ë�˜ëŠ” ê²½ìš°, ê°•ì œë¡œ ê°’ì�„ ì¡°ì •
 	public void setPage(int page) {
 
-		// 0 이하 일 경우 1로 강제
+		// 0 ì�´í•˜ ì�¼ ê²½ìš° 1ë¡œ ê°•ì œ
 		if (page <= 0) {
 			this.page = 1;
 			return;
@@ -32,7 +32,7 @@ public class Criteria {
 
 	public void setPerPageNum(int perPageNum) {
 
-		// 0 이하, 100보다 클 경우 10으로 강제
+		// 0 ì�´í•˜, 100ë³´ë‹¤ í�´ ê²½ìš° 10ìœ¼ë¡œ ê°•ì œ
 		if (perPageNum <= 0 || perPageNum > 100) {
 			this.perPageNum = 10;
 			return;
@@ -47,19 +47,19 @@ public class Criteria {
 
 	}
 
-	// boardMapper.xml(listCriteria) SQL을 위한 메서드
-	// limit 구문에서 현재 페이지의 게시물의 시작번호를 지정하기 위해
+	// boardMapper.xml(listCriteria) SQLì�„ ìœ„í•œ ë©”ì„œë“œ
+	// limit êµ¬ë¬¸ì—�ì„œ í˜„ìž¬ íŽ˜ì�´ì§€ì�˜ ê²Œì‹œë¬¼ì�˜ ì‹œìž‘ë²ˆí˜¸ë¥¼ ì§€ì •í•˜ê¸° ìœ„í•´
 	public int getPageStart() {
 
-		// 예를 들어 페이지당 10개의 게시물을 출력하는 경우, 3페이지의 첫번째 게시물을 출력한다면 ?
-		// 전체 게시글 중에서 정렬한 데이터의 index의 21번째 데이터, 즉 20
+		// ì˜ˆë¥¼ ë“¤ì–´ íŽ˜ì�´ì§€ë‹¹ 10ê°œì�˜ ê²Œì‹œë¬¼ì�„ ì¶œë ¥í•˜ëŠ” ê²½ìš°, 3íŽ˜ì�´ì§€ì�˜ ì²«ë²ˆì§¸ ê²Œì‹œë¬¼ì�„ ì¶œë ¥í•œë‹¤ë©´ ?
+		// ì „ì²´ ê²Œì‹œê¸€ ì¤‘ì—�ì„œ ì •ë ¬í•œ ë�°ì�´í„°ì�˜ indexì�˜ 21ë²ˆì§¸ ë�°ì�´í„°, ì¦‰ 20
 		// LIMIT 20, 10
 		return (this.page - 1) * perPageNum;
 
 	}
 
-	// boardMapper.xml(listCriteria) SQL을 위한 메서드
-	// limit 구문에서 페이지 당 게시물의 갯수를 지정하기 위해
+	// boardMapper.xml(listCriteria) SQLì�„ ìœ„í•œ ë©”ì„œë“œ
+	// limit êµ¬ë¬¸ì—�ì„œ íŽ˜ì�´ì§€ ë‹¹ ê²Œì‹œë¬¼ì�˜ ê°¯ìˆ˜ë¥¼ ì§€ì •í•˜ê¸° ìœ„í•´
 	public int getPerPageNum() {
 
 		return this.perPageNum;

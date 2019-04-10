@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -10,11 +10,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="resources/js/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<script>
+$(function() {
+	var d = new Date();
+	 var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일";
+	 var result = document.getElementById("time-result");
+     result.innerHTML = currentDate;
+    $( "#testDatepicker" ).datepicker({
+    });
+    
+    $( "#testDatepicker2" ).datepicker({
+    });
+});
+</script>
 </head>
 <%@ include file = "../include/header.jsp" %>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 <div class="contents">
 <h2 class="title"> 근태기록</h2>
 <Br>
@@ -50,7 +68,7 @@
 <div class="div_workmanage_table">
 	<table class="workmanage_table">
 	<Tr>
-		<td>입력일자</td><td>날짜들어감</td>
+		<td>입력일자</td><td><p id="time-result"></p></td>
 	</Tr>
 	
 	<Tr>
@@ -68,7 +86,7 @@
 	</Tr>
 	
 	<Tr>
-		<td>기간</td><td>날짜선택 api</td>
+		<td>기간</td><td><input type="text" id="testDatepicker" size="8px">~<input type="text" id="testDatepicker2" size="8px"></td>
 	</Tr>
 	
 	<Tr>

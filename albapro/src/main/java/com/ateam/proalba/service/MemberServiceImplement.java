@@ -20,8 +20,8 @@ public class MemberServiceImplement implements MemberService {
 
 	//ȸ������ó��
 	@Override
-	public void register(MemberVO memberVO) throws Exception {
-		memberDAO.register(memberVO);
+	public void cregister(MemberVO memberVO) throws Exception {
+		memberDAO.cregister(memberVO);
 	}
 
 	//�α���ó��
@@ -38,6 +38,12 @@ public class MemberServiceImplement implements MemberService {
 	@Override
 	public int idcheck(String id) throws Exception {
 		return memberDAO.idcheck(id);
+	}
+
+	@Override
+	public void pregisterModify(MemberVO memberVO) throws Exception{
+		memberDAO.pregisterModify(memberVO);
+		
 	}
 
 }

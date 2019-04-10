@@ -22,8 +22,8 @@ public class MemberDAOImplement implements MemberDAO {
 	
 	//ȸ������ó��
 	@Override
-	public void register(MemberVO memberVO) throws Exception {
-		sqlSession.insert(NAMESPACE + ".register", memberVO);	
+	public void cregister(MemberVO memberVO) throws Exception {
+		sqlSession.insert(NAMESPACE + ".cregister", memberVO);	
 		
 	}
 
@@ -41,6 +41,12 @@ public class MemberDAOImplement implements MemberDAO {
 	@Override
 	public int idcheck(String id) throws Exception {
 		return sqlSession.insert(NAMESPACE + ".idcheck", id);
+	}
+
+	@Override
+	public void pregisterModify(MemberVO memberVO) {
+		sqlSession.update(NAMESPACE + ".pregisterModify", memberVO);
+		
 	}
 
 }

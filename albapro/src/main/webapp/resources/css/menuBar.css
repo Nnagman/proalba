@@ -1,6 +1,8 @@
 
+
 body{
     font-family:'NanumSquareRound', sans-serif;
+
     color: black;
     posiion: relative;
     padding:0;
@@ -12,7 +14,7 @@ body{
 	padding-right:200px;
 }
 
-.container{
+..menucontainer{
     width:100%;
     margin: 0 auto;
     padding: 20px 0 22px 0;
@@ -20,7 +22,7 @@ body{
 }
 
 .nav{
-    font-family: '³ª´®¶ó¿îµå½ºÄù¾î';
+    /* font-family: 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å½ºï¿½ï¿½ï¿½ï¿½'; */
     font-weight:400;
     font-size: 13px;
     line-height:20px;
@@ -28,7 +30,7 @@ body{
     position: relative;
     padding: 0 0 0px 200px;
     margin: 0;
-
+	display:block;
     background-color: #ffffff;
 
     border-top: 1px solid #E6E6E6;
@@ -116,14 +118,15 @@ body{
 	top:60px;
 	left: 150px;
 	background-color: #fff;
-  border: 1px solid gray;
-	width: 1100px;
-  height: 180px;
+  	border: 1px solid gray;
+	width: 1430x;
+ 	height: 200px;
 	min-height: 100px;
 	text-align: left;
 	margin-top:30px;
+	margin-bottom: 20px;
 	padding: 0;
-  padding-top: 20px;
+ 	padding-top: 20px;
 	z-index: 99;
 	overflow: hidden;
 }
@@ -141,13 +144,13 @@ body{
 
 
 .nav .column {
-	width: 14.1%;
-  height: 160px;
+	width: 205px;
+  	height: 160px;
 	float: left;
 	color: black;
-	margin: 0 20px 0 3%;
-  border-right: 1px solid #E6E6E6;
-  padding-right: 10px;
+	margin: 0 20px 0 10px;
+  	border-right: 1px solid #E6E6E6;
+  	padding-right: 10px;
 
 }
 
@@ -156,11 +159,12 @@ body{
   padding-right: 40px;
 }
 
+
 .nav .column:last-child{
   border: 0px;
-  margin-right: -40px;
+  margin-right: 10px;
 }
-
+ 
 .nav .column ul {
 	padding: 0;
 	margin: 0;

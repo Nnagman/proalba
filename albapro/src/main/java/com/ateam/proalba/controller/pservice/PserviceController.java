@@ -59,11 +59,11 @@ public class PserviceController {
 		return "pservice/ecertifi";
 	}
 	
-	@RequestMapping(value = "/workmanage", method = RequestMethod.GET)
+	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
 	public String workmanageGET(Model model) throws Exception {
 		logger.info("Welcome workmanagePage");
 		model.addAttribute("message", "workmanagePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
-		return "pservice/workmanage";
+		return "pservice/pworkmanage";
 	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
@@ -89,9 +89,17 @@ public class PserviceController {
 		return "pservice/inqcareer";
 	}
 	
+
+	@RequestMapping(value = "/employmentinfo", method = RequestMethod.GET)
+	public String employmentinfoGET(Model model) throws Exception {
+		logger.info("Welcome inqcareerPage");
+		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
+		return "pservice/employmentinfo";
+	}
 	@RequestMapping(value = "/contract", method = RequestMethod.GET)
 	public String cservice(Model model) {
 		logger.info("Welcome Contract");
 		return "pservice/contract";
+
 	}
 }

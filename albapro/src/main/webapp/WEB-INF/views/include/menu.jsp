@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2" -->>
+
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
-  <div class="container">
+  <div class="menucontainer">
 	<ul class="nav">
 		<li class="menuLi">
-			<a class="menuLink" href="#">MAIN</a>
+			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
@@ -33,7 +36,7 @@
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/workmanage">근태 기록 관리/조회</a>
+						<li><a href="${path}/pworkmanage">근태 기록 관리/조회</a>
 
 					</ul>
 				</div>
@@ -41,8 +44,7 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary/">급여 조회</a>
-            <li>
+						<li><a href="${path}/inqsalary">급여 조회</a>
 					</ul>
 				</div>
 
@@ -52,11 +54,18 @@
 						<li><a href="${path}/inqcareer">경력 조회</a>
 					</ul>
 				</div>
+				
+				<div class="column">
+					<h3>개인 정보 수정</h3>
+					<ul>
+						<li><a href="${path}/mypage">내 정보 수정</a>
+					</ul>
+				</div>
 			</div>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">채용정보</a>
+			<a class="menuLink" href="${path}/employmentinfo">채용정보</a>
 			<ul class="subMenu">
 
 			</ul>

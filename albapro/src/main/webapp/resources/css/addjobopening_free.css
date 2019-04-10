@@ -1,0 +1,66 @@
+#img,.img_wrap{
+  width:250px;
+  height:100px;
+}
+
+
+
+.table_addjobopening{
+  width:850px;
+  height:200px;
+  border-spacing: 0px;
+border-collapse: separate;
+float:center;
+
+
+
+
+
+}
+
+.table_addjobopening td{
+
+  height:50px;
+  border-width: 0;
+	border-bottom: 1px solid #B8B8B8;
+	font-weight: normal !important;
+  padding: 15px;
+  vertical-align: middle;
+}
+
+
+  .div_table_border{
+    border:5px solid lightgray;
+    border-radius: 7px;
+    padding: 10px 10px;
+    width:900px;
+    margin-left:100px;
+
+  }
+
+  .div_rogo_table_border{
+   
+    width:300px;
+    height:210px;
+  }
+
+.div_Duty_ditail{
+	size:20px;
+}
+ .buttonline_addjobopening_free{
+	
+	
+	margin-left:800px;
+} 
+
+.addjobopening_title{
+	
+}
+
+
+
+body {
+  color: #111;
+  font-size: 16px;
+  font-family: sans-serif;
+}
