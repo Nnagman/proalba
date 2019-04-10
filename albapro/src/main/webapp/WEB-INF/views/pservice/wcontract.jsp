@@ -112,7 +112,8 @@
         <span class="t3">사업체명: </span>
         <input class="tex8" type="text" />
         <span class="sp3">대표자: </span>
-        <img class="im" id="myImage"><br><br> <!-- 캔버스로 그린거 이미지로 변환한 이미지 -->
+        <div class="div_sign"><img class="im" id="myImage"></div>
+      <!-- 캔버스로 그린거 이미지로 변환한 이미지 -->
         <span class="t3">전화: </span>
         <input class="tex2" type="text" maxlength="3" /><span>ㅡ</span>
         <input class="tex9" type="text" maxlength="4" /><span>ㅡ</span>

@@ -13,10 +13,11 @@
 
       .box{
         position: relative;
-        width:100%;
+        width:1500px;
         height: 2050px;
         border: 1px solid black;
         top:10px;
+        left:250px;
       }
 
       .gg{
@@ -187,4 +188,9 @@
       .bt2{
         margin-left:1350px;
         width: 150px;
+      }
+      
+      .div_sign{
+    	position:relative;
+    	top:550px;
       }

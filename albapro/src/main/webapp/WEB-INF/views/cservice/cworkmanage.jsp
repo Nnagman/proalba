@@ -73,7 +73,7 @@ $(function() {
 <!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -82,7 +82,7 @@ $(function() {
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <%@ include file = "../cservice/calendar.jsp" %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
