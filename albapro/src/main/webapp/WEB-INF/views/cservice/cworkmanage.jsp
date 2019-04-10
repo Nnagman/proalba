@@ -1,7 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -10,9 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/workmanage.css?ver=2" />
+<link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="resources/js/jquery.js"></script>
+<%@ include file = "../include/header.jsp" %>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script>
 $(function() {
@@ -28,10 +27,12 @@ $(function() {
 });
 </script>
 </head>
-<%@ include file = "../include/header.jsp" %>
+
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 <div class="contents">
 <h2 class="title"> 근태기록</h2>
 <Br>

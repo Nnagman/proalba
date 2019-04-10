@@ -8,7 +8,18 @@
 <%@ include file = "include/header.jsp" %>	
 </head>
 <body>
+<c:if test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
 <%@ include file = "include/menu.jsp" %>
+</c:if>
+
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "include/cmenu.jsp" %>
+</c:if>
+
+<div class="contents">
+
+</div>
+
 
   <div class="contents">
     <div class="main maintop1">
@@ -16,8 +27,9 @@
         <h2>이 달의 알바</h2>
       </div>
       <div class="maintop1_con">
-<%--       <c:forEach var="post" items="${공고글리스트 }" --%>
-        <li><a href="#">맥도날드 라이더 모집 <%-- ${공고글.제목} --%></a></li>
+ <%--       <c:forEach var="post" items="${공고글리스트 }" --%>
+			<ul>	
+        <li><a href="#">맥도날드 라이더 모집 <%-- ${공고글.제목} --%></a></li></ul>
 <%--       </c:forEach> --%>
       </div>
     </div>
@@ -26,17 +38,36 @@
         <h2>로그인</h2>
       </div>
       <form name="signUpForm" method="post" action="${path}/login/loginPost">
+      <c:if test='${login.id == "" || login.id == null}'>
       <div class="login">
         <input type="text" id="userid" name="id" class="i_text" placeholder="ID" required>
         <br>
         <input type="password" id="passwd" name="password"  class="i_text" placeholder="PASSWORD" required>
         <br>
         <button type="submit" class="login_btn" id="login_btn" alt="로그인" name="login_btn">로그인</button>
+        <div class="login_bot">
+      		<a href="register">회원가입</a>
+      	</div>
       </div>
+      </c:if>
+      <c:if test='${login.id != null}'>
+      	<div class="ui vertical menu">
+      		<div class="link item">
+    			<a href="${path}/MyinfoModify" class="item">
+    				회원정보 수정
+  				</a>
+  			</div>
+		</div>
+		<br/>
+		<div class="ui vertical menu">
+  			<div class="link item">
+    			<a href="${path}/logout" class="item">
+    				로그아웃
+  				</a>
+  			</div>
+		</div>
+      </c:if>
       </form>
-      <div class="login_bot">
-      	<a href="register">회원가입</a>
-      </div>
     </div>
     <br>
     <div class="main mainbot1">
@@ -46,7 +77,7 @@
       </div>
       <div class="mainbot1_con">
 <%--       <c:forEach var="post" items="${커뮤니티리스트 }"> --%>
-        <li><a href="#">알바 꿀팁 드림<%-- ${커뮤니티.제목} --%></a></li>
+       <ul> <li><a href="#">알바 꿀팁 드림<%-- ${커뮤니티.제목} --%></a></li></ul>
 <%--       </c:forEach> --%>
       </div>
     </div>

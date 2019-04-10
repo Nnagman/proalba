@@ -2,6 +2,7 @@
 
 body{
     font-family:'NanumSquareRound', sans-serif;
+
     color: black;
     posiion: relative;
     padding:0;
@@ -29,7 +30,7 @@ body{
     position: relative;
     padding: 0 0 0px 200px;
     margin: 0;
-
+	display:block;
     background-color: #ffffff;
 
     border-top: 1px solid #E6E6E6;

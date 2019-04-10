@@ -1,6 +1,8 @@
 package com.ateam.proalba.controller.login;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -73,4 +75,14 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
         model.addAttribute("member", memberVO);
         
     }
+    
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+	  public String logout (HttpServletRequest request, HttpServletResponse response) {
+    	HttpSession httpSession = request.getSession();
+        if (httpSession.getAttribute("login") != null) {
+            logger.info("clear login data");
+            httpSession.removeAttribute("login");
+        }
+			return "redirect:/"; 
+	  }
 }

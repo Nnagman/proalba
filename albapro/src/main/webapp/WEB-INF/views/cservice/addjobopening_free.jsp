@@ -17,7 +17,9 @@
 </head>
 <%@ include file="../include/header.jsp"%>
 
-
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 
 
 
@@ -52,10 +54,10 @@
 </script>
 
 <body>
-	<%@ include file="../include/cmenu.jsp"%>
 	<div class="container">
-	
-		
+	<br>
+		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
+		<br>
 		<div class="div_table_border">
 			<h5>근무지 정보</h5>
 			<table class="table_addjobopening">
@@ -268,6 +270,7 @@
 		<button type="button" class="btn btn-primary btn-lg active">등록</button>
 		<button type="button" class="btn btn-default btn-lg active">취소</button>
 		</div>
+		<br>
 	</div>
 	<%@ include file="../include/footer.jsp"%>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
