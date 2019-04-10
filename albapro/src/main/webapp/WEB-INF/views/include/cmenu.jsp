@@ -14,7 +14,7 @@
 <!-- 			Full Down Menu -->
 			<div class="fulldrop">
 				<div class="column">
-					<h3>이력서 등록 관리</h3>
+					<h3>채용공고 등록 관리</h3>
 					<ul>
 
 						<li><a href="${path}/addjobopening_free">새 공고글 작성</a>
