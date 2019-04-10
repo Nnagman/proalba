@@ -5,7 +5,7 @@
 <%-- <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2"> --%>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
+<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css?ver=2">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <div class="menucontainer">
 	<ul class="nav">
@@ -81,6 +81,7 @@
 						<li><a href="${path}/qanlist">나의 문의 내역</a>
 					</ul>
 				</div>
+			</div>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
