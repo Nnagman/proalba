@@ -9,10 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <%@ include file = "../include/header.jsp" %>
+<script src="resources/js/bootstrap.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
 <script>
 $(function() {
 	var d = new Date();
@@ -43,29 +46,54 @@ $(function() {
 	<table class="workmanage_emp_table">
 	
 	<tr>
-		<Th>check</Th><Th>구분</Th><Th>사원번호</Th><Th>성명</Th><Th>직위</Th><Th>근태기록</Th>
+		<Th>check</Th><Th>사원번호</Th><Th>성명</Th><td>휴대번호</td><Th>근태기록</Th>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	</table>
 </div>
 
-<div class="div_workmanage_table">
+
+
+<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- <div class="div_workmanage_table">
 	<table class="workmanage_table">
 	<Tr>
 		<td>입력일자</td><td><p id="time-result"></p></td>
@@ -105,7 +133,7 @@ $(function() {
 		<td colspan="2"><input type="button" value="저장" /> <input type="button" value="삭제" /></td>
 	</tr>
 	</table>
-	</div>
+	</div> -->
 </div>
 </body>
 </html>

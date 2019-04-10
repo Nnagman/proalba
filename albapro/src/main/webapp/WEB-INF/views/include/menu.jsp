@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2" -->>
+<%-- <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css<!-- ?ver=2"> --%>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
+<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css?ver=2">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <div class="menucontainer">
 	<ul class="nav">
@@ -73,9 +73,15 @@
 		<li>|</li>
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/qna">고객센터</a>
-			<ul class="subMenu">
-
-			</ul>
+			<div class="fulldrop2">
+				<div class="column">
+					<h3>온라인 문의</h3>
+					<ul>
+						<li><a href="${path}/qna">문의하기</a>
+						<li><a href="${path}/qanlist">나의 문의 내역</a>
+					</ul>
+				</div>
+			</div>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
