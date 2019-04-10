@@ -129,3 +129,7 @@ td{
   border-bottom: 1px solid lightgray;
   font-size: 14px;
 }
+
+table tbody tr:hover{
+	background-color: #F2F2F2;
+}

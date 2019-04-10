@@ -29,10 +29,15 @@ a:visited{
 	text-decoration:none;
 }
 
+li{
+	text-align: left;
+}
+
 /* 이 달의 알바 */
 .maintop1_con{
   float: left;
   padding: 0 40px;
+  width: 80%;
 }
 
 
@@ -89,7 +94,9 @@ a:visited{
 .mainbot1_con{
   float: left;
   padding: 0 40px;
+  width: 80%;
 }
+
 
 .mainbot1 .title{
   height: 60px;
@@ -133,7 +140,7 @@ font-weight: bold;
 
 .mainbot2_con table{
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 20px;
 	width: 90%;
 	height: 100px;
 	position: relative;
@@ -150,3 +157,6 @@ font-weight: bold;
 	border:none;
 }
 
+.mainbot2_con table td:last-child{
+	text-align: right;
+}
