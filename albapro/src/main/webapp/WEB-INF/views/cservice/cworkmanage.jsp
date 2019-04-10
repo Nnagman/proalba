@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="resources/js/jquery.js"></script>
+<%@ include file = "../include/header.jsp" %>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script>
 $(function() {
@@ -27,7 +27,7 @@ $(function() {
 });
 </script>
 </head>
-<%@ include file = "../include/header.jsp" %>
+
 </head>
 <body>
 <c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
