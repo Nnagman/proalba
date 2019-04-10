@@ -19,6 +19,7 @@
       <div class="title">
         <h1>전자 근로계약서 - 상세보기</h1>
       </div>
+      <form id="formCon" name="formCon" method="post" action="${path}/board/insert.do">
       <div class="box">
         <br>
         <h2 class="gg">1. 근로계약기간</h2><br>
@@ -134,7 +135,7 @@
         <button class="bt1" onclick="toDataURL();">서명 저장</button><br><br>
         <button class="bt2" onclick="toDataURL();">근로계약서 보내기</button>
         </div>
-        
+   	 </form>    
       </div>
 </body>
 </html>
