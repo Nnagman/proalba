@@ -4,18 +4,6 @@
 
 <mapper namespace="com.ateam.proalba.mapper.MemberMapper">
 
-    <resultMap id="memberVOResultMap" type="com.ateam.proalba.domain.MemberVO">
-        <id property="id" column="id"/>
-        <result property="password" column="password"/>
-        <result property="name" column="name"/>
-        <result property="phone" column="phone"/>
-        <result property="email" column="email"/>
-        <result property="birthday" column="birthday"/>
-        <result property="sex" column="sex"/>
-        <result property="bank_Name" column="bank_Name"/>
-        <result property="bank_Num" column="bank_Num"/>
-        <result property="depositor" column="depositor"/>
-    </resultMap>
 
 	<select id="getList" resultType="com.ateam.proalba.domain.MemberVO">
 		select * from member
@@ -42,7 +30,7 @@
 		]]>
 	</update>
 
-	<select id="login" resultMap="memberVOResultMap">
+	<select id="login" resultType="com.ateam.proalba.domain.MemberVO">
 		<![CDATA[
 		SELECT * FROM member
 		WHERE  id = #{id} and password = ${password}
