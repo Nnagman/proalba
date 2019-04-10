@@ -11,11 +11,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="resources/js/jquery.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-<script src="resources/Semantic-UI-CSS-master/semantic.min.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/Semantic-UI-CSS-master/semantic.min.css">
+<script src="resources/js/bootstrap.js"></script>
+
+
 <script>
 $(function() {
 	var d = new Date();
@@ -99,10 +101,12 @@ $(function() {
 <body>
 <%@ include file = "../include/menu.jsp" %>
 <div class="contents">
+
 <h2 class="title"> 근태기록</h2>
 <i class="angle left icon" id="back"></i>
 <i id="date"></i>
 <i class="angle right icon" id="forward"></i>
+
 <table class="ui single line table">
   <thead>
     <tr>
@@ -147,9 +151,34 @@ $(function() {
   			<td id="lastMonth"><i class="angle down icon"></i></td>
   		</tr>
   	</table>
-  	<div class="actions" id="search"><div class="ui green ok inverted button"> 검색  </div></div>
+  	<div class="actions" id="search"><div class="ui green ok inverted button"> 검색  </div></div> 	
 </div>
-
+	<div class="div_pworkmanage_buttonline">
+  		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">달력보기</button>
+  	</div>
+  	
+  	  	<!-- 부트스트랩 -->
+  	<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <%@ include file = "../cservice/calendar.jsp" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
 </body>
 </html>
