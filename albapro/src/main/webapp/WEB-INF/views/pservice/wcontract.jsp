@@ -19,7 +19,7 @@
       <div class="title">
         <h1>전자 근로계약서 - 상세보기</h1>
       </div>
-      <form id="formCon" name="formCon" method="post" action="${path}/board/insert.do">
+      <form id="formCon" name="formCon" method="post" action="${path}/wcontract.do">
       <div class="box">
         <br>
         <h2 class="gg">1. 근로계약기간</h2><br>
@@ -39,15 +39,15 @@
         <br><br><br>
 
         <h2 class="gg">2. 근무장소</h2><br>
-        <input class="tex3" type="text" />
+        <input class="tex3" name="work_place" type="text" />
         <br><br><br>
 
         <h2 class="gg">3. 업무의 내용</h2><br>
-        <input class="tex3" type="text" />
+        <input class="tex3" name="work_detail" type="text" />
         <br><br><br>
 
         <h2 class="gg">4. 소정근로시간</h2><br>
-        <input class="tex4" type="text" maxlength="2" onkeypress="onlyNumber();" />
+        <input class="tex4" name="a" type="text" maxlength="2" onkeypress="onlyNumber();" />
         <span>시</span>
         <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
         <span>분 부터 </span>
@@ -89,7 +89,7 @@
         <br><br><br>
 
         <h2 class="gg">8. 사회보험 적용여부(해당란에 체크)</h2><br>
-        <input class="che" type="checkbox" /><span>고용보험</span>
+        <input class="che" name="" type="checkbox" /><span>고용보험</span>
         <input class="che2" type="checkbox" /><span>산재보험</span>
         <input class="che2" type="checkbox" /><span>국민연금</span>
         <input class="che2" type="checkbox" /><span>건강보험</span>
@@ -135,8 +135,8 @@
         <input class="tex10" type="text" /><br><br><br><br>
         <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="300" height="150">
         </canvas>
-        <button class="bt1" onclick="toDataURL();">서명 저장</button><br><br>
-        <button class="bt2" onclick="toDataURL();">근로계약서 보내기</button>
+        <input type="button" class="bt1" onclick="toDataURL();" value="서명 저장" /><br><br>
+        <input type="submit" class="bt2" onclick="toDataURL();" value="근로계약서 보내기">
         </div>
    	 </form>    
       </div>
