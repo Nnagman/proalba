@@ -20,8 +20,8 @@
 <c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 <%@ include file = "../include/cmenu.jsp" %>
 </c:if>
-
-
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="resources/js/addjobopening.js?ver=1"></script>
 
 
 
@@ -52,9 +52,8 @@
     });
   }
 </script>
-
-<form method="post">
 <body>
+<form method="post">
 	<div class="container">
 	<br>
 		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
@@ -62,31 +61,25 @@
 		<div class="div_table_border">
 			<h5>근무지 정보</h5>
 			<table class="table_addjobopening">
+			
+				<tr>
+					<td class="table-active">공고제목</td>
+					<td><input type="text" name="title" value="" style="width: 200%;"></td>
+				</tr>	
 
 				<tr>
 					<td class="table-active">회사/점포명</td>
-					<td><input type="text" name="com_name" value=""></td>
+					<td><input type="text" name="work_place_name" value=""></td>
 					<td class="table-active">대표자명(CEO)</td>
-					<td><input type="text" name="ceo_name" value=""></td>
+					<td><input type="text" name="c_name" value=""></td>
 				</tr>
 
 				<tr>
-					<td class="table-active">설립년도</td>
-					<td><input type="text" name="com_berth" value=""></td>
-					<td class="table-active">직원수</td>
-					<td><input type="text" name="emp_num" value=""></td>
+					<td class="table-active">모집인원</td>
+					<td><input type="text" name="personnel" value=""></td>
 				</tr>
 
 				<tr>
-					<td class="table-active">사업자등록번호</td>
-					<td><input type="text" name="Business license number" value=""></td>
-					<td class="table-active">홈페이지</td>
-					<td><input type="text" name="homepage" value=""></td>
-				</tr>
-
-				<tr>
-					<td class="table-active">회사/점포주소</td>
-					<td><input type="text" name="com_addrass" value=""></td>
 					<td class="table-active">회사로고</td>
 					<td>
 						<div class="img_wrap">
@@ -100,57 +93,19 @@
 		</div>
 		<br>
 		<div class="div_table_border">
-			<h5>담당자정보</h5>
-			<table class="table_addjobopening">
-
-				<tr>
-					<td class="table-active">회사/점포명</td>
-					<td><input type="text" name="com_name" value=""></td>
-					<td class="table-active">대표자명(CEO)</td>
-					<td><input type="text" name="ceo_name" value=""></td>
-				</tr>
-
-				<tr>
-					<td class="table-active">설립년도</td>
-					<td><input type="text" name="com_berth" value=""></td>
-					<td class="table-active">직원수</td>
-					<td><input type="text" name="emp_num" value="" /></td>
-				</tr>
-			</table>
-			<br>
-		</div>
-		<br>
-		<div class="div_table_border">
 			<h5>근무지역</h5>
 			<table class="table_addjobopening">
 
 				<tr>
 					<td class="table-active">근무지</td>
-					<td>
-						<div id="dev_sr_area_selectbox">
-							<p id="dev_duty_code_0">
-								<select class="Duty_Si_code0" name="Duty_Si_Code"
-									style="width: 150px;" title="시/도 입력" required>
-									<option value="F000">대구광역시</option>
-								</select> <select class="Duty_Gu_Code0" name="Duty_Gu_Code"
-									style="width: 150px;" title="시/군/구입력" required>
-									<option value="F010">남구</option>
-									<option value="F020">달서구</option>
-									<option value="F020">달성군</option>
-									<option value="F020">동구</option>
-									<option value="F020">북구</option>
-									<option value="F020">서구</option>
-									<option value="F020">수성구</option>
-									<option value="F020">중구</option>
-								</select>
-							</p>
-						</div>
-						<div class="div_Duty_ditail">
-							<input type="text" name="Duty_ditail" value="">
-						</div>
-					</td>
-
-				</tr>
+						<td>
+							<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호">
+							<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소" style="width: 50%;"><br>
+							<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소" style="width: 50%;"><br>
+							<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목" style="width: 50%;"><br>
+						</td>
+					</tr>
 			</table>
 		</div>
 		<br>
@@ -161,45 +116,45 @@
 
 				<tr>
 					<td class="table-active">근무기간</td>
-					<td><input type="radio" name="week_radio_1" value="">1주일
-						이하 <input type="radio" name="week_radio_2" value="">1주일
-						-1개월 <input type="radio" name="week_radio_3" value="">1개월-3개월
-						<input type="radio" name="week_radio_4" value="">3개월-6개월 <input
-						type="radio" name="week_radio_5" value="">6개월-1년 <input
-						type="radio" name="week_radio_6" value="">1년 이상 <input
-						type="radio" name="week_radio_7" value="">기간협의</td>
+					<td><input type="radio" name="term" value="1">1주일이하
+						<input type="radio" name="term" value="2">1주일-1개월
+						<input type="radio" name="term" value="3">1개월-3개월
+						<input type="radio" name="term" value="4">3개월-6개월 
+						<input type="radio" name="term" value="5">6개월-1년
+						<input type="radio" name="term" value="6">1년 이상
+						<input type="radio" name="term" value="0">기간협의</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">근무요일</td>
-					<td><select class="week" name="">
+					<td>
+						<select name="work_day" class="week">
 							<option value="none">선택</option>
-							<option value="mon">월</option>
-							<option value="tue">화</option>
-							<option value="wed">수</option>
-							<option value="thu">목</option>
-							<option value="fri">금</option>
-							<option value="sat">토</option>
-							<option value="sun">일</option>
-					</select></td>
+							<option value="1">평일</option>
+							<option value="2">주말</option>
+							<option value="3">기간협의</option>
+						</select>
+					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">근무시간</td>
-					<td><select class="se_walk_time" name="">
+					<td>
+						<select class="se_walk_time" name="work_time1">
 							<option value="none">선택</option>
-							<option value="mon">오전</option>
-							<option value="tue">오후</option>
-							<option value="wed">세벽</option>
-							<option value="thu">오전~오후</option>
-							<option value="fri">오후~세벽</option>
-							<option value="sat">풀타임</option>
-					</select> 시간 <input type="text" name="walk_time" value=""></td>
+							<option value="1">오전</option>
+							<option value="2">오후</option>
+							<option value="3">세벽</option>
+							<option value="4">오전~오후</option>
+							<option value="5">오후~세벽</option>
+							<option value="6">풀타임</option>
+						</select>	시간	<input type="text" name="work_time2" value="">
+					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">급여</td>
-					<td>급여 <input type="text" name="walk_pay" value="">
+					<td>급여 <input type="text" name="hour_wage" value="">
 					</td>
 				</tr>
 			</table>
@@ -213,33 +168,36 @@
 
 				<tr>
 					<td class="table-active">성별</td>
-					<td><input type="radio" name="gender_radio_1" value="">성별무관
-						<input type="radio" name="gender_radio_2" value="">남자
-						<input type="radio" name="gender_radio_3" value="">여자
+					<td><input type="radio" name="sex" value="1">성별무관
+						<input type="radio" name="sex" value="2">남자
+						<input type="radio" name="sex" value="3">여자
 
 					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">연령</td>
-					<td><input type="radio" name="age_radio_1" value="">연령
-						무관 <input type="radio" name="age_radio_2" value="">연령제한 <input
-						type="text" name="age_min" value="">세 이상 <input
-						type="text" name="age_max" value=""></td>
+					<td>
+						<input type="radio" name="age_set" value="">연령무관
+						<input type="radio" name="age_set" value="">연령제한 
+						<input type="text" name="age_min" value="">세 이상
+						<input type="text" name="age_max" value="">세 이하
+					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">학력조건</td>
-					<td><select class="se_walk_time" name="">
+					<td>
+						<select class="se_walk_time" name="education">
 							<option value="none">선택</option>
-							<option value="elementary">초졸</option>
-							<option value="middle">중졸</option>
-							<option value="high">고졸</option>
-							<option value="college">초대졸</option>
-							<option value="university">대졸</option>
-							<option value="uniber">기타</option>
-
-					</select></td>
+							<option value="1">초졸</option>
+							<option value="2">중졸</option>
+							<option value="3">고졸</option>
+							<option value="4">초대졸</option>
+							<option value="5">대졸</option>
+							<option value="6">무관</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -248,21 +206,18 @@
 			<h5>모집인원</h5>
 			<table class="table_addjobopening">
 
-
 				<tr>
 					<td class="table-active">모집인원</td>
 					<td>
-						<input type="text" name="recruitment" value="">명 
-						<input type="checkbox" name="recruitment_check_1" value="">0명 
-						<input type="checkbox" name="recruitment_check_2" value="">00명
+						<input type="text" name="personnel" value="">명 
 					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">모집종료일</td>
 					<td>
-						<input type="text" name="end_recruitment" value="">
-						<input type="checkbox" name="end_recruitment_check_1" value="">상시모집
+						<input type="text" name="end_date" value="">
+						<input type="checkbox" name="end_date" value="">상시모집
 					</td>
 				</tr>
 			</table>

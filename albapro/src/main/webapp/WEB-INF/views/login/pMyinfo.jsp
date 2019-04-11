@@ -70,7 +70,7 @@
 							<tr>
 								<th>이메일</th>
 								<td>
-									<input type="text" name="email" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+									<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
 									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
 								</td>
