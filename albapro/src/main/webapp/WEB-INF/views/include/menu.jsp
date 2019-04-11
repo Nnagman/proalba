@@ -18,7 +18,7 @@
 				<div class="column">
 					<h3>이력서 등록 관리</h3>
 					<ul>
-						<li><a href="${path}/wresume">새 이력서 작성</a>
+						<li><a href="${path}/writeResume">새 이력서 작성</a>
 						<li><a href="${path}/maresume">이력서 관리</a>
 					</ul>
 				</div>
