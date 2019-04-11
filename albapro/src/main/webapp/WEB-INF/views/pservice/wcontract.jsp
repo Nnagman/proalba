@@ -1,20 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.slim.js"
-  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-  crossorigin="anonymous"></script>
+
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=2">
-<script type="text/javascript" src="resources/js/contract.js?ver=2"></script>
-<title>전자 근로계약서-프로알바</title>
-</head>
-<body>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen"
+     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <%@ include file = "../include/header.jsp" %>
+
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<script type="text/javascript" src="resources/js/contract.js?ver=2"></script>
+
+
+<title>전자 근로계약서-프로알바</title>
+
+
+
+
+<script>
+
+
+
+    $(function() {
+      $( "#startSearchDate, #endSearchDate").datepicker({
+          dateFormat: 'yy-mm-dd',
+          prevText: '이전 달',
+          nextText: '다음 달',
+          showOn: "both",
+          buttonImage: "resources/images/date1.png",
+          changeMonth: true,
+          changeYear: true,
+          changeMonth: true,
+          dayNames: ['월', '화', '수', '목', '금', '토', '일'],
+          dayNamesShort: ['월', '화', '수', '목', '금', '토', '일'],
+          dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+          monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+          monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+          showMonthAfterYear: true,
+          yearSuffix: '년'
+      });
+      
+    
+    });
+</script>
+
+
+
+
+</head>
+
+
+<body>
 <%@ include file = "../include/menu.jsp" %>
+
     <div class="contents">
       <div class="title">
         <h1>전자 근로계약서 - 상세보기</h1>
@@ -22,19 +70,13 @@
       <div class="box">
         <br>
         <h2 class="gg">1. 근로계약기간</h2><br>
-        <input class="tex1" type="text" maxlength="4" onkeypress="onlyNumber();" />
-        <span>년</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>월</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>일  부터</span>
+        <input class="tex1" type="text" maxlength="4"  id="startSearchDate" />
+        <span>부터</span>
+    
         <br>
-        <input class="tex1" type="text" maxlength="4" onkeypress="onlyNumber();" />
-        <span>년</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>월</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>일 까지</span>
+        <input class="tex1" type="text" maxlength="4" id="endSearchDate" />
+        <span>까지</span>
+      
         <br><br><br>
 
         <h2 class="gg">2. 근무장소</h2><br>
@@ -46,22 +88,49 @@
         <br><br><br>
 
         <h2 class="gg">4. 소정근로시간</h2><br>
-        <input class="tex4" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 부터 </span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 까지 (휴게시간 :</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 ~ </span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분)</span>
+
+<div class="worktime_div">
+	<span class="timepiker_txt_title">근로시간</span>
+			
+			<div id="datetimepicker3" class="input-append">
+				<input class="timepiker" data-format="hh:mm:ss" type="text"></input>
+				<span class="add-on"><i data-time-icon="icon-time"
+					data-date-icon="icon-calendar"> </i></span>
+			</div>		
+			<span class="timepiker_txt">부터</span>
+			
+			<div id="datetimepicker4" class="input-append">
+					<input class="timepiker2" data-format="hh:mm:ss" type="text"></input>
+					<span class="add-on"><i data-time-icon="icon-time"
+						data-date-icon="icon-calendar"> </i></span>
+			</div>
+			<span class="timepiker_txt">까지</span>
+</div>
+		
+		
+<div class="break_div">			
+	<span class="timepiker_txt_title">휴계시간</span>
+			
+			<div id="datetimepicker5" class="input-append">
+				<input class="timepiker" data-format="hh:mm:ss" type="text"></input>
+				<span class="add-on"><i data-time-icon="icon-time"
+					data-date-icon="icon-calendar"> </i></span>
+				
+			</div>	
+			<span class="timepiker_txt">부터</span>
+			<div id="datetimepicker6" class="input-append">
+					<input class="timepiker2" data-format="hh:mm:ss" type="text"></input>
+					<span class="add-on"><i data-time-icon="icon-time"
+						data-date-icon="icon-calendar"> </i></span>
+			</div>
+			<span class="timepiker_txt">까지</span>
+</div>		
+			
+ 
+ 
+ 
+     
+       
         <br><br><br>
 
         <h2 class="gg">5. 근무일/휴일</h2><br>
@@ -131,13 +200,48 @@
         <input class="tex9" type="text" maxlength="4" onkeypress="onlyNumber();" />
         <span class="sp2">근로자: </span><br><br>
         <span class="t3">주소: </span>
-        <input class="tex10" type="text" /><br><br><br><br>
+        <input class="tex10" type="text" /><br><br><br>
         <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="300" height="150">
         </canvas>
-        <button class="bt1" onclick="toDataURL();">서명 저장</button><br><br>
+        <div class="wcontract_btnline">
+        <button class="bt1" onclick="toDataURL();">서명 저장</button>
         <button class="bt2" onclick="toDataURL();">근로계약서 보내기</button>
+         <br><br> <br><br>
         </div>
-        
-      </div>
+        </div>
+              
+        </div>
+ <br><br> <br><br>
+       <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+      
+       <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+    
+    
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker3').datetimepicker({
+      pickDate: false
+    });
+    
+    $('#datetimepicker4').datetimepicker({
+        pickDate: false
+      });
+    
+    $('#datetimepicker5').datetimepicker({
+        pickDate: false
+      });
+    
+    $('#datetimepicker6').datetimepicker({
+        pickDate: false
+      });
+  });
+</script>
 </body>
 </html>

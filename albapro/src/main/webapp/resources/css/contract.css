@@ -14,7 +14,7 @@
       .box{
         position: relative;
         width:1250px;
-        height: 2050px;
+        height:100%;
         border: 1px solid black;
         top:10px;
         left:250px;
@@ -38,7 +38,7 @@
         height: 25px;
         position: relative;
         margin-left: 35%;
-        width:55px;
+        width:130px;
         border: 1px solid white;
         border-bottom: 1px solid black;
       }
@@ -142,7 +142,7 @@
       }
 
       .che{
-        margin-left: 35%;
+        margin-left: 35% !important;
         width:18px;
         height:18px;
         position:relative;
@@ -150,7 +150,7 @@
       }
 
       .che2{
-        margin-left: 5%;
+        margin-left: 5% !important;
         width:18px;
         height:18px;
         position:relative;
@@ -186,7 +186,7 @@
       }
 
       .bt2{
-        margin-left:800px;
+      
         width: 150px;
       }
       
@@ -194,3 +194,21 @@
     	position:relative;
     	top:550px;
       }
+      
+      /* 타임피커 css */
+      .input-append{
+		display:inline-block;
+		vertical-align:middle !important;
+	 }
+	 
+	
+  	.timepiker_txt_title{
+  	margin-left: 35%;
+  	vertical-align:middle;
+  	}   
+  	
+  	.wcontract_btnline{
+  	display:block;
+  	margin-left:60%;
+  	}
+  
