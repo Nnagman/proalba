@@ -130,6 +130,15 @@ td{
   font-size: 14px;
 }
 
+.job{
+	width: 300px;
+}
+
 table tbody tr:hover{
 	background-color: #F2F2F2;
+}
+
+form{
+	height: 100%;
+	
 }
