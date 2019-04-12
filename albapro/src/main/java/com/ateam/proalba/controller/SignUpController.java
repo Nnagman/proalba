@@ -71,7 +71,7 @@ public class SignUpController {
     	logger.info(memberVO.getId());
     	memberService.pregisterModify(memberVO);
     	
-    	return "redirect:../";
+    	return "redirect:/";
     }
     
     
@@ -79,8 +79,6 @@ public class SignUpController {
     
     @RequestMapping(value = "/cregister", method = RequestMethod.POST)
     public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
-    	
-    	
     	
     	logger.info(memberVO.getPhone());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());

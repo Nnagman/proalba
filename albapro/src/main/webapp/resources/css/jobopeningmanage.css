@@ -1,9 +1,10 @@
-body{
-  color: #555;
-  background: #eeeeee;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.contents{
+	height: 100%;
+	color: #555;
+	background-color: #eeeeee !important;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* 공고 메뉴 */
@@ -23,6 +24,7 @@ p{
   padding: 50px;
   margin: 0 auto;
   background: #ffffff;
+  margin-bottom: 50px;
 }
 
 input[type="radio"]{
@@ -114,7 +116,7 @@ table, tr, th, td{
   margin: 0;
   padding: 0;
   text-align: center;
-  border: 0;
+
 }
 
 th{
@@ -130,6 +132,15 @@ td{
   font-size: 14px;
 }
 
+.job{
+	width: 300px;
+}
+
 table tbody tr:hover{
 	background-color: #F2F2F2;
+}
+
+form{
+	height: 100%;
+	
 }
