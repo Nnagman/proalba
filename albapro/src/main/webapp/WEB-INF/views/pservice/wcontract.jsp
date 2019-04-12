@@ -71,11 +71,11 @@
       <div class="box">
         <br>
         <h2 class="gg">1. 근로계약기간</h2><br>
-        <input class="tex1" type="text" maxlength="4"  id="startSearchDate" />
+        <input class="tex1" name="start_period" type="text" maxlength="4"  id="startSearchDate" />
         <span>부터</span>
     
         <br>
-        <input class="tex1" type="text" maxlength="4" id="endSearchDate" />
+        <input class="tex1" name="end_period" type="text" maxlength="4" id="endSearchDate" />
         <span>까지</span>
       
         <br><br><br>
@@ -89,20 +89,19 @@
         <br><br><br>
 
         <h2 class="gg">4. 소정근로시간</h2><br>
-<<<<<<< HEAD
 
 <div class="worktime_div">
 	<span class="timepiker_txt_title">근로시간</span>
 			
 			<div id="datetimepicker3" class="input-append">
-				<input class="timepiker" data-format="hh:mm:ss" type="text"></input>
+				<input class="timepiker" name="start_work_time" data-format="hh:mm" type="text"></input>
 				<span class="add-on"><i data-time-icon="icon-time"
 					data-date-icon="icon-calendar"> </i></span>
 			</div>		
 			<span class="timepiker_txt">부터</span>
 			
-			<div id="datetimepicker4" class="input-append">
-					<input class="timepiker2" data-format="hh:mm:ss" type="text"></input>
+			<div id="datetimepicker4"  class="input-append">
+					<input class="timepiker2" name="end_work_time" data-format="hh:mm" type="text"></input>
 					<span class="add-on"><i data-time-icon="icon-time"
 						data-date-icon="icon-calendar"> </i></span>
 			</div>
@@ -114,43 +113,18 @@
 	<span class="timepiker_txt_title">휴계시간</span>
 			
 			<div id="datetimepicker5" class="input-append">
-				<input class="timepiker" data-format="hh:mm:ss" type="text"></input>
-				<span class="add-on"><i data-time-icon="icon-time"
-					data-date-icon="icon-calendar"> </i></span>
+				<input class="timepiker" name="start_break_time" data-format="hh:mm" type="text"></input>
+				<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
 				
 			</div>	
 			<span class="timepiker_txt">부터</span>
 			<div id="datetimepicker6" class="input-append">
-					<input class="timepiker2" data-format="hh:mm:ss" type="text"></input>
-					<span class="add-on"><i data-time-icon="icon-time"
-						data-date-icon="icon-calendar"> </i></span>
+					<input class="timepiker2" name="end_break_time" data-format="hh:mm" type="text"></input>
+					<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
 			</div>
 			<span class="timepiker_txt">까지</span>
 </div>		
-			
- 
- 
- 
-     
-       
-=======
-        <input class="tex4" name="a" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 부터 </span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 까지 (휴게시간 :</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분 ~ </span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>시</span>
-        <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
-        <span>분)</span>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
         <br><br><br>
 
         <h2 class="gg">5. 근무일/휴일</h2><br>
@@ -264,9 +238,7 @@
       });
   });
 </script>
-=======
    	 </form>    
       </div>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </body>
 </html>
