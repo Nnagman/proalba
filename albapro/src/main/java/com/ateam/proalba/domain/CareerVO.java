@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class CareerVO {
-	private Date appDate;
-	private String company;
-	private Date endDate;
-	private String occupation;
+	private Date join_date;
+	private String work_place_name;
+	private Date end_date;
+	private String work_type;
 }

@@ -146,7 +146,7 @@ $(document).ready(function(){
 		});
 		
 		var d = new Date();
-		var m_code = $("#m_code").val()+d.getFullYear()+""+(d.getMonth()+1)+""+d.getDate()+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds();
+		var m_code = $("#m_code").val()+$('#id').val();
 		console.log(m_code);
 		$("#m_code").val(m_code);
 });
