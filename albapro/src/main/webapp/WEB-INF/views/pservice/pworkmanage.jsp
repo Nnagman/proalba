@@ -10,15 +10,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="resources/js/jquery.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 <script src="resources/js/bootstrap.js"></script>
 
-
 <script>
+$("#date").click(function(){
+	var searchMonth = d.getMonth()+1 
+	var searchYear = d.getFullYear()
+	
+	$("#year").val(searchYear);
+	$("#month").val(searchMonth);
+	$('.ui.basic.modal').modal('show');
+	
+	$('#nextYear').click(function(){
+		searchYear = searchYear + 1;
+		$("#year").val(searchYear);
+	});
+	
+	$('#lastYear').click(function(){
+		searchYear = searchYear - 1;
+		$("#year").val(searchYear);
+	});
+	
+	$('#nextMonth').click(function(){
+		searchMonth = searchMonth + 1;
+		if(searchMonth>12){ searchMonth = 12; }
+		$("#month").val(searchMonth);
+	});
+	
+	$('#lastMonth').click(function(){
+		searchMonth = searchMonth - 1;
+		if(searchMonth<1){ searchMonth = 1; }
+		$("#month").val(searchMonth);
+	});
+	
+	$('#search').click(function(){
+		year = searchYear; month = searchMonth;
+		searchMonth = $('#month').val();
+		searchYear = $("#year").val();
+		currentDate = searchYear + "년 " + searchMonth + "월 ";
+		$("#date").text(currentDate);
+	});
+});
+
 $(function() {
 	var d = new Date();
 	var month = d.getMonth() + 1;
@@ -54,49 +94,8 @@ $(function() {
 			$("#date").text(currentDate);
 		}
 	});
-	
-	$("#date").click(function(){
-		var searchMonth = d.getMonth()+1 
-		var searchYear = d.getFullYear()
-		
-		$("#year").val(searchYear);
-		$("#month").val(searchMonth);
-		$('.ui.basic.modal').modal('show');
-		
-		$('#nextYear').click(function(){
-			searchYear = searchYear + 1;
-			$("#year").val(searchYear);
-		});
-		
-		$('#lastYear').click(function(){
-			searchYear = searchYear - 1;
-			$("#year").val(searchYear);
-		});
-		
-		$('#nextMonth').click(function(){
-			searchMonth = searchMonth + 1;
-			if(searchMonth>12){ searchMonth = 12; }
-			$("#month").val(searchMonth);
-		});
-		
-		$('#lastMonth').click(function(){
-			searchMonth = searchMonth - 1;
-			if(searchMonth<1){ searchMonth = 1; }
-			$("#month").val(searchMonth);
-		});
-		
-		$('#search').click(function(){
-			year = searchYear; month = searchMonth;
-			searchMonth = $('#month').val();
-			searchYear = $("#year").val();
-			currentDate = searchYear + "년 " + searchMonth + "월 ";
-			$("#date").text(currentDate);
-		});
-	});
 });
 </script>
-</head>
-<%@ include file = "../include/header.jsp" %>
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>

@@ -80,7 +80,7 @@
 						<thead class="thead-light">
 							<tr>
 								<th><input type="checkbox" /></th>
-								<th>공고번호/등록일</th>
+								<th>등록일</th>
 								<th>게재현황</th>
 								<th class="job">채용공고</th>
 								<th>열람 횟수</th>
