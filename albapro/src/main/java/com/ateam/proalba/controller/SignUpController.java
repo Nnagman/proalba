@@ -25,7 +25,7 @@ import com.ateam.proalba.service.MemberService;
 @Controller
 public class SignUpController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
 	
 	private final MemberService memberService;
 	

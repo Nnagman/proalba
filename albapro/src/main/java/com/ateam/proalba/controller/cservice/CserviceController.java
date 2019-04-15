@@ -1,15 +1,28 @@
 package com.ateam.proalba.controller.cservice;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.service.AddJobOpeningService;
 
 @Controller
 public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
+	
+	private final AddJobOpeningService addJobOpeningService;
+	
+	@Inject
+	public CserviceController(AddJobOpeningService addJobOpeningService) {
+		this.addJobOpeningService = addJobOpeningService;
+	}
 
 	@RequestMapping(value = "/cservice", method = RequestMethod.GET)
 	public String cserviceGET(Model model) throws Exception {
@@ -23,6 +36,17 @@ public class CserviceController {
 		logger.info("Welcome CserviceController");
 		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
 		return "cservice/addjobopening";
+	}
+	
+	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.POST)
+	public String addjobopeningPOST(NoticeVO noticeVO, RedirectAttributes redirectAttributes) throws Exception {
+		
+		logger.info(noticeVO.toString());
+		
+		addJobOpeningService.addJobOpening(noticeVO);
+		
+		redirectAttributes.addFlashAttribute("msg", "POSTED");
+		return "cservice/jobopeningmanage";
 	}
 	
 	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.GET)

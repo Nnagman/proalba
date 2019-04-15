@@ -8,10 +8,10 @@
     <select id="listAll" resultType="com.ateam.proalba.domain.CareerVO">
         <![CDATA[
         SELECT
-            appdate,
-            company,
-            enddate,
-            occupation
+            join_date,
+            work_place_name,
+            end_date,
+            work_type
         FROM career
         ]]>
     </select>
@@ -19,13 +19,13 @@
     <select id="listPaging" resultMap="CareerVOResultMap">
     	<![CDATA[
     	SELECT
-    		appdate,
-            company,
-            enddate,
-            occupation
+            join_date,
+            work_place_name,
+            end_date,
+            work_type
     	FROM career
-    	WHERE appdate != null
-    	ORDER BY appdate DESC
+    	WHERE join_date != null
+    	ORDER BY join_date DESC
     	LIMIT #{page}, 10
     	]]>
 	</select>
@@ -33,20 +33,20 @@
 	<select id="listCriteria" resultMap="CareerVOResultMap">
 	    <![CDATA[
 	    SELECT
-        	appdate,
-        	company,
-        	enddate,
-        	occupation
-    	FROM (SELECT rownum rn, appdate, company, enddate, occupation from career order by appdate desc)
+            join_date,
+            work_place_name,
+            end_date,
+            work_type
+    	FROM (SELECT rownum rn, join_date, work_place_name, end_date, work_type from career order by join_date desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
     	]]>
 	</select>
 
     <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
-        <id property="appDate" column="appDate" />
-        <result property="company" column="company" />
-        <result property="endDate" column="endDate" />
-        <result property="occupation" column="occupation" />
+        <id property="join_date" column="join_date" />
+        <result property="work_palce_name" column="work_palce_name" />
+        <result property="end_date" column="end_date" />
+        <result property="work_type" column="work_tyep" />
     </resultMap>
     
     <select id="countCareers" resultType="int">

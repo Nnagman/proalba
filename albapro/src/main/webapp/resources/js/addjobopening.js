@@ -45,3 +45,39 @@ function execDaumPostcode(){
          }
      }).open();
  }
+
+$(function(){
+	var address1,address2,address3,address4,address;
+	var d = new Date();
+	var date = d.getFullYear() + '' + d.getMonth() + '' + d.getDate() + ''
+				+ d.getHours() + '' + d.getMinutes() + '' + d.getSeconds();
+	
+	$("#submit").click(function(){
+		address1 = $("#sample6_postcode").val();
+		address2 = $("#sample6_address").val();
+		address3 = $("#sample6_detailAddress").val();
+		address4 = $("#sample6_extraAddress").val();
+		address=address1+address2+address4+address3;
+		$("#sample6_extraAddress").append('<input name="address" value="'+address+'" type="text"/>');
+		console.log(address1);
+		console.log(address2);
+		console.log(address3);
+		console.log(address4);
+		var n_code = 'c'+$('#id').val()+date;
+		$("#sample6_extraAddress").append('<input name="n_code" value="'+n_code+'" type="text"/>');
+		var age="1";
+		if($("#age_set").val() == "1"){
+			age = "1"
+			
+		}else {
+			age = $("#age_min").val() + '/' + $("#age_max").val()
+		}
+		
+		$("#sample6_extraAddress").append('<input name="age" value="'+age+'" type="text"/>');
+		var m_code = 'c'+$('#id').val();
+		var content = $('#content').val();
+		$("#sample6_extraAddress").append('<input name="m_code" value="'+m_code+'" type="text"/>');
+		$("#sample6_extraAddress").append('<input name="job_type" value="1" type="text"/>');
+		$("#sample6_extraAddress").append('<input name="p_date" value="'+d.getTime()+'" type="text"/>');
+	});
+});
