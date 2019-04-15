@@ -14,19 +14,42 @@
 
 <!-- 자체 css -->
 <link rel="stylesheet" href="resources/css/addjobopening_free.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <%@ include file="../include/header.jsp"%>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="resources/js/addjobopening.js?ver=3"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 <%@ include file = "../include/cmenu.jsp" %>
-</c:if>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="resources/js/addjobopening.js?ver=1"></script>
+</c:if>	
 
-
-
-<script type="text/javascript">
+<script>
   var sel_file;
+	$(function() {
+		$("#startSearchDate, #endSearchDate").datepicker(
+				{
+					dateFormat : 'yy-mm-dd',
+					prevText : '이전 달',
+					nextText : '다음 달',
+					showOn : "both",
+					buttonImage : "resources/images/date1.png",
+					changeMonth : true,
+					changeYear : true,
+					changeMonth : true,
+					dayNames : [ '월', '화', '수', '목', '금', '토', '일' ],
+					dayNamesShort : [ '월', '화', '수', '목', '금', '토', '일' ],
+					dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ],
+					showMonthAfterYear : true,
+					yearSuffix : '년'
+				});
+	});
 
   $(document).ready(function() {
     $("#input_img").on("change", handleImgFileSelect);
@@ -52,16 +75,16 @@
     });
   }
 </script>
-<body>
-<form method="post">
+<body id="1">
+<form method="post" action="addjobopening_free">
 	<div class="container">
+	<input type="hidden" id="id" name="custId" value='${login.id}'/>
 	<br>
 		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
 		<br>
 		<div class="div_table_border">
 			<h5>근무지 정보</h5>
 			<table class="table_addjobopening">
-			
 				<tr>
 					<td class="table-active">공고제목</td>
 					<td><input type="text" name="title" value="" style="width: 200%;"></td>
@@ -88,7 +111,6 @@
 						value="">
 					</td>
 				</tr>
-
 			</table>
 		</div>
 		<br>
@@ -103,7 +125,7 @@
 							<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
 							<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소" style="width: 50%;"><br>
 							<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소" style="width: 50%;"><br>
-							<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목" style="width: 50%;"><br>
+							<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
 						</td>
 					</tr>
 			</table>
@@ -148,7 +170,7 @@
 							<option value="4">오전~오후</option>
 							<option value="5">오후~세벽</option>
 							<option value="6">풀타임</option>
-						</select>	시간	<input type="text" name="work_time2" value="">
+						</select>	시간	<input type="text" name="work_time2" value=" ">
 					</td>
 				</tr>
 
@@ -178,10 +200,9 @@
 				<tr>
 					<td class="table-active">연령</td>
 					<td>
-						<input type="radio" name="age_set" value="">연령무관
-						<input type="radio" name="age_set" value="">연령제한 
-						<input type="text" name="age_min" value="">세 이상
-						<input type="text" name="age_max" value="">세 이하
+						<input type="radio" name="age_set" id="age_set" value="1">연령무관
+						<input type="text" name="age_min" id="age_min" value=" ">세 이상
+						<input type="text" name="age_max" id="age_max" value=" ">세 이하
 					</td>
 				</tr>
 
@@ -203,21 +224,23 @@
 		</div>
 		<br>
 		<div class="div_table_border">
-			<h5>모집인원</h5>
+			<h5>모집종료일</h5>
 			<table class="table_addjobopening">
-
-				<tr>
-					<td class="table-active">모집인원</td>
-					<td>
-						<input type="text" name="personnel" value="">명 
-					</td>
-				</tr>
-
 				<tr>
 					<td class="table-active">모집종료일</td>
 					<td>
-						<input type="text" name="end_date" value="">
-						<input type="checkbox" name="end_date" value="">상시모집
+						<input type="text" id="startSearchDate" name="end_date" value="" style="height: 18px; width: 120px">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="div_table_border">
+			<h5>추가내용</h5>
+			<table class="table_addjobopening">
+				<tr>
+					<td>
+						<textarea rows="5" cols="100" id="content" name="content"></textarea>
 					</td>
 				</tr>
 			</table>
@@ -225,15 +248,11 @@
 		<br>
 		
 		<div class="buttonline_addjobopening_free">
-		<input type="submit" value="등록" />
-		<button type="button" class="btn btn-default btn-lg active">취소</button>
-		</div>
-		<br>
+			<input type="submit" id="submit" value="등록" />
+		</div> <br>
 	</div>
 </form>
 	<%@ include file="../include/footer.jsp"%>
-	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-	<script src="resources/js/jquery.js"></script>
 	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 	<script src="resources/js/bootstrap.js"></script>
 </body>

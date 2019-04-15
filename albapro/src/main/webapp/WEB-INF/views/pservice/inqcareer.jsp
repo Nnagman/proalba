@@ -9,6 +9,8 @@
 </head>
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <%@ include file = "../include/header.jsp" %>
+<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
@@ -31,31 +33,38 @@
 		<tbody>
 			<c:forEach var="career" varStatus="i" items="${careers}">
 				<tr>
-					<td>${career.appDate}</td>
-					<td>${career.company}</td>
-					<td>${career.endDate}</td>
-					<td>${career.occupation}</td>
+					<td>${career.join_date}</td>
+					<td>${career.work_place_name}</td>
+					<td>${career.end_date}</td>
+					<td>${career.work_type}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 		</table>
-		<div class="box-footer">
-			<div class="text-center">
-        		<ul class="pagination">
-            		<c:if test="${pageMaker.prev}">
-                		<li><a href="inqcareer?page=${pageMaker.startPage - 1}">이전</a></li>
-            		</c:if>
-            		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-                		<li <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>>
-                    		<a href="inqcareer?page=${idx}">${idx}</a>
-                		</li>
-            		</c:forEach>
-            		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                		<li><a href="inqcareer?page=${pageMaker.endPage + 1}">다음</a></li>
-            		</c:if>
-        		</ul>
-    		</div>
-		</div>
+				<div class="ui mini horizontal divided list">
+					<c:if test="${pageMaker.prev}">
+					<div class="item">
+						<div class="content">
+							<div class="header"><a href="inqcareer?page=${pageMaker.startPage - 1}">이전</a></div>
+						</div>
+					</div>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					<div class="item">
+						<div class="content">
+							<div class="header">
+                    		<a href="inqcareer?page=${idx}">${idx}</a></div>
+						</div>
+					</div>
+					</c:forEach>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<div class="item">
+						<div class="content">
+							<div class="header"><a href="inqcareer?page=${pageMaker.endPage + 1}">다음</a></div>
+						</div>
+					</div>
+					</c:if>
+				</div>
 	</form>
 </div>
 </div>

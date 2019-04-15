@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.AddJobOpeningMapper">
+	<insert id="addJobOpening">
+		<![CDATA[
+			insert into notice
+			(n_code, m_code, title, job_type, personnel, end_date, hour_wage, sex, age, way, term, 
+			work_day, work_time1, work_time2, p_date, address, content, work_place_name, education, viewcnt)
+			values( #{n_code}, #{m_code}, #{title}, #{job_type}, #{personnel}, #{end_date}, 
+			#{hour_wage}, #{sex}, #{age}, #{way}, #{term}, #{work_day}, #{work_time1}, #{work_time2}, 
+			#{p_date}, #{address}, #{content}, #{work_place_name}, #{education}, '0')
+		]]>
+	</insert>
+</mapper>

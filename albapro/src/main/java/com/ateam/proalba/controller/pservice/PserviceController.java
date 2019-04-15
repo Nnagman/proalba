@@ -84,8 +84,8 @@ public class PserviceController {
 		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
 		model.addAttribute("careers", careerService.listCriteria(criteria));
 		model.addAttribute("pageMaker", pageMaker);
-//		logger.info(Integer.toString(criteria.getPageStart()));
-//		logger.info(Integer.toString(criteria.getPerPageNum()));
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "pservice/inqcareer";
 	}
 	
