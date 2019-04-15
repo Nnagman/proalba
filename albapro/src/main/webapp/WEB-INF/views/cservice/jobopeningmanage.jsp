@@ -38,6 +38,13 @@
 				});
 	});
 </script>
+ <script>
+      $( document ).ready( function() {
+        $( '.check_all' ).click( function() {
+          $( '.check' ).prop( 'checked', this.checked );
+        } );
+      } );
+    </script>
 </head>
 <body>
 	<c:if
@@ -79,7 +86,7 @@
 					<table class="table">
 						<thead class="thead-light">
 							<tr>
-								<th><input type="checkbox" /></th>
+								<th><input type="checkbox" class="check_all"/></th>
 								<th>등록일</th>
 								<th>게재현황</th>
 								<th class="job">채용공고</th>
@@ -89,7 +96,7 @@
 						<tbody>
 					<%-- <c:forEach items="${ }" var=""> --%>
 							<tr>
-								<td><input type="checkbox" /></td>
+								<td><input type="checkbox" class="check"/></td>
 								<td>20180409</td>
 								<td>게재중</td>
 								<td>공고</td>

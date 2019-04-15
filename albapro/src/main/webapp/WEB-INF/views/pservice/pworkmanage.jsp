@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
@@ -17,47 +16,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
-<script src="resources/js/bootstrap.js"></script>
 
 <script>
-$("#date").click(function(){
-	var searchMonth = d.getMonth()+1 
-	var searchYear = d.getFullYear()
-	
-	$("#year").val(searchYear);
-	$("#month").val(searchMonth);
-	$('.ui.basic.modal').modal('show');
-	
-	$('#nextYear').click(function(){
-		searchYear = searchYear + 1;
-		$("#year").val(searchYear);
-	});
-	
-	$('#lastYear').click(function(){
-		searchYear = searchYear - 1;
-		$("#year").val(searchYear);
-	});
-	
-	$('#nextMonth').click(function(){
-		searchMonth = searchMonth + 1;
-		if(searchMonth>12){ searchMonth = 12; }
-		$("#month").val(searchMonth);
-	});
-	
-	$('#lastMonth').click(function(){
-		searchMonth = searchMonth - 1;
-		if(searchMonth<1){ searchMonth = 1; }
-		$("#month").val(searchMonth);
-	});
-	
-	$('#search').click(function(){
-		year = searchYear; month = searchMonth;
-		searchMonth = $('#month').val();
-		searchYear = $("#year").val();
-		currentDate = searchYear + "년 " + searchMonth + "월 ";
-		$("#date").text(currentDate);
-	});
-});
 
 $(function() {
 	var d = new Date();
@@ -93,6 +53,45 @@ $(function() {
 			var currentDate = year + "년 " + month + "월 ";
 			$("#date").text(currentDate);
 		}
+	});
+	
+	$("#date").click(function(){
+		var searchMonth = d.getMonth()+1 
+		var searchYear = d.getFullYear()
+		
+		$("#year").val(searchYear);
+		$("#month").val(searchMonth);
+		$('.ui.basic.modal').modal('show');
+		
+		$('#nextYear').click(function(){
+			searchYear = searchYear + 1;
+			$("#year").val(searchYear);
+		});
+		
+		$('#lastYear').click(function(){
+			searchYear = searchYear - 1;
+			$("#year").val(searchYear);
+		});
+		
+		$('#nextMonth').click(function(){
+			searchMonth = searchMonth + 1;
+			if(searchMonth>12){ searchMonth = 12; }
+			$("#month").val(searchMonth);
+		});
+		
+		$('#lastMonth').click(function(){
+			searchMonth = searchMonth - 1;
+			if(searchMonth<1){ searchMonth = 1; }
+			$("#month").val(searchMonth);
+		});
+		
+		$('#search').click(function(){
+			year = searchYear; month = searchMonth;
+			searchMonth = $('#month').val();
+			searchYear = $("#year").val();
+			currentDate = searchYear + "년 " + searchMonth + "월 ";
+			$("#date").text(currentDate);
+		});
 	});
 });
 </script>
@@ -155,14 +154,13 @@ $(function() {
 	<div class="div_pworkmanage_buttonline">
   		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">달력보기</button>
   	</div>
-  	
-  	  	<!-- 부트스트랩 -->
+  	  	  	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
+    	<script src="resources/js/bootstrap.js"></script>
+      <!-- Modal content  -->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
