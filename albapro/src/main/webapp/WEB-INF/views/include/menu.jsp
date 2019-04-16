@@ -76,7 +76,7 @@
 					<h3>온라인 문의</h3>
 					<ul>
 						<li><a href="${path}/qna">문의하기</a>
-						<li><a href="${path}/qanlist">나의 문의 내역</a>
+						<li><a href="${path}/qnalist">나의 문의 내역</a>
 					</ul>
 				</div>
 			</div>
