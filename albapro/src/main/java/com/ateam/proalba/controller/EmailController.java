@@ -25,24 +25,24 @@ public class EmailController {
 	@ResponseBody
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
 	public int mailSender(HttpServletRequest request, ModelMap mo, String mail) {
-		//0ì€ ì •ìƒ
-		//-1 = ì´ë©”ì¼ ê°’ ë„
-		//-2 = ê³„ì • ì ‘ê·¼ ê¶Œí•œì´ ì—†ê±°ë‚˜ í¬íŠ¸ê°€ ì•ˆì—´ë ¤ ìˆëŠ”ê±°ì„
+		//0Àº Á¤»ó
+		//-1 = ÀÌ¸ŞÀÏ °ª ³Î
+		//-2 = °èÁ¤ Á¢±Ù ±ÇÇÑÀÌ ¾ø°Å³ª Æ÷Æ®°¡ ¾È¿­·Á ÀÖ´Â°ÅÀÓ   
 		if(mail == null) return -1;
 	    
 		
-		// ë„¤ì´ë²„ì¼ ê²½ìš° smtp.naver.com ì„ ì…ë ¥í•©ë‹ˆë‹¤.
-		// Googleì¼ ê²½ìš° smtp.gmail.com ì„ ì…ë ¥í•©ë‹ˆë‹¤.
+		// ³×ÀÌ¹öÀÏ °æ¿ì smtp.naver.com À» ÀÔ·ÂÇÕ´Ï´Ù.
+		// GoogleÀÏ °æ¿ì smtp.gmail.com À» ÀÔ·ÂÇÕ´Ï´Ù.
 		String host = "smtp.gmail.com";
 
-		final String username = "nnagman"; // êµ¬ê¸€ ì•„ì´ë”” @gmail.com ë¹¼ê³ 
-		final String password = "ic0cadafgdgaa!"; // ë¹„ë°€ë²ˆí˜¸
-		int port = 465; // í¬íŠ¸ë²ˆí˜¸
+		final String username = "nnagman"; // ±¸±Û ¾ÆÀÌµğ @gmail.com »©°í
+		final String password = "ic0cadafgdgaa!"; // ºñ¹Ğ¹øÈ£
+		int port = 465; // Æ÷Æ®¹øÈ£
 
-		// ë©”ì¼ ë‚´ìš©
-		String recipient = mail; // ë°›ëŠ” ì‚¬ëŒì˜ ë©”ì¼ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.
-		String subject = "ë©”ì¼í…ŒìŠ¤íŠ¸"; // ë©”ì¼ ì œëª© ì…ë ¥í•´ì£¼ì„¸ìš”.
-		String Roll = "";	//ëœë¤ê°’
+		// ¸ŞÀÏ ³»¿ë
+		String recipient = mail; // ¹Ş´Â »ç¶÷ÀÇ ¸ŞÀÏÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+		String subject = "¸ŞÀÏÅ×½ºÆ®"; // ¸ŞÀÏ Á¦¸ñ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+		String Roll = "";	//·£´ı°ª
 		for (int i = 0; i < 8; i++) {
 			int rndVal = (int) (Math.random() * 62);
 			if (rndVal < 10) {
@@ -54,18 +54,18 @@ public class EmailController {
 			}
 		}
 
-		String body = "ì¸ì¦ë²ˆí˜¸ : " + Roll; // ë©”ì¼ ë‚´ìš© ì…ë ¥í•´ì£¼ì„¸ìš”.
+		String body = "ÀÎÁõ¹øÈ£ : " + Roll; // ¸ŞÀÏ ³»¿ë ÀÔ·ÂÇØÁÖ¼¼¿ä.
 
-		Properties props = System.getProperties(); // ì •ë³´ë¥¼ ë‹´ê¸° ìœ„í•œ ê°ì²´ ìƒì„±
+		Properties props = System.getProperties(); // Á¤º¸¸¦ ´ã±â À§ÇÑ °´Ã¼ »ı¼º
 
-		// SMTP ì„œë²„ ì •ë³´ ì„¤ì •
+		// SMTP ¼­¹ö Á¤º¸ ¼³Á¤
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.port", port);
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.enable", "true");
 		props.put("mail.smtp.ssl.trust", host);
 
-		// Session ìƒì„±
+		// Session »ı¼º
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			String un = username;
 			String pw = password;
@@ -76,14 +76,14 @@ public class EmailController {
 		});
 		session.setDebug(true); // for debug
 
-		Message mimeMessage = new MimeMessage(session); // MimeMessage ìƒì„±
+		Message mimeMessage = new MimeMessage(session); // MimeMessage »ı¼º
 		try {
-			mimeMessage.setFrom(new InternetAddress(mail));  // ë°œì‹ ì ì…‹íŒ… , ë³´ë‚´ëŠ” ì‚¬ëŒì˜ ì´ë©”ì¼ì£¼ì†Œë¥¼ í•œë²ˆ ë” ì…ë ¥í•©ë‹ˆë‹¤. ì´ë•ŒëŠ” ì´ë©”ì¼ í’€ ì£¼ì†Œë¥¼ ë‹¤ ì‘ì„±í•´ì£¼ì„¸ìš”.
-			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); // ìˆ˜ì‹ ìì…‹íŒ… //.TO ì™¸ì— .CC(ì°¸ì¡°)
-			mimeMessage.setSubject(subject);// ì œëª©ì…‹íŒ…
-			mimeMessage.setText(body); // ë‚´ìš©ì…‹íŒ…
-			Transport.send(mimeMessage); // javax.mail.Transport.send() ì´ìš©
-			// .BCC(ìˆ¨ì€ì°¸ì¡°) ë„ ìˆìŒ
+			mimeMessage.setFrom(new InternetAddress(mail));  // ¹ß½ÅÀÚ ¼ÂÆÃ , º¸³»´Â »ç¶÷ÀÇ ÀÌ¸ŞÀÏÁÖ¼Ò¸¦ ÇÑ¹ø ´õ ÀÔ·ÂÇÕ´Ï´Ù. ÀÌ¶§´Â ÀÌ¸ŞÀÏ Ç® ÁÖ¼Ò¸¦ ´Ù ÀÛ¼ºÇØÁÖ¼¼¿ä.
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); // ¼ö½ÅÀÚ¼ÂÆÃ //.TO ¿Ü¿¡ .CC(ÂüÁ¶)
+			mimeMessage.setSubject(subject);// Á¦¸ñ¼ÂÆÃ
+			mimeMessage.setText(body); // ³»¿ë¼ÂÆÃ
+			Transport.send(mimeMessage); // javax.mail.Transport.send() ÀÌ¿ë
+			// .BCC(¼ûÀºÂüÁ¶) µµ ÀÖÀ½
 		} catch (MessagingException e) {
 			e.printStackTrace();
 			return -2;
