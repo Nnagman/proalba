@@ -69,4 +69,12 @@ public class CserviceController {
 		model.addAttribute("message", "공고관리");
 		return "cservice/jobopeningmanage";
 	}
+	
+	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
+	public String kakaoGET(Model model) throws Exception {
+	return "cservice/kakao";
+	}
+	
+	
+
 }
