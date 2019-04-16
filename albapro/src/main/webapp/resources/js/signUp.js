@@ -119,7 +119,7 @@ $(document).ready(function(){
 		});
 		
 		$("#double_check").click(function(){
-			var id = $("#dev_idchk").val();
+			var id = $("#id").val();
 			
 			$.ajax({
 				async: true,

@@ -132,5 +132,5 @@
 		</div>
 	</div>
 </body>
-<script src="resources/js/signUp_agree.js?ver=1"></script>
+<script src="resources/js/signUp_agree.js?ver=2"></script>
 </html>

@@ -33,7 +33,7 @@
 	<select id="login" resultType="com.ateam.proalba.domain.MemberVO">
 		<![CDATA[
 		SELECT * FROM member
-		WHERE  id = #{id} and password = ${password}
+		WHERE password = '${password}' and id = #{id}
   	  	]]>
 	</select>
 
