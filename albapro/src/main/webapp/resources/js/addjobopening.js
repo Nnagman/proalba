@@ -51,6 +51,7 @@ $(function(){
 	var d = new Date();
 	var date = d.getFullYear() + '' + d.getMonth() + '' + d.getDate() + ''
 				+ d.getHours() + '' + d.getMinutes() + '' + d.getSeconds();
+	var date2 = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
 	
 	$("#submit").click(function(){
 		address1 = $("#sample6_postcode").val();
@@ -70,7 +71,7 @@ $(function(){
 			age = "1"
 			
 		}else {
-			age = $("#age_min").val() + '/' + $("#age_max").val()
+			age = $("#age_min").val() + '/' + $("#age_max").val();
 		}
 		
 		$("#sample6_extraAddress").append('<input name="age" value="'+age+'" type="text"/>');
@@ -78,6 +79,7 @@ $(function(){
 		var content = $('#content').val();
 		$("#sample6_extraAddress").append('<input name="m_code" value="'+m_code+'" type="text"/>');
 		$("#sample6_extraAddress").append('<input name="job_type" value="1" type="text"/>');
-		$("#sample6_extraAddress").append('<input name="p_date" value="'+d.getTime()+'" type="text"/>');
+		$("#sample6_extraAddress").append('<input name="p_date" value="'+date2+'" type="text"/>');
+		$("#sample6_extraAddress").append('<input name="viewcnt" value="0" type="text"/>');
 	});
 });

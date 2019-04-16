@@ -11,7 +11,14 @@
 			work_day, work_time1, work_time2, p_date, address, content, work_place_name, education, viewcnt)
 			values( #{n_code}, #{m_code}, #{title}, #{job_type}, #{personnel}, #{end_date}, 
 			#{hour_wage}, #{sex}, #{age}, #{way}, #{term}, #{work_day}, #{work_time1}, #{work_time2}, 
-			#{p_date}, #{address}, #{content}, #{work_place_name}, #{education}, '0')
+			#{p_date}, #{address}, #{content}, #{work_place_name}, #{education}, #{viewcnt})
 		]]>
 	</insert>
+	
+	<select id="jobOpeningManage" resultType="com.ateam.proalba.domain.NoticeVO">
+		<![CDATA[
+		SELECT * FROM notice
+		WHERE m_code = #{id}
+  	  	]]>
+	</select>
 </mapper>

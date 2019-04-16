@@ -20,8 +20,8 @@
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script type="text/javascript" src="resources/js/contract.js?ver=2"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 <script type="text/javascript"
@@ -183,14 +183,18 @@ crossorigin="anonymous"></script>
 
         <h2 class="hh">사업주</h2><br>
         <span class="t3">사업체명: </span>
-        <input class="tex8" name="work_place_name" type="text" /><br><br>
+        <input class="tex8" name="work_place_name" type="text" /><br><Br>
         <span class="t3">사업자등록번호: </span>
         <input class="tex8" name="b_number" type="text" onkeypress="onlyNumber();" />
-        <span class="sp3">대표자: <input class="tex8" name="c_name" type="text" onkeypress="onlyNumber();" /></span>
+        <span class="sp2">대표자: </span>
+
+       
+     	
+     	  <!-- 캔버스로 그린거 이미지로 변환한 이미지 -->
         <div class="div_sign"><img class="im" id="myImage"></div>
-      <!-- 캔버스로 그린거 이미지로 변환한 이미지 -->
-        <span class="t3">전화: </span>
-        <input class="tex2" name="work_palce_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
+    <br>
+               <span class="t3">대표자: </span>
+        <input class="tex8" name="b_name" type="text"  />
   <!--       <span>ㅡ</span>
         <input class="tex9" type="text" maxlength="4" onkeypress="onlyNumber();" /><span>ㅡ</span>
         <input class="tex9" type="text" maxlength="4" onkeypress="onlyNumber();" /> -->
@@ -200,25 +204,33 @@ crossorigin="anonymous"></script>
         <br><br><br>
         
         <h2 class="hh">근로자</h2><br>
-        <span class="t3">연락처: </span>
-        <input class="tex2" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
-<!--         <span>ㅡ</span>
-        <input class="tex9" type="text" maxlength="4" onkeypress="onlyNumber();" /><span>ㅡ</span>
-        <input class="tex9" type="text" maxlength="4" onkeypress="onlyNumber();" /> -->
-        <span class="sp2">근로자: 	 <input class="tex10" name="p_name" type="text" /><br><br><br>
-        </span><br><br>
-        <span class="t3">주소: </span>
-        <input class="tex10" name="p_address" type="text" /><br><br><br>
+        <span class="t3">근로자: </span>
+        <input class="tex2" name="p_name" type="text" maxlength="11"  />
+          <span class="sp3">근로자: </span><Br>
+         
+           
+         
+           <span class="t3">주소: </span>
+        <input class="tex10" name="p_address" type="text" /> <Br><Br>
+       
+     
+		 <span class="t3">연락처: </span>
+        <input class="tex2" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
+       
+     
         <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="300" height="150">
         </canvas>
-		</div>
-		
-        <div class="wcontract_btnline">
+        
+		<div class="wcontract_btnline">
         <input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
         <button type="submit" class="bt2" onclick='captureCont();' value="근로계약서 보내기">근로계약서 보내기</button>
-         <br><br> <br><br>
-
+         
+<br><br> <br><br>
         </div>
+		
+		</div>
+		
+        
               
         </div>
  <br><br> <br><br>
