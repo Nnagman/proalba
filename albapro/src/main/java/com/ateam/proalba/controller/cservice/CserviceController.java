@@ -74,4 +74,12 @@ public class CserviceController {
 		httpSession.setAttribute(NOTICE,addJobOpeningService.jobOpeningManage(loginDTO));
 		return "cservice/jobopeningmanage";
 	}
+	
+	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
+	public String kakaoGET(Model model) throws Exception {
+	return "cservice/kakao";
+	}
+	
+	
+
 }
