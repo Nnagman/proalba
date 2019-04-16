@@ -1,6 +1,8 @@
 package com.ateam.proalba.controller.cservice;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.service.AddJobOpeningService;
 
 @Controller
 public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
-	
+	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
 	
 	@Inject
@@ -64,9 +67,11 @@ public class CserviceController {
 	}
 	
 	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
-	public String jobopeningmanageGET(Model model) throws Exception {
+	public String jobopeningmanageGET(HttpServletRequest request, LoginDTO loginDTO, Model model) throws Exception {
+		loginDTO.setId('c'+loginDTO.getId());
+		HttpSession httpSession = request.getSession();
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "공고관리");
+		httpSession.setAttribute(NOTICE,addJobOpeningService.jobOpeningManage(loginDTO));
 		return "cservice/jobopeningmanage";
 	}
 }
