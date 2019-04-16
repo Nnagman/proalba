@@ -35,8 +35,8 @@ public class EmailController {
 		// Google일 경우 smtp.gmail.com 을 입력합니다.
 		String host = "smtp.gmail.com";
 
-		final String username = "아이디"; // 구글 아이디 @gmail.com 빼고
-		final String password = "비밀번호"; // 비밀번호
+		final String username = "nnagman"; // 구글 아이디 @gmail.com 빼고
+		final String password = "ic0cadafgdgaa!"; // 비밀번호
 		int port = 465; // 포트번호
 
 		// 메일 내용

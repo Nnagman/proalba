@@ -71,7 +71,7 @@ $(function(){
 			age = "1"
 			
 		}else {
-			age = $("#age_min").val() + '/' + $("#age_max").val()
+			age = $("#age_min").val() + '/' + $("#age_max").val();
 		}
 		
 		$("#sample6_extraAddress").append('<input name="age" value="'+age+'" type="text"/>');
@@ -79,7 +79,7 @@ $(function(){
 		var content = $('#content').val();
 		$("#sample6_extraAddress").append('<input name="m_code" value="'+m_code+'" type="text"/>');
 		$("#sample6_extraAddress").append('<input name="job_type" value="1" type="text"/>');
-		$("#sample6_extraAddress").append('<input name="p_date" value="'+date+'" type="text"/>');
+		$("#sample6_extraAddress").append('<input name="p_date" value="'+date2+'" type="text"/>');
 		$("#sample6_extraAddress").append('<input name="viewcnt" value="0" type="text"/>');
 	});
 });
