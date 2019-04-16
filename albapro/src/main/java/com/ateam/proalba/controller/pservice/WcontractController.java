@@ -16,7 +16,7 @@ public class WcontractController {
 	@RequestMapping(value = "/wcontract.do", method = RequestMethod.POST)
 	public String wcontractPOST(@ModelAttribute WcontractVO wVo) throws Exception {
 		logger.info("Welcome wcontractPage");
-		logger.info("work detail : " + wVo.getWork_place());
-		return "pservice/wcontract";
+		logger.info("work getWork_place : " + wVo.getWork_place());
+		return "redirect:/pservice/wcontract";
 	}
 }
