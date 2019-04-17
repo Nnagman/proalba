@@ -8,23 +8,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.service.AddJobOpeningService;
+import com.ateam.proalba.service.CareerService;
 
 @Controller
 public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
+	private final CareerService careerService;
 	
 	@Inject
-	public CserviceController(AddJobOpeningService addJobOpeningService) {
+	public CserviceController(AddJobOpeningService addJobOpeningService, CareerService careerService) {
 		this.addJobOpeningService = addJobOpeningService;
+		this.careerService = careerService;
 	}
 
 	@RequestMapping(value = "/cservice", method = RequestMethod.GET)
@@ -75,11 +81,23 @@ public class CserviceController {
 		return "cservice/jobopeningmanage";
 	}
 	
+	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
+	public String ccontractGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    
+		model.addAttribute("message", "inqcareerPage");
+		model.addAttribute("careers", careerService.listCriteria(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		return "contract/ccontract";
+	}
+	
 	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
 	public String kakaoGET(Model model) throws Exception {
 	return "cservice/kakao";
 	}
-	
-	
 
 }

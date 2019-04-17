@@ -45,11 +45,18 @@ public class PserviceController {
 		return "pservice/maresume";
 	}
 	
-	@RequestMapping(value = "/wcontract", method = RequestMethod.GET)
-	public String wcontractGET(Model model) throws Exception {
-		logger.info("Welcome wcontractPage");
-		model.addAttribute("message", "wcontractPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
-		return "pservice/wcontract";
+	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
+	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    
+		model.addAttribute("message", "inqcareerPage");
+		model.addAttribute("careers", careerService.listCriteria(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		return "contract/pcontract";
 	}
 	
 	@RequestMapping(value = "/ecertifi", method = RequestMethod.GET)
@@ -81,7 +88,7 @@ public class PserviceController {
 	    pageMaker.setCriteria(criteria);
 	    pageMaker.setTotalCount(careerService.countCareers(criteria));
 	    
-		model.addAttribute("message", "inqcareerPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
+		model.addAttribute("message", "inqcareerPage");
 		model.addAttribute("careers", careerService.listCriteria(criteria));
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
