@@ -20,10 +20,11 @@ public class NoticeVO {
 	private int work_day;
 	private int work_time1;
 	private String work_time2;
-	private String p_date;
+	private Date p_date;
 	private String address;
 	private String content;
 	private String work_place_name;
 	private int education;
 	private String file;
+	private int viewcnt;
 }

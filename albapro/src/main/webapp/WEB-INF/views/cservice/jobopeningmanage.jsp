@@ -38,15 +38,17 @@
 				});
 	});
 </script>
- <script>
+<script>
       $( document ).ready( function() {
         $( '.check_all' ).click( function() {
           $( '.check' ).prop( 'checked', this.checked );
         } );
       } );
-    </script>
+</script>
 </head>
 <body>
+	<c:set var="now" value="<%=new java.util.Date()%>" />
+	<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
 	<c:if
 		test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 		<%@ include file="../include/cmenu.jsp"%>
@@ -90,29 +92,80 @@
 								<th>등록일</th>
 								<th>게재현황</th>
 								<th class="job">채용공고</th>
-								<th>열람 횟수</th>
+								<th>열람 횟수 </th>
 							</tr>
 						</thead>
 						<tbody>
-					<%-- <c:forEach items="${ }" var=""> --%>
+							<c:forEach var='notice' varStatus='i' items='${notices}'>
 							<tr>
-								<td><input type="checkbox" class="check"/></td>
-								<td>20180409</td>
+								<td><input type="checkbox" class="check" name='${notice.n_code}'/></td>
+								<td>${notice.p_date}</td>
+								<c:if test="${fn:replace(notice.end_date,'-','')>fn:replace(sysYear,'-','')}">
 								<td>게재중</td>
-								<td>공고</td>
-								<td>10</td>
+								</c:if>
+								<c:if test="${fn:replace(notice.end_date,'-','')<fn:replace(sysYear,'-','')}">
+								<td>마감</td>
+								</c:if>
+								<td>${notice.title}</td>
+								<td>${notice.viewcnt}</td>
 							</tr>
+							</c:forEach>
 						</tbody>
-					<%-- </c:forEach> --%>
 					</table>
 				</section>
 
 				<section id="content2">
-					<p>공고중</p>
+					<table class="table">
+						<thead class="thead-light">
+							<tr>
+								<th><input type="checkbox" class="check_all"/></th>
+								<th>등록일</th>
+								<th>게재현황</th>
+								<th class="job">채용공고</th>
+								<th>열람 횟수</th>
+							</tr>
+						</thead> 
+						<tbody>
+							<c:forEach var='notice' varStatus='i' items='${notices}'>
+							<c:if test="${fn:replace(notice.end_date,'-','')>fn:replace(sysYear,'-','')}">
+							<tr>
+								<td><input type="checkbox" class="check" name='${notice.n_code}'/></td>
+								<td>${notice.p_date}</td>
+								<td>게재중</td>
+								<td>${notice.title}</td>
+								<td>${notice.viewcnt}</td>
+							</tr>
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
 				</section>
 
 				<section id="content3">
-					<p>공고마감</p>
+					<table class="table">
+						<thead class="thead-light">
+							<tr>
+								<th><input type="checkbox" class="check_all"/></th>
+								<th>등록일</th>
+								<th>게재현황</th>
+								<th class="job">채용공고</th>
+								<th>열람 횟수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var='notice' varStatus='i' items='${notices}'>
+							<c:if test="${fn:replace(notice.end_date,'-','')<fn:replace(sysYear,'-','')}">
+							<tr>
+								<td><input type="checkbox" class="check" name='${notice.n_code}'/></td>
+								<td>${notice.p_date}</td>
+								<td>마감</td>
+								<td>${notice.title}</td>
+								<td>${notice.viewcnt}</td>
+							</tr>
+							</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
 				</section>
 			</div>
 		</div>

@@ -4,6 +4,8 @@ import java.io.File;
 
 import javax.inject.Inject;
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,11 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.service.AddJobOpeningService;
 import com.ateam.proalba.util.UploadFileUtils;
@@ -25,7 +27,7 @@ import com.ateam.proalba.util.UploadFileUtils;
 @Controller
 public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
-	
+	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
 	
 	@Inject
@@ -73,9 +75,11 @@ public class CserviceController {
 	}
 	
 	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
-	public String jobopeningmanageGET(Model model) throws Exception {
+	public String jobopeningmanageGET(HttpServletRequest request, LoginDTO loginDTO, Model model) throws Exception {
+		loginDTO.setId('c'+loginDTO.getId());
+		HttpSession httpSession = request.getSession();
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "공고관리");
+		httpSession.setAttribute(NOTICE,addJobOpeningService.jobOpeningManage(loginDTO));
 		return "cservice/jobopeningmanage";
 	}
 	
@@ -113,4 +117,12 @@ public class CserviceController {
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
 	
+	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
+	public String kakaoGET(Model model) throws Exception {
+		
+		return "cservice/kakao";
+	}
+	
+	
+
 }
