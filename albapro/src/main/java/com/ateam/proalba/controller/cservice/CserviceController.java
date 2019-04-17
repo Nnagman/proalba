@@ -63,7 +63,7 @@ public class CserviceController {
 		addJobOpeningService.addJobOpening(noticeVO);
 		
 		redirectAttributes.addFlashAttribute("msg", "POSTED");
-		return "cservice/jobopeningmanage";
+		return "redirect:/addjobopening_free";
 	}
 	
 	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.GET)
