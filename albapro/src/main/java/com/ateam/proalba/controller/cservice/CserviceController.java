@@ -103,7 +103,7 @@ public class CserviceController {
 		return "contract/ccontract";
 	}
 
-@ResponseBody
+	@ResponseBody
 	@RequestMapping(value="/addjob/upload", method=RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
 	public ResponseEntity<String> uploadFile(MultipartFile file, ServletRequest request) throws Exception {
 		logger.info("uploadAjax Cont");
@@ -136,6 +136,8 @@ public class CserviceController {
         // 데이터와 http 상태 코드 전송
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }	
+    
+    
 	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
 	public String kakaoGET(Model model) throws Exception {
 		

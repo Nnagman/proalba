@@ -36,5 +36,11 @@ public class AddJobOpeningDAOImplement implements AddJobOpeningDAO {
 		return sqlSession.selectList(NAMESPACE + ".jobOpeningManage", loginDTO);
 	}
 
+	@Override
+	public void addJobOpenAttach(NoticeVO noticeVO) throws Exception {
+		sqlSession.insert(NAMESPACE+".addAttach", noticeVO);
+		
+	}
+
 
 }
