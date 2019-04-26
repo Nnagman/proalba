@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="post">
+	<select id="listAll" resultType="com.ateam.proalba.domain.PostVO">
+		<include refid="pagingHeader"></include>
+		SELECT p_code, title, p_content, id, p_date, viewcnt, name, (select count(*) from reply where p_code = p.p_code) recnt
+		FROM post p, member m 
+		<include refid="search"></include>
+		ORDER BY p_code DESC, p_date DESC
+		<include refid="pagingFooter"></include>
+	</select>
+
+	<select id="countArticle" resultType="int">
+		select count(*) 
+		from post p, member m
+		<include refid="search"></include>
+	</select>
+	
+	<select id="view" resultType="com.ateam.proalba.domain.PostVO">
+		SELECT p_code, title, p_content, p_date, id, viewcnt, name
+		FROM post p, member m
+		WHERE p.m_code = m.m_code
+		AND p_code = #{p_code}
+	</select>
+	
+	<insert id="insert" parameterType="com.ateam.proalba.domain.PostVO" >
+		INSERT INTO post(p_code, title, p_content, m_code) VALUES
+		(seq_post.NEXTVAL, #{title}, #{p_content}, #{m_code})
+ 		<selectKey keyProperty="p_code" resultType="int" order="AFTER">
+			SELECT seq_post.CURRVAL FROM DUAL
+		</selectKey> 
+	</insert>
+	 
+	<select id="getMcode" resultType="String">
+		SELECT m_code FROM member WHERE id=#{id}
+	</select>
+
+	<update id="increaseViewcnt">
+		update post
+		set viewcnt = viewcnt + 1
+		where p_code = #{p_code}
+	</update>
+
+	<update id="update">
+		UPDATE post SET 
+					title = #{title}, 
+					p_content = #{p_content}
+    	WHERE p_code = #{p_code}
+	
+	</update>
+	
+	<delete id="deletePost">
+		declare 
+			begin 
+			delete from post_file where p_code = #{p_code};
+			delete from reply where p_code = #{p_code};
+			delete from post where p_code = #{p_code};
+		end;
+	</delete>
+	
+	
+
+	<sql id="pagingHeader">
+		SELECT * FROM (
+		    SELECT ROWNUM AS rn, A.*  FROM (
+	</sql>
+	
+	<sql id="pagingFooter">
+			    ) A
+		) WHERE rn BETWEEN #{start} AND #{end}
+	</sql>
+
+	<sql id="search">
+		<choose>
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="search_option == 'all'">
+				WHERE 
+					p.m_code = m.m_code
+				AND	
+					(id like '%'||#{keyword}||'%'
+				OR 
+					p_content like '%'||#{keyword}||'%'
+				OR 
+					title like '%'||#{keyword}||'%')
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				WHERE 
+					p.m_code = m.m_code
+				AND 
+					${search_option} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- ******************** 게시글 첨부파일 관련 ********************** -->
+		<!-- 01. 게시물의 첨부파일 목록 -->
+	<select id="getAttach" resultType="String">
+		SELECT fullname FROM post_file WHERE p_code = #{p_code} ORDER BY upload_time
+	</select>
+	
+	<!-- 02. 게시물 첨부파일 추가 -->
+	<insert id="addAttach">
+		INSERT INTO post_file 
+	    VALUES(#{fullName}, #{p_code}, sysdate)
+	</insert>	
+	
+	<!--  03. 첨부파일 목록  -->
+	<select id="listAttach" resultType="com.ateam.proalba.domain.AttachVO">
+		SELECT * FROM post_file
+		WHERE p_code = #{p_code}
+		ORDER BY upload_time desc
+	</select>
+	
+	<!-- 04. 게시글의 첨부파일 업데이트처리(입력처리) -->
+	<insert id="updateAttach">
+		INSERT INTO post_file (
+			fullname, p_code
+		) VALUES (
+			#{fullName}, #{p_code}
+		)
+	</insert>
+	
+	<!-- 05. 게시글의 첨부파일 삭제처리 -->
+		<delete id="deleteAttach">
+		DELETE FROM post_file 
+				WHERE fullname = #{fullName}
+	</delete>
+</mapper>

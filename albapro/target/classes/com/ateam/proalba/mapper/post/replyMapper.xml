@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+	
+	<select id="list" resultType="com.ateam.proalba.domain.ReplyDTO">
+		SELECT id, r_code, p_code, r_content,r_date
+		FROM reply r, member m
+		WHERE r.m_code = m.m_code
+	    AND p_code = #{p_code}
+		ORDER BY r_code DESC
+	</select>
+	
+	<insert id="insertReply">
+		INSERT INTO reply(r_code, p_code, r_content, m_code ) 
+     		   VALUES(re_seq.nextval, #{p_code}, #{r_content}, #{m_code})
+	</insert>
+	
+	<select id="count" resultType="int">
+		select count(*) from reply where p_code = #{p_code}
+	</select>
+	
+	<sql id="pagingHeader">
+		SELECT * FROM (
+		    SELECT ROWNUM AS rn, A.*  FROM (
+	</sql>
+	<sql id="pagingFooter">
+			    ) A
+		) WHERE rn BETWEEN #{start} AND #{end}
+	</sql>
+		
+	<sql id="search">
+		<choose>
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="search_option == 'all'">
+				WHERE 
+					p.writer = i.i_id
+				AND	
+					(name like '%'||#{keyword}||'%'
+				OR 
+					p_content like '%'||#{keyword}||'%'
+				OR 
+					title like '%'||#{keyword}||'%')
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				WHERE 
+					p.writer = i.i_id
+				AND 
+					${search_option} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+</mapper>	

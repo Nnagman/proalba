@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css?ver=2">
-<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
   <div class="menucontainer">
 	<ul class="nav">
 		<li class="menuLi">
@@ -83,7 +83,7 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">커뮤니티</a>
+			<a class="menuLink" href="${path}/comm">커뮤니티</a>
 			<ul class="subMenu">
 
 			</ul>
