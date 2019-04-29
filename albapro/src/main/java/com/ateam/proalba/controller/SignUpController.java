@@ -25,7 +25,7 @@ import com.ateam.proalba.service.MemberService;
 @Controller
 public class SignUpController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
 	
 	private final MemberService memberService;
 	
@@ -79,8 +79,6 @@ public class SignUpController {
     
     @RequestMapping(value = "/cregister", method = RequestMethod.POST)
     public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
-    	
-    	
     	
     	logger.info(memberVO.getPhone());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());

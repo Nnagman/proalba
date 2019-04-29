@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   
@@ -10,15 +9,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="resources/js/jquery.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-<script src="resources/js/bootstrap.js"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 
 <script>
+
 $(function() {
 	var d = new Date();
 	var month = d.getMonth() + 1;
@@ -96,8 +96,6 @@ $(function() {
 });
 </script>
 </head>
-<%@ include file = "../include/header.jsp" %>
-</head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
 <div class="contents">
@@ -156,14 +154,13 @@ $(function() {
 	<div class="div_pworkmanage_buttonline">
   		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">달력보기</button>
   	</div>
-  	
-  	  	<!-- 부트스트랩 -->
+  	  	  	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
+    	<script src="resources/js/bootstrap.js"></script>
+      <!-- Modal content  -->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>

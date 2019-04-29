@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/menuBar.css?ver=2">
-<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
   <div class="menucontainer">
 	<ul class="nav">
 		<li class="menuLi">
@@ -26,7 +26,7 @@
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/wcontract">전자 근로계약서</a>
+						<li><a href="${path}/pcontract">전자 근로계약서</a>
 						<li><a href="${path}/ecertifi">취업활동 증명서</a>
 					</ul>
 				</div>
@@ -79,14 +79,14 @@
 					<h3>온라인 문의</h3>
 					<ul>
 						<li><a href="${path}/qna">문의하기</a>
-						<li><a href="${path}/qanlist">나의 문의 내역</a>
+						<li><a href="${path}/qnalist">나의 문의 내역</a>
 					</ul>
 				</div>
 			</div>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">커뮤니티</a>
+			<a class="menuLink" href="${path}/comm">커뮤니티</a>
 			<ul class="subMenu">
 
 			</ul>
