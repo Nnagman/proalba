@@ -14,10 +14,12 @@
 <!-- 			Full Down Menu -->
 			<div class="fulldrop">
 				<div class="column">
-					<h3>이력서 등록 관리</h3>
+					<h3>채용공고 등록 관리</h3>
 					<ul>
+
 						<li><a href="${path}/addjobopening_free">새 공고글 작성</a>
-						<li><a href="${path}/maresume">공고글 관리</a>
+						<li><a href="${path}/jobopeningmanage">공고글 관리</a>
+
 					</ul>
 				</div>
 
@@ -32,7 +34,7 @@
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/workmanage">근태 기록 관리/조회</a>
+						<li><a href="${path}/cworkmanage">근태 기록 관리/조회</a>
 
 					</ul>
 				</div>

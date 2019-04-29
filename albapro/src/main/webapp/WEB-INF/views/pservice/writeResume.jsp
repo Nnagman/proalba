@@ -5,7 +5,10 @@
 <html>
 <head>
 <title>프로알바</title>
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/writeResume.css" />
+<script src="resources/js/jquery.js"></script>
+<script src="resources/js/bootstrap.js"></script>
 <script src="resources/js/writeResume.js"></script>
 </head>
 <%@ include file = "../include/header.jsp" %>	
@@ -157,7 +160,7 @@
 										</th>
 										<td>
 											<p>
-												<input type="text" width="335px;" id="dev_sr_part_search" name="sr_part_search"  value="">
+												<input type="text" width="335px;" id="dev_sr_part_search" name="sr_part_search" data-toggle="modal" data-target="#myModal" value="">
 											</p>
 										</td>
 									</tr>
@@ -168,6 +171,86 @@
 				</div>
 			</div>
 		</div>
+		
+		
+<!-- 부트스트랩 희망직종 새화면 띄우기 -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">직종선택</h4>
+        </div>
+        <div class="modal-body">
+        <div class="modal_container">
+          <div class="div_sel_job">
+          
+         <!--  <table>
+          
+          	<tr>
+          		<td>경영 사무(1)</td>
+          	</tr>
+          
+          	<tr>
+          		<td>영업 고객상담(2)</td>
+          	</tr>
+          	
+          	<tr>
+          		<td>IT 인터넷(4)</td>
+          	</tr>
+          	
+          	<tr>
+          		<td>전문직(5)</td>
+          	</tr>
+          	
+          	<tr>
+				<td>서비스(11)</td>          	
+          	</tr>
+          	
+          	<tr>
+          		<td>경영 사무(1)</td>
+          	</tr>
+          </table> -->
+          <div class="list-group">
+
+  <ul>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+   <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+  </ul>
+</div>
+         
+        </div>
+         <div class="div_sel_job1">
+         	<Table class="table_job_detail">
+         	 
+         	 <tr>
+         	 	<td><input type="checkbox" value="all"/>전체</td> <td><input type="checkbox" value="shop_manager"/>매장관리 판매</td> <td><input type="checkbox" value="serving"/>서빙</td>
+         	 	
+         	 </tr>
+         	 
+         	 <Tr>
+         	 <td><input type="checkbox" value="all"/>전체</td> <td><input type="checkbox" value="shop_manager"/>매장관리 판매</td> <td><input type="checkbox" value="serving"/>서빙</td>
+         	 </Tr>
+         	 <tr>
+         	 <td><input type="checkbox" value="all"/>전체</td> <td><input type="checkbox" value="shop_manager"/>매장관리 판매</td> <td><input type="checkbox" value="serving"/>서빙</td>
+         	 </tr>
+         	</Table>
+         </div>
+       </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 	</form>
 </body>
 </html>

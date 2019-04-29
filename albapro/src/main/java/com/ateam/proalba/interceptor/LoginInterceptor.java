@@ -38,7 +38,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         HttpSession httpSession = request.getSession();
-        // 기존의 로그인 정보 제거
         if (httpSession.getAttribute(LOGIN) != null) {
             logger.info("clear login data before");
             httpSession.removeAttribute(LOGIN);

@@ -15,7 +15,7 @@
 <div class="contents">
 <div class="listForm" align="center">
 	<p class="count">나의 경력: <span>총 <strong>0</strong>건</span></p>
-
+</div>
 <div class="listForm">
 	<!-- //탭메뉴 -->
 	<form id="frmList" name="frmList" method="post">
@@ -57,6 +57,7 @@
     		</div>
 		</div>
 	</form>
+</div>
 </div>
 </body>
 </html>

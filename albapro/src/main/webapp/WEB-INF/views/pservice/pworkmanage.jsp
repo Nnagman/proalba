@@ -102,7 +102,7 @@ $(function() {
 <%@ include file = "../include/menu.jsp" %>
 <div class="contents">
 
-<h2 class="title"> 급여기록</h2>
+<h2 class="title"> 근태기록</h2>
 <i class="angle left icon" id="back"></i>
 <i id="date"></i>
 <i class="angle right icon" id="forward"></i>
@@ -110,19 +110,17 @@ $(function() {
 <table class="ui single line table">
   <thead>
     <tr>
-      <th>보낸이</th>
-      <th>지급총액</th>
-      <th>공제총액</th>
-      <th>실지급액</th>
-      <th>지급일자</th>
+      <th>날짜</th>
+      <th>근태항목</th>
+      <th>근로시간</th>
+      <th>기타</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>John Lilki</td>
-      <td>${salarVO.sa_code}</td>
+      <td>September 14, 2013</td>
       <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
       <td>No</td>
     </tr>
     <tr>
@@ -130,14 +128,12 @@ $(function() {
       <td>January 11, 2014</td>
       <td>jamieharingonton@yahoo.com</td>
       <td>Yes</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>Jill Lewis</td>
       <td>May 11, 2014</td>
       <td>jilsewris22@yahoo.com</td>
       <td>Yes</td>
-      <td>No</td>
     </tr>
   </tbody>
 </table>

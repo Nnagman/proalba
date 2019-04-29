@@ -6,10 +6,12 @@
 
 
 .table_addjobopening{
-  width:800px;
+  width:850px;
   height:200px;
   border-spacing: 0px;
 border-collapse: separate;
+float:center;
+
 
 
 
@@ -31,7 +33,8 @@ border-collapse: separate;
     border:5px solid lightgray;
     border-radius: 7px;
     padding: 10px 10px;
-    width:850px;
+    width:900px;
+    margin-left:100px;
 
   }
 
@@ -47,9 +50,12 @@ border-collapse: separate;
  .buttonline_addjobopening_free{
 	
 	
-	margin-left:700px;
+	margin-left:800px;
 } 
 
+.addjobopening_title{
+	
+}
 
 
 

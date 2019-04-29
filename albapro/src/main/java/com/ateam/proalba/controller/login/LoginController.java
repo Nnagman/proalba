@@ -1,6 +1,8 @@
 package com.ateam.proalba.controller.login;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -48,7 +50,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 		  if( memberVO != null ) {
 			  return "login/pMyinfo";
 		  }else {
-			  System.out.println("다시입력하세요");
+			  System.out.println("�ㅼ�����ν���몄��");
 			  return "redirect:MyinfoModify";
 		  } 
 
@@ -60,7 +62,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 
 	  }
 
-    // �α��� ó��
+    // 占싸깍옙占쏙옙 처占쏙옙
     @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
@@ -73,4 +75,14 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
         model.addAttribute("member", memberVO);
         
     }
+    
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+	  public String logout (HttpServletRequest request, HttpServletResponse response) {
+    	HttpSession httpSession = request.getSession();
+        if (httpSession.getAttribute("login") != null) {
+            logger.info("clear login data");
+            httpSession.removeAttribute("login");
+        }
+			return "redirect:/"; 
+	  }
 }

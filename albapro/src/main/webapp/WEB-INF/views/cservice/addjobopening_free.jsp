@@ -17,7 +17,9 @@
 </head>
 <%@ include file="../include/header.jsp"%>
 
-
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 
 
 
@@ -51,11 +53,12 @@
   }
 </script>
 
+<form method="post">
 <body>
-	<%@ include file="../include/cmenu.jsp"%>
 	<div class="container">
-	
-		
+	<br>
+		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
+		<br>
 		<div class="div_table_border">
 			<h5>근무지 정보</h5>
 			<table class="table_addjobopening">
@@ -210,9 +213,9 @@
 
 				<tr>
 					<td class="table-active">성별</td>
-					<td><input type="radio" name="gender_radio_1" value="">1주일
-						이하 <input type="radio" name="gender_radio_2" value="">1주일
-						-1개월 <input type="radio" name="gender_radio_3" value="">1개월-3개월
+					<td><input type="radio" name="gender_radio_1" value="">성별무관
+						<input type="radio" name="gender_radio_2" value="">남자
+						<input type="radio" name="gender_radio_3" value="">여자
 
 					</td>
 				</tr>
@@ -248,16 +251,18 @@
 
 				<tr>
 					<td class="table-active">모집인원</td>
-					<td><input type="text" name="recruitment" value="">명 <input
-						type="checkbox" name="recruitment_check_1" value="">0명 <input
-						type="checkbox" name="recruitment_check_2" value="">00명</td>
+					<td>
+						<input type="text" name="recruitment" value="">명 
+						<input type="checkbox" name="recruitment_check_1" value="">0명 
+						<input type="checkbox" name="recruitment_check_2" value="">00명
+					</td>
 				</tr>
 
 				<tr>
 					<td class="table-active">모집종료일</td>
-					<td><input type="text" name="end_recruitment" value="">
+					<td>
+						<input type="text" name="end_recruitment" value="">
 						<input type="checkbox" name="end_recruitment_check_1" value="">상시모집
-
 					</td>
 				</tr>
 			</table>
@@ -265,10 +270,12 @@
 		<br>
 		
 		<div class="buttonline_addjobopening_free">
-		<button type="button" class="btn btn-primary btn-lg active">등록</button>
+		<input type="submit" value="등록" />
 		<button type="button" class="btn btn-default btn-lg active">취소</button>
 		</div>
+		<br>
 	</div>
+</form>
 	<%@ include file="../include/footer.jsp"%>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 	<script src="resources/js/jquery.js"></script>

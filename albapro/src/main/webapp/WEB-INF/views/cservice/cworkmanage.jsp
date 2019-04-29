@@ -1,7 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -10,10 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/workmanage.css?ver=2" />
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
+<link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="resources/js/jquery.js"></script>
+<%@ include file = "../include/header.jsp" %>
+<script src="resources/js/bootstrap.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
 <script>
 $(function() {
 	var d = new Date();
@@ -28,10 +30,12 @@ $(function() {
 });
 </script>
 </head>
-<%@ include file = "../include/header.jsp" %>
+
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
 <div class="contents">
 <h2 class="title"> 근태기록</h2>
 <Br>
@@ -42,29 +46,54 @@ $(function() {
 	<table class="workmanage_emp_table">
 	
 	<tr>
-		<Th>check</Th><Th>구분</Th><Th>사원번호</Th><Th>성명</Th><Th>직위</Th><Th>근태기록</Th>
+		<Th>check</Th><Th>사원번호</Th><Th>성명</Th><td>휴대번호</td><Th>근태기록</Th>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(알바 구분)</Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><Td>(알바직위)</Td><Td>(근태기록)</Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
 	</tr>
 	
 	</table>
 </div>
 
-<div class="div_workmanage_table">
+
+
+<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <%@ include file = "../cservice/calendar.jsp" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- <div class="div_workmanage_table">
 	<table class="workmanage_table">
 	<Tr>
 		<td>입력일자</td><td><p id="time-result"></p></td>
@@ -104,7 +133,7 @@ $(function() {
 		<td colspan="2"><input type="button" value="저장" /> <input type="button" value="삭제" /></td>
 	</tr>
 	</table>
-	</div>
+	</div> -->
 </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.ateam.proalba.controller.pservice;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ public class PserviceController {
 	@Inject
 	public PserviceController(CareerService careerService) {
 		this.careerService = careerService;
+
 	}
 
 	@RequestMapping("/pservice")
@@ -59,17 +61,17 @@ public class PserviceController {
 		return "pservice/ecertifi";
 	}
 	
-	@RequestMapping(value = "/workmanage", method = RequestMethod.GET)
+	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
 	public String workmanageGET(Model model) throws Exception {
 		logger.info("Welcome workmanagePage");
 		model.addAttribute("message", "workmanagePage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
-		return "pservice/workmanage";
+		return "pservice/pworkmanage";
 	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model) throws Exception {
+	public String inqsalaryGET(HttpSession httpSession,Model model) throws Exception {
 		logger.info("Welcome inqsalaryPage");
-		model.addAttribute("message", "inqsalaryPage �럹�씠吏� 諛⑸Ц�쓣 �솚�쁺�빀�땲�떎");
+		model.addAttribute("message", "inqsalaryPage");
 		return "pservice/inqsalary";
 	}
 	
@@ -102,4 +104,12 @@ public class PserviceController {
 		return "pservice/contract";
 
 	}
+	  @RequestMapping(value = "/pmypage", method = RequestMethod.GET)
+	  public String ModifyGet (HttpSession httpSession, Model model) throws Exception {
+		  logger.info("pmypage");
+
+			return "pservice/pmypage"; 
+
+	  }
+	
 }
