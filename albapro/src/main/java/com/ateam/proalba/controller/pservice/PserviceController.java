@@ -14,16 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.SalaryService;
 
 @Controller
 public class PserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(PserviceController.class);
 	private final CareerService careerService;
+	private final SalaryService salaryService;
 	
 	@Inject
-	public PserviceController(CareerService careerService) {
+	public PserviceController(CareerService careerService, SalaryService salaryService) {
 		this.careerService = careerService;
-
+		this.salaryService = salaryService;
 	}
 
 	@RequestMapping("/pservice")
@@ -76,9 +78,18 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
-	public String inqsalaryGET(HttpSession httpSession,Model model) throws Exception {
+	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String p_id) throws Exception {
 		logger.info("Welcome inqsalaryPage");
+		
+		PageMaker pageMaker = new PageMaker();
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
+	    
 		model.addAttribute("message", "inqsalaryPage");
+		model.addAttribute("salarys", salaryService.listCriteria(criteria, p_id));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "pservice/inqsalary";
 	}
 	

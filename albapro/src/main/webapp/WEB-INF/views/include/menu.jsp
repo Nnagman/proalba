@@ -42,7 +42,7 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary">급여 조회</a>
+						<li><a href="${path}/inqsalary?p_id=${login.id}">급여 조회</a>
 					</ul>
 				</div>
 

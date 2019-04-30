@@ -39,6 +39,7 @@
             work_type
     	FROM (SELECT rownum rn, join_date, work_place_name, end_date, work_type from career order by join_date desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+    	
     	]]>
 	</select>
 

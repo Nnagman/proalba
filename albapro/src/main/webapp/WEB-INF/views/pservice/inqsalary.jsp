@@ -118,27 +118,15 @@ $(function() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John Lilki</td>
-      <td>${salarVO.sa_code}</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
+		<c:forEach var="salary" varStatus="i" items="${salarys}">
+				<tr>
+					<td>${salary.work_place_name}</td>
+					<td>${salary.basic_salary}</td>
+					<td>${salary.total_deduction_amount}</td>
+					<td>${salary.actual_salary}</td>
+					<td>${salary.year_month}</td>
+				</tr>
+		</c:forEach>
   </tbody>
 </table>
 
