@@ -15,4 +15,5 @@ public interface MemberService {
 	public int idcheck(String id) throws Exception;
 	public void pregisterModify(MemberVO memberVO) throws Exception;
 	
+	public MemberVO getList(String id) throws Exception;
 }

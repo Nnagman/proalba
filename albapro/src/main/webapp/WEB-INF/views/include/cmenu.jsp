@@ -26,7 +26,8 @@
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/ccontract">전자 근로계약서</a>
+						<li><a href="${path}/wcontract">전자 근로계약서 작성</a>
+						<li><a href="${path}/ccontract?id=${login.id}">전자 근로계약서</a>
 						<li><a href="${path}/ecertifi">취업활동 증명서</a>
 					</ul>
 				</div>

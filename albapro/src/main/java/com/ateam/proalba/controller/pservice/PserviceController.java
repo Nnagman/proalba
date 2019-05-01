@@ -11,17 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.ContractService;
 
 @Controller
 public class PserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(PserviceController.class);
 	private final CareerService careerService;
+	private final ContractService contractService;
 	
 	@Inject
-	public PserviceController(CareerService careerService) {
+	public PserviceController(CareerService careerService, ContractService contractService) {
 		this.careerService = careerService;
+		this.contractService = contractService;
 	}
 
 	@RequestMapping("/pservice")
@@ -46,13 +50,14 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
-	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
+	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		PageMaker pageMaker = new PageMaker();
+		criteria.setM_code(loginDTO.getId());
 	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
 	    
-		model.addAttribute("message", "inqcareerPage");
-		model.addAttribute("careers", careerService.listCriteria(criteria));
+		model.addAttribute("message", "contractPage");
+		model.addAttribute("contracts", contractService.listCriteria(criteria));
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
@@ -81,12 +86,14 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
-	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
+	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		logger.info("Welcome inqcareerPage");
 		
 		PageMaker pageMaker = new PageMaker();
+		loginDTO.setId('p'+ loginDTO.getId());
+		criteria.setM_code(loginDTO.getId());
 	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    pageMaker.setTotalCount(careerService.countCareers(loginDTO));
 	    
 		model.addAttribute("message", "inqcareerPage");
 		model.addAttribute("careers", careerService.listCriteria(criteria));

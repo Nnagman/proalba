@@ -1,31 +1,45 @@
 package com.ateam.proalba.controller.cservice;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Hex;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.service.AddJobOpeningService;
-import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.util.UploadFileUtils;
 
 @Controller
@@ -33,25 +47,28 @@ public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
-	private final CareerService careerService;
+	private final ContractService contractService;
 	
 	@Inject
-	public CserviceController(AddJobOpeningService addJobOpeningService, CareerService careerService) {
+	public CserviceController(AddJobOpeningService addJobOpeningService, ContractService contractService) {
 		this.addJobOpeningService = addJobOpeningService;
-		this.careerService = careerService;
+		this.contractService = contractService;
 	}
+	
+	//PDF파일 업로드할때 쓰임
+	MappingJackson2JsonView jsonView;
 
 	@RequestMapping(value = "/cservice", method = RequestMethod.GET)
 	public String cserviceGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		model.addAttribute("message", "");
 		return "cservice/cservice";
 	}
 	
 	@RequestMapping(value ="/addjobopening", method = RequestMethod.GET)
 	public String addjobopeningGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		model.addAttribute("message", "");
 		return "cservice/addjobopening";
 	}
 	
@@ -87,22 +104,8 @@ public class CserviceController {
 		logger.info("Welcome CserviceController");
 		httpSession.setAttribute(NOTICE,addJobOpeningService.jobOpeningManage(loginDTO));
 		return "cservice/jobopeningmanage";
-	}
+	} 
 	
-	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
-	public String ccontractGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
-		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(criteria));
-	    
-		model.addAttribute("message", "inqcareerPage");
-		model.addAttribute("careers", careerService.listCriteria(criteria));
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "contract/ccontract";
-	}
-
 	@ResponseBody
 	@RequestMapping(value="/addjob/upload", method=RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
 	public ResponseEntity<String> uploadFile(MultipartFile file, ServletRequest request) throws Exception {
@@ -117,8 +120,7 @@ public class CserviceController {
 		String uploadPath = request.getServletContext().getRealPath("/resources");
 		logger.info("uploadFolder : "+uploadPath);
 		
-		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);
-		
+		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);	
 	} 
 	
 	// 게시글 작성 시 이미지 삭제(서버) 

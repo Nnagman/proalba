@@ -37,7 +37,7 @@
             work_place_name,
             end_date,
             work_type
-    	FROM (SELECT rownum rn, join_date, work_place_name, end_date, work_type from career order by join_date desc)
+    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date, work_type from career where m_code = #{m_code} order by join_date desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
     	]]>
 	</select>
@@ -54,7 +54,7 @@
     	SELECT
     		COUNT(rownum)
     	FROM career
-    	WHERE rownum > 0
+    	WHERE m_code = #{id} AND rownum > 0
     	]]>
 	</select>
 

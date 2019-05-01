@@ -10,5 +10,5 @@ public interface CareerMapper {
 	public ArrayList<CareerVO> listAll();
 	public ArrayList<CareerVO> listPaging(int page);
 	public ArrayList<CareerVO> listCriteria(Criteria criteria);
-	public int countCareers(Criteria criteria);
+	public int countCareers();
 }

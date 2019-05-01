@@ -16,4 +16,6 @@ public interface MemberDAO {
 	public MemberVO login(LoginDTO loginDTO) throws Exception;
 
 	public void pregisterModify(MemberVO memberVO);
+	
+	public MemberVO getList(String id) throws Exception;
 }
