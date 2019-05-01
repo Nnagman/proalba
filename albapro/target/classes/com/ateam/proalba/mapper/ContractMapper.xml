@@ -40,7 +40,7 @@
 	
 	<select id="listPaging" resultMap="WcontactVOResultMap">
 		<![CDATA[
-		SELECT c_code, work_place_name, p_name, p_id, c_id, start_period, end_period, email_check FROM contract
+		SELECT c_code, work_place_name, p_id, c_id, start_period, end_period, email_check FROM contract
 		WHERE p_id = #{id} OR c_id = #{id}
 		ORDER BY start_period
 		LIMIT #{page}, 10
@@ -49,8 +49,8 @@
 	
 	<select id="listCriteria" resultMap="WcontactVOResultMap">
 		<![CDATA[
-		SELECT c_code, work_place_name, p_name, start_period, end_period, email_check
-    	FROM (SELECT rownum rn, c_code, work_place_name, p_name, p_id, c_id, start_period , end_period, email_check
+		SELECT c_code, work_place_name, start_period, end_period, email_check
+    	FROM (SELECT rownum rn, c_code, work_place_name, p_id, c_id, start_period , end_period, email_check
     	from contract where p_id = #{id} OR c_id = #{id} order by start_period desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
 		]]>

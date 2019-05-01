@@ -1,45 +1,28 @@
 package com.ateam.proalba.controller.cservice;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.binary.Hex;
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
-import com.ateam.proalba.domain.PageMaker;
-import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.service.AddJobOpeningService;
-import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.util.UploadFileUtils;
 
 @Controller
@@ -47,12 +30,10 @@ public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
-	private final ContractService contractService;
 	
 	@Inject
-	public CserviceController(AddJobOpeningService addJobOpeningService, ContractService contractService) {
+	public CserviceController(AddJobOpeningService addJobOpeningService) {
 		this.addJobOpeningService = addJobOpeningService;
-		this.contractService = contractService;
 	}
 	
 	//PDF파일 업로드할때 쓰임

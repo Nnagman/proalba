@@ -37,7 +37,7 @@
 						<c:forEach var="contract" varStatus="i" items="${contracts}">
 							<tr>
 								<td>${contract.work_place_name}</td>
-								<td>${contract.p_name}</td>
+								<td>${contract.c_id}</td>
 								<td>${contract.start_period}</td>
 								<td>${contract.end_period}</td>
 							</tr>

@@ -47,6 +47,21 @@ public class ContractController {
 		this.memberService = memberService;
 	}
 	
+	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
+	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+		criteria.setM_code("p"+loginDTO.getId()); // m_code´Ï±ñ ¾Õ¿¡ pºÙ¿©Áà¾ßÇÔ.
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
+	    
+		model.addAttribute("message", "contractPage");
+		model.addAttribute("contracts", contractService.listCriteria(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		return "contract/pcontract";
+	}
+	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
 	public String ccontractGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		PageMaker pageMaker = new PageMaker();

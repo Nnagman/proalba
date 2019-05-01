@@ -10,6 +10,7 @@ public class Criteria {
 	private String m_code;
 	private String id;
 
+
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10; 
