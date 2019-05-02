@@ -34,7 +34,7 @@
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/cworkmanage">근태 기록 관리/조회</a>
+						<li><a href="${path}/cworkmanage?id=${login.id}">근태 기록 관리/조회</a>
 
 					</ul>
 				</div>
@@ -72,7 +72,7 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">커뮤니티</a>
+			<a class="menuLink" href="${path}/comm">커뮤니티</a>
 			<ul class="subMenu">
 
 			</ul>

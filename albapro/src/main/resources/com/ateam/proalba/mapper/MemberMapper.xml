@@ -19,7 +19,7 @@
 	<insert id="cregister" >
 		<![CDATA[
 		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name )
-		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, #{email}, #{birthday}, #{sex}, #{name} )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, '', '', '', '' )
 		]]>
 	</insert>
 	
@@ -38,10 +38,9 @@
 	</select>
 
 
-	<select id="idcheck" parameterType="String" resultType="Integer">
+	<select id="idcheck" parameterType="String" resultType="int">
       SELECT COUNT(*) FROM member
-      WHERE
-          id = #{id}
+      WHERE id = #{id}
 	</select>
 	
 

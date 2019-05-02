@@ -98,9 +98,8 @@ public class SignUpController {
     	Map<Object, Object> map = new HashMap<Object, Object>();
     	
     	count = memberService.idcheck(id);
+    	System.out.println(count);
     	map.put("cnt", count);
-    	
-		return map;
+		return map;		
 	}
-	
 }
