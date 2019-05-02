@@ -1,34 +1,62 @@
 package com.ateam.proalba.controller.mobile;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.MobileWorkInfoVO;
+import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.service.MobileService;
 
 import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @Controller
 @AllArgsConstructor
-public class MbileContract {
+public class MobileController {
 	
 	   private MobileService mobileService;
 	 
 
 	   // 테이블 형식 레이아웃 메인페이지
 	   @ResponseBody
-	   @RequestMapping(value = "m.tableBoardMain", method = RequestMethod.GET)
-	   @CrossOrigin(origins = "*", allowedHeaders = "*")
-	   public JSON tableBoardMain(Model model, HttpServletRequest request) {
-	      String board_code = request.getParameter("board_code");
+	   @RequestMapping(value = "m.workinfo", method = RequestMethod.GET)
+//	   @CrossOrigin(origins = "*", allowedHeaders = "*")
+	   public JSON tableBoardMain(@ModelAttribute("criteria") Criteria criteria,Model model, HttpServletRequest request, String id) throws Exception {
 
+		   PageMaker pageMaker = new PageMaker();
+//		   criteria.setM_code("p"+loginDTO.getId()); // m_code니깐 앞에 p붙여줘야함.
+		   pageMaker.setCriteria(criteria);
+		   pageMaker.setTotalCount(mobileService.count_mobile_workplace_info("p"+id));
+
+		   model.addAttribute("message", "contractPage");
+		   model.addAttribute("contracts", mobileService.listCriteria(criteria));
+		   model.addAttribute("pageMaker", pageMaker);
+		   
+		   ArrayList<MobileWorkInfoVO> mobileWorkInfo = new ArrayList<MobileWorkInfoVO>();
+		   JSONArray pJson = JSONArray.fromObject(mobileWorkInfo);
+		   Map<String, Object> map = new HashMap<String, Object>();
+		   map.put("pList", pJson);
+		   map.put("criteria", criteria);
+		   JSONObject json = JSONObject.fromObject(map);
+		   return json;
+		   
+//		   String board_code = request.getParameter("board_code");
 //	      Criteria criteria = new Criteria();
 //
 //	      int pagenum = Integer.parseInt(request.getParameter("pagenum"));
@@ -76,7 +104,7 @@ public class MbileContract {
 //	      JSONObject json = JSONObject.fromObject(map);
 //
 //	      return json;
-	      return null;
+	     
    }
 
 }
