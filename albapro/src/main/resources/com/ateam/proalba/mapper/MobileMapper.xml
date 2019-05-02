@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ateam.proalba.mapper.MobileMapperr">
+<mapper namespace="com.ateam.proalba.mapper.MobileMapper">
 
 	<select id="mobile_workplace_info" resultType="com.ateam.proalba.domain.MobileWorkInfoVO">
 		select
@@ -18,7 +18,7 @@
   	  	]]>
 	</select>
 	
-	<select id="listCriteria" resultMap="WcontactVOResultMap">
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.MobileWorkInfoVO">
 		<![CDATA[
 		SELECT  c.start_period,c.work_place_name, e.hourly_wage
     	FROM (SELECT rownum rn, c.start_period,c.work_place_name, e.hourly_wage
