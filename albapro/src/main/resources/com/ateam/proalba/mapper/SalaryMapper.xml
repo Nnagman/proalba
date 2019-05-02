@@ -52,7 +52,7 @@
     	<![CDATA[
     	SELECT
     		COUNT(rownum)
-    	FROM psalary
+    	FROM salary
     	WHERE rownum > 0
     	]]>
 	</select>

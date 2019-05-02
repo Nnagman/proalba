@@ -117,7 +117,6 @@ $(function() {
       <th>지급일자</th>
     </tr>
   </thead>
-  <tbody>
 		<c:forEach var="salary" varStatus="i" items="${salarys}">
 				<tr>
 					<td>${salary.work_place_name}</td>
