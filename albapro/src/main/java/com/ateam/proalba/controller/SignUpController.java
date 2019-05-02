@@ -85,7 +85,7 @@ public class SignUpController {
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);
         memberService.cregister(memberVO);
-        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
+        redirectAttributes.addFlashAttribute("msg", "REISTERED");
 
         return "redirect:/";
     }

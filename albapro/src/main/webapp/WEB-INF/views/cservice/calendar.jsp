@@ -23,6 +23,11 @@
 			editable: true,
 			events: [
 				
+				{
+	               title: 'All Day Event',
+	        
+	               start: new Date(y, m, 1)
+				}
 			]
 		});
 		

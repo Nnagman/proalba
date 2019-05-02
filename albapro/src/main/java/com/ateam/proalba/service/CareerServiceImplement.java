@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.persistence.CareerDAO;
 
 @Service
@@ -31,8 +32,8 @@ public class CareerServiceImplement implements CareerService {
 	}
 
 	@Override
-	public int countCareers(Criteria criteria) throws Exception {
-		return careerDAO.countCareers(criteria);
+	public int countCareers(LoginDTO loginDTO) throws Exception {
+		return careerDAO.countCareers(loginDTO);
 	}
 
 }

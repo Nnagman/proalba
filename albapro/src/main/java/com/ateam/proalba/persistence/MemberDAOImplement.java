@@ -48,4 +48,8 @@ public class MemberDAOImplement implements MemberDAO {
 		
 	}
 
+	@Override
+	public MemberVO getList(String id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getList", id);
+	}
 }
