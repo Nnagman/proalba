@@ -1,7 +1,18 @@
 package com.ateam.proalba.controller.contract;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -83,7 +94,7 @@ public class ContractController {
 	}
 
 	@RequestMapping(value = "/wcontract", method = RequestMethod.POST)
-	public String wcontractPOST(WcontractVO wcontractVO) throws Exception {
+	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
 		wcontractVO.setC_id("c" + wcontractVO.getC_id());
 		wcontractVO.setP_id("p" + wcontractVO.getP_id());
 		contractService.add_contract(wcontractVO);
@@ -91,8 +102,12 @@ public class ContractController {
 		logger.info(wcontractVO.toString());
 		MemberVO memberVO = memberService.getList(p_id);
 		logger.info("getList success");
-		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
-		int mail = 0;
+		int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
+//		int mail = 0;
+		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
+		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
+		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
+		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
 		if(mail==0) { return "contract/wcontract"; }
 		else { return "/"; }
 	}
@@ -116,8 +131,25 @@ public class ContractController {
 	@RequestMapping(value = "/checkContract", method = RequestMethod.GET)
 	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
-		String pdfPath = request.getServletContext().getRealPath("/resources");
-		httpSession.setAttribute("pdfPath",pdfPath);
+		String pngPath = request.getServletContext().getRealPath("/resources")+link;
+		
+		// Retrieve image from the classpath.
+		InputStream is = this.getClass().getResourceAsStream(pngPath); 
+
+		// Prepare buffered image.
+		BufferedImage img = ImageIO.read(is);
+
+		// Create a byte array output stream.
+		ByteArrayOutputStream bao = new ByteArrayOutputStream();
+
+		// Write to output stream
+		ImageIO.write(img, "png", bao);
+
+		bao.toByteArray();
+	        
+		BufferedImage srcImg = ImageIO.read(new File(pngPath));
+		System.out.println(srcImg);
+		httpSession.setAttribute("srcImg",srcImg);
 		httpSession.setAttribute("link",link);
 		logger.info(link);
 		return "contract/checkContract";
@@ -134,8 +166,8 @@ public class ContractController {
 		// Google일 경우 smtp.gmail.com 을 입력합니다.
 		String host = "smtp.gmail.com";
 
-		final String username = ""; // 구글 아이디 @gmail.com 빼고
-		final String password = ""; // 비밀번호
+		final String username = "nnagman"; // 구글 아이디 @gmail.com 빼고
+		final String password = "ic0cadafgdgaa!"; // 비밀번호
 		int port = 465; // 포트번호
 
 		// 메일 내용
@@ -190,5 +222,43 @@ public class ContractController {
 		return 0; 
 
 
+	}
+	
+	// 파일 복사하는 메소드
+	public boolean nioFileCopy(String inFileName, String outFileName) {
+		Path source = Paths.get(inFileName);
+		Path target = Paths.get(outFileName);
+
+		// 사전체크
+		if (source == null) {
+			throw new IllegalArgumentException("source must be specified");
+		}
+		if (target == null) {
+			throw new IllegalArgumentException("target must be specified");
+		}
+
+		// 소스파일이 실제로 존재하는지 체크
+		if (!Files.exists(source, new LinkOption[] {})) {
+			throw new IllegalArgumentException("Source file doesn't exist: "
+					+ source.toString());
+		}
+
+		
+		try {
+			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING); // 파일복사
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+
+		if (Files.exists(target, new LinkOption[] {})) { // 파일이 정상적으로 생성이 되었다면
+			// System.out.println("File Copied");
+			return true; // true 리턴
+		} else {
+			logger.info("File Copy Failed");
+			return false; // 실패시 false
+		}
 	}
 }
