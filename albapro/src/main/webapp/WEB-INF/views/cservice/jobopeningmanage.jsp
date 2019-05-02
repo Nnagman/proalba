@@ -38,13 +38,13 @@
 				});
 	});
 </script>
- <script>
+<script>
       $( document ).ready( function() {
         $( '.check_all' ).click( function() {
           $( '.check' ).prop( 'checked', this.checked );
         } );
       } );
-    </script>
+</script>
 </head>
 <body>
 	<c:set var="now" value="<%=new java.util.Date()%>" />

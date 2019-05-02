@@ -7,6 +7,7 @@
 
 	<select id="getList" resultType="com.ateam.proalba.domain.MemberVO">
 		select * from member
+		where id = #{id}
 	</select>
 
 	<insert id="pregister" >
@@ -19,7 +20,7 @@
 	<insert id="cregister" >
 		<![CDATA[
 		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name )
-		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, #{email}, #{birthday}, #{sex}, #{name} )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, '', '', '', '' )
 		]]>
 	</insert>
 	
@@ -33,15 +34,14 @@
 	<select id="login" resultType="com.ateam.proalba.domain.MemberVO">
 		<![CDATA[
 		SELECT * FROM member
-		WHERE  id = #{id} and password = ${password}
+		WHERE  id = #{id} and password = #{password}
   	  	]]>
 	</select>
 
 
-	<select id="idcheck" parameterType="String" resultType="Integer">
+	<select id="idcheck" parameterType="String" resultType="int">
       SELECT COUNT(*) FROM member
-      WHERE
-          id = #{id}
+      WHERE id = #{id}
 	</select>
 	
 

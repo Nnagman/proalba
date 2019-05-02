@@ -7,9 +7,11 @@ public class Criteria {
 
 	private int page; 
 	private int perPageNum; 
+	private String m_code;
+	private String id;
+
 
 	public Criteria() {
-
 		this.page = 1;
 		this.perPageNum = 10; 
 

@@ -13,6 +13,7 @@ import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.service.MobileService;
 
 import lombok.AllArgsConstructor;
+import net.sf.json.JSON;
 
 @Controller
 @AllArgsConstructor
@@ -75,6 +76,7 @@ public class MbileContract {
 //	      JSONObject json = JSONObject.fromObject(map);
 //
 //	      return json;
+	      return null;
    }
 
 }

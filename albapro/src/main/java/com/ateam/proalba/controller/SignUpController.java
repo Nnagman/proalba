@@ -85,7 +85,7 @@ public class SignUpController {
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);
         memberService.cregister(memberVO);
-        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
+        redirectAttributes.addFlashAttribute("msg", "REISTERED");
 
         return "redirect:/";
     }
@@ -98,9 +98,8 @@ public class SignUpController {
     	Map<Object, Object> map = new HashMap<Object, Object>();
     	
     	count = memberService.idcheck(id);
+    	System.out.println(count);
     	map.put("cnt", count);
-    	
-		return map;
+		return map;		
 	}
-	
 }

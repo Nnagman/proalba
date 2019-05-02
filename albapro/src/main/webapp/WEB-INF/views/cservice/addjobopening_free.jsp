@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
+	
+	
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -52,10 +55,93 @@
 	});
 
   $(document).ready(function() {
-    $("#input_img").on("change", handleImgFileSelect);
-  });
+    $("#input_img").on("change", imgServerUp);
+    
+    function imgServerUp(e){
 
-  function handleImgFileSelect(e) {
+		var files = e.target.files; // 드래그한 파일들
+		//console.log(files);
+		var file = files[0]; // 첫번째 첨부파일
+		var formData = new FormData(); // 폼데이터 객체
+		formData.append("file", file); // 첨부파일 추가
+		var filesArr = Array.prototype.slice.call(files);
+		
+         filesArr.forEach(function(f) {
+            if (!f.type.match("image.*")) {
+              alert("이미지만 가능");
+              return;
+            }
+        }); 
+			$.ajax({
+				url: "${path}/addjob/upload",
+				type: "post",
+				data : formData,
+				dataType: "text",
+				processData: false, // processType: false - header가 아닌 body로 전달
+				contentType: false,
+				success: function(data){
+
+					console.log("file_data: "+data);
+					// 첨부 파일의 정보
+					//var fileInfo = getFileInfo(data);
+					
+					if($("#sumImg").html() != ""){
+						$.ajax({
+							type: "post",
+							url: "${path}/addjob/deleteServerFile",
+							data: {fileName: $(".file_del").attr("data-src")},
+							dataType: "text",
+							success: function(result){
+								if(result=="deleted"){
+									$("#sumImg").empty();
+									appendImg();
+								}
+							}
+						});					
+					}else{
+						appendImg();
+					}
+					
+					
+					function appendImg(){
+						// hidden 태그 추가
+						var html = "<div><input type='hidden' name='file' value='"+data+"'>";
+						// 미리보기 추가
+						html += "<img class='attImg' style='width: 125%; max-width: 760px; height:80% ' src='<spring:url value='/resources" + data+ "'/>'/>";
+						//삭제 태그 추가 
+						html += "<a href='#' class='file_del' data-src='"+data+"'>[삭제]</a></div>";
+						
+						// div에 추가
+						$("#sumImg").append(html); 
+						
+					}
+					
+					
+				}     
+        	}); 	
+  	   }
+    
+	$("#sumImg").on("click", ".file_del" , imgServerDelete);
+	
+	function imgServerDelete(e){
+		var that = $(this);
+		$.ajax({
+			type: "post",
+			url: "${path}/addjob/deleteServerFile",
+			data: {fileName:$(this).attr("data-src")},
+			dataType: "text",
+			success: function(result){
+				if(result=="deleted"){
+					that.parent("div").remove();
+				}
+			}
+		});
+	}
+    
+    
+  });
+/* 
+  function e(e) {
     var files = e.target.files;
     var filesArr = Array.prototype.slice.call(files);
 
@@ -73,7 +159,7 @@
       }
       reader.readAsDataURL(f);
     });
-  }
+  } */
 </script>
 <body id="1">
 <form method="post" action="addjobopening_free">
@@ -106,9 +192,8 @@
 					<td class="table-active">회사로고</td>
 					<td>
 						<div class="img_wrap">
-							<img id="img" />
-						</div> <input type="file" class="fileupload" id="input_img" name=""
-						value="">
+							<div id="sumImg" ></div>
+						</div> <input type="file" class="fileupload" id="input_img" name="inputFile" value="">
 					</td>
 				</tr>
 			</table>

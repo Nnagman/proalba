@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
@@ -24,10 +25,15 @@ public class AddJobOpeningServiceImplement implements AddJobOpeningService {
 		this.addJobOepningDAO = addJobOepningDAO;
 	}
 
+	@Transactional
 	@Override
 	public void addJobOpening(NoticeVO noticeVO) throws Exception {
 		logger.info("service");
-		addJobOepningDAO.addJobOpening(noticeVO);
+		
+		addJobOepningDAO.addJobOpening(noticeVO);		
+		logger.info(noticeVO.getFile());
+		addJobOepningDAO.addJobOpenAttach(noticeVO);
+		
 	}
 
 	@Override

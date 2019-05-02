@@ -52,4 +52,11 @@ function onlyNumber() {
     }
   }
 
+$(function(){
+	$("#submit1").click(function(){	
+		$('#myModal').on('shown.bs.modal', function () {
+			$('#myInput').focus()
+		});
+	});
+});
 

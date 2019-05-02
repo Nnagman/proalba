@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.ContractMapper">
+    <resultMap id="WcontactVOResultMap" type="com.ateam.proalba.domain.WcontractVO">
+        <id property="c_code" column="c_code" />
+        <result property="work_place_name" column="work_place_name" />
+        <result property="start_period" column="start_period"/>
+        <result property="c_id" column="c_id"/>
+        <result property="p_id" column="p_id"/>
+        <result property="end_period" column="end_period"/>
+        <result property="c_date" column="c_date"/>
+        <result property="email_check" column="email_check"/>
+    </resultMap>
+    
+	<insert id="add_contract">
+		<![CDATA[
+			insert into contract
+			(c_code, start_period, end_period, c_date, work_place_name, c_id, p_id, fileName, email_check)
+			values( c_code_seq.NEXTVAL, to_date(#{start_period},'yy/mm/dd'), to_date(#{end_period},'yy/mm/dd'), 
+			to_date(sysdate,'yy/mm/dd'), #{work_place_name}, #{c_id}, #{p_id}, #{fileName}, '0')
+		]]>
+	</insert>
+	
+	<select id="select_contract" resultType="com.ateam.proalba.domain.WcontractVO">
+		<![CDATA[
+		SELECT * FROM contract
+		WHERE c_id = #{id} OR p_id = #{id}
+  	  	]]>
+	</select>
+	
+	<select id="count_contract" resultType="int">
+		<![CDATA[
+		SELECT COUNT(rownum) FROM contract
+		WHERE (p_id = #{id} OR c_id = #{id}) AND rownum > 0
+  	  	]]>
+	</select>
+	
+	<select id="listPaging" resultMap="WcontactVOResultMap">
+		<![CDATA[
+		SELECT c_code, work_place_name, p_id, c_id, start_period, end_period, email_check FROM contract
+		WHERE p_id = #{id} OR c_id = #{id}
+		ORDER BY start_period
+		LIMIT #{page}, 10
+		]]>
+	</select>
+	
+	<select id="listCriteria" resultMap="WcontactVOResultMap">
+		<![CDATA[
+		SELECT c_code, work_place_name, start_period, end_period, email_check
+    	FROM (SELECT rownum rn, c_code, work_place_name, p_id, c_id, start_period , end_period, email_check
+    	from contract where p_id = #{id} OR c_id = #{id} order by start_period desc)
+    	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+		]]>
+	</select>
+</mapper>
