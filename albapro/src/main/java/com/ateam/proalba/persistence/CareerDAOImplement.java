@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.LoginDTO;
 
 @Repository
 public class CareerDAOImplement implements CareerDAO {
@@ -50,8 +51,8 @@ public class CareerDAOImplement implements CareerDAO {
 	}
 
 	@Override
-	public int countCareers(Criteria criteria) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".countCareers", criteria);
+	public int countCareers(LoginDTO loginDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".countCareers", loginDTO);
 	}
 
 }

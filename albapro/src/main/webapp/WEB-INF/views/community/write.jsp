@@ -152,7 +152,7 @@
 
       <!-- Post Content Column -->
       <div class="col-lg-8">
- 	<form name="form1" id="form1" method="post">
+ 	<form name="form1" id="form1" method="post" action="${path}/comm/insert.do">
  	
  		<input name="id" type="hidden" value="${login.id}">
  	

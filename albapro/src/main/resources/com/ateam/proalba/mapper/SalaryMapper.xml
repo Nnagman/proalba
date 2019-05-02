@@ -29,7 +29,7 @@
     	LIMIT #{page}, 10
     	]]>
 	</select> -->
-	
+	 
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[
 		select work_place_name, basic_salary, total_deduction_amount, actual_salary, year_month 

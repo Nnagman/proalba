@@ -16,7 +16,7 @@
 		
 		$('#calendar').fullCalendar({
 			header: {
-				left: 'pr	ev,next today',
+				left: 'prev,next today',
 				center: 'title',
 				right: 'month,basicWeek,basicDay'
 			},
