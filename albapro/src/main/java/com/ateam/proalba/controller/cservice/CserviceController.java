@@ -70,13 +70,7 @@ public class CserviceController {
 		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
 		return "cservice/addjobopening_free";
 	}
-	
-	@RequestMapping(value ="/cworkmanage", method = RequestMethod.GET)
-	public String cworkmanageGET(Model model) throws Exception {
-		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "기업 근태기록입니다.");
-		return "cservice/cworkmanage";
-	}
+
 	
 	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
 	public String jobopeningmanageGET(HttpServletRequest request, LoginDTO loginDTO, Model model) throws Exception {
