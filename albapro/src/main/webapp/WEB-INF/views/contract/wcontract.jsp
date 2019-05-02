@@ -269,6 +269,7 @@
     </div>
 
     <script>
+
         $(document).ready(function() {
         	var test = false;
 
@@ -278,61 +279,34 @@
             	if(test) return;
             	
                 console.log("aaa");
-                html2canvas(document.getElementById('createPdf'), {
-                    onrendered: function(canvas) {
+                html2canvas(document.getElementById('createPdf'),	{
+                    onrendered: function(canvas)	{
+                    	canvas.toBlob(function(blob)	{
+                            var formData = new FormData();
+                            var d = new Date();
+                            var fileName = String('${login.id}' + '-' + $('#p_id').val() + '-' + d.getTime() + '.png');
+                            formData.set('file', blob, fileName);
+                            console.log(formData);
 
-                        // 캔버스를 이미지로 변환
-                        var imgData = canvas.toDataURL();
-
-                        var imgWidth = 210; // 이미지 가로 길이(mm) A4 기준
-                        var pageHeight = imgWidth * 1.414; // 출력 페이지 세로 길이 계산 A4 기준
-                        var imgHeight = canvas.height * imgWidth / canvas.width;
-                        var heightLeft = imgHeight;
-
-                        var doc = new jsPDF('p', 'mm');
-                        var position = 0;
-
-                        // 첫 페이지 출력
-                        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                        heightLeft -= pageHeight;
-
-                        // 한 페이지 이상일 경우 루프 돌면서 출력
-                        while (heightLeft >= 20) {
-                            position = heightLeft - imgHeight;
-                            doc.addPage();
-                            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                            heightLeft -= pageHeight;
-                        }
-
-                        var formData = new FormData();
-                        var d = new Date();
-                        var fileName = String('${login.id}' + '-' + $('#p_id').val() + '-' + d.getTime() + '.pdf');
-                        // 파일 저장
-                        var file = doc.output('blob');
-                        console.log(file);
-                        formData.set('file', file, fileName);
-                        console.log(doc);
-                        console.log(formData);
-
-                        $.ajax({
-                        	async: false,
-                            url: "${path}/wcontract/upload",
-                            type: "post",
-                            data: formData,
-                            dataType: "text",
-                            processData: false, // processType: false - header가 아닌 body로 전달
-                            contentType: false,
-                            success: function(data) {
-                                var fileName = '${fileName}';
-                                alert(fileName);
-                                var c_id = '${login.id}';
-                                $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
-                                test = true;
-                                $("#formCon").attr({"method" : 'post', "action" : '${path}/wcontract'});
-                                $("#submit2").attr({"type" : 'submit'});
-                                $("#submit2").trigger('click');
-                            }
-                        });
+                            $.ajax({
+                                url: "${path}/wcontract/upload",
+                                type: "post",
+                                data: formData,
+                                dataType: "text",
+                                processData: false, // processType: false - header가 아닌 body로 전달
+                                contentType: false,
+                                success: function(data) {
+                                    var fileName = '${fileName}';
+                                    alert(fileName);
+                                    var c_id = '${login.id}';
+                                    $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
+                                    test = true;
+                                    $("#formCon").attr({"method" : 'post', "action" : '${path}/wcontract'});
+                                    $("#submit2").attr({"type" : 'submit'});
+                                    $("#submit2").trigger('click');
+                                }
+                            });
+                    	});
                     }
                 });
             }
