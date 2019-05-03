@@ -29,15 +29,19 @@
     	LIMIT #{page}, 10
     	]]>
 	</select> -->
-	 
+
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[
-		select work_place_name, basic_salary, total_deduction_amount, actual_salary, year_month 
-		from (select c.work_place_name, s.basic_salary, s.total_deduction_amount, s.actual_salary, s.year_month 
+
+		
+		select work_place_name, basic_salary, total_deduction_amount, actual_salary, year_month
+		from (select c.work_place_name, s.basic_salary, s.total_deduction_amount, s.actual_salary, s.year_month
 		from salary s, contract c, employee e, member m 
-		where m.id=${loginDTO.id} and m.m_code=e.m_code and e.em_code=s.em_code and e.c_code=c.c_code
-		order by s.year_month desc)
-		WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
+		where m.id=#{p_id} and 
+        m.m_code=e.m_code and 
+        e.em_code=s.em_code and
+        e.c_code =c.c_code)
+        WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
 		 ]]>
 	</select>
 

@@ -34,11 +34,11 @@ public class SalaryDAOImple implements SalaryDAO {
 		logger.info(Integer.toString(criteria.getPerPageNum() + criteria.getPageStart()));
 		Map<String, Object> map = new HashMap<String, Object>();
 
-		
-		LoginDTO loginDTO = new LoginDTO(); loginDTO.setId("p_id");
-		 
+		/*
+		 * LoginDTO loginDTO = new LoginDTO(); loginDTO.setId("p_id");
+		 */ 
 		map.put("criteria", criteria);
-		map.put("loginDTO", loginDTO);
+		map.put("p_id", p_id);
 
 		return sqlSession.selectList(NAMESPACE + ".listCriteria", map);
 	}

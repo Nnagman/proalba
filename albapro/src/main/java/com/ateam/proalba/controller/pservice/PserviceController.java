@@ -72,7 +72,7 @@ public class PserviceController {
 		PageMaker pageMaker = new PageMaker();
 	    pageMaker.setCriteria(criteria);
 	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
-	    
+	    logger.info(p_id);
 		model.addAttribute("message", "inqsalaryPage");
 		model.addAttribute("salarys", salaryService.listCriteria(criteria, p_id));
 		model.addAttribute("pageMaker", pageMaker);
