@@ -3,6 +3,7 @@ package com.ateam.proalba.controller.contract;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -24,15 +25,19 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -131,28 +136,59 @@ public class ContractController {
 	@RequestMapping(value = "/checkContract", method = RequestMethod.GET)
 	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
-		String pngPath = request.getServletContext().getRealPath("/resources")+link;
-		
-		// Retrieve image from the classpath.
-		InputStream is = this.getClass().getResourceAsStream(pngPath); 
-
-		// Prepare buffered image.
-		BufferedImage img = ImageIO.read(is);
-
-		// Create a byte array output stream.
-		ByteArrayOutputStream bao = new ByteArrayOutputStream();
-
-		// Write to output stream
-		ImageIO.write(img, "png", bao);
-
-		bao.toByteArray();
-	        
-		BufferedImage srcImg = ImageIO.read(new File(pngPath));
-		System.out.println(srcImg);
-		httpSession.setAttribute("srcImg",srcImg);
-		httpSession.setAttribute("link",link);
-		logger.info(link);
+		String pngPath = link;
+		httpSession.setAttribute("pngPath", pngPath);
+//		// Retrieve image from the classpath.
+//		InputStream is = this.getClass().getResourceAsStream(pngPath); 
+//
+//		// Prepare buffered image.
+//		BufferedImage img = ImageIO.read(is);
+//
+//		// Create a byte array output stream.
+//		ByteArrayOutputStream bao = new ByteArrayOutputStream();
+//
+//		// Write to output stream
+//		ImageIO.write(img, "png", bao);
+//
+//		bao.toByteArray();
+//	        
+//		BufferedImage srcImg = ImageIO.read(new File(pngPath));
+//		System.out.println(srcImg);
+//		httpSession.setAttribute("srcImg",srcImg);
+//		httpSession.setAttribute("link",link);
+//		logger.info(link);
 		return "contract/checkContract";
+	}
+	
+	@RequestMapping(value = "/displayPNG", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> displayPNG(@RequestParam("name") String fileName, HttpServletRequest request) throws Exception{
+		logger.info("display PNG start");
+		String pngPath = request.getServletContext().getRealPath("/resources")+fileName;
+		logger.info(pngPath);
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+		try {
+//			String formatName = pngPath.substring(pngPath.lastIndexOf(".")+1);
+			HttpHeaders headers = new HttpHeaders();
+			MediaType mType = MediaType.IMAGE_PNG;
+			in = new FileInputStream(pngPath);
+			
+			//step: change HttpHeader ContentType
+			if(mType != null) {
+				headers.setContentType(mType);
+			}else {
+				return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			}
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		}finally {
+			in.close();
+		}
+		logger.info("success");
+		return entity;
 	}
 	
 	public int mailSender(String mail, String link) {
