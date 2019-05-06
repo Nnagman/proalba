@@ -38,5 +38,9 @@ public class ContractServiceImplement implements ContractService {
 	public List<WcontractVO> listCriteria(Criteria criteria) throws Exception {
 		return  contractDAO.listCriteria(criteria);
 	}
+	@Override
+	public void update_contract(String fileName) throws Exception {
+		contractDAO.update_contract(fileName);
+	}
 
 }

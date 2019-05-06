@@ -1,7 +1,5 @@
 package com.ateam.proalba.controller.contract;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +11,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -138,26 +135,32 @@ public class ContractController {
 		HttpSession httpSession = request.getSession();
 		String pngPath = link;
 		httpSession.setAttribute("pngPath", pngPath);
-//		// Retrieve image from the classpath.
-//		InputStream is = this.getClass().getResourceAsStream(pngPath); 
-//
-//		// Prepare buffered image.
-//		BufferedImage img = ImageIO.read(is);
-//
-//		// Create a byte array output stream.
-//		ByteArrayOutputStream bao = new ByteArrayOutputStream();
-//
-//		// Write to output stream
-//		ImageIO.write(img, "png", bao);
-//
-//		bao.toByteArray();
-//	        
-//		BufferedImage srcImg = ImageIO.read(new File(pngPath));
-//		System.out.println(srcImg);
-//		httpSession.setAttribute("srcImg",srcImg);
-//		httpSession.setAttribute("link",link);
-//		logger.info(link);
 		return "contract/checkContract";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/wcontract/checkContract", method = RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
+	public ResponseEntity<String> checkContractPOST(MultipartFile file,ServletRequest request) throws Exception {
+		String uploadPath = request.getServletContext().getRealPath("/resources");
+		
+		String fileName = file.getOriginalFilename();
+		String updateFileName = fileName.substring(0, fileName.length()-4);
+		contractService.update_contract(updateFileName);
+		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, updateFileName+".pdf", file.getBytes(), "contract"), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/removeFile", method = RequestMethod.GET)
+	public String removeFileGET(@RequestParam("fileName") String fileName,HttpServletRequest request) throws Exception {
+		File deleteFile = new File(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
+		logger.info(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
+		if(deleteFile.exists()) {
+			deleteFile.delete();
+			logger.info("Done delete");
+		}else {
+			logger.info("Fail delete");
+			return null;
+		}
+		return "contract/wcontract";
 	}
 	
 	@RequestMapping(value = "/displayPNG", method = RequestMethod.GET)
@@ -202,8 +205,8 @@ public class ContractController {
 		// Google일 경우 smtp.gmail.com 을 입력합니다.
 		String host = "smtp.gmail.com";
 
-		final String username = "nnagman"; // 구글 아이디 @gmail.com 빼고
-		final String password = "ic0cadafgdgaa!"; // 비밀번호
+		final String username = ""; // 구글 아이디 @gmail.com 빼고
+		final String password = ""; // 비밀번호
 		int port = 465; // 포트번호
 
 		// 메일 내용

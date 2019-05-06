@@ -12,4 +12,5 @@ public interface ContractMapper {
 	public int count_contract(LoginDTO loginDTO);
 	public ArrayList<WcontractVO> listPaging(int page);
 	public ArrayList<WcontractVO> listCriteria(Criteria criteria);
+	public void update_contract(String fileName);
 }

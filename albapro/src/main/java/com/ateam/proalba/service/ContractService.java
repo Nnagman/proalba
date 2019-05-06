@@ -12,4 +12,5 @@ public interface ContractService {
 	void add_contract(WcontractVO wcontractVO) throws Exception;
 	List<WcontractVO> select_contract(LoginDTO loginDTO) throws Exception;
 	int count_contract(LoginDTO loginDTO) throws Exception;
+	void update_contract(String fileName) throws Exception;
 }
