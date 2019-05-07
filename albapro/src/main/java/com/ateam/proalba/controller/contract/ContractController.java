@@ -1,5 +1,14 @@
 package com.ateam.proalba.controller.contract;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -13,15 +22,19 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -83,7 +96,7 @@ public class ContractController {
 	}
 
 	@RequestMapping(value = "/wcontract", method = RequestMethod.POST)
-	public String wcontractPOST(WcontractVO wcontractVO) throws Exception {
+	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
 		wcontractVO.setC_id("c" + wcontractVO.getC_id());
 		wcontractVO.setP_id("p" + wcontractVO.getP_id());
 		contractService.add_contract(wcontractVO);
@@ -91,8 +104,12 @@ public class ContractController {
 		logger.info(wcontractVO.toString());
 		MemberVO memberVO = memberService.getList(p_id);
 		logger.info("getList success");
-		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
-		int mail = 0;
+		int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
+//		int mail = 0;
+		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
+		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
+		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
+		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
 		if(mail==0) { return "contract/wcontract"; }
 		else { return "/"; }
 	}
@@ -116,11 +133,65 @@ public class ContractController {
 	@RequestMapping(value = "/checkContract", method = RequestMethod.GET)
 	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
-		String pdfPath = request.getServletContext().getRealPath("/resources");
-		httpSession.setAttribute("pdfPath",pdfPath);
-		httpSession.setAttribute("link",link);
-		logger.info(link);
+		String pngPath = link;
+		httpSession.setAttribute("pngPath", pngPath);
 		return "contract/checkContract";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/wcontract/checkContract", method = RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
+	public ResponseEntity<String> checkContractPOST(MultipartFile file,ServletRequest request) throws Exception {
+		String uploadPath = request.getServletContext().getRealPath("/resources");
+		
+		String fileName = file.getOriginalFilename();
+		String updateFileName = fileName.substring(0, fileName.length()-4);
+		contractService.update_contract(updateFileName);
+		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, updateFileName+".pdf", file.getBytes(), "contract"), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/removeFile", method = RequestMethod.GET)
+	public String removeFileGET(@RequestParam("fileName") String fileName,HttpServletRequest request) throws Exception {
+		File deleteFile = new File(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
+		logger.info(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
+		if(deleteFile.exists()) {
+			deleteFile.delete();
+			logger.info("Done delete");
+		}else {
+			logger.info("Fail delete");
+			return null;
+		}
+		return "contract/wcontract";
+	}
+	
+	@RequestMapping(value = "/displayPNG", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> displayPNG(@RequestParam("name") String fileName, HttpServletRequest request) throws Exception{
+		logger.info("display PNG start");
+		String pngPath = request.getServletContext().getRealPath("/resources")+fileName;
+		logger.info(pngPath);
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+		try {
+//			String formatName = pngPath.substring(pngPath.lastIndexOf(".")+1);
+			HttpHeaders headers = new HttpHeaders();
+			MediaType mType = MediaType.IMAGE_PNG;
+			in = new FileInputStream(pngPath);
+			
+			//step: change HttpHeader ContentType
+			if(mType != null) {
+				headers.setContentType(mType);
+			}else {
+				return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+			}
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		}finally {
+			in.close();
+		}
+		logger.info("success");
+		return entity;
 	}
 	
 	public int mailSender(String mail, String link) {
@@ -190,5 +261,43 @@ public class ContractController {
 		return 0; 
 
 
+	}
+	
+	// 파일 복사하는 메소드
+	public boolean nioFileCopy(String inFileName, String outFileName) {
+		Path source = Paths.get(inFileName);
+		Path target = Paths.get(outFileName);
+
+		// 사전체크
+		if (source == null) {
+			throw new IllegalArgumentException("source must be specified");
+		}
+		if (target == null) {
+			throw new IllegalArgumentException("target must be specified");
+		}
+
+		// 소스파일이 실제로 존재하는지 체크
+		if (!Files.exists(source, new LinkOption[] {})) {
+			throw new IllegalArgumentException("Source file doesn't exist: "
+					+ source.toString());
+		}
+
+		
+		try {
+			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING); // 파일복사
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+
+		if (Files.exists(target, new LinkOption[] {})) { // 파일이 정상적으로 생성이 되었다면
+			// System.out.println("File Copied");
+			return true; // true 리턴
+		} else {
+			logger.info("File Copy Failed");
+			return false; // 실패시 false
+		}
 	}
 }

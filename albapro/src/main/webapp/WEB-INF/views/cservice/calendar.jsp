@@ -22,13 +22,12 @@
 			},
 			editable: true,
 			events: [
-				
 				{
-	               title: 'All Day Event',
-	        
-	               start: new Date(y, m, 1)
+	               title: 'Pay day!!!',        
+	               start: new Date(y, m, 10)
 				}
 			]
+			
 		});
 		
 	});
@@ -46,6 +45,8 @@
 </style>
 </head>
 <body>
-<div id='calendar'></div>
+<div id='calendar'>
+
+</div>
 </body>
 </html>

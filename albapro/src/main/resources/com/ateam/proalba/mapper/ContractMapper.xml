@@ -31,6 +31,13 @@
   	  	]]>
 	</select>
 	
+	<select id="update_contract">
+		<![CDATA[
+		UPDATE contract set fileName = (substr(fileName,0,length(fileName)-4)||'.pdf'), email_check = '1'
+		WHERE fileName LIKE ('%'||#{fileName}||'.png')
+  	  	]]>
+	</select>
+	
 	<select id="count_contract" resultType="int">
 		<![CDATA[
 		SELECT COUNT(rownum) FROM contract
