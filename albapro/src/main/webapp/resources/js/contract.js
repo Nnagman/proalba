@@ -1,9 +1,11 @@
 function toDataURL(){
   var myImage = document.getElementById('myImage');
   myImage.src = myCanvas.toDataURL();
+  $("#myCanvas").hide();
 }
 var canvas, context;
 $(document).ready(function(){
+	
     //사업주가 서명을 완료할 경우 canvas의 서명은 png형태로 저장.
     //그 뒤, 근로자가 서명을 한다.
     //canvas 태그는 사업주, 근로자에 따라 다른 위치에 append됌.
@@ -53,10 +55,34 @@ function onlyNumber() {
   }
 
 $(function(){
+	$("#submit2").click(function(){
+		$(".submit2").remove();
+		$(".signAgain").remove();
+	});
+	
 	$("#submit1").click(function(){	
 		$('#myModal').on('shown.bs.modal', function () {
 			$('#myInput').focus()
 		});
+	});
+	
+	$("#moveSign").mousedown(function(){
+		$("#sign").draggable({ disabled: false });
+		$("#moveSignEnd").mousedown(function(){
+			$("#sign").draggable({ disabled: true })
+		});
+	});
+	
+	$("#endGame").click(function(){
+		$(".wcontract_btnline").hide();
+	});
+	
+	$("#signAgain").click(function(){
+		var myImage = document.getElementById('myImage');
+		myImage.src = "";
+		$("#myCanvas").show();
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		$(".wcontract_btnline").show();
 	});
 });
 

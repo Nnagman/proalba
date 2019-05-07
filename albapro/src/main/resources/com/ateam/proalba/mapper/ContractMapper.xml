@@ -31,6 +31,20 @@
   	  	]]>
 	</select>
 	
+	<select id="select_contract2" resultType="com.ateam.proalba.domain.WcontractVO" parameterType="hashmap">
+		<![CDATA[
+		SELECT * FROM contract
+		WHERE c_id = ('c'||#{id[0]}) AND p_id = ('p'||#{id[1]}) AND rownum = 1
+  	  	]]>
+	</select>
+	
+	<select id="update_contract">
+		<![CDATA[
+		UPDATE contract set fileName = (substr(fileName,0,length(fileName)-4)||'.pdf'), email_check = '1'
+		WHERE fileName LIKE ('%'||#{fileName}||'.png')
+  	  	]]>
+	</select>
+	
 	<select id="count_contract" resultType="int">
 		<![CDATA[
 		SELECT COUNT(rownum) FROM contract

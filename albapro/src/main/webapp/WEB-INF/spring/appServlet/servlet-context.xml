@@ -37,6 +37,9 @@
          <mapping path="/modify"/>
          <mapping path="/remove"/>
          <mapping path="/info"/>
+         <mapping path="/pmypage"/>  
+         <mapping path="/writeResume"/>
+         <mapping path="/maresume"/>   
             <beans:ref bean="authInterceptor"/>
          </interceptor>
    </interceptors>
