@@ -12,4 +12,5 @@ public interface ContractDAO {
 	List<WcontractVO> listPaging(int page) throws Exception;
 	List<WcontractVO> listCriteria(Criteria criteria) throws Exception;
 	int count_contract(LoginDTO loginDTO) throws Exception; 
+	void update_contract(String preFileName) throws Exception;
 }

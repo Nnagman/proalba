@@ -64,4 +64,9 @@ public class ContractDAOImplement implements ContractDAO {
 		return sqlSession.selectList(NAMESPACE + ".listCriteria", criteria);
 	}
 
+	@Override
+	public void update_contract(String fileName) throws Exception {
+		sqlSession.update(NAMESPACE + ".update_contract", fileName);
+	}
+
 }

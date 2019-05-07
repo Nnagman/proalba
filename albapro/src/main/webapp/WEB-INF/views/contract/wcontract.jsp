@@ -9,13 +9,13 @@
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 </head>
-<link rel="stylesheet" type="text/css" href="resources/css/contract.css">
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=4">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <%@ include file = "../include/header.jsp" %>
 
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/contract.js?ver=2"></script>
+<script type="text/javascript" src="resources/js/contract.js?ver=3"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
 </script>
@@ -210,7 +210,6 @@
 
 
                     <!-- 캔버스로 그린거 이미지로 변환한 이미지 -->
-                    <div class="div_sign"><img class="im" id="myImage"></div>
                     <br>
                     <span class="t3">대표자: </span>
                     <input class="tex8" name="b_name" type="text" />
@@ -238,15 +237,17 @@
                     <span class="t3">연락처: </span>
                     <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
 
-
-                    <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="300" height="150">
-                    </canvas>
+					<div id="sign">
+                    <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="240" height="120"></canvas>
+                    <div><img class="can1" id="myImage"></div>
 
                     <div class="wcontract_btnline">
                         <input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
-                        <button type="button" class="bt2" value="작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">작성완료</button>
-
+						<button type="button" class="bt2" id="moveSign">서명란이동</button>
+						<button type="button" class="bt2" id="moveSignEnd">이동완료</button>
+						<button type="button" class="bt2" id="endGame">최종완료</button>
                         <br><br> <br><br>
+                    </div>
                     </div>
 
                 </div>
@@ -254,6 +255,8 @@
 
 
             </div>
+            <button type="button" class="bt3" value="근로계약서 작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">근로계약서 작성완료</button>
+            <button type="button" class="bt4" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
             <!-- Large modal -->
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
