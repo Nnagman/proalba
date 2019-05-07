@@ -2,10 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ateam.proalba.mapper.MobileMapperr">
+<mapper namespace="com.ateam.proalba.mapper.MobileMapper">
 
-
+	<select id="mobile_workplace_info" resultType="com.ateam.proalba.domain.MobileWorkInfoVO">
+		select
+		c.start_period,c.work_place_name, e.hourly_wage
+		from Employee e,Contract
+		c where e.C_code= c.C_code AND c.p_id=#{id} 
+	</select>
 	
+	<select id="count_mobile_workplace_info" resultType="int">
+		<![CDATA[
+		SELECT COUNT(rownum) FROM Employee
+		WHERE M_code=#{m_code} AND rownum > 0
+  	  	]]>
+	</select>
 	
-
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.MobileWorkInfoVO">
+		<![CDATA[
+		SELECT  c.start_period,c.work_place_name, e.hourly_wage
+    	FROM (SELECT rownum rn, c.start_period,c.work_place_name, e.hourly_wage
+		from Employee e,Contract c where e.C_code= c.C_code AND c.p_id=#{id}  order by c.start_period desc)
+    	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+		]]>
+	</select>
 </mapper>

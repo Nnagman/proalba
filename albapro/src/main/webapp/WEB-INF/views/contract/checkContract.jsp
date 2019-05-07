@@ -10,6 +10,6 @@
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
-<iframe src='${pdfPath}/${link}' style="width:70px; height:700px;" frameborder="0"></iframe>
+<iframe src='${srcImg}' style="width:70px; height:700px;" frameborder="0"></iframe>
 </body>
 </html>

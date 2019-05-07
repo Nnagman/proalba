@@ -115,6 +115,7 @@ $(function() {
       <th>공제총액</th>
       <th>실지급액</th>
       <th>지급일자</th>
+      <th>상세보기</th>
     </tr>
   </thead>
   <tbody>
@@ -125,6 +126,8 @@ $(function() {
 					<td>${salary.total_deduction_amount}</td>
 					<td>${salary.actual_salary}</td>
 					<td>${salary.year_month}</td>
+					<td><a href="${path}/psalarydetail" target="blank" id="detail"  onclick="window.open(this.href, 'mywin',
+'left=80,top=80,width=750,height=750,toolbar=1,resizable=0');">상세보기</a></td>
 				</tr>
 		</c:forEach>
   </tbody>

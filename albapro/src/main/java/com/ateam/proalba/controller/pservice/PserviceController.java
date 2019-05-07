@@ -80,6 +80,12 @@ public class PserviceController {
 		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "pservice/inqsalary";
 	}
+	@RequestMapping(value = "/psalarydetail", method= RequestMethod.GET)
+	public String psalarydetailGET(Model model) throws Exception {
+		logger.info("Welcome psalarydetail");
+		model.addAttribute("message", "psalarydetail");
+		return "pservice/psalarydetail";
+	}
 	
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
 	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
