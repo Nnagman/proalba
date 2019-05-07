@@ -15,7 +15,7 @@
 
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/contract.js?ver=3"></script>
+<script type="text/javascript" src="resources/js/contract.js?ver=5"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
 </script>
@@ -49,9 +49,8 @@
         <form id="formCon" name="formCon">
             <div id="createPdf">
             	<img src='${path}/displayPNG?name=${pngPath}'/>
-            </div>
-            <button type="button" class="bt3" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
-            <button type="button" class="bt4" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+            	<button type="button" class="bt3" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
+            	<button type="button" class="bt4" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
 			<div id="sign" style="z-index: 100; position: relative; width: 75%; height: 100%; margin: 0 auto;">
 				<canvas class="can1" id="myCanvas" style="background-color: #f0f0f0" width="240" height="120"></canvas>
 				<div>
@@ -64,6 +63,7 @@
 					<button type="button" class="bt2" id="endGame">최종완료</button>
 				</div>
 			</div>
+			</div>
 			<br><br> <br><br>
         </form>
     </div>
@@ -75,6 +75,8 @@
         $("#submit2").on("click", contractServerUp);
 
         function contractServerUp(e) {
+    		$(".submit2").remove();
+    		$(".signAgain").remove();
         	if(test) return;
         	
             console.log("aaa");
@@ -124,7 +126,7 @@
                         processData: false, // processType: false - header가 아닌 body로 전달
                         contentType: false,
                         success: function(data) {
-                        	self.location = "${path}/removeFile?fileName="+data;
+                        	self.location = "${path}/removeFile?fileName="+encodeURI(data);
                         }
                     });
                 }

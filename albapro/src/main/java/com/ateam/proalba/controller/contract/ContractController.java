@@ -46,6 +46,7 @@ import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
+import com.ateam.proalba.service.PdfFileService;
 import com.ateam.proalba.util.UploadFileUtils;
 
 @Controller
@@ -53,11 +54,13 @@ public class ContractController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 	private final ContractService contractService;
 	private final MemberService memberService;
+	private final PdfFileService pdfFileService;
 	
 	@Inject
-	public ContractController(ContractService contractService, MemberService memberService) {
+	public ContractController(ContractService contractService, MemberService memberService, PdfFileService pdfFileService) {
 		this.contractService = contractService;
 		this.memberService = memberService;
+		this.pdfFileService = pdfFileService;
 	}
 	
 	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
@@ -140,19 +143,15 @@ public class ContractController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/wcontract/checkContract", method = RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
-	public ResponseEntity<String> checkContractPOST(MultipartFile file,ServletRequest request) throws Exception {
-		String uploadPath = request.getServletContext().getRealPath("/resources");
-		
-		String fileName = file.getOriginalFilename();
-		String updateFileName = fileName.substring(0, fileName.length()-4);
-		contractService.update_contract(updateFileName);
-		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, updateFileName+".pdf", file.getBytes(), "contract"), HttpStatus.OK);
+	public String checkContractPOST(MultipartFile file,ServletRequest request) throws Exception {
+		return pdfFileService.restore(file,request);
 	}
 	
 	@RequestMapping(value = "/removeFile", method = RequestMethod.GET)
 	public String removeFileGET(@RequestParam("fileName") String fileName,HttpServletRequest request) throws Exception {
-		File deleteFile = new File(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
-		logger.info(request.getServletContext().getRealPath("/resources")+fileName.substring(0, fileName.length()-4)+".png");
+		File deleteFile = new File(fileName.substring(0, fileName.length()-4)+".png");
+		logger.info(fileName.substring(0, fileName.length()-4)+".png");
+		
 		if(deleteFile.exists()) {
 			deleteFile.delete();
 			logger.info("Done delete");
@@ -160,6 +159,10 @@ public class ContractController {
 			logger.info("Fail delete");
 			return null;
 		}
+		String[] splitStr = fileName.split("resources");
+		String updateFileName = splitStr[1].substring(0, splitStr[1].length()-4);
+		contractService.update_contract(updateFileName);
+		
 		return "contract/wcontract";
 	}
 	

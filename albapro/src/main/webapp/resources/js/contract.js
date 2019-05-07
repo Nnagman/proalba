@@ -1,7 +1,7 @@
 function toDataURL(){
   var myImage = document.getElementById('myImage');
   myImage.src = myCanvas.toDataURL();
-  document.getElementById( 'myCanvas' ).remove();
+  $("#myCanvas").hide();
 }
 var canvas, context;
 $(document).ready(function(){
@@ -55,6 +55,11 @@ function onlyNumber() {
   }
 
 $(function(){
+	$("#submit2").click(function(){
+		$(".submit2").remove();
+		$(".signAgain").remove();
+	});
+	
 	$("#submit1").click(function(){	
 		$('#myModal').on('shown.bs.modal', function () {
 			$('#myInput').focus()
@@ -73,7 +78,9 @@ $(function(){
 	});
 	
 	$("#signAgain").click(function(){
-		const context = myCanvas.getContext('2d');
+		var myImage = document.getElementById('myImage');
+		myImage.src = "";
+		$("#myCanvas").show();
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		$(".wcontract_btnline").show();
 	});
