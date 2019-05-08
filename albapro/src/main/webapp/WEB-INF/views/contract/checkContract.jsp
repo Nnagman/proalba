@@ -40,7 +40,7 @@
 
 
 <body>
-    <%@ include file = "../include/cmenu.jsp" %>
+    <%@ include file = "../include/menu.jsp" %>
 
     <div class="contents">
         <div class="title">
@@ -48,7 +48,7 @@
         </div>
         <form id="formCon" name="formCon">
             <div id="createPdf">
-            	<img src='${path}/displayPNG?name=${pngPath}'/>
+            	<img src='${path}/displayContract?name=${contractPath}'/>
             	<button type="button" class="bt3" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
             	<button type="button" class="bt4" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
 			<div id="sign" style="z-index: 100; position: relative; width: 75%; height: 100%; margin: 0 auto;">
@@ -108,8 +108,8 @@
 
                     var formData = new FormData();
                     var d = new Date();
-                    var pngName = "${pngPath}";
-                    var fileName = "${pngPath}";
+                    var pngName = "${contractPath}";
+                    var fileName = "${contractPath}";
                     // 파일 저장
                     var file = doc.output('blob');
                     console.log(file);

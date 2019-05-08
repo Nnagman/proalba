@@ -2,8 +2,12 @@ package com.ateam.proalba.controller.contract;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -20,6 +24,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
@@ -30,7 +35,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,30 +68,36 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
-	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
+	public String pcontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		PageMaker pageMaker = new PageMaker();
 		criteria.setM_code("p"+loginDTO.getId()); // m_code니깐 앞에 p붙여줘야함.
 	    pageMaker.setCriteria(criteria);
 	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
 	    
-		model.addAttribute("message", "contractPage");
-		model.addAttribute("contracts", contractService.listCriteria(criteria));
-		model.addAttribute("pageMaker", pageMaker);
+	    String id = criteria.getId();
+	    criteria.setId("p"+id);
+	    
+	    request.setAttribute("message", "contractPage");
+	    request.setAttribute("contracts", contractService.listCriteria(criteria));
+	    request.setAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "contract/pcontract";
 	}
 	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
-	public String ccontractGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
+	public String ccontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		PageMaker pageMaker = new PageMaker();
 		criteria.setM_code(loginDTO.getId());
 	    pageMaker.setCriteria(criteria);
 	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
 	    
-		model.addAttribute("message", "contractPage");
-		model.addAttribute("contracts", contractService.listCriteria(criteria));
-		model.addAttribute("pageMaker", pageMaker);
+	    String id = criteria.getId();
+	    criteria.setId("c"+id);
+	    
+	    request.setAttribute("message", "contractPage");
+	    request.setAttribute("contracts", contractService.listCriteria(criteria));
+	    request.setAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "contract/ccontract";
@@ -108,7 +118,6 @@ public class ContractController {
 		MemberVO memberVO = memberService.getList(p_id);
 		logger.info("getList success");
 		int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
-//		int mail = 0;
 		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
 		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
 		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
@@ -136,8 +145,8 @@ public class ContractController {
 	@RequestMapping(value = "/checkContract", method = RequestMethod.GET)
 	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
-		String pngPath = link;
-		httpSession.setAttribute("pngPath", pngPath);
+		String contractPath = link;
+		httpSession.setAttribute("contractPath", contractPath);
 		return "contract/checkContract";
 	}
 	
@@ -163,28 +172,23 @@ public class ContractController {
 		String updateFileName = splitStr[1].substring(0, splitStr[1].length()-4);
 		contractService.update_contract(updateFileName);
 		
-		return "contract/wcontract";
+		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/displayPNG", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> displayPNG(@RequestParam("name") String fileName, HttpServletRequest request) throws Exception{
-		logger.info("display PNG start");
-		String pngPath = request.getServletContext().getRealPath("/resources")+fileName;
-		logger.info(pngPath);
+	@RequestMapping(value = "/displayContract", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> displayContract(@RequestParam("name") String fileName, HttpServletRequest request) throws Exception{
+		logger.info("display Contract start");
+		String contractPath = request.getServletContext().getRealPath("/resources")+fileName;
+		logger.info(contractPath);
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 		try {
 //			String formatName = pngPath.substring(pngPath.lastIndexOf(".")+1);
 			HttpHeaders headers = new HttpHeaders();
 			MediaType mType = MediaType.IMAGE_PNG;
-			in = new FileInputStream(pngPath);
+			headers.setContentType(mType);
 			
-			//step: change HttpHeader ContentType
-			if(mType != null) {
-				headers.setContentType(mType);
-			}else {
-				return new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
-			}
+			in = new FileInputStream(contractPath);
 			
 			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
 		}catch(Exception e) {
@@ -195,6 +199,57 @@ public class ContractController {
 		}
 		logger.info("success");
 		return entity;
+	}
+	
+	@RequestMapping(value = "/downloadContract", method = RequestMethod.GET)
+	public void downloadContract(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        String path =  request.getServletContext().getRealPath("/resources");
+        
+        String filename = request.getParameter("fileName");
+        String downname = request.getParameter("downName");
+        String realPath = "";
+        System.out.println("downname: "+downname);
+        if (filename == null || "".equals(filename)) {
+            filename = downname;
+        }
+         
+        try {
+            String browser = request.getHeader("User-Agent"); 
+            //파일 인코딩 
+            if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) {
+                filename = URLEncoder.encode(filename, "UTF-8").replaceAll("\\+", "%20");
+            } else {
+                filename = new String(filename.getBytes("UTF-8"), "ISO-8859-1");
+            }
+        } catch (UnsupportedEncodingException ex) { System.out.println("UnsupportedEncodingException"); }
+        realPath = path +downname;
+        System.out.println(realPath);
+        File file1 = new File(realPath);
+        if (!file1.exists()) {
+            return ;
+        }
+         
+        // 파일명 지정        
+        response.setContentType("application/octer-stream");
+        response.setHeader("Content-Transfer-Encoding", "binary;");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+        try {
+            OutputStream os = response.getOutputStream();
+            FileInputStream fis = new FileInputStream(realPath);
+ 
+            int ncount = 0;
+            byte[] bytes = new byte[512];
+ 
+            while ((ncount = fis.read(bytes)) != -1 ) {
+                os.write(bytes, 0, ncount);
+            }
+            fis.close();
+            os.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("FileNotFoundException");
+        } catch (IOException ex) {
+            System.out.println("IOException");
+        }
 	}
 	
 	public int mailSender(String mail, String link) {
