@@ -12,89 +12,15 @@
 <%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" href="resources/css/workmanage.css" />
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
+<link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanagecus.css" />
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
-
-<script>
-
-$(function() {
-	var d = new Date();
-	var month = d.getMonth() + 1;
-	var year = d.getFullYear();
-	
-	var currentDate = year + "년 " + month + "월 ";
-	$("#date").text(currentDate);
-	
-	$("#back").click(function(){
-		month = month-1;
-		
-		if(month>0){
-			currentDate = year + "년 " + month + "월 ";
-			$("#date").text(currentDate);
-		}else{
-			year = year-1;
-			month = 12;
-			currentDate = year + "년 " + month + "월 ";
-			$("#date").text(currentDate);
-		}
-	});
-	
-	$("#forward").click(function(){
-		month = month+1;
-		
-		if(month<=12){
-			var currentDate = year + "년 " + month + "월 ";
-			$("#date").text(currentDate);
-		}else{
-			year = year+1;
-			month = 1;
-			var currentDate = year + "년 " + month + "월 ";
-			$("#date").text(currentDate);
-		}
-	});
-	
-	$("#date").click(function(){
-		var searchMonth = d.getMonth()+1 
-		var searchYear = d.getFullYear()
-		
-		$("#year").val(searchYear);
-		$("#month").val(searchMonth);
-		$('.ui.basic.modal').modal('show');
-		
-		$('#nextYear').click(function(){
-			searchYear = searchYear + 1;
-			$("#year").val(searchYear);
-		});
-		
-		$('#lastYear').click(function(){
-			searchYear = searchYear - 1;
-			$("#year").val(searchYear);
-		});
-		
-		$('#nextMonth').click(function(){
-			searchMonth = searchMonth + 1;
-			if(searchMonth>12){ searchMonth = 12; }
-			$("#month").val(searchMonth);
-		});
-		
-		$('#lastMonth').click(function(){
-			searchMonth = searchMonth - 1;
-			if(searchMonth<1){ searchMonth = 1; }
-			$("#month").val(searchMonth);
-		});
-		
-		$('#search').click(function(){
-			year = searchYear; month = searchMonth;
-			searchMonth = $('#month').val();
-			searchYear = $("#year").val();
-			currentDate = searchYear + "년 " + searchMonth + "월 ";
-			$("#date").text(currentDate);
-		});
-	});
-});
-</script>
+<script src="resources/js/cal/albamanage.js"></script>
+<script src="resources/js/albamanage.js"></script>
 </head>
 <body>
 <%@ include file = "../include/menu.jsp" %>
@@ -135,6 +61,13 @@ $(function() {
     </tr>
   </tbody>
 </table>
+
+<c:forEach var="row" items="${map.list }" >
+
+		${row.sa_code }<br>
+
+</c:forEach>
+
 
 <div class="ui basic modal">
 	<table class="ui celled structured table">
