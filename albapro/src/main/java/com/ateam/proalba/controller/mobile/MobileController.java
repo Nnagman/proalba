@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,10 +36,11 @@ public class MobileController {
 
 	   // 테이블 형식 레이아웃 메인페이지
 	   @ResponseBody
-	   @RequestMapping(value = "m.workinfo", method = RequestMethod.GET)
+	   @RequestMapping(value = "m.workinfo", method = RequestMethod.POST)
 //	   @CrossOrigin(origins = "*", allowedHeaders = "*")
-	   public JSON tableBoardMain(@ModelAttribute("criteria") Criteria criteria,Model model, HttpServletRequest request, String id) throws Exception {
-
+	   public JSON tableBoardMain(@ModelAttribute("criteria") Criteria criteria,Model model, HttpServletRequest request, @RequestBody String id) throws Exception {
+		   System.out.println(id);
+		   criteria.setId("p"+id);
 		   PageMaker pageMaker = new PageMaker();
 //		   criteria.setM_code("p"+loginDTO.getId()); // m_code니깐 앞에 p붙여줘야함.
 		   pageMaker.setCriteria(criteria);
