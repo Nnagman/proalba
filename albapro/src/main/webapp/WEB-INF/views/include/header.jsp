@@ -18,7 +18,7 @@
 	<body>
 		<div class="header">
 
-			<img alt="로고" src="${path}/resources/images/rogo.png" class="rogoimg" width="200" height="100" />
+			<a href="${path}"><img alt="로고" src="${path}/resources/images/rogo.png" class="rogoimg" width="200" height="100" /></a>
 			<p>${login.id}님 로그인</p>
 
 		</div>

@@ -26,7 +26,7 @@
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/pcontract">전자 근로계약서</a>
+						<li><a href="${path}/pcontract?id=${login.id}">전자 근로계약서</a>
 						<li><a href="${path}/ecertifi">취업활동 증명서</a>
 					</ul>
 				</div>
@@ -42,14 +42,14 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary">급여 조회</a>
+						<li><a href="${path}/inqsalary?p_id=${login.id}">급여 조회</a>
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>경력 관리</h3>
 					<ul>
-						<li><a href="${path}/inqcareer">경력 조회</a>
+						<li><a href="${path}/inqcareer?id=${login.id}">경력 조회</a>
 					</ul>
 				</div>
 				

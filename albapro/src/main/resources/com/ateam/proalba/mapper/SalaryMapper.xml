@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
+
+<!--     <select id="listAll" resultType="com.ateam.proalba.domain.SalaryVO">
+        <![CDATA[
+        SELECT
+            id,
+            work_place_name,
+            end_date,
+            work_type
+        FROM career
+        ]]>
+    </select>
+    
+    <select id="listPaging" resultMap="CareerVOResultMap">
+    	<![CDATA[
+    	SELECT
+            join_date,
+            work_place_name,
+            end_date,
+            work_type
+    	FROM career
+    	WHERE join_date != null
+    	ORDER BY join_date DESC
+    	LIMIT #{page}, 10
+    	]]>
+	</select> -->
+
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
+	    <![CDATA[
+
+		
+		select work_place_name, basic_salary, total_deduction_amount, actual_salary, year_month
+		from (select c.work_place_name, s.basic_salary, s.total_deduction_amount, s.actual_salary, s.year_month
+		from salary s, contract c, employee e, member m 
+		where m.id=#{p_id} and 
+        m.m_code=e.m_code and 
+        e.em_code=s.em_code and
+        e.c_code =c.c_code)
+        WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
+		 ]]>
+	</select>
+
+<!--     <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
+        <id property="join_date" column="join_date" />
+        <result property="work_palce_name" column="work_palce_name" />
+        <result property="end_date" column="end_date" />
+        <result property="work_type" column="work_tyep" />
+    </resultMap>
+ -->    
+    <select id="countSalarys" resultType="int">
+    	<![CDATA[
+    	SELECT
+    		COUNT(rownum)
+    	FROM salary
+    	WHERE rownum > 0
+    	]]>
+	</select>
+
+</mapper>

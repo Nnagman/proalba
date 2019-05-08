@@ -11,7 +11,6 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +23,7 @@ public class EmailController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
-	public int mailSender(HttpServletRequest request, ModelMap mo, String mail) {
+	public int mailSender(HttpServletRequest request, String mail) {
 		//0은 정상
 		//-1 = 이메일 값 널
 		//-2 = 계정 접근 권한이 없거나 포트가 안열려 있는거임   
@@ -35,8 +34,8 @@ public class EmailController {
 		// Google일 경우 smtp.gmail.com 을 입력합니다.
 		String host = "smtp.gmail.com";
 
-		final String username = "nnagman"; // 구글 아이디 @gmail.com 빼고
-		final String password = "ic0cadafgdgaa!"; // 비밀번호
+		final String username = ""; // 구글 아이디 @gmail.com 빼고
+		final String password = ""; // 비밀번호
 		int port = 465; // 포트번호
 
 		// 메일 내용

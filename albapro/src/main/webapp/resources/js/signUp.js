@@ -120,7 +120,6 @@ $(document).ready(function(){
 		
 		$("#double_check").click(function(){
 			var id = $("#dev_idchk").val();
-			
 			$.ajax({
 				async: true,
 				type: 'POST',
@@ -137,6 +136,9 @@ $(document).ready(function(){
 	                    $("#dev_pwd1").focus();
 	                    $("#btn_signup").removeAttr("disabled");
 	                    $("#dev_idchk").attr("disabled");
+	            		var m_code = $("#m_code").val()+$('#dev_idchk').val();
+	            		console.log(m_code);
+	            		$("#m_code").val(m_code);
 	                }
 	            },
 	            error : function(error) {
@@ -146,7 +148,4 @@ $(document).ready(function(){
 		});
 		
 		var d = new Date();
-		var m_code = $("#m_code").val()+$('#id').val();
-		console.log(m_code);
-		$("#m_code").val(m_code);
 });

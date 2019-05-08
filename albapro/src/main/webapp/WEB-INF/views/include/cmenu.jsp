@@ -26,7 +26,8 @@
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/ccontract">전자 근로계약서</a>
+						<li><a href="${path}/wcontract">전자 근로계약서 작성</a>
+						<li><a href="${path}/ccontract?id=${login.id}">전자 근로계약서</a>
 						<li><a href="${path}/ecertifi">취업활동 증명서</a>
 					</ul>
 				</div>
@@ -34,7 +35,7 @@
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/cworkmanage">근태 기록 관리/조회</a>
+						<li><a href="${path}/cworkmanage?id=${login.id}">근태 기록 관리/조회</a>
 
 					</ul>
 				</div>
@@ -72,7 +73,7 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">커뮤니티</a>
+			<a class="menuLink" href="${path}/comm">커뮤니티</a>
 			<ul class="subMenu">
 
 			</ul>

@@ -12,18 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.SalaryService;
+
 
 @Controller
 public class PserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(PserviceController.class);
 	private final CareerService careerService;
+	private final SalaryService salaryService;
 	
 	@Inject
-	public PserviceController(CareerService careerService) {
+	public PserviceController(CareerService careerService, SalaryService salaryService) {
 		this.careerService = careerService;
-
+		this.salaryService = salaryService;
 	}
 
 	@RequestMapping("/pservice")
@@ -47,20 +51,6 @@ public class PserviceController {
 		return "pservice/maresume";
 	}
 	
-	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
-	public String pcontractGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
-		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(criteria));
-	    
-		model.addAttribute("message", "inqcareerPage");
-		model.addAttribute("careers", careerService.listCriteria(criteria));
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "contract/pcontract";
-	}
-	
 	@RequestMapping(value = "/ecertifi", method = RequestMethod.GET)
 	public String ecertifiGET(Model model) throws Exception {
 		logger.info("Welcome ecertifiPage");
@@ -76,19 +66,36 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
-	public String inqsalaryGET(HttpSession httpSession,Model model) throws Exception {
+	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String p_id) throws Exception {
 		logger.info("Welcome inqsalaryPage");
-		model.addAttribute("message", "inqsalaryPage");
-		return "pservice/inqsalary";
-	}
-	
-	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
-	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria) throws Exception {
-		logger.info("Welcome inqcareerPage");
 		
 		PageMaker pageMaker = new PageMaker();
 	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(criteria));
+	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
+	    logger.info(p_id);
+		model.addAttribute("message", "inqsalaryPage");
+		model.addAttribute("salarys", salaryService.listCriteria(criteria, p_id));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		return "pservice/inqsalary";
+	}
+	@RequestMapping(value = "/psalarydetail", method= RequestMethod.GET)
+	public String psalarydetailGET(Model model) throws Exception {
+		logger.info("Welcome psalarydetail");
+		model.addAttribute("message", "psalarydetail");
+		return "pservice/psalarydetail";
+	}
+	
+	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
+	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
+		logger.info("Welcome inqcareerPage");
+		
+		PageMaker pageMaker = new PageMaker();
+		loginDTO.setId('p'+ loginDTO.getId());
+		criteria.setM_code(loginDTO.getId());
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(careerService.countCareers(loginDTO));
 	    
 		model.addAttribute("message", "inqcareerPage");
 		model.addAttribute("careers", careerService.listCriteria(criteria));

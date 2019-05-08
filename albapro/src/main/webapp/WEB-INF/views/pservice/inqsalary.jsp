@@ -115,30 +115,21 @@ $(function() {
       <th>공제총액</th>
       <th>실지급액</th>
       <th>지급일자</th>
+      <th>상세보기</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John Lilki</td>
-      <td>${salarVO.sa_code}</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
+		<c:forEach var="salary" varStatus="i" items="${salarys}">
+				<tr>
+					<td>${salary.work_place_name}</td>
+					<td>${salary.basic_salary}</td>
+					<td>${salary.total_deduction_amount}</td>
+					<td>${salary.actual_salary}</td>
+					<td>${salary.year_month}</td>
+					<td><a href="${path}/psalarydetail" target="blank" id="detail"  onclick="window.open(this.href, 'mywin',
+'left=80,top=80,width=750,height=750,toolbar=1,resizable=0');">상세보기</a></td>
+				</tr>
+		</c:forEach>
   </tbody>
 </table>
 

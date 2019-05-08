@@ -49,21 +49,11 @@ $(function() {
 		<Th>check</Th><Th>사원번호</Th><Th>성명</Th><td>휴대번호</td><Th>근태기록</Th>
 	</tr>
 	
+	<c:forEach var="list" items="${list}">
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
+		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>${list.id}</Td><td>${list.name}</Td><td>${list.phone}</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
 	</tr>
-	
-	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
-	</tr>
-	
-	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
-	</tr>
-	
-	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>(사원아이디)</Td><Td>(알바이름)</Td><td>휴대번호</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button></Td>
-	</tr>
+	</c:forEach>
 	
 	</table>
 </div>
