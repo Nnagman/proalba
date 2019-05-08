@@ -1,0 +1,17 @@
+.title_daycheck{
+  margin-left:38%;
+  margin-top: 20%;
+  margin-bottom: 20px;
+}
+
+.title_db_daycheck{
+text-align: center;
+  font-size: 15px;
+}
+
+.db_daycheck{
+text-align: center;
+  font-size: 50px;
+  color: red;
+  font-weight: 1000;
+}

@@ -58,12 +58,12 @@ public class PserviceController {
 		return "pservice/ecertifi";
 	}
 	
-	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
-	public String workmanageGET(Model model) throws Exception {
-		logger.info("Welcome workmanagePage");
-		model.addAttribute("message", "workmanagePage");
-		return "pservice/pworkmanage";
-	}
+//	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
+//	public String workmanageGET(Model model) throws Exception {
+//		logger.info("Welcome workmanagePage");
+//		model.addAttribute("message", "workmanagePage");
+//		return "pservice/pworkmanage";
+//	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
 	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String p_id) throws Exception {

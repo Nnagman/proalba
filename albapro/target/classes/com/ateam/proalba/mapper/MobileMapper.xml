@@ -7,8 +7,8 @@
 	<select id="mobile_workplace_info" resultType="com.ateam.proalba.domain.MobileWorkInfoVO">
 		select
 		c.start_period,c.work_place_name, e.hourly_wage
-		from Employee e,Contract
-		c where e.C_code= c.C_code AND c.p_id=#{id} 
+		from Employee e,Contract c 
+		where e.C_code= c.C_code AND c.p_id=#{id} 
 	</select>
 	
 	<select id="count_mobile_workplace_info" resultType="int">
@@ -26,4 +26,6 @@
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
 		]]>
 	</select>
+	
+	
 </mapper>
