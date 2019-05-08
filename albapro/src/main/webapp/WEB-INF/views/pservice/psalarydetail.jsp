@@ -23,7 +23,6 @@
     </tr>
   </thead>
   <tbody>
-  <c:forEach var="salary" varStatus="i" items="${salarys}">
   				<tr>
 					<td>기본급</td>
 					<td></td>
@@ -66,7 +65,6 @@
 				<td>총액</td>
 				<td></td>
 				</tr>
-		</c:forEach>
   </tbody>
 </table>
 
