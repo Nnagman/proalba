@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -85,4 +86,13 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
         }
 			return "redirect:/"; 
 	  }
+    
+    @RequestMapping(value = "/m.login", method = RequestMethod.GET)
+	@ResponseBody
+	public MemberVO getCustomer() {
+    	MemberVO vo= new MemberVO();
+		vo.setId("123");
+		vo.setPassword("");
+		return vo;
+	}
 }
