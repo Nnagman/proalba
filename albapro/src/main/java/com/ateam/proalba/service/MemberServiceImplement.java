@@ -46,4 +46,9 @@ public class MemberServiceImplement implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVO getList(String id) throws Exception {
+		return memberDAO.getList(id);
+	}
+
 }

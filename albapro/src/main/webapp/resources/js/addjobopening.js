@@ -49,9 +49,9 @@ function execDaumPostcode(){
 $(function(){
 	var address1,address2,address3,address4,address;
 	var d = new Date();
-	var date = d.getFullYear() + '' + d.getMonth() + '' + d.getDate() + ''
+	var date = d.getFullYear() + '' + (d.getMonth()+1) + '' + d.getDate() + ''
 				+ d.getHours() + '' + d.getMinutes() + '' + d.getSeconds();
-	var date2 = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+	var date2 = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 	
 	$("#submit").click(function(){
 		address1 = $("#sample6_postcode").val();

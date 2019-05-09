@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.ContractMapper">
+    
+	<insert id="add_contract">
+		<![CDATA[
+			insert into contract
+			(c_code, start_period, end_period, c_date, work_place_name, c_id, p_id, fileName, email_check)
+			values( c_code_seq.NEXTVAL, to_date(#{start_period},'yy/mm/dd'), to_date(#{end_period},'yy/mm/dd'), 
+			to_date(sysdate,'yy/mm/dd'), #{work_place_name}, #{c_id}, #{p_id}, #{fileName}, '0')
+		]]>
+	</insert>
+	
+	<select id="select_contract" resultType="com.ateam.proalba.domain.WcontractVO">
+		<![CDATA[
+		SELECT * FROM contract
+		WHERE c_id = #{id} OR p_id = #{id}
+  	  	]]>
+	</select>
+	
+	<select id="select_contract2" resultType="com.ateam.proalba.domain.WcontractVO" parameterType="hashmap">
+		<![CDATA[
+		SELECT * FROM (SELECT * FROM contract
+		WHERE c_id = ('c'||#{id[0]}) AND p_id = ('p'||#{id[1]}) ORDER BY c_code DESC)
+		WHERE rownum = 1
+  	  	]]>
+	</select>
+	
+	<select id="update_contract">
+		<![CDATA[
+		UPDATE contract set fileName = (substr(fileName,0,length(fileName)-4)||'.pdf'), email_check = '1'
+		WHERE fileName LIKE (#{fileName}||'.png')
+  	  	]]>
+	</select>
+	
+	<select id="count_contract" resultType="int">
+		<![CDATA[
+		SELECT COUNT(rownum) FROM contract
+		WHERE (p_id = #{id} OR c_id = #{id}) AND rownum > 0
+  	  	]]>
+	</select>
+	
+	<select id="listPaging" resultType="com.ateam.proalba.domain.WcontractVO">
+		<![CDATA[
+		SELECT c_code, work_place_name, p_id, c_id, start_period, end_period, email_check FROM contract
+		WHERE p_id = #{id} OR c_id = #{id}
+		ORDER BY start_period
+		LIMIT #{page}, 10
+		]]>
+	</select>
+	
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.WcontractVO">
+		<![CDATA[
+		SELECT c_code, work_place_name, start_period, end_period, email_check, filename
+    	FROM (SELECT rownum rn, c_code, work_place_name, p_id, c_id, start_period, end_period, 
+    	email_check, filename FROM contract WHERE p_id = #{id} OR c_id = #{id} ORDER BY start_period desc)
+    	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+		]]>
+	</select>
+</mapper>

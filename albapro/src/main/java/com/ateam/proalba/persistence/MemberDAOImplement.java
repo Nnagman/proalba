@@ -39,7 +39,7 @@ public class MemberDAOImplement implements MemberDAO {
 
 	@Override
 	public int idcheck(String id) throws Exception {
-		return sqlSession.insert(NAMESPACE + ".idcheck", id);
+		return sqlSession.selectOne(NAMESPACE + ".idcheck", id);
 	}
 
 	@Override
@@ -48,4 +48,8 @@ public class MemberDAOImplement implements MemberDAO {
 		
 	}
 
+	@Override
+	public MemberVO getList(String id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getList", id);
+	}
 }

@@ -25,5 +25,6 @@ public class NoticeVO {
 	private String content;
 	private String work_place_name;
 	private int education;
+	private String file;
 	private int viewcnt;
 }

@@ -37,10 +37,27 @@
          <mapping path="/modify"/>
          <mapping path="/remove"/>
          <mapping path="/info"/>
+         <mapping path="/pmypage"/>  
+         <mapping path="/writeResume"/>
+         <mapping path="/maresume"/>   
             <beans:ref bean="authInterceptor"/>
          </interceptor>
    </interceptors>
    
+    <!-- 파일업로드에 필요한 bean -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="104857600"/>
+	</beans:bean>
+	
+	<!-- PDF파일 업로드에 필요한 설정 -->
+	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<beans:property name="contentType" value="application/json;charset=UTF-8" />
+	</beans:bean>
+	
    <context:component-scan base-package="com.ateam.proalba.*" />
    
+   <!-- <beans:import resource="cors-config.xml" /> -->
+   <cors>
+   		<mapping path="/**"/>
+   </cors>
 </beans:beans>

@@ -7,7 +7,7 @@
 <title>기업회원 가입</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="resources/js/signUp.js?ver=1"></script>
+<script src="resources/js/signUp.js?ver=3"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
 				</div>
 
 				<!--개인 정보 동의 -->
-				<form id="agree_form" method="post" action="cregister">
+				<form id="agree_form" method="post" action="">
 					<div class="all_agree">
 						<p>
 							<label></label> <input type="checkbox" id="all" name="all" />
@@ -52,15 +52,21 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" method="post" action="">
+				<form name="signUpForm" method="post" action="cregister">
+				
 					<table>
 						<tbody>
 							<tr>
 								<th>아이디</th>
 								<td>
+<<<<<<< HEAD
 									<input type="text" name="id" id="id"
 									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자"
 									title="아이디">
+=======
+									<input type="text" name="id" id="dev_idchk"
+									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디" value="" />
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 									<input type="button" id="double_check" value="중복확인" />
 								</td>
 							</tr>

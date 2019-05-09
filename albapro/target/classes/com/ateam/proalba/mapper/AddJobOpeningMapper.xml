@@ -21,4 +21,9 @@
 		WHERE m_code = #{id}
   	  	]]>
 	</select>
+	
+	<insert id="addAttach">
+		insert into notice_file 
+			values( #{file}, #{n_code}, sysdate)
+	</insert>
 </mapper>
