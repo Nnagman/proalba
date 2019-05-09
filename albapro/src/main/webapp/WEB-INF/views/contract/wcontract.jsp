@@ -223,20 +223,6 @@
                     <span class="t3">연락처: </span>
                     <input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br><br>
 
-                    <h2 class="hh">근로자</h2><br>
-                    <span class="t3">근로자: </span>
-                    <input class="tex2" name="p_name" type="text" maxlength="11" />
-                    <span class="sp3">근로자: </span><Br>
-
-
-
-                    <span class="t3">주소: </span>
-                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
-
-
-                    <span class="t3">연락처: </span>
-                    <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
-
 					<div id="sign">
                     <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="240" height="120"></canvas>
                     <div><img class="can1" id="myImage"></div>

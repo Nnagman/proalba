@@ -54,10 +54,9 @@
 	
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.WcontractVO">
 		<![CDATA[
-		SELECT c_code, work_place_name, start_period, end_period, email_check, name, filename
-    	FROM (SELECT rownum rn, c.c_code, c.work_place_name, c.p_id, c.c_id, c.start_period,
-    	c.end_period, c.email_check, m.name, c.filename FROM contract c, member m
-    	WHERE (p_id = #{id} OR c_id = #{id}) AND #{id} = m.m_code ORDER BY start_period desc)
+		SELECT c_code, work_place_name, start_period, end_period, email_check, filename
+    	FROM (SELECT rownum rn, c_code, work_place_name, p_id, c_id, start_period, end_period, 
+    	email_check, filename FROM contract WHERE p_id = #{id} OR c_id = #{id} ORDER BY start_period desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
 		]]>
 	</select>
