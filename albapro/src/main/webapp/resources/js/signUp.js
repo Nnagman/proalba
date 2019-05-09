@@ -119,12 +119,8 @@ $(document).ready(function(){
 		});
 		
 		$("#double_check").click(function(){
-<<<<<<< HEAD
 			var id = $("#id").val();
 			
-=======
-			var id = $("#dev_idchk").val();
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 			$.ajax({
 				async: true,
 				type: 'POST',
