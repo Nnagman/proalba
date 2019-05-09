@@ -4,16 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ateam.proalba.mapper.ContractMapper">
-    <resultMap id="WcontactVOResultMap" type="com.ateam.proalba.domain.WcontractVO">
-        <id property="c_code" column="c_code" />
-        <result property="work_place_name" column="work_place_name" />
-        <result property="start_period" column="start_period"/>
-        <result property="c_id" column="c_id"/>
-        <result property="p_id" column="p_id"/>
-        <result property="end_period" column="end_period"/>
-        <result property="c_date" column="c_date"/>
-        <result property="email_check" column="email_check"/>
-    </resultMap>
     
 	<insert id="add_contract">
 		<![CDATA[
@@ -31,10 +21,18 @@
   	  	]]>
 	</select>
 	
+	<select id="select_contract2" resultType="com.ateam.proalba.domain.WcontractVO" parameterType="hashmap">
+		<![CDATA[
+		SELECT * FROM (SELECT * FROM contract
+		WHERE c_id = ('c'||#{id[0]}) AND p_id = ('p'||#{id[1]}) ORDER BY c_code DESC)
+		WHERE rownum = 1
+  	  	]]>
+	</select>
+	
 	<select id="update_contract">
 		<![CDATA[
 		UPDATE contract set fileName = (substr(fileName,0,length(fileName)-4)||'.pdf'), email_check = '1'
-		WHERE fileName LIKE ('%'||#{fileName}||'.png')
+		WHERE fileName LIKE (#{fileName}||'.png')
   	  	]]>
 	</select>
 	
@@ -45,7 +43,7 @@
   	  	]]>
 	</select>
 	
-	<select id="listPaging" resultMap="WcontactVOResultMap">
+	<select id="listPaging" resultType="com.ateam.proalba.domain.WcontractVO">
 		<![CDATA[
 		SELECT c_code, work_place_name, p_id, c_id, start_period, end_period, email_check FROM contract
 		WHERE p_id = #{id} OR c_id = #{id}
@@ -54,11 +52,12 @@
 		]]>
 	</select>
 	
-	<select id="listCriteria" resultMap="WcontactVOResultMap">
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.WcontractVO">
 		<![CDATA[
-		SELECT c_code, work_place_name, start_period, end_period, email_check
-    	FROM (SELECT rownum rn, c_code, work_place_name, p_id, c_id, start_period , end_period, email_check
-    	from contract where p_id = #{id} OR c_id = #{id} order by start_period desc)
+		SELECT c_code, work_place_name, start_period, end_period, email_check, name, filename
+    	FROM (SELECT rownum rn, c.c_code, c.work_place_name, c.p_id, c.c_id, c.start_period,
+    	c.end_period, c.email_check, m.name, c.filename FROM contract c, member m
+    	WHERE (p_id = #{id} OR c_id = #{id}) AND #{id} = m.m_code ORDER BY start_period desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
 		]]>
 	</select>

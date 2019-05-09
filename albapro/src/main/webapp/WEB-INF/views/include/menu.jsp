@@ -34,7 +34,7 @@
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/pworkmanage">근태 기록 관리/조회</a>
+						<li><a href="${path}/pworkmanage?id=${login.id}">근태 기록 관리/조회</a>
 
 					</ul>
 				</div>

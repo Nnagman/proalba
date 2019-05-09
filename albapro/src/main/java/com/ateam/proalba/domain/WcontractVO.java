@@ -11,5 +11,6 @@ public class WcontractVO {
 	private String c_id;	//사업주아이디
 	private String p_id;	//알바생아이디
 	private String fileName; //파일위치랑 이름
-	private int email_check;
+	private String email_check;
+	private String name; // 알바생이름
 }
