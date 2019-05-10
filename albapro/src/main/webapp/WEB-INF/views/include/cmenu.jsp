@@ -66,10 +66,16 @@
 		</li>
 		<li>|</li>
 		<li class="menuLi">
-			<a class="menuLink" href="#">고객센터</a>
-			<ul class="subMenu">
-
-			</ul>
+			<a class="menuLink" href="${path}/onlineQnA">고객센터</a>
+			<div class="fulldrop2">
+				<div class="column">
+					<h3>온라인 문의</h3>
+					<ul>
+						<li><a href="${path}/onlineQnA">문의하기</a>
+						<li><a href="${path}/qnalist?m_code=${login.m_code}">나의 문의 내역</a>
+					</ul>
+				</div>
+			</div>
 		</li>
 		<li>|</li>
 		<li class="menuLi">

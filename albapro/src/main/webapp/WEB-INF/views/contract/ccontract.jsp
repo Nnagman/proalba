@@ -27,19 +27,24 @@
 				<table cellspacing="0" summary="경력 상세 목록">
 					<thead>
 						<tr>
-							<th class="appDate" scope="col">회사명</th>
-							<th class="company" scope="col">계약자이름</th>
-							<th class="endDate" scope="col">계약시작일</th>
-							<th class="resume" scope="col">계약종료일</th>
+							<th class="company" scope="col">회사명</th>
+							<th class="appDate" scope="col">계약시작일</th>
+							<th class="endDate" scope="col">계약종료일</th>
+							<th class="check" scope="col">서명여부</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${contracts}">
 							<tr>
 								<td>${contract.work_place_name}</td>
-								<td>${contract.p_id}</td>
 								<td>${contract.start_period}</td>
 								<td>${contract.end_period}</td>
+								<c:if test="${contract.email_check eq '1'}">
+								<jsp:useBean id="now" class="java.util.Date" />
+								<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="today"/>
+								<td><a href="${path }/downloadContract?fileName=${today}.pdf&downName=${contract.fileName}">서명완료</a></td>
+								</c:if>
+								<c:if test="${contract.email_check eq '0'}"><td>서명필요</td></c:if>
 							</tr>
 						</c:forEach>
 					</tbody>

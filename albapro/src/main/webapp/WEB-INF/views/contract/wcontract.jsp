@@ -125,30 +125,13 @@
                         <span class="timepiker_txt_title">근로시간</span>
 
                         <div id="datetimepicker3" class="input-append">
-                            <input class="timepiker" name="start_work_time" data-format="hh:mm" type="text"></input>
+                            <input class="timepiker" name="start_work_time" data-format="hh" type="text"></input>
                             <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                         </div>
                         <span class="timepiker_txt">부터</span>
 
                         <div id="datetimepicker4" class="input-append">
-                            <input class="timepiker2" name="end_work_time" data-format="hh:mm" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
-                        </div>
-                        <span class="timepiker_txt">까지</span>
-                    </div>
-
-
-                    <div class="break_div">
-                        <span class="timepiker_txt_title">휴게시간</span>
-
-                        <div id="datetimepicker5" class="input-append">
-                            <input class="timepiker" name="start_break_time" data-format="hh:mm" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
-
-                        </div>
-                        <span class="timepiker_txt">부터</span>
-                        <div id="datetimepicker6" class="input-append">
-                            <input class="timepiker2" name="end_break_time" data-format="hh:mm" type="text"></input>
+                            <input class="timepiker2" name="end_work_time" data-format="hh" type="text"></input>
                             <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                         </div>
                         <span class="timepiker_txt">까지</span>
@@ -156,16 +139,7 @@
 
                     <br><br><br>
 
-                    <h2 class="gg">5. 근무일/휴일</h2><br>
-                    <span class="t1">매주 </span>
-                    <input class="tex2" type="text" name="work_day" maxlength="2" onkeypress="onlyNumber();" />
-                    <span>일(또는 매일단위) 근무, </span>
-                    <span class="t2">주휴일 매주 </span>
-                    <input class="tex5" name="holiday" type="text" maxlength="1" />
-                    <span class="t2">요일</span>
-                    <br><br><br>
-
-                    <h2 class="gg">6. 임금</h2><br>
+                    <h2 class="gg">5. 임금</h2><br>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
                     <input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" />
                     <span>원</span><br><br>
@@ -175,18 +149,18 @@
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
                     <input class="tex2" type="text" name="payday" maxlength="2" onkeypress="onlyNumber();" /><span>일(휴일의 경우는 전일 지급)</span><br><br><br>
 
-                    <h2 class="gg">7. 연차유급휴가</h2><br>
+                    <h2 class="gg">6. 연차유급휴가</h2><br>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
                     <br><br><br>
 
-                    <h2 class="gg">8. 사회보험 적용여부(해당란에 체크)</h2><br>
+                    <h2 class="gg">7. 사회보험 적용여부(해당란에 체크)</h2><br>
                     <input class="che2" type="checkbox" id="고용보험" /><span>고용보험</span>
                     <input class="che2" type="checkbox" id="국민보험" /><span>국민연금</span>
                     <input class="che2" type="checkbox" id="건강보험" /><span>건강보험</span>
                     <input class="che2" type="checkbox" id="산재보험" checked /><span>산재보험</span>
                     <br><br><br><br>
 
-                    <h2 class="gg">9. 근로계약서 교부</h2><br>
+                    <h2 class="gg">8. 근로계약서 교부</h2><br>
                     <span class="t1">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span>
                     <br><br><br><br><br><br>
@@ -222,20 +196,6 @@
                     <br><br>
                     <span class="t3">연락처: </span>
                     <input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br><br>
-
-                    <h2 class="hh">근로자</h2><br>
-                    <span class="t3">근로자: </span>
-                    <input class="tex2" name="p_name" type="text" maxlength="11" />
-                    <span class="sp3">근로자: </span><Br>
-
-
-
-                    <span class="t3">주소: </span>
-                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
-
-
-                    <span class="t3">연락처: </span>
-                    <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
 
 					<div id="sign">
                     <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0" width="240" height="120"></canvas>
