@@ -1,47 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script
-  src="https://code.jquery.com/jquery-3.3.1.slim.js"
-  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-  crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/myqna.css?ver=1">
-<script type="text/javascript" src="resources/js/myqna.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
+<link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <%@ include file = "../include/header.jsp" %>
+<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
+</head>
+<body>
+<c:if test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
 <%@ include file = "../include/menu.jsp" %>
-<div class="contents">
-      <div class="title">
-        <h1>나의 문의내역</h1>
-        <img src="resources/images/상태.png" width="1200px">
-      </div>
-      <div class="tablebox">
-        <table class="tab">
-          <thead class="he">
-            <tr>
-              <th class="aa">문의일</th>
-              <th class="aa">문의유형</th>
-              <th class="tit">제목</th>
-              <th class="aa">처리상태</th>
-              <th class="aa">답변일</th>
-            </tr>
-          </thead>
-          <tbody class="bo">
-            <tr>
-              <td>2019.4.11</td>
-              <td>뚱이</td>
-              <td class="tit2">제목</td>
-              <td>스폰지밥</td>
-              <td>징징이</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+</c:if>
+
+<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%@ include file = "../include/cmenu.jsp" %>
+</c:if>
+	<div class="contents">
+		<div class="listForm" align="center">
+			<h1>나의 문의내역</h1>
+        	<img src="resources/images/상태.png" id="status_img">
+		</div>
+		<div class="listForm">
+			<!-- //탭메뉴 -->
+			<form id="frmList" name="frmList" method="post">
+				<table cellspacing="0" summary="경력 상세 목록">
+					<thead>
+						<tr>
+							<th class="quiryType" scope="col">문의유형</th>
+							<th class="appDate" scope="col">문의일</th>
+							<th class="title" scope="col">제목</th>
+							<th class="check" scope="col">답변여부</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="qna" varStatus="i" items="${qnas}">
+							<tr>
+								<td>${qna.service_type}</td>
+								<td>${qna.cs_code}</td>
+								<td><a href="${path}/viewQnA?m_code=${login.m_code}&&title=${qna.title}">
+								${qna.title}</a></td>
+								<td>믿고있었다고~</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div class="ui mini horizontal divided list">
+					<c:if test="${pageMaker.prev}">
+						<div class="item">
+							<div class="content">
+								<div class="header">
+									<a href="inqcareer?page=${pageMaker.startPage - 1}">이전</a>
+								</div>
+							</div>
+						</div>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage}"
+						end="${pageMaker.endPage}" var="idx">
+						<div class="item">
+							<div class="content">
+								<div class="header">
+									<a href="inqcareer?page=${idx}">${idx}</a>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<div class="item">
+							<div class="content">
+								<div class="header">
+									<a href="inqcareer?page=${pageMaker.endPage + 1}">다음</a>
+								</div>
+							</div>
+						</div>
+					</c:if>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function() {
+		var table_w = $("#tablebox").width();
+		$("#status_img").attr('width', table_w);
+		});
+	</script>
 </body>
 </html>
