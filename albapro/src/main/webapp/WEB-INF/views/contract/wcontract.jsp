@@ -105,8 +105,7 @@
                     <input class="tex1" name="start_period" type="text" value="" id="startSearchDate" />
                     <span>부터</span>
 
-                    <br>
-                    <input class="tex1" name="end_period" type="text" value="" id="endSearchDate" />
+                    <input class="tex" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
                     <span>까지</span>
 
                     <br><br><br>
@@ -125,13 +124,13 @@
                         <span class="timepiker_txt_title">근로시간</span>
 
                         <div id="datetimepicker3" class="input-append">
-                            <input class="timepiker" name="start_work_time" data-format="hh" type="text"></input>
+                            <input class="timepiker" id="time1" name="start_work_time" data-format="hh" maxlength="2" type="text"></input>
                             <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                         </div>
                         <span class="timepiker_txt">부터</span>
 
                         <div id="datetimepicker4" class="input-append">
-                            <input class="timepiker2" name="end_work_time" data-format="hh" type="text"></input>
+                            <input class="timepiker2" id="time2" name="end_work_time" data-format="hh" maxlength="2" type="text"></input>
                             <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                         </div>
                         <span class="timepiker_txt">까지</span>
@@ -241,7 +240,9 @@
             function contractServerUp(e) {
             	if(test) return;
             	
-                console.log("aaa");
+            	var work_time = $("#time1").val()+'/'+$("#time2").val();
+            	$("#time2").append("<input name='work_time' type='text' value='"+work_time+"'/>");
+            	
                 html2canvas(document.getElementById('createPdf'),	{
                     onrendered: function(canvas)	{
                     	canvas.toBlob(function(blob)	{
