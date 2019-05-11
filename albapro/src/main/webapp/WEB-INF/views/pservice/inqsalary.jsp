@@ -126,8 +126,8 @@ $(function() {
 					<td>${salary.total_deduction_amount}</td>
 					<td>${salary.actual_salary}</td>
 					<td>${salary.year_month}</td>
-					<td><a href="${path}/psalarydetail" target="blank" id="detail"  onclick="window.open(this.href, 'mywin',
-'left=80,top=80,width=750,height=750,toolbar=1,resizable=0');">상세보기</a></td>
+					<td><a href="${path}/psalarydetail?sa_code=${salary.sa_code}" target="blank" id="detail"  
+					onclick="window.open(this.href, 'mywin','left=80,top=80,width=750,height=750,toolbar=1,resizable=0')">상세보기</a></td>
 				</tr>
 		</c:forEach>
   </tbody>

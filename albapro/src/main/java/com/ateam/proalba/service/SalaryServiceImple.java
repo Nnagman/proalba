@@ -28,4 +28,8 @@ public class SalaryServiceImple implements SalaryService{
 	public int countSalarys(Criteria criteria) throws Exception {
 		return salaryDAO.countSalarys(criteria);
 	}
+	@Override
+	public SalaryVO select_salary(String sa_code) throws Exception {
+		return salaryDAO.select_salary(sa_code);
+	}
 }

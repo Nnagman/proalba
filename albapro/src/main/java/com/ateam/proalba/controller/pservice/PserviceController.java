@@ -1,5 +1,7 @@
 package com.ateam.proalba.controller.pservice;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 
@@ -81,9 +84,12 @@ public class PserviceController {
 		return "pservice/inqsalary";
 	}
 	@RequestMapping(value = "/psalarydetail", method= RequestMethod.GET)
-	public String psalarydetailGET(Model model) throws Exception {
-		logger.info("Welcome psalarydetail");
+	public String psalarydetailGET(Model model, String sa_code) throws Exception {
+		
+		SalaryVO salaryVO = salaryService.select_salary(sa_code);
+		model.addAttribute("salary", salaryVO);
 		model.addAttribute("message", "psalarydetail");
+
 		return "pservice/psalarydetail";
 	}
 	
