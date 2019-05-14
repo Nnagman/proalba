@@ -7,7 +7,7 @@
 	<select id="mobileattendance" resultType="com.ateam.proalba.domain.MobileAttendanceVO">
 	
 			select 
-			sa_code,work_start_time,attendance_status
+			sa_code,work_start_time
 			from work_record
 			where #{id} = substr(sa_code,0,INSTR(sa_code,'/')-1)
 			 
