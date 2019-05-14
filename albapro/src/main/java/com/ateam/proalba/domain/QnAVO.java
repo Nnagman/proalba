@@ -12,4 +12,6 @@ public class QnAVO {
 	private String email;
 	private String service_type;
 	private String name;
+	private String response_content;
+	private String whether_response;
 }

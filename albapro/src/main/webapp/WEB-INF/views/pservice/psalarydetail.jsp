@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<%@ include file="../include/header.jsp"%>
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 </head>
 <body>

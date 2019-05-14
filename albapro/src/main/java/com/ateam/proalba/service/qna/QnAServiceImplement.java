@@ -22,8 +22,8 @@ public class QnAServiceImplement implements QnAService {
 	}
 
 	@Override
-	public void response_qna() throws Exception {
-		qnaDAO.response_qna();
+	public void response_qna(Map<String, String> map) throws Exception {
+		qnaDAO.response_qna(map);
 	}
 
 	@Override
@@ -37,8 +37,18 @@ public class QnAServiceImplement implements QnAService {
 	}
 
 	@Override
-	public QnAVO select_qna(Map<String, String> map) throws Exception {
-		return qnaDAO.select_qna(map);
+	public QnAVO select_qna(String cs_code) throws Exception {
+		return qnaDAO.select_qna(cs_code);
+	}
+
+	@Override
+	public int count_all_qna() throws Exception {
+		return qnaDAO.count_all_qna();
+	}
+
+	@Override
+	public List<QnAVO> adminListCriteria(Criteria criteria) throws Exception {
+		return qnaDAO.adminListCriteria(criteria);
 	}
 
 }

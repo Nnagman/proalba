@@ -8,9 +8,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-</head>
-
-<body>
+<%@ include file = "../include/header.jsp" %>
 
 	<div id="wrap">
 		<hr>

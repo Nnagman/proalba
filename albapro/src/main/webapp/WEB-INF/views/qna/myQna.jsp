@@ -13,13 +13,6 @@
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 </head>
 <body>
-<c:if test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
-<%@ include file = "../include/menu.jsp" %>
-</c:if>
-
-<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-<%@ include file = "../include/cmenu.jsp" %>
-</c:if>
 	<div class="contents">
 		<div class="listForm" align="center">
 			<h1>나의 문의내역</h1>
@@ -42,9 +35,12 @@
 							<tr>
 								<td>${qna.service_type}</td>
 								<td>${qna.cs_code}</td>
-								<td><a href="${path}/viewQnA?m_code=${login.m_code}&&title=${qna.title}">
+								<td><a href="${path}/viewQnA?cs_code=${qna.cs_code}">
 								${qna.title}</a></td>
-								<td>믿고있었다고~</td>
+								<td>
+									<c:if test="${qna.whether_response == '1'}">답변완료</c:if>
+									<c:if test="${qna.whether_response == '0'}">답변대기중</c:if>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>

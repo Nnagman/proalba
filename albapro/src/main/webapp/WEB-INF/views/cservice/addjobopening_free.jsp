@@ -25,10 +25,6 @@
 <script src="resources/js/addjobopening.js?ver=3"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-<%@ include file = "../include/cmenu.jsp" %>
-</c:if>	
-
 <script>
   var sel_file;
 	$(function() {

@@ -23,7 +23,6 @@
 <script src="resources/js/albamanage.js"></script>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
 <div class="contents">
 
 <h2 class="title"> 근태기록</h2>
