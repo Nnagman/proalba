@@ -44,26 +44,35 @@
 				<tr>
 				<th>초과근로수당</th>
 				<td>${salary.additional_extended}</td>
-				<th>-</th>
-				<td>-</td>
+				<td></td>
+				<td></td>
+				
+
 				</tr>
 				
 				<tr>
 				<th>야간수당</th>
 				<td>${salary.additional_night}</td>
-				<th>-</th>
-				<td>-</td>
-				</tr>
-				<tr>
-				<th>총 급여</th>
-				<td>${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</td>
-				<th>총 공제금액</th>
-				<td>${salary.total_deduction_amount}</td>
-				<th>실급여액</th>
-				<td>${salary.actual_salary}</td>
-				</tr>
+				<td></td>
+				<td></td>
+				
 		</tbody>
+	</table >
+	<table class="ui single line table">
+	<thead>
+	<tr>
+	<th>총 급여</th>
+	<th>총 공제금액</th>
+	<th>실급여액</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<th>${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</th>
+	<th>${salary.total_deduction_amount}</th>
+	<th>${salary.actual_salary}</th>
+	</tr>
+	</tbody>
 	</table>
-
 </body>
 </html>
