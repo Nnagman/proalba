@@ -35,38 +35,20 @@
   <thead>
     <tr>
       <th>날짜</th>
-      <th>근태항목</th>
-      <th>근로시간</th>
-      <th>기타</th>
+      <th>출근시간</th>
+      <th>퇴근시간</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
+  <c:forEach var="row" items="${map.list }" >
+	<tr>
+		<td>${row.sa_date}</td><td>${row.work_start_time }</td><td>${row.work_end_time }</td>
+</tr>
+</c:forEach>
   </tbody>
 </table>
 
-<c:forEach var="row" items="${map.list }" >
 
-		${row.sa_code }<br>
-
-</c:forEach>
 
 
 <div class="ui basic modal">

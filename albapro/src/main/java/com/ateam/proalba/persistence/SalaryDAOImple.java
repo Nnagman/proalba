@@ -47,4 +47,9 @@ public class SalaryDAOImple implements SalaryDAO {
 	public int countSalarys(Criteria criteria) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".countSalarys", criteria);
 	}
+
+	@Override
+	public SalaryVO select_salary(String sa_code) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".select_salary", sa_code);
+	}
 }

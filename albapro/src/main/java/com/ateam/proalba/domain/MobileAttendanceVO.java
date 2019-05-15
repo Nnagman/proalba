@@ -8,8 +8,9 @@ import lombok.Data;
 
 @Data
 public class MobileAttendanceVO {
-	private Date work_strt_time;
-	private String attendance_status;
-	private String sa_code;
+	private String work_start_time;
+	private String work_end_time;
+	private String sa_date;
+	private String sa_c;
 
 }

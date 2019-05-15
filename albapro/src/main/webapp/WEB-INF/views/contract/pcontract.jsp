@@ -42,7 +42,7 @@
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
 								<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" var="today"/>
-								<td><a href="${path }/downloadContract?fileName=${today}.pdf&downName=${contract.fileName}">서명완료</a></td>
+								<td><a href="${path}/downloadContract?fileName=${today}.pdf&downName=${contract.fileName}">서명완료</a></td>
 								</c:if>
 								<c:if test="${contract.email_check eq '0'}">
 								<td><a href="${path}/checkContract?link=${contract.fileName}">서명필요</a></td>

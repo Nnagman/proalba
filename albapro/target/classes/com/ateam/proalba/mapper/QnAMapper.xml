@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.QnAMapper">
+	<insert id="add_qna">
+		<![CDATA[
+		INSERT INTO customer_service
+		(cs_code, m_code, title, content, phone, email, service_type, name) 
+		VALUES (#{cs_code}||#{m_code}, #{m_code}, #{title}, 
+		#{content}, #{phone}, #{email}, #{service_type}, #{name})
+		]]>
+	</insert>
+	
+	<insert id="reponse_qna">
+		<![CDATA[
+		]]>
+	</insert>
+	
+	<select id="count_qna" resultType="int">
+		<![CDATA[
+		SELECT COUNT(rownum) FROM customer_service
+		WHERE m_code = #{id} AND rownum > 0
+  	  	]]>
+	</select>
+	
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.QnAVO">
+		<![CDATA[
+		SELECT service_type, title, cs_code
+    	FROM (SELECT rownum rn, service_type, title, cs_code 
+    	FROM customer_service WHERE m_code = #{m_code} ORDER BY SUBSTR(cs_code,4,11) desc)
+    	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
+		]]>
+	</select>
+	
+	<select id="select_qna" resultType="com.ateam.proalba.domain.QnAVO">
+		<![CDATA[
+		SELECT * FROM customer_service
+		WHERE title = #{title} AND m_code = #{m_code} AND rownum = 1
+		ORDER BY replace(replace(replace(substr(cs_code,5,17),'-',''),':',''),' ','') ASC
+  	  	]]>
+	</select>
+</mapper>
