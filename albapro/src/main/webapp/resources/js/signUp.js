@@ -131,13 +131,13 @@ $(document).ready(function(){
 				success: function(data){
 	                if (data.cnt > 0) {
 	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-	                    $("#dev_idchk").focus();
+	                    $("#id").focus();
 	                } else {
 	                    alert("사용가능한 아이디입니다.");
 	                    $("#dev_pwd1").focus();
 	                    $("#btn_signup").removeAttr("disabled");
 	                    $("#dev_idchk").attr("disabled");
-	            		var m_code = $("#m_code").val()+$('#dev_idchk').val();
+	            		var m_code = $("#m_code").val()+$('#id').val();
 	            		console.log(m_code);
 	            		$("#m_code").val(m_code);
 	                }

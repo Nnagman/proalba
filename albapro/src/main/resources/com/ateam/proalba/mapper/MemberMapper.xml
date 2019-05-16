@@ -19,8 +19,8 @@
 	 
 	<insert id="cregister" >
 		<![CDATA[
-		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name )
-		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, '', '', '', '' )
+		insert into member( m_code, id, password, phone, b_number, email, birthday, sex, name, coordinate )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, '', '', '', '', #{coordinate} )
 		]]>
 	</insert>
 	
