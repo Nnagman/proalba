@@ -9,10 +9,20 @@
 			select 
 			sa_code,work_start_time,attendance_status
 			from work_record
-			where #{id} = substr(sa_code,0,INSTR(sa_code,'/')-1)
-			 
+			where #{id} = substr(sa_code,0,INSTR(sa_code,'/')-1)			 
 	</select>
 	
+	<insert id="mobileStartWork">
+		INSERT INTO work_record(w_code, sa_code, work_start_time) VALUES (#{w_code}, #{sa_code}, #{work_start_time})
+	</insert>
 	
+	<update id="mobileEndWork">
+		UPDATE work_record SET work_end_time = #{work_end_time}, working_hours = (#{work_end_time}-work_start_time) WHERE w_code = #{w_code}
+	</update>
 	
+	<select id="mobileFoundWorkPlace" resultType="com.ateam.proalba.domain.MobileWorkPlaceVO">
+		select c.work_place_name, s.sa_code
+		from contract c,employee e,salary s
+		where c.p_id = #{p_id} AND c.c_code = e.c_code AND e.em_code =s.em_code
+	</select>
 </mapper>

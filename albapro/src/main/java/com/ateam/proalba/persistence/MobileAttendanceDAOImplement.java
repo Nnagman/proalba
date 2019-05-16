@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MobileAttendanceVO;
+import com.ateam.proalba.domain.MobileWorkPlaceVO;
 @Repository
 public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 
@@ -24,6 +25,11 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	public List<MobileAttendanceVO> listCriteria(Criteria criteria) throws Exception {
 		
 		return sqlSession.selectList(NAMESPACE+".listCriteria",criteria);
+	}
+
+	@Override
+	public List<MobileWorkPlaceVO> mobileFoundWorkPlace(String p_id) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".mobileFoundWorkPlace",p_id);
 	}
 	
 }
