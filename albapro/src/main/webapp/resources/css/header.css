@@ -96,12 +96,12 @@ margin-left:500px !important;
   
     
     .loginicon{
-   left:1000%;
+   left:740px !important;
    top:8px;
     }
     
   .loginicon2{
-  	left:950px;
+  	left:750px !important;
   	top:8px;
   }
     .header-logo{
@@ -125,7 +125,8 @@ margin-left:500px !important;
     }
 
 .page-footer, .top-nav-collapse{
-	   background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+	/*    background: linear-gradient(-135deg, #E4A972, #9941D8) fixed; */
+	   background-color: #929FBA;
 
 
 
