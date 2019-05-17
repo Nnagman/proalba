@@ -10,12 +10,14 @@
 .memResSimple .rsSec{border-top: 1px solid #ecedef;}
 .memResSimple .rsSec input[type="text"]{
   height: 20px;
+  
   padding: 4px 10px 6px 10px;
   border-top: 1px solid #bbbdc0;
   border-left: 1px solid #bbbdc0;
   border-bottom: 1px solid #dbdee1;
   border-right: 1px solid #dbdee1;
   background: #fdfdfd;
+  
   color: #494949;
 }
 .memResSimple .rsSec input[type="checkbox"], .memResSimple .rsSec input[type="radio"] {
