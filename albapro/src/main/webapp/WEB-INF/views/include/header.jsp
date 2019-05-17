@@ -100,7 +100,7 @@ margin-left:500px !important;
 		<div class="mask flex-center rgba-black-strong navbar-dark"> 
     <!-- Navbar -->
     
-    
+     
     
     
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
