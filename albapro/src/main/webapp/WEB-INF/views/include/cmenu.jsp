@@ -4,11 +4,11 @@
 <link rel="stylesheet" type="text/css" href="resources/css/menuBar.css">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <div class="menucontainer">
-	<ul class="nav">
+	<ul class="nav manubar">
 		<li class="menuLi">
 			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
-		<li>|</li>
+	
 		<li class="menuLi">
 			<a class="menuLink" href="#">기업서비스</a>
 <!-- 			Full Down Menu -->
@@ -17,8 +17,10 @@
 					<h3>채용공고 등록 관리</h3>
 					<ul>
 
-						<li><a href="${path}/addjobopening_free">새 공고글 작성</a>
-						<li><a href="${path}/jobopeningmanage?id=${login.id}">공고글 관리</a>
+						<li><a href="${path}/addjobopening_free" class="manuli">새 공고글 작성</a>	</li>
+					</ul>
+					<ul>
+						<li><a href="${path}/jobopeningmanage?id=${login.id}" class="manuli">공고글 관리</a>	</li>
 
 					</ul>
 				</div>
@@ -26,16 +28,21 @@
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/wcontract">전자 근로계약서 작성</a>
-						<li><a href="${path}/ccontract?id=${login.id}">전자 근로계약서</a>
-						<li><a href="${path}/ecertifi">취업활동 증명서</a>
+						<li><a href="${path}/wcontract" class="manuli">전자 근로계약서 작성</a></li>
+					</ul>
+					<ul>
+						
+						<li><a href="${path}/ccontract?id=${login.id}" class="manuli">전자 근로계약서</a></li>
+					</ul>
+					<ul>
+						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a>	</li>
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/cworkmanage?id=${login.id}">근태 기록 관리/조회</a>
+						<li><a href="${path}/cworkmanage?id=${login.id}" class="manuli">근태 기록 관리/조회</a></li>
 
 					</ul>
 				</div>
@@ -43,43 +50,46 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary/">급여 조회</a><li>
-						<li><a href="${path}/detailssalary/">급여 상세</a><li>
-						
+						<li><a href="${path}/inqsalary/" class="manuli">급여 조회</a></li>
+					</ul>
+					<ul>
+						<li><a href="${path}/detailssalary/" class="manuli">급여 상세</a></li>	
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>경력 관리</h3>
 					<ul>
-						<li><a href="${path}/inqcareer">경력 조회</a>
+						<li><a href="${path}/inqcareer" class="manuli">경력 조회</a></li>
 					</ul>
 				</div>
 			</div>
-		</li>
-		<li>|</li>
+	
+		
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/employmentinfo">채용정보</a>
+			<a class="menuLink" href="${path}/employmentinfo" class="manuli">채용정보</a>
 			<ul class="subMenu">
 
 			</ul>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/onlineQnA">고객센터</a>
+			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>
 			<div class="fulldrop2">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>
-						<li><a href="${path}/onlineQnA">문의하기</a>
-						<li><a href="${path}/qnalist?m_code=${login.m_code}">나의 문의 내역</a>
+						<li><a href="${path}/onlineQnA" class="manuli">문의하기</a></li>
+					</ul>
+					<ul>
+						<li><a href="${path}/qnalist?m_code=${login.m_code}" class="manuli">나의 문의 내역</a></li>
 					</ul>
 				</div>
 			</div>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/comm">커뮤니티</a>
+			<a class="menuLink" href="${path}/comm" >커뮤니티</a>
 			<ul class="subMenu">
 
 			</ul>

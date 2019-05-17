@@ -1,9 +1,7 @@
 function categoryChange(e) {
         var detail_of_inquiry_0 = ["선택해주세요."];
         var detail_of_inquiry_1 = ["선택해주세요.", "회원정보 수정", "아이디/비밀번호 찾기", "사업자등록번호 변경", "회원가입/탈퇴", "휴대폰 인증"];
-        var detail_of_inquiry_2 = ["선택해주세요.", "채용공고 등록", "채용공고 수정/관리"];
         var detail_of_inquiry_3 = ["선택해주세요.", "이력서 수정/관리", "휴대폰 인증"];
-        var detail_of_inquiry_4 = ["선택해주세요.", "채용정보 검색"];
         var detail_of_inquiry_5 = ["선택해주세요.", "무통장입금", "카드 결제", "휴대폰 결제", "세금계산서", "환불 문의"];
         var detail_of_inquiry_6 = ["선택해주세요.", "모바일 웹", "모바일 앱"];
         var detail_of_inquiry_7 = ["선택해주세요.", "불편사항 개선 요청", "건의 사항"];
@@ -11,9 +9,7 @@ function categoryChange(e) {
         var target = document.getElementById("detail_of_inquiry");
 
         if(e.value == "1") var d = detail_of_inquiry_1;
-        else if(e.value == "2") var d = detail_of_inquiry_2;
         else if(e.value == "3") var d = detail_of_inquiry_3;
-        else if(e.value == "4") var d = detail_of_inquiry_4;
         else if(e.value == "5") var d = detail_of_inquiry_5;
         else if(e.value == "6") var d = detail_of_inquiry_6;
         else if(e.value == "7") var d = detail_of_inquiry_7;
@@ -90,7 +86,7 @@ function fnOnlineSubmit(){
   }
   
   var d = new Date();
-  var s = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var s = d.getFullYear() + '-' + d.getMonth()+1 + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
 
   var service_type = $("#type_of_inquiry option:selected").text()+'/'+$("#detail_of_inquiry option:selected").text();
   var service_type_val = $("select[name=type_of_inquiry]").val()+'/'+$("select[name=detail_of_inquiry]").val();

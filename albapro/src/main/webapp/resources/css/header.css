@@ -1,17 +1,138 @@
 body{
 	background-color:white;
-}
-.rogoimg{
-	width: 250px;
-	height: 100px;
-	margin-top: 10px;
-	margin-bottom: -10px;
-	margin-left: 200px;
+	
 }
 
-.header p{
-	float: right;
-	vertical-align: center;
-	margin-right: 40px;
-	vertical-align: middle;
+
+
+
+  html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      
+       
+        
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #929FBA !important;
+      }
+    }
+
+      
+      .d-block{
+      width: 500px  !important;
+      height:450px;
+      margin-top:200px;
+       margin-left:50px !important;
+     
+  
+      }
+      header{
+      background-image: url("${path}/resources/images/¹è°æ2.jpg");
+      background-size: 100% 100%;
+      
+      }
+    
+     
+
+ .mr-auto, .mx-auto{
+    margin-right:0px !important;
+    }
+    .navbar{
+    width:100%;
+    }
+
+
+.navbar-toggler{
+margin-left:500px !important;
 }
+
+
+
+
+
+
+
+
+
+.navbar > .containermo, .navbar > .container-fluid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    
+    }
+    
+  
+    
+    .loginicon{
+   left:740px !important;
+   top:8px;
+    }
+    
+  .loginicon2{
+  	left:750px !important;
+  	top:8px;
+  }
+    .header-logo{
+    float:left !important;
+    margin-left:50px!important;
+    width:200px !important;
+    height:50px !important;
+
+    }
+    
+    .he-title{
+  width:400px;
+    left:20%;
+    color:white;
+    text-align:center;
+    
+    }
+    
+    .he-title h1{
+    font-weight: 750;
+    }
+
+.page-footer, .top-nav-collapse{
+	/*    background: linear-gradient(-135deg, #E4A972, #9941D8) fixed; */
+	   background-color: #929FBA;
+
+
+
+
+}
+   
+    
+   
+ 

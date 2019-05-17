@@ -90,6 +90,10 @@
 
 
 <body>
+<<<<<<< HEAD
+  
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
     <div class="contents" id="contents">
         <div class="title">

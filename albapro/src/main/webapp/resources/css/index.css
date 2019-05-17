@@ -160,3 +160,16 @@ font-weight: bold;
 .mainbot2_con table td:last-child{
 	text-align: right;
 }
+
+.conprocess{
+	height:100px;
+}
+
+.content-p{
+	
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.content-div{
+	padding-top:20px;
+}

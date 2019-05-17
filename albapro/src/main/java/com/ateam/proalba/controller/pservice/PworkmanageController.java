@@ -11,10 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.domain.MobileAttendanceVO;
-import com.ateam.proalba.service.MobileAttendanceService;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.service.mobile.MobileAttendanceService;
 
 @Controller
 public class PworkmanageController {
@@ -23,12 +24,12 @@ public class PworkmanageController {
 	private static final Logger logger = LoggerFactory.getLogger(PworkmanageController.class);
 	
 	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
-	public ModelAndView workmanageGET(Model model,String id) throws Exception {
+	public ModelAndView workmanageGET(Model model,@RequestParam("id") String id) throws Exception {
 		
 		model.addAttribute("message", "workmanagePage");
 		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
 		logger.info("workManager:  "+list.toString());
-		
+		logger.info(id);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("pservice/pworkmanage"); // 酉곕�� list.jsp濡� �ㅼ��
