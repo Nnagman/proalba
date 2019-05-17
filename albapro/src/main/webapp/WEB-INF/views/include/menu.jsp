@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
   <div class="menucontainer">
 	<ul class="nav manubar">
 	

@@ -40,7 +40,7 @@ body{
   
 }
 
-.nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
+.nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus {
     color: white;
     text-decoration: none;
     
@@ -59,7 +59,7 @@ body{
 }
 
 .nav > li:hover > a{
-    color: black;
+    color: black !important;
 }
 
 /* .column > ul > li:hover{
