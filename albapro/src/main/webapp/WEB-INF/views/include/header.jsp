@@ -147,15 +147,16 @@ margin-left:500px !important;
             
                <li class="nav-item loginicon2">
               <a class="nav-link border1 border-light rounded loginicon2"
-                target="_blank">
+               href="${path}/logout">
+               
                 <c:if test='${login.m_code!=null}'>
-					${login.id}님 로그인
+                ${login.id}님 로그인
+					
 				</c:if>
                
               </a>
             </li> 
-            
-           
+        
             
           </ul>
               	
@@ -163,7 +164,8 @@ margin-left:500px !important;
 
       </div>
     </nav>
-  
+      
+          
      <div class="he-title">
    		<h1>알바도 프로답게</h1>
    		
