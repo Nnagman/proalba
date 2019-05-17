@@ -6,15 +6,15 @@
   <div class="menucontainer">
 	<ul class="nav manubar">
 		<li class="menuLi">
-			<a class="menuLink" href="/proalba">MAIN</a>
+			<a class="menuLink" href="/proalba">MAIN1</a>
 		</li>
 	
 		<li class="menuLi">
 			<a class="menuLink" href="#">기업서비스</a>
 <!-- 			Full Down Menu -->
-			<div class="fulldrop">
+			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
-					<h3>채용공고 등록 관리</h3>
+					<h3>채용공고 등록관리</h3>
 					<ul>
 
 						<li><a href="${path}/addjobopening_free" class="manuli">새 공고글 작성</a>	</li>
@@ -75,7 +75,7 @@
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>
-			<div class="fulldrop2">
+			<div class="fulldrop">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>
