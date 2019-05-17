@@ -90,7 +90,7 @@
 
 
 <body>
-    <%@ include file = "../include/cmenu.jsp" %>
+  
 
     <div class="contents">
         <div class="title">

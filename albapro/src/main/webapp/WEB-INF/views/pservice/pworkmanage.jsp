@@ -9,66 +9,85 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file = "../include/header.jsp" %>
+
+
+ 
 <link rel="stylesheet" href="resources/css/workmanage.css" />
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
+  <link href="resources/css/mdb.min.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+      <link href="resources/css/datatables.min.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
-<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/albamanage.js"></script>
-</head>
-<body>
+ <%@ include file = "../include/header.jsp" %> 
 <%@ include file = "../include/menu.jsp" %>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> 
+
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script> 
+<script src="resources/js/albamanage.js"></script>
+<script src="resources/js/cal/albamanage.js"></script>
+<script src="resources/js/cal/interaction.js"></script>
+
+
+ 
+ 
+  
+
+
+
+
+</head>
+
+
+<body>
+
+
+
 <div class="contents">
 
 <h2 class="title"> 근태기록</h2>
-<i class="angle left icon" id="back"></i>
-<i id="date"></i>
-<i class="angle right icon" id="forward"></i>
 
-<table class="ui single line table">
-  <thead>
-    <tr>
-      <th>날짜</th>
-      <th>출근시간</th>
-      <th>퇴근시간</th>
-    </tr>
-  </thead>
+
+
+
+  		<div class="iconline"> <i class="material-icons calicon" data-toggle="modal" data-target="#myModal">calendar_today</i></div>
+  	 
+  	
+  	
+    <div class="flex-center flex-column">
+  
+      <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th class="th-sm">날짜 </th>
+        <th class="th-sm">출근시간</th>
+        <th class="th-sm">퇴근 시간 </th>
+   
+      </tr>
+    </thead>
   <tbody>
   <c:forEach var="row" items="${map.list }" >
 	<tr>
-		<td>${row.sa_date}</td><td>${row.work_start_time }</td><td>${row.work_end_time }</td>
+		<td>${row.sa_date}</td><td>${row.sa_start}</td><td>${row.work_end_time }</td>
 </tr>
 </c:forEach>
+
   </tbody>
 </table>
 
 
+ 
+ 
+ 
+ 
 
-
-<div class="ui basic modal">
-	<table class="ui celled structured table">
-  		<tr>
-  			<td rowspan="2"><div class="ui transparent input"><input type="text" id="year"/></div></td>
-  			<td id="nextYear"><i class="angle up icon"></i></td>
-  			<td rowspan="2"><div class="ui transparent input"><input type="text" id="month"/></div></td>
-  			<td id="nextMonth"><i class="angle up icon"></i></td>
-  		</tr>
-  		<tr>
-  			<td id="lastYear"><i class="angle down icon"></i></td>
-  			<td id="lastMonth"><i class="angle down icon"></i></td>
-  		</tr>
-  	</table>
-  	<div class="actions" id="search"><div class="ui green ok inverted button"> 검색  </div></div> 	
-</div>
-	<div class="div_pworkmanage_buttonline">
-  		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">달력보기</button>
-  	</div>
+	
   	  	  	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
@@ -79,7 +98,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">출근 시간</h4>
         </div>
         <div class="modal-body">
           <%@ include file = "../cservice/calendar.jsp" %>
@@ -90,7 +109,30 @@
       </div>
       
     </div>
-  </div>
+  </div> 
 </div>
+</div>
+
+
+ <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
+  
+  <script type="text/javascript">
+ 
+  $(document).ready(function () {
+    $('#dtBasicExample').DataTable({
+      "paging": true // false to disable pagination (or any other option)
+    });
+    $('.dataTables_length').addClass('bs-select');
+  });
+  </script>
+  
+  
+  
+  
+  <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="resources/js/popper.min.js"></script>
+  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
+  <script type="text/javascript" src="resources/js/datatables.min.js"></script>
+   
 </body>
 </html>

@@ -7,7 +7,7 @@ Docs & License: https://fullcalendar.io/
 
 .fc {
   direction: ltr;
-  text-align: left; }
+  text-align: center; }
 
 .fc-rtl {
   text-align: right; }
@@ -16,10 +16,11 @@ body .fc {
   /* extra precedence to overcome jqui */
   font-size: 1em;
   background-color: white;
-
+  
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 20px;
+ 
 
  }
 
@@ -40,6 +41,8 @@ body .fc {
   /* default look for non-business-hours areas */
   /* will inherit .fc-bgevent's styles */
   background: #d7d7d7; }
+  
+
 
 /* Popover
 --------------------------------------------------------------------------------------------------*/
@@ -260,7 +263,8 @@ temporary rendered events).
   /* to override an event's custom cursor */
   cursor: not-allowed; }
 
-.fc-event .fc-content {
+.fc-event .
+tent {
   position: relative;
   z-index: 2; }
 
@@ -734,6 +738,10 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 }
 
+.fc-title{
+	margin-left:0;
+}
+
 /* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
 /* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
 .fc-view-container *,
@@ -916,7 +924,11 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   .fc button {
     display: none;
     /* don't display any button-related controls */ }
-  /*=--------------------------------------내가만듬--------------------------------------------------*/
+  /*=--------------------------------------�닿�留���--------------------------------------------------*/
+  
 
-
+   }
+   
+   .fc-scroller{
+   height:100% !important;
    }

@@ -6,35 +6,40 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
   <div class="menucontainer">
-	<ul class="nav">
+	<ul class="nav manubar">
+	
 		<li class="menuLi">
 			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
 			<a class="menuLink" href="#">개인서비스</a>
-<!-- 			Full Down Menu -->
+<!--	Full Down Menu -->
 			<div class="fulldrop">
 				<div class="column">
 					<h3>이력서 등록 관리</h3>
 					<ul>
-						<li><a href="${path}/writeResume">새 이력서 작성</a>
-						<li><a href="${path}/maresume">이력서 관리</a>
+						<li><a href="${path}/writeResume" class="manuli">새 이력서 작성</a></li>
+						</ul>
+						<ul>
+						<li><a href="${path}/maresume" class="manuli">이력서 관리</a></li>
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>지원 관리</h3>
 					<ul>
-						<li><a href="${path}/pcontract?id=${login.id}">전자 근로계약서</a>
-						<li><a href="${path}/ecertifi">취업활동 증명서</a>
+						<li><a href="${path}/pcontract?id=${login.id}" class="manuli">전자 근로계약서</a></li>
+					</ul>
+					<ul>
+						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a></li>
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>근태 기록</h3>
 					<ul>
-						<li><a href="${path}/pworkmanage?id=${login.id}">근태 기록 관리/조회</a>
+						<li><a href="${path}/pworkmanage?id=${login.id}" class="manuli">근태 기록 관리/조회</a></li>
 
 					</ul>
 				</div>
@@ -42,49 +47,49 @@
 				<div class="column">
 					<h3>급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary?p_id=${login.id}">급여 조회</a>
+						<li><a href="${path}/inqsalary?p_id=${login.id}" class="manuli">급여 조회</a></li>
 					</ul>
 				</div>
 
 				<div class="column">
 					<h3>경력 관리</h3>
 					<ul>
-						<li><a href="${path}/inqcareer?id=${login.id}">경력 조회</a>
+						<li><a href="${path}/inqcareer?id=${login.id}" class="manuli">경력 조회</a></li>
 					</ul>
 				</div>
 				
 				<div class="column">
 					<h3>개인 정보</h3>
 					<ul>
-						<li><a href="${path}/pmypage">내 정보 조회</a>
+						<li><a href="${path}/pmypage"  class="manuli">내 정보 조회</a></li>
 					</ul>
 					<ul>
-						<li><a href="${path}/MyinfoModify">내 정보 수정</a>
+						<li><a href="${path}/MyinfoModify"  class="manuli">내 정보 수정</a></li>
 					</ul>
 				</div>
 			</div>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/employmentinfo">채용정보</a>
 			<ul class="subMenu">
 
 			</ul>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA">고객센터</a>
 			<div class="fulldrop2">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>
-						<li><a href="${path}/onlineQnA">문의하기</a>
-						<li><a href="${path}/qnalist?m_code=${login.m_code}">나의 문의 내역</a>
+						<li><a href="${path}/onlineQnA" class="menuli">문의하기</a>
+						<li><a href="${path}/qnalist?m_code=${login.m_code}" class="menuli">나의 문의 내역</a>
 					</ul>
 				</div>
 			</div>
 		</li>
-		<li>|</li>
+		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/comm">커뮤니티</a>
 			<ul class="subMenu">
