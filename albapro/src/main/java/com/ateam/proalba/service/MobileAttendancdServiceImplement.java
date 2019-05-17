@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MobileAttendanceVO;
+import com.ateam.proalba.domain.MobileWorkPlaceVO;
 import com.ateam.proalba.persistence.MobileAttendanceDAO;
 import com.ateam.proalba.persistence.post.PostDAO;
 
@@ -22,7 +23,6 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 
 	@Override
 	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
-		// TODO Auto-generated method stub
 		return mobileAttendanceDAO.mobileattendance(id);
 	}
 
@@ -30,6 +30,11 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	public List<MobileAttendanceVO> listCriteria(Criteria criteria) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<MobileWorkPlaceVO> mobileFoundWorkPlace(String p_id) throws Exception {
+		return mobileAttendanceDAO.mobileFoundWorkPlace(p_id);
 	}
 
 }

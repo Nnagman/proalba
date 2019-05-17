@@ -58,6 +58,7 @@
 						<tbody>
 							<tr>
 								<th>아이디</th>
+<<<<<<< HEAD
 								<td>
 
 									<input type="text" name="id" id="id"
@@ -67,6 +68,10 @@
 									<input type="text" name="id" id="dev_idchk"
 									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디" value="" />
 
+=======
+								<td>
+									<input type="text" name="id" id="id" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 									<input type="button" id="double_check" value="중복확인" />
 								</td>
 							</tr>
@@ -130,6 +135,12 @@
               </tr>
 						</tbody>
 					</table>
+					<div class="search" style="margin-left:20%;">
+						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
+						<input id="submit" type="button" value="주소 검색" />
+						<input type="hidden" id="coordinate" name="coordinate" value=""/>
+					</div>
+					<div id="map" style="width:60%;height:400px; margin-left:20%;"></div>
 					<div class="btnfield">
 						<input type="submit" id="btn_signup" value="가입하기" disabled>
 					</div>
@@ -138,5 +149,8 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
+<script src="resources/js/map.js?ver=5"></script>
 <script src="resources/js/signUp_agree.js?ver=2"></script>
 </html>

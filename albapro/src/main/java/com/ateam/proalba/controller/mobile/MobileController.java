@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ateam.proalba.controller.cservice.CserviceController;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MobileWorkInfoVO;
+import com.ateam.proalba.domain.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.service.MobileAttendanceService;
 import com.ateam.proalba.service.MobileService;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +36,7 @@ import net.sf.json.JSONObject;
 public class MobileController {
 	private static final Logger logger = LoggerFactory.getLogger(MobileController.class);
 	private MobileService mobileService;
+	private MobileAttendanceService mobileAttendanceService; 
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -112,5 +115,13 @@ public class MobileController {
 		//	      return json;
 
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value = "m.workManage", method = RequestMethod.POST)
+	public JSON mobileWorkManageGET(String p_id) throws Exception {
+		List<MobileWorkPlaceVO> mobileWorkPlaceVO;
+		mobileWorkPlaceVO = mobileAttendanceService.mobileFoundWorkPlace(p_id);
+		JSONArray pJson = JSONArray.fromObject(mobileWorkPlaceVO);
+		return pJson;
+	}
 }
