@@ -76,7 +76,6 @@
 </head>
 
 <body>
-<%@ include file="../include/menu.jsp" %>	
   <!-- Page Content -->
  
   <div class="container">
@@ -121,7 +120,7 @@
         <div style="width:650px; text-align: center;">
 					<!-- 게시물번호를 hidden으로 처리 -->
 				<!-- 본인이 쓴 게시물만 수정, 삭제가 가능하도록 처리 -->
-				<c:if test="${login.id == vo.id}">
+				<c:if test="${login.id == vo.id || login.id == 'admin'}">
 					<button type="button" id="btnUpdate">수정</button>
 					<button type="button" id="btnDelete">삭제</button>
 				</c:if>

@@ -32,13 +32,14 @@
 
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[	
-		select work_place_name,basic_salary+food_expenses+transportation_fee+additional_extended+additional_night basic_salary,total_deduction_amount, actual_salary, year_month, sa_code,additional_night,additional_extended
-		from (select c.work_place_name,s.basic_salary,s.food_expenses, s.total_deduction_amount,s.transportation_fee,s.additional_extended,s.additional_night, s.actual_salary, s.year_month, s.sa_code
-		from salary s, contract c, employee e, member m, salary_details sd
+		select work_place_name,basic_salary+food_expenses+transportation_fee+additional_extended+additional_night basic_salary,total_deduction_amount, actual_salary, year_month, sa_code,additional_night,additional_extended, national_pension_cost, health_insurance_cost, employment_insurance_cost
+		from (select c.work_place_name,s.basic_salary,s.food_expenses, s.total_deduction_amount,s.transportation_fee,s.additional_extended,s.additional_night, s.actual_salary, s.year_month, s.sa_code, d.national_pension_cost, d.health_insurance_cost, d.employment_insurance_cost 
+		from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
 		where m.id=#{p_id} and 
         m.m_code=e.m_code and 
         e.em_code=s.em_code and
-        e.c_code =c.c_code
+        e.c_code =c.c_code and
+        s.sa_code=d.sa_code
         )
         WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
 
@@ -64,8 +65,11 @@
 	
 	<select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
     	<![CDATA[
-    	SELECT * FROM salary
-    	WHERE sa_code = #{sa_code}
+    	SELECT *
+    	FROM salary s
+        inner join deduction_amount d
+        on s.sa_code=d.sa_code   
+    	WHERE s.sa_code = #{sa_code}
     	]]>
 	</select>
 

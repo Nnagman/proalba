@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <%@ include file = "include/header.jsp" %>	
+<<<<<<< HEAD
 </head>
 <body>
 
@@ -64,6 +65,8 @@
       </section>
      </div>
 
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
  <%--  <div class="contents">
     <div class="main maintop1">

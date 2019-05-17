@@ -13,7 +13,6 @@
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
 	<div class="contents">
 		<div class="listForm" align="center">
 			<p class="count">

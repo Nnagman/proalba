@@ -24,8 +24,8 @@ public class QnADAOImplement implements QnADAO {
 	}
 
 	@Override
-	public void response_qna() throws Exception {
-		
+	public void response_qna(Map<String, String> map) throws Exception {
+		sqlSession.update(NAMESPACE + ".reponse_qna", map);
 	}
 
 	@Override
@@ -39,8 +39,18 @@ public class QnADAOImplement implements QnADAO {
 	}
 
 	@Override
-	public QnAVO select_qna(Map<String, String> map) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".select_qna", map);
+	public QnAVO select_qna(String cs_code) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".select_qna", cs_code);
+	}
+
+	@Override
+	public List<QnAVO> adminListCriteria(Criteria criteria) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".adminListCriteria", criteria);
+	}
+
+	@Override
+	public int count_all_qna() throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".count_all_qna");
 	}
 
 }

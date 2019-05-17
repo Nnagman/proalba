@@ -13,4 +13,5 @@ public class MemberVO {
 	private String birthday;
 	private String sex;
 	private String b_number;
+	private String coordinate;
 }

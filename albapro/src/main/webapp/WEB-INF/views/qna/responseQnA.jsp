@@ -10,7 +10,6 @@
 </head>
 <body>
 <%@ include file = "../include/header.jsp" %>
-<%@ include file = "../include/menu.jsp" %>
 	<form action="" method="POST">
 	<div class="contents">
 		<div class="title"> <h1>온라인 문의 답변 </h1> </div> <br>
@@ -43,7 +42,7 @@
 					<tr>
 						<th><span class="sp1" name="content">문의내용</span></th>
 						<td>
-							<textarea class="tex4" id="kkk" cols="84" rows="12" maxlength="500" name="content"></textarea>
+							<textarea class="tex4" id="kkk" cols="84" rows="12" maxlength="1000" name="content"></textarea>
 						</td>
 					</tr>
 					<tr>

@@ -99,7 +99,6 @@ $(function() {
 <%@ include file = "../include/header.jsp" %>
 </head>
 <body>
-<%@ include file = "../include/menu.jsp" %>
 <div class="contents">
 
 <h2 class="title"> 급여기록</h2>

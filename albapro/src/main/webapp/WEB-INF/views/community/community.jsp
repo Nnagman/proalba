@@ -33,7 +33,6 @@ $(function(){
 </head>
 
 <body>
-<%@ include file = "../include/menu.jsp" %>
   <div class="container">
 
 <br>

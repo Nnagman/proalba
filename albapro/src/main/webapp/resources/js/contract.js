@@ -1,7 +1,7 @@
 function toDataURL(){
-  var myImage = document.getElementById('myImage');
-  myImage.src = myCanvas.toDataURL();
-  $("#myCanvas").hide();
+	var myImage = document.getElementById('myImage');
+	myImage.src = myCanvas.toDataURL();
+	$("#myCanvas").hide();
 }
 var canvas, context;
 $(document).ready(function(){
@@ -71,10 +71,6 @@ $(function(){
 		$("#moveSignEnd").mousedown(function(){
 			$("#sign").draggable({ disabled: true })
 		});
-	});
-	
-	$("#endGame").click(function(){
-		$(".wcontract_btnline").hide();
 	});
 	
 	$("#signAgain").click(function(){
