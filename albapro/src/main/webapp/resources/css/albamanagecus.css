@@ -15,3 +15,13 @@ text-align: center;
   color: red;
   font-weight: 1000;
 }
+
+..fc-scroller{
+	height:100%;
+	
+	
+}
+
+.dataTables_info{
+	display:none !important;
+}

@@ -7,9 +7,14 @@
 	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
 	
 			select 
-			sa_code,work_start_time,attendance_status
+			substr(sa_code,0,INSTR(sa_code,'/')-1)sa_c, substr(work_start_time,INSTR(work_start_time,' ')+1) sa_start, substr(work_start_time,0,8) sa_date, work_end_time
 			from work_record
-			where #{id} = substr(sa_code,0,INSTR(sa_code,'/')-1)			 
+
+			where substr(sa_code,0,INSTR(sa_code,'/')-1)=#{id}
+			 
+
+						 
+
 	</select>
 	
 	<insert id="mobileStartWork">

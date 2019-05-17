@@ -1,7 +1,7 @@
 body{
     font-family:'NanumSquareRound', sans-serif;
-
-    color: black;
+	
+   color:black;
     posiion: relative;
     padding:0;
     margin: 0;
@@ -21,23 +21,29 @@ body{
 
 .nav{
     /* font-family: '�������彺����'; */
+   
+   
+
+      background-color:!important;
     font-weight:400;
     font-size: 13px;
     line-height:20px;
-
+	
+	
     position: relative;
-    padding: 0 0 0px 200px;
-    margin: 0;
+    padding: 15px 0 0px 0px;
+   
 	display:block;
-    background-color: #ffffff;
+	
+ 
 
-    border-top: 1px solid #E6E6E6;
-    border-bottom: 3px solid skyblue;
+  
 }
 
 .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
-    color: #000;
+    color: white;
     text-decoration: none;
+    
 }
 
 .nav > li{
@@ -53,7 +59,7 @@ body{
 }
 
 .nav > li:hover > a{
-    color: #000;
+    color: black;
 }
 
 /* .column > ul > li:hover{
@@ -248,3 +254,24 @@ body{
   margin-left: 10px;
   margin-top: 2px;
 }
+
+    .manubar{
+	left:20% !important; 
+	
+}
+
+.manuli{
+	color:black !important;
+	text-align:left;
+}
+
+.collapse{
+	overflow:visible !important;
+}
+
+.menuLink{
+	     color:white !important; 
+     text-decoration: none !important; 
+     text-shadow: 0 0px 0 !important; 
+}
+    

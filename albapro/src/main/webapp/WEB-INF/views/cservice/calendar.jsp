@@ -1,58 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='http://www.blueb.co.kr/data/201010/IJ12872423858253/fullcalendar.css' />
 <script type='text/javascript' src='http://www.blueb.co.kr/data/201010/IJ12872423858253/jquery.js'></script>
 <script type='text/javascript' src='http://www.blueb.co.kr/data/201010/IJ12872423858253/jquery-ui-custom.js'></script>
  
-        <link href='resources/css/albamanage.css' rel='stylesheet' />
+        
           <link href='resources/css/albamanagecus.css' rel='stylesheet' />
         <link href='resources/css/cal/albamanage.css' rel='stylesheet' />
+          <link href='resources/css/calbootcss.css' rel='stylesheet' />
 
         <script src='resources/js/albamanage.js'></script>
-        <script src='resources/js/interaction.js'></script>
-        <script src='resources/js/cal/albamanage.js'></script>
+        
+        <script src='resources/js/cal/albamanage.js'> </script>
+        <script src="resources/js/cal/interaction.js"></script>
+         <script src="resources/js/cal/calbootjs.js"></script>
 
    
       <script type="text/javascript">
+     
+      
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
+ 
+    
     var calendar = new FullCalendar.Calendar(calendarEl, {
-
-      plugins: [ 'interaction', 'dayGrid' ],
+    	 schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+      plugins: [ 'interaction', 'dayGrid','bootstrap' ],
          locale: 'ko',
-       themeSystem: 'bootstrap',
-      defaultView: 'dayGridMonth',
-
-       selectable: true,
+         themeSystem: 'bootstrap',
+      defaultView: 'dayGridMonth' ,
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right:''
+     
       },
-      dateClick: function(info) {
-     alert('지가아아악');
-   },
-    select: function(info) {
-      alert('정시출석');
-    },
+    
       events: [
-        {
-          title: 'All Day Event',
-          start: '2019-05-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2019-04-07',
-          end: '2019-04-10'
-        },
-
+     
+   
+        <c:forEach var="row" items="${map.list }" >
+        	{
+        	color:'skyblue',
+        	
+    		title: '출근시간 :'+'  '+'${row.sa_start}',
+    		start: '20'+'${row.sa_date}'
+        	},
+    	</c:forEach>
+        
+        
       ]
-    });
-
-    calendar.render();
+    }); 
+     
+calendar.render(); 
+    
   });
+      
+      
    </script>
 </head>
 <body>

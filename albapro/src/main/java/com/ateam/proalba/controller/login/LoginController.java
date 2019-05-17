@@ -94,22 +94,21 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 			return "redirect:/"; 
 	  }
     
-    @RequestMapping(value = "/m.login", method = RequestMethod.POST)
+    @RequestMapping(value = "/m.login", method = {RequestMethod.POST, RequestMethod.GET})
 	@ResponseBody
 	@CrossOrigin(origins = "*")
 	public String getCustomer(@RequestBody Map<String, Object> params) throws Exception { 
     	System.out.println("login called");
 //    	System.out.println(id + " " + password);
-    	System.out.println(params.get("id"));
+//    	System.out.println(params.get("id"));
     	MemberVO vo= new MemberVO();
     	LoginDTO loginDTO = new LoginDTO();
     	loginDTO.setId((String)params.get("id"));
     	loginDTO.setPassword((String)params.get("password"));
-    	System.out.println(loginDTO.getId());
+//    	System.out.println(loginDTO.getId());
     	vo = memberService.login(loginDTO);
-    	JSONObject a=new JSONObject();
     	
 
-		return a.fromObject(vo).toString();
+		return JSONObject.fromObject(vo).toString();
     }
 }
