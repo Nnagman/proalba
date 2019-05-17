@@ -49,10 +49,6 @@
 <body>
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-	<c:if
-		test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-		<%@ include file="../include/cmenu.jsp"%>
-	</c:if>
 	<form>
 		<div class="contents">
 			<h1>공고관리</h1>

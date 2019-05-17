@@ -12,7 +12,6 @@
 <script src="resources/js/writeResume.js"></script>
 </head>
 <%@ include file = "../include/header.jsp" %>	
-<%@ include file = "../include/menu.jsp" %>
 <body id="secMem" class="memResWp memResSimple">
 	<form name="form" action="target" method="post">
 		<div class="contents">

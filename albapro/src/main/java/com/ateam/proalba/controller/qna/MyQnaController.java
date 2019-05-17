@@ -49,15 +49,39 @@ public class MyQnaController {
 		return "qna/myQna";
 	}
 	
+	@RequestMapping(value = "/adminQnalist", method = RequestMethod.GET)
+	public String adminService(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+		
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(qnaService.count_all_qna());
+
+	    request.setAttribute("qnas", qnaService.adminListCriteria(criteria));
+	    request.setAttribute("pageMaker", pageMaker);
+	    List<QnAVO> qna = qnaService.adminListCriteria(criteria);
+	    logger.info(qna.get(0).toString());
+	    request.setAttribute("pageMaker", pageMaker);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		return "qna/myQna";
+	}
+	
 	@RequestMapping(value= "/viewQnA", method = RequestMethod.GET)
-	public String viewQnA(HttpServletRequest request,@RequestParam("m_code") String m_code, @RequestParam("title") String title) throws Exception {
-		String strs[] = {m_code, title};
+	public String viewQnA(HttpServletRequest request,@RequestParam("cs_code") String cs_code) throws Exception {
 		
+		request.setAttribute("viewQnA", qnaService.select_qna(cs_code));
+		
+		return "/qna/viewQnA";
+	}
+	
+	@RequestMapping(value= "/responseQnA", method = RequestMethod.POST)
+	public String viewQnA(String content,String cs_code) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("m_code", m_code);
-		map.put("title", title);
 		
-		request.setAttribute("viewQnA", qnaService.select_qna(map));
+		map.put("content", content);
+		map.put("cs_code", cs_code);
+		
+		qnaService.response_qna(map);
 		
 		return "/qna/viewQnA";
 	}

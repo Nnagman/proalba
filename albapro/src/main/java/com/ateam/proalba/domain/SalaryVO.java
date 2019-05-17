@@ -15,5 +15,8 @@ public class SalaryVO {
 	private int additional_night;
 	private int additional_extended;
 	private String sa_code;
+	private int national_pension_cost;
+	private int health_insurance_cost;
+	private int employment_insurance_cost;
 	
 }

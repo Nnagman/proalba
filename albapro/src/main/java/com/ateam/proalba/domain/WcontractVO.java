@@ -14,5 +14,4 @@ public class WcontractVO {
 	private String email_check;
 	private String name; // 알바생이름
 	private int hour_wage; // 시급
-	private String work_time; // 근무시간
 }

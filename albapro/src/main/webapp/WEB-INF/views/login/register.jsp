@@ -167,7 +167,7 @@
 						</tbody>
 					</table>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="가입하기"  onclick="CheckForm()" disabled>
+						<input type="submit" id="btn_signup" value="가입하기"   disabled>
 					</div>
 				</form>
 			</div>

@@ -1,7 +1,5 @@
 package com.ateam.proalba.controller.pservice;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 

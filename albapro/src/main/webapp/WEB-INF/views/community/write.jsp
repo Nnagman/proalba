@@ -143,7 +143,6 @@
 </style>
 </head>
 <body>
-	<%@ include file="../include/menu.jsp"%>
 	<br><br><br>
 
   <div class="container">

@@ -40,9 +40,8 @@
 
 
 <body>
-    <%@ include file = "../include/menu.jsp" %>
 
-    <div class="contents">
+    <div class="contents" id="contents">
         <div class="title">
             <h1>전자 근로계약서 - 상세보기</h1>
         </div>
@@ -51,32 +50,34 @@
             	<img src='${path}/displayContract?name=${contractPath}'/>
             	<div class="box" style="z-index: 100;">
             		<h2 class="hh">근로자</h2><br>
+                    <div id="sign" style="width: 40%; display: inline-block; float:right;">
+                    	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+                    	<img class="can1" id="myImage" style="margin:1px;">
+                	</div>
                     <span class="t3">근로자: </span>
-                    <input class="tex2" name="p_name" type="text" maxlength="11" />
-                    <span class="sp3">근로자: </span><Br>
-                    
-                    <span class="t3">주소: </span>
-                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
+                    <input class="tex2" name="p_name" type="text" maxlength="11" /><br><br>
 
                     <span class="t3">연락처: </span>
                     <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
+                    
+                    <span class="t3">주소: </span>
+                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
                 </div>
-            	<button type="button" class="bt3" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
-            	<button type="button" class="bt4" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+			</div>
+			<div style="text-align: center;">
+				<button type="button" class="bt1" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
+            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+				<input type="button" class="bt1" onclick="toDataURL();"value="서명 저장">
+				<button type="button" class="bt1" id="moveSign">서명란이동</button>
+				<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
+				<button type="button" class="bt1" id="endGame">최종완료</button>
+			</div>
 			<div id="sign" style="z-index: 100; position: relative; width: 75%; height: 100%; margin: 0 auto;">
 				<canvas class="can1" id="myCanvas" style="background-color: #f0f0f0" width="240" height="120"></canvas>
 				<div>
 					<img class="can1" id="myImage">
 				</div>
-				<div class="wcontract_btnline">
-					<input type="button" class="bt1" onclick="toDataURL();"value="서명 저장">
-					<button type="button" class="bt2" id="moveSign">서명란이동</button>
-					<button type="button" class="bt2" id="moveSignEnd">이동완료</button>
-					<button type="button" class="bt2" id="endGame">최종완료</button>
-				</div>
 			</div>
-			</div>
-			<br><br> <br><br>
         </form>
     </div>
 

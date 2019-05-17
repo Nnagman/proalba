@@ -10,7 +10,6 @@
 </head>
 <body>
 <%@ include file = "../include/header.jsp" %>
-<%@ include file = "../include/menu.jsp" %>
 	<form action="" method="POST">
 	<div class="contents">
 		<div class="title"> <h1>온라인 문의</h1> </div> <br>
