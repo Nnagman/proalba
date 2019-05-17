@@ -9,7 +9,7 @@
 	<ul class="nav manubar">
 	
 		<li class="menuLi">
-			<a class="menuLink" href="/proalba">MAIN1</a>
+			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
 		
 		<li class="menuLi">
