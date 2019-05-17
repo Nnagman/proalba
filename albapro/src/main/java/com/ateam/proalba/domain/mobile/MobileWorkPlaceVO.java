@@ -1,4 +1,4 @@
-package com.ateam.proalba.domain;
+package com.ateam.proalba.domain.mobile;
 
 import lombok.Data;
 
