@@ -24,9 +24,9 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<<<<<<< HEAD
- <%@ include file = "../include/header.jsp" %> 
-<%@ include file = "../include/menu.jsp" %>
+
+<%@ include file = "../include/header.jsp" %> 
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> 
 
@@ -50,15 +50,15 @@
 
 
 
-=======
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<!-- <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> -->
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/albamanage.js"></script>
 </head>
 <body>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 <div class="contents">
 
 <h2 class="title"> 근태기록</h2>

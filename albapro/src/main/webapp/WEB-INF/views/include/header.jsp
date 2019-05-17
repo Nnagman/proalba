@@ -9,21 +9,17 @@
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 <!--<script src="resources/js/jquery.js"></script> -->
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/header.css">
-<<<<<<< HEAD
+
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 <link rel="stylesheet" href="${path}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${path}/resources/css/bootstrap.min.css" />
   <link href="${path}/resources/css/mdb.min.css" rel="stylesheet">
     <link href="${path}/resources/css/style.css" rel="stylesheet">
 
-=======
-</head>
-<body>
-	<div class="header">
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
-<<<<<<< HEAD
-  <style type="text/css">
+</head>
+
+<style type="text/css">
     html,
     body,
     header,
@@ -93,12 +89,11 @@ margin-left:500px !important;
 }
   </style>
 
-<!DOCTYPE>
-<html>
-	<head>
-		<title>프로알바</title>
-	</head>
-	<body>
+
+<body>
+	
+  
+
 	
 		
 		<header>
@@ -210,20 +205,3 @@ margin-left:500px !important;
     
 	</body>
 </html>
-=======
-		<a href="${path}"><img alt="로고" src="${path}/resources/images/rogo.png" class="rogoimg" width="200" height="100" /></a>
-		<p>${login.id}님로그인</p>
-	</div>
-
-	<c:if test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
-		<%@ include file="menu.jsp"%>
-	</c:if>
-
-	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-		<%@ include file="cmenu.jsp"%>
-	</c:if>
-
-	<c:if test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
-		<%@ include file="amenu.jsp"%>
-	</c:if>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
