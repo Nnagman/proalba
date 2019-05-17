@@ -1,5 +1,5 @@
-/* �����̷¼� �ۼ�/����----------------------------------------------- */
-/* ����ι� */
+/* 占쏙옙占쏙옙占싱력쇽옙 占쌜쇽옙/占쏙옙占쏙옙----------------------------------------------- */
+/* 占쏙옙占쏙옙菅占� */
 .memResSimple .mTitle{
   padding:0 0 15px 0;
   border-bottom: 2px solid #9c8d98;
@@ -36,7 +36,7 @@
   color: #8a8b8d;
 }
 
-/* �������̺� */
+/* 占쏙옙占쏙옙占쏙옙占싱븝옙 */
 .memResSimple .rsTbl {
   width: 100%;
   border-collapse: collapse;
@@ -57,13 +57,13 @@
   padding: 15px 10px 15px 0;
 }
 
-/* �̷¼� ���� */
+/* 占싱력쇽옙 占쏙옙占쏙옙 */
 .memResSimple .rsSecTitle{border-top: none;}
 .memResSimple .rsSecTitle .rsTb1 tr td{ position: relative; padding: 15px 10px 8px 0;}
 .memResSimple .rsSecTitle .cont{padding: 6px 10px 0 0; text-align: right; color: #888; font-size: 11px;}
 .memResSimple .rsSecTitle .cont em{color: #ff6600;}
 
-/* ���α⺻�̷¼� */
+/* 占쏙옙占싸기본占싱력쇽옙 */
 .memResSimple .rsSecPersonal {padding:0 0 15px 0;}
 .memResSimple .rsSecPersonal .rsTbl tr th {padding:0 10px 0 0; }
 .memResSimple .rsSecPersonal .rsTbl tr th.sTit {font-size:14px;}
@@ -73,11 +73,11 @@
 .memResSimple .rsSecPersonal .rsTbl .addrTr .sTit .sq {position:absolute; left:-15px; top:18px;}
 
 
-/* ��� �ٹ��� */
+/* 占쏙옙占� 占쌕뱄옙占쏙옙 */
 .memResSimple .rsSecArea select {margin-right:7px;}
 .memResSimple .rsSecArea .rsTbl tr td p {padding:0 0 10px 0;}
 .memResSimple .rsSecArea .rsTbl tr td p.aTit {padding:5px 0 13px 0; color:#888;}
-.memResSimple .rsSecArea .rsTbl tr td p.aTit .cont_1 {padding:0 0 0 3px;  font:12px dotum, "����", gulim, "����", sans-serif; }
+.memResSimple .rsSecArea .rsTbl tr td p.aTit .cont_1 {padding:0 0 0 3px;  font:12px dotum, "占쏙옙占쏙옙", gulim, "占쏙옙占쏙옙", sans-serif; }
 .memResSimple .rsSecArea .rsTbl tr td p.aTit .cont_1 em {color:#ff6600;}
 .memResSimple .rsSecArea .rsTbl tr td .home {padding:8px 0 0 0;}
 
@@ -86,13 +86,16 @@
   padding: 17px 20px 20px 20px;
   border-right: 1px solid #ddd;
   background: #fff;
+ /*  margin-left:27%; */
+  
 }
 
 .memResWp #content{
   width: 756px !important;
   padding: 17px 20px 20px 20px;
   border-right: 1px solid #ddd;
-  background: #ff
+  background: #ff;
+  
 }
 
 body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, input, textarea, p, th, td{

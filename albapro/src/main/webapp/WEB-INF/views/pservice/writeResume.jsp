@@ -15,7 +15,7 @@
 <body id="secMem" class="memResWp memResSimple">
 	<form name="form" action="target" method="post">
 		<div class="contents">
-			<div id="content">
+			<div class="content">
 				<div class="rsSimpleWrite">
 					<div class="rsSec rsSecPersonal edit simple">
 						<h2 class="th">
