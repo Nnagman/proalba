@@ -1,6 +1,5 @@
 package com.ateam.proalba.controller.mobile;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,20 +10,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ateam.proalba.controller.cservice.CserviceController;
 import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.MobileWorkInfoVO;
-import com.ateam.proalba.domain.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.PageMaker;
-import com.ateam.proalba.service.MobileAttendanceService;
-import com.ateam.proalba.service.MobileService;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
+import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
+import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
+import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.mobile.MobileAttendanceService;
+import com.ateam.proalba.service.mobile.MobileService;
 
 import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
@@ -118,10 +117,33 @@ public class MobileController {
 	
 	@ResponseBody
 	@RequestMapping(value = "m.workManage", method = RequestMethod.POST)
-	public JSON mobileWorkManageGET(String p_id) throws Exception {
+	public JSON mobileWorkManagePOST(@RequestBody String p_id) throws Exception {
+		logger.info(p_id);
 		List<MobileWorkPlaceVO> mobileWorkPlaceVO;
 		mobileWorkPlaceVO = mobileAttendanceService.mobileFoundWorkPlace(p_id);
 		JSONArray pJson = JSONArray.fromObject(mobileWorkPlaceVO);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "m.workRecord", method = RequestMethod.POST)
+	public JSON mobileWorkRecordPOST(@RequestBody String sa_code) throws Exception {
+		logger.info(sa_code);
+		List<MobileWorkRecordVO> mobileWorkRecordVO;
+		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(sa_code);
+		String str = mobileWorkRecordVO.get(0).getW_code();
+		logger.info(str);
+		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)
+	public JSON mobileSalaryInfoPOST(@RequestBody String m_code) throws Exception {
+		logger.info(m_code);
+		List<MobileSalaryInfoVO> mobileSalaryInfoVO;
+		mobileSalaryInfoVO = mobileService.salaryInfo(m_code);
+		JSONArray pJson = JSONArray.fromObject(mobileSalaryInfoVO);
 		return pJson;
 	}
 }

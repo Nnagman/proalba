@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.domain.MobileAttendanceVO;
-import com.ateam.proalba.service.MobileAttendanceService;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.service.mobile.MobileAttendanceService;
 
 @Controller
 public class PworkmanageController {

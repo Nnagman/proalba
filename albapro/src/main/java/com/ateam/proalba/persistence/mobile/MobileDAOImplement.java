@@ -1,4 +1,4 @@
-package com.ateam.proalba.persistence;
+package com.ateam.proalba.persistence.mobile;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.MobileWorkInfoVO;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
+import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 
 @Repository
 public class MobileDAOImplement implements MobileDAO {
@@ -31,5 +32,9 @@ public class MobileDAOImplement implements MobileDAO {
 		
 		return sqlSession.selectList(NAMESPACE+".listCriteria",criteria);
 	}
- 
+
+	@Override
+	public List<MobileSalaryInfoVO> salaryInfo(String m_code) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".salaryInfo", m_code);
+	}
 }
