@@ -15,7 +15,7 @@
 
 .box {
 	position: relative;
-	width: 75%;
+	width: 950px;
 	height: 100%;
 	border: 1px solid black;
 	margin: 0 auto;
@@ -24,22 +24,26 @@
 
 .gg {
 	margin: 0px;
-	margin-left: 15%;
+	margin-left: 80px;
 	position: relative;
 	padding: 0px;
+	margin-bottom: -7px;
+	margin-top: 20px;
 }
 
 .hh {
 	margin: 0px;
-	margin-left: 15%;
+	margin-left: 80px;
 	position: relative;
+	margin-top: -20px;
+	margin-bottom: 15px;
 }
 
 .tex1 {
 	font-size: 20px;
 	height: 10px;
 	position: relative;
-	margin-left: 20%;
+	margin-left: 130px;
 	width: 130px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
@@ -56,7 +60,7 @@
 
 .tex3 {
 	font-size: 20px;
-	margin-left: 20%;
+	margin-left: 130px;
 	width: 500px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
@@ -64,14 +68,14 @@
 
 .tex4 {
 	font-size: 20px;
-	margin-left: 20%;
+	margin-left: 130px;
 	width: 40px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
 }
 
 .t1 {
-	margin-left: 20%;
+	margin-left: 130px;
 }
 
 .t2 {
@@ -79,7 +83,7 @@
 }
 
 .t3 {
-	margin-left: 20%;
+	margin-left: 130px;
 }
 
 .tex5 {
@@ -104,7 +108,7 @@
 	font-size: 20px;
 	height: 25px;
 	position: relative;
-	margin-left: 60%;
+	margin-left: 370px;
 	width: 55px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
@@ -129,37 +133,33 @@
 .tex10 {
 	font-size: 20px;
 	height: 25px;
-	width: 450px;
+	width: 400px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
 }
 
 .ra {
 	position: relative;
-	top: 2px;
+	top: -2px;
 	font-size: 50px;
 	width: 17px;
 	height: 16px;
 }
 
-.che {
-	margin-left: 20% !important;
+.che2 {
+	margin-left: 130px !important;
 	width: 18px;
 	height: 18px;
 	position: relative;
-	top: 3px;
+	top: -3px;
 }
 
-.che2 {
-	margin-left: 20% !important;
-	width: 18px;
-	height: 18px;
-	position: relative;
-	top: 3px;
+.t11{
+	margin-left: 200px;
 }
 
 .sp1 {
-	margin-left: 35%;
+	margin-left: 380px;
 }
 
 hr {
@@ -176,10 +176,6 @@ hr {
 	margin-left: 34%;
 }
 
-.can1 {
-	margin-left: 600px;
-}
-
 .bt2 {
 	width: 170px;
 }
@@ -189,7 +185,6 @@ hr {
 	top: 550px;
 }
 
-/* �����쇱빱 css */
 .input-append {
 	display: inline-block;
 	vertical-align: middle !important;
