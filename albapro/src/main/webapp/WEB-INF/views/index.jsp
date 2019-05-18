@@ -5,6 +5,7 @@
 <head>
 	<title>프로알바</title>
 <link rel="stylesheet" href="resources/css/index.css?ver=2" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <%@ include file = "include/header.jsp" %>	
@@ -61,6 +62,44 @@
 
         </div>
         <!--Grid row-->
+
+      </section>
+      
+        <hr class="my-5">
+
+      <!--Section: Main features & Quick Start-->
+      <section>
+
+        <h3 class="h3 text-center mb-5">다양하게 제공되는 서비스</h3>
+
+  <div class="row">
+    <div class="col con2-div-p">
+      <i class="far fa-handshake con2-icon"></i><br>
+       확실한 급여 계산
+    </div>
+    <div class="col con2-div-p">
+    <i class="fas fa-user-clock con2-icon"></i><br>
+    근로시간에 따른 급여 계산
+    </div>
+    <div class="col con2-div-p">
+     <i class="fas fa-cubes con2-icon"></i><Br>
+     블록체인으로 저장되는 경력
+    </div>
+  </div>
+  <div class="row">
+    <div class="col con2-div-p">
+     <i class="fas fa-fingerprint con2-icon"></i><br>
+    	지문인식을 통한 출석 체크
+    </div>
+    <div class="col con2-div-p">
+      2 of 3 (wider)
+    </div>
+    <div class="col con2-div-p">
+      3 of 3
+    </div>
+  </div>
+
+        
 
       </section>
      </div>
