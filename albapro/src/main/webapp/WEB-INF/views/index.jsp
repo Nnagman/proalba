@@ -110,11 +110,14 @@
 
     <!--Call to action-->
     <div class="pt-4">
-     
-      <i class="fab fa-aws"></i>
-      
-     
-        <i class="fab fa-css3-alt"></i>
+     	
+     	
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
      
     </div>
     <!--/.Call to action-->
