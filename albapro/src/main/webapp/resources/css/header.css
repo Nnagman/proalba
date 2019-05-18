@@ -124,9 +124,15 @@ margin-left:500px !important;
     font-weight: 750;
     }
 
+<<<<<<< HEAD
+.page-footer, .top-nav-collapse{
+	   background: linear-gradient(-155deg, #44444a, #000000) fixed; 
+	  /*  background-color: #929FBA; */
+=======
 .page-footer, .top-nav-collapse {
 	/*    background: linear-gradient(-135deg, #E4A972, #9941D8) fixed; */
 	   background-color: #929FBA;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 
 

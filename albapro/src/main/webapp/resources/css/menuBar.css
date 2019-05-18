@@ -40,8 +40,13 @@ body{
   
 }
 
+<<<<<<< HEAD
+.nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus {
+    color: white;
+=======
 .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
     color: black;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
     text-decoration: none;
     
 }
@@ -60,9 +65,13 @@ body{
 
 .nav > li:hover > a{
 <<<<<<< HEAD
+    color: black !important;
+=======
+<<<<<<< HEAD
     color: black; 
 =======
     color: black !important;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 >>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 }
 

@@ -9,7 +9,7 @@
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 </head>
-<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=4">
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <%@ include file = "../include/header.jsp" %>
 
@@ -120,13 +120,13 @@
 
                         <div id="datetimepicker3" class="input-append">
                             <input class="timepiker" id="time1" name="start_work_time" data-format="hh:mm:ss" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
                         </div>
                         <span class="timepiker_txt">부터</span>
 
                         <div id="datetimepicker4" class="input-append">
                             <input class="timepiker2" id="time2" name="end_work_time" data-format="hh:mm:ss" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
                         </div>
                         <span class="timepiker_txt">까지</span>
                     </div>
@@ -139,7 +139,7 @@
                     <input class="ra" id="y" name="additional_wage" type="radio" value="1" /><span>있음 </span>
                     <input class="ra" id="n" name="additional_wage" type="radio" value="0" /><span>없음 </span><br><br>
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
-                    <input class="tex2" type="text" name="payday" maxlength="2" onkeypress="onlyNumber();" /><span>일(휴일의 경우는 전일 지급)</span><br><br><br>
+                    <input class="tex2" type="text" name="payday" maxlength="2" onkeypress="onlyNumber();" /><span>일(휴일의 경우는 전일 지급)</span><br>
 
                     <h2 class="gg">6. 연차유급휴가</h2><br>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
@@ -151,8 +151,8 @@
                     <input class="che2" type="checkbox" id="산재보험" checked /><span>산재보험</span>
 
                     <h2 class="gg">8. 근로계약서 교부</h2><br>
-                    <span class="t1">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
-                    <span class="sp1">(근로기준법 제17조 이행)</span>
+                    <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
+                    <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
                     <input class="tex7" type="text" maxlength="4" onkeypress="onlyNumber();" />
                     <span>년</span>
                     <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
@@ -162,7 +162,7 @@
 
                     <hr><br>
 
-                    <h2 class="hh">사업주</h2><br>
+                    <h2 class="hh">사업주</h2>
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
                     	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
                     	<img class="can1" id="myImage" style="margin:1px;">
@@ -176,15 +176,15 @@
                     <span class="t3">주소: </span>
                     <input class="tex10" name="c_address" type="text" /><br>
                     <span class="t3">연락처: </span>
-                    <input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br>
+                    <input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
                     </div>
                 </div>
                 <div style="text-align: center;">
-                        <input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
 						<button type="button" class="bt1" id="moveSign">서명란이동</button>
 						<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
                         <button type="button" class="bt1" value="근로계약서 작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">근로계약서 작성완료</button>
             			<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+            			<input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
             	</div>
             <!-- Large modal -->
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
