@@ -9,11 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
 >>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
-<<<<<<< HEAD
 
-=======
-
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
   <div class="menucontainer">
 	<ul class="nav manubar">
 	
