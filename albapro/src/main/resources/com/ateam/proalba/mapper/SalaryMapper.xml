@@ -4,34 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
-
-<!--     <select id="listAll" resultType="com.ateam.proalba.domain.SalaryVO">
-        <![CDATA[
-        SELECT
-            id,
-            work_place_name,
-            end_date,
-            work_type
-        FROM career
-        ]]>
-    </select>
-    
-    <select id="listPaging" resultMap="CareerVOResultMap">
-    	<![CDATA[
-    	SELECT
-            join_date,
-            work_place_name,
-            end_date,
-            work_type
-    	FROM career
-    	WHERE join_date != null
-    	ORDER BY join_date DESC
-    	LIMIT #{page}, 10
-    	]]>
-	</select> -->
-
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
-	    <![CDATA[	
+	    <![CDATA[
 		select work_place_name,basic_salary+food_expenses+transportation_fee+additional_extended+additional_night basic_salary,total_deduction_amount, actual_salary, year_month, sa_code,additional_night,additional_extended, national_pension_cost, health_insurance_cost, employment_insurance_cost, name
 		from (select c.work_place_name,s.basic_salary,s.food_expenses, s.total_deduction_amount,s.transportation_fee,s.additional_extended,s.additional_night, s.actual_salary, s.year_month, s.sa_code, d.national_pension_cost, d.health_insurance_cost, d.employment_insurance_cost, m.name 
 		from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
@@ -44,15 +18,7 @@
         WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
 		 ]]>
 	</select>
-	
-
-<!--     <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
-        <id property="join_date" column="join_date" />
-        <result property="work_palce_name" column="work_palce_name" />
-        <result property="end_date" column="end_date" />
-        <result property="work_type" column="work_tyep" />
-    </resultMap>
- -->    
+	    
     <select id="countSalarys" resultType="int">
     	<![CDATA[
     	SELECT
