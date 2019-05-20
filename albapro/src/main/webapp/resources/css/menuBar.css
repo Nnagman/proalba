@@ -59,12 +59,19 @@ body{
 }
 
 .nav > li:hover > a{
+<<<<<<< HEAD
     color: black !important;
 }
+=======
+
+
+
+    color: black !important;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 /* .column > ul > li:hover{
-  background-color: #fff;
-} */
+  background-color: #fff;*/
+} 
 
 .nav > li:hover{
     background-color: #E0ECF8;
@@ -272,7 +279,7 @@ body{
 
 	
 }
-
+  
 .collapse{
 	overflow:visible !important;
 }

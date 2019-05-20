@@ -2,10 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+<<<<<<< HEAD
 
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
+=======
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
   <div class="menucontainer">
 	<ul class="nav manubar">
 	
@@ -34,7 +42,7 @@
 					</ul>
 					<ul>
 						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a></li>
-					</ul>
+					</ul> 
 				</div>
 
 				<div class="column">

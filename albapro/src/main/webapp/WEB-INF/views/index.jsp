@@ -74,36 +74,100 @@
 
   <div class="row">
     <div class="col con2-div-p">
-      <i class="far fa-handshake con2-icon"></i><br>
-       확실한 급여 계산
+      <i class="fas fa-file-contract con2-icon"></i><br><Br>
+  	간단한 근로 계약
     </div>
     <div class="col con2-div-p">
-    <i class="fas fa-user-clock con2-icon"></i><br>
+    <i class="fas fa-user-clock con2-icon"></i><br><Br>
     근로시간에 따른 급여 계산
     </div>
     <div class="col con2-div-p">
-     <i class="fas fa-cubes con2-icon"></i><Br>
+     <i class="fas fa-cubes con2-icon"></i><Br><Br>
      블록체인으로 저장되는 경력
     </div>
   </div>
   <div class="row">
     <div class="col con2-div-p">
-     <i class="fas fa-fingerprint con2-icon"></i><br>
+     <i class="fas fa-fingerprint con2-icon"></i><br><Br>
     	지문인식을 통한 출석 체크
     </div>
     <div class="col con2-div-p">
-      2 of 3 (wider)
+
+  	  <i class="far fa-handshake con2-icon"></i><br><Br>
+       확실한 급여 계산
     </div>
     <div class="col con2-div-p">
-      3 of 3
+     <i class="far fa-calendar-alt con2-icon"></i><br><br>
+    	알바생의 근태 관리
     </div>
   </div>
-
-        
-
-      </section>
+ </section>
+ 
+ 
+  
      </div>
+ <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 
+    <!--Call to action-->
+    <div class="pt-4">
+     	
+     	
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
+     
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/MDBootstrap" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href="https://dribbble.com/mdbootstrap" target="_blank">
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="https://pinterest.com/mdbootstrap" target="_blank">
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+      <a href="http://codepen.io/mdbootstrap/" target="_blank">
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
 
  <%--  <div class="contents">
     <div class="main maintop1">
