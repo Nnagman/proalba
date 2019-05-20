@@ -6,7 +6,7 @@
   <div class="menucontainer">
 	<ul class="nav manubar">
 		<li class="menuLi">
-			<a class="menuLink" href="/proalba">MAIN1</a>
+			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
 	
 		<li class="menuLi">
@@ -26,7 +26,7 @@
 				</div>
 
 				<div class="column">
-					<h3>지원 관리</h3>
+					<h3>지원 관리</h3> 
 					<ul>
 						<li><a href="${path}/wcontract" class="manuli">전자 근로계약서 작성</a></li>
 					</ul>

@@ -33,7 +33,7 @@
 					</ul>
 					<ul>
 						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a></li>
-					</ul>
+					</ul> 
 				</div>
 
 				<div class="column">
