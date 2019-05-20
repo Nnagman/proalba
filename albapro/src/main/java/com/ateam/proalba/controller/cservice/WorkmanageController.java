@@ -27,7 +27,6 @@ public class WorkmanageController {
 		
 		logger.info("c id:  "+ id);
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "기업 근태기록입니다.");
 		List<WorkManageVO> list = workManage.listAll(id);
 		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();

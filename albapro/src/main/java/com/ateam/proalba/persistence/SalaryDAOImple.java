@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.LoginDTO;
 
 @Repository
 public class SalaryDAOImple implements SalaryDAO {
@@ -29,7 +28,7 @@ public class SalaryDAOImple implements SalaryDAO {
 	}
 
 	@Override
-	public List<SalaryVO> listCriteria(Criteria criteria, String p_id) throws Exception {
+	public List<SalaryVO> listCriteria(Criteria criteria, String id) throws Exception {
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum() + criteria.getPageStart()));
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -38,7 +37,7 @@ public class SalaryDAOImple implements SalaryDAO {
 		 * LoginDTO loginDTO = new LoginDTO(); loginDTO.setId("p_id");
 		 */ 
 		map.put("criteria", criteria);
-		map.put("p_id", p_id);
+		map.put("id", id);
 
 		return sqlSession.selectList(NAMESPACE + ".listCriteria", map);
 	}

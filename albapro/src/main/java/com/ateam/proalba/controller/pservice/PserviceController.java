@@ -67,15 +67,15 @@ public class PserviceController {
 //	}
 	
 	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String p_id) throws Exception {
+	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
 		logger.info("Welcome inqsalaryPage");
 		
 		PageMaker pageMaker = new PageMaker();
 	    pageMaker.setCriteria(criteria);
 	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
-	    logger.info(p_id);
+	    logger.info(id);
 		model.addAttribute("message", "inqsalaryPage");
-		model.addAttribute("salarys", salaryService.listCriteria(criteria, p_id));
+		model.addAttribute("salarys", salaryService.listCriteria(criteria, id));
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));

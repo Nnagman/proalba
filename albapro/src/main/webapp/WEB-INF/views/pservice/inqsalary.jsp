@@ -109,6 +109,7 @@ $(function() {
 <table class="ui single line table">
   <thead>
     <tr>
+      <th>이름</th>
       <th>보낸이</th>
       <th>지급총액</th>
       <th>공제총액</th>
@@ -120,6 +121,7 @@ $(function() {
   <tbody>
 		<c:forEach var="salary" varStatus="i" items="${salarys}">
 				<tr>
+					<td>${salary.name}</td>
 					<td>${salary.work_place_name}</td>
 					<td>${salary.basic_salary}</td>
 					<td>${salary.total_deduction_amount}</td>
