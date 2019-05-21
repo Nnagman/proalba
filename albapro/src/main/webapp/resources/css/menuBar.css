@@ -21,6 +21,7 @@ body{
 
 .nav{
     /* font-family: '�������彺����'; */
+    
    
    
 
@@ -33,7 +34,7 @@ body{
     position: relative;
     padding: 15px 0 0px 0px;
    
-	display:block;
+	display:block !important;
 	
  
 
