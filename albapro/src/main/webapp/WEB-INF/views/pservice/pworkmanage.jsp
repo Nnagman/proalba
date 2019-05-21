@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<%@ include file = "../include/header.jsp" %> 
+<%-- <%@ include file = "../include/header.jsp" %>  --%>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> 
@@ -82,7 +82,7 @@
       </tr>
     </thead>
   <tbody>
-  <c:forEach var="row" items="${map.list }" >
+  <c:forEach var="row" items="${map.list }">
 	<tr>
 		<td>${row.sa_date}</td><td>${row.sa_start}</td><td>${row.work_end_time }</td>
 </tr>
