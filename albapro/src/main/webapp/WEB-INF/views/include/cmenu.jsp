@@ -14,18 +14,6 @@
 <!-- 			Full Down Menu --> 
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
-					<h3>채용공고 등록관리</h3>
-					<ul>
-
-						<li><a href="${path}/addjobopening_free" class="manuli">새 공고글 작성</a>	</li>
-					</ul>
-					<ul>
-						<li><a href="${path}/jobopeningmanage?id=${login.id}" class="manuli">공고글 관리</a>	</li>
-
-					</ul>
-				</div>
-
-				<div class="column">
 					<h3>지원 관리</h3> 
 					<ul>
 						<li><a href="${path}/wcontract" class="manuli">전자 근로계약서 작성</a></li>
@@ -64,14 +52,6 @@
 					</ul>
 				</div>
 			</div>
-	
-		
-		<li class="menuLi">
-			<a class="menuLink" href="${path}/employmentinfo" class="manuli">채용정보</a>
-			<ul class="subMenu">
-
-			</ul>
-		</li>
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>

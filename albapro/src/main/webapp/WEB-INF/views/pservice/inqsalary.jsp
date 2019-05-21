@@ -25,6 +25,25 @@ $(function(){
 	$("#btn-open-dialog,#dialog-background,#btn-close-dialog").click(function () {
 		$("#my-dialog,#dialog-background").toggle();
 	});
+	
+	$('#myModal').on('shown.bs.modal', function () {
+		  $('#myInput').focus()
+	});
+	
+	$('.btn btn-default').click(function(e){
+		var salarys = JSON.stringify(${salarys});
+		var work_place_name = e.currentTarget.id;
+		salary.forEach(function(item){
+			if(item.work_place_name == work_place_name){
+				$('#sal_name').val(item.name);
+				$('#sal_work_place_name').val(item.work_place_name);
+				$('#sal_basic_salary').val(item.basic_salary);
+				$('#sal_total_deduction_amount').val(item.total_deduction_amount);
+				$('#sal_actual_salary').val(item.actual_salary);
+				$('#sal_year_month').val(item.year_month);
+			}
+		});
+	});
 });
 </script>
 </head>
@@ -40,10 +59,7 @@ $(function(){
 <div class="contents">
 
 <h2 class="title"> 급여기록</h2>
-<i class="angle left icon" id="back"></i>
-<i id="date"></i>
-<i class="angle right icon" id="forward"></i>
-
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">${salarys[0].work_place_name}</button>
 <table class="ui single line table">
   <thead>
     <tr>
@@ -57,24 +73,35 @@ $(function(){
     </tr>
   </thead>
   <tbody>
-		<c:forEach var="salary" varStatus="i" items="${salarys}">
 				<tr>
-					<td>${salary.name}</td>
-					<td>${salary.work_place_name}</td>
-					<td>${salary.basic_salary}</td>
-					<td>${salary.total_deduction_amount}</td>
-					<td>${salary.actual_salary}</td>
-					<td>${salary.year_month}</td>
+					<td id="sal_name">${salarys[0].name}</td>
+					<td id="sal_work_place_name">${salarys[0].work_place_name}</td>
+					<td id="sal_basic_salary">${salarys[0].basic_salary}</td>
+					<td id="sal_total_deduction_amount">${salarys[0].total_deduction_amount}</td>
+					<td id="sal_actual_salary">${salarys[0].actual_salary}</td>
+					<td id="sal_year_month">${salarys[0].year_month}</td>
 					<td>					
 					<button  onclick = "document.getElementById ( 'id01'). style.display = 'block'" class = "w3-button w3-black"id="btn-open-dialog">상세보기</button>
 					<div id="modalsize"> 
 					<%@ include file = "../pservice/psalarydetail.jsp" %>
 					</div>
 				</tr>
-		</c:forEach>
   </tbody>
 </table>
-</div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <c:forEach var="salary" items="${salarys}">
+        	<button type="button" id="${salary.work_place_name}" class="btn btn-default" data-dismiss="modal">
+        	${salarys[0].work_place_name}</button>
+        </c:forEach>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </body>
 </html>

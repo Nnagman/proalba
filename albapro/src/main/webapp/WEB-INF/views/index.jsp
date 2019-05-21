@@ -289,7 +289,7 @@
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
-       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class=" footer-logo"  /> 
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
       </a>
      
     </div>

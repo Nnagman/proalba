@@ -11,6 +11,7 @@
 <%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
+<!-- <link rel="stylesheet" href="resources/contractList.css"> -->
 </head>
 <body>
 	<div class="contents">

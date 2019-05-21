@@ -10,14 +10,14 @@
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <link rel="stylesheet" type="text/css" href="resources/css/myqna.css?ver=1">
 <%@ include file = "../include/header.jsp" %>
-<link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
-<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
+<!-- <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script> -->
 </head>
 <body>
 	<div class="contents">
 		<div class="listForm" align="center">
-			<h1>나의 문의내역</h1>
-        	<img src="resources/images/상태.png" id="status_img">
+			<h1 class="hh">나의 문의내역</h1>
+        	<img src="resources/images/상태.png" class="status_img" id="status_img">
 		</div>
 		<div class="listForm">
 			<!-- //탭메뉴 -->

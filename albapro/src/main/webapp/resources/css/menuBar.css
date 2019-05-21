@@ -1,5 +1,5 @@
 body{
-    font-family:'NanumSquareRound', sans-serif;
+    font-family:'NanumSquareRound', sans-serif !important;
 	
    color:black;
     posiion: relative;
@@ -21,6 +21,7 @@ body{
 
 .nav{
     /* font-family: '�������彺����'; */
+    
    
    
 
@@ -33,14 +34,14 @@ body{
     position: relative;
     padding: 15px 0 0px 0px;
    
-	display:block;
+	display:block !important;
 	
  
 
   
 }
 
-.nav .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
+.nav .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus{
     color: white;
     text-decoration: none;
     
@@ -62,12 +63,6 @@ body{
 <<<<<<< HEAD
     color: black !important;
 }
-=======
-
-
-
-    color: black !important;
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 /* .column > ul > li:hover{
   background-color: #fff;*/
@@ -289,4 +284,8 @@ body{
      text-decoration: none !important; 
      text-shadow: 0 0px 0 !important; 
 }
-    
+
+th{
+	text-align:center;
+	font-weight:bold !important;
+}

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,7 @@
 <div class="listForm">
 	<!-- //탭메뉴 -->
 	<form id="frmList" name="frmList" method="post">
+		<h3>영진</h3>
 		<table cellspacing="0" summary="경력 상세 목록" >
 		<thead>
 			<tr>
