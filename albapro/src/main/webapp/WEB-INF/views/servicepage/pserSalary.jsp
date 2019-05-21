@@ -15,29 +15,32 @@
   <title>Swefwefgw  sdfrf sdd </title>
 
   <!-- Custom fonts for this template-->
+
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
   <!-- Custom styles for this template-->
+ <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
   <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
   <link href="resources/css/servicepage/demo.css" rel="stylesheet">
+    <link href="resources/css/servicepage/pserworkmanage.css" rel="stylesheet">
+ 
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
+
+ 
+ <link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanagecus.css" />
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <script src="resources/js/albamanage.js"></script>
+<script src="resources/js/cal/albamanage.js"></script>
+<script src="resources/js/cal/interaction.js"></script> 
+
+
 
 </head>
-<style>
-.content{
-height: 100%;
-    max-height: 100%;
-        position: relative;
-    float: right;
-    width: calc(100% - 260px);
-    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
-}
-    
-.pser-con{
-position:relative;
-margin-top:70px;
-}
-</style>
+
 
 <body>
 <div class="wrapper">
@@ -56,19 +59,19 @@ margin-top:70px;
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="./dashboard.html">
+            <a class="nav-link" href="">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
           </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="./user.html">
+          <li class="nav-item  ">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">person</i>
               근태 관리
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./tables.html">
+          <li class="nav-item active">
+            <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               급여 관리
             </a>
@@ -100,7 +103,10 @@ margin-top:70px;
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">근태 관리</h4>
-                  <p class="card-category">  ${login.id} 님의 근태를 볼수 있습니다.</p>
+                  <p class="card-category">  ${login.id} 님의 근태를 볼수 있습니다.
+                   <!--  <div class="iconline"> --> <i class="material-icons calicon" data-toggle="modal" data-target="#myModal">calendar_today</i><!-- </div> -->
+                  </p>
+                
                
                 </div>
                 <div class="card-body">
@@ -138,28 +144,58 @@ margin-top:70px;
 
 
 
+
+                                              	<!-- 부트스트랩 -->
+  	<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    	<script src="resources/js/bootstrap.js"></script>
+      <!-- Modal content  -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">출근 시간</h4>
+        </div>
+        <div class="modal-body">
+          <%@ include file = "../cservice/calendar.jsp" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+            
+
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
+
    <script src="resources/js/servicepage2/popper.min.js"></script>
-    <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
+    <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
       <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
         <script src="resources/js/servicepage2/moment.min.js"></script>
           <script src="resources/js/servicepage2/sweetalert2.js"></script>
             <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
               <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
                 <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
-                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script>
+                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
                     <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-                      <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
-                        <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script>
-                          <script src="resources/js/servicepage2/fullcalendar.min.js"></script>
-                            <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
+             <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
+                        <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
+                        <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
+                       <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
                               <script src="resources/js/servicepage2/nouislider.min.js"></script>
                                  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
                                    <script src="resources/js/servicepage2/arrive.min.js"></script>
-                                   <!--    <script src="resources/js/servicepage2/chartist.min.js"></script> -->
+                                      <script src="resources/js/servicepage2/chartist.min.js"></script>
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
-                                           <script src="resources/js/servicepage2/material-dashboard.js"></script>
+                                           <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
                                             <script src="resources/js/servicepage2/demo.js"></script>
+                                            
+                                            
+                                            
+                                
                                             
    <script>
     $(document).ready(function() {
@@ -344,6 +380,8 @@ margin-top:70px;
       });
     });
   </script>
+  
+  
 
  
 </body>

@@ -66,7 +66,7 @@ public class PserviceController {
 //		return "pservice/pworkmanage";
 //	}
 	
-	@RequestMapping(value = "/inqsalary", method = RequestMethod.GET)
+	@RequestMapping(value = "/pserSalary", method = RequestMethod.GET)
 	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
 		logger.info("Welcome inqsalaryPage");
 		
@@ -79,7 +79,7 @@ public class PserviceController {
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "pservice/inqsalary";
+		return "servicepage/pserSalary";
 	}
 	@RequestMapping(value = "/psalarydetail", method= RequestMethod.GET)
 	public String psalarydetailGET(Model model, String sa_code) throws Exception {

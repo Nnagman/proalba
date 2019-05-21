@@ -9,31 +9,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%-- <%@ include file = "../include/header.jsp" %>  --%>
+
+- 
+ <link rel="stylesheet" href="resources/css/workmanage.css" />
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> 
+
+<!--   <link href="resources/css/mdb.min.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet"> -->
+      <link href="resources/css/datatables.min.css" rel="stylesheet">
 
 
  
-<link rel="stylesheet" href="resources/css/workmanage.css" />
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<link rel="stylesheet" href="resources/css/bootstrap.css" />
-  <link href="resources/css/mdb.min.css" rel="stylesheet">
-    <link href="resources/css/style.css" rel="stylesheet">
-      <link href="resources/css/datatables.min.css" rel="stylesheet">
-<link rel="stylesheet" href="resources/css/albamanage.css" />
-<link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<%-- <%@ include file = "../include/header.jsp" %>  --%>
-
+<!-- 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> 
 
-<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script> 
-<script src="resources/js/albamanage.js"></script>
+<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>  -->
+<link rel="stylesheet" href="resources/css/bootstrap.css" />
+ <link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanagecus.css" />
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script>
+<script src="resources/js/cal/interaction.js"></script> 
 
 
  
@@ -46,17 +49,7 @@
 </head>
 
 
-<body>
 
-
-
-
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" /> -->
-<script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/albamanage.js"></script>
-</head>
 <body>
 
 <div class="contents">

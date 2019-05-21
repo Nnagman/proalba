@@ -13,7 +13,7 @@
 		</li>
 		
 		<li class="menuLi">
-			<a class="menuLink" href="pservicepage?id=${login.id}" target="blank">개인서비스</a>
+			<a class="menuLink" href="pworkmanage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">

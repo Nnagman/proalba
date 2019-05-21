@@ -1,0 +1,17 @@
+.content{
+height: 100%;
+    max-height: 100%;
+        position: relative;
+    float: right;
+    width: calc(100% - 260px);
+    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+    
+.pser-con{
+position:relative;
+margin-top:70px;
+}
+
+.calicon{
+	float:right;
+}
