@@ -1,9 +1,9 @@
-h1{
+.hh{
 	float: left;
 	font-weight:520 !important;
 }
 .contents{
-	margin-left: 60px;
+	margin-left: 70px;
 	 text-align: center !important;
 	 height: 800px;
 }
@@ -20,6 +20,6 @@ h1{
 table{
 	width: 1365px !important;
 }
-img{
+.status_img{
 	margin-top: 30px;
 }

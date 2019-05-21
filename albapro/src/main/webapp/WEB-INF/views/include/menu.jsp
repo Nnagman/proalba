@@ -16,15 +16,6 @@
 			<a class="menuLink" href="pservicepage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<div class="fulldrop scrolling-navbar Asize">
-				<div class="column">
-					<h3 class="menu-drop-title">이력서 등록 관리</h3>
-					<ul>
-						<li><a href="${path}/writeResume" class="manuli">새 이력서 작성</a></li>
-						</ul>
-						<ul>
-						<li><a href="${path}/maresume" class="manuli">이력서 관리</a></li>
-					</ul>
-				</div>
 
 				<div class="column">
 					<h3 class="menu-drop-title">지원 관리</h3>
@@ -70,12 +61,7 @@
 			</div>
 		</li>
 		
-		<li class="menuLi">
-			<a class="menuLink" href="${path}/employmentinfo" class="manuli">채용정보</a>
-			<ul class="subMenu">
 
-			</ul>
-		</li>
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli ">고객센터</a>
