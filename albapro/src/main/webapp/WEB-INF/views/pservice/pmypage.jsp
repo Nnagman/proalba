@@ -12,6 +12,7 @@
 		width: 500px;
    		height: 300px;
    		margin-top: 50px;
+   		letter-spacing: 2px;
 	}
 	
 	.card-header{
@@ -34,8 +35,11 @@
   <div class="card-header">내 정보 조회</div>
   <div class="card-body text-dark">
     <h6 class="card-title"><span>${login.name}</span>님의 정보</h6>
+    <hr />
     <p class="card-text">아이디 : ${login.id}</p>
+    <hr />
     <p class="card-text">전화번호 : ${login.phone}</p>
+    <hr />
     <p class="card-text">이메일 : ${login.email}</p>
   </div>
 </div>
