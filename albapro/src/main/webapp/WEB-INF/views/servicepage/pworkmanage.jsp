@@ -26,7 +26,7 @@
       </tr>
     </thead>
   <tbody>
-  <c:forEach var="row" items="${map.list}">
+  <c:forEach var="row" items="${map.list}"> 
 	<tr>
 		<td>${row.sa_date}</td><td>${row.sa_start}</td><td>${row.work_end_time }</td>
 </tr>

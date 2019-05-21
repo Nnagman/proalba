@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +42,95 @@ margin-top:70px;
 <body>
 <div class="wrapper">
 	<div class="div-sidebar">
-	<%@ include file = "psersidebar.jsp" %>
+	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Creative Tim
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" href="./dashboard.html">
+              <i class="material-icons">dashboard</i>
+              알바목록
+            </a>
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" href="./user.html">
+              <i class="material-icons">person</i>
+              근태 관리
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./tables.html">
+              <i class="material-icons">content_paste</i>
+              급여 관리
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./typography.html">
+              <i class="material-icons">library_books</i>
+              경력 관리
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./icons.html">
+              <i class="material-icons">bubble_chart</i>
+              Icons
+              </a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+<!-- End of Sidebar -->
 	</div>	
 	<div class="content">
 		<div class="pser-header"><%@ include file = "pserNavHeader.jsp" %> </div>
-		<div class="pser-con"><%@ include file = "pworkmanage.jsp" %> </div>
+		<div class="pser-con">    
+	  <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">근태 관리</h4>
+                  <p class="card-category">  ${login.id} 님의 근태를 볼수 있습니다.</p>
+               
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <table id="example" class="mdl-data-table" style="width:100%">
+        <thead>
+      <tr>
+        <th class="th-sm">날짜 </th>
+        <th class="th-sm">출근시간</th>
+        <th class="th-sm">퇴근 시간 </th>
+   
+      </tr>
+    </thead>
+  <tbody>
+  <c:forEach var="row" items="${map.list}"> 
+	<tr>
+		<td>${row.sa_date}</td><td>${row.sa_start}</td><td>${row.work_end_time }</td>
+</tr>
+</c:forEach>
+
+  </tbody>
+     
+    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+        </div> </div>
 		<div class="pser-footer"><%@ include file = "pserfooter.jsp" %></div>
 	</div>
 
