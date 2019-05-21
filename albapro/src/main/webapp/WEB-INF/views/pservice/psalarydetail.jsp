@@ -5,11 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+<meta name = "viewport" content = "width = device-width, initial-scale = 1" >  
+<link rel = "stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css" >  
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
+<style>
+#modalsize{
+	height:300px;
+}
+</style>
 </head>
 <body>
-	<h2>${salary.year_month}상세급여</h2>
+<div class = "w3-container" > 
+	<div id = "id01" class = "w3-modal" >  
+    <div class = "w3-modal-content w3-animate-top w3-card-4" > 
+      <header class = "w3-container w3-teal" id="modalsize">  
+        <span onclick = "document.getElementById ( 'id01'). style.display = 'none'"  
+        class = "w3-button w3-display-topright" >닫기 </span >
+	<h2 style="color : Green;">${salary.year_month}월 상세급여</h2>
+		</header>
+		<div class = "w3-container" > 
 	<table class="ui single line table">
 		<thead>
 			<tr>
@@ -73,5 +87,12 @@
 	</tr>
 	</tbody>
 	</table>
+	</div >
+      <footer class = "w3-container w3-teal" > 
+	 <p ><h3>급여 정보</h3> </p>
+      </footer >
+    </div >
+  </div >
+  </div>
 </body>
 </html>

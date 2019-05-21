@@ -41,8 +41,6 @@ public class MyQnaController {
 	    request.setAttribute("message", "contractPage");
 	    request.setAttribute("qnas", qnaService.listCriteria(criteria));
 	    request.setAttribute("pageMaker", pageMaker);
-	    List<QnAVO> qna = qnaService.listCriteria(criteria);
-	    logger.info(qna.get(0).toString());
 	    request.setAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));

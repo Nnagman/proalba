@@ -47,7 +47,7 @@
 				<div class="column">
 					<h3 class="menu-drop-title">급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary?p_id=${login.id}" class="manuli">급여 조회</a></li>
+						<li><a href="${path}/inqsalary?id=${login.id}" class="manuli">급여 조회</a></li>
 					</ul>
 				</div>
 

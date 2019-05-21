@@ -13,4 +13,5 @@ public class WorkManageVO {
 	private String birthday;
 	private String sex;	
 	private String email;
+	private String start_period;
 }

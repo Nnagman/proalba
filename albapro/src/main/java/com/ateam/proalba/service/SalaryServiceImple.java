@@ -20,8 +20,8 @@ public class SalaryServiceImple implements SalaryService{
         this.salaryDAO = salaryDAO;
     }
 	@Override
-	public List<SalaryVO> listCriteria(Criteria criteria, String p_id) throws Exception {
-		return salaryDAO.listCriteria(criteria, p_id);
+	public List<SalaryVO> listCriteria(Criteria criteria, String id) throws Exception {
+		return salaryDAO.listCriteria(criteria, id);
 	}
 
 	@Override

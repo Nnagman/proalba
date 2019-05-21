@@ -18,5 +18,5 @@ public class SalaryVO {
 	private int national_pension_cost;
 	private int health_insurance_cost;
 	private int employment_insurance_cost;
-	
+	private String name;
 }
