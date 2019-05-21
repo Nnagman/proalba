@@ -18,7 +18,7 @@ margin: 0 auto;
 position: relative;
 top: 18px;
 }
-
+ 
 a:link{
 	color: black;
 	text-decoration:none;
@@ -187,8 +187,15 @@ font-weight: bold;
 
 
 .footer-icon{
-	font-size:50px;
+	font-size:30px;
 	margin-right:10px;
 }
     
-   
+.footer-logo{
+	left:500px;
+	width:80px;
+}
+
+footer.page-footer{
+	background-color:#2e3949;
+}

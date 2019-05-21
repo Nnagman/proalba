@@ -10,8 +10,7 @@
         SELECT
             join_date,
             work_place_name,
-            end_date,
-            work_type
+            end_date
         FROM career
         ]]>
     </select>
@@ -21,8 +20,7 @@
     	SELECT
             join_date,
             work_place_name,
-            end_date,
-            work_type
+            end_date
     	FROM career
     	WHERE join_date != null
     	ORDER BY join_date DESC
@@ -35,9 +33,8 @@
 	    SELECT
             join_date,
             work_place_name,
-            end_date,
-            work_type
-    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date, work_type from career where m_code = #{m_code} order by join_date desc)
+            end_date
+    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date from career where m_code = #{m_code} order by join_date desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
     	
     	]]>
@@ -47,7 +44,6 @@
         <id property="join_date" column="join_date" />
         <result property="work_palce_name" column="work_palce_name" />
         <result property="end_date" column="end_date" />
-        <result property="work_type" column="work_tyep" />
     </resultMap>
     
     <select id="countCareers" resultType="int">

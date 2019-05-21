@@ -40,8 +40,8 @@ body{
   
 }
 
-.nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
-    color: black;
+.nav .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus, span{
+    color: white;
     text-decoration: none;
     
 }
@@ -279,7 +279,7 @@ body{
 }
 
 .menuLink{
-	 color:white !important; 
+	/*  color:white !important; */ 
      text-decoration: none !important; 
      text-shadow: 0 0px 0 !important; 
 }

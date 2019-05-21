@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/menuBar.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 
@@ -14,7 +17,7 @@
 		</li>
 		
 		<li class="menuLi">
-			<a class="menuLink" href="#">개인서비스</a>
+			<a class="menuLink" href="pservicepage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
@@ -48,7 +51,7 @@
 				<div class="column">
 					<h3 class="menu-drop-title">급여 관리</h3>
 					<ul>
-						<li><a href="${path}/inqsalary?p_id=${login.id}" class="manuli">급여 조회</a></li>
+						<li><a href="${path}/inqsalary?id=${login.id}" class="manuli">급여 조회</a></li>
 					</ul>
 				</div>
 

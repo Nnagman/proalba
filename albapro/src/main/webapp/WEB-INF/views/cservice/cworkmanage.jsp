@@ -43,12 +43,12 @@ $(function() {
 	<table class="workmanage_emp_table">
 	
 	<tr>
-		<Th>check</Th><Th>사원번호</Th><Th>성명</Th><td>휴대번호</td><Th>근태기록</Th>
+		<Th>직원이름</Th><Th>휴대번호</Th><Th>입사일</Th><Th>근태기록</Th>
 	</tr>
 	
 	<c:forEach var="list" items="${list}">
 	<tr>
-		<Td><input type="checkbox" id="workmanage_check" /></Td><Td>${list.id}</Td><td>${list.name}</Td><td>${list.phone}</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
+		<td>${list.name}</Td><td>${list.phone}</td><td>${list.start_period}</td><Td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">관리</button><Td>
 	</tr>
 	</c:forEach>
 	

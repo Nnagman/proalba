@@ -22,7 +22,7 @@ body{
       .carousel {
         height: 100vh;
       
-       
+        
         
       }
     } 
@@ -64,9 +64,11 @@ body{
  .mr-auto, .mx-auto{
     margin-right:0px !important;
     }
-    .navbar{
-    width:100%;
-    }
+
+.navbar{
+  width:100%;
+    height:80px;
+ }
 
 
 .navbar-toggler{
@@ -126,7 +128,8 @@ margin-left:500px !important;
 
 .page-footer, .top-nav-collapse {
 	/*    background: linear-gradient(-135deg, #E4A972, #9941D8) fixed; */
-	   background-color: #929FBA;
+	   background-color: #5D5D5D;
+
 
 }
   

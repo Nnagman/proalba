@@ -26,16 +26,14 @@
 				<th class="appDate" scope="col">입사일</th>
 				<th class="company" scope="col">회사명</th>
 				<th class="endDate" scope="col">퇴사일</th>
-				<th class="resume" scope="col">직종</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="career" varStatus="i" items="${careers}">
 				<tr>
-					<td>${career.join_date}</td>
-					<td>${career.work_place_name}</td>
-					<td>${career.end_date}</td>
-					<td>${career.work_type}</td>
+					<td scope="col">${career.join_date}</td>
+					<td scope="col">${career.work_place_name}</td>
+					<td scope="col">${career.end_date}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

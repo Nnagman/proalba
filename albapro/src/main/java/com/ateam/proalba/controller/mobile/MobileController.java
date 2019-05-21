@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.Criteria;
@@ -24,6 +25,7 @@ import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
+import com.ateam.proalba.service.qna.QnAService;
 
 import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
@@ -35,7 +37,8 @@ import net.sf.json.JSONObject;
 public class MobileController {
 	private static final Logger logger = LoggerFactory.getLogger(MobileController.class);
 	private MobileService mobileService;
-	private MobileAttendanceService mobileAttendanceService; 
+	private MobileAttendanceService mobileAttendanceService;
+	private QnAService qnaService;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -144,6 +147,37 @@ public class MobileController {
 		List<MobileSalaryInfoVO> mobileSalaryInfoVO;
 		mobileSalaryInfoVO = mobileService.salaryInfo(m_code);
 		JSONArray pJson = JSONArray.fromObject(mobileSalaryInfoVO);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "m.qnalist", method = RequestMethod.POST)
+	public JSON qnaListPOST(@ModelAttribute("criteria") Criteria criteria, @RequestBody String m_code) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+		criteria.setM_code(m_code); // m_code니깐 앞에 p붙여줘야함.
+		logger.info(m_code);
+		
+	    pageMaker.setCriteria(criteria);
+	    pageMaker.setTotalCount(qnaService.count_qna(m_code));
+	    
+	    criteria.setId(m_code);
+		logger.info(Integer.toString(criteria.getPageStart()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("qnas", qnaService.listCriteria(criteria));
+		map.put("pageMaker", pageMaker);
+		JSONObject json = JSONObject.fromObject(map);
+		return json;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value= "/m.viewQnA", method = RequestMethod.POST)
+	public JSON viewQnA(HttpServletRequest request,@RequestBody String cs_code) throws Exception {
+		logger.info("viewQnA");
+		JSONObject pJson = JSONObject.fromObject(qnaService.select_qna(cs_code));
+		
+		logger.info(qnaService.select_qna(cs_code).toString());
+		
 		return pJson;
 	}
 }
