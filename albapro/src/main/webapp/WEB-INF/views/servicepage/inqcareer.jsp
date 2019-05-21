@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <title>Swefwefgw  sdfrf sdd </title>
 
   <!-- Custom fonts for this template-->
@@ -21,25 +21,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
   <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-<script>
-$(function(){
 
-	$("#btnWrite").click(function(){
-		location.href="${path}/comm/write";
-	});
-	
-	$("#hLogin").click(function(){
-		location.href="${path}/board/login";
-	});
-	$("#hLogout").click(function(){
-		location.href="${path}/board/logout";
-	});
-});
-	// 원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
-	function list(page){
-		location.href="${path}/comm?curPage="+page+"&searchOption-${map.searchOption}"+"&keyword=${map.keyword}";
-	}
-</script>
 </head>
 <style>
 .content{
@@ -91,16 +73,16 @@ margin-top:70px;
               급여 관리
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
+          <li class="nav-item active">
+            <a class="nav-link" href="${path}/inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="comm">
+          <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
-             	커뮤니티
+              커뮤니티
               </a>
           </li>
         
@@ -110,80 +92,37 @@ margin-top:70px;
 <!-- End of Sidebar -->
 	</div>	
 	<div class="content">
-		<div class="pser-header"><%@ include file = "../servicepage/pserNavHeader.jsp" %> </div>
+		<div class="pser-header"><%@ include file = "pserNavHeader.jsp" %> </div>
 		<div class="pser-con">    
 	  <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">커뮤니티</h4>
-                  <p class="card-category">대나무 숲입니다.</p>
+                  <h4 class="card-title ">경력 관리</h4>
+                  <p class="card-category">  ${login.id} 님의 경력을 볼 수 있습니다.</p>
                
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                   <table id="example" class="mdl-data-table" style="width:100%">
-       	<tr>
-		<th>번호</th>
-		<th>제목</th>
-		<th>아이디</th>
-		<th>날짜</th>
-		<th>조회수</th>		
-	</tr>
-<c:forEach var="row" items="${map.list }" >
-	<tr>
-		<th>${row.p_code }</th>
-		<th> 
-			<a href="${path}/comm/view?p_code=${row.p_code}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title }</a>
-			<c:if test="${row.recnt > 0}">
-				<span style="color:red;">( ${row.recnt})</span>
-			</c:if>
-		</th>
-		<th>${row.id }</th>
-		<th><fmt:formatDate value="${row.p_date }" pattern="yyyy-MM-dd HH:mm:ss" /></th>
-		<th>${row.viewcnt }</th>		
-	</tr>
-</c:forEach>
-		<!-- 페이징 -->
-		<tr>
-			<td colspan="5">
-				<!-- 처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
-				<c:if test="${map.boardPager.curBlock > 1}">
-					<a href="javascript:list('1')">[처음]</a>
-				</c:if>
-				
-				<!-- 이전페이지 블록으로 이동 : 현재 페이지 블럭이 1보다 크면 [이전]하이퍼링크를 화면에 출력 -->
-				<c:if test="${map.boardPager.curBlock > 1}">
-					<a href="javascript:list('${map.boardPager.prevPage}')">[이전]</a>
-				</c:if>
-				
-				<!-- **하나의 블럭 시작페이지부터 끝페이지까지 반복문 실행 -->
-				<c:forEach var="num" begin="${map.boardPager.blockBegin}" end="${map.boardPager.blockEnd}">
-					<!-- 현재페이지이면 하이퍼링크 제거 -->
-					<c:choose>
-						<c:when test="${num == map.boardPager.curPage}">
-							<span style="color: red">${num}</span>&nbsp;
-						</c:when>
-						<c:otherwise>
-							<a href="javascript:list('${num}')">${num}</a>&nbsp;
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-				
-				<!-- 다음페이지 블록으로 이동 : 현재 페이지 블럭이 전체 페이지 블럭보다 작거나 같으면 [다음]하이퍼링크를 화면에 출력 -->
-				<c:if test="${map.boardPager.curBlock <= map.boardPager.totBlock}">
-					<a href="javascript:list('${map.boardPager.nextPage}')">[다음]</a>
-				</c:if>
-				
-				<!-- 끝페이지로 이동 : 현재 페이지가 전체 페이지보다 작거나 같으면 [끝]하이퍼링크를 화면에 출력 -->
-				<c:if test="${map.boardPager.curPage <= map.boardPager.totPage}">
-					<a href="javascript:list('${map.boardPager.totPage}')">[끝]</a>
-				</c:if>
-			</td>
-		</tr>
-		<!-- 페이징 -->
-</table>
+        <thead>
+			<tr>
+				<th class="appDate" scope="col">입사일</th>
+				<th class="company" scope="col">회사명</th>
+				<th class="endDate" scope="col">퇴사일</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="career" varStatus="i" items="${careers}">
+				<tr>
+					<td scope="col">${career.join_date}</td>
+					<td scope="col">${career.work_place_name}</td>
+					<td scope="col">${career.end_date}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+		</table>
                   </div>
                 </div>
               </div>
@@ -191,7 +130,7 @@ margin-top:70px;
             
         </div>
         </div> </div>
-		<div class="pser-footer"><%@ include file = "../servicepage/pserfooter.jsp" %></div>
+		<div class="pser-footer"><%@ include file = "pserfooter.jsp" %></div>
 	</div>
 
 </div>

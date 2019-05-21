@@ -106,7 +106,7 @@ public class PserviceController {
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "pservice/inqcareer";
+		return "servicepage/inqcareer";
 	}
 	
 
