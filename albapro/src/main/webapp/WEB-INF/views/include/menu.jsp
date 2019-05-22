@@ -13,14 +13,14 @@
 		</li>
 		
 		<li class="menuLi">
-			<a class="menuLink" href="pworkmanage?id=${login.id}" target="blank">개인서비스</a>
+			<a class="menuLink" href="${path}/pworkmanage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<div class="fulldrop scrolling-navbar Asize">
 
 				<div class="column">
 					<h3 class="menu-drop-title">지원 관리</h3>
 					<ul>
-						<li><a href="${path}/pcontract?id=${login.id}" class="manuli">전자 근로계약서</a></li>
+						<li><a href="${path}/pserSalary?id=${login.id}" class="manuli">전자 근로계약서</a></li>
 					</ul>
 					<ul>
 						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a></li>
