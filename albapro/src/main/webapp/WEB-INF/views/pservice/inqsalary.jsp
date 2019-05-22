@@ -44,7 +44,6 @@ $(function(){
 			}
 		});
 	});
-});
 </script>
 </head>
 <%@ include file = "../include/header.jsp" %>
@@ -101,7 +100,5 @@ $(function(){
       </div>
     </div>
   </div>
-</div>
-</div>
 </body>
 </html>
