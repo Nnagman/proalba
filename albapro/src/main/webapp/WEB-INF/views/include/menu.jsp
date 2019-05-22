@@ -48,16 +48,6 @@
 						<li><a href="${path}/inqcareer?id=${login.id}" class="manuli">경력 조회</a></li>
 					</ul>
 				</div>
-				
-				<div class="column">
-					<h3 class="menu-drop-title">개인 정보</h3>
-					<ul>
-						<li><a href="${path}/pmypage"  class="manuli">내 정보 조회</a></li>
-					</ul>
-					<ul>
-						<li><a href="${path}/MyinfoModify"  class="manuli">내 정보 수정</a></li>
-					</ul>
-				</div>
 			</div>
 		</li>
 		

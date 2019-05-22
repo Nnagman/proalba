@@ -89,7 +89,6 @@ margin-left:500px !important;
 }
   </style>
 
-
 <body>
 	
   
@@ -137,20 +136,34 @@ margin-left:500px !important;
 						</ul>
 
           <!-- Right -->
+
           <ul class="navbar-nav nav-flex-icons">
-       
              <li class="nav-item loginicon">
+              <c:if test='${login.m_code==null}'>
               <a href="${path}/login" class="nav-link border border-light rounded loginicon">
                 <i class="fab fa-github mr-2"></i>sign in 
               </a>
+              </c:if>
             </li>
+
             
                <li class="nav-item loginicon2">
-              <a class="nav-link border1 border-light rounded loginicon2"
-               href="${path}/logout">
+              <%-- <a class="nav-link border1 border-light rounded loginicon2"
+               href="${path}/logout"> --%>
                
                 <c:if test='${login.m_code!=null}'>
-                ${login.id}님 로그인
+               	 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" 
+              	  data-placement="bottom" data-html="true" 
+               	  data-content="<div><h6><span>${login.name}</span>님</h6></div><hr/>
+                  <p>Phone : ${login.phone}</p><hr/>
+              	  <p>E-mail : ${login.email}</p><hr />
+                <div class='popoverFoot'>
+                	<span class='modifyLink'><a href='${path}/MyinfoModify'>정보 수정</a></span>
+                	<a href='${path}/logout'>로그아웃</a>
+                </div>">
+                                ${login.id}
+				</button>
+
 					
 				</c:if>
                
@@ -201,9 +214,18 @@ margin-left:500px !important;
 
     <!--/.Carousel Wrapper-->
     <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="resources/js/popper.min.js"></script>
+      <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="resources/js/mdb.min.js"></script>
+  
+  
+<script>
+$(function () {
+	  $('[data-toggle="popover"]').popover({
+		  html:true
+	  });
+	});
+</script>
     
 	</body>
 </html>
