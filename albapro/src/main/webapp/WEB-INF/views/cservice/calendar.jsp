@@ -4,21 +4,7 @@
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <html>
-<head>
-<link rel='stylesheet' type='text/css' href='http://www.blueb.co.kr/data/201010/IJ12872423858253/fullcalendar.css' />
-<script type='text/javascript' src='http://www.blueb.co.kr/data/201010/IJ12872423858253/jquery.js'></script>
-<script type='text/javascript' src='http://www.blueb.co.kr/data/201010/IJ12872423858253/jquery-ui-custom.js'></script>
- 
-        
-          <link href='resources/css/albamanagecus.css' rel='stylesheet' />
-        <link href='resources/css/cal/albamanage.css' rel='stylesheet' />
-          <link href='resources/css/calbootcss.css' rel='stylesheet' />
 
-        <script src='resources/js/albamanage.js'></script>
-        
-        <script src='resources/js/cal/albamanage.js'> </script>
-        <script src="resources/js/cal/interaction.js"></script>
-         <script src="resources/js/cal/calbootjs.js"></script>
 
    
       <script type="text/javascript">
@@ -31,9 +17,9 @@
     
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	 schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
-      plugins: [ 'interaction', 'dayGrid','bootstrap' ],
+      plugins: [ 'interaction', 'dayGrid'],
          locale: 'ko',
-         themeSystem: 'bootstrap',
+    
       defaultView: 'dayGridMonth' ,
       header: {
         left: 'prev,next today',
@@ -64,8 +50,7 @@ calendar.render();
       
       
    </script>
-</head>
-<body>
+
 <div id='calendar'></div>
-</body>
+
 </html>

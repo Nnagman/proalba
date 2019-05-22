@@ -1,6 +1,7 @@
 .hh{
 	float: left;
-	font-weight:520 !important;
+	font-weight:400 !important;
+	color: #666666;
 }
 .contents{
 	margin-left: 70px;
@@ -13,6 +14,7 @@
 .listform{
 	width: 1365px;
 	margin: 0 !important;
+	
 }
 #frmList{
 	width: 1365px;

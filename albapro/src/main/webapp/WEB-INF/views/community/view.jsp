@@ -21,7 +21,10 @@
 	.viewImg {
 		display : inline-block;
 	}
-
+	.form-control{
+		resize: none;
+	}
+	
 </style>
 <script>
 	$(function(){
