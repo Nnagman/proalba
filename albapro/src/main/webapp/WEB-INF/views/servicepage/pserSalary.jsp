@@ -57,31 +57,30 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-            <div class="logo">
-               <a href="http://www.creative-tim.com"
-                  class="simple-text logo-normal"> Creative Tim </a>
-            </div>
-            <div class="sidebar-wrapper">
-               <ul class="nav">
-                  <li class="nav-item  "><a class="nav-link" href=""> <i
-                        class="material-icons">dashboard</i> 알바목록
-                  </a></li>
-                  <li class="nav-item  "><a class="nav-link"
-                     href="pworkmanage?id=${login.id}"> <i class="material-icons">person</i>
-                        근태 관리
-                  </a></li>
-                  <li class="nav-item active"><a class="nav-link"
-                     href="pserSalary?id=${login.id}"> <i class="material-icons">content_paste</i>
-                        급여 관리
-                  </a></li>
-                  <li class="nav-item "><a class="nav-link"
-                     href="./typography.html"> <i class="material-icons">library_books</i>
-                        경력 관리
-                  </a></li>
-                  <li class="nav-item "><a class="nav-link" href="./icons.html">
-                        <i class="material-icons">bubble_chart</i> Icons
-                  </a></li>
-
+				<div class="logo">
+					<a href="http://www.creative-tim.com"
+						class="simple-text logo-normal"> Creative Tim </a>
+				</div>
+				<div class="sidebar-wrapper">
+					<ul class="nav">
+						<li class="nav-item  "><a class="nav-link" href=""> <i
+								class="material-icons">dashboard</i> 알바목록
+						</a></li>
+						<li class="nav-item  "><a class="nav-link"
+							href="pworkmanage?id=${login.id}"> <i class="material-icons">person</i>
+								근태 관리
+						</a></li>
+						<li class="nav-item active"><a class="nav-link"
+							href="pserSalary?id=${login.id}"> <i class="material-icons">content_paste</i>
+								급여 관리
+						</a></li>
+						<li class="nav-item "><a class="nav-link"
+							href="./typography.html"> <i class="material-icons">library_books</i>
+								경력 관리
+						</a></li>
+						<li class="nav-item "><a class="nav-link" href="./icons.html">  
+								<i class="material-icons">bubble_chart</i> Icons
+						</a></li>
                </ul>
             </div>
          </div>
@@ -192,6 +191,11 @@
       
     </div>
   </div> 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 
 
@@ -261,47 +265,40 @@
                                                       'open');
                                        }
 
-                                    }
+                                    }										
+										
+												$('#example')
+														.DataTable(
+																{
+																	columnDefs : [ {
+																		targets : [
+																				0,
+																				1,
+																				2 ],
+																		className : 'mdl-data-table__cell--non-numeric'
+																	} ]
+																});
 
-                                    
-                                    
-                                 /*    $('.material-icons').click(function(e){ var sa_code =e.currentTarget.id 
-                                       $('#include').load( "${path}/proalba/psalarydetail?sa_code="+sa_code);
-                                    });
-                                      */
-                                    $('#example')
-                                          .DataTable(
-                                                {
-                                                   columnDefs : [ {
-                                                      targets : [
-                                                            0,
-                                                            1,
-                                                            2 ],
-                                                      className : 'mdl-data-table__cell--non-numeric'
-                                                   } ]
-                                                });
-
-                                    $('.fixed-plugin a')
-                                          .click(
-                                                function(event) {
-                                                   // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                                                   if ($(this)
-                                                         .hasClass(
-                                                               'switch-trigger')) {
-                                                      if (event.stopPropagation) {
-                                                         event
-                                                               .stopPropagation();
-                                                      } else if (window.event) {
-                                                         window.event.cancelBubble = true;
-                                                      }
-                                                   }
-                                                });
-
-                                    $(
-                                          '.fixed-plugin .active-color span')
-                                          .click(
-                                                function() {
-                                                   $full_page_background = $('.full-page-background');
+										/* 		$('.fixed-plugin a')
+														.click(
+																function(event) {
+																	// Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+																	if ($(this)
+																			.hasClass(
+																					'switch-trigger')) {
+																		if (event.stopPropagation) {
+																			event
+																					.stopPropagation();
+																		} else if (window.event) {
+																			window.event.cancelBubble = true;
+																		}
+																	}
+																}); 
+												$(
+														'.fixed-plugin .active-color span')
+														.click(
+																function() {
+																	$full_page_background = $('.full-page-background');
 
                                                    $(this)
                                                          .siblings()
@@ -338,8 +335,7 @@
                                                    }
                                                 });
 
-                                    $(
-                                          '.fixed-plugin .background-color .badge')
+                                    $('.fixed-plugin .background-color .badge')
                                           .click(
                                                 function() {
                                                    $(this)
@@ -568,9 +564,10 @@
                                                          },
                                                          1000);
 
-                                                });
-                                 });
-                  });
-   </script>
+																});
+											}); */
+						
+	</script>
+
 </body>
 </html>
