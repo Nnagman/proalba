@@ -191,11 +191,6 @@
       
     </div>
   </div> 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 
 
