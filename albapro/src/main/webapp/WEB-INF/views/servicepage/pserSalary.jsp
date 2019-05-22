@@ -80,7 +80,7 @@
 							href="./typography.html"> <i class="material-icons">library_books</i>
 								경력 관리
 						</a></li>
-						<li class="nav-item "><a class="nav-link" href="./icons.html">
+						<li class="nav-item "><a class="nav-link" href="./icons.html">  
 								<i class="material-icons">bubble_chart</i> Icons
 						</a></li>
 
@@ -567,7 +567,7 @@
 
 																});
 											}); */
-						});
+						
 	</script>
 </body>
 </html>
