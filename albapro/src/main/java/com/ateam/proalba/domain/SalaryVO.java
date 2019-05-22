@@ -5,18 +5,13 @@ import lombok.Data;
 @Data
 public class SalaryVO {
 	
-	private String work_place_name;
-	private int food_expenses;
-	private int transportation_fee;
-	private int basic_salary;
-	private int total_deduction_amount;
-	private int actual_salary;
+	private String basic_salary;
+	private String food_expenses;
+	private String transportation_fee;
 	private String year_month;
-	private int additional_night;
-	private int additional_extended;
-	private String sa_code;
-	private int national_pension_cost;
-	private int health_insurance_cost;
-	private int employment_insurance_cost;
-	private String name;
+	private String actual_salary;
+	private String total_deduction_amount;
+	private String additional_extended;
+	private String addtional_night;
+	private String work_place_name;
 }

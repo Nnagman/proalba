@@ -43,108 +43,103 @@
 
 
 <body>
-<div class="wrapper">
-	<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
+	<div class="wrapper">
+		<div class="div-sidebar">
+			<div class="sidebar" data-color="purple"
+				data-background-color="white"
+				data-image="../assets/img/sidebar-1.jpg">
+				<!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              급여 관리
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              Icons
-              </a>
-          </li>
-        
-        </ul>
-      </div>
-    </div>
-<!-- End of Sidebar -->
-	</div>	
-	<div class="content">
-		<div class="pser-header"><%@ include file = "pserNavHeader.jsp" %> </div>
-		<div class="pser-con">    
-	  <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">근태 관리</h4>
-                  <p class="card-category">  ${login.id} 님의 근태를 볼수 있습니다.
-                   <i class="colicon" >달력보기</i> <i class="material-icons calicon" data-toggle="modal" data-target="#myModal">calendar_today</i>
-                
-               </p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                  <table id="example" class="mdl-data-table" style="width:100%">
-        <thead>
-      <tr>
-        <th class="th-sm">날짜 </th>
-        <th class="th-sm">출근시간</th>
-        <th class="th-sm">퇴근 시간 </th>
-   
-      </tr>
-    </thead>
-  <tbody>
-  <c:forEach var="row" items="${map.list}"> 
-	<tr>
-		<td>${row.sa_date}</td><td>${row.sa_start}</td><td>${row.work_end_time }</td>
-</tr>
-</c:forEach>
+				<div class="logo">
+					<a href="http://www.creative-tim.com"
+						class="simple-text logo-normal"> Creative Tim </a>
+				</div>
+				<div class="sidebar-wrapper">
+					<ul class="nav">
+						<li class="nav-item  "><a class="nav-link" href=""> <i
+								class="material-icons">dashboard</i> 알바목록
+						</a></li>
+						<li class="nav-item active "><a class="nav-link"
+							href="pworkmanage?id=${login.id}"> <i class="material-icons">person</i>
+								근태 관리
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="pserSalary?id=${login.id}"> <i class="material-icons">content_paste</i>
+								급여 관리
+						</a></li>
+						<li class="nav-item "><a class="nav-link"
+							href="./typography.html"> <i class="material-icons">library_books</i>
+								경력 관리
+						</a></li>
+						<li class="nav-item "><a class="nav-link" href="./icons.html">
+								<i class="material-icons">bubble_chart</i> Icons
+						</a></li>
 
-  </tbody>
-     
-    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-        </div>
-        </div> </div>
-		<div class="pser-footer"><%@ include file = "pserfooter.jsp" %></div>
+					</ul>
+				</div>
+			</div>
+			<!-- End of Sidebar -->
+		</div>
+		<div class="content">
+			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
+			</div>
+			<div class="pser-con">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 class="card-title ">근태 관리</h4>
+									<p class="card-category">
+										${login.id} 님의 근태를 볼수 있습니다. <i class="colicon">달력보기</i> <i
+											class="material-icons calicon" data-toggle="modal"
+											data-target="#myModal">calendar_today</i>
+
+									</p>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table id="example" class="mdl-data-table" style="width: 100%">
+											<thead>
+												<tr>
+													<th class="th-sm">날짜</th>
+													<th class="th-sm">출근시간</th>
+													<th class="th-sm">퇴근 시간</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="row" items="${map.list}">
+													<tr>
+														<td>${row.sa_date}</td>
+														<td>${row.sa_start}</td>
+														<td>${row.work_end_time }</td>
+													</tr>
+												</c:forEach>
+
+											</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
+		</div>
+
 	</div>
 
-</div>
 
 
 
-
-                                              	<!-- 부트스트랩 -->
+	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
