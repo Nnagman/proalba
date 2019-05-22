@@ -13,7 +13,7 @@
 		</li>
 		
 		<li class="menuLi">
-			<a class="menuLink" href="pservicepage?id=${login.id}" target="blank">개인서비스</a>
+			<a class="menuLink" href="pworkmanage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<div class="fulldrop scrolling-navbar Asize">
 
@@ -46,16 +46,6 @@
 					<h3 class="menu-drop-title">경력 관리</h3>
 					<ul>
 						<li><a href="${path}/inqcareer?id=${login.id}" class="manuli">경력 조회</a></li>
-					</ul>
-				</div>
-				
-				<div class="column">
-					<h3 class="menu-drop-title">개인 정보</h3>
-					<ul>
-						<li><a href="${path}/pmypage"  class="manuli">내 정보 조회</a></li>
-					</ul>
-					<ul>
-						<li><a href="${path}/MyinfoModify"  class="manuli">내 정보 수정</a></li>
 					</ul>
 				</div>
 			</div>
