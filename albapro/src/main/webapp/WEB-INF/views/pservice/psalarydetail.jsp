@@ -2,9 +2,9 @@
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<<%--<head>
 
-<link rel = "stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css" >  
+ link rel = "stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css" >  
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <style>
 #modalsize{
@@ -21,7 +21,7 @@
         class = "w3-button w3-display-topright" >닫기 </span >
    <h2 style="color : Green;">${salary.year_month}월 상세급여</h2>
       </header>
-      <div class = "w3-container" > 
+      <div class = "w3-container" >  --%>
    <table class="ui single line table">
       <thead>
          <tr>
@@ -84,12 +84,12 @@
    </tr>
    </tbody>
    </table>
-   </div >
+  <!--  </div >
       <footer class = "w3-container w3-teal" > 
    <h3>급여 정보</h3>
       </footer >
     </div >
   </div >
-  </div>
+  </div> -->
 
 </html>
