@@ -6,15 +6,15 @@
 <mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[
-		select BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
-		from (select s.BASIC_SALARY, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
-		from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
-		where (c.p_id='pnnagman') and
+      select sa_code, BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
+      from (select s.sa_code, s.BASIC_SALARY, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
+      from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
+      where c.p_id='p'||#{id} and
         m.m_code=e.m_code and 
         e.em_code=s.em_code and
         e.c_code =c.c_code and
-        s.sa_code=d.sa_code
-        )
+        s.sa_code=d.sa_code and
+        s.sa_code=sd.sa_code)
         WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
 		 ]]>
 	</select>

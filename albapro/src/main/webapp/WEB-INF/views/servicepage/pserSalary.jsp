@@ -154,11 +154,7 @@
 			</div>
 
 
-<button  onclick = "document.getElementById ( 'id01'). style.display = 'block'" 
-											class = "w3-button w3-black"id="btn-open-dialog">상세보기</button>
-	<div id="modalsize"> 
-					<%@ include file = "../pservice/psalarydetail.jsp" %>
-					</div>
+<!-- <button  onclick = "document.getElementById ( 'id01'). style.display = 'block'" 	class = "w3-button w3-black"id="btn-open-dialog">상세보기</button> -->
 
 
 			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
@@ -169,27 +165,38 @@
 
 
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<script src="resources/js/bootstrap.js"></script>
-			<!-- Modal content  -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
-				</div>
-			
-				
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
+		  	  	<!-- 부트스트랩 -->
+  	<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    	<script src="resources/js/bootstrap.js"></script>
+      <!-- Modal content  -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">출근 시간</h4>
+        </div>
+        <div class="modal-body">
+         		
+         		<c:forEach var="salary" items="${salarys}"> 
+         					
+					
+					<%@ include file = "../pservice/psalarydetail.jsp" %>
+					
+						</c:forEach>
 
-		</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+</div>
+
 
 
 
