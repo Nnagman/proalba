@@ -194,8 +194,8 @@
       
     </div>
   </div> 
-</div>
-</div>
+
+
 
 
 
@@ -266,11 +266,7 @@
 												}
 
 												
-												
-											/* 	$('.material-icons').click(function(e){ var sa_code =e.currentTarget.id 
-													$('#include').load( "${path}/proalba/psalarydetail?sa_code="+sa_code);
-												});
-												  */
+										
 												$('#example')
 														.DataTable(
 																{
@@ -283,7 +279,7 @@
 																	} ]
 																});
 
-												$('.fixed-plugin a')
+										/* 		$('.fixed-plugin a')
 														.click(
 																function(event) {
 																	// Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
@@ -297,8 +293,7 @@
 																			window.event.cancelBubble = true;
 																		}
 																	}
-																});
-
+																}); 
 												$(
 														'.fixed-plugin .active-color span')
 														.click(
@@ -571,7 +566,7 @@
 																			1000);
 
 																});
-											});
+											}); */
 						});
 	</script>
 </body>
