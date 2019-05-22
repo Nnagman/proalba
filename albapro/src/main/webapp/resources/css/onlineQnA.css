@@ -7,6 +7,7 @@
       .title h1{
         margin-left:80px;
         margin-top:40px;
+        font-weight:400 !important;
       }
       .box{
         position: relative;
