@@ -45,8 +45,12 @@
       <div class="div-sidebar">
          <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 				<div class="logo">
+<<<<<<< HEAD
 					<a href="http://www.creative-tim.com"
 						class="simple-text logo-normal">Proalba </a>
+=======
+					<a href="http://www.creative-tim.com" class="simple-text logo-normal">Proalba </a>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 				</div>
 				<div class="sidebar-wrapper">
