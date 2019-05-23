@@ -126,10 +126,15 @@ form {
   height: 10%;
 }
 
-hr {
+hr:first-child {
   position: relative;
   top: 130px;
 }
+
+/* hr {
+  position: relative;
+  top: 130px;
+} */
 
 img {
   float: left;
