@@ -14,7 +14,7 @@
 <meta name="author" content="">
 
 <title>Swefwefgw sdfrf sdd</title>
-
+p
 <!-- Custom fonts for this template-->
 
 <link rel="stylesheet" type="text/css"
@@ -27,7 +27,7 @@
 <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
 <link href="resources/css/servicepage/pserworkmanage.css" rel="stylesheet">
-
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -47,7 +47,9 @@
 
 
 <body>
+
    <div class="wrapper">
+  
       <div class="div-sidebar">
          <div class="sidebar" data-color="purple"
             data-background-color="white"
@@ -59,7 +61,7 @@
     -->
 				<div class="logo">
 					<a href="http://www.creative-tim.com"
-						class="simple-text logo-normal"> Creative Tim </a>
+						class="simple-text logo-normal"> Creative Tim</a>
 				</div>
 				<div class="sidebar-wrapper">
 					<ul class="nav">
@@ -120,7 +122,7 @@
                                  </thead>
                                  <tbody>
                                  
-                                 <c:forEach var="salary" items="${salarys}"> 
+                                 <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
                                        <td id="sal_name">${salary.name}</td>
                                        <td id="sal_work_place_name">${salary.work_place_name}</td>
@@ -129,7 +131,8 @@
                                        <td id="sal_actual_salary">${salary.actual_salary}</td>
                                        <td id="sal_year_month">${salary.year_month}</td>
                                      <td>
-                                        <i class="material-icons" data-toggle="modal"
+                                     	<input type="hidden" value="${status.index}"/>
+                                        <i class="material-icons searchIcon" data-toggle="modal"
                                  data-target="#myModal" id="${salary.sa_code}">search</i> 
                                  </td> 
                                  </tr>
@@ -174,11 +177,13 @@
         </div>
         <div class="modal-body">
                
-               <c:forEach var="salary" items="${salarys}"> 
+               <c:forEach var="salary" items="${salarys}" begin="${searchVal}" end="${searchVal}"> 
                
                <%@ include file = "../pservice/psalarydetail.jsp" %>
                
                </c:forEach>
+               
+               
 
         </div>
         <div class="modal-footer">
@@ -232,6 +237,30 @@
 		});
 	});
 
+	</script>
+	
+	<script>
+	$(document).ready(function(){
+		$(".searchIcon").click(function(){
+			var searchVal = $(this).prev().val();
+			console.log(searchVal);
+			
+			$.ajax({
+				async: "false",
+				type: "POST",
+				url: "/proalba/pserSalaryTest",
+				data: {
+					"searchVal" : searchVal
+				},
+				success: function(result){
+					alert(result);
+				},
+				error:function(request,status,error){
+			        alert("error");
+			    }
+			});
+		});
+	})
 	</script>
 
 </body>
