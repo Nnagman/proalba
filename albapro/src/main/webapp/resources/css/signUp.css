@@ -126,7 +126,7 @@ form {
   height: 10%;
 }
 
-hr:first-child {
+#wrap > hr {
   position: relative;
   top: 130px;
 }
