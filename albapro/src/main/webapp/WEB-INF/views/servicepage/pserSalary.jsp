@@ -13,21 +13,15 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Swefwefgw sdfrf sdd</title>
-
+<title>나의 급여</title>
 <!-- Custom fonts for this template-->
 
-<link rel="stylesheet" type="text/css"
-   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-
-<!-- Custom styles for this template-->
-<!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
+<link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
 <link href="resources/css/servicepage/pserworkmanage.css" rel="stylesheet">
-
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -35,8 +29,7 @@
 <link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-   rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script>
@@ -47,19 +40,17 @@
 
 
 <body>
+
    <div class="wrapper">
       <div class="div-sidebar">
-         <div class="sidebar" data-color="purple"
-            data-background-color="white"
-            data-image="../assets/img/sidebar-1.jpg">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+         <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 				<div class="logo">
 					<a href="http://www.creative-tim.com"
+<<<<<<< HEAD
 						class="simple-text logo-normal">Proalba </a>
+=======
+						class="simple-text logo-normal"> Creative Tim</a>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 				</div>
 				<div class="sidebar-wrapper">
 					<ul class="nav">
@@ -119,8 +110,7 @@
                                     </tr>
                                  </thead>
                                  <tbody>
-                                 
-                                 <c:forEach var="salary" items="${salarys}"> 
+                                 <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
                                        <td id="sal_name">${salary.name}</td>
                                        <td id="sal_work_place_name">${salary.work_place_name}</td>
@@ -129,16 +119,12 @@
                                        <td id="sal_actual_salary">${salary.actual_salary}</td>
                                        <td id="sal_year_month">${salary.year_month}</td>
                                      <td>
-                                        <i class="material-icons" data-toggle="modal"
+                                     	<input type="hidden" value="${status.index}"/>
+                                        <i class="material-icons searchIcon" data-toggle="modal"
                                  data-target="#myModal" id="${salary.sa_code}">search</i> 
-                                 
-            
-                                          </td> 
-                                    </tr>
-   
-                              </c:forEach>
-                                 
-                                    
+                                 </td> 
+                                 </tr>
+                              </c:forEach>                                  
                                  </tbody>
                               </table>
                            </div>
@@ -149,22 +135,13 @@
                </div>
             </div>
          </div>
-
-
-<!-- <button  onclick = "document.getElementById ( 'id01'). style.display = 'block'"    class = "w3-button w3-black"id="btn-open-dialog">상세보기</button> -->
-
-
          <div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
-
-
       </div>
    </div>
 
-
-
-                <!-- 부트스트랩 -->
-     <!-- 부트스트랩 modal -->
- <!-- Modal -->
+	<!-- 부트스트랩 -->
+	<!-- 부트스트랩 modal -->
+	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
        <script src="resources/js/bootstrap.js"></script>
@@ -175,6 +152,7 @@
           <h4 class="modal-title">출근 시간</h4>
         </div>
         <div class="modal-body">
+<<<<<<< HEAD
                
            <%--     <c:forEach var="salary" items="${salarys}"> 
                         
@@ -183,6 +161,63 @@
                
                   </c:forEach> --%>
 
+=======
+   			<table class="ui single line table">
+      			<thead>
+         			<tr>
+            			<th>급여</th><th>금액</th><th>공제</th><th>금액</th>
+         			</tr>
+      			</thead>
+      			<tbody>
+      				<tr>
+            			<th>기본급</th>
+            			<td id="basic_salary">${salary.basic_salary}</td>
+             			<th>국민연금</th>
+            			<td id="national_pension_cost">${salary.national_pension_cost}</td> 
+            		</tr>
+         			<tr>
+            			<th>식비</th>
+            			<td id="food_expenses">${salary.food_expenses}</td>
+            			<th>건강보험</th>
+            			<td id="health_insurance_cost">${salary.health_insurance_cost}</td>
+            		</tr>
+         			<tr>      
+            			<th>교통비</th>
+            			<td id="transportation_fee">${salary.transportation_fee}</td>
+            			<th>고용보험</th>
+            			<td id="employment_insurance_cost">${salary.employment_insurance_cost}</td>
+            		</tr>
+            		<tr>
+            			<th>초과근로수당</th>
+            			<td id="additional_extended">${salary.additional_extended}</td>
+            			<td></td>
+            			<td></td>
+            		</tr>
+            		<tr>
+            			<th>야간수당</th>
+            			<td id="additional_night">${salary.additional_night}</td>
+            			<td></td>
+            			<td></td>
+            
+      			</tbody>
+      		</table >
+      		<table class="ui single line table">
+      			<thead>
+      				<tr>
+      					<th>총 급여</th>
+      					<th>총 공제금액</th>
+      					<th>실급여액</th>
+      				</tr>
+      			</thead>
+      			<tbody>
+      				<tr>
+      					<th id="total_salary">${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</th>
+      					<th id="total_deduction_amount">${salary.total_deduction_amount}</th>
+      					<th id="actual_salary">${salary.actual_salary}</th>
+      				</tr>
+      			</tbody>
+      		</table>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -191,24 +226,10 @@
       
     </div>
   </div> 
-
-
-
-
-
-
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
-
-   <script src="resources/js/servicepage2/popper.min.js"></script>
-   <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
-      <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
-        <script src="resources/js/servicepage2/moment.min.js"></script>
-          <script src="resources/js/servicepage2/sweetalert2.js"></script>
-            <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
-              <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
-                <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
-                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
+   <script src="resources/js/servicepage2/popper.min.js"></script> 
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
+<<<<<<< HEAD
    <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
                         <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
    <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
@@ -411,5 +432,32 @@
   
 
 
+=======
+   <script src="resources/js/servicepage2/demo.js"></script>	
+	<script>
+	$(document).ready(function(){
+		$(".searchIcon").click(function(e){
+			var sa_code = e.currentTarget.id;
+			var salarys = ${salarys};
+			salarys.forEach(function (salary) {
+				if(salary.sa_code == sa_code){
+					$("#basic_salary").text(salary.basic_salary);
+					$("#national_pension_cost").text(salary.national_pension_cost);
+					$("#food_expenses").text(salary.food_expenses);
+					$("#health_insurance_cost").text(salary.health_insurance_cost);
+					$("#transportation_fee").text(salary.transportation_fee);
+					$("#employment_insurance_cost").text(salary.employment_insurance_cost);
+					$("#additional_extended").text(salary.additional_extended);
+					$("#additional_night").text(salary.additional_night);
+					$("#total_salary").text(parseInt(salary.basic_salary)+parseInt(salary.food_expenses)
+							+parseInt(salary.transportation_fee)+parseInt(salary.additional_extended)+parseInt(salary.additional_night));
+					$("#total_deduction_amount").text(salary.total_deduction_amount);
+					$("#actual_salary").text(salary.actual_salary);
+				}
+			});
+		});
+	})
+	</script>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </body>
 </html>
