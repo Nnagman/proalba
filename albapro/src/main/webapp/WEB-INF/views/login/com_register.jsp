@@ -58,20 +58,10 @@
 						<tbody>
 							<tr>
 								<th>아이디</th>
-<<<<<<< HEAD
-								<td>
 
-									<input type="text" name="id" id="id"
-									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자"
-									title="아이디">
-
-									<input type="text" name="id" id="dev_idchk"
-									class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디" value="" />
-
-=======
 								<td>
 									<input type="text" name="id" id="id" class="tBox tId" maxlength="16" placeholder="6~16자 영문, 숫자" title="아이디">
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 									<input type="button" id="double_check" value="중복확인" />
 								</td>
 							</tr>
@@ -116,7 +106,7 @@
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 
