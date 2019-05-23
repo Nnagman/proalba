@@ -66,7 +66,7 @@
         </div>
         <div class="form-group">
           <button type="submit">로그인</button>
-          <button type="submit" class="btn-regist">회원가입</button>          
+          <a href="${path}/register" class="btn-regist">회원가입</a> 
         </div>
         <div id="my-signin2"></div>
           <script>
