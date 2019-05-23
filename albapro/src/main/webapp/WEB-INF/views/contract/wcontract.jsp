@@ -11,6 +11,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <%@ include file = "../include/header.jsp" %>
 
 
@@ -93,13 +94,13 @@
 
     <div class="contents" id="contents">
         <div class="title">
-            <h1>전자 근로계약서 - 상세보기</h1>
+            <h3>전자 근로계약서</h3>
         </div>
         <form id="formCon" name="formCon">
             <div id="createPdf">
                 <div class="box">
                     <br>
-                    <h2 class="gg">1. 근로계약기간</h2><br>
+                    <h4 class="gg">1. 근로계약기간</h4><br>
                     <input type="hidden" name="c_id" value="${login.id}" />
                     <input class="tex1" name="start_period" type="text" value="" id="startSearchDate" />
                     <span>부터</span>
@@ -107,13 +108,13 @@
                     <input class="tex" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
                     <span>까지</span>
 
-                    <h2 class="gg">2. 근무장소</h2><br>
+                    <h4 class="gg">2. 근무장소</h4><br>
                     <input class="tex3" name="work_place" type="text" />
 
-                    <h2 class="gg">3. 업무의 내용</h2><br>
+                    <h4 class="gg">3. 업무의 내용</h4><br>
                     <input class="tex3" name="work_detail" type="text" />
 
-                    <h2 class="gg">4. 소정근로시간</h2><br>
+                    <h4 class="gg">4. 소정근로시간</h4><br>
 
                     <div class="worktime_div">
                         <span class="timepiker_txt_title">근로시간</span>
@@ -131,7 +132,7 @@
                         <span class="timepiker_txt">까지</span>
                     </div>
 
-                    <h2 class="gg">5. 임금</h2><br>
+                    <h4 class="gg">5. 임금</h4><br>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
                     <input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" />
                     <span>원</span><br><br>
@@ -141,16 +142,16 @@
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
                     <input class="tex2" type="text" name="payday" maxlength="2" onkeypress="onlyNumber();" /><span>일(휴일의 경우는 전일 지급)</span><br>
 
-                    <h2 class="gg">6. 연차유급휴가</h2><br>
+                    <h4 class="gg">6. 연차유급휴가</h4><br>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
 
-                    <h2 class="gg">7. 사회보험 적용여부(해당란에 체크)</h2><br>
+                    <h4 class="gg">7. 사회보험 적용여부(해당란에 체크)</h4><br>
                     <input class="che2" type="checkbox" id="고용보험" /><span>고용보험</span>
                     <input class="che2" type="checkbox" id="국민보험" /><span>국민연금</span>
                     <input class="che2" type="checkbox" id="건강보험" /><span>건강보험</span>
                     <input class="che2" type="checkbox" id="산재보험" checked /><span>산재보험</span>
 
-                    <h2 class="gg">8. 근로계약서 교부</h2><br>
+                    <h4 class="gg">8. 근로계약서 교부</h4><br>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
                     <input class="tex7" type="text" maxlength="4" onkeypress="onlyNumber();" />
@@ -162,7 +163,7 @@
 
                     <hr><br>
 
-                    <h2 class="hh">사업주</h2>
+                    <h4 class="hh">사업주</h4>
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
                     	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
                     	<img class="can1" id="myImage" style="margin:1px;">

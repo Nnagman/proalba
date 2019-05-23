@@ -16,14 +16,22 @@
 <title>나의 급여</title>
 <!-- Custom fonts for this template-->
 
+
+
 <link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-<link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
+<link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
+
+
+
+
+
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 
 <link rel="stylesheet" href="resources/css/albamanage.css" />
@@ -64,7 +72,7 @@
           </li>
           
           
-           <li class="nav-item ">
+           <li class="nav-item active">
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
@@ -76,7 +84,7 @@
               근태 관리
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
@@ -102,147 +110,74 @@
          <!-- End of Sidebar -->
       </div>
       <div class="content">
-         <div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
-         </div>
-         <div class="pser-con">
+        
+         <div class="con-pser">
             <div class="container-fluid">
                <div class="row">
                   <div class="col-md-12">
                      <div class="card">
-                        <div class="card-header card-header-primary">
-                           <h4 class="card-title ">급여 관리</h4>
-                           <p class="card-category">
-                              ${login.id} 님의 급여 현황 입니다. 
+                      
+                        <div class="contract_title">
+            <h2 class="contract_title" >전자 근로계약서</h2>
+        </div>
+        <form id="formCon" name="formCon">
+            <div class="div_createPdf" id="createPdf">
+            	<img src='${path}/displayContract?name=${contractPath}'/>
+            	
+            	
+            	
+            	
+            	<div class="boxcover">
+            	<div class="box" style="z-index: 100;">
+            	<div class="box-p">
+            	<h2 class="hh">근로자</h2><br>
+                    <div id="sign" style="width: 40%; display: inline-block; float:right;">
+                    	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+                    	<img class="can1" id="myImage" style="margin:1px;">
+                	</div>
+                    <span class="t3">근로자: </span>
+                    <input class="tex2" name="p_name" type="text" maxlength="11" /><br><br>
 
-                           </p>
-                        </div>
-                        <div class="card-body">
-                           <div class="table-responsive">
-                              <table id="example" class="mdl-data-table" style="width: 100%">
-                                 <thead>
-                                    <tr>
-                                       <th>이름</th>
-                                       <th>보낸이</th>
-                                       <th>지급총액</th>
-                                       <th>공제총액</th>
-                                       <th>실지급액</th>
-                                       <th>지급일자</th>
-                                       <th>상세보기</th>
-                                 
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                 <c:forEach var="salary" items="${salarys}" varStatus="status"> 
-                                 <tr>
-                                       <td id="sal_name">${salary.name}</td>
-                                       <td id="sal_work_place_name">${salary.work_place_name}</td>
-                                       <td id="sal_basic_salary">${salary.basic_salary}</td>
-                                       <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
-                                       <td id="sal_actual_salary">${salary.actual_salary}</td>
-                                       <td id="sal_year_month">${salary.year_month}</td>
-                                     <td>
-                                     	<input type="hidden" value="${status.index}"/>
-                                        <i class="material-icons searchIcon" data-toggle="modal"
-                                 data-target="#myModal" id="${salary.sa_code}">search</i> 
-                                 </td> 
-                                 </tr>
-                              </c:forEach>                                  
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
+                    <span class="t3">연락처: </span>
+                    <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
+                    
+                    <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
+                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
+                    
+                    
+                    	<div style="text-align: center;">
+				<button type="button" class="bt1" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
+            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+				<input type="button" class="bt1" onclick="toDataURL();"value="서명 저장">
+				<button type="button" class="bt1" id="moveSign">서명란이동</button>
+				<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
+				<button type="button" class="bt1" id="endGame">최종완료</button>
+			</div>
+            	
+            	</div>
+            		
+                </div>
+            	</div>
+            	
+			</div>
+		
+		
+        </form>
                      </div>
                   </div>
 
                </div>
             </div>
          </div>
-         <div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
-      </div>
+       
    </div>
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-       <script src="resources/js/bootstrap.js"></script>
-      <!-- Modal content  -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">출근 시간</h4>
-        </div>
-        <div class="modal-body">
-
-   			<table class="ui single line table">
-      			<thead>
-         			<tr>
-            			<th>급여</th><th>금액</th><th>공제</th><th>금액</th>
-         			</tr>
-      			</thead>
-      			<tbody>
-      				<tr>
-            			<th>기본급</th>
-            			<td id="basic_salary">${salary.basic_salary}</td>
-             			<th>국민연금</th>
-            			<td id="national_pension_cost">${salary.national_pension_cost}</td> 
-            		</tr>
-         			<tr>
-            			<th>식비</th>
-            			<td id="food_expenses">${salary.food_expenses}</td>
-            			<th>건강보험</th>
-            			<td id="health_insurance_cost">${salary.health_insurance_cost}</td>
-            		</tr>
-         			<tr>      
-            			<th>교통비</th>
-            			<td id="transportation_fee">${salary.transportation_fee}</td>
-            			<th>고용보험</th>
-            			<td id="employment_insurance_cost">${salary.employment_insurance_cost}</td>
-            		</tr>
-            		<tr>
-            			<th>초과근로수당</th>
-            			<td id="additional_extended">${salary.additional_extended}</td>
-            			<td></td>
-            			<td></td>
-            		</tr>
-            		<tr>
-            			<th>야간수당</th>
-            			<td id="additional_night">${salary.additional_night}</td>
-            			<td></td>
-            			<td></td>
-            
-      			</tbody>
-      		</table >
-      		<table class="ui single line table">
-      			<thead>
-      				<tr>
-      					<th>총 급여</th>
-      					<th>총 공제금액</th>
-      					<th>실급여액</th>
-      				</tr>
-      			</thead>
-      			<tbody>
-      				<tr>
-      					<th id="total_salary">${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</th>
-      					<th id="total_deduction_amount">${salary.total_deduction_amount}</th>
-      					<th id="actual_salary">${salary.actual_salary}</th>
-      				</tr>
-      			</tbody>
-      		</table>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
+</div>
+   
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
    <script src="resources/js/servicepage2/popper.min.js"></script> 
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-<<<<<<< HEAD
+
    <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
                         <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
    <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
@@ -254,6 +189,19 @@
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
    								<script src="resources/js/servicepage2/demo.js"></script>
+   								
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="resources/js/contract.js?ver=5"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
+</script>
+   								
 
 
 
@@ -470,6 +418,73 @@
 			});
 		});
 	})
+	</script>
+	<!-- 사인 스크립트  캔버스  -->
+	<script>
+    $(document).ready(function() {
+    	var test = false;
+
+        $("#submit2").on("click", contractServerUp);
+
+        function contractServerUp(e) {
+    		$(".submit2").remove();
+    		$(".signAgain").remove();
+        	if(test) return;
+        	
+            console.log("aaa");
+            html2canvas(document.getElementById('createPdf'), {
+                onrendered: function(canvas) {
+
+                    // 캔버스를 이미지로 변환
+                    var imgData = canvas.toDataURL();
+
+                    var imgWidth = 210; // 이미지 가로 길이(mm) A4 기준
+                    var pageHeight = imgWidth * 1.414; // 출력 페이지 세로 길이 계산 A4 기준
+                    var imgHeight = canvas.height * imgWidth / canvas.width;
+                    var heightLeft = imgHeight;
+
+                    var doc = new jsPDF('p', 'mm');
+                    var position = 0;
+
+                    // 첫 페이지 출력
+                    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+
+                    // 한 페이지 이상일 경우 루프 돌면서 출력
+                    while (heightLeft >= 20) {
+                        position = heightLeft - imgHeight;
+                        doc.addPage();
+                        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+
+                    var formData = new FormData();
+                    var d = new Date();
+                    var pngName = "${contractPath}";
+                    var fileName = "${contractPath}";
+                    // 파일 저장
+                    var file = doc.output('blob');
+                    console.log(file);
+                    formData.set('file', file, fileName);
+                    console.log(doc);
+                    console.log(formData);
+
+                    $.ajax({
+                    	async: false,
+                        url: "${path}/wcontract/checkContract",
+                        type: "post",
+                        data: formData,
+                        dataType: "text",
+                        processData: false, // processType: false - header가 아닌 body로 전달
+                        contentType: false,
+                        success: function(data) {
+                        	self.location = "${path}/removeFile?fileName="+encodeURI(data);
+                        }
+                    });
+                }
+            });
+        }
+    }); 
 	</script>
 
 </body>

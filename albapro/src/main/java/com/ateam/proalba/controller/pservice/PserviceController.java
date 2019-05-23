@@ -103,12 +103,7 @@ public class PserviceController {
 		model.addAttribute("message", "inqcareerPage");
 		return "pservice/employmentinfo";
 	}
-	@RequestMapping(value = "/contract", method = RequestMethod.GET)
-	public String cservice(Model model) {
-		logger.info("Welcome Contract");
-		return "pservice/contract";
 
-	}
 	  @RequestMapping(value = "/pmypage", method = RequestMethod.GET)
 	  public String ModifyGet (HttpSession httpSession, Model model) throws Exception {
 		  logger.info("pmypage");

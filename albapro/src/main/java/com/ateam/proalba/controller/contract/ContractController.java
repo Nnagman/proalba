@@ -67,7 +67,7 @@ public class ContractController {
 		this.pdfFileService = pdfFileService;
 	}
 	
-	@RequestMapping(value = "/pcontract", method = RequestMethod.GET)
+	@RequestMapping(value = "/contract", method = RequestMethod.GET)
 	public String pcontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		PageMaker pageMaker = new PageMaker();
 		criteria.setM_code("p"+loginDTO.getId()); // m_code´Ï±ñ ¾Õ¿¡ pºÙ¿©Áà¾ßÇÔ.
@@ -82,7 +82,7 @@ public class ContractController {
 	    request.setAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "contract/pcontract";
+		return "servicepage/pserContract";
 	}
 	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
@@ -142,12 +142,12 @@ public class ContractController {
 		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/checkContract", method = RequestMethod.GET)
+	@RequestMapping(value = "/psercheckContract", method = RequestMethod.GET)
 	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
 		String contractPath = link;
 		httpSession.setAttribute("contractPath", contractPath);
-		return "contract/checkContract";
+		return "servicepage/psercheckContract";
 	}
 	
 	@ResponseBody

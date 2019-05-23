@@ -1,0 +1,46 @@
+.content{
+height: 100%;
+    max-height: 100%;
+        position: relative;
+    float: right;
+    width: calc(100% - 260px);
+    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+  
+ 
+}
+    
+
+
+.con-pser,.div_createPdf,.contract_title{
+	   background-color:#5D5D5D;
+}
+
+
+.contract_title{
+	text-align:center;
+	 font-family: 'Noto Sans KR', sans-serif !important;
+	     font-weight:700 !important;
+	     color:white;
+}
+
+.div_createPdf
+{
+	text-align:center;
+}
+
+.box{
+	width:1503px;
+margin:auto;
+	text-align:left;
+
+	padding:0 278px 0 278px;
+}
+
+.boxcover{
+	width:100%;
+}
+
+.box-p{
+	width:100%;
+		background-color:white;
+}

@@ -1,15 +1,21 @@
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
 .title {
 	height: 10%;
 	top: 20px;
 	color: #666666;
+	text-align:center;
 }
 
 .contents {
 	background-color: #EAEAEA !important;
 }
 
-.title h1 {
-	margin-left: 80px;
+.title h3 {
+
 	top: 40px;
 }
 
