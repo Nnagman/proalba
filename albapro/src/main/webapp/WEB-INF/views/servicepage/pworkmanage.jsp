@@ -71,7 +71,7 @@
 								급여 관리
 						</a></li>
 						<li class="nav-item "><a class="nav-link"
-							href="./typography.html"> <i class="material-icons">library_books</i>
+							href="inqcareer?id=${login.id}"> <i class="material-icons">library_books</i>
 								경력 관리
 						</a></li>
 						<li class="nav-item "><a class="nav-link" href="./icons.html">
@@ -94,9 +94,9 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${login.id} 님의 근태를 볼수 있습니다. <i class="colicon">달력보기</i> <i
+										${login.id} 님의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">calendar_today</i>
+											data-target="#myModal">달력보기 calendar_today</i>
 
 									</p>
 								</div>
@@ -225,7 +225,7 @@
             } );
       
 
-        $('.fixed-plugin a').click(function(event) {
+        /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -304,7 +304,7 @@
           if ($sidebar_responsive.length != 0) {
             $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
           }
-        });
+        }); */
 
         $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
@@ -371,7 +371,7 @@
           }, 1000);
 
         });
-      });
+      }); 
     });
   </script>
   

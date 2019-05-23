@@ -56,25 +56,26 @@ margin-top:70px;
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="./dashboard.html">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./user.html">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">person</i>
               근태 관리
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
+              
               급여 관리
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="${path}/inqcareer?id=${login.id}">
+            <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리
             </a>

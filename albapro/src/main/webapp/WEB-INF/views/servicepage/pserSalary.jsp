@@ -59,7 +59,7 @@
     -->
 				<div class="logo">
 					<a href="http://www.creative-tim.com"
-						class="simple-text logo-normal"> Creative Tim </a>
+						class="simple-text logo-normal">Proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
 					<ul class="nav">
@@ -75,7 +75,7 @@
 								급여 관리
 						</a></li>
 						<li class="nav-item "><a class="nav-link"
-							href="./typography.html"> <i class="material-icons">library_books</i>
+							href="inqcareer?id=${login.id}"> <i class="material-icons">library_books</i>
 								경력 관리
 						</a></li>
 						<li class="nav-item "><a class="nav-link" href="./icons.html">  
@@ -115,7 +115,7 @@
                                        <th>실지급액</th>
                                        <th>지급일자</th>
                                        <th>상세보기</th>
-                                       <th>${salary.basic_salary}</th>
+                                 
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -176,12 +176,12 @@
         </div>
         <div class="modal-body">
                
-               <c:forEach var="salary" items="${salarys}"> 
+           <%--     <c:forEach var="salary" items="${salarys}"> 
                         
                
                <%@ include file = "../pservice/psalarydetail.jsp" %>
                
-                  </c:forEach>
+                  </c:forEach> --%>
 
         </div>
         <div class="modal-footer">
@@ -219,350 +219,197 @@
                                       <script src="resources/js/servicepage2/chartist.min.js"></script>
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
-   <script src="resources/js/servicepage2/demo.js"></script>
+   								<script src="resources/js/servicepage2/demo.js"></script>
 
 
 
 
-
+                                                
    <script>
-      $(document)
-            .ready(
-                  function() {
-                     $()
-                           .ready(
-                                 function() {
-                                    $sidebar = $('.sidebar');
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
 
-                                    $sidebar_img_container = $sidebar
-                                          .find('.sidebar-background');
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
 
-                                    $full_page = $('.full-page');
+        $full_page = $('.full-page');
 
-                                    $sidebar_responsive = $('body > .navbar-collapse');
+        $sidebar_responsive = $('body > .navbar-collapse');
 
-                                    window_width = $(window)
-                                          .width();
+        window_width = $(window).width();
 
-                                    fixed_plugin_open = $(
-                                          '.sidebar .sidebar-wrapper .nav li.active a p')
-                                          .html();
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-                                    if (window_width > 767
-                                          && fixed_plugin_open == 'Dashboard') {
-                                       if ($(
-                                             '.fixed-plugin .dropdown')
-                                             .hasClass(
-                                                   'show-dropdown')) {
-                                          $(
-                                                '.fixed-plugin .dropdown')
-                                                .addClass(
-                                                      'open');
-                                       }
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
 
-                                    }										
-										
-												$('#example')
-														.DataTable(
-																{
-																	columnDefs : [ {
-																		targets : [
-																				0,
-																				1,
-																				2 ],
-																		className : 'mdl-data-table__cell--non-numeric'
-																	} ]
-																});
+        }
+        
+        
+     
+            $('#example').DataTable( {
+                columnDefs: [
+                    {
+                        targets: [ 0, 1, 2 ],
+                        className: 'mdl-data-table__cell--non-numeric'
+                    }
+                ]
+            } );
+      
 
-										/* 		$('.fixed-plugin a')
-														.click(
-																function(event) {
-																	// Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-																	if ($(this)
-																			.hasClass(
-																					'switch-trigger')) {
-																		if (event.stopPropagation) {
-																			event
-																					.stopPropagation();
-																		} else if (window.event) {
-																			window.event.cancelBubble = true;
-																		}
-																	}
-																}); 
-												$(
-														'.fixed-plugin .active-color span')
-														.click(
-																function() {
-																	$full_page_background = $('.full-page-background');
+        /*  $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
 
-                                                   $(this)
-                                                         .siblings()
-                                                         .removeClass(
-                                                               'active');
-                                                   $(this)
-                                                         .addClass(
-                                                               'active');
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
 
-                                                   var new_color = $(
-                                                         this)
-                                                         .data(
-                                                               'color');
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
 
-                                                   if ($sidebar.length != 0) {
-                                                      $sidebar
-                                                            .attr(
-                                                                  'data-color',
-                                                                  new_color);
-                                                   }
+          var new_color = $(this).data('color');
 
-                                                   if ($full_page.length != 0) {
-                                                      $full_page
-                                                            .attr(
-                                                                  'filter-color',
-                                                                  new_color);
-                                                   }
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
 
-                                                   if ($sidebar_responsive.length != 0) {
-                                                      $sidebar_responsive
-                                                            .attr(
-                                                                  'data-color',
-                                                                  new_color);
-                                                   }
-                                                });
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
 
-                                    $('.fixed-plugin .background-color .badge')
-                                          .click(
-                                                function() {
-                                                   $(this)
-                                                         .siblings()
-                                                         .removeClass(
-                                                               'active');
-                                                   $(this)
-                                                         .addClass(
-                                                               'active');
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
 
-                                                   var new_color = $(
-                                                         this)
-                                                         .data(
-                                                               'background-color');
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
 
-                                                   if ($sidebar.length != 0) {
-                                                      $sidebar
-                                                            .attr(
-                                                                  'data-background-color',
-                                                                  new_color);
-                                                   }
-                                                });
+          var new_color = $(this).data('background-color');
 
-                                    $('.fixed-plugin .img-holder')
-                                          .click(
-                                                function() {
-                                                   $full_page_background = $('.full-page-background');
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
 
-                                                   $(this)
-                                                         .parent(
-                                                               'li')
-                                                         .siblings()
-                                                         .removeClass(
-                                                               'active');
-                                                   $(this)
-                                                         .parent(
-                                                               'li')
-                                                         .addClass(
-                                                               'active');
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
 
-                                                   var new_image = $(
-                                                         this)
-                                                         .find(
-                                                               "img")
-                                                         .attr(
-                                                               'src');
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
 
-                                                   if ($sidebar_img_container.length != 0
-                                                         && $('.switch-sidebar-image input:checked').length != 0) {
-                                                      $sidebar_img_container
-                                                            .fadeOut(
-                                                                  'fast',
-                                                                  function() {
-                                                                     $sidebar_img_container
-                                                                           .css(
-                                                                                 'background-image',
-                                                                                 'url("'
-                                                                                       + new_image
-                                                                                       + '")');
-                                                                     $sidebar_img_container
-                                                                           .fadeIn('fast');
-                                                                  });
-                                                   }
 
-                                                   if ($full_page_background.length != 0
-                                                         && $('.switch-sidebar-image input:checked').length != 0) {
-                                                      var new_image_full_page = $(
-                                                            '.fixed-plugin li.active .img-holder')
-                                                            .find(
-                                                                  'img')
-                                                            .data(
-                                                                  'src');
+          var new_image = $(this).find("img").attr('src');
 
-                                                      $full_page_background
-                                                            .fadeOut(
-                                                                  'fast',
-                                                                  function() {
-                                                                     $full_page_background
-                                                                           .css(
-                                                                                 'background-image',
-                                                                                 'url("'
-                                                                                       + new_image_full_page
-                                                                                       + '")');
-                                                                     $full_page_background
-                                                                           .fadeIn('fast');
-                                                                  });
-                                                   }
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
 
-                                                   if ($('.switch-sidebar-image input:checked').length == 0) {
-                                                      var new_image = $(
-                                                            '.fixed-plugin li.active .img-holder')
-                                                            .find(
-                                                                  "img")
-                                                            .attr(
-                                                                  'src');
-                                                      var new_image_full_page = $(
-                                                            '.fixed-plugin li.active .img-holder')
-                                                            .find(
-                                                                  'img')
-                                                            .data(
-                                                                  'src');
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                                                      $sidebar_img_container
-                                                            .css(
-                                                                  'background-image',
-                                                                  'url("'
-                                                                        + new_image
-                                                                        + '")');
-                                                      $full_page_background
-                                                            .css(
-                                                                  'background-image',
-                                                                  'url("'
-                                                                        + new_image_full_page
-                                                                        + '")');
-                                                   }
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
 
-                                                   if ($sidebar_responsive.length != 0) {
-                                                      $sidebar_responsive
-                                                            .css(
-                                                                  'background-image',
-                                                                  'url("'
-                                                                        + new_image
-                                                                        + '")');
-                                                   }
-                                                });
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                                    $('.switch-sidebar-image input')
-                                          .change(
-                                                function() {
-                                                   $full_page_background = $('.full-page-background');
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
 
-                                                   $input = $(this);
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        }); */
 
-                                                   if ($input
-                                                         .is(':checked')) {
-                                                      if ($sidebar_img_container.length != 0) {
-                                                         $sidebar_img_container
-                                                               .fadeIn('fast');
-                                                         $sidebar
-                                                               .attr(
-                                                                     'data-image',
-                                                                     '#');
-                                                      }
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
 
-                                                      if ($full_page_background.length != 0) {
-                                                         $full_page_background
-                                                               .fadeIn('fast');
-                                                         $full_page
-                                                               .attr(
-                                                                     'data-image',
-                                                                     '#');
-                                                      }
+          $input = $(this);
 
-                                                      background_image = true;
-                                                   } else {
-                                                      if ($sidebar_img_container.length != 0) {
-                                                         $sidebar
-                                                               .removeAttr('data-image');
-                                                         $sidebar_img_container
-                                                               .fadeOut('fast');
-                                                      }
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
 
-                                                      if ($full_page_background.length != 0) {
-                                                         $full_page
-                                                               .removeAttr(
-                                                                     'data-image',
-                                                                     '#');
-                                                         $full_page_background
-                                                               .fadeOut('fast');
-                                                      }
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
 
-                                                      background_image = false;
-                                                   }
-                                                });
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
 
-                                    $('.switch-sidebar-mini input')
-                                          .change(
-                                                function() {
-                                                   $body = $('body');
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
 
-                                                   $input = $(this);
+            background_image = false;
+          }
+        });
 
-                                                   if (md.misc.sidebar_mini_active == true) {
-                                                      $(
-                                                            'body')
-                                                            .removeClass(
-                                                                  'sidebar-mini');
-                                                      md.misc.sidebar_mini_active = false;
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
 
-                                                      $(
-                                                            '.sidebar .sidebar-wrapper, .main-panel')
-                                                            .perfectScrollbar();
+          $input = $(this);
 
-                                                   } else {
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
 
-                                                      $(
-                                                            '.sidebar .sidebar-wrapper, .main-panel')
-                                                            .perfectScrollbar(
-                                                                  'destroy');
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
 
-                                                      setTimeout(
-                                                            function() {
-                                                               $(
-                                                                     'body')
-                                                                     .addClass(
-                                                                           'sidebar-mini');
+          } else {
 
-                                                               md.misc.sidebar_mini_active = true;
-                                                            },
-                                                            300);
-                                                   }
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-                                                   // we simulate the window Resize so the charts will get updated in realtime.
-                                                   var simulateWindowResize = setInterval(
-                                                         function() {
-                                                            window
-                                                                  .dispatchEvent(new Event(
-                                                                        'resize'));
-                                                         },
-                                                         180);
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
 
-                                                   // we stop the simulation of Window Resize after the animations are completed
-                                                   setTimeout(
-                                                         function() {
-                                                            clearInterval(simulateWindowResize);
-                                                         },
-                                                         1000);
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
 
-																});
-											}); */
-						
-	</script>
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      }); 
+    });
+  </script>
+  
+
 
 </body>
 </html>
