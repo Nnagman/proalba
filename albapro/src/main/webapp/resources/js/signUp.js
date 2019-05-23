@@ -150,3 +150,23 @@ $(document).ready(function(){
 		
 		var d = new Date();
 });
+
+//핸드폰 번호 숫자만 입력받기.
+$(document).ready(function(){
+	$(".tPhone").on("keyup", function(){
+		 $(this).val($(this).val().replace(/[^0-9]/g,""));
+	});
+});
+
+$(document).ready(function () {
+	  $("#email_select").change(function () {
+	    if ($("#email_select").val() != "1") {
+	      $(".email2").val($("#email_select").val());
+	      $(".email2").attr("disabled", true);
+	      email2 = $("#email_select").val();
+	    }
+	    if ($("#email_select").val() == "1") {
+	      $(".email2").attr("disabled", false);
+	    }
+	  });
+	});

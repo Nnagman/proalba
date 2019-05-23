@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
+<link rel="stylesheet" type="text/css" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -13,10 +14,6 @@
 <body>
 
 	<div id="wrap">
-		<hr>
-		<div class="header">
-			<h1>회원가입</h1>
-		</div>
 		<div id="container">
 			<div id="content">
 				<div class="signUpForm-header">
@@ -27,8 +24,9 @@
 				<form id="agree_form">
 					<div class="all_agree">
 						<p>
-							<label></label> <input type="checkbox" id="all" name="all" />
+							<label> <input type="checkbox" id="all" name="all" />
 							전체약관동의<br />
+							</label>
 						</p>
 
 						<p>
@@ -85,14 +83,14 @@
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 
 							<tr>
 								<th>이름</th>
 								<td>
-									<input type="text" name="name" class="tBox" title="이름" id="dev_u_Name" maxlength="12">
+									<input type="text" name="name" class="tBox tName" title="이름" id="dev_u_Name" maxlength="12">
 								</td>
 							</tr>
 
@@ -111,9 +109,9 @@
 								<th>성별</th>
 								<td>
 									<input type="radio" class="sex" title="남자" name="sex" id="sex1" value="0"> 
-										<label for="sex_male">남자</label>
+										<label for="sex_male" class="sex_1">남자</label>
 									<input type="radio" class="sex" title="여자" name="sex" id="sex2" value="1"> 
-										<label for="sex_female">여자</label>
+										<label for="sex_female" class="sex_1">여자</label>
 									<p class="compul" id="txtGender"></p>
 								</td>
 							</tr>
@@ -123,13 +121,21 @@
 								<td>
 									<input type="text" name="email" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
-									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
+									<input type="text" name="EmailDomain" class="tBox tEmail email2" id="dev_mail_etc" maxlength="25" title="이메일계정">
+							        <select class="sel2 tEmail" name="email_select" id="email_select">
+							          <option value="1">직접입력</option>
+							          <option value="naver.com">네이버</option>
+							          <option value="daum.net">다음</option>
+							          <option value="gmail.com">구글</option>
+							          <option value="hanmail.net">한메일</option>
+							          <option value="nate.com">네이트</option>
+							        </select>
 								</td>
 							</tr>
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 
@@ -167,7 +173,7 @@
 						</tbody>
 					</table>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="가입하기"   disabled>
+						<button type="submit" class="btn btn-dark" value="가입하기">가입하기</button>
 					</div>
 				</form>
 			</div>

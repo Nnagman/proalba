@@ -37,24 +37,25 @@ body {
 }
 
 input {
-  vertical-align: middle;
+  height: 27px;
+  vertical-align: top;
   font: 12px arial;
 }
 
 /* Å×ÀÌºí */
 table {
-  width: 60%;
+  width: 70%;
   border-collapse: collapse;
   border-spacing: 0;
   empty-cells: show;
   font-size: 16px;
-  left: 180px;
+  left: 140px;
 
 }
 table, th, td{position: relative; border: none; font-family: '³ª´®½ºÄù¾î¶ó¿îµå'; padding: 8px 0; margin: 10px;}
 
 th{
-  background: #fff; color: #494949; font-size: 18px; width: 210px; letter-spacing: -2px; vertical-align: middle;
+  background: #fff; color: #494949; font-size: 18px; width: 190px; letter-spacing: -2px; vertical-align: middle;
 }
 
 td{ height: 50px;}
@@ -68,18 +69,24 @@ table td .tBox{
   border: 1px solid #c0c0c0; width: 297px; background: #fdfdfd; border-bottom: 1px solid #dbdee1; padding: 6px 8px 5px;
 }
 
-table td .tId {width: 150px;}
+table td .tId {width: 180px;}
+
+table td .tName{width: 160px;}
+
 table td .tEmail{width: 150px;}
+table td .sel2{width: 120px; height:27px;}
 
 table td .tPhone {width: 80px;}
+table td .joinBx {height:27px; padding: 0;}
 
 table td .tBirth{width: 160px;}
 
-table td .sex{margin-right: 6px;}
+table td .sex{position: relative; top: 9px;}
+table td .sex_1{position: relative; top: 9px; margin-right: 20px;}
 table td #sex_female{margin-left: 30px;}
 
-table td.tLine{padding: 15px; 0;}
-table td.tLine > div{border-top: 1px solid #dfe2e8;}
+/* table td.tLine{padding: 15px 0;}
+table td.tLine > div{border-top: 1px solid #dfe2e8;} */
 
 table td .tAddr{width: 167px;}
 table td #sample6_address, table td #sample6_detailAddress, table td #sample6_extraAddress{margin-top: 10px;}
@@ -94,21 +101,10 @@ table td #comName_check{width: 50px; height: 29px; background: #f2f2f2; border: 
 
 
 .btnfield{
-  margin-bottom: 40px;
   text-align: center;
+  margin-bottom:10px;
 }
-.btnfield #btn_signup{
-  width: 25%;
-  height: 50px;
-  background-color: #58ACFA;
-  border-radius: 7px;
-  color: white;
-  font-family: '³ª´®½ºÄù¾î¶ó¿îµå';
-  font-size: 20px;
-  font-weight: 750;
-  letter-spacing:3px;
-  border: none;
-}
+
 form {
   width: 100%;
   height: 100%;
@@ -118,7 +114,7 @@ form {
   margin-top: 2%;
   margin-bottom: 5%;
   padding-top: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 1%;
 }
 
 .header {
@@ -126,10 +122,6 @@ form {
   height: 10%;
 }
 
-hr {
-  position: relative;
-  top: 130px;
-}
 
 img {
   float: left;
@@ -152,13 +144,8 @@ h1 {
 }
 
 button {
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0 none;
-  cursor: pointer;
-  height: 20px;
-}
+  margin-top: 20px !important;
+} 
 
 #agree_form{
 	border: 0px;
@@ -172,6 +159,19 @@ button {
 	padding: 1%;
 	margin-bottom: 1%;
   margin-top: 1%;
+}
+
+.all_agree label{
+	margin: 0 !important;
+}
+
+.all_agree p{
+	margin: 2px 10px !important;
+	font-size: 17px;
+}
+
+.all_agree p:first-child{
+	margin: 0 0 5px 0 !important;
 }
 
 #double_check{
