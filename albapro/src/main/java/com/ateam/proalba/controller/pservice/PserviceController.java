@@ -1,8 +1,6 @@
 package com.ateam.proalba.controller.pservice;
 
 import javax.inject.Inject;
-import javax.mail.Session;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -12,14 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
-import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
+
+import net.sf.json.JSONArray;
 
 
 @Controller
@@ -62,13 +60,6 @@ public class PserviceController {
 		return "pservice/ecertifi";
 	}
 	
-//	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
-//	public String workmanageGET(Model model) throws Exception {
-//		logger.info("Welcome workmanagePage");
-//		model.addAttribute("message", "workmanagePage");
-//		return "pservice/pworkmanage";
-//	}
-	
 	@RequestMapping(value = "/pserSalary", method = RequestMethod.GET)
 	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
 		System.out.println("넘어왔어용");
@@ -79,33 +70,14 @@ public class PserviceController {
 	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
 	    logger.info(id);
 		model.addAttribute("message", "inqsalaryPage");
-		model.addAttribute("salarys", salaryService.listCriteria(criteria, id));
+		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(criteria, id));
+		model.addAttribute("salarys", pJson);
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
 		return "servicepage/pserSalary";
 	}
-	
-
-	@ResponseBody
-	@RequestMapping(value = "/pserSalaryTest", method = RequestMethod.POST)
-	public String test(Model model, HttpServletRequest request, HttpSession session) throws Exception {
-		String searchVal = request.getParameter("searchVal");
-		session.setAttribute("searchVal", searchVal);
 		
-		return "success";
-	}
-	
-	@RequestMapping(value = "/psalarydetail", method= RequestMethod.GET)
-	public String psalarydetailGET(Model model, String sa_code) throws Exception {
-		
-		SalaryVO salaryVO = salaryService.select_salary(sa_code);
-		model.addAttribute("salary", salaryVO);
-		model.addAttribute("message", "psalarydetail");
-
-		return "pservice/psalarydetail";
-	}
-	
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
 	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
 		logger.info("Welcome inqcareerPage");
