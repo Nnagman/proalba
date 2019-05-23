@@ -5,19 +5,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/login.css">
+
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet"  href="resources/css/myInfoModify.css" />
 <%@ include file = "../include/header.jsp" %>
 
-</head>
 <body>
-<h2> ${login.id} 님 비밀번호를 입력해주세요</h2>
-<form action="${path}/MyinfoModify" method="post">
-	<label for="password">Password</label>
-	<input type="hidden" id="id" name="id" value='${login.id}'/>
-    <input type="password" id="password" name="password" required="required"/>
-    <button type="submit">확인</button>
-</form>
+<div class="contents">
+	<div class="pwChk">
+		<h3>비밀번호 확인</h3>
+			<div class="pwChkInput">
+				<form action="${path}/MyinfoModify" method="post">
+					<label for="password">Password</label>
+					<input type="hidden" id="id" name="id" value='${login.id}'/>
+   					<input type="password" id="password" name="password" required="required"/>
+    				<button type="submit">확인</button>
+				</form>
+			</div>
+	</div>
+</div>
 </body>
 </html>

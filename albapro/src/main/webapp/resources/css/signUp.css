@@ -78,8 +78,8 @@ table td .tBirth{width: 160px;}
 table td .sex{margin-right: 6px;}
 table td #sex_female{margin-left: 30px;}
 
-table td.tLine{padding: 15px; 0;}
-table td.tLine > div{border-top: 1px solid #dfe2e8;}
+/* table td.tLine{padding: 15px 0;}
+table td.tLine > div{border-top: 1px solid #dfe2e8;} */
 
 table td .tAddr{width: 167px;}
 table td #sample6_address, table td #sample6_detailAddress, table td #sample6_extraAddress{margin-top: 10px;}

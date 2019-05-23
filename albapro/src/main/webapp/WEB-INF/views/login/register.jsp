@@ -85,7 +85,7 @@
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 
@@ -124,12 +124,20 @@
 									<input type="text" name="email" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
 									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
+							        <select class="sel2" name="email_select" id="email_select">
+							          <option value="1">직접입력</option>
+							          <option value="naver.com">네이버</option>
+							          <option value="daum.net">다음</option>
+							          <option value="gmail.com">구글</option>
+							          <option value="hanmail.net">한메일</option>
+							          <option value="nate.com">네이트</option>
+							        </select>
 								</td>
 							</tr>
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 

@@ -3,15 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"  href="resources/css/pMyinfo.css" />
 <%@ include file = "../include/header.jsp" %>	
 <script src="resources/js/signUp.js?ver=1"></script>
-	
+
 <meta charset="UTF-8">
 
 <title>Insert title here</title>
 </head>
 <body>
-아이디 : ${login.id}
+<div class="contents">
+	<div class="infoModiForm">
+		<h3>회원정보수정</h3>
+			<div class="infoModiFormInput">	
 				<form name="signUpForm" method="post" action="pregisterModify">
 					<table>
 						<tbody>
@@ -31,14 +35,14 @@
 							<tr>
 								<th>비밀번호 확인</th>
 								<td>
-									<input type="password" name="i_Pw" id="dev_pwdconfirm" class="tBox tPWd" maxlength="16"
+									<input type="password" name="i_Pw" id="dev_pwdconfirm" class="tBox tPwd" maxlength="16"
 									title="비밀번호확인" autocomplete="off">
 									<p class="compul" id="passwd_success">비밀번호가 일치합니다.</p>
 									<p class="compul" id="passwd_danger">비밀번호가 일치하지 않습니다.</p></td>
 							</tr>
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />	
 								</td>
 							</tr>
 							<tr>
@@ -60,9 +64,9 @@
 								<th>성별</th>
 								<td>
 									<input type="radio" class="sex" title="남자" name="sex" id="sex1" value="0"> 
-										<label for="sex_male">남자</label>
+										<label for="sex_male" class="sex_1">남자</label>
 									<input type="radio" class="sex" title="여자" name="sex" id="sex2" value="1"> 
-										<label for="sex_female">여자</label>
+										<label for="sex_female" class="sex_1">여자</label>
 									<p class="compul" id="txtGender"></p>
 								</td>
 							</tr>
@@ -72,13 +76,21 @@
 								<td>
 									<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
-									<input type="text" name="EmailDomain" class="tBox tEmail" id="dev_mail_etc" maxlength="25" title="이메일계정">
+									<input type="text" name="EmailDomain" class="tBox tEmail email2" id="dev_mail_etc" maxlength="25" title="이메일계정">
+									<select class="sel2 tEmail" name="email_select" id="email_select">
+           								<option value="1">직접입력</option>
+            							<option value="naver.com">네이버</option>
+            							<option value="daum.net">다음</option>
+            							<option value="gmail.com">구글</option>
+            							<option value="hanmail.net">한메일</option>
+            							<option value="nate.com">네이트</option>
+          							</select>
 								</td>
 							</tr>
 
 							<tr>
 								<td colspan="2" class="tLine">
-									<div></div>
+									<hr />
 								</td>
 							</tr>
 							<tr>
@@ -102,8 +114,12 @@
 						</tbody>
 					</table>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="수정하기"  onclick="CheckForm()">
+						<!-- <input type="submit" id="btn_modi" value="수정하기"  onclick="CheckForm()"> -->
+						<button type="submit" id="btn_modi" class="btn btn-dark" onclick="CheckForm()">수　　정</button>
 					</div>
 				</form>
+			</div>
+	</div>
+</div>
 </body>
 </html>
