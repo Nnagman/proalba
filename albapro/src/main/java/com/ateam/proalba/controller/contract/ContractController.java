@@ -108,7 +108,7 @@ public class ContractController {
 		return "cservicepage/cserWcontract";
 	}
 
-	@RequestMapping(value = "/wcontract", method = RequestMethod.POST)
+	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
 		wcontractVO.setC_id("c" + wcontractVO.getC_id());
 		wcontractVO.setP_id("p" + wcontractVO.getP_id());
@@ -122,7 +122,7 @@ public class ContractController {
 		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
 		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
 		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
-		if(mail==0) { return "contract/wcontract"; }
+		if(mail==0) { return "cservicepage/cserWcontract"; }
 		else { return "/"; }
 	}
 	
