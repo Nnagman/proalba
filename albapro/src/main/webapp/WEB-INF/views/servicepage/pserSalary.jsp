@@ -42,7 +42,7 @@
 <body>
 
    <div class="wrapper">
-<<<<<<< HEAD
+
 <div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
@@ -100,42 +100,9 @@
         </ul>
       </div>
     </div>
-=======
-      <div class="div-sidebar">
-         <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-				<div class="logo">
-<<<<<<< HEAD
-					<a href="http://www.creative-tim.com"
-						class="simple-text logo-normal">Proalba </a>
-=======
-					<a href="http://www.creative-tim.com" class="simple-text logo-normal">Proalba </a>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
-				</div>
-				<div class="sidebar-wrapper">
-					<ul class="nav">
-						<li class="nav-item  "><a class="nav-link" href=""> <i
-								class="material-icons">dashboard</i> 알바목록
-						</a></li>
-						<li class="nav-item  "><a class="nav-link"
-							href="pworkmanage?id=${login.id}"> <i class="material-icons">person</i>
-								근태 관리
-						</a></li>
-						<li class="nav-item active"><a class="nav-link"
-							href="pserSalary?id=${login.id}"> <i class="material-icons">content_paste</i>
-								급여 관리
-						</a></li>
-						<li class="nav-item "><a class="nav-link"
-							href="inqcareer?id=${login.id}"> <i class="material-icons">library_books</i>
-								경력 관리
-						</a></li>
-						<li class="nav-item "><a class="nav-link" href="./icons.html">  
-								<i class="material-icons">bubble_chart</i> Icons
-						</a></li>
-               </ul>
-            </div>
-         </div>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+   
+
          <!-- End of Sidebar -->
       </div>
       <div class="content">
@@ -279,7 +246,7 @@
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
    <script src="resources/js/servicepage2/popper.min.js"></script> 
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-<<<<<<< HEAD
+
    <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
                         <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
    <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
