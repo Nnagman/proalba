@@ -141,8 +141,7 @@ margin-top:20px;
 								<td>${contract.end_period}</td>
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
-								
-								<td><a href="${path}/downloadContract?fileName=${today}.pdf&downName=${contract.fileName}">서명완료</a></td>
+								<td><a href="${path}/downloadContract?fileName=${contract.c_date}근로계약서.pdf&downName=${contract.fileName}">서명완료</a></td>
 								</c:if>
 								<c:if test="${contract.email_check eq '0'}">
 								<td><a href="${path}/psercheckContract?link=${contract.fileName}">서명필요</a></td>
