@@ -23,13 +23,12 @@
 							<select class="ff" id="type_of_inquiry" name="type_of_inquiry" onchange="categoryChange(this)">
 								<option value="0">선택해주세요.</option>
 								<option value="1">정보수정</option>
-								<option value="2">구인공고 등록</option>
-								<option value="3">이력서 작성</option>
-								<option value="4">채용정보검색</option>
-								<option value="5">결제문의</option>
-								<option value="6">모바일 서비스</option>
-								<option value="7">제안</option>
-								<option value="8">기타</option>
+								<option value="2">이력서 작성</option>
+								<option value="3">채용정보검색</option>
+								<option value="4">결제문의</option>
+								<option value="5">모바일 서비스</option>
+								<option value="6">제안</option>
+								<option value="7">기타</option>
 							</select>
 							<select class="ff" id="detail_of_inquiry" name="detail_of_inquiry">
 								<option value="0">선택해주세요.</option>
