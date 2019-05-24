@@ -6,106 +6,102 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>전자 근로계약서-프로알바</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-</head>
+
 <link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
-<%@ include file = "../include/header.jsp" %>
-
-
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/contract.js?ver=3"></script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js">
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
-</script>
-
-<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-</script>
-
-<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-</script>
-
-<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-</script>
-
-<title>전자 근로계약서-프로알바</title>
-
-
-
-
-<script>
-    $(function() {
-        $("#startSearchDate, #endSearchDate").datepicker({ 
-            dateFormat: 'yy-mm-dd',
-            prevText: '이전 달',
-            nextText: '다음 달',
-            showOn: "both",
-            buttonImage: "resources/images/date1.png",
-            changeMonth: true,
-            changeYear: true,
-            changeMonth: true,
-            dayNames: ['월', '화', '수', '목', '금', '토', '일'],
-            dayNamesShort: ['월', '화', '수', '목', '금', '토', '일'],
-            dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            showMonthAfterYear: true,
-            yearSuffix: '년'
-        });
-
-
-    });
-
-    $(function() {
-        $('#datetimepicker3').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker4').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker5').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker6').datetimepicker({
-            pickDate: false
-        });
-    });
-
-</script>
-
-
+  <link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
+<link href="resources/css/servicepage/demo.css" rel="stylesheet">
+<link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
+ 
 
 
 </head>
 
 
 <body>
+<div class="wrapper">
+<div class="div-sidebar">
+	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-    <div class="contents" id="contents">
-        <div class="title">
-            <h3>전자 근로계약서</h3>
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              알바목록
+            </a>
+          </li>
+          
+          
+           <li class="nav-item active">
+            <a class="nav-link" href="contract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
+              <i class="material-icons">person</i>
+              근태 관리
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="pserSalary?id=${login.id}">
+              <i class="material-icons">content_paste</i>
+              
+              급여 관리
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="inqcareer?id=${login.id}">
+              <i class="material-icons">library_books</i>
+              경력 관리
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+         <!-- End of Sidebar -->
+
+<div class="content">
+
+
+        <div class="contract_title">
+            <h3 class="contract_title">전자 근로 계약서</h3>
         </div>
         <form id="formCon" name="formCon">
-            <div id="createPdf">
+            <div id="createPdf" class="div_createPdf">
                 <div class="box">
                     <br>
-                    <h4 class="gg">1. 근로계약기간</h4><br>
+                    <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="${login.id}" />
-                    <input class="tex1" name="start_period" type="text" value="" id="startSearchDate" />
+                    <input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
                     <span>부터</span>
 
-                    <input class="tex" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
+                    <input class="tex1" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
                     <span>까지</span>
 
                     <h4 class="gg">2. 근무장소</h4><br>
@@ -188,7 +184,7 @@
             			<input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
             	</div>
             <!-- Large modal -->
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal fade bs-example-modal-lg where-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <p>전송할 근로자 아이디 입력</p>
@@ -199,6 +195,92 @@
             </div>
         </form>
     </div>
+
+</div>
+
+</div>
+  
+
+  
+
+
+
+
+
+
+
+ <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="resources/js/contract.js?ver=3"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+</script>
+
+<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+</script>
+
+<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+</script>
+
+
+
+
+
+
+<script>
+    $(function() {
+        $("#startSearchDate, #endSearchDate").datepicker({ 
+            dateFormat: 'yy-mm-dd',
+            prevText: '이전 달',
+            nextText: '다음 달',
+            showOn: "both",  
+            buttonImage: "resources/images/date1.png",
+            changeMonth: true,
+            changeYear: true,
+            changeMonth: true,
+            dayNames: ['월', '화', '수', '목', '금', '토', '일'],
+            dayNamesShort: ['월', '화', '수', '목', '금', '토', '일'],
+            dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            showMonthAfterYear: true,
+            yearSuffix: '년'
+        });
+
+
+    });
+
+    $(function() {
+        $('#datetimepicker3').datetimepicker({
+            pickDate: false
+        });
+
+        $('#datetimepicker4').datetimepicker({
+            pickDate: false
+        });
+
+        $('#datetimepicker5').datetimepicker({
+            pickDate: false
+        });
+
+        $('#datetimepicker6').datetimepicker({
+            pickDate: false
+        });
+    });
+
+</script>
+
+
+
 
     <script>
 
@@ -222,7 +304,7 @@
                             console.log(formData);
 
                             $.ajax({
-                                url: "${path}/wcontract/upload",
+                                url: "http://localhost:8080/proalaba/wcontract/upload",
                                 type: "post",
                                 data: formData,
                                 dataType: "text",

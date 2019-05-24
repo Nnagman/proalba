@@ -103,9 +103,9 @@ public class ContractController {
 		return "contract/ccontract";
 	}
 	
-	@RequestMapping(value = "/wcontract", method = RequestMethod.GET)
+	@RequestMapping(value = "/cserWcontract", method = RequestMethod.GET)
 	public String wcontractGET() throws Exception {
-		return "contract/wcontract";
+		return "cservicepage/cserWcontract";
 	}
 
 	@RequestMapping(value = "/wcontract", method = RequestMethod.POST)

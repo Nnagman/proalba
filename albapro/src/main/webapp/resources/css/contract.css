@@ -1,6 +1,4 @@
-*{
-	font-family: 'Noto Sans KR', sans-serif;
-}
+
 
 
 .title {
@@ -10,9 +8,7 @@
 	text-align:center;
 }
 
-.contents {
-	background-color: #EAEAEA !important;
-}
+
 
 .title h3 {
 
@@ -35,6 +31,7 @@
 	padding: 0px;
 	margin-bottom: -7px;
 	margin-top: 20px;
+	font-family: 'Noto Sans KR', sans-serif !important;
 }
 
 .hh {
@@ -45,14 +42,22 @@
 	margin-bottom: 15px;
 }
 
-.tex1 {
+.tex {
 	font-size: 20px;
-	height: 10px;
+	height: 30px;
 	position: relative;
 	margin-left: 130px;
 	width: 130px;
-	border: 1px solid white;
 	border-bottom: 1px solid black;
+}
+.tex1 {
+	font-size: 20px;
+	height: 30px;
+	position: relative;
+	
+	width: 130px;
+	border-bottom: 1px solid black;
+	
 }
 
 .tex2 {
@@ -114,7 +119,7 @@
 	font-size: 20px;
 	height: 25px;
 	position: relative;
-	margin-left: 370px;
+	margin-left: 270px;
 	width: 55px;
 	border: 1px solid white;
 	border-bottom: 1px solid black;
