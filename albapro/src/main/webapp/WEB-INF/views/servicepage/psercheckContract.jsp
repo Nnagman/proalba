@@ -136,7 +136,8 @@
                     	<img class="can1" id="myImage" style="margin:1px;">
                 	</div>
                     <span class="t3">근로자: </span>
-                    <input class="tex2" name="p_name" type="text" maxlength="11" /><br><br>
+                    <input class="tex2" name="p_name" type="text" maxlength="11" /><br><br> 
+                     
 
                     <span class="t3">연락처: </span>
                     <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
@@ -151,7 +152,7 @@
 				<input type="button" class="bt1" onclick="toDataURL();"value="서명 저장">
 				<button type="button" class="bt1" id="moveSign">서명란이동</button>
 				<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
-				<button type="button" class="bt1" id="endGame">최종완료</button>
+				<!-- <button type="button" class="bt1" id="endGame">최종완료</button> -->
 			</div>
             	
             	</div>
