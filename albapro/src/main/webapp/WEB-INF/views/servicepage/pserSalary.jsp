@@ -113,7 +113,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-primary pser-header">
                            <h4 class="card-title ">급여 관리</h4>
                            <p class="card-category">
                               ${login.id} 님의 급여 현황 입니다. 

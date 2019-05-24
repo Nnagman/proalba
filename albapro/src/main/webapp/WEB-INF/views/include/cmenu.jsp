@@ -16,7 +16,7 @@
 				<div class="column">
 					<h3>지원 관리</h3> 
 					<ul>
-						<li><a href="${path}/wcontract" class="manuli">전자 근로계약서 작성</a></li>
+						<li><a href="${path}/cserWcontract" class="manuli">전자 근로계약서 작성</a></li>
 					</ul>
 					<ul>
 						
