@@ -316,7 +316,7 @@
                                     var c_id = '${login.id}';
                                     $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
                                     test = true;
-                                    $("#formCon").attr({"method" : 'post', "action" : '${path}/cserWcontract'});
+                                    $("#formCon").attr({"method" : 'post', "action" : 'http://localhost:8080/proalba/cserWcontract'});
                                     $("#submit2").attr({"type" : 'submit'});
                                     $("#submit2").trigger('click');
                                 }
