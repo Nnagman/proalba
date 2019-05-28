@@ -11,7 +11,6 @@
 
 <%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
-<script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
 <style>
 	.attImg{
 		width : 400px;
@@ -104,7 +103,7 @@
 
         <!-- Preview Image -->
         
-			<c:forEach var="att" items="${attvo }" > 
+			<c:forEach var="att" items="${attvo}" > 
 			<span class="viewImg">
 	                <img class="attImg img-fluid rounded" src="<spring:url value='/resources${att.fullname}' />" />		
 	                <input type="hidden" name="fullname" value="${att.fullname}">			

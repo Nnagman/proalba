@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="view" resultType="com.ateam.proalba.domain.PostVO">
-		SELECT p_code, title, p_content, p_date, id, viewcnt, name
+		SELECT p_code, title, p_content, p_date, id, viewcnt, name, p_date, p.m_code
 		FROM post p, member m
 		WHERE p.m_code = m.m_code
 		AND p_code = #{p_code}

@@ -3,19 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>  
+ 
 <!--  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"> -->
-<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+	<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 <!--<script src="resources/js/jquery.js"></script> -->
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/header.css">
-
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<link rel="stylesheet" href="${path}/resources/css/bootstrap.css" />
-<link rel="stylesheet" href="${path}/resources/css/bootstrap.min.css" />
-  <link href="${path}/resources/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="${path}/resources/css/header.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="${path}/resources/css/bootstrap.css" />
+	<link rel="stylesheet" href="${path}/resources/css/bootstrap.min.css" />
+	<link href="${path}/resources/css/mdb.min.css" rel="stylesheet">
     <link href="${path}/resources/css/style.css" rel="stylesheet">
-
 
 </head>
 
@@ -209,14 +206,12 @@ margin-left:500px !important;
   </a>
 </div>
 <!--/.Carousel Wrapper-->
+	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
+	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
+	<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${path}/resources/js/mdb.min.js"></script>
    </div>
     </header>
-
-    <!--/.Carousel Wrapper-->
-    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-  <script type="text/javascript" src="resources/js/popper.min.js"></script>
-      <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
   
   
 <script>
