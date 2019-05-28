@@ -30,11 +30,11 @@ font-family: 'Noto Sans KR', sans-serif !important;
 }
 
 .box{
-	width:1503px;
+	width:1576px;
 margin:auto;
 	text-align:left;
 
-	padding:0 278px 0 278px;
+	padding:0 245px 0 245px;
 	 font-family: 'Noto Sans KR', sans-serif !important;
 }
 
@@ -108,3 +108,8 @@ margin:auto;
 	margin:0 auto;
 	
 }
+
+.pdf-contract{
+	width:1572px !important;
+}
+

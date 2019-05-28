@@ -122,7 +122,7 @@
         </div>
         <form id="formCon" name="formCon">
             <div class="div_createPdf" id="createPdf">
-            	<img src='${path}/displayContract?name=${contractPath}'/>
+            	<img src='${path}/displayContract?name=${contractPath}' class="pdf-contract" />
             	
             	
             	

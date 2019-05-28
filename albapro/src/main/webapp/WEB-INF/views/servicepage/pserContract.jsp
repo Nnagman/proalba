@@ -116,9 +116,9 @@ margin-top:20px;
                   <div class="col-md-12">
                      <div class="card">
                         <div class="card-header card-header-primary">
-                           <h4 class="card-title ">급여 관리</h4>
+                           <h4 class="card-title ">전자근로 계약서 목록</h4>
                            <p class="card-category">
-                              ${login.id} 님의 급여 현황 입니다. 
+                              ${login.id} 님의 전자 근로 계약서 입니다. 
 
                            </p>
                         </div>
@@ -162,12 +162,7 @@ margin-top:20px;
       </div>
    </div>
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
    
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
    <script src="resources/js/servicepage2/popper.min.js"></script> 

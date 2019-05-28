@@ -6,6 +6,7 @@ import lombok.Data;
 public class MobileAttendanceVO {
 	private String sa_start;
 	private String work_end_time;
+	private String sa_end;
 	private String work_start_time;
 	private String sa_date;
 	private String sa_c;
