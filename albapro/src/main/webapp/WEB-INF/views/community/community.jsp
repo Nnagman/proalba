@@ -29,7 +29,14 @@ $(function(){
 		location.href="${path}/comm?curPage="+page+"&searchOption-${map.searchOption}"+"&keyword=${map.keyword}";
 	}
 </script>
-
+<style>
+	.btn10{
+		float: right;
+	}
+	form{
+		margin-bottom: 5px;
+	}
+</style>
 </head>
 
 <body>
@@ -37,9 +44,7 @@ $(function(){
 
 <br>
 <h2>게시판</h2>
-	<c:if test="${login.id != null}">
-		<button type="button" id="btnWrite">글쓰기</button>
-	</c:if><br>
+	
 ${map.count}개의 게시물이 있습니다. <br>
 <form name="form1" method="post" action="${path}/comm">
 		<select name="searchOption">
@@ -51,6 +56,9 @@ ${map.count}개의 게시물이 있습니다. <br>
 		</select>
 		<input name="keyword" value="${map.keyword}">
 		<input type="submit" value="조회">
+		<c:if test="${login.id != null}">
+		<button type="button" class="btn10" id="btnWrite">글쓰기</button>
+	</c:if>
 	<!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
 
 </form>
