@@ -27,6 +27,7 @@ font-family: 'Noto Sans KR', sans-serif !important;
 .div_createPdf
 {
 	text-align:center;
+	height:2150px;
 }
 
 .box{
@@ -34,12 +35,14 @@ font-family: 'Noto Sans KR', sans-serif !important;
 margin:auto;
 	text-align:left;
 
-	padding:0 245px 0 245px;
+	padding:0 270px 0 270px;
 	 font-family: 'Noto Sans KR', sans-serif !important;
 }
 
 .boxcover{
 	width:100%;
+	position: relative;
+	bottom:280px;
 }
 
 .box-p{
@@ -111,5 +114,8 @@ margin:auto;
 
 .pdf-contract{
 	width:1572px !important;
+	position: relative;
 }
+
+
 

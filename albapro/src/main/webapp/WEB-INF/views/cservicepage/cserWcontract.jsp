@@ -89,12 +89,13 @@
 <div class="content">
 
 
-        <div class="contract_title">
-            <h3 class="contract_title">전자 근로 계약서</h3>
-        </div>
+     
         <form id="formCon" name="formCon">
             <div id="createPdf" class="div_createPdf">
                 <div class="box">
+                   
+            <h3 class="contract_title">전자 근로 계약서</h3>
+   
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="${login.id}" />
@@ -142,9 +143,9 @@
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
 
                     <h4 class="gg">7. 사회보험 적용여부(해당란에 체크)</h4><br>
-                    <input class="che2" type="checkbox" id="고용보험" /><span>고용보험</span>
-                    <input class="che2" type="checkbox" id="국민보험" /><span>국민연금</span>
-                    <input class="che2" type="checkbox" id="건강보험" /><span>건강보험</span>
+                    <input class="che2" type="checkbox" id="고용보험" checked/><span>고용보험</span>
+                    <input class="che2" type="checkbox" id="국민보험" checked /><span>국민연금</span>
+                    <input class="che2" type="checkbox" id="건강보험" checked /><span>건강보험</span>
                     <input class="che2" type="checkbox" id="산재보험" checked /><span>산재보험</span>
 
                     <h4 class="gg">8. 근로계약서 교부</h4><br>
