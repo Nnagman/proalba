@@ -29,7 +29,7 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public int countArticle(String search_option, String keyword) throws Exception {
-		//검색 옵션 맵에다가 저장
+		//寃��� �듭�� 留듭���ㅺ� ����
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("search_option" , search_option);
 		map.put("keyword", keyword);
@@ -65,7 +65,6 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<AttachVO> listAttach(int p_code) throws Exception {
 		return sqlSession.selectList("post.listAttach", p_code);
-
 	}
 
 	@Override

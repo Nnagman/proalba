@@ -6,14 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,17 +43,17 @@ public class CommunityController {
 		List<PostVO> list = postService.listAll(start, end, searchOption, keyword);
 		
 		
-		// 데이터를 맵에 저장
+		// �곗�댄�곕�� 留듭�� ����
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("community/community"); // 뷰를 list.jsp로 설정
+		mav.setViewName("community/community"); // 酉곕�� list.jsp濡� �ㅼ��
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
 		map.put("count",count);
-		map.put("searchOption", searchOption); // 검색옵션
-		map.put("keyword", keyword); // 검색키워드
+		map.put("searchOption", searchOption); // 寃����듭��
+		map.put("keyword", keyword); // 寃����ㅼ����
 		map.put("boardPager", Pager);
-		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
-		return mav; // list.jsp로 List가 전달된다.
+		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
+		return mav; // list.jsp濡� List媛� ���щ����.
 	}
 	
 	@RequestMapping(value="comm/view", method=RequestMethod.GET)
@@ -123,11 +121,11 @@ public class CommunityController {
 			//logger.info("paths : "+uploadPath + path.replace('/', File.separatorChar));
 			String filePath = uploadPath + path.replace('/', File.separatorChar);
 			if(new File(filePath).exists()) {
-				logger.info("파일 존재 함");
+				logger.info("���� 議댁�� ��");
 				new File(filePath).delete();
-				logger.info("파일 삭제 ");
+				logger.info("���� ���� ");
 			}else
-				logger.info("파일없음");
+				logger.info("���쇱����");
 		}
 		}
 		return "redirect:/comm";
