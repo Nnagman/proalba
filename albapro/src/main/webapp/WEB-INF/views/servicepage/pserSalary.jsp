@@ -51,7 +51,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/proalba" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -125,7 +125,7 @@
                               <table id="example" class="mdl-data-table" style="width: 100%">
                                  <thead>
                                     <tr>
-                                       <th>이름</th>
+                                     
                                        <th>보낸이</th>
                                        <th>지급총액</th>
                                        <th>공제총액</th>
@@ -133,17 +133,18 @@
                                        <th>지급일자</th>
                                        <th>상세보기</th>
                                  
+                                 
                                     </tr>
                                  </thead>
                                  <tbody>
                                  <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
-                                       <td id="sal_name">${salary.name}</td>
-                                       <td id="sal_work_place_name">${salary.work_place_name}</td>
-                                       <td id="sal_basic_salary">${salary.basic_salary}</td>
-                                       <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
-                                       <td id="sal_actual_salary">${salary.actual_salary}</td>
-                                       <td id="sal_year_month">${salary.year_month}</td>
+                                     
+                                       <td>${salary.work_place_name}</td>
+                                       <td>${salary.basic_salary}</td>
+                                       <td>${salary.total_deduction_amount}</td>
+                                       <td>${salary.actual_salary}</td>
+                                       <td>${salary.year_month}</td>
                                      <td>
                                      	<input type="hidden" value="${status.index}"/>
                                         <i class="material-icons searchIcon" data-toggle="modal"

@@ -1,69 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="java.util.Date" %>
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>Swefwefgw  sdfrf sdd </title>
+<title>나의 급여</title>
+<!-- Custom fonts for this template-->
 
-  <!-- Custom fonts for this template-->
+<link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
+<link href="resources/css/servicepage/demo.css" rel="stylesheet">
+<link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-  <!-- Custom styles for this template-->
- <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
-  <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
-  <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-    <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
- 
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
-
- 
- <link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <script src="resources/js/albamanage.js"></script>
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script> 
+<script src="resources/js/cal/interaction.js"></script>
 
 
 
 </head>
 
 
-
-<style>
-
-.card{
-width:100% !important;
-position:relative;
-margin-right:20px;
-}
-
-  .odd { background-color:#EAEAEA; }
-
-        .Even { background-color : white; }
-
-
-
-
-</style>
-
-
 <body>
-	<div class="wrapper">
-		<div class="div-sidebar">
+
+   <div class="wrapper">
+
+	<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -86,29 +66,29 @@ margin-right:20px;
           
           
            <li class="nav-item ">
-            <a class="nav-link" href="contract?id=${login.id}">
+            <a class="nav-link" href="cserWcontract">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-              근태 관리
+              직원 관리
             </a>
           </li>
-          <li class="nav-item">
+        <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li>
+          </li> --%>
           <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
+           직원  경력 조회     
+              </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
@@ -122,77 +102,72 @@ margin-right:20px;
     </div>
 			<!-- End of Sidebar -->
 		</div>
-		<div class="content">
-			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
-									<p class="card-category">
-										${login.id} 님의 근태를 볼수 있습니다.  <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i> 
+      <div class="content">
+         <div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+         </div>
+         <div class="pser-con">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header card-header-primary pser-header">
+                           <h4 class="card-title ">급여 관리</h4>
+                           <p class="card-category">
+                              ${salary_id} 님의 급여 현황 입니다. 
 
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table id="example" class="mdl-data-table" style="width: 100%">
-											<thead>
-												<tr>
-													<th class="th-sm">날짜</th>
-													<th class="th-sm">출근시간</th>
-													<th class="th-sm">퇴근 시간</th>
+                           </p>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table id="example" class="mdl-data-table" style="width: 100%">
+                                 <thead>
+                                    <tr>
+                                       <th>이름</th>
+                                       <th>보낸이</th>
+                                       <th>지급총액</th>
+                                       <th>공제총액</th>
+                                       <th>실지급액</th>
+                                       <th>지급일자</th>
+                                       <th>상세보기</th>
+                                 
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 <c:forEach var="salary" items="${salarys}" varStatus="status"> 
+                                 <tr>
+                                       <td id="sal_name">${salary.name}</td>
+                                       <td id="sal_work_place_name">${salary.work_place_name}</td>
+                                       <td id="sal_basic_salary">${salary.basic_salary}</td>
+                                       <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
+                                       <td id="sal_actual_salary">${salary.actual_salary}</td>
+                                       <td id="sal_year_month">${salary.year_month}</td>
+                                     <td>
+                                     	<input type="hidden" value="${status.index}"/>
+                                        <i class="material-icons searchIcon" data-toggle="modal"
+                                 data-target="#myModal" id="${salary.sa_code}">search</i> 
+                                 </td> 
+                                 </tr>
+                              </c:forEach>                                  
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
 
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="row" items="${map.list}">
-													<tr>
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
-													</tr>
-												</c:forEach>
+               </div>
+            </div>
+         </div>
+         <div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
+      </div>
+   </div>
 
-											</tbody>
-
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-			<%--  	<div class="col-md-5">
-              <div class="card card-profile">
-               
-                <div class="card-body">
-                    <%@ include file = "../cservice/calendar.jsp" %>
-                </div>
-              </div>
-            </div>  --%>
-
-					</div>
-				</div>
-			</div>
-			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
-		</div>
-
-	</div>
-
-
-
-
- 	<!-- 부트스트랩 -->
-  	<!-- 부트스트랩 modal -->
- <!-- Modal -->
+	<!-- 부트스트랩 -->
+	<!-- 부트스트랩 modal -->
+	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-    	<script src="resources/js/bootstrap.js"></script>
+       <script src="resources/js/bootstrap.js"></script>
       <!-- Modal content  -->
       <div class="modal-content">
         <div class="modal-header">
@@ -200,7 +175,63 @@ margin-right:20px;
           <h4 class="modal-title">출근 시간</h4>
         </div>
         <div class="modal-body">
-          <%@ include file = "../cservice/calendar.jsp" %>
+
+   			<table class="ui single line table">
+      			<thead>
+         			<tr>
+            			<th>급여</th><th>금액</th><th>공제</th><th>금액</th>
+         			</tr>
+      			</thead>
+      			<tbody>
+      				<tr>
+            			<th>기본급</th>
+            			<td id="basic_salary">${salary.basic_salary}</td>
+             			<th>국민연금</th>
+            			<td id="national_pension_cost">${salary.national_pension_cost}</td> 
+            		</tr>
+         			<tr>
+            			<th>식비</th>
+            			<td id="food_expenses">${salary.food_expenses}</td>
+            			<th>건강보험</th>
+            			<td id="health_insurance_cost">${salary.health_insurance_cost}</td>
+            		</tr>
+         			<tr>      
+            			<th>교통비</th>
+            			<td id="transportation_fee">${salary.transportation_fee}</td>
+            			<th>고용보험</th>
+            			<td id="employment_insurance_cost">${salary.employment_insurance_cost}</td>
+            		</tr>
+            		<tr>
+            			<th>초과근로수당</th>
+            			<td id="additional_extended">${salary.additional_extended}</td>
+            			<td></td>
+            			<td></td>
+            		</tr>
+            		<tr>
+            			<th>야간수당</th>
+            			<td id="additional_night">${salary.additional_night}</td>
+            			<td></td>
+            			<td></td>
+            
+      			</tbody>
+      		</table >
+      		<table class="ui single line table">
+      			<thead>
+      				<tr>
+      					<th>총 급여</th>
+      					<th>총 공제금액</th>
+      					<th>실급여액</th>
+      				</tr>
+      			</thead>
+      			<tbody>
+      				<tr>
+      					<th id="total_salary">${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</th>
+      					<th id="total_deduction_amount">${salary.total_deduction_amount}</th>
+      					<th id="actual_salary">${salary.actual_salary}</th>
+      				</tr>
+      			</tbody>
+      		</table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -208,37 +239,27 @@ margin-right:20px;
       </div>
       
     </div>
-  </div>  
-            
+  </div> 
+   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
+   <script src="resources/js/servicepage2/popper.min.js"></script> 
+   <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
 
-  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-
-   <script src="resources/js/servicepage2/popper.min.js"></script>
-    <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
-      <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
-        <script src="resources/js/servicepage2/moment.min.js"></script>
-          <script src="resources/js/servicepage2/sweetalert2.js"></script>
-            <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
-              <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
-                <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
-                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
-                    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-             <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
+   <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
                         <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
-                        <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
-                       <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
+   <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
+   <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
                               <script src="resources/js/servicepage2/nouislider.min.js"></script>
                                  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
                                    <script src="resources/js/servicepage2/arrive.min.js"></script>
                                       <script src="resources/js/servicepage2/chartist.min.js"></script>
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
-                                            <script src="resources/js/servicepage2/demo.js"></script>
-                                            
-                                            
-                                            
-                                
-                                            
+   								<script src="resources/js/servicepage2/demo.js"></script>
+
+
+
+
+                                                
    <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -271,16 +292,9 @@ margin-right:20px;
                     }
                 ]
             } );
-            
-            $('table.mdl-data-table tbody tr:odd').addClass('odd');
-
-            $('table.mdl-data-table tbody tr:even').addClass('Even');
-
-
-
       
 
-            /*  $('.fixed-plugin a').click(function(event) {
+        /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -430,8 +444,34 @@ margin-right:20px;
     });
   </script>
   
-  
 
- 
+
+
+   <script src="resources/js/servicepage2/demo.js"></script>	
+	<script>
+	$(document).ready(function(){
+		$(".searchIcon").click(function(e){
+			var sa_code = e.currentTarget.id;
+			var salarys = ${salarys};
+			salarys.forEach(function (salary) {
+				if(salary.sa_code == sa_code){
+					$("#basic_salary").text(salary.basic_salary);
+					$("#national_pension_cost").text(salary.national_pension_cost);
+					$("#food_expenses").text(salary.food_expenses);
+					$("#health_insurance_cost").text(salary.health_insurance_cost);
+					$("#transportation_fee").text(salary.transportation_fee);
+					$("#employment_insurance_cost").text(salary.employment_insurance_cost);
+					$("#additional_extended").text(salary.additional_extended);
+					$("#additional_night").text(salary.additional_night);
+					$("#total_salary").text(parseInt(salary.basic_salary)+parseInt(salary.food_expenses)
+							+parseInt(salary.transportation_fee)+parseInt(salary.additional_extended)+parseInt(salary.additional_night));
+					$("#total_deduction_amount").text(salary.total_deduction_amount);
+					$("#actual_salary").text(salary.actual_salary);
+				}
+			});
+		});
+	})
+	</script>
+
 </body>
 </html>

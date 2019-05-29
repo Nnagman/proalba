@@ -82,6 +82,9 @@ public class ContractController {
 	    request.setAttribute("pageMaker", pageMaker);
 		logger.info(Integer.toString(criteria.getPageStart()));
 		logger.info(Integer.toString(criteria.getPerPageNum()));
+		logger.info(Integer.toString(criteria.getPerPageNum()));
+		criteria.setPage(20);
+		
 		return "servicepage/pserContract";
 	}
 	

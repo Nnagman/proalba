@@ -42,25 +42,6 @@
 </head>
 
 
-
-<style>
-
-.card{
-width:100% !important;
-position:relative;
-margin-right:20px;
-}
-
-  .odd { background-color:#EAEAEA; }
-
-        .Even { background-color : white; }
-
-
-
-
-</style>
-
-
 <body>
 	<div class="wrapper">
 		<div class="div-sidebar">
@@ -86,29 +67,29 @@ margin-right:20px;
           
           
            <li class="nav-item ">
-            <a class="nav-link" href="contract?id=${login.id}">
+            <a class="nav-link" href="cserWcontract">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-              근태 관리
+              직원 관리
             </a>
           </li>
-          <li class="nav-item">
+        <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li>
+          </li> --%>
           <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
+           직원  경력 조회     
+              </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
@@ -123,7 +104,7 @@ margin-right:20px;
 			<!-- End of Sidebar -->
 		</div>
 		<div class="content">
-			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
+			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
 			</div>
 			<div class="pser-con">
 				<div class="container-fluid">
@@ -131,55 +112,39 @@ margin-right:20px;
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">직원 관리</h4>
 									<p class="card-category">
-										${login.id} 님의 근태를 볼수 있습니다.  <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i> 
+										${login.id} 사업장의 직원을 관리할 수 있습니다. 
 
 									</p>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
-										<table id="example" class="mdl-data-table" style="width: 100%">
-											<thead>
-												<tr>
-													<th class="th-sm">날짜</th>
-													<th class="th-sm">출근시간</th>
-													<th class="th-sm">퇴근 시간</th>
-
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="row" items="${map.list}">
-													<tr>
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
-													</tr>
+										
+										
+											<c:forEach var="row" items="${list}">
+											<div class="card">
+											<div class="card-header"><h3>${row.name}</h3></div>
+											<div class="card-body">
+												<h5 class="card-title">휴대번호: ${row.phone}</h5><br>
+												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
+												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
+												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
+												<a href="cserWorkmanagetable?id=${row.id}" class="btn btn-primary card-btn " >근태 기록</a>
+											</div>
+										</div>
 												</c:forEach>
-
-											</tbody>
-
-										</table>
+										
+										
 									</div>
 								</div>
 							</div>
 						</div>
-						
-			<%--  	<div class="col-md-5">
-              <div class="card card-profile">
-               
-                <div class="card-body">
-                    <%@ include file = "../cservice/calendar.jsp" %>
-                </div>
-              </div>
-            </div>  --%>
 
 					</div>
 				</div>
 			</div>
-			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
+			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 
 	</div>
@@ -187,29 +152,8 @@ margin-right:20px;
 
 
 
- 	<!-- 부트스트랩 -->
-  	<!-- 부트스트랩 modal -->
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-    	<script src="resources/js/bootstrap.js"></script>
-      <!-- Modal content  -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">출근 시간</h4>
-        </div>
-        <div class="modal-body">
-          <%@ include file = "../cservice/calendar.jsp" %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>  
-            
+
+
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
 
@@ -271,16 +215,9 @@ margin-right:20px;
                     }
                 ]
             } );
-            
-            $('table.mdl-data-table tbody tr:odd').addClass('odd');
-
-            $('table.mdl-data-table tbody tr:even').addClass('Even');
-
-
-
       
 
-            /*  $('.fixed-plugin a').click(function(event) {
+        /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {

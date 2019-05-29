@@ -40,30 +40,15 @@
 
 
 </head>
-
-
-
 <style>
-
-.card{
-width:100% !important;
-position:relative;
-margin-right:20px;
-}
-
-  .odd { background-color:#EAEAEA; }
+ .odd { background-color:#EAEAEA; }
 
         .Even { background-color : white; }
-
-
-
-
 </style>
-
 
 <body>
 	<div class="wrapper">
-		<div class="div-sidebar">
+	<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -86,28 +71,28 @@ margin-right:20px;
           
           
            <li class="nav-item ">
-            <a class="nav-link" href="contract?id=${login.id}">
+            <a class="nav-link" href="cserWcontract">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-              근태 관리
+              직원 관리
             </a>
           </li>
-          <li class="nav-item">
+       <%--    <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li>
+          </li> --%>
           <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
-              경력 관리
+              직원 경력 조회
             </a>
           </li>
           <li class="nav-item ">
@@ -123,7 +108,7 @@ margin-right:20px;
 			<!-- End of Sidebar -->
 		</div>
 		<div class="content">
-			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
+			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
 			</div>
 			<div class="pser-con">
 				<div class="container-fluid">
@@ -133,9 +118,9 @@ margin-right:20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${login.id} 님의 근태를 볼수 있습니다.  <i
+										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i> 
+											data-target="#myModal">달력보기 calendar_today</i>
 
 									</p>
 								</div>
@@ -166,20 +151,11 @@ margin-right:20px;
 								</div>
 							</div>
 						</div>
-						
-			<%--  	<div class="col-md-5">
-              <div class="card card-profile">
-               
-                <div class="card-body">
-                    <%@ include file = "../cservice/calendar.jsp" %>
-                </div>
-              </div>
-            </div>  --%>
 
 					</div>
 				</div>
 			</div>
-			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
+			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 
 	</div>
@@ -187,7 +163,7 @@ margin-right:20px;
 
 
 
- 	<!-- 부트스트랩 -->
+	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -208,7 +184,7 @@ margin-right:20px;
       </div>
       
     </div>
-  </div>  
+  </div> 
             
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
@@ -275,12 +251,9 @@ margin-right:20px;
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
 
             $('table.mdl-data-table tbody tr:even').addClass('Even');
-
-
-
       
 
-            /*  $('.fixed-plugin a').click(function(event) {
+        /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
