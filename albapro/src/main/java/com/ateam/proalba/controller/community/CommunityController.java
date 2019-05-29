@@ -33,7 +33,6 @@ public class CommunityController {
 	public ModelAndView list(@RequestParam(defaultValue = "title") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
 			throws Exception {
-		
 		logger.info("this is listController....");
 		int count = postService.countArticle(searchOption, keyword);	
 		Pager Pager = new Pager(count, curPage);

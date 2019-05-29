@@ -28,6 +28,7 @@
 		
 
 		$(".fileDrop").on("drop", function(e){
+			console.log(e);
 			e.preventDefault(); // 기본효과 제한
 			var files = e.originalEvent.dataTransfer.files; // 드래그한 파일들
 			//console.log(files);

@@ -51,7 +51,7 @@ public class MobileCommunityController {
 	public JSON list(@RequestParam(defaultValue = "title") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
 			throws Exception {
-		
+		System.out.println("curPage: "+curPage);
 		logger.info("this is listController...");
 		int count = postService.countArticle(searchOption, keyword);	
 		Pager Pager = new Pager(count, curPage);
