@@ -305,7 +305,7 @@
                             console.log(formData);
 
                             $.ajax({
-                                url: "http://localhost:8080/proalba/wcontract/upload",
+                                url: "http://39.127.7.84:8080/proalba/wcontract/upload",
                                 type: "post",
                                 data: formData,
                                 dataType: "text",
@@ -317,7 +317,7 @@
                                     var c_id = '${login.id}';
                                     $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
                                     test = true;
-                                    $("#formCon").attr({"method" : 'post', "action" : 'http://localhost:8080/proalba/cserWcontract'});
+                                    $("#formCon").attr({"method" : 'post', "action" : 'http://39.127.7.84:8080/proalba/cserWcontract'});
                                     $("#submit2").attr({"type" : 'submit'});
                                     $("#submit2").trigger('click');
                                 }

@@ -8,6 +8,10 @@
 		<li class="menuLi">
 			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
+		
+		<li class="menuLi">
+			<a class="menuLink" href="/proalba">채용공고</a>
+		</li>
 	
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>

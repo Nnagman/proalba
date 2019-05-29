@@ -1,0 +1,718 @@
+@charset "euc-kr";
+
+/* base */
+html, body {margin:0;padding:0}
+body {font-size:12px;color:#474747;background:#fff}
+div, ul, ol, dl, p,
+h1, h2, h3, h4, h5, h6,
+fieldset, legend,
+iframe,
+table {margin:0;padding:0;font-size:1em;color:#474747}
+ul, ol, dl {list-style:none}
+dt, dd, li {margin:0;padding:0}
+form {margin:0}
+input, select, textarea {font-size:1em;vertical-align:middle;color:#474747} 
+textarea {resize:none}
+select {height:20px;line-height:16px}
+img, fieldset, button {border:0}
+img {vertical-align:top}
+hr {display:none} 
+em, address {font-style:normal}
+label {cursor:pointer}
+select {font-family:tahoma}
+iframe {_vertical-align:top;border:0 none}
+iframe.hideFrame, caption, legend, .hide {visibility:hidden;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;position:absolute;top:-999em;left:-999em}
+.displayNone {display:none}
+
+/* link */
+a, a:visited {text-decoration:none;color:#474747}
+a:hover, a:active {text-decoration:underline;color:#474747}
+
+/* class : radio/checkbox */
+input.typeRadio,
+input.typeCheckbox {position:relative;width:13px;height:13px;margin:-4px 0 0;margin-top:-2px\9;*margin-top:-4px;padding:0;vertical-align:middle}
+input.typeText {*margin:-1px 0}
+
+/* class : 공통 */
+.wrap:after {content:"";clear:both;display:block}
+.filter {z-index:999;position:fixed;left:0;top:0;width:100%;height:100%;background:#000;filter:alpha(opacity=50);opacity:0.5}
+.cursorDefault {cursor:default}
+
+/* paging */
+.paging {margin:20px 0 0;font:11px tahoma;letter-spacing:-1px;text-align:center}
+.paging * {vertical-align:top}
+.paging a {display:inline-block;width:20px;height:17px;margin:0 5px;padding:3px 0 0;text-align:center;text-decoration:none;color:#484848;border:1px solid #dedede}
+.paging a.prev,
+.paging a.next {height:16px;padding:4px 0 0;font:bold 11px dotum;color:#3b8ad7}
+.paging a:hover,
+.paging a:active,
+.paging span.page a.now {font-weight:bold;color:#267cd3;border:1px solid #328ee3}
+.paging span.location {display:inline-block;padding:4px 0 0;letter-spacing:0}
+
+body.story .paging a {border:1px solid #c0c0c0}
+body.story .paging a.prev,
+body.story .paging a.next {height:16px;padding:4px 0 0;font:bold 11px dotum;color:#42444c}
+body.story .paging a:hover,
+body.story .paging a:active,
+body.story .paging span.page a.now {color:#ff4500;border:1px solid #77787c}
+
+/* 채용 페이징 */
+.pagenation {position:relative;padding:20px 0 30px;text-align:center}
+.pagenation span {display:inline-block;height:30px;margin-right:4px;font-size:14px;font-family:'맑은 고딕','Malgun Gothic';vertical-align:top;border:1px solid #bbb;border-radius:2px}
+.pagenation span.page {*margin-right:8px;border:0 none}
+.pagenation span.page a {display:inline-block;width:30px;height:24px;padding:6px 0 0;margin:0 2px;text-align:center;text-decoration:none;border:1px solid #bbb;border-radius:2px}
+.pagenation span.page a:hover,
+.pagenation span.page a.on {font-weight:bold;border:1px solid #83c9ff;color:#267cd3}
+.pagenation span.total {position:relative;width:120px;height:32px;*margin-right:8px;border:0 none}
+.pagenation span.total .totalBtn {overflow:hidden;position:absolute;left:0;top:0;width:118px;height:30px;background:#f4f4f4;cursor:pointer}
+.pagenation span.total .totalBtn .state {display:block;height:24px;padding:6px 0 0;text-align:center;font-weight:bold;border:0 none}
+.pagenation span.total .totalBtn a {position:absolute;left:0;width:105px;height:24px;padding:6px 0 0 15px;text-align:left}
+.pagenation span.total .totalBtn a.first {top:30px}
+.pagenation span.total .totalBtn a.last {top:60px}
+.pagenation span.total.oneBtn .totalBtn {height:62px}
+.pagenation span.total.twoBtn .totalBtn {height:92px}
+.pagenation span.pageBtn {border:0 none}
+.pagenation span.pageBtn a {display:inline-block;width:30px;height:30px;font-size:18px;line-height:30px;text-decoration:none;background:#f4f4f4;border:1px solid #bbb;border-radius:2px}
+.pagenation span.pageBtn a:hover {color:#267cd3}
+.pagenation span.pageBtn a.next {margin-left:-1px}
+.pagenation span.pageBtn a.none {color:#bbb}
+/* 기업 페이징 */
+.bizContents .pagenation {margin:60px 0 0;padding:0;font:14px/1.2 'Malgun Gothic';letter-spacing:0}
+.bizContents .pagenation * {vertical-align:top}
+.bizContents .pagenation span {height:32px;border-radius:0}
+.bizContents .pagenation span.page {*margin-right:4px}
+.bizContents .pagenation span.page a {height:23px;*height:25px;margin:0 2px;padding:7px 0 0;*padding:5px 0 0;text-decoration:none;color:#666;border:1px solid #ddd;border-radius:0}
+.bizContents .pagenation span.page a:hover,
+.bizContents .pagenation span.page a:active {font-weight:normal;color:#fff;background:#62708c;border:1px solid #62708c}
+.bizContents .pagenation span.page a.on {font-weight:normal;color:#fff;background:#62708c;border:1px solid #62708c}
+.bizContents .pagenation span.total {width:109px;height:32px;*margin-right:4px}
+.bizContents .pagenation span.total .totalBtn {width:107px;height:auto;background:#fff;border:1px solid #ddd;}
+.bizContents .pagenation span.total .totalBtn .state {display:block;height:23px;*height:25px;padding:7px 0 0;*padding:5px 0 0;font-weight:normal;letter-spacing:0;color:#666;border-radius:0}
+.bizContents .pagenation span.total .totalBtn a {width:90px;color:#666;}
+.bizContents .pagenation span.total .totalBtn a.first {top:32px}
+.bizContents .pagenation span.total .totalBtn a.last {top:64px}
+.bizContents .pagenation span.total.oneBtn .totalBtn {height:64px}
+.bizContents .pagenation span.total.twoBtn .totalBtn {height:94px}
+.bizContents .pagenation span.pageBtn {margin:0;}
+.bizContents .pagenation span.pageBtn a {height:23px;*height:22px;padding:7px 0 0;*padding:8px 0 0;font:13px dotum;color:#666;background:#fff;border:1px solid #ddd;border-radius:0;}
+.bizContents .pagenation span.pageBtn a:hover,
+.bizContents .pagenation span.pageBtn a:active {font-weight:normal;color:#fff;background:#62708c;border:1px solid #62708c}
+
+/* layout */
+#SubWrap {width:1070px;margin:0 auto}
+#SubSide {display:none;position:absolute;top:0;left:-999em;width:0;height:0}
+#SubContents {width:1070px;padding-bottom:20px}
+
+/* skipNav */
+.skipNav {z-index:999;position:absolute}
+.skipNav li a {position:absolute;top:-999em;left:0;width:148px;height:32px;text-align:center;line-height:33px;background-color:#fee49b}
+.skipNav li a:focus,
+.skipNav li a:active {top:0;left:0}
+
+/* Header */
+#Global {z-index:105;position:relative;width:100%;margin:0 0 12px;background-color:#ffd200;background:#ffde00 url('//image.alba.kr/e/common/201904/header_bg.jpg') no-repeat center top}
+#Header {z-index:105;position:relative;width:1070px;height:115px;margin:0 auto}
+
+.headerBi {width:240px;height:115px;margin-left:-100px}
+.headerBi__local {width:300px;margin-left:-158px}
+.headerBi__local-img {margin:52px 0 0 8px}
+
+.headerSearch {position:absolute;top:35px;left:175px;width:405px}
+.headerSearch .searchInput {position:relative;float:left}
+.headerSearch .searchInput>input {height:35px;margin:0;padding:0 15px;border:0 none;background-color:#fff}
+.headerSearch .searchInput>label {position:absolute;top:0;left:0;height:35px;padding-left:15px;font:14px 'Malgun Gothic';line-height:35px;letter-spacing:-0.05em;cursor:text;color:#333}
+.headerSearch .wordSearch>input {width:190px}
+.headerSearch .areaSearch {margin-left:2px}
+.headerSearch .areaSearch>input {width:115px}
+.headerSearch .searchSubmit {position:absolute;top:0;right:0;width:35px;height:35px;font-size:0;color:transparent;background:url('//image.alba.kr/e/common/201811/header.png') no-repeat 0 -60px}
+
+.headerPopular {position:absolute;top:80px;left:175px}
+.headerPopular>li {float:left;margin-right:9px;font:11px 'Malgun Gothic';letter-spacing:-0.05em}
+.headerPopular>li>a {color:#423312}
+
+.headerLink {position:absolute;top:57px;left:602px}
+.headerLink>li {float:left}
+.headerLink>li>span {display:inline-block;margin:-2px 5px 0;width:2px;height:2px;border-radius:1px;vertical-align:middle;background-color:#423312}
+.headerLink>li>a {font:12px 'Malgun Gothic';letter-spacing:-1px;color:#423312}
+.headerLink>li.sns {position:absolute;top:-22px;width:100%;font:12px 'Malgun Gothic';letter-spacing:-1px;color:#423312}
+.headerLink>li.sns>strong {font-weight:normal}
+.headerLink>li.sns>em {display:inline-block;width:16px;height:15px;margin-top:1px;font-size:0;vertical-align:top;color:transparent;background:url('//image.alba.kr/sns/icon_sns_pc1.png') no-repeat}
+.headerLink>li.sns>em.facebook {background-position:0 0}
+.headerLink>li.sns>em.naver {background-position:-19px 0}
+.headerLink>li.sns>em.kakao {background-position:-38px 0}
+
+.headerPr {position:absolute;top:0;right:0;width:257px;height:110px}
+
+/* 통합검색 자동완성 */
+.ark {z-index:105;position:absolute;left:0;top:35px;width:405px}
+#arkArea {left:auto;right:0;width:259px}
+.ark_wrap {display:none;overflow:hidden;left:0 !important;width:403px;letter-spacing:-0.05em;text-align:left;background-color:#fff;border:1px solid #888}
+#arkArea .ark_wrap {width:257px}
+.ark_wrap dl {position:relative;border-top:1px solid #e1e1e1}
+.ark_wrap dt {position:absolute;right:12px;top:14px;font:13px 'Malgun Gothic';letter-spacing:0;color:#767676}
+#arkArea .ark_wrap dt {display:none}
+.ark_content_list {position:relative;padding:10px 0 12px}
+.ark_content_list.strark_word {margin-top:-11px;padding-top:0}
+.ark_content_list li {overflow:hidden;padding:2px 50px 2px 14px;font:14px 'Malgun Gothic';letter-spacing:-0.1em;white-space:nowrap;text-overflow:ellipsis}
+.ark_content_list li span {font:13px 'Malgun Gothic';letter-spacing:0;color:#0285c9}
+.ark_content_list li strong {color:#ea2015}
+.ark_content_list li em {display:none;position:absolute;right:12px;width:50px;font:13px 'Malgun Gothic';letter-spacing:0;text-align:right;color:#767676}
+.ark_content_list li.divide {margin-top:10px;padding-top:10px;border-top:1px solid #e1e1e1}
+.ark_content_list2 {position:relative;padding:0 80px 0 14px}
+.ark_content_list2 li {padding:10px 0 4px;font:13px 'Malgun Gothic';letter-spacing:-0.1em}
+.ark_content_list2 li a.title {overflow:hidden;display:block;padding-bottom:1px;font-size:15px;text-decoration:underline;color:#0000cc;white-space:nowrap;text-overflow:ellipsis}
+.ark_content_list2 li span {margin:0;color:#000}
+.ark_content_list2 li span.company {color:#218d44}
+.ark_content_list2 li span.pay {color:#474747}
+.ark_content_list2 li span.bar {padding:0 8px;color:#ccc}
+.ark_content_list2 li span.keyword {display:block}
+.ark_content_list2 li span.keyword .icon {display:inline-block;width:53px;height:13px;margin-top:-2px;font:0/0 Dotum;vertical-align:middle;color:transparent;background:url('//image.alba.kr/search/icon_keyword.gif') no-repeat 0 0}
+.ark .page {position:relative;padding:15px 0 20px;text-align:center}
+.ark .page a {display:inline-block;width:18px;height:18px;margin:0 2px;font:13px 'Malgun Gothic';vertical-align:top;text-align:center;color:#000;border:1px solid #d5d5d5}
+.ark .page strong {color:#ff4500}
+.ark .page .pageBtn {height:13px;padding-top:5px}
+.ark .page .pageBtn span {overflow:hidden;display:inline-block;width:5px;height:9px;font:0/0 Dotum;vertical-align:top;color:transparent;background:url('//image.alba.kr/e/common/201608/header.png') no-repeat}
+.ark .page .prevPage span {background-position:-132px 0} 
+.ark .page .nextPage span {background-position:-142px 0} 
+.ark_noInfo {padding:10px 10px 12px;font:13px 'Malgun Gothic';letter-spacing:-0.1em}
+.ark_footer {clear:both;position:relative;height:21px;height:20px\0;*height:20px;margin-top:-1px;padding:9px 10px 0;padding-top:10px\0;*padding-top:10px;background-color:#f6f6f6;border-top:1px solid #e6e6e6}
+.ark_footer .help {padding:0;font:11px dotum;color:#ccc;background-color:#f6f6f6;border:0 none}
+.ark_footer .help a {color:#474747}
+.ark_footer .jobTotal {position:absolute;top:9px;top:10px\0;*top:10px;right:10px;font:11px dotum;color:#474747}
+.ark_footer .jobTotal em {padding-right:1px;font:bold 11px dotum;color:#ea2015}
+
+#HeaderMenuWrap {z-index:101;position:relative;width:100%;height:45px;border-bottom:1px solid #ffd200;background-color:#fff}
+#HeaderMenu {z-index:101;width:1070px;height:45px;margin:0 auto}
+body.scroll {padding-top:44px}
+body.scroll #HeaderMenuWrap {z-index:99999;position:fixed;top:0;left:0}
+.headerFilter {z-index:99;position:fixed;top:0;right:0;bottom:0;left:0;background-color:#000;filter:alpha(opacity=25);opacity:0.25}
+
+.headerMenu {float:left}
+.headerMenu>li {float:left;margin:0 5px 0 6px}
+.headerMenu>li>a {display:block;height:45px;padding:0 2px;font:bold 14px/43px 'Malgun Gothic';letter-spacing:-0.05em;color:#333}
+.headerMenu>li>a>span {display:inline-block;width:24px;height:24px;margin:-2px 1px 0 0;vertical-align:middle;background:url('//image.alba.kr/e/common/201811/header.png') no-repeat}
+.headerMenu>li.person>a>span {background-position:0 0}
+.headerMenu>li.biz>a>span {background-position:0 -30px}
+
+.headerMenu>li.on>a,
+.headerMenu>li.active>a {height:42px;text-decoration:none;border-bottom:3px solid #ffd200}
+.headerMenu>li.active .headerMenuFullWrap,
+.headerMenu>li.active .headerMenuFull,
+.headerMenu>li.active .headerMenuSub {display:block}
+
+.headerMenu>li.all {margin:0 7px 0 0}
+.headerMenu>li.all>a {width:44px;height:29px;padding-top:16px;font-size:0;line-height:1;color:transparent}
+.headerMenu>li.all.on>a,
+.headerMenu>li.all.active>a {height:26px}
+.headerMenu>li.all>a>span {display:block;width:17px;height:13px;margin:0 auto;background:url('//image.alba.kr/e/common/201811/header.png') no-repeat -120px -90px}
+
+.headerMenuFullWrap {display:none;position:absolute;top:45px;left:0;right:0;border-top:1px solid #ffd200;border-bottom:1px solid #ffd200;background-color:#fff}
+.headerMenuFull {display:none;width:1068px;margin:0 auto;background-color:#fff;border-left:1px solid #ebedee;border-right:1px solid #ebedee}
+.headerMenuFull-title {padding:13px 20px;font:bold 14px/1.2 'Malgun Gothic';letter-spacing:-0.05em;border-bottom:1px solid #e7e7e7}
+.headerMenuFull-title>a {color:#333}
+.headerMenuFull-title>a>span {margin-top:3px}
+.headerMenuFull-section {overflow:hidden;position:relative;width:100%}
+.headerMenuFull-section>li {float:left;padding:20px 0 0 13px;font:bold 13px/1.2 'Malgun Gothic';letter-spacing:-0.05em;border-left:1px solid #e7e7e7}
+.headerMenuFull-section>li:first-child {border-left:0 none}
+.headerMenuFull-section>li>strong,
+.headerMenuFull-section>li>a {display:block;margin:0 0 12px;color:#333}
+.headerMenuFull-section-list {overflow:hidden}
+.headerMenuFull-section-list>li {padding:4px 0;font:13px/1.2 'Malgun Gothic';letter-spacing:-0.05em}
+.headerMenuFull-section-list>li>a {color:#666}
+.headerMenuFull-section-list>li>a>.icon {display:inline-block;height:14px;height:13px\0;*height:13px;margin-top:-2px;padding:2px 2px 0;padding-top:3px\0;*padding-top:3px;font:11px Dotum;letter-spacing:-0.05em;text-align:center;vertical-align:middle;color:#fff;background:#ff9d12}
+.headerMenuFull-section-list>li>a>.age19 {display:inline-block;width:11px;height:12px;padding-right:1px;font-size:10px;line-height:12px;text-align:center;color:#000;border:1px solid #ff4544;border-radius:50%}
+.headerMenuFull-section-subList {overflow:hidden;width:105px;margin:8px 0 1px 0;padding:4px 9px;border:1px solid #f3f3f3;border-radius:3px;background-color:#fbfbfb}
+.headerMenuFull-section-subList>li {float:left;margin:1px 0 3px 7px}
+.headerMenuFull-section-subList.area>li {margin-left:4px}
+.headerMenuFull-section-subList.pro>li {margin-left:17px}
+.headerMenuFull-section-subList>li.first {margin-left:0}
+.headerMenuFull-section-subList>li>a {font:12px/1.2 'Malgun Gothic';letter-spacing:-0.05em;color:#666}
+.headerMenuFull-section-brandList {*zoom:1;padding-top:7px}
+.headerMenuFull-section-brandList:after {content:"";clear:both;display:block}
+.headerMenuFull-section-brandList>li {float:left;width:65px;height:75px;margin-right:12px}
+.headerMenuFull-section-brandList>li>a {overflow:hidden;display:block;height:100%;font:11px dotum;letter-spacing:-0.05em;text-overflow:ellipsis;white-space:nowrap;text-align:center}
+.headerMenuFull-section-brandList>li>a>span {display:block;width:63px;height:29px;margin-bottom:6px;padding:4px 0 0;background:#fff;border:1px solid #dfdfdf}
+.headerMenuFull-section-brandList>li>a>span>img {width:55px}
+.headerMenuFull-section-list>li.occupation>.headerMenuFull-section-subList>li {width:49px}
+.headerMenuFull-section-list>li.talentCondition>.headerMenuFull-section-subList>li {float:none}
+
+/* 5개 199px, 6개 164px, 7개 138px, 8개 119px */
+.headerMenu>li.all .headerMenuFull-section>li {width:138px;height:235px}
+.headerMenu>li.all .headerMenuFull-section.person>li {width:138px}
+.headerMenu>li.all .headerMenuFull-section.biz>li {width:164px}
+.headerMenu>li.job .headerMenuFull-section>li {width:138px;height:390px}
+.headerMenu>li.job .headerMenuFull-section>li.pay {position:absolute;top:147px;left:455px;height:127px}
+.headerMenu>li.brand .headerMenuFull-section>li {overflow-x:hidden;overflow-y:auto;width:796px;height:330px}
+.headerMenu>li.brand .headerMenuFull-section>li.brandType {width:245px}
+.headerMenu>li.brand .headerMenuFull-section-list>li {float:left;width:50%}
+.headerMenu>li.resume .headerMenuFull-section>li {width:138px;height:365px}
+.headerMenu>li.story .headerMenuFull-section>li {width:138px;height:255px}
+.headerMenu>li.story .headerMenuFull-section>li.research {position:absolute;top:0;right:5px;height:24px}
+.headerMenu>li.story .headerMenuFull-section>li.support {height:200px;padding-top:50px}
+.headerMenu>li.story .headerMenuFull-section>li.repute,
+.headerMenu>li.story .headerMenuFull-section>li.brand {width:128px}
+.headerMenu>li.story .headerMenuFull-section>li.center {width:158px}
+.headerMenu>li.customer .headerMenuFull-section>li {width:130px;height:235px}
+.headerMenu>li.customer .headerMenuFull-section>li.type01 {width:145px}
+.headerMenu>li.customer .headerMenuFull-section>li.notice {position:absolute;top:140px;right:1px;height:24px}
+.headerMenu>li.person .headerMenuFull-section>li {width:135px;height:200px}
+.headerMenu>li.person .headerMenuFull-section>li.application {width:156px}
+.headerMenu>li.person .headerMenuFull-section>li.mystory {position:absolute;top:105px;left:765px;height:88px}
+.headerMenu>li.biz .headerMenuFull-section>li {width:119px;height:235px}
+.headerMenu>li.my .headerMenuFull-title {padding:8px 20px}
+.headerMenu>li.my .headerMenuFull-title>a.menuSetBtn {display:inline-block;height:20px;height:21px\0;*height:21px;padding:5px 11px 0 7px;padding-top:4px\0;*padding-top:4px;font:bold 12px/1.2 'Malgun Gothic';color:#474747;border:1px solid #bcbdbe;border-bottom:1px solid #868686}
+.headerMenu>li.my .headerMenuFull-title>a.menuSetBtn>span {display:inline-block;width:14px;height:14px;margin:0 6px 0 0;background:url('//image.alba.kr/e/common/201608/header.png') no-repeat -120px -69px}
+.headerMenu>li.my .headerMenuFull-section>li {width:315px;padding-bottom:30px}
+.headerMenu>li.my .headerMenuFull-section-list>li {float:left;width:50%}
+
+.header-icon {display:inline-block;font-size:0;vertical-align:top;color:transparent;background:url('//image.alba.kr/e/common/201811/header.png') no-repeat}
+.header-icon--home {width:14px;height:14px;margin-top:1px;background-position:-60px -60px}
+.header-icon--pro {width:28px;height:18px;background-position:-90px -60px}
+.header-icon--career {width:28px;height:18px;background-position:-120px -60px}
+.header-icon--19 {width:16px;height:16px;background-position:-60px -90px}
+.header-icon--gangsa {width:38px;height:18px;background-position:-40px -120px}
+.header-icon--ganhojob {width:34px;height:18px;background-position:0 -120px}
+.header-icon--new {width:14px;height:14px;background-position:-90px -90px}
+.header-icon--more {width:56px;height:22px;margin:-3px 0 0 5px;background-position:-90px -120px}
+
+.headerQuick {float:right}
+.headerQuick>li {float:left;margin-left:20px}
+.headerQuick>li>a {display:block;height:45px;font:bold 13px/43px 'Malgun Gothic';letter-spacing:-0.05em;text-decoration:none;color:#333}
+.headerQuick>li>a>span {display:inline-block;width:24px;height:24px;margin:-2px 1px 0 0;vertical-align:middle;background:url('//image.alba.kr/e/common/201811/header.png') no-repeat}
+.headerQuick>li.personHome>a>span {background-position:0 0}
+.headerQuick>li.personReg>a>span {background-position:-30px 0}
+.headerQuick>li.personScrap>a>span {background-position:-60px 0}
+.headerQuick>li.personAppl>a>span {background-position:-90px 0}
+.headerQuick>li.bizHome>a>span {background-position:0 -30px}
+.headerQuick>li.bizReg>a>span {background-position:-30px -30px}
+.headerQuick>li.bizMag>a>span {background-position:-60px -30px}
+.headerQuick>li.bizAppl>a>span {background-position:-90px -30px}
+
+.myMenuSetWrap {display:none}
+.myMenuSet {z-index:999;position:fixed;top:161px;left:50%;width:1068px;height:584px;margin-left:-535px;border:1px solid #333;background:#fff}
+.myMenuSet-title {display:block;padding:12px 20px 15px;font:bold 14px/1.2 'Malgun Gothic';color:#282828;letter-spacing:-2px;color:#333;border-bottom:1px solid #e7e7e7}
+.myMenuSet-section {overflow:hidden;width:100%}
+.myMenuSet-section>li {float:left;width:315px;height:458px;padding:12px 20px;font:bold 13px/1.2 'Malgun Gothic';letter-spacing:-0.05em;border-left:1px solid #e7e7e7}
+.myMenuSet-section>li:first-child {border-left:none}
+.myMenuSet-section>li>strong {display:block;margin-bottom:5px;color:#333}
+.myMenuSet-section-list {float:left;width:315px;*zoom:1}
+.myMenuSet-section-list:after {content:" ";clear:both;display:block}
+.myMenuSet-section-list + .myMenuSet-section-list {margin-left:25px}
+.myMenuSet-section-list>li {float:left;width:50%;margin-top:7px}
+.myMenuSet-section-list>li>span.input {position:relative;display:inline-block}
+.myMenuSet-section-list>li>span.input * {vertical-align:middle;cursor:pointer}
+.myMenuSet-section-list>li>span.input input {position:absolute;left:0;margin:0;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
+.myMenuSet-section-list>li>span.input label {display:inline-block;height:17px;padding:0 0 0 20px;font:12px/1.2 'Malgun Gothic';color:#444;*line-height:1.3;background:url('//image.alba.kr/comm/input.png') no-repeat;white-space:nowrap}
+.myMenuSet-section-list>li>span.input input[type="checkbox"] + label {background-position:0 1px}
+.myMenuSet-section-list>li>span.input.on input[type="checkbox"] + label {background-position:0 -19px;color:#2073f0}
+.myMenuSet-section-btn {position:relative;padding:15px 20px;text-align:right;border-top:1px solid #e7e7e7}
+.myMenuSet-section-btn>a {display:inline-block;width:65px;padding:5px 0 7px;font:bold 12px/1.2 'Malgun Gothic';text-align:center;border:1px solid #bcbdbe;border-bottom:1px solid #868686}
+.myMenuSet-section-btn>a.left{position:absolute;top:15px;left:20px}
+.myMenuSet-filter {z-index:998;position:fixed;left:0;top:0;width:100%;height:100%;background:#000;filter:alpha(opacity=50);opacity:0.5}
+
+/* Header - TM전문관 */
+#HeaderGnb {z-index:110;position:relative;width:100%;height:25px;border-bottom:1px solid #dedede;background-color:#fff}
+#HeaderGnb .headerAction {z-index:110;position:relative;width:1070px;height:25px;margin:0 auto}
+#HeaderGnb .headerLink {top:5px;right:0;left:auto}
+#HeaderGnb .headerLink li {padding:0 6px;font:11px 'Malgun Gothic';background:url('//image.alba.kr/e/common/201303/header2.gif') no-repeat -959px 3px}
+#HeaderGnb .headerLink li>a {font:11px 'Malgun Gothic';letter-spacing:-0.05em}
+#HeaderGnb .headerLink li:first-child {background:0 none}
+#HeaderWrap {width:100%;background-color:#fff}
+#HeaderWrap #Header {height:125px}
+#HeaderWrap .headerBi {height:98px;padding-top:27px}
+
+#JobProMenuWrap {z-index:100;position:relative;width:100%;height:38px;padding:18px 0 0 0;background:url('//image.alba.kr/e/common/201403/header_JobPro.png') repeat-x 0 -20px}
+#JobProMenu {z-index:100;position:relative;width:960px;height:38px;margin:0 auto}
+.jobProMenu {overflow:hidden;width:960px;height:38px}
+.jobProMenu li {float:left}
+.jobProMenu li a {display:block;text-indent:-999em;height:38px;background:url('//image.alba.kr/e/common/201403/header_JobPro.png') no-repeat}
+.jobProMenu li.job a {width:90px;background-position:0 -80px}
+.jobProMenu li.resume a {width:97px;background-position:-90px -80px}
+.jobProMenu li.regResume a {width:108px;background-position:-187px -80px}
+.jobProMenu li.regJob a {width:120px;background-position:-295px -80px}
+.jobProMenu.person li.person a {width:126px;background-position:-416px -80px}
+.jobProMenu.person li.resumeReg a {width:107px;background-position:-187px -80px}
+.jobProMenu.biz li.biz a {width:126px;background-position:-651px -80px}
+.jobProMenu.biz li.jobReg a {width:117px;background-position:-778px -80px}
+.jobProMenu.sns li.snsHome a {width:101px;background-position:0 -122px}
+
+/* GlobalBanner */
+#GlobalBannerWrap {width:100%;background-color:#fff}
+#GlobalBanner {position:relative;width:1070px;height:120px;margin:0 auto;border-bottom:1px solid #d1d1d1;background-color:#fff}
+#GlobalBanner p.sideLeft {position:absolute;top:20px;left:32px}
+#GlobalBanner p.sideCenter {position:absolute;top:20px;left:50%;margin-left:-240px}
+#GlobalBanner p.sideRight {position:absolute;top:20px;right:32px}
+
+/* 현재 위치 */
+#Location {position:relative;height:24px;height:25px\9;margin:0 0 20px;padding:8px 0 0 15px;padding-top:9px\0;*padding-top:9px;color:#545455;border-bottom:1px solid #ececec}
+#Location img {display:none}
+body.contract #Location {width:1070px;margin:0 auto}
+
+/* SubSide - TM전문관 채용/인재 */
+#SubSide h1.tmJobTitle {height:87px;background:url('//image.alba.kr/e/common/201402/SubSide_Jobpro.gif') no-repeat 0 0}
+#SubSide h1.tmResumeTitle {height:87px;background:url('//image.alba.kr/e/common/201402/SubSide_Jobpro.gif') no-repeat -175px 0}
+#SubSide h1.tmJobTitle span,
+#SubSide h1.tmResumeTitle span {position:relative;z-index:-1}
+#SubSide .subTmMenu {padding:17px;border:1px solid #e5e5e5}
+#SubSide .subTmMenu h2 {padding:0 0 5px;margin-bottom:4px;border-bottom:1px solid #8c8c8c;color:#282828;font-weight:bold;letter-spacing:-1px}
+#SubSide .subTmMenu ul li {height:24px;line-height:24px}
+#SubSide .subTmMenu ul li a {padding:0 3px 0 7px;letter-spacing:-1px;background:url('//image.alba.kr/e/common/201402/SubSide_Jobpro.gif') no-repeat -350px 0}
+#SubSide .subTmMenu ul li a.first {padding-left:2px;background-image:none}
+#SubSide .subTmMenu ul li a.last {padding-right:0}
+#SubSide .subTmMenu .tmMenuArea{padding:0 0 13px;margin-bottom:17px;border-bottom:1px solid #e5e5e5}
+#SubSide .subTmMenu .tmMenuRecruit {padding:0 0 13px;margin-bottom:17px;border-bottom:1px solid #e5e5e5}
+#SubSide .subTmMenu .tmMenuRecruit a{padding:0;background-image:none}
+#SubSide .subTmMenu .tmMenuCustom a{padding:0;background-image:none}
+
+/* Footer */
+#FooterWrap {clear:both;width:100%;margin-top:35px;padding-bottom:20px;border-top:2px solid #2e2e2e}
+#FooterWrap * {font-family:'Malgun Gothic','AppleGothicNeoSD','Microsoft NeoGothic','Droid sans',Sans-serif;letter-spacing:-0.05em}
+#Footer {position:relative;width:1070px;margin:0 auto}
+.footer__menu {overflow:hidden;width:100%;border-bottom:1px solid #e4e4e4}
+.footer__menu>li {float:left}
+.footer__menu a {display:block;height:46px;padding:0 29px;font-size:13px;line-height:46px;font-weight:bold;text-align:center}
+.footer__menu strong {color:#fe5a83}
+.footer__wrap {overflow:hidden;width:100%;padding:22px 0;border-bottom:1px solid #e4e4e4}
+.footer__company {float:left;width:454px;border-right:1px solid #e4e4e4}
+.footer__company-name {margin-bottom:12px;font-weight:bold;font-size:14px}
+.footer__company-address {font-size:12px;line-height:1.92;color:#666}
+.footer__customer {float:left;width:428px;padding-left:20px}
+.footer__customer-title {font-weight:bold;font-size:14px}
+.footer__customer-wrap {overflow:hidden;margin-top:11px}
+.footer__customer-tel {float:left;width:137px;font-weight:bold;font-size:26px;color:#fe5a83}
+.footer__customer-contact {float:right;width:291px;font-size:12px;line-height:1.64;color:#666}
+.footer__customer-contact>span {display:inline-block;width:38px}
+.footer__customer-contact>em,
+.footer__customer-contact>a {font-weight:bold;color:#222}
+.footer__customer-notice {float:left;width:137px;padding-top:7px;font-size:12px;color:#666}
+.footer__customer-notice>span {display:inline-block;width:13px;height:13px;margin:0 3px 0 0;vertical-align:middle;background:url('//image.alba.kr/e/common/201904/footer.png') no-repeat 0 0}
+.footer__customer-faq {float:right;width:291px}
+.footer__customer-faq>li {float:left;margin-right:6px;border:1px solid #e4e4e4}
+.footer__customer-faq>li>a {display:block;height:28px;padding:0 6px 0 10px;font-size:12px;line-height:26px;color:#666}
+.footer__customer-faq>li span {display:inline-block;width:2px;height:3px;margin:0 0 0 4px;vertical-align:middle;background:url('//image.alba.kr/e/common/201904/footer.png') no-repeat -20px 0}
+.footer__local {float:right;width:167px}
+.footer__local>dt {margin-bottom:18px;font-weight:bold}
+.footer__local>dd {float:left;width:54px;margin:-1px 0 0 -1px;border:1px solid #e4e4e4}
+.footer__local>dd>a {display:block;height:45px;line-height:42px;text-align:center}
+.footer__local>dd span {display:inline-block;width:2px;height:3px;margin:0 0 0 4px;vertical-align:middle;background:url('//image.alba.kr/e/common/201904/footer.png') no-repeat -20px 0}
+.footer__copyright {position:relative;height:50px;line-height:50px;text-align:center;color:#666}
+.footer__family {position:absolute;top:0;left:0;height:39px;border:1px solid #e9e9e9;border-top:0 none}
+.footer__family-title {float:left;height:39px;font-weight:bold;font-size:11px;line-height:39px;color:#666}
+.footer__family-title>a {display:block;height:100%;padding:0 12px 0 16px}
+.footer__family-title>a>span {display:inline-block;width:3px;height:5px;margin:-2px 0 0 4px;vertical-align:middle;background:url('//image.alba.kr/e/common/201904/footer.png') no-repeat -20px -10px}
+.footer__family-list {display:none;float:left;}
+.footer__family-list>li {float:left;height:39px;margin:0 10px;line-height:39px}
+.footer__family-list a {display:block;height:39px;font-size:0;color:transparent;background:url('//image.alba.kr/e/common/201904/footer_family.png') no-repeat}
+.footer__family-list a.gangsa {width:48px;background-position:0 0}
+.footer__family-list a.ganhojob {width:40px;background-position:-60px 0}
+.footer__family-list a.findall {width:111px;background-position:0 -40px}
+
+#Prize {width:100%;border-bottom:1px solid #e4e4e4}
+#Prize ul {overflow:hidden;width:1064px;margin:0 auto;background:url('//image.alba.kr/e/main/201806/Prize_201806.jpg') no-repeat 0 0}
+#Prize ul li {float:left;width:152px}
+#Prize ul li a {display:block;width:130px;height:106px;margin:0 auto;font-size:0;color:#fff}
+
+/* 팝업 - 입사지원자 알림  */
+#cMainPart_onDesire {z-index:10;position:absolute;top:0;left:50%;width:207px;height:71px;margin-left:-480px;background:url('//image.alba.kr/topMain/onDesire_bg.gif') no-repeat left top}
+#cMainPart_onDesire p.notice {position:absolute;top:14px;left:87px;font:11px Dotum;letter-spacing:-1px;color:#504f4d}
+#cMainPart_onDesire p.notice span {display:block;color:#6a6a68}
+#cMainPart_onDesire p.count {position:absolute;top:17px;left:8px;width:69px;text-align:center;letter-spacing:-1px;color:#5f5e5c}
+#cMainPart_onDesire p.count span {display:block;margin-bottom:2px;font-weight:bold;font:11px Dotum}
+#cMainPart_onDesire p.count a {font-weight:bold;text-decoration:underline;color:#f94c00}
+#cMainPart_onDesire p.confirm {position:absolute;top:43px;left:87px}
+#cMainPart_onDesire p.close {position:absolute;top:5px;right:7px;cursor:pointer}
+
+/* 배너 - 스카이 */
+#SkyBanner {position:fixed;_position:absolute;top:200px;left:50%;width:105px;margin-left:543px}
+body.job #SkyBanner,
+body.resume #SkyBanner,
+body.recruit #SkyBanner,
+body.story #SkyBanner {top:282px}
+body.biz #SkyBanner {top:190px}
+body.login #SkyBanner {top:205px}
+body.scroll #SkyBanner {z-index:200;top:60px}
+#SkyBanner div.quickService {position:relative;width:106px}
+#SkyBanner div.quickService h1 {display:none}
+#SkyBanner div.quickService .userInfo {width:104px;height:33px;border:1px solid #b2b2b2;border-bottom:0 none;line-height:33px;text-align:center;background-color:#f8f8f8}
+#SkyBanner div.quickService a.cnt {display:inline;font:bold 12px verdana;text-decoration:underline;color:#ff5400}
+#SkyBanner div.quickService a.quickBtn {display:block;width:88px;height:17px;padding-top:5px;margin-top:8px;font:11px dotum;letter-spacing:-1px;text-align:center;text-decoration:none;border:1px solid #848e9b;color:#fff;background:#989fa8}
+#SkyBanner div.quickService a.quickBtn span {display:inline-block;width:3px;height:14px;vertical-align:top}
+#SkyBanner div.quickService .menu {width:104px;border:1px solid #b2b2b2;border-top:1px solid #e6e6e6;border-bottom:0 none}
+#SkyBanner div.quickService .menuWrap {width:104px;background:#f8f8f8}
+/* #SkyBanner div.quickService .menu ul {padding-bottom:4px;border-bottom:1px solid #828282} */
+#SkyBanner div.quickService .menu ul {padding:7px 0 9px 5px;border-bottom:1px solid #bbb}
+#SkyBanner div.quickService .menu ul a {display:block;height:14px;padding:2px 0 0;font:11px dotum;letter-spacing:-1px;text-decoration:none}
+#SkyBanner div.quickService .menu ul a span {display:inline-block;width:2px;height:2px;margin:5px 6px 0 0;vertical-align:top;background:url('//image.alba.kr/e/skyBanner/201307/quickService.gif') no-repeat -94px -60px}
+#SkyBanner div.quickService .menu p {padding:8px 7px 18px;font:bold 11px dotum;letter-spacing:-1px;color:#474747;background:#fff}
+#SkyBanner div.quickService .menu p.myResumeInfo {border-bottom:0 none}
+#SkyBanner div.quickService .menu p.myJobInfo {padding-bottom:7px;font-weight:normal;text-align:center}
+#SkyBanner div.quickService .menu p.joinGuide {padding-top:2px;border:0 none}
+#SkyBanner div.quickService .menu p.resumeRead {padding:10px 7px 7px;border-top:1px solid #ddd;border-bottom:0 none;text-align:center}
+#SkyBanner div.quickService .menu p.resumeRead .icon {*zoom:1;display:inline-block;*display:inline;width:30px;height:30px;background:url('//image.alba.kr/biz/guide/searchtalent/talent_icon.png') no-repeat}
+#SkyBanner div.quickService .menu p.resumeRead .resumeRead-title {display:block;padding-top:10px;font-weight:normal;color:#474747;background-color:#fff}
+/* #SkyBanner div.quickService .menu ul {padding:0 0 0 6px} */
+#SkyBanner div.quickService .menu ul.noMember {border-bottom:0 none}
+#SkyBanner div.quickService .menu p a.cnt {display:inline;font:bold 12px verdana}
+#SkyBanner div.quickService .today {position:relative;border:1px solid #b2b2b2}
+#SkyBanner div.quickService .today h2 {width:99px;height:24px;padding:8px 0 0 5px;font:bold 11px dotum;letter-spacing:-1px;border-bottom:1px solid #e6e6e6}
+#SkyBanner div.quickService .today h2 a.cnt {padding-left:4px}
+#SkyBanner div.quickService .today .list {width:104px}
+#SkyBanner div.quickService .today .list li {background:#f8f8f8;border-bottom:1px solid #eee}
+#SkyBanner div.quickService .today .list li a {display:block;padding:6px 8px;font:11px/1.3 dotum;letter-spacing:-1px;color:#717171}
+#SkyBanner div.quickService .today .list li a strong {display:block;font-weight:normal;color:#3973cb}
+#SkyBanner div.quickService .today .list li a strong strong {display:inline}
+#SkyBanner div.quickService .today .list li a span.local {display:block;color:#999}
+#SkyBanner div.quickService .today .list li a span.pay span.consult {position:relative;top:1px;top:2px\9;font-weight:bold}
+#SkyBanner div.quickService .today .list li a span.pay span.num {font:bold 11px tahoma}
+#SkyBanner div.quickService .today .list li a span.pay img {margin-right:2px}
+#SkyBanner div.quickService .today .list li.noInfo {padding:13px 0 19px 7px;padding:13px 0 17px 7px\0;*padding:13px 0 17px 7px;font:11px dotum;letter-spacing:-1px}
+#SkyBanner div.quickService .today .viewAll {padding:10px 7px 0;font:11px dotum;letter-spacing:-1px}
+#SkyBanner div.quickService .today .page {position:relative;overflow:hidden;padding:5px 7px 10px}
+#SkyBanner div.quickService .today .page a {overflow:hidden;display:inline-block;float:left;width:43px;height:17px;text-indent:-999em;background:url('//image.alba.kr/e/skyBanner/201307/quickService.gif') no-repeat}
+#SkyBanner div.quickService .today .page a.prev {margin-right:4px;background-position:0 -216px}
+#SkyBanner div.quickService .today .page a.next {background-position:0 -243px}
+#SkyBanner .inquiry {width:104px}
+#SkyBanner .inquiry ul {width:92px;padding:4px 6px;background:#f8f8f8;border:1px solid #dedede;border-top:0 none}
+#SkyBanner .inquiry ul li {width:92px;height:23px}
+#SkyBanner .inquiry ul li.event {border-bottom:1px solid #dedede}
+#SkyBanner .inquiry ul li a {display:block;height:13px;padding:5px 0;text-align:center}
+#SkyBanner .inquiry ul li span {overflow:hidden;display:inline-block;width:75px;height:13px;line-height:999em;vertical-align:top;background:url('//image.alba.kr/e/skyBanner/201307/quickService.gif') no-repeat}
+#SkyBanner .inquiry ul li.event span {background-position:0 -24px}
+#SkyBanner .inquiry ul li.qna span {background-position:0 -42px}
+
+#SkyBanner div.quickServiceBrand {width:70px;margin:20px 0 0;padding-bottom:4px;background:url('//image.alba.kr/skyBanner/quickServiceBrand_bg.gif') no-repeat left bottom}
+#SkyBanner div.quickServiceBrand h1 {overflow:hidden;width:70px;height:20px;text-indent:-999em;background:url('//image.alba.kr/e/skyBanner/201307/quickService.gif') no-repeat 0 -80px}
+#SkyBanner div.quickServiceBrand ul {width:56px;margin:0 auto}
+#SkyBanner div.quickServiceBrand ul li {overflow:hidden;height:21px;text-indent:-999em;background:url('//image.alba.kr/e/skyBanner/201307/quickService.gif') no-repeat}
+#SkyBanner div.quickServiceBrand ul li.resumeReg {background-position:0 -105px}
+#SkyBanner div.quickServiceBrand ul li.resumeMag {background-position:0 -131px}
+#SkyBanner div.quickServiceBrand ul li.jodReg {background-position:0 -158px}
+#SkyBanner div.quickServiceBrand ul li.jobMag {background-position:0 -184px}
+#SkyBanner div.quickServiceBrand ul li a {display:block;height:21px}
+#SkyBanner p.magNomember {width:58px;margin:0;padding:25px 0;background:url('//image.alba.kr/skyBanner/bg_magNomember.gif') no-repeat left top}
+#SkyBanner p.magNomember a {display:block;margin:0 0 2px}
+#SkyBanner .reportAD {width:88px;height:24px;padding:4px 8px;border:1px solid #dedede;border-top:0 none;background:#f8f8f8}
+#SkyBanner .reportAD a {display:block;height:24px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/e/skybanner/201307/quickService141229.gif') no-repeat 0 -212px}
+.quickTop {position:fixed;_position:absolute;bottom:-33px;left:50%;margin-left:543px}
+
+/* 배너 - 날개 */
+#WingBanner {position:absolute;top:204px;right:50%;margin-right:545px}
+body.job #WingBanner,
+body.resume #WingBanner,
+body.recruit #WingBanner,
+body.story #WingBanner {top:282px}
+
+#WingBanner .pointGuide {position:relative;width:65px;height:75px;margin-left:15px}
+#WingBanner .pointGuide .pointShadow {position:absolute;right:50%;bottom:0;width:43px;height:12px;margin-right:-21px;background:url('//image.alba.kr/person/point.png') no-repeat 0 -84px;animation:alPoShadow 1.5s ease-out 1s forwards;-webkit-animation:alPoShadow 1.5s ease-out 1s forwards}
+#WingBanner .pointGuide .pointBtn {position:absolute;right:50%;bottom:5px;display:block;width:55px;height:55px;margin-right:-27px;font:0/0 Dotum;color:transparent;background:url('//image.alba.kr/person/point.png') no-repeat 0 -24px;animation:alPoBtn 1.5s ease-out 1s forwards;-webkit-animation:alPoBtn 1.5s ease-out 1s forwards}
+#WingBanner .pointGuideLayer {z-index:1100;display:none;position:fixed;left:0;top:0;width:100%;height:100%}
+#WingBanner .pointGuideLayer .layerWrap {z-index:1100;position:absolute;left:50%;top:50%;width:380px;margin:0 0 0 -193px;background:#fff;border:3px solid #494949;box-shadow:0 0 5px #494949}
+#WingBanner .pointGuideLayer .title {padding:17px 0 12px 18px;font:bold 14px Gulim;color:#000;border-bottom:1px solid #eaeaea}
+#WingBanner .pointGuideLayer .title strong {display:inline-block;height:19px;height:17px\0;*height:17px;padding:5px 7px 0;padding:7px 7px 0\0;*padding:7px 7px 0;font-size:12px;color:#ff0000;background:#fff9f7;border:1px solid #ffd4d4}
+#WingBanner .pointGuideLayer .pointList {margin-top:-1px;padding:0 20px;border-bottom:1px solid #cdcdcd}
+#WingBanner .pointGuideLayer .pointList li {position:relative;padding:11px 0 11px 4px;border-top:1px solid #eaeaea}
+#WingBanner .pointGuideLayer .pointList li em {display:inline-block;width:34px;height:23px;padding:11px 0 0;font-weight:bold;text-align:center;vertical-align:middle;color:#614400;background:#ffc000;border-radius:50%}
+#WingBanner .pointGuideLayer .pointList li strong {display:inline-block;width:210px;padding-left:7px;vertical-align:middle;color:#282828}
+#WingBanner .pointGuideLayer .pointList li .contants {display:block;margin-top:3px;font-weight:normal;color:#666}
+#WingBanner .pointGuideLayer .pointList li .state {display:inline-block;width:73px;height:21px;height:19px\0;*height:20px;*margin-left:4px;padding:8px 0 0;padding:10px 0 0\0;*padding:9px 0 0;line-height:14px;text-align:center;vertical-align:middle;color:#dc5333;background:#fff9f7;border:1px solid #ffd4d4;border-bottom:1px solid #ecbbb7}
+#WingBanner .pointGuideLayer .pointList li .state.ing {height:28px;height:26px\0;*height:27px;padding:1px 0 0;padding:3px 0 0\0;*padding:2px 0 0;color:#dc5333;background:#fff;border:1px solid #ffd4d4}
+#WingBanner .pointGuideLayer .pointList li .state.complete {color:#9d9c9c;background:#fff;border:1px solid #e2e2e2}
+#WingBanner .pointGuideLayer .btnAction {overflow:hidden;padding:20px 0;text-align:center}
+#WingBanner .pointGuideLayer .btnAction a {display:inline-block;margin:0 auto;padding:11px 25px 10px;padding:12px 25px 9px\0;*padding:12px 25px 9px;font-weight:bold;text-align:center;text-decoration:none;vertical-align:top;color:#000;background:#fff;border:1px solid #d5d5d5;border-bottom:1px solid #aaa}
+#WingBanner .pointGuideLayer .btnAction a span {display:inline-block;width:6px;height:9px;margin:0 0 0 4px;background:url('//image.alba.kr/person/point.png') no-repeat -69px -28px}
+#WingBanner .pointGuideLayer .closeBtn {position:absolute;right:13px;top:16px;width:14px;height:14px;font:0/0 Dotum;color:transparent;background:url('//image.alba.kr/person/point.png') no-repeat -80px -28px}
+#WingBanner .pointGuideLayer .filter {z-index:1100}
+@keyframes alPoBtn {0% {bottom:5px} 20% {bottom:5px} 27% {bottom:30px} 55% {bottom:3px} 60% {bottom:3px} 70% {bottom:30px} 90% {bottom:2px} 96% {bottom:7px} 100% {bottom:5px}}
+@-webkit-keyframes alPoBtn {0% {bottom:5px} 20% {bottom:5px} 27% {bottom:30px} 55% {bottom:3px} 60% {bottom:3px} 70% {bottom:30px} 90% {bottom:2px} 96% {bottom:7px} 100% {bottom:5px}}
+@keyframes alPoShadow {0% {opacity:1;transform:scale(1,1)} 20% {opacity:1;transform:scale(1,1)} 27% {opacity:0.5;transform:scale(0.7,0.7)} 55% {opacity:1;transform:scale(1.1,1.1)} 60% {opacity:1;transform:scale(1.1,1.1)} 70% {opacity:0.5;transform:scale(0.7,0.7)} 90% {opacity:1;transform:scale(1.1,1.1)} 100% {opacity:1;transform:scale(1,1)}}
+@-webkit-keyframes alPoShadow {0% {opacity:1;-webkit-transform:scale(1,1)} 20% {opacity:1;-webkit-transform:scale(1,1)} 27% {opacity:0.5;-webkit-transform:scale(0.7,0.7)} 55% {opacity:1;-webkit-transform:scale(1.1,1.1)} 60% {opacity:1;-webkit-transform:scale(1.1,1.1)} 70% {opacity:0.5;-webkit-transform:scale(0.7,0.7)} 90% {opacity:1;-webkit-transform:scale(1.1,1.1)} 100% {opacity:1;-webkit-transform:scale(1,1)}}
+
+/* 하단 이용가이드 레이어 */
+#UserGuideLayer {z-index:99999;position:fixed;bottom:0;right:0;width:183px}
+#UserGuideLayer .guideTitle {position:relative;width:183px}
+#UserGuideLayer .guideTitle h1{height:17px;padding:7px 10px 0;font-weight:bold;font-size:12px;color:#8ad6fd;background:url('//image.alba.kr/customer/Guide_box_top.gif') no-repeat left top}
+#UserGuideLayer .guideTitle p.btn {position:absolute;top:2px;right:2px}
+#UserGuideLayer .guideTitle p.btn img {cursor:pointer}
+#UserGuideLayer .guideTitle p.btn img.open {display:none}
+#UserGuideLayer .guideContens {overflow:hidden;width:163px;padding:8px 10px;font-size:11px;background:url('//image.alba.kr/customer/Guide_box_bottom.gif') no-repeat left bottom}
+#UserGuideLayer .guideContens p.txt {margin-bottom: 3px; letter-spacing:-1px}
+#UserGuideLayer .guideContens p.btn {float:left;height:22px;background:url('//image.alba.kr/customer/Guide_bul_Guideleft.gif') repeat-x left top}
+#UserGuideLayer .guideContens p.btn a {float:left;height:16px;padding:6px 13px 0 5px;font-weight:bold;letter-spacing:-1px;color:#036ba1;background:url('//image.alba.kr/customer/Guide_bul_Guideright.gif') no-repeat right  top}
+#JobDetail #UserGuideLayer .guideContens {display:none}
+#JobDetail #UserGuideLayer .guideTitle p.btn img.open {display:block}
+#JobDetail #UserGuideLayer .guideTitle p.btn img.close {display:none}
+
+/* 기업회원 로그인 알림 */
+#LoginAlarm {z-index:99999;position:fixed;right:50%;bottom:0;margin-right:-480px;border:1px solid #7ac8f0}
+#LoginAlarm p {font:12px tahoma;letter-spacing:-1px}
+#LoginAlarm div.close {position:absolute;top:1px;right:1px}
+#LoginAlarm div.close img {cursor:pointer}
+
+#LoginAlarm .paymentWait {padding:5px;background:#ebf8ff;text-align:center;border:1px solid #fafdff}
+#LoginAlarm .paymentWait p.guide {padding:9px 25px;line-height:1.4;background:#fff}
+#LoginAlarm .paymentWait p.guide strong {color:#0062db}
+#LoginAlarm .paymentWait p.title {padding:9px 25px;font-weight:bold;line-height:1.4;background:#fff;border-top:1px solid #ebf8ff}
+#LoginAlarm .paymentWait p.action {padding:15px 25px 7px}
+#LoginAlarm .paymentWait p.action img {margin:0 1px}
+
+#LoginAlarm .bizCertState {padding:5px;background:#ebf8ff;border:1px solid #fafdff}
+#LoginAlarm .bizCertState p.title {padding:4px 6px 9px;font-weight:bold;text-align:center;color:#0068a4}
+#LoginAlarm .bizCertState p.state {padding:9px 6px;text-align:center;background:#fff}
+#LoginAlarm .bizCertState p.guide {padding:0 13px 9px;font:11px dotum;line-height:1.5;background:#fff}
+#LoginAlarm .bizCertState p.guide strong {font-weight:normal;color:#e74c00}
+#LoginAlarm .bizCertState p.guide em {margin-right:15px;letter-spacing:0}
+#LoginAlarm .bizCertState p.guide a {letter-spacing:0;color:#0082cc}
+#LoginAlarm .bizCertState p.view {padding:15px 6px 7px;text-align:center}
+
+/* 구글 AD */
+#GoogleAdSide {margin:10px 0 0 10px}
+#GoogleAdFooter {margin:0 0 10px 190px}
+
+/* 지니어스 추천 인재제공 서비스 */
+.geniusLayer {z-index:9999;display:none;position:absolute;width:596px;height:262px;text-indent:-999em;background:#fff url('//image.alba.kr/e/serviceguide/201401/genius_layer.png') no-repeat 0 0}
+.geniusLayer li {border:0 none !important}
+.geniusLayer p {background:none !important}
+.geniusLayer .view {position:absolute;top:12px;left:271px;width:71px;height:20px;text-indent:0}
+.geniusLayer .view a {display:block;height:20px;text-indent:-999em}
+.geniusLayer .close {position:absolute;top:0;right:0;width:49px;height:41px;text-indent:0}
+.geniusLayer .close a {display:block;height:41px;text-indent:-999em}
+
+/* 제휴사이트 잡서치 안내 */
+.jobsearchLayer {z-index:9999;display:none;position:absolute;width:490px;height:281px;text-indent:-999em;background:#fff url('//image.alba.kr/e/serviceguide/201603/jobsearch_layer.png') no-repeat 0 0}
+.jobsearchLayer p,
+.jobsearchLayer a {background:none !important}
+.jobsearchLayer .view {position:absolute;left:338px;top:64px;width:67px;height:18px;text-indent:0}
+.jobsearchLayer .view a {display:block;width:100% !important;height:18px !important;text-indent:-999em}
+.jobsearchLayer .close {position:absolute;top:0;right:0;width:49px;height:41px;text-indent:0}
+.jobsearchLayer .close a {display:block;width:100% !important;height:41px !important;text-indent:-999em}
+
+/* location 프로모션 영역 */
+#PrLocation {z-index:10;position:relative;width:1070px;margin:0 auto}
+.prLocation {position:absolute;top:20px;right:12px;padding-right:1px;letter-spacing:-1px}
+.prLocation a.linkLayer span {position:relative;top:-2px;display:inline-block;width:16px;height:16px;margin-right:4px;vertical-align:top;background:url('//image.alba.kr/e/common/201406/prLocation.png') no-repeat 0 0}
+.prLocationLayer {display:none;position:absolute;top:23px;right:-12px;width:200px;height:90px;background-color:#fff;border:2px solid #666}
+.prLocationLayer p.title {padding:10px 10px 0}
+.prLocationLayer p.guide {padding:5px 10px;font:11px/1.3 dotum;color:#888}
+.prLocationLayer p.link {position:absolute;bottom:0;right:0;width:190px;height:19px;height:18px\0;*height:18px;padding:7px 10px 0 0;padding-top:8px\0;*padding-top:8px;text-align:right;color:#fff;background-color:#63c5de}
+.prLocationLayer p.link a {color:#fff}
+.prLocationLayer p.link span {position:relative;top:3px;top:2px\0;*top:2px;display:inline-block;width:5px;height:7px;margin-left:4px;vertical-align:top;background:url('//image.alba.kr/e/common/201406/prLocation.png') no-repeat -37px 0}
+.prLocationLayer p.close {position:absolute;top:11px;right:8px}
+.prLocationLayer p.close a {display:block;width:9px;height:9px;text-indent:-999em;background:url('//image.alba.kr/e/common/201406/prLocation.png') no-repeat -47px 0}
+.prLocationLayer span.arrow {position:absolute;top:-8px;width:11px;height:8px;background:url('//image.alba.kr/e/common/201406/prLocation.png') no-repeat -21px 0}
+.prLocation1 span.arrow {left:26px;left:22px\0}
+.prLocation2 span.arrow {left:48px;left:43px\0}
+.prLocation3 span.arrow {left:37px;left:34px\0}
+.prLocation4 span.arrow {left:52px;left:48px\0}
+
+/* 채팅상담 */
+.customerChat-btn {position:fixed;left:50%;bottom:50px;width:58px;height:58px;margin-left:539px;padding:10px}
+.customerChat-btn img {width:100%}
+.customerChat-layerWrap {display:none;z-index:999999;position:fixed;left:0;top:0;width:100%;height:100%;display:none}
+.customerChat-layer {z-index:999998;position:fixed;left:50%;top:50%;background-color:#fff}
+.customerChat-layerContent {position:relative}
+.customerChat-layerClose {position:absolute;right:16px;top:17px;width:24px;height:24px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/common/customer_chat_bg.png') no-repeat -77px 0}
+
+/* 채팅상담 - 정보입력 */
+#CustomerChat-infoWrite .customerChat-layer {overflow-x:hidden;overflow-y:auto;width:361px;height:500px;padding:25px 32px 22px;margin:-300px 0 0 -213px;border:1px solid #c6c6c6}
+#CustomerChat-infoWrite .customerChat-layer * {font-weight:bold;font-family:'Malgun Gothic';letter-spacing:-0.05em}
+#CustomerChat-infoWrite p {margin-bottom:8px;font-size:15px;color:#8b8a8a}
+#CustomerChat-infoWrite .title {margin-bottom:22px;font-size:34px;text-align:center;color:#955c3f}
+#CustomerChat-infoWrite .title>.balloon {position:relative;top:12px;display:inline-block;width:57px;height:31px;margin-left:5px;vertical-align:top;background:url('//image.alba.kr/common/customer_chat_bg.png') no-repeat 0 0}
+#CustomerChat-infoWrite .customerChat-write {}
+#CustomerChat-infoWrite .customerChat-write>li {overflow:hidden;height:45px;margin-top:-1px;border:1px solid #cfcfcf}
+#CustomerChat-infoWrite .customerChat-write>li:first-child {margin-top:0}
+#CustomerChat-infoWrite .customerChat-write>li>.item {float:left;width:110px}
+#CustomerChat-infoWrite .customerChat-write>li>.item>label {display:block;height:33px;padding:12px 0 0 12px;font:bold 15px 'Malgun Gothic';letter-spacing:-0.05em;vertical-align:top}
+#CustomerChat-infoWrite .customerChat-write>li>.itemDetail {overflow:hidden;padding:0 5px}
+#CustomerChat-infoWrite .customerChat-write>li>.itemDetail>input {box-sizing:border-box;width:100%;height:44px;*height:45px;margin-top:1px;*margin-top:0;font-weight:normal;font-size:15px;vertical-align:top;color:#ababab;border:0 none;letter-spacing:0}
+#CustomerChat-infoWrite .customerChat-write>li.full {height:auto;margin:0;padding:27px 0 0;border:0 none}
+#CustomerChat-infoWrite .customerChat-write>li.full>.item {float:none;width:auto}
+#CustomerChat-infoWrite .customerChat-write>li.full>.item>label {height:auto;padding:0 0 8px;color:#8b8b8b}
+#CustomerChat-infoWrite .customerChat-write>li.full>.itemDetail {overflow:hidden;width:100%;padding:0}
+#CustomerChat-infoWrite .customerChat-write>li.full>.itemDetail>select {width:48%;height:32px;padding-left:10px;border:1px solid #d7d7d7}
+#CustomerChat-infoWrite .customerChat-write>li.full>.itemDetail>select:first-child {margin-right:10px}
+#CustomerChat-infoWrite .infomationAgree-wrap {padding:10px 0}
+#CustomerChat-infoWrite .infomationAgree-check {position:relative;padding:5px 0 5px 10px}
+#CustomerChat-infoWrite .infomationAgree-check>.input {position:relative;display:inline-block;vertical-align:top}
+#CustomerChat-infoWrite .infomationAgree-check>.input>input {z-index:1;position:absolute;left:0;top:0}
+#CustomerChat-infoWrite .infomationAgree-check>.input>label {z-index:2;position:relative;display:inline-block;height:20px;padding:0 0 0 25px;font-size:15px;line-height:20px;color:#181818;background:#fff url('//image.alba.kr/common/customer_chat_bg.png') no-repeat 0 -90px}
+#CustomerChat-infoWrite .infomationAgree-check>.input>input:checked+label ,
+#CustomerChat-infoWrite .infomationAgree-check>.input.on>label {background-position:0 -50px}
+#CustomerChat-infoWrite .infomationAgree-check .input.on input[type="checkbox"]+label  {background-position:0 -50px}
+#CustomerChat-infoWrite .infomationAgree-check>.agree-check-moreView {display:inline-block;font-size:15px;line-height:20px;letter-spacing:-0.07em;vertical-align:top;color:#ffa200;text-decoration:underline}
+#CustomerChat-infoWrite .infomationAgree {display:none;padding:5px 0 20px 15px}
+#CustomerChat-infoWrite .infomationAgree>p {font-size:13px}
+#CustomerChat-infoWrite .infomationAgree>ul>li {padding:3px 0 2px;font-size:12px;color:#000}
+#CustomerChat-infoWrite .customerChat-startBtn {display:block;height:51px;font-size:20px;line-height:51px;text-align:center;color:#3c3c3c;background:#ffd100;text-decoration:none}
+
+/* 채팅상담 - 시간안내 */
+#CustomerChat-timeOver .customerChat-layer {width:361px;height:256px;padding:54px 32px 22px;margin:-166px 0 0 -213px;border:1px solid #c6c6c6}
+#CustomerChat-timeOver .customerChat-layer * {font-weight:bold;font-family:'Malgun Gothic';letter-spacing:-0.05em;text-align:center}
+#CustomerChat-timeOver .customerChat-timeInfo-guide1 {margin-bottom:12px;font-size:17px;color:#949494}
+#CustomerChat-timeOver .customerChat-timeInfo-guide1>span {position:relative;top:3px;display:inline-block;width:20px;height:20px;margin-right:5px;vertical-align:top;background:url('//image.alba.kr/common/customer_chat_bg.png') no-repeat -80px -30px}
+#CustomerChat-timeOver .customerChat-timeInfo-title {margin-bottom:11px;font-size:26px;letter-spacing:-0.07em;color:#955c3f}
+#CustomerChat-timeOver .customerChat-timeInfo-list {margin-bottom:13px;}
+#CustomerChat-timeOver .customerChat-timeInfo-list>li {margin-top:3px;font-size:15px;color:#545454}
+#CustomerChat-timeOver .customerChat-timeInfo-list>li:first-child {margin-top:0}
+#CustomerChat-timeOver .customerChat-timeInfo-list>li>span {position:relative;top:10px;display:inline-block;width:2px;height:2px;margin-right:5px;vertical-align:top;background:#545454}
+#CustomerChat-timeOver .customerChat-timeInfo-guide2 {margin-bottom:27px;font-size:15px;color:#9e9e9e}
+#CustomerChat-timeOver .customerChat-timeInfo-btn {display:block;height:51px;font-size:20px;line-height:51px;text-align:center;color:#3c3c3c;background:#ffd100}
+
+/* 설문조사 */
+.survey-wrapper {position:fixed;bottom:100px;right:0}
+.survey__icon {position:relative;display:inline-block;width:35px;height:30px;vertical-align:top;font-size:0;line-height:0;background:url('//image.alba.kr/common/w_survey.png')}
+.survey__icon--pen {top:4px;width:24px;height:23px;margin-right:4px;background-position:0 0}
+.survey__icon--agree {margin-bottom:8px;background-position:0 -33px}
+.survey__icon--disagree {margin-bottom:8px;background-position:-45px -33px}
+.survey__icon--close {position:absolute;right:10px;top:11px;width:16px;height:15px;background-position:-40px 0}
+.survey__button {z-index:999999;position:fixed;bottom:100px;right:0;padding:7px 16px;font-size:12px !important;font-family:'Malgun Gothic','Apple SD Gothic Neo',dotum,gulim,sans-serif;letter-spacing:-0.05em;line-height:32px;border-radius:25px;background:#3366cc;color:#fff !important;
+	-webkit-animation: balloon 1s linear infinite;
+	animation: balloon 1s linear infinite;
+}
+@-webkit-keyframes balloon {
+	0% {bottom:100px}
+	50% {bottom:90px}
+	100% {bottom:100px}
+}
+@keyframes balloon {
+	0% {bottom:100px}
+	50% {bottom:90px}
+	100% {bottom:100px}
+}
+.survey__layer {z-index:999999;position:fixed;bottom:100px;right:0;font-family:'Malgun Gothic','Apple SD Gothic Neo',dotum,gulim,sans-serif;letter-spacing:-0.05em;text-align:left;border:1px solid #3366cc;background:#fff}
+.survey__head {height:39px;padding:0 35px 0 15px;border-bottom:1px solid #3366cc;font-size:12px;line-height:39px;text-align:left;background:#3366cc;color:#fff}
+.survey__body {position:relative;width:190px;padding:20px 10px}
+.survey__title {padding:0 0 10px;font-size:12px;text-align:center}
+.survey__list {*zoom:1}
+.survey__list:after {content:"";clear:both;display:table;width:100%;height:0;font-size:0;line-height:0}
+.survey__item {position:relative;padding:4px 0 3px 15px;font-size:12px}
+.survey__item--agree ,
+.survey__item--disagree {float:left;width:50%;padding:0;text-align:center;cursor:pointer}
+.survey__item--agree p,
+.survey__item--disagree p {font-size:12px}
+.survey__layer .survey__input {position:absolute;left:0;top:8px;margin:0}
+.survey__layer .survey__label {display:block;height:20px;font-size:12px;line-height:20px}
+.survey__layer .survey__label--etc {float:left;margin-right:8px}
+.survey__layer .survey__input-text {max-width:132px;height:18px;padding:0;line-height:18px;overflow:hidden}
+.survey__layer .survey__submit {display:block;height:30px;margin-top:10px;font-size:12px !important;line-height:30px;text-align:center;background:#534a3f;color:#fff}
+.survey__layer .survey__complete {font-size:12px;line-height:1.5;text-align:center}
+.survey__layer .survey__complete-bi {display:block;width:95px;margin:10px auto 0}
+.survey__layer .survey__complete-bi-img {width:100%}
+
+/* 약관동의 */
+.agreement-wrapper {position:relative;margin-top:40px}
+.agreement__title {font-weight:bold;font-size:12px;font-family:'Malgun Gothic','Apple SD Gothic Neo',dotum,gulim,sans-serif;letter-spacing:-0.03em}
+.agreement__table {width:100%;margin-top:14px !important;border-top:1px solid #ddd !important;border-bottom:1px solid #ddd !important;font-family:'Malgun Gothic','Apple SD Gothic Neo',dotum,gulim,sans-serif}
+.agreement__table-title {width:110px;padding:14px 20px 15px 15px !important;border:0 none !important;border-top:1px solid #eee !important;background:#f9f9f9 !important;color:#222 !important }
+.agreement__table-contents {width:auto;padding:14px 20px 15px 15px !important;border:0 none !important;border-top:1px solid #eee !important;color:#666 !important}
+.agreement__table-first-row .agreement__table-title ,
+.agreement__table-first-row .agreement__table-contents {border-top:0 none !important}
+.agreement__confirm {padding:20px 0 5px;text-align:center}
+.agreement__inputbox {position:relative;display:inline-block}
+.agreement__inputbox * {vertical-align:middle;cursor:pointer}
+.agreement__input {position:absolute;left:0;margin:0;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
+.agreement__label {z-index:1;position:relative;display:inline-block;height:17px;height:16px\0;*height:16px;padding:1px 0 0 20px;padding-top:2px\0;*padding-top:2px;font-family:'Malgun Gothic','Apple SD Gothic Neo',dotum,gulim,sans-serif;background:url('//image.alba.kr/comm/input.png') no-repeat;white-space:nowrap}
+.agreement__input[type="checkbox"] + label {background-position:0 1px}
+.agreement__inputbox.on .agreement__input[type="checkbox"] + label {background-position:0 -19px;color:#2073f0}
+.agreement__input[type="radio"] + label {background-position:0 -39px}
+.agreement__input.on .agreement__input[type="checkbox"] + label {background-position:0 -59px;color:#2073f0}

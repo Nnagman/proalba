@@ -66,107 +66,60 @@ $(document).ready(function(){
 				}
 		});
 		
-		var email1,email2,email;
-		$("#dev_M_Email").change(function(){
-			email1 = $("#dev_M_Email").val();
-		});
 		
-		$("#dev_mail_etc").change(function(){
+		var email1,email2,email;
+		$("#email_select").change(function () {
+		    if ($("#email_select").val() != "1") {
+		      $("#dev_mail_etc").val($("#email_select").val());
+		      $("#dev_mail_etc").attr("disabled", true);
+		      var email2 = $("#email_select").val();
+		    }
+		    if ($("#email_select").val() == "1") {
+		      $("#dev_mail_etc").attr("disabled", false);
+		    }
+		  });
+		
+
+        $("#btn_modi").click(function(){
+
+            var email1,email2,email;
+            email1 = $("#dev_M_Email").val();
 			email2 = $("#dev_mail_etc").val();
 			email = email1 + '@' + email2;
-			$("#dev_mail_etc").append('<input id="email" name="email" value="'+email+'" type="text"/>');
-			console.log(email1)
-			console.log(email2)
-			console.log(email)
-		});
-		
-		var pnum1,pnum2,pnum3,p_Number;
-		
-		pnum1 = $("#dev_hphone1").val();
-		
-		$("#dev_hphone1").select(function(){
-			pnum1 = $("select[name=Phone1]").val();
-		});
-		
-		$("#dev_hphone2").change(function(){
-			pnum2 = $("#dev_hphone2").val();
-		});
-		
-		$("#dev_hphone3").change(function(){
+            $("#email").val("");
+            $("#email").val(email);
+
+            var pnum1,pnum2,pnum3,p_Number;
+            pnum1 = $("select[name=Phone1]").val();
+            pnum2 = $("#dev_hphone2").val();
 			pnum3 = $("#dev_hphone3").val();
 			p_Number = pnum1+pnum2+pnum3;
-			$( "#phone" ).remove();
-			$("#dev_hphone3").append('<input id="phone" name="phone" value="'+p_Number+'" type="text"/>');
+			$( "#phone" ).val("");
+			$("#phone").val(p_Number);
+			console.log($("#phone").val());
 			console.log(pnum1);
 			console.log(pnum2);
-			console.log(pnum3);
-		});
-		
-		var address1,address2,address3,address4,address;
-		
-		$("#sample6_detailAddress").change(function(){
-			address1 = $("#sample6_postcode").val();
-			address2 = $("#sample6_address").val();
-			address3 = $("#sample6_detailAddress").val();
-			address4 = $("#sample6_extraAddress").val();
-			address=address1+address2+address4+address3;
-			$("#sample6_extraAddress").append('<input name="address" value="'+address+'" type="text"/>');
-			console.log(address1);
-			console.log(address2);
-			console.log(address3);
-			console.log(address4);
+            console.log(pnum3);
 			
-		});
-		
-		$("#double_check").click(function(){
-			var id = $("#id").val();
-			
+            var formData = $("#infoModi").serialize(); 
 			$.ajax({
-				async: true,
+				async: false,
 				type: 'POST',
-				data: id,
-				url: 'idcheck',
-				dataType: 'json',
-				contentType: 'application/json; charset=UTF-8',
+				data: formData,
+				url: 'http://localhost:8080/proalba/pregisterModify',
 				success: function(data){
-	                if (data.cnt > 0) {
-	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-	                    $("#id").focus();
-	                } else {
-	                    alert("사용가능한 아이디입니다.");
-	                    $("#dev_pwd1").focus();
-	                    $("#btn_signup").removeAttr("disabled");
-	                    $("#dev_idchk").attr("disabled");
-	            		var m_code = $("#m_code").val()+$('#id').val();
-	            		console.log(m_code);
-	            		$("#m_code").val(m_code);
-	                }
+                    alert("수정 성공");
 	            },
 	            error : function(error) {
 	                alert("error : " + error);
 	            }
 			});
+			
+			//핸드폰 번호 숫자만 입력받기.
+			$(".tPhone").on("keyup", function(){
+				 $(this).val($(this).val().replace(/[^0-9]/g,""));
+			});
+
 		});
-		
-		var d = new Date();
 });
 
-//핸드폰 번호 숫자만 입력받기.
-$(document).ready(function(){
-	$(".tPhone").on("keyup", function(){
-		 $(this).val($(this).val().replace(/[^0-9]/g,""));
-	});
-});
-
-$(document).ready(function () {
-	  $("#email_select").change(function () {
-	    if ($("#email_select").val() != "1") {
-	      $(".email2").val($("#email_select").val());
-	      $(".email2").attr("disabled", true);
-	      email2 = $("#email_select").val();
-	    }
-	    if ($("#email_select").val() == "1") {
-	      $(".email2").attr("disabled", false);
-	    }
-	  });
-	});

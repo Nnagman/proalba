@@ -9,7 +9,7 @@ import com.ateam.proalba.domain.WcontractVO;
 
 public interface ContractDAO {
 	void add_contract(WcontractVO wcontractVO) throws Exception;
-	List<WcontractVO> select_contract(LoginDTO loginDTO) throws Exception;
+	List<WcontractVO> select_contract(String id) throws Exception;
 	WcontractVO select_contract2(Map<String, String[]> map) throws Exception;
 	List<WcontractVO> listPaging(int page) throws Exception;
 	List<WcontractVO> listCriteria(Criteria criteria) throws Exception;

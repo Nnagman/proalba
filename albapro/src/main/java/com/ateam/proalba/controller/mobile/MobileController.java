@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
 import com.ateam.proalba.service.qna.QnAService;
@@ -38,6 +40,7 @@ public class MobileController {
 	private MobileService mobileService;
 	private MobileAttendanceService mobileAttendanceService;
 	private QnAService qnaService;
+	private WorkManageService workmanage;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -75,6 +78,16 @@ public class MobileController {
 		List<MobileWorkPlaceVO> mobileWorkPlaceVO;
 		mobileWorkPlaceVO = mobileAttendanceService.mobileFoundWorkPlace(p_id);
 		JSONArray pJson = JSONArray.fromObject(mobileWorkPlaceVO);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.cworkManage", method = RequestMethod.GET)
+	public JSON mobilecworkManagePOST(@RequestBody String id) throws Exception {
+		logger.info(id);
+		List<WorkManageVO> WorkManageVO;
+		WorkManageVO = workmanage.listAll(id);
+		JSONArray pJson = JSONArray.fromObject(WorkManageVO);
 		return pJson;
 	}
 	
@@ -130,4 +143,5 @@ public class MobileController {
 		
 		return pJson;
 	}
+	
 }

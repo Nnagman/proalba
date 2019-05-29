@@ -6,7 +6,7 @@
 <mapper namespace="post">
 	<select id="listAll" resultType="com.ateam.proalba.domain.PostVO">
 		<include refid="pagingHeader"></include>
-		SELECT p_code, title, p_content, id, p_date, viewcnt, name, (select count(*) from reply where p_code = p.p_code) recnt
+		SELECT p_code, title, p_content, id, p_date, viewcnt, name, (select count(*) from reply where p_code = p.p_code) recnt, p.m_code
 		FROM post p, member m 
 		<include refid="search"></include>
 		ORDER BY p_code DESC, p_date DESC

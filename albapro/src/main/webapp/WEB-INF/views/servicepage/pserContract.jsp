@@ -134,7 +134,7 @@ margin-top:20px;
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="contract" varStatus="i" items="${contracts}">
+						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
 								<td>${contract.work_place_name}</td>
 								<td>${contract.start_period}</td>

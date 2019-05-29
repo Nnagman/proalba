@@ -70,6 +70,10 @@
 								test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 								<%@ include file="cmenu.jsp"%>
 							</c:if>
+							<c:if
+								test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
+								<%@ include file="amenu.jsp" %>
+							</c:if>
 						</ul>
 
           <!-- Right -->

@@ -26,8 +26,8 @@ public class ContractServiceImplement implements ContractService {
 	}
 
 	@Override
-	public List<WcontractVO> select_contract(LoginDTO loginDTO) throws Exception {
-		return contractDAO.select_contract(loginDTO);
+	public List<WcontractVO> select_contract(String id) throws Exception {
+		return contractDAO.select_contract(id);
 	}
 
 	@Override

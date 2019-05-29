@@ -12,10 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.controller.pservice.PworkmanageController;
+
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
@@ -25,6 +29,10 @@ import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 
 import net.sf.json.JSONArray;
+
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @Controller
 public class WorkmanageController {
@@ -49,6 +57,7 @@ public class WorkmanageController {
 		return mav;
 	}
 	
+
 	
 	
 	
@@ -101,4 +110,17 @@ public class WorkmanageController {
 	
 	
 	
+
+	@ResponseBody
+	@RequestMapping(value ="/m.cworkmanage", method = RequestMethod.GET)
+	public JSON mcworkmanageGET(Model model, String id) throws Exception {
+		
+		logger.info("c id:  "+ id);
+		logger.info("Welcome CserviceController");
+		List<WorkManageVO> list = workManage.listAll(id);
+		logger.info(list.toString());
+		JSONArray pJson = JSONArray.fromObject(list);
+		return pJson;
+	}
+
 }
