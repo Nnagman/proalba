@@ -13,6 +13,9 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -35,14 +38,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.controller.cservice.CserviceController;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -55,7 +59,7 @@ import com.ateam.proalba.util.UploadFileUtils;
 
 @Controller
 public class ContractController {
-	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ContractController.class);
 	private final ContractService contractService;
 	private final MemberService memberService;
 	private final PdfFileService pdfFileService;
@@ -68,21 +72,18 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/contract", method = RequestMethod.GET)
-	public String pcontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
-		PageMaker pageMaker = new PageMaker();
-		criteria.setM_code("p"+loginDTO.getId()); // m_code´Ï±ñ ¾Õ¿¡ pºÙ¿©Áà¾ßÇÔ.
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
-	    
-	    String id = criteria.getId();
-	    criteria.setId("p"+id);
-	    
-	    request.setAttribute("message", "contractPage");
-	    request.setAttribute("contracts", contractService.listCriteria(criteria));
-	    request.setAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "servicepage/pserContract";
+	public ModelAndView pcontractGET(Model model,@RequestParam("id") String id) throws Exception {
+		model.addAttribute("message", "");
+		List<WcontractVO> list = contractService.select_contract("p"+id);
+		logger.info(list.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pserContract");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
@@ -130,7 +131,7 @@ public class ContractController {
 	@RequestMapping(value="/wcontract/upload", method=RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
 	public ResponseEntity<String> uploadContract(MultipartFile file,ServletRequest request, HttpServletRequest request2) throws Exception {
 		logger.info("uploadAjax Cont");
-		String folderName = "contract";	//È¸»ç·Î°í Æú´õ ÀÌ¸§ ¼³Á¤ 
+		String folderName = "contract";	//íšŒì‚¬ë¡œê³  í´ë” ì´ë¦„ ì„¤ì • 
 		
 		String uploadPath = request.getServletContext().getRealPath("/resources");
 		
@@ -215,7 +216,7 @@ public class ContractController {
          
         try {
             String browser = request.getHeader("User-Agent"); 
-            //ÆÄÀÏ ÀÎÄÚµù 
+            //íŒŒì¼ ì¸ì½”ë”© 
             if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) {
                 filename = URLEncoder.encode(filename, "UTF-8").replaceAll("\\+", "%20");
             } else {
@@ -229,7 +230,7 @@ public class ContractController {
             return ;
         }
          
-        // ÆÄÀÏ¸í ÁöÁ¤        
+        // íŒŒì¼ëª… ì§€ì •        
         response.setContentType("application/octer-stream");
         response.setHeader("Content-Transfer-Encoding", "binary;");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
@@ -253,24 +254,24 @@ public class ContractController {
 	}
 	
 	public int mailSender(String mail, String link) {
-		//0Àº Á¤»ó
-		//-1 = ÀÌ¸ŞÀÏ °ª ³Î
-		//-2 = °èÁ¤ Á¢±Ù ±ÇÇÑÀÌ ¾ø°Å³ª Æ÷Æ®°¡ ¾È¿­·Á ÀÖ´Â°ÅÀÓ   
+		//0ì€ ì •ìƒ
+		//-1 = ì´ë©”ì¼ ê°’ ë„
+		//-2 = ê³„ì • ì ‘ê·¼ ê¶Œí•œì´ ì—†ê±°ë‚˜ í¬íŠ¸ê°€ ì•ˆì—´ë ¤ ìˆëŠ”ê±°ì„   
 		if(mail == null) return -1;
 	    
 		
-		// ³×ÀÌ¹öÀÏ °æ¿ì smtp.naver.com À» ÀÔ·ÂÇÕ´Ï´Ù.
-		// GoogleÀÏ °æ¿ì smtp.gmail.com À» ÀÔ·ÂÇÕ´Ï´Ù.
+		// ë„¤ì´ë²„ì¼ ê²½ìš° smtp.naver.com ì„ ì…ë ¥í•©ë‹ˆë‹¤.
+		// Googleì¼ ê²½ìš° smtp.gmail.com ì„ ì…ë ¥í•©ë‹ˆë‹¤.
 		String host = "smtp.gmail.com";
 
-		final String username = ""; // ±¸±Û ¾ÆÀÌµğ @gmail.com »©°í
-		final String password = ""; // ºñ¹Ğ¹øÈ£
-		int port = 465; // Æ÷Æ®¹øÈ£
+		final String username = ""; // êµ¬ê¸€ ì•„ì´ë”” @gmail.com ë¹¼ê³ 
+		final String password = ""; // ë¹„ë°€ë²ˆí˜¸
+		int port = 465; // í¬íŠ¸ë²ˆí˜¸
 
-		// ¸ŞÀÏ ³»¿ë
-		String recipient = mail; // ¹Ş´Â »ç¶÷ÀÇ ¸ŞÀÏÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
-		String subject = "°è¾à¼­¿¡ ¼­¸íÇØÁÖ¼¼¿ä."; // ¸ŞÀÏ Á¦¸ñ ÀÔ·ÂÇØÁÖ¼¼¿ä.
-		String Roll = "";	//·£´ı°ª
+		// ë©”ì¼ ë‚´ìš©
+		String recipient = mail; // ë°›ëŠ” ì‚¬ëŒì˜ ë©”ì¼ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.
+		String subject = "ê³„ì•½ì„œì— ì„œëª…í•´ì£¼ì„¸ìš”."; // ë©”ì¼ ì œëª© ì…ë ¥í•´ì£¼ì„¸ìš”.
+		String Roll = "";	//ëœë¤ê°’
 		for (int i = 0; i < 8; i++) {
 			int rndVal = (int) (Math.random() * 62);
 			if (rndVal < 10) {
@@ -282,18 +283,18 @@ public class ContractController {
 			}
 		}
 
-		String body = "°è¾à¼­¸µÅ© : "+ link; // ¸ŞÀÏ ³»¿ë ÀÔ·ÂÇØÁÖ¼¼¿ä.
+		String body = "ê³„ì•½ì„œë§í¬ : "+ link; // ë©”ì¼ ë‚´ìš© ì…ë ¥í•´ì£¼ì„¸ìš”.
 
-		Properties props = System.getProperties(); // Á¤º¸¸¦ ´ã±â À§ÇÑ °´Ã¼ »ı¼º
+		Properties props = System.getProperties(); // ì •ë³´ë¥¼ ë‹´ê¸° ìœ„í•œ ê°ì²´ ìƒì„±
 
-		// SMTP ¼­¹ö Á¤º¸ ¼³Á¤
+		// SMTP ì„œë²„ ì •ë³´ ì„¤ì •
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.port", port);
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.enable", "true");
 		props.put("mail.smtp.ssl.trust", host);
 
-		// Session »ı¼º
+		// Session ìƒì„±
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			String un = username;
 			String pw = password;
@@ -304,14 +305,14 @@ public class ContractController {
 		});
 		session.setDebug(true); // for debug
 
-		Message mimeMessage = new MimeMessage(session); // MimeMessage »ı¼º
+		Message mimeMessage = new MimeMessage(session); // MimeMessage ìƒì„±
 		try {
-			mimeMessage.setFrom(new InternetAddress(mail));  // ¹ß½ÅÀÚ ¼ÂÆÃ , º¸³»´Â »ç¶÷ÀÇ ÀÌ¸ŞÀÏÁÖ¼Ò¸¦ ÇÑ¹ø ´õ ÀÔ·ÂÇÕ´Ï´Ù. ÀÌ¶§´Â ÀÌ¸ŞÀÏ Ç® ÁÖ¼Ò¸¦ ´Ù ÀÛ¼ºÇØÁÖ¼¼¿ä.
-			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); // ¼ö½ÅÀÚ¼ÂÆÃ //.TO ¿Ü¿¡ .CC(ÂüÁ¶)
-			mimeMessage.setSubject(subject);// Á¦¸ñ¼ÂÆÃ
-			mimeMessage.setText(body); // ³»¿ë¼ÂÆÃ
-			Transport.send(mimeMessage); // javax.mail.Transport.send() ÀÌ¿ë
-			// .BCC(¼ûÀºÂüÁ¶) µµ ÀÖÀ½
+			mimeMessage.setFrom(new InternetAddress(mail));  // ë°œì‹ ì ì…‹íŒ… , ë³´ë‚´ëŠ” ì‚¬ëŒì˜ ì´ë©”ì¼ì£¼ì†Œë¥¼ í•œë²ˆ ë” ì…ë ¥í•©ë‹ˆë‹¤. ì´ë•ŒëŠ” ì´ë©”ì¼ í’€ ì£¼ì†Œë¥¼ ë‹¤ ì‘ì„±í•´ì£¼ì„¸ìš”.
+			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); // ìˆ˜ì‹ ìì…‹íŒ… //.TO ì™¸ì— .CC(ì°¸ì¡°)
+			mimeMessage.setSubject(subject);// ì œëª©ì…‹íŒ…
+			mimeMessage.setText(body); // ë‚´ìš©ì…‹íŒ…
+			Transport.send(mimeMessage); // javax.mail.Transport.send() ì´ìš©
+			// .BCC(ìˆ¨ì€ì°¸ì¡°) ë„ ìˆìŒ
 		} catch (MessagingException e) {
 			e.printStackTrace();
 			return -2;
@@ -321,12 +322,12 @@ public class ContractController {
 
 	}
 	
-	// ÆÄÀÏ º¹»çÇÏ´Â ¸Ş¼Òµå
+	// íŒŒì¼ ë³µì‚¬í•˜ëŠ” ë©”ì†Œë“œ
 	public boolean nioFileCopy(String inFileName, String outFileName) {
 		Path source = Paths.get(inFileName);
 		Path target = Paths.get(outFileName);
 
-		// »çÀüÃ¼Å©
+		// ì‚¬ì „ì²´í¬
 		if (source == null) {
 			throw new IllegalArgumentException("source must be specified");
 		}
@@ -334,7 +335,7 @@ public class ContractController {
 			throw new IllegalArgumentException("target must be specified");
 		}
 
-		// ¼Ò½ºÆÄÀÏÀÌ ½ÇÁ¦·Î Á¸ÀçÇÏ´ÂÁö Ã¼Å©
+		// ì†ŒìŠ¤íŒŒì¼ì´ ì‹¤ì œë¡œ ì¡´ì¬í•˜ëŠ”ì§€ ì²´í¬
 		if (!Files.exists(source, new LinkOption[] {})) {
 			throw new IllegalArgumentException("Source file doesn't exist: "
 					+ source.toString());
@@ -342,7 +343,7 @@ public class ContractController {
 
 		
 		try {
-			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING); // ÆÄÀÏº¹»ç
+			Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING); // íŒŒì¼ë³µì‚¬
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -350,12 +351,12 @@ public class ContractController {
 			return false;
 		}
 
-		if (Files.exists(target, new LinkOption[] {})) { // ÆÄÀÏÀÌ Á¤»óÀûÀ¸·Î »ı¼ºÀÌ µÇ¾ú´Ù¸é
+		if (Files.exists(target, new LinkOption[] {})) { // íŒŒì¼ì´ ì •ìƒì ìœ¼ë¡œ ìƒì„±ì´ ë˜ì—ˆë‹¤ë©´
 			// System.out.println("File Copied");
-			return true; // true ¸®ÅÏ
+			return true; // true ë¦¬í„´
 		} else {
 			logger.info("File Copy Failed");
-			return false; // ½ÇÆĞ½Ã false
+			return false; // ì‹¤íŒ¨ì‹œ false
 		}
 	}
 }
