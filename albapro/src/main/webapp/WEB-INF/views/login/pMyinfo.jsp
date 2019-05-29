@@ -21,19 +21,19 @@
 						<tbody>
 						
 							<tr>
-								<th>아이디</th>
+								<th>아이디<span class="star">*</span></th>
 								<td>
 									<input type="text" name="id" id="dev_idchk" class="tBox tId" maxlength="16" title="아이디" readonly value=${login.id}>
 								</td>
 							</tr>
 							<tr>
-								<th>비밀번호</th>
+								<th>비밀번호<span class="star">*</span></th>
 								<td>
 									<input type="password" name="password" class="tBox tPwd" id="dev_pwd1" maxlength="16" placeholder="6~16자 영문, 숫자, 특수문자" title="비밀번호" autocomplete="off">
 								</td>
 							</tr>
 							<tr>
-								<th>비밀번호 확인</th>
+								<th>비밀번호 확인<span class="star">*</span></th>
 								<td>
 									<input type="password" name="i_Pw" id="dev_pwdconfirm" class="tBox tPwd" maxlength="16"
 									title="비밀번호확인" autocomplete="off">
@@ -46,7 +46,7 @@
 								</td>
 							</tr>
 							<tr>
-								<th>이름</th>
+								<th>이름<span class="star">*</span></th>
 								<td>
 									<input type="text" name="name" class="tBox" title="이름" id="dev_u_Name" maxlength="12" value=${login.name}>
 								</td>
@@ -73,7 +73,7 @@
 							</tr>
 
 							<tr>
-								<th>이메일</th>
+								<th>이메일<span class="star">*</span></th>
 								<td>
 									<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
 										<span> @</span> 
@@ -96,7 +96,7 @@
 								</td>
 							</tr>
 							<tr>
-								<th>휴대폰 번호</th>
+								<th>휴대폰 번호<span class="star">*</span></th>
 								<td>
 									<select id="dev_hphone1" name="Phone1" class="tBox joinBx tPhone" title="휴대폰 번호">
 										<option value="010" selected>010</option>
@@ -203,32 +203,25 @@
             
             <script>
             $(function(){
-            	
-            	  var str = '${login.email}';
-            	  var phone = '${login.phone}';
-            	  var sex ='${login.sex}';
-            	  var phone1=phone.substring( 3 ,7 );
-            	  var phone2=phone.substring( 7 ,11 );
-                  var substr=str.split('@');
-                  console.log(substr[0]);
-                  console.log(phone1);
-                  console.log(phone2);
-                  console.log(sex);
+            	var str = '${login.email}';
+           		var phone = '${login.phone}';
+            	var sex ='${login.sex}';
+            	var phone1=phone.substring( 3 ,7 );
+            	var phone2=phone.substring( 7 ,11 );
+                var substr=str.split('@');
                   
-              $('#dev_M_Email').val(substr[0]);
-              $('#dev_mail_etc').val(substr[1]);
-              $('#dev_hphone2').val(phone1);
-              $('#dev_hphone3').val(phone2);
+             	$('#dev_M_Email').val(substr[0]);
+              	$('#dev_mail_etc').val(substr[1]);
+              	$('#dev_hphone2').val(phone1);
+              	$('#dev_hphone3').val(phone2);
               
-              if(sex=="0"){
+              	if(sex=="0"){
             	  $('#sex1').prop('checked',true)
             	  $('#sex2').prop('checked',false);
-              }else{
+             	}else{
             	  $('#sex1').prop('checked',false)
             	  $('#sex2').prop('checked',true);
-              }
-                
-              
+              	}
             });
         
             
