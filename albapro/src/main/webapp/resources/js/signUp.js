@@ -66,7 +66,20 @@ $(document).ready(function(){
 				}
 		});
 		
+		
 		var email1,email2,email;
+		$("#email_select").change(function () {
+		    if ($("#email_select").val() != "1") {
+		      $("#dev_mail_etc").val($("#email_select").val());
+		      $("#dev_mail_etc").attr("disabled", true);
+		      var email2 = $("#email_select").val();
+		    }
+		    if ($("#email_select").val() == "1") {
+		      $("#dev_mail_etc").attr("disabled", false);
+		    }
+		  });
+		
+
 		$("#dev_M_Email").change(function(){
 			email1 = $("#dev_M_Email").val();
 		});
@@ -158,15 +171,3 @@ $(document).ready(function(){
 	});
 });
 
-$(document).ready(function () {
-	  $("#email_select").change(function () {
-	    if ($("#email_select").val() != "1") {
-	      $(".email2").val($("#email_select").val());
-	      $(".email2").attr("disabled", true);
-	      email2 = $("#email_select").val();
-	    }
-	    if ($("#email_select").val() == "1") {
-	      $(".email2").attr("disabled", false);
-	    }
-	  });
-	});
