@@ -14,10 +14,13 @@ margin-top:70px;
 
 .calicon{
 	float:right;
+    cursor:pointer;
+	
 }
 
 .calicon:hover{
 	color:black;
+	
 }
 
 .contract_title{

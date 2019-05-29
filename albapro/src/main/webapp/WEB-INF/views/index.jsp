@@ -26,9 +26,41 @@
 
           <!--Grid column-->
           <div class="col-md-6 mb-4">
-
+<%-- 
             <img src="${path}/resources/images/전자서명test.jpg" class="img-fluid z-depth-1-half"
-              alt="">
+              alt=""> --%>
+              
+              <div id="carouselExampleControls" class="carousel2 slide slide2" data-ride="carousel">
+
+  <div class="carousel-inner">
+  
+
+    <div class="carousel-item active">
+      <img class="d-block w-100" src= "${path}/resources/images/contractimg/1번.png">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${path}/resources/images/contractimg/2번.png">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${path}/resources/images/contractimg/3번.png">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${path}/resources/images/contractimg/4번.png">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="${path}/resources/images/contractimg/5번.png">
+    </div>
+    
+  </div>
+   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
           </div>
           <!--Grid column-->
@@ -106,161 +138,43 @@
    <hr class="mb-5">
 
       <!--Section: More-->
-      <section>
+         <section class="mt-5 wow fadeIn">
 
-        <h2 class="my-5 h3 text-center">...and even more</h2>
-        <!--First row-->
-        <div class="row features-small mt-5 wow fadeIn">
-
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fab fa-firefox fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2 pl-3">
-                <h5 class="feature-title font-bold mb-1">Cross-browser compatibility</h5>
-                <p class="grey-text mt-2">Chrome, Firefox, IE, Safari, Opera, Microsoft Edge - MDB loves all browsers;
-                  all browsers love MDB.
-                </p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
+        <!--Grid row-->
+        <div class="row">
 
           <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-level-up-alt fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">Frequent updates</h5>
-                <p class="grey-text mt-2">MDB becomes better every month. We love the project and enhance as much as
-                  possible.
-                </p>
-              </div>
-            </div>
-            <!--/Grid row-->
+          <div class="col-md-6 mb-4">
+
+            <img src="${path}/resources/images/그림1.png" 
+              alt="" style="width:500px;">
+
           </div>
-          <!--/Grid column-->
+          <!--Grid column-->
 
           <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-comments fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">Active community</h5>
-                <p class="grey-text mt-2">Our society grows day by day. Visit our forum and check how it is to be a
-                  part of our family.
-                </p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
+          <div class="col-md-6 mb-4 content-div">
 
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-code fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">jQuery 3.x</h5>
-                <p class="grey-text mt-2">MDB is integrated with newest jQuery. Therefore you can use all the latest
-                  features which come along with
-                  it.
-                </p>
-              </div>
-            </div>
-            <!--/Grid row-->
+            <!-- Main heading -->
+            <h3 class="h3 mb-3 content-p">의심 안해도 됩니다.</h3>
+         
+           
+            <!-- Main heading -->
+
+            <hr>
+			
+            <p class="content-p">사장님과 알바생의 근로계약서와 알바생의 경력 사항이 블록체인 네트워크에</p>
+             <p class="content-p">저장되어 근로계약의 신빙성있는 증거 자료 사장님도 의심없이 믿을 수 있는</p>
+             <p class="content-p">알바생의 경력 사항입니다.</p>
+             <p class="content-p">서로 의심없는 근로 계약 하세요!</p>
+
+            <!-- CTA -->
+
           </div>
-          <!--/Grid column-->
+          <!--Grid column-->
 
         </div>
-        <!--/First row-->
-
-        <!--Second row-->
-        <div class="row features-small mt-4 wow fadeIn">
-
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-cubes fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">Modularity</h5>
-                <p class="grey-text mt-2">Material Design for Bootstrap comes with both, compiled, ready to use
-                  libraries including all features as
-                  well as modules for CSS (SASS files) and JS.</p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
-
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-question fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">Technical support</h5>
-                <p class="grey-text mt-2">We care about reliability. If you have any questions - do not hesitate to
-                  contact us.
-                </p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
-
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="fas fa-th fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">Flexbox</h5>
-                <p class="grey-text mt-2">MDB fully supports Flex Box. You can forget about alignment issues.</p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
-
-          <!--Grid column-->
-          <div class="col-xl-3 col-lg-6">
-            <!--Grid row-->
-            <div class="row">
-              <div class="col-2">
-                <i class="far fa-file-code fa-2x mb-1 indigo-text" aria-hidden="true"></i>
-              </div>
-              <div class="col-10 mb-2">
-                <h5 class="feature-title font-bold mb-1">SASS files</h5>
-                <p class="grey-text mt-2">Arranged and well documented .scss files can't wait until you compile them.</p>
-              </div>
-            </div>
-            <!--/Grid row-->
-          </div>
-          <!--/Grid column-->
-
-        </div>
-        <!--/Second row-->
+        <!--Grid row-->
 
       </section>
  
