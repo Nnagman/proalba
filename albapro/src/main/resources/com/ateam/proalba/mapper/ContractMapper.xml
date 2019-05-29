@@ -18,6 +18,7 @@
 		<![CDATA[
 		SELECT * FROM contract
 		WHERE c_id = #{id} OR p_id = #{id}
+		order by c_code desc
   	  	]]>
 	</select>
 	

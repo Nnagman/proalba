@@ -52,7 +52,7 @@
 </head>
 <body>
 	<div id="SubWrap">
-		<form method="get" action="/job/main.asp" name="formSrchPublic"
+		<form method="get" action="     " name="formSrchPublic"
 			id="formSrchPublic">
 			<!-- SubSide -->
 
@@ -82,136 +82,47 @@
 								<dd class="content">
 									<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
 								</dd>
-								<dd class="data">
+								<dd class="data" style="display: block;">
 									<ul id="ulAreacd" class="tabForm">
-										<li id="02"><a href="#">서울</a></li>
-										<li id="051"><a href="#">부산</a></li>
-										<li id="053"><a href="#">대구</a></li>
-										<li id="032"><a href="#">인천</a></li>
-										<li id="062"><a href="#"">광주</a></li>
-										<li id="042"><a href="#">대전</a></li>
-										<li id="052"><a href="#">울산</a></li>
-										<li id="044"><a href="#">세종</a></li>
-										<li id="031"><a href="#">경기</a></li>
-										<li id="055"><a href="#">경남</a></li>
-										<li id="054"><a href="#">경북</a></li>
-										<li id="041"><a href="#">충남</a></li>
-										<li id="043"><a href="#">충북</a></li>
-										<li id="061"><a href="#">전남</a></li>
-										<li id="063"><a href="#">전북</a></li>
-										<li id="033"><a href="#">강원</a></li>
-										<li id="064"><a href="#">제주</a></li>
-										<li id="99"><a href="#">전국</a></li>
+										<li id="053" class="odd on"><a href="#" onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
 									</ul>
 									<ul id="ulGugun" class="inputWrap">
-										<li><span class="input "> <input type="radio"
+										<li><span class="input"> <input type="radio"
 												id="selGugun0" name="selGugun" value="전체"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '전체');  JOBSEARCH.fnAreaDisplay(this, '서울','전체',''); "><label
-												for="selGugun0"><strong>서울 전체</strong></label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun1" name="selGugun" value="강남구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '강남구');  "><label
-												for="selGugun1">강남구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun2" name="selGugun" value="강동구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '강동구');  "><label
-												for="selGugun2">강동구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun3" name="selGugun" value="강북구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '강북구');  "><label
-												for="selGugun3">강북구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun4" name="selGugun" value="강서구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '강서구');  "><label
-												for="selGugun4">강서구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun5" name="selGugun" value="관악구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '관악구');  "><label
-												for="selGugun5">관악구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun6" name="selGugun" value="광진구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '광진구');  "><label
-												for="selGugun6">광진구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun7" name="selGugun" value="구로구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '구로구');  "><label
-												for="selGugun7">구로구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun8" name="selGugun" value="금천구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '금천구');  "><label
-												for="selGugun8">금천구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun9" name="selGugun" value="노원구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '노원구');  "><label
-												for="selGugun9">노원구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun10" name="selGugun" value="도봉구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '도봉구');  "><label
-												for="selGugun10">도봉구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun11" name="selGugun" value="동대문구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '동대문구');  "><label
-												for="selGugun11">동대문구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun12" name="selGugun" value="동작구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '동작구');  "><label
-												for="selGugun12">동작구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun13" name="selGugun" value="마포구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '마포구');  "><label
-												for="selGugun13">마포구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun14" name="selGugun" value="서대문구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '서대문구');  "><label
-												for="selGugun14">서대문구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun15" name="selGugun" value="서초구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '서초구');  "><label
-												for="selGugun15">서초구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun16" name="selGugun" value="성동구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '성동구');  "><label
-												for="selGugun16">성동구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun17" name="selGugun" value="성북구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '성북구');  "><label
-												for="selGugun17">성북구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun18" name="selGugun" value="송파구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '송파구');  "><label
-												for="selGugun18">송파구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun19" name="selGugun" value="양천구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '양천구');  "><label
-												for="selGugun19">양천구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun20" name="selGugun" value="영등포구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '영등포구');  "><label
-												for="selGugun20">영등포구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun21" name="selGugun" value="용산구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '용산구');  "><label
-												for="selGugun21">용산구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun22" name="selGugun" value="은평구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '은평구');  "><label
-												for="selGugun22">은평구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun23" name="selGugun" value="종로구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '종로구');  "><label
-												for="selGugun23">종로구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun24" name="selGugun" value="중구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '중구');  "><label
-												for="selGugun24">중구</label></span></li>
-										<li><span class="input "> <input type="radio"
-												id="selGugun25" name="selGugun" value="중랑구"
-												onclick="JOBSEARCH.fnsetDong(this, '02', '서울', '중랑구');  "><label
-												for="selGugun25">중랑구</label></span></li>
-									</ul>
-									<ul id="ulDong" class="inputWrap dongWrap"
-										style="display: none;">
-										<li></li>
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '전체');  JOBSEARCH.fnAreaDisplay(this, '대구','전체',''); "><label
+												for="selGugun0"><strong>대구 전체</strong></label></span></li>
+										<li><span class="input on"> <input type="radio"
+												id="selGugun1" name="selGugun" value="남구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '남구');  "><label
+												for="selGugun1">남구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun2" name="selGugun" value="달서구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '달서구');  "><label
+												for="selGugun2">달서구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun3" name="selGugun" value="달성군"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '달성군');  "><label
+												for="selGugun3">달성군</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun4" name="selGugun" value="동구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '동구');  "><label
+												for="selGugun4">동구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun5" name="selGugun" value="북구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '북구');  "><label
+												for="selGugun5">북구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun6" name="selGugun" value="서구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '서구');  "><label
+												for="selGugun6">서구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun7" name="selGugun" value="수성구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '수성구');  "><label
+												for="selGugun7">수성구</label></span></li>
+										<li><span class="input"> <input type="radio"
+												id="selGugun8" name="selGugun" value="중구"
+												onclick="JOBSEARCH.fnsetDong(this, '053', '대구', '중구');  "><label
+												for="selGugun8">중구</label></span></li>
 									</ul>
 									<a href="#" class="dataCloseBtn">선택영역 닫기</a>
 								</dd>
@@ -1033,7 +944,7 @@
 								</span></td>
 								<td class="data">09:30~17:30</td>
 								<td class="pay"><span class="payIcon hour">시급</span><br>
-								<span class="number">10,000</span></td>
+									<span class="number">10,000</span></td>
 								<td class="regDate last"><strong>43분전</strong></td>
 							</tr>
 							<tr class="summaryView" id="JobFreeList93807519"
