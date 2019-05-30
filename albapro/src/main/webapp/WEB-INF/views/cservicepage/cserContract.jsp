@@ -33,7 +33,7 @@ height: 100%;
     transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
     
-.pser-con{
+.cser-con{
 position:relative;
 margin-top:70px;
 }
@@ -62,39 +62,25 @@ margin-top:20px;
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item  ">
-            <a class="nav-link" href="contract?id=${login.id}">
+           <li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+          <li class="nav-item active">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-              근태 관리
+              직원 관리
             </a>
           </li>
-          <li class="nav-item">
+        <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
+          </li> --%>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
@@ -106,89 +92,95 @@ margin-top:20px;
       </div>
     </div>
 <!-- End of Sidebar -->
-	</div>	
-	<div class="content">
-		<div class="pser-header"><%@ include file = "pserNavHeader.jsp" %> </div>
-	
-	  <div class="container-fluid fluid2">
-	    <div class="container-fluid ">
-	    	<div class="pser-con">    
-		    <div class="card card-plain">
-	      <div class="card-header card-header-primary">
-                <h4 class="card-title">경력 현황</h4>
-                <p class="card-category"> ${login.id} 님의 경력을 보여 줍니다. 
-              
-                </p>
-              </div>
-         <div class="row fluid-row">
-            
-              <c:forEach var="career" varStatus="i" items="${careers}">
-              <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                 
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">${career.work_place_name}</h4><Br>
-					<p>시작일:${career.join_date}</p>
-					<p>종료일:
-					<c:choose>
-						<c:when test="${career.end_date == null}">
-							아직 진행중인 알바 입니다.
-							</c:when>
-							<c:otherwise>
-							${career.end_date}
-							</c:otherwise>
-					</c:choose>
-					</p>
-					
-					  </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
+	  </div>
+      <div class="content">
+         <div class="cser-header"><%@ include file="cserNavHeader.jsp"%>
+         </div>
+         <div class="cser-con">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header card-header-primary">
+                           <h4 class="card-title ">전자근로 계약서 목록</h4>
+                           <p class="card-category">
+                              	전자 근로 계약서 목록 입니다. 
+
+                           </p>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table id="example" class="mdl-data-table" style="width: 100%">
+                               <thead>
+						<tr>
+							<th class="appDate" scope="col">회사명</th>
+							<th class="endDate" scope="col">계약시작일</th>
+							<th class="resume" scope="col">계약종료일</th>
+							<th class="check" scope="col">서명여부</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="contract" varStatus="i" items="${map.list}">
+							<tr>
+								<td>${contract.work_place_name}</td>
+								<td>${contract.start_period}</td>
+								<td>${contract.end_period}</td>
+								<c:if test="${contract.email_check eq '1'}">
+								<jsp:useBean id="now" class="java.util.Date" />
+								<td><a href="${path}/downloadContract?fileName=${contract.c_date}근로계약서.pdf&downName=${contract.fileName}">서명완료</a></td>
+								</c:if>
+								<c:if test="${contract.email_check eq '0'}">
+								<td><a href="${path}/csercheckContract?link=${contract.fileName}">서명필요</a></td>
+								</c:if>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+
+               </div>
             </div>
-				
-			</c:forEach>
-              </div>
-            </div>
-        </div>
-        </div> </div>
-		<div class="pser-footer"><%@ include file = "pserfooter.jsp" %></div>
-	</div>
-
-</div>
-
-
-	
-  
+         </div>
+         <div class="cser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
+      </div>
+   </div>
 
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
+
    <script src="resources/js/servicepage2/popper.min.js"></script>
-    <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
+    <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
       <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
         <script src="resources/js/servicepage2/moment.min.js"></script>
           <script src="resources/js/servicepage2/sweetalert2.js"></script>
             <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
               <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
                 <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
-                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script>
+                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
                     <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-                      <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
-                        <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script>
-                          <script src="resources/js/servicepage2/fullcalendar.min.js"></script>
-                            <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
+             <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
+                        <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
+                        <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
+                       <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
                               <script src="resources/js/servicepage2/nouislider.min.js"></script>
                                  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
                                    <script src="resources/js/servicepage2/arrive.min.js"></script>
-                                   <!--    <script src="resources/js/servicepage2/chartist.min.js"></script> -->
+                                      <script src="resources/js/servicepage2/chartist.min.js"></script>
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
-                                           <script src="resources/js/servicepage2/material-dashboard.js"></script>
+                                           <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
                                             <script src="resources/js/servicepage2/demo.js"></script>
-                                            
+   								
+ 	
+   								
+
+
+
+
+                                                
+                                 
    <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -223,7 +215,7 @@ margin-top:20px;
             } );
       
 
-        $('.fixed-plugin a').click(function(event) {
+        /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
@@ -302,7 +294,7 @@ margin-top:20px;
           if ($sidebar_responsive.length != 0) {
             $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
           }
-        });
+        }); */
 
         $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
@@ -369,9 +361,11 @@ margin-top:20px;
           }, 1000);
 
         });
-      });
+      }); 
     });
   </script>
+
+
 
  
 </body>

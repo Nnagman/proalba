@@ -109,26 +109,28 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
-	public String ccontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
-		PageMaker pageMaker = new PageMaker();
-		criteria.setM_code(loginDTO.getId());
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
-	    
-	    String id = criteria.getId();
-	    criteria.setId("c"+id);
-	    
-	    request.setAttribute("message", "contractPage");
-	    request.setAttribute("contracts", contractService.listCriteria(criteria));
-	    request.setAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "contract/ccontract";
+	public ModelAndView ccontractGET(Model model,@RequestParam("id") String id) throws Exception {
+		model.addAttribute("message", "");
+		List<WcontractVO> list = contractService.select_contract("c"+id);
+		logger.info(list.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.GET)
 	public String wcontractGET() throws Exception {
 		return "cservicepage/cserWcontract";
+	}
+	
+	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
+	public String wcontractFormGET() throws Exception {
+		return "cservicepage/cserWcontractForm";
 	}
 
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)

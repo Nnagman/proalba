@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
@@ -41,6 +43,8 @@ public class WorkmanageController {
 	WorkManageService workManage;
 	@Autowired
 	SalaryService salaryService;
+	@Autowired
+	CareerService careerService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(WorkmanageController.class);
 	
@@ -66,24 +70,18 @@ public class WorkmanageController {
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
 	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id) throws Exception {
-	
 		model.addAttribute("message", "");
 		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
 		logger.info("workManager:  "+list.toString());
 		logger.info(id);
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cservicepage/cserWorkmanagetable"); // 酉곕�� list.jsp濡� �ㅼ��
+		mav.setViewName("cservicepage/cserWorkmanagetable");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
 		
-		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
-		return mav; // list.jsp濡� List媛� ���щ����.
-		
-		
-	
-		
-		
+		mav.addObject("map", map);
+		return mav;
 	}
 	
 	
@@ -121,6 +119,21 @@ public class WorkmanageController {
 		logger.info(list.toString());
 		JSONArray pJson = JSONArray.fromObject(list);
 		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET)
+	public ModelAndView inqcareerGET(Model model,@RequestParam("id") String id) throws Exception {
+		model.addAttribute("message", "");
+		List<CareerVO> list = careerService.selectCareers("p"+id);
+		logger.info(list.toString());		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserInqcareer");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 
 }

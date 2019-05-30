@@ -35,5 +35,10 @@ public class CareerServiceImplement implements CareerService {
 	public int countCareers(LoginDTO loginDTO) throws Exception {
 		return careerDAO.countCareers(loginDTO);
 	}
+	
+	@Override
+	public List<CareerVO> selectCareers(String id) throws Exception {
+		return careerDAO.selectCareers(id);
+	}
 
 }

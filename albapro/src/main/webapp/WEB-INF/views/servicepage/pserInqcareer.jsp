@@ -62,38 +62,53 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-           <li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
+          <li class="nav-item  ">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              알바목록
+            </a>
+          </li>
+          
+          
+           <li class="nav-item active">
+            <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+          <li class="nav-item">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">person</i>
-              직원 관리
+              근태 관리
             </a>
           </li>
-       <%--    <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li> --%>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="inqcareer?id=${login.id}">
+              <i class="material-icons">library_books</i>
+              경력 관리
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>     
+          </li>
+        
         </ul>
       </div>
     </div>
 			<!-- End of Sidebar -->
 		</div>
 		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
 			</div>
 			<div class="pser-con">
 				<div class="container-fluid">
@@ -101,12 +116,9 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">직원 경력 조회</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
-
+										${login.name} 님의 경력을 볼수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">
@@ -114,21 +126,21 @@
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">날짜</th>
-													<th class="th-sm">출근시간</th>
-													<th class="th-sm">퇴근 시간</th>
+													<th class="th-sm">사업장명</th>
+													<th class="th-sm">입사일</th>
+													<th class="th-sm">퇴사일</th>
 
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
+														<td>${row.work_place_name}</td>
+														<td>${row.join_date}</td>
+														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
+														<c:if test="${row.end_date == null}"><td>현재 근무 중인 사업장입니다.</td></c:if>
 													</tr>
 												</c:forEach>
-
 											</tbody>
 
 										</table>
@@ -143,33 +155,7 @@
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 
-	</div>
-
-
-
-
-	<!-- 부트스트랩 -->
-  	<!-- 부트스트랩 modal -->
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-    	<script src="resources/js/bootstrap.js"></script>
-      <!-- Modal content  -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">출근 시간</h4>
-        </div>
-        <div class="modal-body">
-          <%@ include file = "../cservice/calendar.jsp" %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
+	</div> 
             
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 

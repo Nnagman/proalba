@@ -58,16 +58,8 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
            <li class="nav-item ">
-            <a class="nav-link" href="cserWcontract">
+            <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
@@ -85,12 +77,6 @@
               급여 관리
             </a>
           </li> --%>
-          <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-           직원  경력 조회     
-              </a>
-          </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
@@ -131,6 +117,7 @@
 												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
 												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
 												<a href="cserWorkmanagetable?id=${row.id}" class="btn btn-primary card-btn " >근태 기록</a>
+												<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
 											</div>
 										</div>
 												</c:forEach>
