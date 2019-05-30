@@ -13,6 +13,10 @@
 		</li>
 		
 		<li class="menuLi">
+			<a class="menuLink" href="/proalba">채용공고</a>
+		</li>
+		
+		<li class="menuLi">
 			<a class="menuLink" href="${path}/pworkmanage?id=${login.id}" target="blank">개인서비스</a>
 <!--	Full Down Menu -->
 			<%-- <div class="fulldrop scrolling-navbar Asize">

@@ -38,8 +38,8 @@ public class ContractDAOImplement implements ContractDAO {
 	}
 
 	@Override
-	public List<WcontractVO> select_contract(LoginDTO loginDTO) {
-		return sqlSession.selectList(NAMESPACE + ".select_contract", loginDTO);
+	public List<WcontractVO> select_contract(String id) {
+		return sqlSession.selectList(NAMESPACE + ".select_contract", id);
 	}
 
 	@Override

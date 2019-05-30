@@ -26,30 +26,25 @@
 
           <!--Grid column-->
           <div class="col-md-6 mb-4">
-<%-- 
-            <img src="${path}/resources/images/전자서명test.jpg" class="img-fluid z-depth-1-half"
-              alt=""> --%>
+ 
+            <%-- <img src="${path}/resources/images/전자서명test.jpg" class="img-fluid z-depth-1-half"
+              alt="">  --%>
               
-              <div id="carouselExampleControls" class="carousel2 slide slide2" data-ride="carousel">
+                 <video width="400" controls class="img-fluid z-depth-1-half video1" autoplay>
+  <source src="${path}/resources/images/contractimg/서명테스트.mp4" type="video/mp4">
+
+</video>
+            
+
+
 
   <div class="carousel-inner">
   
 
     <div class="carousel-item active">
-      <img class="d-block w-100" src= "${path}/resources/images/contractimg/1번.png">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${path}/resources/images/contractimg/2번.png">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${path}/resources/images/contractimg/3번.png">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${path}/resources/images/contractimg/4번.png">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="${path}/resources/images/contractimg/5번.png">
-    </div>
+ 
+   
+  
     
   </div>
    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -156,7 +151,7 @@
           <div class="col-md-6 mb-4 content-div">
 
             <!-- Main heading -->
-            <h3 class="h3 mb-3 content-p">의심 안해도 됩니다.</h3>
+            <h3 class="h3 mb-3 content-p3">믿어도 됩니다 .</h3>
          
            
             <!-- Main heading -->

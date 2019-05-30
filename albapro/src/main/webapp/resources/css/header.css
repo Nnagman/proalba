@@ -10,7 +10,7 @@ body{
     body,
     header,
     .carousel {
-      height: 60vh;
+      height: 50vh;
     
     }
 
@@ -53,14 +53,13 @@ body{
      
   
       }
-      header{
-      background-image: url("${path}/resources/images/¹è°æ2.jpg");
-      background-size: 100% 100%;
-      
-      }
+     
     
      
-
+   .carousel{
+      width:600px !important;
+      left:20% !important;
+      }
  .mr-auto, .mx-auto{
     margin-right:0px !important;
     }
@@ -109,7 +108,7 @@ margin-left:500px !important;
   }
     
   .loginicon{
-  	left:1020px !important;
+  	left:800px !important;
   	top:8px;
   }
     .header-logo{

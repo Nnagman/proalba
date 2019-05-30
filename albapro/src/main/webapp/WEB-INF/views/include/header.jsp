@@ -16,75 +16,15 @@
 
 </head>
 
-<style type="text/css">
-    html,
-    body,
-    header,
-    .carousel {
-      height: 60vh;
-    }
-
-    @media (max-width: 740px) {
-
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-       
-        
-      }
-    }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
-    }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-      .navbar:not(.top-nav-collapse) {
-        background: #929FBA !important;
-      }
-    }
-
-      
-      .d-block{
-      width: 500px  !important;
-      height:400px;
-      margin-top:200px;
-       margin-left:50px !important;
-     
+ <style type="text/css">
   
-      }
       header{
       background-image: url("${path}/resources/images/배경2.jpg");
       background-size: 100% 100%;
       
       }
-      .carousel{
-      width:600px !important;
-      left:20% !important;
-      }
-      
-     
-
- .mr-auto, .mx-auto{
-    margin-right:0px !important;
-    }
-    .navbar{
-    width:100%;
-    }
-
-
-.navbar-toggler{
-margin-left:500px !important;
-}
-  </style>
+  
+  </style> 
 
 <body>
 	
@@ -129,6 +69,10 @@ margin-left:500px !important;
 							<c:if
 								test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 								<%@ include file="cmenu.jsp"%>
+							</c:if>
+							<c:if
+								test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
+								<%@ include file="amenu.jsp" %>
 							</c:if>
 						</ul>
 

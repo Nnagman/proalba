@@ -175,8 +175,8 @@ font-weight: bold;
 }
 
 .con2-icon{
-	font-size:150px;
-	color:#5D5D5D !important;
+	font-size:100px;
+	color:#353535 !important;
 	
 	
 }
@@ -203,10 +203,23 @@ footer.page-footer{
 	background-color:#2e3949;
 }
 
-.content-div3{
+.content-p3{
 	padding-top:100px;
+	 font-weight: 800 !important;
 }
 
 .carousel2{
 	left:0% !important;
 }
+
+.main-img-slide{
+	margin-top:0px !important;
+	height:450px !important;
+}
+
+.video1{
+	width:100%;
+	/* height:100% !important; */
+/* 	margin-top:50px; */
+}
+

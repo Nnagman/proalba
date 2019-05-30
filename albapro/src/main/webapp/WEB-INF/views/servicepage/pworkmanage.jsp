@@ -42,6 +42,25 @@
 </head>
 
 
+
+<style>
+
+.card{
+width:100% !important;
+position:relative;
+margin-right:20px;
+}
+
+  .odd { background-color:#EAEAEA; }
+
+        .Even { background-color : white; }
+
+
+
+
+</style>
+
+
 <body>
 	<div class="wrapper">
 		<div class="div-sidebar">
@@ -52,7 +71,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/proalba" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -114,9 +133,9 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${login.id} 님의 근태를 볼수 있습니다. <i
+										${login.id} 님의 근태를 볼수 있습니다.  <i
 											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
+											data-target="#myModal">달력보기 calendar_today</i> 
 
 									</p>
 								</div>
@@ -147,6 +166,15 @@
 								</div>
 							</div>
 						</div>
+						
+			<%--  	<div class="col-md-5">
+              <div class="card card-profile">
+               
+                <div class="card-body">
+                    <%@ include file = "../cservice/calendar.jsp" %>
+                </div>
+              </div>
+            </div>  --%>
 
 					</div>
 				</div>
@@ -159,7 +187,7 @@
 
 
 
-	<!-- 부트스트랩 -->
+ 	<!-- 부트스트랩 -->
   	<!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -180,7 +208,7 @@
       </div>
       
     </div>
-  </div> 
+  </div>  
             
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
@@ -243,9 +271,16 @@
                     }
                 ]
             } );
+            
+            $('table.mdl-data-table tbody tr:odd').addClass('odd');
+
+            $('table.mdl-data-table tbody tr:even').addClass('Even');
+
+
+
       
 
-        /*  $('.fixed-plugin a').click(function(event) {
+            /*  $('.fixed-plugin a').click(function(event) {
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {

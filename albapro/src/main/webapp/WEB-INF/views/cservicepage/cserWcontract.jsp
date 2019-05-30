@@ -35,7 +35,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/proalba" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -50,28 +50,28 @@
           
           
            <li class="nav-item active">
-            <a class="nav-link" href="contract?id=${login.id}">
+            <a class="nav-link" href="cserWcontract">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-              근태 관리
+             직원 관리
             </a>
           </li>
-          <li class="nav-item ">
+        <%--   <li class="nav-item ">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li>
+          </li> --%>
           <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
-              경력 관리
+             직원 경력 조회
             </a>
           </li>
           <li class="nav-item ">

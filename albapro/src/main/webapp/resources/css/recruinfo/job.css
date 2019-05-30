@@ -1,0 +1,1651 @@
+@charset "euc-kr";
+
+#SubContents {position:relative}
+#SubContents h1 {padding:6px 0 10px 2px}
+#SubContents h1.jobAll {padding:0 0 10px}
+#SubContents p.guideText {height:32px;padding:16px 0 0 35px;margin:0 0 30px;border:1px solid #dcdcdc;color:#474747;background:#f9f9f9 url('//image.alba.kr/job/bul_square_blue.gif') no-repeat 25px 21px}
+
+/* select */
+select.select {height:28px;padding:0 25px 0 3px;padding-right:0\0;*padding-right:0;line-height:24px;background:url('//image.alba.kr/comm/select.png') no-repeat 100% center;background:none\0;*background:none;background-color:#fff;border:1px solid #bbb;-webkit-appearance:none;-webkit-appearance:menulist\0;*-webkit-appearance:menulist}
+@-moz-document url-prefix() {
+  select.select {-moz-appearance:none;text-indent:0.01px;text-overflow:""}
+}
+
+/* input */
+span.input {position:relative;display:inline-block}
+span.input * {vertical-align:middle;cursor:pointer}
+span.input input {position:absolute;width:0;height:0;margin:0;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
+span.input label {display:inline-block;height:14px;height:13px\0;*height:13px;padding:1px 0 0 20px;padding-top:2px\0;*padding-top:2px;background:url('//image.alba.kr/comm/input.png') no-repeat;white-space:nowrap}
+span.input.alone label {padding-left:22px}
+span.input input[type="checkbox"] + label {background-position:0 0}
+span.input.on input[type="checkbox"] + label {background-position:0 -20px;color:#2073f0}
+span.input input[type="checkbox"]:focus + label::before {content:"";position:absolute;top:0;left:0;box-shadow:0 0 0 3px rgba(131,192,253,0.5);width:15px;height:15px;border-radius:3px}
+span.input input[type="radio"] + label {background-position:0 -40px}
+span.input.on input[type="radio"] + label {background-position:0 -60px;color:#2073f0}
+span.input input[type="radio"]:focus + label::before {content:"";position:absolute;top:0;left:0;box-shadow:0 0 0 3px rgba(131,192,253,0.5);width:15px;height:15px;border-radius:50%}
+span.input.after label {padding-left:0;padding-right:32px}
+span.input.after.alone label {padding-right:22px}
+span.input.after input[type="checkbox"] + label {background-position:100% 0}
+span.input.after.on input[type="checkbox"] + label {background-position:100% -20px;color:#2073f0}
+span.input.after input[type="checkbox"]:focus + label::before {left:auto;right:0}
+span.input.after input[type="radio"] + label {background-position:100% -40px}
+span.input.after.on input[type="radio"] + label {background-position:100% -60px;color:#2073f0}
+span.input.after input[type="radio"]:focus + label::before {left:auto;right:0}
+
+/* pagenation */
+.pagenation.img {padding-top:80px;background-repeat:no-repeat;background-position:center 20px}
+.pagenation.img1 {background-image:url('//image.alba.kr/e/common/201707/paging_img01.png')}
+.pagenation.img2 {background-image:url('//image.alba.kr/e/common/201707/paging_img02.png')}
+.pagenation.img3 {background-image:url('//image.alba.kr/e/common/201707/paging_img03.png')}
+.pagenation.img4 {background-image:url('//image.alba.kr/e/common/201707/paging_img04.png')}
+.pagenation.img5 {background-image:url('//image.alba.kr/e/common/201707/paging_img05.png')}
+.pagenation.img6 {background-image:url('//image.alba.kr/e/common/201707/paging_img06.png')}
+.pagenation.img7 {background-image:url('//image.alba.kr/e/common/201707/paging_img07.png')}
+.pagenation.img8 {background-image:url('//image.alba.kr/e/common/201707/paging_img08.png')}
+.pagenation.img9 {background-image:url('//image.alba.kr/e/common/201707/paging_img09.png')}
+.pagenation.img10 {background-image:url('//image.alba.kr/e/common/201707/paging_img10.png')}
+.pagenation.img11 {background-image:url('//image.alba.kr/e/common/201707/paging_img11.png')}
+.pagenation.img12 {background-image:url('//image.alba.kr/e/common/201707/paging_img12.png')}
+
+/* SubSide - 채용정보 */
+#SubJobLocal {z-index:7}
+#SubJobKind {z-index:6}
+#SubJobNormal ul li.whole,
+#SubJobNormal ul li.government,
+#SubJobNormal ul li.search,
+#SubJobLocal ul li.local,
+#SubJobKind ul li.kind,
+#SubJobPeriod ul li.short,
+#SubJobPeriod ul li.dailyshort,
+#SubJobObject ul li.proSenior,
+#SubJobObject ul li.proYouth,
+#SubJobCustom ul li.custom {font-weight:bold}
+#SubJobNormal ul li.burning a {padding-right:13px;font-weight:bold;background:url('//image.alba.kr/comm/job_bul_burning.gif') no-repeat 100% -2px}
+#SubJobLocal ul li.map a {padding-right:17px;font-weight:bold;background:url('//image.alba.kr/comm/icon_map.png') no-repeat 100% 0}
+#SubJobCustom ul li.scrap {padding-top:3px}
+#SubJobCustom ul li.scrap a {padding-left:20px;padding-top:3px;background:url('//image.alba.kr/comm/icon_scrap.png') no-repeat 0 0}
+
+/* SubSide - 시즌 채용, 꿀알바 */
+#SubJobNormal ul li.contract {padding-top:5px;padding-bottom:7px}
+#SubJobNormal ul li.contract a {height:23px;height:22px\0;*height:22px;padding-top:11px;padding-top:12px\0;*padding-top:12px;background:url('//image.alba.kr/biz/certContract1.png') no-repeat 0 center}
+#SubJobNormal ul li.honey a {background:url('//image.alba.kr/comm/icon_honey1.png') no-repeat 0 center}
+#SubJobNormal ul li.gOffice a {background:url('//image.alba.kr/comm/icon_gOffice.png') no-repeat 0 center}
+#SubJobNormal ul li.seasonLunarNew a {background:url('//image.alba.kr/comm/icon_season_lunarNew.png') no-repeat 0 center}
+#SubJobNormal ul li.seasonSummer a {background:url('//image.alba.kr/comm/icon_season_summer.png') no-repeat 0 center}
+#SubJobNormal ul li.seasonChuseok a {background:url('//image.alba.kr/comm/icon_season_chuseok2.png') no-repeat 0 center}
+#SubJobNormal ul li.seasonSki a {background:url('//image.alba.kr/comm/icon_ski.png') no-repeat 0 center}
+#SubJobNormal ul li.seasonWhite a {background:url('//image.alba.kr/comm/icon_season_whiteday2015.gif') no-repeat 0 center}
+#SubJobNormal ul li.seasonValentine a {background:url('//image.alba.kr/comm/icon_season_ValentineDay.gif') no-repeat 0 center}
+#SubJobNormal ul li.seasonChildren a {background:url('//image.alba.kr/comm/icon_season_Children.gif') no-repeat 0 center}
+
+/* 우대 채용정보 */
+#SubJobObject ul {width:138px}
+#SubJobObject ul:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
+#SubJobObject ul li {float:left}
+#SubJobObject ul li a {display:inline-block;padding:0 6px;background:url('//image.alba.kr/comm/bul_bar.png') no-repeat 0 1px}
+#SubJobObject ul li.lineNo a {padding-left:0;background:none}
+#SubJobObject ul li.university {width:90px}
+#SubJobObject ul li.housewhife a {padding-right:0}
+#SubJobObject ul li.full {width:138px}
+#SubJobObject ul li.full a {padding:0;background:none}
+
+/* class */
+.btnBottom {display:block;padding:10px 0 0 0}
+.btnCenter {display:block;padding:15px 0 0;text-align:center}
+.none {display:none}
+.blankImage {display:none}
+
+/* common class : select 형태의 a 태그 */
+a.selectAnchor {overflow:hidden;display:inline-block;height:18px;padding:0 18px 0 0;white-space:nowrap;vertical-align:middle;cursor:default;background:#fff url('//image.alba.kr/recruit/bg_select_win7_chrome.gif') no-repeat 100% 0;background-image:url('//image.alba.kr/recruit/bg_select_win7.gif')\9;*background-image:url('//image.alba.kr/recruit/bg_select_winxp.gif');border:1px solid #abadb3;*border-color:#7f9db9}
+a.selectAnchor:hover,
+a.selectAnchor:focus,
+a.selectAnchor:active {text-decoration:none;color:#474747;background-position:100% -20px}
+a.selectAnchor span {overflow:hidden;display:inline-block;height:14px;padding:3px 2px 1px;padding:4px 2px 0\0;*padding:4px 2px 0;cursor:default}
+
+a.selectAnchor.disabled {background-position:100% -40px !important;*border-color:#c7c6bf}
+a.selectAnchor.disabled span {color:#a0a0a0;*color:#aaa99b !important;*background-color:#f4f4eb}
+
+@-moz-document url-prefix() {
+a.selectAnchor {height:20px;background-image:url('//image.alba.kr/recruit/bg_select_win7_firefox.gif');border:none;border-radius:2px}
+a.selectAnchor span {display:inline-block;padding:3px 2px 1px;border:1px solid #dbdfe6;border-top-color:#abadb3;border-right:none;border-bottom-color:#e3e9ef;border-radius:2px;border-top-right-radius:0;border-bottom-right-radius:0}
+a.selectAnchor:hover span,
+a.selectAnchor:focus span,
+a.selectAnchor:active span {border-color:#3c7fb1;border-top-color:#5794bf;border-left-color:#c5daed;border-bottom-color:#c7e2f1}
+a.selectAnchor.disabled span {padding:1px 2px 3px;color:#474747;border-color:#afafaf}
+}
+
+/* 성인인증 */
+.adultCert {width:697px;padding:14px 0 11px 73px;font:11px dotum;letter-spacing:-1px;line-height:1.5;color:#5d5d5d;background:#fafafa url('//image.alba.kr/job/icon_adult.gif') no-repeat 26px center;border:1px solid #e5e5e5}
+.adultCert strong {font-weight:normal}
+
+/* 선택검색 */
+.jobSearch {z-index:3;position:relative;margin-bottom:25px}
+.jobSearch fieldset {position:relative;width:1068px;border:1px solid #d5d5d5}
+.jobSearch .inputWrap {width:100%}
+.jobSearch .inputWrap:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
+.jobSearch .inputWrap li {float:left;position:relative;padding-top:9px}
+.jobSearch span.input.on label {color:#2073f0}
+.jobSearch input[type="text"] {height:22px;height:18px\0;*height:18px;padding:2px 5px 0;padding-top:6px\0;*padding-top:6px;border:1px solid #bbb}
+
+.jobSearch dl {width:1068px}
+.jobSearch dl:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
+.jobSearch dl .content {position:relative}
+.jobSearch dl .content .blank {display:inline-block;width:940px;height:19px;height:18px\0;*height:18px;padding:7px 8px 0;padding-top:8px\0;*padding-top:8px;text-decoration:none;color:#728fb0;background:#fff;border:1px solid #bbb}
+.jobSearch dl .content .value {display:inline-block;width:950px;padding:0 3px 3px;text-decoration:none;background:#fff;border:1px solid #bbb}
+.jobSearch dl .content .value span {display:inline-block;height:15px;height:14px\0;*height:14px;margin:3px 4px 0 0;padding:3px 5px 0;padding-top:4px\0;*padding-top:4px;color:#222;background:#e5f3ff;border:1px solid #cbe6ff}
+.jobSearch dl .content .value span button {display:inline-block;width:10px;height:15px;margin:0 0 0 4px;padding:0;vertical-align:middle;cursor:pointer;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -337px -36px;border:0 none}
+.jobSearch dl .data {display:none;float:left;position:relative;width:1066px;margin:5px -1px 0;background:#fff;border:2px solid #5da3d3}
+.jobSearch dl .data .tabForm {overflow:hidden;width:1066px;height:70px;background:#f3f3f4;border-bottom:2px solid #f8f8f8}
+.jobSearch dl .data .tabForm li {float:left}
+.jobSearch dl .data .tabForm li a {display:block;height:24px;height:23px\0;*height:23px;padding-top:10px;padding-top:11px\0;*padding-top:11px;text-align:center;border-right:1px solid #bbb;border-bottom:1px solid #bbb}
+.jobSearch dl .data .tabForm li.last a {border-right:0 none}
+.jobSearch dl .data .tabForm li.on a {font-weight:bold;color:#fff;background:#5da3d3;border-color:#487da1}
+.jobSearch dl .data .inputWrap {width:1020px;padding:6px 18px 15px}
+.jobSearch dl .data .inputWrap li {width:170px}
+.jobSearch dl .data .dataCloseBtn {position:absolute;right:10px;top:auto;bottom:12px;width:14px;height:13px;font:0/0 Dotum;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -319px -40px}
+
+.jobSearch .base {width:1068px;padding-bottom:10px;background:#fbfbfb}
+.jobSearch .base dl {padding-top:10px}
+.jobSearch .base dl .item {float:left;width:75px;height:20px;height:18px\0;*height:20px;padding:8px 0 0 25px;padding-top:10px\0;*padding-top:10px;font-weight:bold}
+.jobSearch .base dl .content {float:left}
+.jobSearch .base dl.area .data .tabForm li {width:118px}
+.jobSearch .base dl.area .data .tabForm li.last {width:122px}
+.jobSearch .base dl.area .data .inputWrap li {width:127px}
+.jobSearch .base dl.area .data .inputWrap .input input[type="radio"] + label {background-position:0 40px}
+.jobSearch .base dl.area .data .inputWrap .input.on input[type="radio"] + label {background-position:0 -60px}
+.jobSearch .base dl.area .data .inputWrap.dongWrap {background:#fafeff;border-top:1px solid #d3e3ed}
+.jobSearch .base dl.subway select {width:200px}
+.jobSearch .base dl.kind .data .tabForm li {width:266px}
+.jobSearch .base dl.kind .data .tabForm li.odd {width:267px}
+
+.jobSearch .work {overflow:hidden;width:1068px;background:#fff}
+.jobSearch .work dl {float:left;width:356px}
+.jobSearch .work dl.date {position:relative}
+.jobSearch .work dl.date .clearBtn {display:none;position:absolute;right:5px;top:4px;width:65px;height:24px;font:0/0 Dotum;vertical-align:top;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -249px -40px}
+/*
+.jobSearch .work dl.middle {width:300px}
+.jobSearch .work.double dl {width:384px}
+*/
+.jobSearch .work dl .item {height:22px;height:20px\0;*height:20px;padding-top:9px;padding-top:11px\0;*padding-top:11px;font-weight:bold;text-align:center;background:#f3f3f4;border-top:1px solid #d5d5d5;border-bottom:1px solid #d5d5d5;border-right:1px solid #d5d5d5}
+.jobSearch .work dl .content {padding:5px 5px 14px 14px;border-right:1px solid #d5d5d5}
+.jobSearch .work dl.last .item,
+.jobSearch .work dl.last .content {border-right:0 none}
+.jobSearch .work .inputWrap {width:100%;padding:0}
+/*
+.jobSearch .work .term {width:230px}
+*/
+.jobSearch .work .term .inputWrap li {width:167px}
+.jobSearch .work .date .inputWrap li {width:75px}
+.jobSearch .work .time .inputWrap li {width:122px}
+.jobSearch .work .time .inputWrap li.short {width:92px}
+.jobSearch .work .time .inputWrap li.long {width:244px}
+
+/*
+.jobSearch .work .time .inputWrap li.short {width:55px}
+.jobSearch .work .time .inputWrap li.long {width:160px}
+.jobSearch .work .time .inputWrap li.last {width:75px}
+*/
+.jobSearch .work .inputWrap li.full {width:100%}
+.jobSearch .work .subSelect {z-index:1;display:none;position:absolute;left:99px;top:5px}
+.jobSearch .work .subSelect ul {overflow:hidden;width:165px;height:42px;padding:0 6px 6px;background:#fbfbfb;border:1px solid #d5d5d5}
+.jobSearch .work .subSelect ul li {width:auto !important}
+.jobSearch .work .week .subSelect ul li {padding:6px 8px 0 0}
+.jobSearch .work .week .subSelect ul li span.input label {padding:1px 0 0 16px;padding:2px 0 0 16px\0;*padding:2px 0 0 16px}
+.jobSearch .work .day .subSelect ul li {padding:6px 9px 0 0}
+.jobSearch .work .subSelect .arrow {position:absolute;left:-4px;top:7px;*top:8px;width:5px;height:7px;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -350px -40px}
+.jobSearch .work.double dl.alba .item,
+.jobSearch .work.double dl.alba .content {border-right:0 none}
+.jobSearch .work.double dl.alba .content .inputWrap {padding-top:15px}
+.jobSearch .work.double dl.time .item,
+.jobSearch .work.double dl.time .content {border-left:1px solid #d5d5d5}
+.jobSearch .work.double dl.time .content .inputWrap li {width:135px}
+.jobSearch .work.double dl.time .content .inputWrap li.short {width:90px}
+
+.jobSearch .detail {display:block;border-top:1px solid #aaa}
+.jobSearch .detail dl {background:#fafafa}
+.jobSearch .detail dl.valueNo {display:none}
+.jobSearch .detail dl.career,
+.jobSearch .detail dl.gender {float:left;width:558px;border-right:1px solid #eaeaea}
+.jobSearch .detail dl.school,
+.jobSearch .detail dl.age {float:left;width:509px}
+.jobSearch .detail dl.pay, 
+.jobSearch .detail dl.welfare,
+.jobSearch .detail dl.prefer {clear:both}
+.jobSearch .detail dl .item {float:left;width:74px;height:27px;height:26px\0;*height:26px;padding:13px 0 0 15px;padding-top:14px\0;*padding-top:14px;font-weight:bold;background:#fafafa;border-top:1px solid #eaeaea}
+.jobSearch .detail dl .content {float:left;width:947px;padding:6px 10px;background-color:#fff;border-top:1px solid #eaeaea;border-left:1px solid #eaeaea}
+.jobSearch .detail dl .content .inputWrap li {padding-top:6px}
+.jobSearch .detail dl .content .inputWrap li label {padding-right:15px}
+.jobSearch .detail dl .content select {width:150px}
+.jobSearch .detail dl .content .blank {width:620px}
+.jobSearch .detail dl .content .value {width:630px}
+.jobSearch .detail dl .content .addCondition {position:absolute;top:12px;margin-left:10px}
+.jobSearch .detail dl .content .addCondition label {padding-right:20px}
+.jobSearch .detail dl .content .addCondition strong {color:#ea7400}
+.jobSearch .detail dl .content .addCondition .clearBtn {display:none;width:65px;height:24px;margin-top:-4px;font:0/0 Dotum;vertical-align:top;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -249px -40px}
+.jobSearch .detail dl .content .addCondition .clearBtn.on {display:inline-block}
+.jobSearch .detail dl .data {margin-top:0}
+.jobSearch .detail dl.career .content,
+.jobSearch .detail dl.gender .content {width:448px}
+.jobSearch .detail dl.school .content,
+.jobSearch .detail dl.age .content {width:399px}
+.jobSearch .detail dl.employ .content,
+.jobSearch .detail dl.gender .content {padding-bottom:13px}
+.jobSearch .detail dl.gender .inputWrap {float:left;width:150px;width:154px\0;*width:154px}
+.jobSearch .detail dl.pay .inputWrap {float:left;width:auto}
+.jobSearch .detail dl.pay .price {margin-top:-5px}
+.jobSearch .detail dl.pay .price input {width:89px;margin-right:4px}
+.jobSearch .detail dl.keyword input {width:388px}
+.jobSearch .detail dl.keyword .regBtn {display:inline-block;width:50px;height:24px;font:0/0 Dotum;vertical-align:middle;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -194px -40px}
+.jobSearch .detail dl.keyword .value {display:block;width:100%;margin:3px 0 0;padding:0;border:0 none}
+.jobSearch .detail dl.welfare .data .inputWrap li {width:127px}
+.jobSearch .detail dl.prefer .data .inputWrap li {width:145px}
+
+.jobSearch .searchAction {clear:both;position:relative;border-top:1px solid #aaa}
+.jobSearch .searchAction .detailBtn {position:absolute;right:-1px;top:-1px;width:182px;height:35px;font:0/0 Dotum;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat 0 0}
+.jobSearch .searchAction .detailBtn.on {background-position:-187px 0}
+.jobSearch .searchAction .ect {height:28px;padding:7px 14px;background:#f3f3f4;border-bottom:1px solid #d5d5d5}
+.jobSearch .searchAction .ect select {width:128px;margin-right:15px}
+.jobSearch .searchAction .ect label {width:100px}
+.jobSearch .searchAction .btnAction {padding:10px 0;text-align:center}
+.jobSearch .searchAction .btnAction a {display:inline-block;width:92px;height:36px;margin:0 3px;font:0/0 Dotum;vertical-align:top;color:transparent;background:url('//image.alba.kr/job/jobSearch.png') no-repeat}
+.jobSearch .searchAction .btnAction .searchSubmit {background-position:0 -40px}
+.jobSearch .searchAction .btnAction .searchClear {background-position:-97px -40px}
+
+/* 상세검색페이지 (펼침처리) */
+#JobSearchMain .guideText {padding:10px 20px 15px;margin-bottom:30px;border:1px solid #dcdcdc;color:#474747;background:#f9f9f9}
+#JobSearchMain .guideText li {padding:10px 0 0 10px;background:url('//image.alba.kr/job/bul_square_blue.gif') no-repeat 0 15px}
+#JobSearchMain .jobSearch {border-bottom:0 none}
+#JobSearchMain .jobSearch fieldset {border:0 none}
+#JobSearchMain .jobSearch fieldset .base {border:1px solid #d5d5d5;border-bottom:0 none}
+#JobSearchMain .jobSearch fieldset .work {border:1px solid #d5d5d5;border-top:0 none;border-bottom:0 none}
+#JobSearchMain .jobSearch fieldset .detail {display:block;width:1068px;border:1px solid #d5d5d5;border-top:1px solid #aaa}
+#JobSearchMain .jobSearch .searchAction {border:0 none}
+#JobSearchMain .jobSearch .searchAction .ect {border-left:1px solid #d5d5d5;border-right:1px solid #d5d5d5}
+#JobSearchMain .jobSearch .searchAction .detailBtn {display:none}
+#JobSearchMain .jobSearch .apply .inputWrap li {width:100px}
+
+/* TM - 지역별 채용 */
+#TmJobLocal .jobSearch fieldset .base {display:none}
+
+/* 근무 기간.요일.시간별 알바 */
+#JobPeriodList .jobSearch fieldset .work {margin:-1px 0 0;border-bottom:1px solid #d5d5d5}
+
+/* 잡메인 */
+#JobCount {overflow:hidden;width:1068px;height:72px;margin-bottom:20px;border:1px solid #cfd0d2;border-top:2px solid #999}
+#JobCount div {float:left;width:266px;height:59px;padding-top:13px;text-align:center;border-left:1px solid #cfd0d2}
+#JobCount div.all {width:267px;border-left:0 none}
+#JobCount div p.count {margin:6px 0 0;white-space:nowrap}
+#JobCount div p.count strong {font:bold 24px arial;letter-spacing:-1px;color:#376ec1}
+#JobCount div.all p.count strong {color:#ff5400}
+
+#JobMain div.nomalInfoGo {width:1068px;height:30px;margin:0 0 15px;padding:14px 0 0;font:14px dotum;letter-spacing:-1px;text-align:center;border:1px solid #c7cbec}
+#JobMain div.nomalInfoGo a {padding-right:25px;font-weight:bold;text-decoration:none;color:#020202;background:url('//image.alba.kr/job/bul_arrow_blue3.gif') no-repeat right top}
+#JobMain div.nomalInfoGo a span {text-decoration:underline;color:#2576e1}
+#JobMain div.nomalInfoGo a span strong {font-family:tahoma;letter-spacing:0}
+
+/* 전문채용관 head */
+.proAlbaHead {z-index:5;position:relative;width:1070px;height:80px;padding:130px 0 0;margin-bottom:10px}
+.proAlbaHead h1 {position:absolute;padding:0 !important;text-indent:-999em}
+.proAlbaHead div.jobKind {position:relative;width:1066px;height:72px}
+.proAlbaHead div.jobKind p.btn a {position:absolute;right:-2px;top:-33px;width:135px;height:19px;padding:12px 20px 0;letter-spacing:-1px;color:#fff;background-image:url('//image.alba.kr/job/proHead_arrow.gif');background-repeat:no-repeat;background-position:154px 15px}
+.proAlbaHead div.jobKind dl {position:relative;overflow:hidden;height:48px;padding:12px 0 12px 12px}
+.proAlbaHead div.jobKind dl dt {float:left;width:46px;height:30px;padding:16px 0 0;margin-right:12px;font-weight:bold;text-align:center;border:1px solid #e3e3e3;background:#f3f3f4}
+.proAlbaHead div.jobKind dl dd {float:left;height:18px;padding:6px 0 0;letter-spacing:-1px}
+.proAlbaHead div.jobKind dl dd a {display:block}
+.proAlbaHead div.jobKind dl dd a.on {font-weight:bold;letter-spacing:-1px;color:#000}
+.proAlbaHead div.jobKind dl dd.first {background:none !important}
+@media all and (min-width:0){
+	.proAlbaHead div.jobKind dl dd a {line-height:16px\9}
+}
+
+#OfficeHead {background:url('//image.alba.kr/job/proHead_office1.jpg') no-repeat 0 0}
+#OfficeHead div.jobKind {border:2px solid #3a82db}
+#OfficeHead div.jobKind p.btn a {color:#fff;background-color:#3a82db}
+#OfficeHead div.jobKind dl.all {float:left;width:520px;border-right:1px solid #dcdcdc}
+#OfficeHead div.jobKind dl.best {float:right;width:521px}
+#OfficeHead div.jobKind dl dd {margin-right:30px;padding-top:17px}
+
+#BarHead {background:url('//image.alba.kr/job/proHead_bar1.jpg') no-repeat 0 0}
+#BarHead div.jobKind {border:2px solid #c160cc}
+#BarHead div.jobKind p.btn a {background-color:#c160cc}
+#BarHead div.jobKind dl.bar {float:left;width:520px;border-right:1px solid #dcdcdc}
+#BarHead div.jobKind dl.work {float:right;width:521px}
+#BarHead div.jobKind dl dt {height:35px;padding:11px 0 0}
+#BarHead div.jobKind dl dd {margin-right:40px;padding-top:17px}
+#BarHead div.caution div.notice {position:absolute;top:15px;right:15px;font:11px dotum;letter-spacing:-1px}
+#BarHead div.caution div.notice a {color:#fff;text-decoration:underline}
+#BarHead #CautionGuide {z-index:5;display:none;position:absolute;top:35px;right:0;width:583px;background:#fffef9 url('//image.alba.kr/job/CautionGuide_bg.gif') no-repeat 21px 18px;border:4px solid #bababa}
+#BarHead #CautionGuide h2 {padding:25px 0 0 143px}
+#BarHead #CautionGuide p.guide {padding:10px 0 0 143px}
+#BarHead #CautionGuide div.box {width:508px;margin:22px auto 0;padding:20px 20px 17px;background:#f6f7ff;border:1px solid #e2e5ff}
+#BarHead #CautionGuide div.box ol {}
+#BarHead #CautionGuide div.box ol li {margin-bottom:8px}
+#BarHead #CautionGuide div.box ol li strong {font-weight:bold;color:#004ad2}
+#BarHead #CautionGuide div.box ol li span.number {font-weight:bold}
+#BarHead #CautionGuide div.box ol li span.indent {display:block;margin:4px 0 0 14px;font:11px Dotum;letter-spacing:-1px}
+#BarHead #CautionGuide div.box ol li span.indent em {font-weight:bold;color:#d01414}
+#BarHead #CautionGuide div.box h3 {padding:5px 0 0 12px;font-weight:bold}
+#BarHead #CautionGuide div.box ul {padding:5px 0 0 17px}
+#BarHead #CautionGuide div.box ul li {line-height:1.4}
+#BarHead #CautionGuide div.box ul li span.indent {padding-left:10px}
+#BarHead #CautionGuide div.greeting {padding:20px 0 17px 22px;line-height:1.4}
+#BarHead #CautionGuide div.close {position:absolute;top:3px;right:3px}
+#BarHead #CautionGuide div.close img {cursor:pointer}
+
+#LaborHead {background:url('//image.alba.kr/job/proHead_labor1.jpg') no-repeat 0 0}
+#LaborHead div.jobKind {border:2px solid #7ca404}
+#LaborHead div.jobKind p.btn a {color:#fff;background-color:#7ca404}
+#LaborHead div.jobKind dl.all {float:left;width:340px;border-right:1px solid #dcdcdc}
+#LaborHead div.jobKind dl.best {float:right;width:701px}
+#LaborHead div.jobKind dl dd {width:115px}
+
+#RestaurantHead {background:url('//image.alba.kr/job/proHead_restaurant1.jpg') no-repeat 0 0}
+#RestaurantHead div.jobKind {border:2px solid #db3a67}
+#RestaurantHead div.jobKind p.btn a {color:#fff;background-color:#db3a67}
+#RestaurantHead div.jobKind dl.all {float:left;width:400px;border-right:1px solid #dcdcdc}
+#RestaurantHead div.jobKind dl.all dd {width:120px}
+#RestaurantHead div.jobKind dl.all dd.first {width:90px}
+#RestaurantHead div.jobKind dl.food {float:left;width:310px;border-right:1px solid #dcdcdc}
+#RestaurantHead div.jobKind dl.food dt {height:35px;padding:11px 0 0}
+#RestaurantHead div.jobKind dl.food dd {width:75px}
+#RestaurantHead div.jobKind dl.food dd.first {width:100px}
+#RestaurantHead div.jobKind dl.work {float:right;width:318px}
+#RestaurantHead div.jobKind dl.work dt {height:35px;padding:11px 0 0}
+#RestaurantHead div.jobKind dl.work dd {width:75px}
+#RestaurantHead div.jobKind dl.work dd.first {width:105px}
+
+/* 청소년 전문채용관 */
+#YouthWrap {position:relative;margin:0 0 20px}
+#YouthWrap h1 {padding:0}
+#YouthWrap .albayo {position:absolute;top:163px;left:343px;width:138px;height:25px;font-size:0;color:transparent}
+.youthTab {overflow:hidden;width:1070px;background:url('//image.alba.kr/job/youthTab.png') no-repeat 0 0}
+.youthTab>li {float:left;width:214px;height:60px}
+.youthTab>li>a {display:block;height:100%;font-size:0;color:transparent}
+.youthTab>li>a.on,
+.youthTab>li>a:hover {background-image:url('//image.alba.kr/job/youthTab.png');background-repeat:no-repeat}
+.youthTab--1>a.on,
+.youthTab--1>a:hover {background-position:0 -70px}
+.youthTab--2>a.on,
+.youthTab--2>a:hover {background-position:-214px -70px}
+.youthTab--3>a.on,
+.youthTab--3>a:hover {background-position:-428px -70px}
+.youthTab--4>a.on,
+.youthTab--4>a:hover {background-position:-642px -70px}
+.youthTab--5>a.on,
+.youthTab--5>a:hover {background-position:-856px -70px}
+
+/*청소년 검색 관련N 101022*/
+#YouthContent {position:relative;width:1070px}
+#YouthContent .YouthFaqBox {position:relative;width:770px;margin:0 auto}
+#YouthContent h2 {margin-top:4px}
+#YouthContent h2.alRight {text-align:right}
+#YouthContent h2.faq {height:36px}
+#YouthContent h3.youngInfo {margin-top:0}
+#YouthContent h3.down {margin:27px 0 9px}
+#YouthContent .tabarea {position:absolute;right:15px;top:7px;*top:11px}
+
+#JobProfessionalYouth #NormalInfo h2 {margin-top:0}
+#JobProfessionalYouth #NormalInfo p.typeSelect {display:none}
+
+#JobProfessionalYouthfaq div.faqLaw {position:relative;width:770px;padding-bottom:40px;background:url('//image.alba.kr/job/Youth_bg_faqBottom.gif') no-repeat left bottom}
+#JobProfessionalYouthfaq div.faqLaw div.box {width:770px;background:url('//image.alba.kr/job/Youth_bg_faqTop.gif') no-repeat 0 0}
+#JobProfessionalYouthfaq div.faqLaw div.box ol {overflow:hidden;width:690px;margin:0 auto;padding:40px 0 20px;border-bottom:1px dashed #c3cbe4}
+#JobProfessionalYouthfaq div.faqLaw div.box ol li {float:left;display:inline;width:325px;margin:0 0 7px;padding-left:20px;background:url('//image.alba.kr/job/bul_square_blue1.gif') no-repeat 9px 4px}
+#JobProfessionalYouthfaq div.faqLaw div.box ol li.on {font-weight:bold;letter-spacing:-1px;color:#3a930c}
+#JobProfessionalYouthfaq div.faqLaw div.box ol li.on a,
+#JobProfessionalYouthfaq div.faqLaw div.box ol li a:hover,
+#JobProfessionalYouthfaq div.faqLaw div.box ol li a:active {font-weight:bold;letter-spacing:-1px;color:#3a930c}
+#JobProfessionalYouthfaq div.faqLaw div.content {width:690px;margin:0 auto;padding:20px 0 0;word-wrap:break-word;line-height:1.4}
+#JobProfessionalYouthfaq div.faqLaw div.content dl,
+#JobProfessionalYouthfaq div.faqLaw div.content p {white-space: pre-wrap;line-height:1.4}
+
+#JobProfessionalYouthfaqten dl.youngInfoTen {height:1121px;background:url('//image.alba.kr/job/Youth_bgYoungInfo2.gif') no-repeat 0 0}
+#JobProfessionalYouthfaqten dl.youngInfoTen dt {font-weight:bold;padding:10px 0 5px}
+#JobProfessionalYouthfaqten dl.youngInfoTen dt,
+#JobProfessionalYouthfaqten dl.youngInfoTen dd {z-index:-1;position:relative;padding-left:10px;line-height:1.4}
+
+#JobProfessionalYouthdownload .infoArea {position:relative;height:276px;margin-top:13px;background:url('//image.alba.kr/job/Youth_bgdownTop1.jpg') no-repeat 0 0}
+#JobProfessionalYouthdownload .infoArea ol {text-indent:-999em}
+#JobProfessionalYouthdownload .infoArea p {position:absolute;top:226px;left:78px}
+#JobProfessionalYouthdownload .boxfrom {border:2px solid #dce4d8}
+#JobProfessionalYouthdownload .lineplus {border-top:1px solid #dce4d8;border-bottom:1px solid #dce4d8}
+#JobProfessionalYouthdownload div.form {position:relative;overflow:hidden;width:766px}
+#JobProfessionalYouthdownload div.form h4 {float:left;width:179px}
+#JobProfessionalYouthdownload div.form ul {float:right;width:587px;padding:20px 0}
+#JobProfessionalYouthdownload div.form ul li {float:left;width:146px;border-left:1px solid #dcdcdc}
+#JobProfessionalYouthdownload div.form ul li.first {border-left:none}
+#JobProfessionalYouthdownload div.form ul li p.title {padding-top:3px;letter-spacing:-1px;text-align:center}
+#JobProfessionalYouthdownload div.form ul li p.title span {padding-left:7px;background:url('//image.alba.kr/job/YouthDownload_bul_arrow.gif') no-repeat left 3px}
+#JobProfessionalYouthdownload div.form ul li p.image {position:relative;width:90px;height:106px;margin:3px 0 0 29px;padding:4px;background:url('//image.alba.kr/job/YouthDownload_form_bg.gif') no-repeat 0 0}
+#JobProfessionalYouthdownload div.form ul li p.image img {width:78px;height:106px}
+#JobProfessionalYouthdownload div.form ul li p.image img.best {position:absolute;top:3px;left:3px;width:35px;height:35px}
+#JobProfessionalYouthdownload div.form ul li p.button {margin:8px 0 0;text-align:center}
+#JobProfessionalYouthdownload div.form p.viewMore {position:absolute;top:65px;left:17px}
+
+#JobProfessionalYouthQna .youngQna {overflow:hidden;width:770px;height:1709px;background:url('//image.alba.kr/job/youthQna.jpg') no-repeat 0 0}
+#JobProfessionalYouthQna .youngQna * {font:0/0 dotum;color:transparent}
+#JobProfessionalYouthQna .youngQna h3 {height:126px}
+#JobProfessionalYouthQna .youngQna dl {height:395px}
+#JobProfessionalYouthQna .youngQna ol {height:1057px}
+#JobProfessionalYouthQna .youngQna ol li a {display:block}
+#JobProfessionalYouthQna .youngQna ol li.list_01 a {height:97px}
+#JobProfessionalYouthQna .youngQna ol li.list_02 a {height:97px}
+#JobProfessionalYouthQna .youngQna ol li.list_03 a {height:104px}
+#JobProfessionalYouthQna .youngQna ol li.list_04 a {height:113px}
+#JobProfessionalYouthQna .youngQna ol li.list_05 a {height:106px}
+#JobProfessionalYouthQna .youngQna ol li.list_06 a {height:100px}
+#JobProfessionalYouthQna .youngQna ol li.list_07 a {height:112px}
+#JobProfessionalYouthQna .youngQna ol li.list_08 a {height:100px}
+#JobProfessionalYouthQna .youngQna ol li.list_09 a {height:109px}
+#JobProfessionalYouthQna .youngQna ol li.list_10 a {height:119px}
+#JobProfessionalYouthQna .youngQna p {height:56px;margin:35px 0 0;text-align:center}
+#JobProfessionalYouthQna .youngQna p a {display:inline-block;width:240px;height:56px}
+#JobProfessionalYouthQna .youngQna p a:hover {border:0}
+
+/* 알바 지도검색 */
+#JobMapMain .jobSearch .searchDetail {display:none}
+#JobMapMain #NormalInfo p.typeSelect {right:158px}
+#MapArea {position:relative;width:766px;padding:48px 0 0;margin-bottom:25px;border:2px solid #67a9d3}
+#MapArea div.selectLayer {z-index:2;position:absolute;left:0;top:0;width:766px;height:47px;border-bottom:1px solid #67a9d3;background:#f4f8fb}
+#MapArea div.selectLayer .mapSearchVal {position:relative;width:364px;height:35px;padding:12px 0 0 10px;letter-spacing:-1px;color:#000}
+#MapArea div.selectLayer .mapSearchVal span {font-weight:bold}
+#MapArea div.selectLayer .mapSearchVal select {position:relative;top:2px;vertical-align:top}
+#MapArea div.selectLayer .mapSearchVal select.areacd {width:85px}
+#MapArea div.selectLayer .mapSearchVal select.gugun {width:75px}
+#MapArea div.selectLayer .mapSearchVal select.dong {width:75px}
+#MapArea div.selectLayer .mapSearchVal a.detailSearch {display:inline-block;width:40px;height:17px;height:16px\0;padding:5px 0 0;padding:6px 0 0\0;font:11px dotum;text-align:center;letter-spacing:-1px;border:1px solid #616879;background:#727885;color:#fff;vertical-align:top}
+#MapArea div.selectLayer .mapSearchVal .largeView {position:absolute;right:4px;top:12px;width:70px;height:24px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/job/map_bg.png') no-repeat -399px -390px}
+#MapArea div.selectLayer .selectKind {overflow:hidden;position:absolute;right:0;top:0;width:392px;height:47px}
+#MapArea div.selectLayer .selectKind li {position:relative;float:left;width:49px}
+#MapArea div.selectLayer .selectKind li.on {background:#fff500}
+#MapArea div.selectLayer .selectKind li a {overflow:hidden;display:block;width:49px;height:47px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat}
+#MapArea div.selectLayer .selectKind li.off a {cursor:default}
+#MapArea div.selectLayer .selectKind li.kind01 a {background-position:0 -442px}								/* 매장관리 */
+#MapArea div.selectLayer .selectKind li.kind02 a {background-position:-49px -442px}							/* 서빙주방 */
+#MapArea div.selectLayer .selectKind li.kind03 a {background-position:-98px -442px}							/* 서비스 */
+#MapArea div.selectLayer .selectKind li.kind04 a {background-position:-147px -442px}						/* 생산기능 */
+#MapArea div.selectLayer .selectKind li.kind05 a {background-position:-196px -442px}						/* 사무회계 */
+#MapArea div.selectLayer .selectKind li.kind06 a {background-position:-245px -442px}						/* IT디자인 */
+#MapArea div.selectLayer .selectKind li.kind07 a {background-position:-294px -442px}						/* 상담영업 */
+#MapArea div.selectLayer .selectKind li.kind08 a {background-position:-343px -442px}	/* 강사교육 */
+#MapArea div.selectLayer .selectKind li span {display:none;position:absolute;left:1px;top:0;width:47px;height:47px;background:url('//image.alba.kr/job/map_bg.png') no-repeat -276px -85px}
+#MapArea div.selectLayer .selectKind li.off span {z-index:1;display:block}
+#MapArea div.selectLayer p.clear {position:absolute;right:48px;bottom:0;width:45px;height:47px}
+#MapArea div.selectLayer p.clear a {overflow:hidden;display:block;width:43px;height:43px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat -383px 0;border:1px solid #4c5363}
+#MapArea div.selectLayer p.zoom {position:absolute;right:0;bottom:0;width:45px;height:45px;border:1px solid #687083;border-top:0 none}
+#MapArea div.selectLayer p.zoom a {overflow:hidden;display:block;width:43px;height:43px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat -426px 0;border:1px solid #4c5363}
+#MapArea div.mapView {width:766px;height:451px}
+
+div.mapFoot {overflow:hidden;width:768px;height:34px;border-top:1px solid #bebebe}
+div.mapFoot .mapInfo {overflow:hidden;position:relative;float:left;width:404px;height:22px;padding:12px 0 0 13px;font-weight:bold;letter-spacing:-1px}
+div.mapFoot .mapInfo em {letter-spacing:0;color:#267cd3}
+div.mapFoot .mapInfo span.memo {display:inline-block;height:11px;margin:0 0 0 3px;padding:1px 0 0 7px;font:11px Dotum;letter-spacing:-1px;color:#7a7a7a;vertical-align:top;border-left:1px solid #d4d4d4}
+div.mapFoot .mapPaging {float:right;width:350px;height:28px;padding:6px 0 0;text-align:center;border-left:1px solid #dedede}
+div.mapFoot .mapPaging .paging {margin-top:0}
+
+.labelCompany {display:block;min-width:150px;padding-right:15px}
+.labelClose {position:absolute;right:5px;top:5px;overflow:hidden;display:block;width:14px;height:13px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat -149px -68px}
+
+.summaryLayer {overflow:hidden;position:absolute;width:267px;height:257px;padding:4px;background:url('//image.alba.kr/job/map_bg.png') no-repeat 0 -82px}
+.summaryLayer .title {width:250px;height:23px;padding:11px 0 0 15px;background:#f5f5f5;border:1px solid #fff;border-bottom:1px solid #e6e6e6}
+.summaryLayer .title strong {overflow:hidden;display:block;width:232px;white-space:nowrap;text-overflow:ellipsis;font-size:14px;color:#0f67a7}
+.summaryLayer .topInfo {overflow:hidden;width:244px;height:20px;padding:10px 8px 0 15px;border-bottom:1px solid #e6e6e6}
+.summaryLayer .topInfo span {overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.summaryLayer .topInfo span strong {letter-spacing:-1px}
+.summaryLayer .topInfo span.company {float:left;width:150px}
+.summaryLayer .topInfo span.deadline {float:right;width:89px;padding-left:5px}
+.summaryLayer .topInfo span.deadline strong {color:#ff5a00}
+.summaryLayer .jobInfo {width:237px;padding:12px 15px;border-bottom:1px solid #e6e6e6}
+.summaryLayer .jobInfo li {position:relative;height:14px;padding:3px 0 0 65px}
+.summaryLayer .jobInfo li span.item {position:absolute;left:5px;top:3px;color:#767676}
+.summaryLayer .jobInfo li.pay {font-weight:bold}
+.summaryLayer .jobInfo li.pay img {margin-right:2px}
+.summaryLayer .jobInfo li.pay strong {font-size:14px}
+.summaryLayer .jobInfo li img {margin-top:-3px;vertical-align:top}
+.summaryLayer .action {height:36px;padding:11px 0 0;text-align:center}
+.summaryLayer .action a {display:inline-block;width:117px;height:19px;padding:7px 0 0;font-weight:bold;text-decoration:none;text-align:center;letter-spacing:-1px;color:#282828;background:url('//image.alba.kr/job/map_bg.png') no-repeat -200px -52px}
+.summaryLayer .action a.scrap span {display:inline-block;width:18px;height:14px;margin-top:-2px;vertical-align:top;background:url('//image.alba.kr/job/map_bg.png') no-repeat -175px -52px}
+.summaryLayer a.layerClose {position:absolute;right:7px;top:7px;width:16px;height:15px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat -149px -52px}
+
+div.filterMain {z-index:999;display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:#000;filter:alpha(opacity=50);opacity:0.5}
+iframe#Srchaddr {z-index:999;display:none;overflow:hidden;position:fixed;top:50%;left:50%;width:523px;height:380px;margin:-170px 0 0 -260px;padding:0;border:0 none}
+#SearchAddr .searchAddr {position:relative;overflow:hidden;width:455px;height:376px;margin:0;padding:0 32px;background:url('//image.alba.kr/job/SearchAddr_bg.gif') no-repeat 0 0;border:2px solid #999}
+#SearchAddr .searchAddr h1 {height:61px;text-indent:-999em}
+#SearchAddr .searchAddr .guide {margin:25px 0 0;padding:0 0 0 10px;line-height:16px;background:url('//image.alba.kr/job/SearchAddr_bg.gif') no-repeat -52px -383px}
+#SearchAddr .searchAddr .searchInput {width:455px;height:20px;margin:18px 0;padding:10px 0;text-align:center;background:#f3f3f3}
+#SearchAddr .searchAddr .searchInput input.typeText {height:15px;margin-top:-5px;padding:3px 5px 0;border:1px solid #c0bebe}
+#SearchAddr .searchAddr .searchInput button {width:42px;height:19px;margin-left:3px;text-indent:-999em;background:url('//image.alba.kr/job/SearchAddr_bg.gif') no-repeat 0 -381px}
+#SearchAddr .searchAddr .comment {font:11px Dotum;letter-spacing:-1px}
+#SearchAddr .searchAddr #divAddrList {width:435px;height:110px;margin:7px 0 0;padding:5px 10px;overflow:auto;background:#f3f3f3}
+#SearchAddr .searchAddr .addrClose {position:absolute;right:7px;top:9px;width:16px;height:15px;text-indent:-999em}
+
+#JobMap {height:100%}
+#JobMap body {min-width:900px;height:100%}
+#JobMap .headerAction,
+#JobMap #Header,
+#JobMap #SubWrap {width:100%}
+#JobMap #Header .headerPopular,
+#JobMap #Header .headerSearch,
+#JobMap #Header .headerPr {display:none}
+#JobMap #Header h1.headerBi {left:0}
+#JobMap #SubWrap {height:auto !important;_height:100%;min-height:100%;margin:-95px 0 -51px}
+#JobMap #SubContents {overflow:hidden;float:none;width:auto;height:100%;padding:95px 0 0}
+#JobMap .mapJobSearch {display:none;z-index:999;position:absolute;left:1px;top:95px;float:left;width:330px;background:#f5f5f5}
+#JobMap .mapJobSearch p.searchTitle {width:330px;height:33px;text-indent:-999em;background:url('//image.alba.kr/job/map_bg.png') no-repeat 0 -352px;border-top:1px solid #444749;border-bottom:1px solid #444749}
+#JobMap .jobSearch {width:330px;height:220px;margin:0;background:#fff;border-bottom:1px solid #e6e6e6}
+#JobMap .jobSearch fieldset {width:330px;height:220px;background:none;border:0 none}
+#JobMap .jobSearch fieldset .subject {width:52px;color:#767676}
+#JobMap .jobSearch .kind {z-index:9;left:15px;top:14px}
+#JobMap .jobSearch .kind #layKindsub {left:180px}
+#JobMap .jobSearch .age {left:15px;top:92px}
+#JobMap .jobSearch .gender {left:15px;top:118px;padding-left:0;background:none}
+#JobMap .jobSearch .age select,
+#JobMap .jobSearch .gender select {width:120px}
+#JobMap .jobSearch .term {left:15px;top:40px}
+#JobMap .jobSearch .time {left:15px;top:66px}
+#JobMap .jobSearch .online {left:196px;top:70px}
+#JobMap .jobSearch .regDate {left:15px;top:144px}
+#JobMap .jobSearch .searchSubmit {width:74px;height:32px;top:auto;bottom:15px;right:50%;margin-right:-37px}
+#JobMap .jobSearch .searchSubmit a {width:74px;height:24px;padding:8px 0 0;text-align:center;text-indent:0;text-decoration:none;line-height:22px;color:#282828;background:url('//image.alba.kr/job/map_bg.png') no-repeat -327px -52px}
+#JobMap .jobSearch .searchSubmit span {display:none}
+#JobMap .jobSearch .searchDetail {display:none}
+#JobMap .jobSearch .term .selectLayer {left:0;right:auto}
+#JobMap div.mapFoot {width:330px;height:95px;background:#fff;border-top:0 none;border-bottom:1px solid #999a9b}
+#JobMap div.mapFoot .mapInfo {float:none;width:330px;text-align:center;padding:17px 0 10px}
+#JobMap div.mapFoot .mapInfo span.memo {position:static;display:block;padding:0;line-height:16px;border-left:0 none}
+#JobMap div.mapFoot .mapPaging {float:none;width:330px}
+#JobMap #MapArea {width:auto;height:100%;margin:0 auto;padding:0;background:#f5f5f5;border:0 none;border-left:1px solid #444749;border-right:1px solid #444749}
+#JobMap #MapArea .selectLayer {left:0;top:1px;width:766px;border-right:1px solid #bdc6cc}
+#JobMap #MapArea .selectLayer .largeView {display:none}
+#JobMap #MapArea .mapView {width:100%;height:800px;background:#fff;border-top:1px solid #444749}
+#JobMap #MapArea .summaryLayer {display:none;left:auto;right:100px}
+
+/* 업·직종별/급여별/기간별 메인 */
+.typeMain {overflow:hidden;width:1070px}
+.typeMain li {float:left;width:230px;margin-right:50px;padding-bottom:40px}
+.typeMain li.four {margin:0}
+.typeMain li ul {padding:10px 0 0}
+.typeMain li ul li {position:relative;float:none;display:block;width:167px;margin:0;padding:10px 0 0 10px}
+.typeMain li ul li a:hover {text-decoration:none}
+.typeMain li ul li img {margin-top:-2px}
+.typeMain li ul li span {margin-left:10px;color:#0285c9;cursor:pointer}
+#SalaryMain li.theday,
+#PeriodMain li.shortTerm {background-image:url('//image.alba.kr/job/typeMain_bg1.gif')}
+#PeriodMain li.period {background-image:url('//image.alba.kr/job/typeMain_bg3.gif')}
+
+/* 업·직종별/급여별 알바 타입 */
+.typeKind {position:relative;width:1070px;margin-bottom:10px}
+.typeKind ul.tabMenu {z-index:1;position:relative;overflow:hidden;width:1070px;height:37px;background:url('//image.alba.kr/job/typeKind_tabMenu_bg.gif') repeat-x left 5px}
+.typeKind ul.tabMenu li {position:relative;float:left;width:132px;height:34px;margin-right:-1px;border:1px solid #d6dde2;border-bottom:0 none}
+.typeKind ul.tabMenu li a {display:block;height:24px;padding:10px 0 0;text-align:center;background:#f4f8fb}
+.typeKind ul.tabMenu li.long {width:137px}
+.typeKind ul.tabMenu li.on {z-index:1;width:130px;height:33px;border:2px solid #67a9d3;border-bottom:0 none}
+.typeKind ul.tabMenu li.on a {height:25px;font-weight:bold;color:red;background:#fff}
+#SalaryType ul.tabMenu li {width:177px}
+#SalaryType ul.tabMenu li.on {width:176px}
+
+.selectedArea {position:relative;width:100%}
+.selectedArea>.area {padding:10px 0 10px 3px}
+.selectedArea>.another {position:absolute;top:7px;right:0}
+.selectedArea>.another>.text {vertical-align:middle}
+
+.typeKind div.list {width:1070px;margin:0;border-bottom:2px solid #969edc}
+.typeKind div.list .input label {font-size:12px;color:#474747}
+.typeKind div.list .input.on label {color:#0285c9}
+.typeKind div.list ul.listFirst {overflow:hidden;width:1040px;padding:12px 0 12px 26px;border-left:2px solid #969edc;border-right:2px solid #969edc}
+.typeKind div.list ul.listFirst li {float:left;width:169px;padding:5px 0 2px 4px;background:url('//image.alba.kr/job/bul_square_blue.gif') no-repeat 0 9px}
+.typeKind div.list ul.listFirst li a {padding:3px 3px 1px 2px;padding-bottom:0\0;*padding-bottom:0;letter-spacing:-1px}
+.typeKind div.list ul.listFirst li.on a {margin-right:3px;text-decoration:none;color:#fff;background:#229ad8}
+.typeKind div.list ul.listFirst li em {color:#0285c9}
+.typeKind div.list ul.listSecond {overflow:hidden;width:1040px;padding:12px 0 12px 26px;background:#fafeff;border-top:1px solid #d3e3ed;border-left:2px solid #969edc;border-right:2px solid #969edc}
+.typeKind div.list ul.listSecond li {float:left;width:115px;margin:4px 0;font:11px Dotum;letter-spacing:-1px;color:#767676}
+.typeKind div.list ul.listSecond li.on a {font-weight:bold;letter-spacing:-1px}
+.typeKind div.list ul.listSecond li span {color:#0285c9}
+.typeKind div.list ul.listSecond li.mixed {letter-spacing:-1px;color:#333}
+.typeKind div.list ul.listSecond li.mixed span {font-weight:normal}
+.typeKind div.list ul.listSecond li.mixChecked {font-weight:bold;letter-spacing:-1px;color:#0285c9}
+.typeKind div.list ul.listSecond li.mixChecked span {font-weight:normal}
+.typeKind div.list ul.listThird {overflow:hidden;width:742px;padding:12px 0 9px 24px;background:url('//image.alba.kr/job/typeKind_listthird_line.gif') repeat-x left top;border-left:2px solid #969edc;border-right:2px solid #969edc}
+.typeKind div.list ul.listThird li {float:left;width:122px;margin:2px 0;font:11px Dotum;letter-spacing:-1px;color:#2c7797}
+.typeKind div.list ul.listThird li a {color:#2c7797}
+.typeKind div.list ul.listThird li.on a {font-weight:bold;text-decoration:underline}
+.typeKind div.list p.rss {position:absolute;bottom:5px;right:5px}
+.typeKind div.list .chkArea {width:1040px;height:33px;padding:18px 0 0 26px;border-left:2px solid #969edc;border-right:2px solid #969edc;border-top:1px solid #d3e3ed;background:#fafeff}
+.typeKind div.list .chkArea .input {margin-right:60px}
+
+#JobLocalSubwaylist .typeKind div.list {border-bottom:0 none}
+#JobLocalMainlocal .typeKind ul.tabMenu li {width:41px}
+#JobLocalMainlocal .typeKind ul.tabMenu li.on {width:52px}
+#JobLocalMainlocal div.list .listFirst,
+#JobLocalMainlocal div.list .listSecond {border-top:1px solid #969edc}
+#JobLocalMain #SubContents div.search {z-index:2;position:absolute;top:2px;right:0}
+#JobLocalMain #SubContents div.search h2 {float:left;height:20px;padding:6px 8px 0 0;font-weight:bold}
+#JobLocalMain #SubContents div.search input {float:left;width:210px;height:22px;letter-spacing:-1px;color:#888;padding:2px 0 0 10px;vertical-align:top;border:1px solid #bbb;border-right:none}
+#JobLocalMain #SubContents div.search a.btnSearch {display:inline-block;width:28px;height:26px}
+#JobLocalMain #SubContents div.search div.resultLayer {position:absolute;top:26px;right:0;width:247px;border:1px solid #000;background:#fff}
+#JobLocalMain #SubContents div.search div.resultLayer ul {width:238px;padding:13px 0 8px 10px}
+#JobLocalMain #SubContents div.search div.resultLayer ul li {height:19px;padding:0}
+#JobLocalMain #SubContents div.search div.resultLayer ul li a {color:#5f69e4}
+#JobLocalMain #SubContents div.search div.resultLayer p.autoSearchOff {padding:7px 7px 3px 0;font:11px Dotum;letter-spacing:-1px;text-align:right;color:#909090;background:#f5f5f5;border-top:1px solid #d6dde2}
+#JobLocalMain #SubContents div.search div.resultLayer p.autoSearchOff a {color:#909090}
+#ColledgeType div.list ul.listFirst li {width:178px;font:11px Dotum;letter-spacing:-1px}
+#ColledgeType p.mapView {position:absolute;top:4px;right:2px}
+#SubwayMap p.mapView {position:absolute;top:4px;left:380px}
+
+#DownTownType div.list ul.listFirst li {width:auto}
+#SalaryType div.list ul.listFirst li a {width:auto;letter-spacing:0}
+#OccupationType p.gangsa {position:absolute;top:2px;right:0}
+#TmJobKind .typeKind div.list ul.listSecond {background-position:0 -1px;border-top:2px solid #969edc}
+#JobLocalSubwaylist .subwayList {width:723px;padding:20px 0 20px 43px;border-left:2px solid #969edc;border-right:2px solid #969edc}
+#JobLocalSubwaylist .subwayList span {display:inline-block;width:360px}
+#JobLocalSubwaylist .subwayList span select {width:195px}
+#JobLocalSubwaylist .subwayList .subwayFirst {}
+#JobLocalSubwaylist .subwayList .subwaySecond {width:285px}
+
+#JobLocalSubwaylist .typeKind {margin-bottom:0}
+#JobLocalSubwaylist .typeKind div.list ul.listFirst {overflow:hidden;width:751px;padding:15px 0 17px 15px;border-left:2px solid #969edc;border-right:2px solid #969edc}
+#JobLocalSubwaylist .tabMenu li {width:152px}
+#JobLocalSubwaylist .tabMenu li.on {width:154px}
+#JobLocalSubwaylist div.list .listFirst li {width:71px}
+#JobLocalSubwaylist div.list .listFirst li a {letter-spacing:-1px;color:#474747}
+#JobLocalCollegelist .tabMenu li {width:46px}
+#JobLocalCollegelist .tabMenu li.on {width:61px}
+#JobLocalCollegelist div.list .college {width:730px;padding:10px 18px;border-left:2px solid #969edc;border-right:2px solid #969edc}
+#JobLocalCollegelist div.list .college li {position:relative;overflow:hidden;*margin:-6px 0 0;border-top:1px solid #e4e4e4}
+#JobLocalCollegelist div.list .college li.first {*margin:0;border-top:0 none}
+#JobLocalCollegelist div.list .college li span.category {float:left;width:27px;height:100%;margin-right:16px;font:bold 13px Gulim;text-align:center;background:#f6f6f6}
+#JobLocalCollegelist div.list .college .subList {overflow:hidden;float:right;width:687px}
+#JobLocalCollegelist div.list .college .subList li {float:left;width:225px;padding:5px 0 5px 4px;padding:6px 0 4px 4px\0;*padding:6px 0 4px 4px;*margin:0;background:url('//image.alba.kr/job/bul_square_blue.gif') no-repeat 0 10px;border:0 none}
+#JobLocalCollegelist div.list .college .subList li em {margin-left:4px;color:#0285c9;cursor:pointer}
+#JobLocalCollegelist div.list .college .subList li.on a {padding:3px 3px 2px 2px;background:#229ad8;color:#fff;text-decoration:none}
+
+/* 업·직종별 */
+#JobOccupation #SubContents h1 {padding-bottom:20px}
+#OccupationMain div.search {z-index:1;position:absolute;top:2px;right:0;width:315px}
+#OccupationMain div.search span.guide {position:absolute;top:6px;right:252px}
+#OccupationMain div.search h2 {float:left;height:18px;padding:6px 8px 0;font:bold 12px gulim;letter-spacing:-1px}
+#OccupationMain div.search input {float:left;width:215px;height:22px;letter-spacing:-1px;color:#474747;padding:2px 0 0 10px;line-height:22px;font-family:tahoma;vertical-align:top;border:1px solid #bbb;border-right:0 none}
+#OccupationMain div.search a.btnSearch {display:inline-block;width:28px;height:26px}
+#OccupationMain div.search div.keywordList {position:absolute;top:24px;right:1px}
+#OccupationMain div.search div.keywordList table {table-layout:fixed;width:380px;background:#fff;border-top:1px solid #35445d;border-left:1px solid #35445d}
+#OccupationMain div.search div.keywordList table tr {vertical-align:top}
+#OccupationMain div.search div.keywordList table tr th,
+#OccupationMain div.search div.keywordList table tr td {border-right:1px solid #35445d}
+#OccupationMain div.search div.keywordList table tr th {padding:8px 0 5px;font-weight:normal;color:#382a12;background:#f4f8fb;border-bottom:1px solid #d6dde2}
+#OccupationMain div.search div.keywordList table tr th.first {width:135px;border-right:1px solid #d6dde2}
+#OccupationMain div.search div.keywordList table tr th.second {width:248px}
+#OccupationMain div.search div.keywordList table tr td {padding:8px 12px;line-height:1.5}
+#OccupationMain div.search div.keywordList table tr td.first {border-right:1px solid #d6dde2}
+#OccupationMain div.search div.keywordList table tr td a {color:#5f69e4}
+#OccupationMain div.search div.keywordList p.autoSearchOff {padding:7px 7px 3px 0;font:11px Dotum;letter-spacing:-1px;text-align:right;background:#f5f5f5;color:#909090;border:1px solid #35445d;border-top:1px solid #d6dde2}
+#OccupationMain div.search div.keywordList p.autoSearchOff a {color:#909090}
+
+/* 브랜드매장 알바 */
+#JobAnnexBrand #SubContents h1 {width:1070px;height:134px;margin:0 0 10px;padding:0;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/job/JobAnnexBrand.jpg') no-repeat 0 0}
+
+.brandInquiry {z-index:3;position:absolute;top:22px;right:34px}
+.brandInquiry a.inquiry {display:block;width:89px;height:89px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/job/JobAnnexBrand.png') no-repeat 0 -139px}
+.brandInquiryLayer {display:none;position:absolute;top:88px;right:-34px;width:486px;height:392px;background:url('//image.alba.kr/job/brandInquiryLayer2.png') no-repeat 0 0}
+.brandInquiryLayer h2,
+.brandInquiryLayer dl dt,
+.brandInquiryLayer dl dd {font:0/0 dotum;color:transparent}
+.brandInquiryLayer dl dd span.tel {position:absolute;top:344px;left:95px;font-weight:bold;font-size:12px;line-height:1.3;text-decoration:none;color:#474747}
+.brandInquiryLayer dl dd a.mail {position:absolute;top:344px;left:280px;font-weight:bold;font-size:12px;line-height:1.3;text-decoration:none;color:#474747}
+.brandInquiryLayer p.close {position:absolute;top:0;right:0}
+.brandInquiryLayer p.close a {display:block;width:49px;height:40px;font:0/0 dotum;color:transparent}
+
+.brandSite {position:relative;width:1070px;height:415px;margin:0 0 47px;padding:20px 0 10px;background:#f3f3f4}
+.brandSite .site {overflow:hidden;position:relative;width:944px;height:376px;margin:0 auto}
+.brandSite .site ul {width:944px;height:384px}
+.brandSite .site ul li {position:relative;float:left;width:230px;*width:228px;height:122px;*height:120px;margin:0 4px 4px 0;border:1px solid #dad7d7;box-sizing:border-box}
+.brandSite .site ul li a {display:block;height:100%;font:0/0 dotum;color:transparent;background-repeat:no-repeat;background-position:-472px 0}
+.brandSite .site ul li.big {width:464px;*width:462px;height:248px;*height:246px}
+.brandSite .site ul li.big a {background-position:0 0}
+.brandSite .page {position:absolute;top:auto;bottom:15px;left:0;width:1070px;height:15px;text-align:center}
+.brandSite .page a {display:inline-block;width:15px;height:15px;margin:0 5px;font:0/0 dotum;color:transparent;background-color:#d5d5d5;border-radius:50%}
+.brandSite .page a.on {background-color:#fdbc02}
+
+.brandSearch {z-index:2;position:relative;height:26px}
+.brandSearch p.guide {padding-left:8px;letter-spacing:-1px;color:#606060}
+.brandSearch p.guide span {display:inline-block;width:2px;height:8px;margin-right:5px;background:url('//image.alba.kr/job/JobAnnexBrand.png') no-repeat -94px -139px}
+.brandSearch fieldset {position:absolute;top:-12px;right:0;width:307px;height:27px;background-color:#fff;border:1px solid #ccc}
+.brandSearch fieldset label {float:left;width:82px;height:20px;height:19px\0;*height:19px;padding:7px 0 0;padding-top:8px\0;*padding-top:8px;font:12px dotum;letter-spacing:-1px;text-align:center;background-color:#f3f3f4}
+.brandSearch fieldset input {float:left;width:195px;height:27px;height:24px\0;*height:24px;padding:0 0 0 5px;padding-top:3px\0;*padding-top:3px;font:12px dotum;letter-spacing:-1px;vertical-align:top;color:#777;border:0 none}
+.brandSearch fieldset span.arrow {float:right;display:inline;width:7px;height:4px;margin:11px 13px 0 0;background:url('//image.alba.kr/job/JobAnnexBrand.png') no-repeat -117px -139px}
+.brandSearch .resultLayer {position:absolute;top:16px;right:0;width:307px;background-color:#fff;border:1px solid #ccc}
+.brandSearch .resultLayer ul {width:288px;padding:13px 0 8px 19px}
+.brandSearch .resultLayer ul li {padding:3px 0}
+.brandSearch .resultLayer ul li a {color:#5f69e4}
+.brandSearch .resultLayer p.autoSearchOff {height:18px;height:17px\0;*height:17px;padding:6px 7px 0 0;padding-top:7px\0;*padding-top:7px;font:11px Dotum;letter-spacing:-1px;text-align:right;color:#909090;background-color:#f5f5f5;border-top:1px solid #ccc}
+.brandSearch .resultLayer p.autoSearchOff a {color:#909090}
+
+.brandList {position:relative;width:1070px}
+.brandList .list {overflow:hidden;width:1070px}
+.brandList .list li.brandInfo {z-index:0;position:relative;float:left;width:266px;height:465px;margin:0 0 0 -1px;border:1px solid #dcdddf}
+.brandList .list li.brandInfo h2 {position:relative;height:23px;padding:12px 0 0 20px;font-weight:bold;background:#f9f9f9;border-bottom:1px solid #bec0c3}
+.brandList .list li.brandInfo h2 a.more {position:absolute;right:17px;top:13px;font:11px Dotum;letter-spacing:-1px}
+.brandList .list li.brandInfo h2 a.more span {display:inline-block;width:3px;height:5px;margin:3px 0 0 4px;vertical-align:top;background:url('//image.alba.kr/job/JobAnnexBrand.png') no-repeat -101px -139px}
+.brandList .list li.brandInfo ul {width:260px;height:408px;padding:20px 0 0 6px}
+.brandList .list li.brandInfo ul li {float:left;display:inline;width:69px;height:102px;margin-left:11px;text-align:center}
+.brandList .list li.brandInfo ul li a {overflow:hidden;display:block;height:100%;font:11px dotum;letter-spacing:-1px;text-overflow:ellipsis;white-space:nowrap}
+.brandList .list li.brandInfo ul li span {display:block;width:67px;height:44px;margin:0 0 7px;padding:23px 0 0;background-color:#fff;border:1px solid #dfdfdf;border-radius:50%}
+.brandList .list li.brandInfo ul li span img {width:55px}
+
+.brandList .list li.first {width:267px;margin:0}
+.brandList .list li.first ul {width:261px}
+.brandList .list li.noInfo {background:url('//image.alba.kr/job/BrandMain_noInfo.gif') no-repeat center}
+.brandList .list li.on {z-index:1;border-color:#6077a2}
+.brandList .list li.on h2 {color:#fff;background:#657fae;border-color:#6077a2}
+.brandList .list li.on a.more {color:#fff}
+.brandList .list li.on a.more span {background-position:-109px -139px}
+.brandList .list li.on ul {background:#f6f9fe}
+
+/* 브랜드 List */
+#BrandList {position:relative;width:1070px;padding-bottom:10px}
+#BrandList p.brandLink {position:absolute;right:3px;top:12px;padding-right:16px;letter-spacing:-1px;background:url('//image.alba.kr/job/bul_arrow_blue.gif') no-repeat right top}
+#BrandList p.brandLink a {text-decoration:underline}
+#BrandList p.brandLink strong {color:#1600b9}
+#BrandList p.brandLinkBottom {top:auto;bottom:0}
+#brandHeader {position:relative;width:1070px;height:105px}
+#brandHeader .pic {position:absolute;left:50px;top:35px}
+#brandHeader .store {position:absolute;left:175px;top:45px}
+#brandHeader .store h2 {display:inline;margin:0 10px 0 0;font-size:1.3em;font-weight:bold;letter-spacing:-1px;color:#1600b9}
+#brandHeader .store img {vertical-align:-3px}
+#BrandList div.Brand_0301 {background:url('//image.alba.kr/job/brandHeader_0301.jpg') no-repeat 0 0}
+#BrandList div.Brand_0303 {background:url('//image.alba.kr/job/brandHeader_0303.jpg') no-repeat 0 0}
+#BrandList div.Brand_0304 {background:url('//image.alba.kr/job/brandHeader_0304.jpg') no-repeat 0 0}
+#BrandList div.Brand_0305 {background:url('//image.alba.kr/job/brandHeader_0305.jpg') no-repeat 0 0}
+#BrandList div.Brand_0306 {background:url('//image.alba.kr/job/brandHeader_0306.jpg') no-repeat 0 0}
+#BrandList div.Brand_0323 {background:url('//image.alba.kr/job/brandHeader_0323.jpg') no-repeat 0 0}
+#BrandList div.Brand_0324 {background:url('//image.alba.kr/job/brandHeader_0324.jpg') no-repeat 0 0}
+#BrandList div.Brand_0325 {background:url('//image.alba.kr/job/brandHeader_0325.jpg') no-repeat 0 0}
+#BrandList div.Brand_0326 {background:url('//image.alba.kr/job/brandHeader_0326.jpg') no-repeat 0 0}
+#BrandList div.Brand_0327 {background:url('//image.alba.kr/job/brandHeader_0327.jpg') no-repeat 0 0}
+#BrandList div.Brand_0404 {background:url('//image.alba.kr/job/brandHeader_0404.jpg') no-repeat 0 0}
+#BrandList div.Brand_0421 {background:url('//image.alba.kr/job/brandHeader_0421.jpg') no-repeat 0 0}
+#BrandList div.Brand_0422 {background:url('//image.alba.kr/job/brandHeader_0422.jpg') no-repeat 0 0}
+#BrandList div.Brand_0503 {background:url('//image.alba.kr/job/brandHeader_0503.jpg') no-repeat 0 0}
+#BrandList div.Brand_0501 {background:url('//image.alba.kr/job/brandHeader_0501.jpg') no-repeat 0 0}
+#BrandList div.Brand_0509 {background:url('//image.alba.kr/job/brandHeader_0509.jpg') no-repeat 0 0}
+#BrandList div.Brand_0602 {background:url('//image.alba.kr/job/brandHeader_0602.jpg') no-repeat 0 0}
+#BrandList div.Brand_0603 {background:url('//image.alba.kr/job/brandHeader_0603.jpg') no-repeat 0 0}
+#BrandList div.Brand_0604 {background:url('//image.alba.kr/job/brandHeader_0604.jpg') no-repeat 0 0}
+#BrandList div.Brand_0605 {background:url('//image.alba.kr/job/brandHeader_0605.jpg') no-repeat 0 0}
+#BrandList div.Brand_0607 {background:url('//image.alba.kr/job/brandHeader_0607.jpg') no-repeat 0 0}
+#BrandList div.Brand_0621 {background:url('//image.alba.kr/job/brandHeader_0621.jpg') no-repeat 0 0}
+#BrandList div.Brand_0622 {background:url('//image.alba.kr/job/brandHeader_0622.jpg') no-repeat 0 0}
+#BrandList div.Brand_0623 {background:url('//image.alba.kr/job/brandHeader_0623.jpg') no-repeat 0 0}
+#BrandList div.Brand_0624 {background:url('//image.alba.kr/job/brandHeader_0624.jpg') no-repeat 0 0}
+#BrandList div.Brand_0813 {background:url('//image.alba.kr/job/brandHeader_0813.jpg') no-repeat 0 0}
+
+#searchSelectArea {width:1066px;margin:10px 0;border:2px solid #66a0c7}
+#searchSelectArea:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
+#searchSelectArea .headerClear {height:29px;*height:1%;padding:12px 15px 0 15px;border-bottom:1px solid #dcdcdc;background:#f4f8fb}
+#searchSelectArea .headerClear:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
+#searchSelectArea .headerClear .store {float:left;padding:4px 0 0 4px;font-weight:bold}
+#searchSelectArea .headerClear .store strong {color:#0060ff}
+#searchSelectArea .headerClear .selectMove {float:right}
+#searchSelectArea .headerClear .selectMove label {position:relative;top:2px;padding:0 0 0 5px;font:12px gulim;letter-spacing:-1px}
+#searchSelectArea .headerClear .selectMove select {letter-spacing:-1px}
+.selectSearchList {overflow:hidden;width:1040px;padding:5px 15px 10px}
+.selectSearchList li {float:left;width:199px;padding:6px 0 3px 9px;background:url('//image.alba.kr/job/bul_square_blue.gif') no-repeat 5px 11px}
+.selectSearchList li a {padding:3px 3px 0 2px}
+.selectSearchList li.on a {margin-right:3px;letter-spacing:-1px;color:#fff;background:#229ad8}
+.selectSearchList li span {color:#0285c9}
+
+/* 근무 기간·요일·시간별 */
+#PeriodType {width:766px;border:2px solid #67a9d3}
+#PeriodType ul {overflow:hidden;width:766px}
+#PeriodType ul li {float:left;border-right:1px solid #dcdcdc}
+#PeriodType ul li.period {width:210px}
+#PeriodType ul li.period ul {overflow:hidden;width:210px}
+#PeriodType ul li.period ul li {width:105px;border:0 none}
+#PeriodType ul li.week {width:305px}
+#PeriodType ul li.week ul {overflow:hidden;width:305px}
+#PeriodType ul li.week ul li {clear:both;float:none;width:100%;border:0 none}
+#PeriodType ul li.week ul li.floating {clear:none;float:left;width:76px;border:0 none}
+#PeriodType ul li.time {width:249px;border-right:0 none}
+#PeriodType ul li span.title {display:block;height:22px;padding-top:8px;font-weight:bold;text-align:center;border-bottom:1px solid #d5d5d5;background:#f4f8fb}
+#PeriodType ul li ul {position:relative;height:114px}
+
+/* 대상별 알바 - 대학생 우대 알바 */
+#ObjectType ul.listSecond {z-index:1;position:relative;overflow:hidden;width:1069px;height:37px;margin-bottom:10px;border-right:1px solid #d6dde2;background:#f4f8fb url('//image.alba.kr/job/new_kindTab_bg.gif') repeat-x left 0}
+#ObjectType ul.listSecond li {position:relative;float:left;width:153px;height:34px;margin-right:-1px;border:1px solid #d6dde2;border-bottom:0 none}
+#ObjectType ul.listSecond li a {display:block;height:24px;padding:10px 0 0;text-align:center;background:#f4f8fb}
+#ObjectType ul.listSecond li.on {z-index:1;width:150px;height:33px;border:2px solid #67a9d3;border-bottom:0 none}
+#ObjectType ul.listSecond li.on a {height:25px;font-weight:bold;color:red;background:#fff}
+
+/* 공공기관 채용관 리스트 */
+#GovernmentListBanner {margin-bottom:15px}
+#GovernmentList {position:relative;width:100%;margin-top:-10px}
+#GovernmentList h2 {padding:0 5px 4px 0;text-align:right}
+#GovernmentList h2 img {margin:-4px 0 0}
+#GovernmentList h2 span {font:bold 1em tahoma;letter-spacing:0;color:#04008b}
+#GovernmentList table {width:100%;margin:0;padding:0;border-top:2px solid #878787}
+#GovernmentList table tr th {padding:9px 0 6px;letter-spacing:-1px;color:#5d5d5d;background:#f5f5f5;border-bottom:1px solid #dadada}
+#GovernmentList table tr td {padding:9px 0 6px;border-bottom:1px solid #e5e5e5}
+#GovernmentList table tr td.local {width:68px;padding-left:5px;letter-spacing:-1px}
+#GovernmentList table tr td.office {width:120px;padding-left:10px;letter-spacing:-1px}
+#GovernmentList table tr td.title {width:auto;padding-left:12px;color:#0d7ab3}
+#GovernmentList table tr td.title a {color:#0d7ab3}
+#GovernmentList table tr td.number {width:60px;padding-right:12px;text-align:right}
+#GovernmentList table tr td.endDate {width:190px;text-align:center}
+#GovernmentList table tr td.term {width:146px;text-align:center}
+#GovernmentList table tr td.term span {font:11px Dotum;letter-spacing:-1px}
+#GovernmentList table tr td.noJob {padding:12px 0 9px;text-align:center}
+#GovernmentList table tr.done td,
+#GovernmentList table tr.done td.title a {color:#cdcdcd}
+
+/* 비교보기 */
+#CompareView {width:960px}
+#CompareView table {width:960px;margin:10px 0 0;border-top:1px solid #d2d2d2;border-left:1px solid #d2d2d2}
+#CompareView table th,
+#CompareView table td {padding:10px 10px 7px;border-bottom:1px solid #d2d2d2;border-right:1px solid #d2d2d2}
+#CompareView table th {width:70px;background:#f7f7f7}
+#CompareView table tr.company td {font-weight:bold;color:#3d62d4}
+#CompareView table tr.local td,
+#CompareView table tr.jobNumber td {font-weight:bold;color:#0771c6}
+#CompareView table tr.title td,
+#CompareView table tr.endDate td,
+#CompareView table tr.salary td{color:#ff3c02}
+#CompareView table tr.scrap td {font-weight:bold}
+#CompareView table tr.closing td em strong {font-weight:normal;color:#fc5e00}
+#CompareView p.back {position:relative;margin:10px 0 0;text-align:right}
+#CompareView p.backTop {margin-top:-20px}
+
+/* 상세페이지 */
+#BrandHead {margin:0 0 10px}
+#DetailView {position:relative;width:1070px;margin:0 auto;padding:11px 0 0;background:#fff}
+#DetailView h1 {width:120px;height:17px;margin:0 0 11px;padding:0;text-indent:-999em;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat left -201px}
+
+#DetailView .update {position:absolute;top:-2px;right:0;font:11px Dotum;letter-spacing:-1px}
+#DetailView .update em {font-family:arial;letter-spacing:0}
+#DetailView .pageAction {position:absolute;top:15px;right:0;font:11px Dotum;letter-spacing:-1px}
+#DetailView .pageAction li {float:left;display:inline;margin-left:4px}
+#DetailView .pageAction li a {display:block;height:18px;text-indent:-999em;background:#fff url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .pageAction li.friend a {width:64px;background-position:-183px -284px}
+#DetailView .pageAction li.scrap a {width:57px;background-position:-521px -285px}
+#DetailView .pageAction li.print a {width:65px;background-position:-582px -285px}
+#DetailView .pageAction li.report a {width:88px;background-position:-651px -285px}
+#DetailView .pageAction li.email {margin-left:6px;padding-left:7px;background:#fff url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -745px -285px}
+#DetailView .pageAction li.email a {width:18px;background-position:-752px -285px}
+#DetailView .pageAction li.sns {margin:0;padding:1px 0 0}
+#DetailView .pageAction li.sns a {float:left;display:inline;width:17px;height:17px;margin-left:4px;padding:0;text-indent:-999em;background:url('//image.alba.kr/comm/icon_sns.gif') no-repeat}
+#DetailView .pageAction li.sns a.facebook {background-position:0 -23px}
+#DetailView .pageAction li.sns a.twitter {background-position:-20px -23px}
+#DetailView .pageAction li.sns a.yozm {background-position:-40px -23px}
+#DetailView .pageAction li.sns a.me2day {background-position:-60px -23px}
+#DetailView .pageAction li.sns a.cyworld {background-position:-80px -23px}
+
+#DetailView .detailTitle {width:1068px;height:41px;margin:0;font:bold 18px/41px "나눔고딕",NanumGothic,Daum_Regular,"맑은 고딕";letter-spacing:-1px;text-align:center;color:#fff;background:#7c8290;border:1px solid #6b6e75}
+
+#DetailView .infoPrimary {z-index:1;position:relative;width:1068px;margin:0 0 6px;border:1px solid #e1e1e1}
+#DetailView .infoPrimary:after {content:" ";clear:both;display:block}
+#DetailView .infoPrimary .infoLogo {z-index:1;float:left;width:350px;height:115px;padding:7px 0 5px}
+#DetailView .infoPrimary .infoTop {float:right;width:703px;padding:5px 15px 5px 0}
+#DetailView .infoSubSide {width:1068px;margin:0 0 6px;background:url('//image.alba.kr/job/DetailView_line.png') repeat-y 534px 0;border:1px solid #e1e1e1;border-top-color:#9499a4;border-bottom-color:#9499a4}
+#DetailView .infoSubSide:after {content:" ";clear:both;display:block}
+#DetailView .infoSubSide .infoSub {float:left;width:504px;background-color:#fff}
+#DetailView .infoSubSide .infoSide {float:right;width:504px}
+
+#DetailView .infoJob ul.info li {position:relative;*height:1%;margin:0 0 7px;margin-bottom:6px\0;*margin-bottom:6px;padding-left:60px;line-height:1.5;word-wrap:break-word}
+#DetailView .infoJob ul.info li ul li {margin:0;padding:0}
+#DetailView .infoJob ul.info li .item {position:absolute;top:1px;left:2px;width:56px;letter-spacing:-1px;color:#999;font:11px dotum}
+
+#DetailView .infoJob {position:relative;padding:17px 15px 5px}
+#DetailView .infoAdd {margin:0 0 7px;padding:0;border:1px solid #e1e1e1}
+
+#DetailView .infoJob ul.info li.telEmail p {height:15px}
+#DetailView .infoJob ul.info li.telEmail span {margin-right:10px}
+#DetailView .infoJob ul.info li.telEmail em {position:relative;top:-1px;font:bold 11px dotum;letter-spacing:-1px}
+#DetailView .infoJob ul.info li.telEmail p.guideTel {height:auto;margin:3px 0 12px;padding-left:0;font:11px dotum;letter-spacing:-1px;color:#7d7d7d}
+#DetailView .infoJob ul.info li.telEmail p.guideTel span {position:static;display:inline-block;width:16px;height:12px;margin:0;vertical-align:middle;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -226px -201px}
+
+#DetailView .infoJob ul.info li.address a.mapView {position:absolute;top:9px;right:0;width:86px;height:19px;text-indent:-999em;vertical-align:top;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -132px -228px}
+#DetailView .infoJob ul.info li.subwayInfo .station {margin-right:15px}
+#DetailView .infoJob ul.info li.subwayInfo em {display:inline-block;width:12px;height:12px;text-indent:-999em;vertical-align:text-top;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_101 {background-position:-274px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_102 {background-position:-290px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_103 {background-position:-307px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_104 {background-position:-323px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_105 {background-position:-339px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_106 {background-position:-355px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_107 {background-position:-372px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_108 {background-position:-388px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_109 {width:19px;background-position:-723px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_110 {background-position:-453px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_111 {background-position:-437px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_112 {background-position:-503px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_113 {background-position:-404px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_114 {background-position:-420px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_115 {background-position:-519px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_116 {background-position:-470px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_117 {background-position:-553px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_118 {background-position:-536px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_119 {background-position:-679px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_120 {width:19px;background-position:-747px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_121 {width:23px;background-position:-555px -368px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_122 {background-position:-798px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_123 {width:22px;background-position:-816px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_124 {width:21px;background-position:-842px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_201 {background-position:-570px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_202 {background-position:-586px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_203 {background-position:-603px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_204 {background-position:-619px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_205 {background-position:-635px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_206 {width:22px;background-position:-771px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_301 {background-position:-570px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_302 {background-position:-586px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_303 {background-position:-701px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_401 {background-position:-570px -201px}
+#DetailView .infoJob ul.info li.subwayInfo em.subway_501 {background-position:-570px -201px}
+#DetailView .infoJob ul.info li.recruitendyyyymmdd em {color:#ff4e00}
+#DetailView .infoJob ul.info li.getPay p.pay {margin:0 0 7px;line-height:18px}
+#DetailView .infoJob ul.info li.getPay p.pay img {position:relative;top:1px}
+#DetailView .infoJob ul.info li.getPay p.pay strong {font:bold 14px tahoma;color:#00ace5}
+#DetailView .infoJob ul.info li.getPay p.calculator a {overflow:hidden;display:inline-block;width:71px;height:18px;margin-top:2px;text-indent:-999em;*text-indent:0;*line-height:999em;vertical-align:top;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -223px -228px}
+#DetailView .infoJob ul.info li.getPay p.calculator span {font:11px dotum;letter-spacing:-1px;color:#767676}
+#DetailView .infoJob ul.info li.getPay p.calculator span strong {font-family:tahoma;letter-spacing:0}
+#DetailView .applictionDate {padding:25px 0;text-align:center;border:1px solid #e1e1e1}
+#DetailView .applictionWay {position:relative;margin:0 0 6px}
+#DetailView .applictionWay p.appBtn a {overflow:hidden;display:inline-block;width:130px;height:50px;font:0/0 dotum;vertical-align:top;color:white;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .applictionWay p.appBtn a.applOnline {overflow:visible;position:relative}
+#DetailView .applictionWay p.appBtn a.applOnline img {position:absolute;top:-10px;right:150px;cursor:pointer}
+#DetailView .applictionWay p.appBtn a.applOwn {background-position:-150px -368px}
+#DetailView .applictionWay p.appBtn a.applEmail {background-position:-285px -368px}
+#DetailView .applictionWay p.appBtn a.applHomepage {background-position:-420px -368px}
+#DetailView .applictionWay p.appBtn a.applSms {background-position:0 -423px}
+#DetailView .applictionWay p.appBtn a.applSms.end {cursor:default;background-position:-152px -423px}
+#DetailView .applictionWay p.appBtn a.applWorknet {width:209px;background-position:-361px -218px}
+#DetailView .applictionWay p.appBtn a.applMarket {width:209px;height:50px;background-position:-299px -423px}
+#DetailView .applictionWay p.appBtn span.applWorknetGuide {display:block;margin:7px 0 0;line-height:1.4}
+#DetailView .applictionWay p.appBtn span.date {display:block;margin-bottom:-10px;padding:5px 0 0;font:12px/1.6 tahoma;color:#999}
+#DetailView .applictionWay p.appBtn span.date em {color:#999}
+#DetailView .applictionWay p.appBtn span.date span.comment {display:block}
+#DetailView .applictionWay p.appBtn span.date span {letter-spacing:-1px;color:#6a6a6a}
+#DetailView .applictionWay p.appBtn span.date span span {display:none}
+#DetailView .applictionWay p.appBtn span.date span strong {letter-spacing:0;color:#ff5050}
+#DetailView .applictionWay p.appBtn span.date span strong em {color:#ff5050}
+#DetailView .applictionWay p.appBtn span.date strong.txt {display:inline-block;width:43px;height:15px;margin-top:-2px;margin-top:-3px\0;*margin-top:-1px;font-size:0;vertical-align:middle;color:#ff5050;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -437px -288px}
+#DetailView .applictionWay p.appBtn span.arrow {z-index:101;display:none;position:absolute;margin:50px 0 0 -80.5px;width:16px;height:11px;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -416px -292px}
+
+#DetailView .applictionWay p.appEtc {margin:18px 0 0}
+#DetailView .applictionWay p.appEtc a,
+#DetailView .applictionWay p.appEtc span {overflow:hidden;display:inline-block;width:43px;height:16px;margin-left:35px;line-height:999em;vertical-align:top;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .applictionWay p.appEtc a strong,
+#DetailView .applictionWay p.appEtc span strong {display:inline-block;width:43px;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .applictionWay p.appEtc .telVisit {width:81px;margin-left:0;background-position:-488px -147px}
+#DetailView .applictionWay p.appEtc .telVisit strong {width:81px;background-position:-488px -175px}
+#DetailView .applictionWay p.appEtc .visit {width:66px;background-position:-574px -147px}
+#DetailView .applictionWay p.appEtc .visit strong {width:66px;background-position:-574px -175px}
+#DetailView .applictionWay p.appEtc .fax {background-position:-645px -147px}
+#DetailView .applictionWay p.appEtc .fax strong {background-position:-645px -175px}
+#DetailView .applictionWay p.appEtc .post {background-position:-694px -147px}
+#DetailView .applictionWay p.appEtc .post strong {background-position:-694px -175px}
+
+#DetailView .infoLogo p.logo {width:350px;height:84px;font:bold 14px "나눔고딕",NanumGothic,Daum_Regular,"맑은 고딕",Dotum;text-align:center}
+#DetailView .infoLogo p.logo span.logo {display:inline-block;vertical-align:middle}
+#DetailView .infoLogo p.logo span.logo img {width:200px;height:80px}
+#DetailView .infoLogo p.logo span.blank {overflow:hidden;display:inline-block;width:0;height:84px;vertical-align:middle}
+#DetailView .infoLogo .viewcertify {position:absolute;bottom:0;left:0;width:350px;height:20px;text-align:center;font-size:0}
+#DetailView .infoLogo .viewcertify-btn {position:relative;display:inline-block;height:14px;height:13px\0;*height:13px;margin-top:3px;margin-left:3px;padding:2px 5px 0;padding-top:3px\0;*padding-top:3px;font:11px dotum;letter-spacing:-1px;vertical-align:top;color:#fff}
+#DetailView .infoLogo .viewcertify-btn-employment {background:#4d6dd2}
+#DetailView .infoLogo .viewcertify-btn-industrial {background:#f26472}
+#DetailView .infoLogo .viewcertify-btn-pension {background:#42b574}
+#DetailView .infoLogo .viewcertify-btn-health {background:#f3b015}
+
+#DetailView .infoTop p.workcomnm {position:relative;margin:0 0 15px;padding:0 0 4px;border-bottom:1px solid #c1c1c1}
+#DetailView .infoTop p.workcomnm::after {content:"";display:block;clear:both}
+#DetailView .infoTop p.workcomnm strong {display:inline-block;height:28px;height:26px\0;*height:26px;padding-top:2px\0;*padding-top:2px;margin-right:10px;font-size:14px;line-height:28px}
+#DetailView .infoTop p.workcomnm>a {position:absolute;top:8px;right:0;font:11px dotum;letter-spacing:-1px;color:#db844c}
+#DetailView .infoTop p.workcomnm>a>em {position:relative;top:-1px\0;*top:-1px;display:inline-block;width:12px;height:12px;margin-left:5px;text-indent:-999em;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -200px -201px}
+#DetailView .infoTop p.workcomnm>a>span {position:relative;top:-1px;top:-2px\0;*top:-2px;display:inline-block;width:4px;height:5px;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -217px -201px}
+#DetailView .infoTop p.workcomnmImg {width:703px;height:28px}
+#DetailView .infoTop p.workcomnmImg:after {content:"";display:block;clear:both}
+#DetailView .infoTop p.workcomnmImg img {display:inline-block;margin-right:10px}
+#DetailView .infoTop p.workcomnm .viewCompany {position:relative;display:inline-block}
+#DetailView .infoTop p.workcomnm .viewCompany a.btn {position:relative;top:4px;overflow:hidden;display:inline-block;height:15px;height:14px\0;*height:14px;padding:3px 0 0;padding-top:4px\0;*padding-top:4px;font:11px dotum;text-align:center;letter-spacing:-1px;text-decoration:none;color:#8e8e8e;border:1px solid #dcdcdc;border-bottom-color:#c8c9ce}
+#DetailView .infoTop p.workcomnm .viewCompany a.btn.noti {width:72px}
+#DetailView .infoTop p.workcomnm .viewCompany a.btn.info {width:72px}
+#DetailView .infoTop p.workcomnm .viewCompany a.btn.layer {width:19px}
+#DetailView .infoTop p.workcomnm .viewCompany a.close {top:6px;right:6px}
+#DetailView .infoTop p.workcomnm .viewCompany #ViewCompany {top:-74px !important;left:auto !important;right:-32px !important}
+
+#DetailView .infoSubSide h2 {width:45px;height:14px;margin:0 0 8px;text-indent:-999em;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat}
+#DetailView .infoSubSide h2.apply {background-position:-625px -268px}
+#DetailView .infoSubSide h2.applyCnt {background-position:-675px -268px}
+#DetailView .infoSubSide h2.terms {background-position:-725px -268px}
+#DetailView .infoSubSide .divide {margin-top:10px !important;margin-top:8px\0 !important;*margin-top:8px !important;padding-top:13px;padding-bottom:0;border-top:1px solid #dedede}
+#DetailView .infoSubSide ul.info .divide .item {top:13px;top:14px\0;*top:14px}
+
+#DetailView .infoContent {padding-top:17px !important}
+#DetailView .infoSide ul.info li {padding-left:70px}
+
+#DetailView .gMark {position:relative;width:770px;margin:0 0 6px}
+#DetailView #GmarkLayer {z-index:1;display:none;overflow:hidden;position:absolute;top:0;left:50%;width:494px;height:607px;margin:0 0 0 -247px;text-indent:-999em;background:url('//image.alba.kr/job/Gmark_layer.gif') no-repeat 0 0}
+#DetailView #GmarkLayer h1 {background:none}
+#DetailView #GmarkLayer .layerClose {position:absolute;right:5px;top:5px;width:42px;height:20px}
+
+#DetailView .infoAddWrap {position:relative;width:862px;padding:0 0 0 208px}
+#DetailView .infoAddWrap:after {content:"";display:block;clear:both;height:0;visibility:hidden}
+#DetailView .infoAddContent .infoAdd {width:1068px;margin:0 0 7px;padding:0;border:1px solid #e1e1e1}
+#DetailView #InfoDetail {*z-index:4}
+#DetailView #InfoApply {*z-index:3}
+#DetailView #InfoWork {*z-index:2}
+#DetailView #InfoCompany {*z-index:1}
+#DetailView .infoPolice {margin:0 0 7px}
+
+#DetailView .infoAdd .tabLink {overflow:hidden;width:1068px}
+#DetailView .infoAdd .tabLink li {float:left;width:266px;height:36px;font:14px/35px 'Malgun Gothic';letter-spacing:-1px;text-align:center;color:#666;background-color:#fafbfb;border-bottom:1px solid #e1e1e1;border-left:1px solid #e1e1e1}
+#DetailView .infoAdd .tabLink li a {display:block;height:36px;color:#666}
+#DetailView .infoAdd .tabLink li:first-child {width:267px;border-left:0 none}
+#DetailView .infoAdd .tabLink li.on {font-weight:bold;background-color:#fff;border-bottom-color:#fff}
+
+#DetailView .infoAdd ul.info {width:968px;padding:30px 50px}
+#DetailView .infoAdd ul.info li .item {top:0;font:12px gulim}
+#DetailView .infoAdd ul.info li {padding-left:90px}
+#DetailView .infoAdd ul.info li .relievedNum {right:180px}
+#DetailView .infoAdd ul.info li.workName img {margin-top:-3px}
+#DetailView .infoAdd ul.info li.map p {margin:7px 0 0;font:11px dotum;letter-spacing:-1px;color:#767676}
+#DetailView .infoAdd ul.info li.photo p {overflow:hidden;height:40px}
+#DetailView .infoAdd ul.info li.photo a {float:left;height:37px;margin-right:2px}
+#DetailView .infoAdd ul.info li.photo a img {width:58px;height:37px;border:1px solid #dbdbdb}
+
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .itemDate {position:relative;top:-3px;font:14px tahoma;color:#999;vertical-align:top}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .itemDate em {color:#000}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap {overflow:hidden;width:510px;margin:10px 0 35px}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap {position:relative;float:left;width:165px;height:131px;padding:34px 0 0;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign {width:145px;padding:65px 0 0;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -580px -308px}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span {display:block}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span .date {position:absolute;left:22px;top:50px;display:block;font:16px verdana;text-align:left}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span .date em {position:absolute;right:-50px;top:-10px;font:bold 30px tahoma}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span .date em.day_0 {top:-2px;font:bold 20px dotum}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span .date em.day_1 {top:-2px;font:bold 20px dotum}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap .daySignWrap .daySign span .txt {display:block;padding-bottom:4px}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange {position:relative;float:left;width:340px;height:155px;padding:10px 0 0;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-group-first {float:left;margin-right:30px}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-group-last {float:left}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-corner-all {display:none}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar {border-collapse:collapse}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr th {padding:6px 5px 5px 5px;font:bold 11px dotum;color:#888;text-align:center;border-top:1px solid #eaeaec;border-bottom:1px solid #eaeaec}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr th.ui-datepicker-week-end {color:#d92d1e}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr td {text-align:center}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr td a {font:11px tahoma;color:#666;cursor:default;text-decoration:none}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr td.ui-datepicker-today a {font-weight:bold;color:#009dff}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr td.date-range-selected {background:#eef6f8}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-calendar tr td.date-range-end a {font-weight:bold;color:red}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-title {padding-bottom:5px;text-align:center}
+#DetailView .infoAdd ul.info li.recruitendyyyymmdd .calenderWrap #jrange .ui-datepicker-title span {font:16px tahoma;color:#767676}
+#DetailView .infoAdd .guide {position:relative;padding-left:106px}
+#DetailView .infoAdd .guide span {position:absolute;left:10px}
+
+#DetailView #InfoCompany {min-height:213px}
+#DetailView #InfoCompany p.logo {position:absolute;top:60px;left:55px;width:180px;height:85px;padding:1px;font:bold 14px "나눔고딕",NanumGothic,Daum_Regular,"맑은 고딕",Dotum;text-align:center;border:1px solid #dbdbdb}
+#DetailView #InfoCompany p.logo span.logo {display:inline-block;vertical-align:middle}
+#DetailView #InfoCompany p.logo span.logo img {width:160px;height:64px}
+#DetailView #InfoCompany p.logo span.blank {overflow:hidden;display:inline-block;width:0;height:85px;vertical-align:middle}
+#DetailView #InfoCompany p.photo {position:absolute;top:151px;left:55px}
+#DetailView #InfoCompany p.photo img {float:left;width:58px;height:37px;margin-right:2px;border:1px solid #dbdbdb}
+#DetailView #InfoCompany .info {width:750px;padding-left:265px}
+#DetailView #InfoCompany .info li,
+#DetailView #InfoCompany .info li ul {}
+#DetailView #InfoCompany .info li.address strong {font-weight:normal}
+#DetailView #InfoCompany .info li.workcom {z-index:1}
+#DetailView #InfoCompany .info li.workcom img {margin-top:-3px}
+#DetailView #InfoCompany .info li.workcom a.certMark {position:relative;top:-1px}
+#DetailView #InfoCompany .info li.workcom a.certMark .certMarkLayer {display:none;z-index:9;position:absolute;left:18px;top:-3px;width:260px;margin-left:7px;padding:7px 7px 3px;font:11px/1.2 Dotum;letter-spacing:-1px;text-decoration:none;color:#63756f;cursor:default;background:#f2fffb;border:1px solid #bde7da}
+#DetailView #InfoCompany .info li.workcom a.certMark:hover .certMarkLayer {display:block}
+#DetailView #InfoCompany .info li.workcom a.certMark .certMarkLayer .arrow {position:absolute;Left:-7px;top:4px;width:7px;height:11px;background:url('//image.alba.kr/job/bul_arrowLeft.png') no-repeat 0 0}
+#DetailView #InfoCompany .info a.noti {overflow:hidden;display:inline-block;width:72px;height:15px;height:14px\0;*height:14px;margin:-4px 0 0 5px;padding:3px 0 0;padding-top:4px\0;*padding-top:4px;font:11px dotum;letter-spacing:-1px;text-align:center;text-decoration:none;color:#8e8e8e;border:1px solid #dcdcdc;border-bottom-color:#c8c9ce}
+
+#DetailView .safeNum {z-index:999;position:absolute;top:-6px;right:-4px;background-color:#fff}
+#DetailView .safeNum a.notice {display:inline-block;width:103px;height:16px;height:15px\0;*height:15px;margin:0 4px 0 0;padding:3px 0 0;padding:4px 0 0\0;*padding:4px 0 0;text-align:center;text-decoration:none;letter-spacing:-1px;color:#fe686a;border:1px solid #ff8788}
+#DetailView .infoAdd .safeNum {position:relative;top:0;right:auto;margin:0 0 8px}
+
+#DetailView .contentsRight {position:relative;margin:10px 0 0;padding:15px 20px 12px;border:1px solid #e9e9e9}
+#DetailView .contentsRight p.guide {width:850px;font:11px/1.5 Dotum;letter-spacing:-1px;color:#767676;padding-right:15px;border-right:1px solid #dcdcdc}
+#DetailView .contentsRight p.guide img {margin:0 0 3px -1px}
+#DetailView .contentsRight p.guide strong {color:#105eb6}
+#DetailView .contentsRight p.guide em {font-weight:bold}
+#DetailView .contentsRight p.logo {position:absolute;top:25px;right:45px}
+#DetailView .contentsRight p.logo span {display:block;width:95px;height:31px;text-indent:-999em;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -675px -218px}
+#DetailView .contentsRight p.logoMarket {position:absolute;top:25px;right:45px}
+#DetailView .contentsRight p.logoMarket span {display:block;width:95px;height:31px;text-indent:-999em;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -775px -218px}
+#DetailView .modDel {margin:10px 0}
+
+#DetailView .jobEndGuide {width:1070px;height:69px;padding:10px 0 0;font:bold 25px tahoma;letter-spacing:-2px;text-align:center;color:#ffff00;background:url('//image.alba.kr/job/jobEndGuide_bg.gif') repeat-x 0 0;border-bottom:1px solid #fff}
+#DetailView .jobEndGuide strong {letter-spacing:-1px;color:#fff}
+#DetailView .jobEndGuide span {display:block;margin:5px 0 0;font-size:13px;letter-spacing:-1px;color:#fff}
+#DetailView .jobEndFilter {z-index:99;position:absolute;width:1070px;background:#000}
+
+#DetailView .jobEndSynd {z-index:99;position:absolute;top:130px;left:50%;width:500px;height:275px;margin-left:-250px;background:url('//image.alba.kr/job/jobEndSynd_bg.gif') no-repeat 0 0}
+#DetailView .jobEndSynd p.guide {width:300px;text-indent:-999em}
+#DetailView .jobEndSynd p.button {position:absolute;top:190px;left:196px;width:108px;height:43px}
+#DetailView .jobEndSynd p.button a {display:block;height:43px;text-indent:-999em}
+#DetailView .jobEndSynd p.close {position:absolute;top:0;right:0;width:35px;height:35px}
+#DetailView .jobEndSynd p.close a {display:block;height:35px;text-indent:-999em}
+
+#DetailView .infoWorknet {margin:5px 0 15px;padding:6px 0 0;letter-spacing:-1px;color:#767676}
+#DetailView .infoWorknet span {overflow:hidden;display:inline-block;width:68px;height:17px;margin-top:-7px;line-height:999em;vertical-align:top;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -183px -259px}
+
+#DetailView .police {margin:0 0 10px}
+
+#DetailView .certContract {z-index:1;position:absolute;top:47px;left:8px}
+#DetailPreview #DetailView .certContract {top:19px}
+
+.helpText {z-index:100;display:none;position:absolute;padding:15px;line-height:1.5;letter-spacing:-1px;text-align:left;background-color:#fffbd8;border:1px solid #bab691}
+.helpText dl {line-height:1.5}
+.helpText dt {margin:0 0 10px;font-weight:bold}
+.helpText a.what {display:inline-block;color:#18b2f2;text-decoration:none;border-bottom:1px solid #30b9f0}
+.helpText a.close {position:absolute;top:6px;right:6px;width:10px;height:10px;text-indent:-999em;text-decoration:none;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -506px -293px}
+.helpText span.arrow {position:absolute;bottom:-11px;left:135px;width:16px;height:11px;background:url('//image.alba.kr/job/DetailView_bg2.png') no-repeat -485px -292px}
+#ViewCompany {top:-80px;left:12px;width:261px}
+.safeNumLayer {top:-101px;left:-90px;width:325px}
+#SafeNumGuide {top:-164px;left:-90px;width:325px}
+.infoTop .safeNumLayer,
+.infoTop #SafeNumGuide {left:-252px}
+.infoTop span.arrow {left:auto;right:34px;margin:0}
+.smsGuide {top:60px}
+.smsGuide em {font:11px/1.4 dotum;color:#767676}
+.applictionDate .smsGuide {top:85px;left:50%;margin-left:-162px}
+
+.applyLayer {z-index:999999;display:none;position:fixed;top:50%;left:50%;width:300px;margin:0 0 0 -150px;padding:25px 15px 23px;background:#f5f6fd;border:3px solid #5263ce}
+.applyLayer p.guide {padding:0 0 15px;line-height:1.5;letter-spacing:-1px;text-align:center;border-bottom:1px solid #aeb6eb}
+.applyLayer p.action {padding:14px 0 0;text-align:center;border-top:2px solid #e2e4f1}
+.applyLayer p.action img {margin:0 5px}
+.applyLayer p.noMember {position:absolute;bottom:6px;left:6px;width:302px;height:19px;padding:9px 0 0 14px;font:11px dotum;letter-spacing:-1px;background:#fff;border:1px solid #e2e2e2}
+.applyLayer p.join {position:absolute;bottom:13px;right:15px;font:bold 11px dotum;letter-spacing:-1px;color:#5667d2}
+.applyLayer p.join a {padding-right:9px;text-decoration:none;color:#5667d2;background:url('//image.alba.kr/job/bul_arrow_blue5.gif') no-repeat right 2px}
+.applyLayer p.close {position:absolute;top:-1px;right:-1px}
+#ApplyOnline,
+#ApplySms {margin-top:-73px}
+#ApplyEmail {margin-top:-86px;padding-bottom:50px}
+
+.companyDetailLayer {z-index:10;position:relative;width:770px;margin:10px 0;padding:5px 0 0;text-align:right}
+.companyDetailLayer p.info em {text-align:right;color:#0575ff}
+.companyDetailLayer p.info img {margin:-5px 0 0 4px}
+#layerDetailInfo {display:none;position:absolute;right:0;top:22px;width:496px;text-align:left;background:#fff;border:2px solid #cacaca}
+#layerDetailInfo h2 {height:25px;margin:0;padding:7px 0 0 17px;font-weight:bold;color:#4b4b4b;background:url('//image.alba.kr/job/layer_header.gif') repeat-x;border:none}
+#layerDetailInfo div.content {overflow:hidden;width:470px;padding:5px 13px 10px}
+#layerDetailInfo div.content table.list {float:left;width:300px;font:11px Dotum;letter-spacing:-1px}
+#layerDetailInfo div.content table.list tr {vertical-align:top}
+#layerDetailInfo div.content table.list th {width:58px;padding:4px 0 4px 6px;font-weight:normal;background:url('//image.alba.kr/job/bul_square_gray1.gif') no-repeat left 8px;border-right:1px solid #e5e5e5;text-align:left}
+#layerDetailInfo div.content table.list td {padding:4px 0 4px 8px}
+#layerDetailInfo div.content table.list td.tel {padding-top:0}
+#layerDetailInfo div.content table.list td.tel li {padding-top:4px}
+#layerDetailInfo div.content table.list td.tel li img {margin:-2px 0 0;vertical-align:top}
+#layerDetailInfo div.content div.comPhoto {float:right;width:160px}
+#layerDetailInfo div.content div.comPhoto p.logo {width:133px;height:60px;padding:30px 10px 0;text-align:center;border:1px solid #e8e8e8}
+#layerDetailInfo div.content div.comPhoto p.title {padding:0 0 0 6px;margin:10px 0 0 0;font:11px Dotum;letter-spacing:-1px;background:url('//image.alba.kr/job/bul_square_gray1.gif') no-repeat left 4px}
+#layerDetailInfo div.content div.comPhoto ul.small {float:left;margin:4px 0 0}
+#layerDetailInfo div.content div.comPhoto ul.small li {float:left}
+#layerDetailInfo div.content div.comPhoto ul.small li img {width:46px;height:34px;border:1px solid #e8e8e8}
+#layerDetailInfo div.content div.comPhoto ul.small li.first {}
+#layerDetailInfo p.close {position:absolute;top:-2px;right:-2px}
+
+#DetailContent {overflow:hidden;width:740px;margin:0 auto;padding:30px 0;line-height:1.4}
+#DetailContent table {margin:0 auto;text-align:left}
+#DetailContent table td * {line-height:1.4}
+#DetailContent img {max-width:100%}
+
+#DetailPreview {margin:0;padding:0;background:#fff}
+#DetailPreview #popHeader {z-index:2;position:relative;height:50px;background:url('//image.alba.kr/pop/header_bg.gif') repeat-x;overflow:hidden}
+#DetailPreview #popHeader .btnClose {position:absolute;right:7px;top:6px}
+#DetailPreview #popHeader h1 {padding:7px 0 0 17px}
+#popBody {z-index:1;min-height:100%;margin:-50px 0 -30px}
+* html #DetailPreview #popBody {height:100%}
+#popBody #upstairs #companyDetail table td span.btnCalculator {top:97px}
+#DetailPreview #contentArea {position:relative;padding:50px 0 80px}
+#DetailPreview #contentArea.popInner {padding:50px 0 30px}
+#DetailPreview #popFooter {position:relative;height:30px;background:#727272;overflow:hidden}
+#DetailPreview #popFooter .btnClose {display:block;padding:6px 10px 0 0;text-align:right}
+#DetailPreview #DetailView .detailDate {top:8px}
+
+#DetailPreview {line-height:1.4}
+#DetailPreview table {text-align:left}
+#DetailPreview table td * {line-height:1.4}
+#DetailPreview img.imgBlank {display:none}
+
+div.sendCommunity {position:relative;width:399px;border:3px solid #7e8ad2}
+div.sendCommunity h2 {border-bottom:1px solid #e2e5f3}
+div.sendCommunity p.close {position:absolute;top:14px;right:14px;cursor:pointer}
+div.sendCommunity div.wrap {padding:30px 25px 20px}
+div.sendCommunity div.wrap div.contentInput {position:relative}
+div.sendCommunity div.wrap div.contentInput p.content {height:73px;margin:4px 0 0;padding:10px 10px 7px;line-height:1.4;border:1px solid #ccc}
+div.sendCommunity div.wrap div.contentInput p.count {position:absolute;top:-4px;right:0;font:bold 18px verdana}
+div.sendCommunity div.wrap div.login {margin:15px 0 0;padding:13px 11px;background:#f2f3fc;border:1px solid #e9ecff}
+div.sendCommunity div.wrap div.login h3 {padding-bottom:4px;border-bottom:2px solid #7e8ad2}
+div.sendCommunity div.wrap div.login ul {padding:6px 0 0}
+div.sendCommunity div.wrap div.login ul li {padding:5px 0 0 10px}
+div.sendCommunity div.wrap div.login ul li span {display:inline-block;width:58px;font-weight:bold;color:#7e8ad2}
+div.sendCommunity div.wrap div.login ul li input.typeText {width:212px;height:15px;padding:3px 0 0 3px;border:1px solid #bdbeca}
+div.sendCommunity div.wrap p.notice {margin:23px 0 0 6px;font-weight:bold;letter-spacing:-1px}
+div.sendCommunity div.wrap p.notice a {color:#2ecaff}
+div.sendCommunity div.wrap div.sendResult p.notice {margin:0;font:14px Dotum;letter-spacing:-1px;text-align:center}
+div.sendCommunity div.wrap div.sendResult p.info {margin:10px 0 0;padding-left:80px;line-height:1.4;color:#5465ca}
+div.sendCommunity div.wrap div.contentResult {margin:25px 0 0}
+div.sendCommunity div.wrap div.contentResult p.content {height:73px;margin:4px 0 0;padding:10px 10px 7px;line-height:1.4;border-top:2px solid #7e8ad2;border-bottom:1px solid #bec4e8}
+div.sendCommunity div.wrap div.guide {margin:10px 0 0;padding-left:3px;font:11px Dotum;letter-spacing:-1px}
+div.sendCommunity div.wrap div.guide a {font-weight:bold;text-decoration:underline;color:#2ecaff}
+div.sendCommunity div.wrap div.guide img {margin-top:-3px}
+div.sendCommunity div.wrap div.line {margin:20px 0 0;padding-top:10px;border-top:1px solid #bec4e8}
+div.sendCommunity div.wrap div.submit {margin:20px 0 0;text-align:center}
+div.sendCommunity div.wrap div.submit img {cursor:pointer}
+
+/* 공공기관 알바 상세 */
+#GovernmentDetail h2.heading {height:48px;font:bold 18px/48px 'Malgun Gothic';text-align:center;color:#fff;background-color:#678fde}
+#GovernmentDetail div.summaryField {margin:10px auto 0;padding:30px 35px;border:1px solid #678fde}
+#GovernmentDetail table {width:1000px;margin:0 auto;border-collapse:collapse;border-spacing:0;border:0 none}
+#GovernmentDetail table th {width:65px;text-align:left;background:url('//image.alba.kr/job/dot_s.gif') no-repeat 3px 13px}
+#GovernmentDetail table th,
+#GovernmentDetail table td {padding:7px 0 5px 10px;line-height:1.4}
+#GovernmentDetail thead th,
+#GovernmentDetail thead td {border-bottom:1px solid #d4daf6;font-weight:bold}
+#GovernmentDetail tbody td {width:265px}
+#GovernmentDetail div.articleField {margin:0 auto;padding:30px 35px;line-height:1.5;border:1px solid #678fde;border-top:0 none;border-bottom:0 none}
+#GovernmentDetail div.btnCenter {padding:12px 35px 13px;background-color:#f2f2f2;border:1px solid #678fde;border-top:0 none}
+#GovernmentDetail a.btnDownload {display:inline-block;padding-right:11px;height:26px;background:url('//image.alba.kr/job/GovernmentDetail_btn_downClose.gif') no-repeat right top;color:#000;text-decoration:none;font:bold 12px sans-serif;letter-spacing:-1px}
+#GovernmentDetail a:link.btnDownload span,
+#GovernmentDetail a:visited.btnDownload span,
+#GovernmentDetail a:hover.btnDownload span,
+#GovernmentDetail a:active.btnDownload span {display:inline-block;height:16px;padding:6px 0 4px 35px;background:url('//image.alba.kr/job/GovernmentDetail_btn_downArrow.gif') no-repeat 0 0;cursor:pointer}
+
+/* 장애인 채용관 */
+.disabledHead {overflow:hidden;clear:both;width:1070px;height:60px;padding:200px 0 0;margin-bottom:10px;background:url('//image.alba.kr/job/disabled_head1.jpg') no-repeat 0 0}
+.disabledHead .title {position:absolute;font:0/0 dotum;color:transparent}
+.disabledHead ul {overflow:hidden}
+.disabledHead ul li {float:left;width:357px}
+.disabledHead ul li.menu1 {width:356px}
+.disabledHead ul li a {display:block;height:60px;font:0/0 dotum;color:transparent}
+
+#JobProfessionalDisabled #SubSide,
+#JobProfessionalDisabled #SubContents {margin:15px 0 0}
+#JobProfessionalDisabled #SubContents .tabMenu {z-index:1;position:relative;overflow:hidden;width:1070px;height:37px;margin-bottom:10px;background:url('//image.alba.kr/job/typeKind_tabMenu_bg.gif') repeat-x left 5px}
+#JobProfessionalDisabled #SubContents .tabMenu li {position:relative;float:left;width:151px;height:34px;margin-right:-1px;border:1px solid #d6dde2;border-bottom:0 none}
+#JobProfessionalDisabled #SubContents .tabMenu li a {display:block;height:24px;padding:10px 0 0;text-align:center;background:#f4f8fb}
+#JobProfessionalDisabled #SubContents .tabMenu li.on {z-index:1;width:154px;height:33px;border:2px solid #67a9d3;border-bottom:0 none}
+#JobProfessionalDisabled #SubContents .tabMenu li.on a {height:25px;font-weight:bold;color:red;background:#fff}
+
+/* 장애인과 근무할 때 지켜주세요! */
+#JobProfessionalDisabled #DisabledGuide {overflow:hidden;margin:0 auto;width:766px;height:1520px;background:url('//image.alba.kr/job/DisabledGuide_txt.gif') no-repeat 0 0}
+#JobProfessionalDisabled #DisabledGuide .hgroup {z-index:-1;position:relative;height:35px;padding:47px 35px 29px;background:#edf6fa}
+#JobProfessionalDisabled #DisabledGuide .hgroup h1 {font:normal 900 35px/35px '맑은 고딕','malgun gothic',nanumgothic,'나눔고딕',Daum_regular,AppleGothic,sans-serif;letter-spacing:-2px;color:#000}
+#JobProfessionalDisabled #DisabledGuide .hgroup h1 strong {color:#00376b}
+#JobProfessionalDisabled #DisabledGuide .hgroup h2 {position:absolute;left:35px;top:20px;height:12px;padding:4px 15px;padding:5px 15px 3px\9;font-weight:900;line-height:12px;color:#fff;background:#8dbdd3;border-radius:10px}
+#JobProfessionalDisabled #DisabledGuide .type {z-index:-1;position:relative;zoom:1;overflow:hidden;height:1349px;padding:15px;border:5px solid #edf6fa}
+#JobProfessionalDisabled #DisabledGuide .type li {float:left;clear:both;width:726px;padding:10px 0;border-bottom:1px dashed #ebebeb}
+#JobProfessionalDisabled #DisabledGuide .type li dl {padding:0 0 15px}
+#JobProfessionalDisabled #DisabledGuide .type li dl dt {padding:0 0 15px;font-size:16px;font-weight:900;letter-spacing:-2px;color:#000}
+#JobProfessionalDisabled #DisabledGuide .type li dl dd {color:#6ca1b6}
+#JobProfessionalDisabled #DisabledGuide .type li ol {zoom:1;width:676px;padding:5px 25px;list-style:decimal outside}
+#JobProfessionalDisabled #DisabledGuide .type li ol li {float:none;clear:none;display:list-item;width:676px;padding:3px 0;border:0 none}
+#JobProfessionalDisabled #DisabledGuide .type li ol li strong {color:#8f6a5d}
+
+/* 급구알바 */
+.urgentHead {z-index:3;position:relative;width:960px;height:190px;margin:0 0 10px;background:url('//image.alba.kr/job/urgentHead_bg.jpg') no-repeat 0 0}
+.urgentHead h1 {text-indent:-999em}
+
+/* 중장년,꿀알바 채용관 */
+.cinemaAlbaHead {position:relative;height:100px;background-color:#46525b}
+.cinemaAlbaHead #JobKind {overflow:hidden;height:100px}
+.cinemaAlbaHead .view {overflow:hidden;width:1008px;height:100px;margin:0 auto}
+.cinemaAlbaHead ul.listKind {z-index:1;overflow:hidden;width:1008px;height:100px}
+.cinemaAlbaHead ul.listKind li {float:left;width:84px;height:100px}
+.cinemaAlbaHead ul.listKind li a {overflow:hidden;display:block;width:100%;height:100%;text-indent:-999em}
+.cinemaAlbaHead ul.seniorHead li a {background:url('//image.alba.kr/job/new_SeniorHead_bg.png') no-repeat}
+.cinemaAlbaHead ul.honeyHead li a {background:url('//image.alba.kr/job/new_HoneyHead_bg.png') no-repeat}
+.cinemaAlbaHead ul.listKind li.kind01 a {background-position:-6px 0}
+.cinemaAlbaHead ul.listKind li.kind02 a {background-position:-83px 0}
+.cinemaAlbaHead ul.listKind li.kind03 a {background-position:-160px 0}
+.cinemaAlbaHead ul.listKind li.kind04 a {background-position:-238px 0}
+.cinemaAlbaHead ul.listKind li.kind05 a {background-position:-315px 0}
+.cinemaAlbaHead ul.listKind li.kind06 a {background-position:-393px 0}
+.cinemaAlbaHead ul.listKind li.kind07 a {background-position:-471px 0}
+.cinemaAlbaHead ul.listKind li.kind08 a {background-position:-550px 0}
+.cinemaAlbaHead ul.listKind li.kind09 a {background-position:-625px 0}
+.cinemaAlbaHead ul.listKind li.kind10 a {background-position:-704px 0}
+.cinemaAlbaHead ul.listKind li.kind11 a {background-position:-780px 0}
+.cinemaAlbaHead ul.listKind li.kind12 a {background-position:-859px 0}
+.cinemaAlbaHead ul.listKind li.kind13 a {background-position:-937px 0}
+.cinemaAlbaHead ul.listKind li.kind01 a:hover {background-position:-6px -110px}
+.cinemaAlbaHead ul.listKind li.kind02 a:hover {background-position:-83px -110px}
+.cinemaAlbaHead ul.listKind li.kind03 a:hover {background-position:-160px -110px}
+.cinemaAlbaHead ul.listKind li.kind04 a:hover {background-position:-238px -110px}
+.cinemaAlbaHead ul.listKind li.kind05 a:hover {background-position:-315px -110px}
+.cinemaAlbaHead ul.listKind li.kind06 a:hover {background-position:-393px -110px}
+.cinemaAlbaHead ul.listKind li.kind07 a:hover {background-position:-471px -110px}
+.cinemaAlbaHead ul.listKind li.kind08 a:hover {background-position:-550px -110px}
+.cinemaAlbaHead ul.listKind li.kind09 a:hover {background-position:-625px -110px}
+.cinemaAlbaHead ul.listKind li.kind10 a:hover {background-position:-704px -110px}
+.cinemaAlbaHead ul.listKind li.kind11 a:hover {background-position:-780px -110px}
+.cinemaAlbaHead ul.listKind li.kind12 a:hover {background-position:-859px -110px}
+.cinemaAlbaHead ul.listKind li.kind13 a:hover {background-position:-937px -110px}
+.cinemaAlbaHead ul.listKind li.kind01 a.on {background-position:-6px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind02 a.on {background-position:-83px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind03 a.on {background-position:-160px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind04 a.on {background-position:-238px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind05 a.on {background-position:-315px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind06 a.on {background-position:-393px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind07 a.on {background-position:-471px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind08 a.on {background-position:-550px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind09 a.on {background-position:-625px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind10 a.on {background-position:-704px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind11 a.on {background-position:-780px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind12 a.on {background-position:-859px -220px !important}
+.cinemaAlbaHead ul.listKind li.kind13 a.on {background-position:-937px -220px !important}
+#Honey .cinemaAlbaHead ul.listKind li.kind00 a {background-position:-860px 0}
+#Honey .cinemaAlbaHead ul.listKind li.kind00 a:hover {background-position:-860px -110px}
+#Honey .cinemaAlbaHead ul.listKind li.kind00 a.on {background-position:-860px -220px !important}
+.cinemaAlbaHead .paging a {overflow:hidden;position:absolute;width:30px;height:100px;margin:0;padding:0;text-indent:-999em;background:url('//image.alba.kr/job/new_cinema_btn_jobKind.png') no-repeat;border:0 none}
+.cinemaAlbaHead .paging a.prev {left:0;top:0;background-position:0 0}
+.cinemaAlbaHead .paging a.next {right:0;top:0;background-position:-40px 0}
+
+.jobCinema #SubContents .cinema .head {overflow:hidden;position:relative;height:200px;text-indent:-999em}
+#JobProfessionalSenior #SubContents .cinema .head {background:url('//image.alba.kr/job/JobProfessionalSenior.jpg') no-repeat 0 0}
+#JobProfessionalSenior .cinemaAlbaHead ul.listKind li {width:77px}
+#Honey #SubContents .cinema .head {background:url('//image.alba.kr/job/JobProfessionalHoney.jpg') no-repeat 0 0}
+.jobCinema #SubContents .cinema .head .mainLink {position:absolute;left:67px;bottom:11px;overflow:hidden;display:inline-block;width:135px;height:27px;text-indent:-999em;*text-indent:0;*line-height:999em;vertical-align:top}
+#JobProfessionalSenior #SubContents .cinema .head .mainLink {background:url('//image.alba.kr/job/btn_SeniorMain.gif') no-repeat 0 0}
+#Honey #SubContents .cinema .head .mainLink {left:86px;bottom:14px;background:url('//image.alba.kr/job/btn_HoneyMain.gif') no-repeat 0 0}
+.jobCinema #SubContents .cinema .head iframe {position:absolute;right:15px;top:20px;width:304px;height:172px}
+.jobCinema #SubContents .cinema .more {padding:15px 0 0;text-align:center;background-color:#fff}
+.jobCinema #SubContents .cinema .more a {overflow:hidden;display:inline-block;width:279px;height:55px;text-indent:-999em;*text-indent:0;*line-height:999em;vertical-align:top;background:url('//image.alba.kr/job/cinema_btn_more1.png') no-repeat 0 0}
+
+/* Indeed 상세페이지 */
+.indeedUpdate {padding:5px 0;font:11px dotum;letter-spacing:-1px;text-align:right}
+.indeedTitle {width:960px;height:35px;margin:0;padding:11px 0 0;font:bold 18px "나눔고딕",NanumGothic,Daum_Regular,"맑은 고딕";letter-spacing:-1px;text-align:center;color:#fff;background:url('//image.alba.kr/job/DetailView_bg2.png') repeat-x 0 0}
+.indeedUpdate em {font:11px tahoma;letter-spacing:0}
+.indeedInfo {overflow:hidden;width:958px;border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6;border-bottom:1px solid #949ba5}
+.indeedInfo li {float:left;width:958px;line-height:1.4;background-color:#f8f8f8;border-bottom:1px solid #d8d8d8}
+.indeedInfo li span.item {float:left;width:217px;padding:20px 0;padding-bottom:17px\9;font-weight:bold;text-align:center}
+.indeedInfo li span.content {float:right;width:700px;padding:20px;padding-bottom:17px\9;background-color:#fff;border-left:1px solid #d8d8d8}
+.indeedInfo li.detail {border-bottom:0 none}
+.indeedAction {padding:20px 0;text-align:center}
+
+/* 청년유니온 기초노동법 상식 레이어 */
+.unionLayer {z-index:99999;display:none;position:absolute;left:50%;top:500px;width:600px;height:863px;margin:0 0 0 -210px;text-indent:-999em;background:url('//image.alba.kr/job/Union_layer.gif') no-repeat 0 0}
+.unionLayer .download {position:absolute;left:0;bottom:0;width:600px;height:40px}
+.unionLayer .download a {position:absolute;bottom:7px;width:31px;height:31px}
+.unionLayer .download .doc {right:49px}
+.unionLayer .download .hwp {right:16px}
+.unionLayer .close {position:absolute;right:16px;top:18px;width:21px;height:20px}
+
+/* Renewal Guide */
+#RenewalGuideWrap {z-index:1000;display:none;width:100%;height:100%}
+#RenewalGuide {z-index:1000;overflow:hidden;position:absolute;top:50%;left:50%;width:750px;height:600px;margin:-300px 0 0 -375px;background-color:#fff}
+#RenewalGuide a {background:url('//image.alba.kr/common/blank.png') no-repeat 0 0\0;*background:url('//image.alba.kr/common/blank.png') no-repeat 0 0}
+#RenewalGuide .pagingSlider {position:absolute;bottom:0;left:0;width:750px;padding:0 0 22px;text-align:center}
+#RenewalGuide .pagingSlider a.btn_prev {position:absolute;bottom:13px;left:20px;width:100px;height:35px;font:0/0 dotum;color:transparent}
+#RenewalGuide .pagingSlider a.btn_next,
+#RenewalGuide .pagingSlider a.btn_complete {position:absolute;bottom:13px;right:20px;width:100px;height:35px;font:0/0 dotum;color:transparent}
+#RenewalGuide .pagingSlider a.btn_complete {display:none}
+#RenewalGuide .pagingSlider a.btn_page {overflow:hidden;display:inline-block;width:15px;height:15px;margin:0 5px;font:0/0 dotum;color:transparent;background-color:#fff;border:1px solid #30a3fc;border-radius:50%}
+#RenewalGuide .pagingSlider a.btn_page.on {background-color:#30a3fc}
+#RenewalGuide.slide_1 a.btn_prev {display:none}
+#RenewalGuide.slide_1 a.btn_next {bottom:201px;left:85px;width:180px;height:50px}
+#RenewalGuide.slide_6 a.btn_next {display:none}
+#RenewalGuide.slide_6 a.btn_complete {display:block}
+#RenewalGuide .renewalLayerClose {position:absolute;right:20px;top:20px;width:29px;height:29px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/job/RenewalJob_layer_btn.png') no-repeat 0 0}
+#RenewalGuide .renewalLayerClose:hover {background-position:0 -40px}
+.jobPrevShow {z-index:998;display:none;position:absolute;top:122px;left:50%;margin-left:-480px}
+
+/* 공고 큐레이션 */
+#SubContents.interest-job {padding-top:9px}
+.interest-job a {text-decoration:none !important}
+.interest-job {padding:24px 0 19px;margin-top:10px;background-color:#fff}
+.interest-job__guide {height:48px;margin-bottom:43px;border:1px solid #e4e4e4;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:20px;text-align:center;line-height:48px;letter-spacing:-1px;color:#222}
+.interest-job__inner-wrap {overflow:hidden;padding-bottom:15px;background:url('//image.alba.kr/job/alba4u/interest-job_bg.png') repeat-x 0 38px}
+.interest-job__item {float:left;width:50%}
+.interest-job__title {position:relative;padding-left:13px;margin-bottom:32px;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:18px;text-align:center;color:#222}
+.interest-job__title--occupation {margin-bottom:39px}
+.interest-job__title-icon {position:absolute;top:5px;left:197px;background:url('//image.alba.kr/job/alba4u/alba4u_icon.png') no-repeat}
+.interest-job__title-icon--area {width:16px;height:20px}
+.interest-job__title-icon--occupation  {top:6px;left:194px;width:18px;height:17px;background-position:-26px 0}
+.interest-job__row::after {display:block;content:"";clear:both}
+.interest-job__row-list {float:left;width:33.3%;text-align:center}
+.interest-job__row-list:first-child .interest-job__row-link {padding-top:0}
+.interest-job__row-list:first-child .interest-info--bg {width:105px;height:112px;background-position:-185px 0}
+.interest-job__row-list:first-child .interest-info--chart {width:105px;height:105px}
+.interest-job__row-list:first-child .interest-info--chart>canvas {margin-left:-53px}
+.interest-job__row-list:first-child .interest-info__percent {padding-top:31px;font-size:22px}
+.interest-job__row-list:first-child .interest-info__emphasis {font-size:33px}
+.interest-job__row-list:first-child .interest-info__city {right:-13px}
+.interest-job__row-list:first-child .interest-job__row-link--put {width:105px}
+.interest-job__row-list:first-child .interest-job__row-link .interest-guide--padding {padding-top:6px}
+.interest-job__row-link {display:inline-block;*display:inline;*zoom:1;padding-top:33px;color:#333 !important;}
+.interest-job__row-link--put {width:76px}
+
+.interest-info {display:block;position:relative;margin:0 auto}
+.interest-info--bg {width:74px;height:79px;background:url('//image.alba.kr/job/alba4u/alba4u_icon.png') no-repeat -101px 0}
+.interest-info--bg canvas {display:none}
+.interest-info--chart {width:44px;height:44px}
+.interest-info--chart>canvas {position:absolute;top:0;left:50%;margin-left:-36px}
+.interest-info__percent {display:block;width:100%;padding-top:23px;font-family:tahoma;font-size:15px;font-weight:bold;text-align:center;letter-spacing:-1px}
+.interest-info__emphasis {margin-right:1px;font-size:22px}
+.interest-info__city {position:absolute;right:-19px;bottom:0;width:37px;height:30px;padding-top:10px;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:15px;text-align:center;letter-spacing:-1px;background:url('//image.alba.kr/job/alba4u/alba4u_icon.png') no-repeat -54px 0;color:#fff}
+.interest-guide {display:block;padding-top:6px;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:16px;color:#222}
+.interest-guide--padding {padding-top:34px}
+
+.albaforu-guide {position:relative;letter-spacing:-1px}
+.albaforu-guide--login {height:122px;padding-top:182px;background:url('//image.alba.kr/job/alba4u/foru_login_bg.jpg') no-repeat center bottom}
+.albaforu-guide--none {height:120px;padding-top:184px;background:url('//image.alba.kr/job/alba4u/foru_none_bg.jpg') no-repeat center bottom}
+.albaforu-guide__explain {display:block;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:16px;text-align:center;color:#222}
+.albaforu-guide__explain-add {padding-top:4px;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:14px;text-align:center;color:#222}
+.albaforu-login-btn {display:block;width:70px;height:30px;margin:22px auto 0;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:14px;font-weight:bold;text-align:center;line-height:30px;color:#222 !important;background-color:#ffca00}
+.albaforu-layer {display:none}
+.layer-box {z-index:99999;position:absolute;top:185px;left:50%;width:258px;height:164px;padding:24px 26px 0;margin-left:-129px;background-color:#fff}
+.layer-box__guide {font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:16px;color:#000}
+.layer-box__btn-wrap {position:absolute;right:19px;bottom:14px}
+.layer-box__btn {display:inline-block;padding:6px 16px;font-family:'맑은 고딕', 'Malgun Gothic', Gulim;font-size:14px;color:#499cec !important}
+
+.goodsList.curation table {border-top:1px solid #aaa}
+.goodsList.curation table tr th {overflow:visible;visibility:visible;position:relative;top:auto;left:auto;width:auto;height:auto;padding:9px 0 10px;padding:11px 0 8px\0;*padding:11px 0 8px;font-size:12px;line-height:1;color:#666a5b;background-color:#f2f2f2;border-bottom:1px solid #b5b5b5}
+
+/* 공고 큐레이션 - 브랜드사이트 */
+body.curation .goodsList.curation {width:100%}
+body.curation .goodsList.curation table {width:100%}
+body.curation .goodsList.curation table tr td.local {padding-left:10px}
+body.curation .goodsList.curation table tr td.title {padding-left:20px}
+
+/* 공고 큐레이션 - Person.css에도 동일 적용 */
+.curation__head {overflow:hidden;margin-bottom:9px}
+.curation__head-title {display:inline-block;*display:inline;*zoom:1;padding:0 !important;margin-right:11px;font-size:18px !important;line-height:24px;background-color:#fff !important}
+.curation__head-icon {display:inline-block;*display:inline;*zoom:1;width:21px;height:20px;padding-right:3px;text-indent:-9999px;background:url('//image.alba.kr/job/alba4u/alba4u_icon.png') no-repeat 3px -26px}
+.curation__head-paragraph {display:inline-block;*display:inline;*zoom:1;height:24px;font-family:"Malgun Gothic", "맑은 고딕";font-size:14px;vertical-align:top;line-height:22px;color:#222}
+.curation__head-more {display:block;width:100%;height:40px;border-bottom:1px solid #aaa;line-height:40px;text-align:center}
+.curation__head-more>span {position:absolute;font-size:0;color:transparent}
+
+#Curation-guide {display:none}
+#Curation-guide .filter {z-index:9999;display:block;background-color:#000}
+.curation-guide {z-index:999999;position:fixed;top:50%;left:50%;width:368px;padding-bottom:20px;margin:-112px 0 0 -184px;border:1px solid #d2d2d2;background-color:#fff}
+.curation-guide__description-title {height:51px;padding-left:43px;font-size:16px;font-family:"Malgun Gothic", "맑은 고딕";font-weight:bold;line-height:54px;color:#fff;background-color:#ffd100}
+.curation-guide__description-content {padding:23px 25px 18px;font-family:"Malgun Gothic", "맑은 고딕";font-size:13px;line-height:1.6;letter-spacing:-1px;color:#000;background-color:#fff}
+.curation-guide__icon {position:absolute;top:15px;left:14px;width:24px;height:23px;background:url('//image.alba.kr/job/alba4u/alba4u_icon.png') no-repeat -26px -30px}
+.curation-guide__submit {display:block;width:70px;height:30px;margin:0 auto;font-family:"Malgun Gothic", "맑은 고딕";font-size:14px;text-align:center;line-height:30px;letter-spacing:-1px;cursor:pointer;text-decoration:none !important;color:#222 !important;background-color:#ffca00}
+
+/* 매칭률 */
+.infoMatch .title_Add {z-index:20;position:relative}
+.infoMatch .title_Add .ico-question {display:inline-block;zoom:1;*display:inline;margin-left:10px;width:21px;height:19px;font-size:0;vertical-align:middle;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -442px -133px;}
+.content_match {padding-bottom:25px}
+.content_match__wrap {position:relative;margin:0 auto;padding-top:50px;width:608px}
+.matching-text__top {margin-bottom:25px;font-size:22px;line-height:30px;color:#aaa}
+.matching-text__top strong {color:#438de8}
+.matching-text__bottom {font-size:14px;font-weight:bold;line-height:21px;color:#333}
+.progress-matching  {position:absolute;top:36px;right:0;padding-top:60px;width:235px;height:69px;text-align:center;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat;}
+.progress-matching.bg-50 {background-position:0 0}
+.progress-matching.bg-60 {background-position:-235px 0}
+.progress-matching.bg-70 {background-position:-470px 0}
+.progress-matching.bg-80 {background-position:-705px 0}
+.progress-matching.bg-90 {background-position:-940px 0}
+.progress-matching.bg-100 {background-position:-1175px 0}
+.progress-matching__percent {font-size:25px;line-height:100%;*line-height:170%;color:#333}
+.progress-matching__percent .progress-matching__percent--data {font-size:50px}
+.progress-matching__about {display:none;margin-top:12px;font-size:16px;font-weight:bold;line-height:100%;color:#ffd200}
+
+/*매칭률 토스트 팝업*/
+.title-layer {display:none;z-index:10;position:absolute;top:15px;left:124px;padding:20px 19px;width:248px;border:1px solid #888;background:#fff}
+.title-layer__title {font-size:14px;font-weight:bold;color:#333}
+.title-layer__title--close {display:block;position:absolute;top:10px;right:10px;width:9px;height:9px;font-size:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -468px -133px}
+.title-layer__contents {margin-top:13px;font-size:12px;line-height:19px;color:#666}
+.title-layer__bottom {margin-top:15px}
+.title-layer__bottom.center {text-align:center}
+a.title-layer__bottom--btn {display:inline-block;padding:8px 16px 9px 16px;border:1px solid #438de8;font-size:12px;color:#438de8}
+a.title-layer__bottom--btn .ico {display:inline-block;margin-left:9px;width:4px;height:7px;vertical-align:middle;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -479px -133px}
+
+/*지원자별 통계 공통*/
+.infoGraph__content {overflow:hidden;margin-left:-79px}
+.infoGraph__content--list {float:left;margin-top:40px;margin-left:79px;width:200px}
+.infoGraph__content--list.edu-donut {width:230px}
+.infoGraph__content--list .title {margin-bottom:30px;text-align:center;font-size:15px;font-weight:bold;color:#333}
+
+/* 지원자통계 성별 */
+.progress-gender {position:relative;padding-bottom:20px;margin:0 auto;width:200px;height:130px;background:url("//image.alba.kr/job/JobGender_bg.png") repeat-x}
+.progress-gender__field {margin-left:-66px;width:132px;height:129px;position:absolute;left:50%;bottom:21px;font-size:0}
+.progress-gender__field--list:first-child {margin-left:0px;width:52px}
+.progress-gender__field--list {display:inline-block;zoom:1;*display:inline;margin-left:15px;width:64px;position:relative}
+.progress-gender__field--list .vertical-title {margin-top:5px;width:100%;position:absolute;text-align:center;font-size:10px;line-height:120%;color:#aaa}
+.gender-graph__man {display:table-cell;width:52px;height:129px;vertical-align:bottom;font-size:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat 0 -129px}
+.gender-graph__man .gender-graph, .gender-graph__women .gender-graph {display:inline-block;zoom:1;*display:inline;overflow:hidden;width:100%;height:0;position:relative;*position:absolute;bottom:0}
+.gender-graph__man .gender-graph--bg {display:block;width:100%;height:129px;position:absolute;bottom:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -53px -129px}
+.gender-graph__women {display:table-cell;width:64px;height:129px;vertical-align:bottom;font-size:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -106px -129px}
+.gender-graph__women .gender-graph--bg {display:block;width:100%;height:129px;position:absolute;bottom:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -171px -129px}
+.gender-graph__man .gender-counter, .gender-graph__women .gender-counter {display:inline-block;zoom:1;*display:inline;height:17px;line-height:17px;text-align:center;font-size:10px;color:#333}
+.gender-graph__man .gender-counter {margin:-8px 0 0 -34px;*margin-top:-10px;padding-right:3px;width:28px;position:absolute;*top:50%;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -235px -133px}
+.gender-graph__women .gender-counter {margin:-8px 0 0 68px;*margin-top:-10px;padding-left:3px;width:28px;position:absolute;*top:50%;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -270px -133px}
+
+/* 지원자통계 연령 */
+.progress-age {position:relative;padding-bottom:20px;margin:0 auto;width:200px;height:130px}
+.progress-age .vertical-title {margin-top:5px}
+.progress-age .vertical-title__list {float:left;margin-left:9px;width:30px;font-size:10px;text-align:center;line-height:100%;color:#aaa}
+.progress-age__field {width:100%;height:128px;*height:129px;text-align:center;border-bottom:1px solid #ccc;font-size:0}
+.progress-age__field--list {display:inline-block;zoom:1;*display:inline;margin-left:34px;width:4px;position:relative}
+.progress-age__field--list:first-child {margin-left:0}
+
+/*지원자통계 경력*/
+.progress-career {position:relative;padding-bottom:20px;margin:0 auto;width:200px;height:130px}
+.progress-career .no-data {z-index:20;position:absolute;top:0;left:0;width:200px;height:150px;background:url("//image.alba.kr/job/progress_bg.gif") no-repeat 0 0}
+.progress-career .vertical-title {margin-top:5px}
+.progress-career .vertical-title__list:first-child {margin-left:3px}
+.progress-career .vertical-title__list {float:left;margin-left:9px;font-size:10px;letter-spacing:-1px;text-align:center;line-height:120%;color:#aaa}
+.progress-career__field {width:100%;height:128px;*height:129px;text-align:center;border-bottom:1px solid #ccc;font-size:0}
+.progress-career__field--list {display:inline-block;zoom:1;*display:inline;margin-left:30px;width:4px;position:relative}
+.progress-career__field--list:first-child {margin-left:0}
+
+/*지원자통계 학력*/
+.progress-edu {position:relative;margin:0 auto;width:230px;height:150px}
+.progress-edu .no-data {z-index:20;position:absolute;top:0;left:0;width:230px;height:150px;background:url("//image.alba.kr/job/progress_bg.gif") no-repeat -200px 0}
+.progress-edu__chart {position:relative;float:left;width:120px;height:120px}
+.progress-edu__chart::before {z-index:10;display:block;content:"";position:absolute;top:0;left:0;width:100%;height:100%;}
+.progress-edu__list {float:right;margin-top:-6px;}
+.progress-edu__list--item {font-size:10px;padding-top:6px;color:#aaa}
+.progress-edu__list--item .tit {position:relative;padding-left:11px;margin-right:5px;font-weight:bold}
+.progress-edu__list--item .tit .ico {display:block;width:5px;height:5px;position:absolute;top:5px;*top:13px;left:0;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat}
+.school-elementary {color:#92bbf1}
+.school-elementary.tit .ico {background-position:-374px -133px}
+.school-middle {color:#baade9}
+.school-middle.tit .ico {background-position:-383px -133px}
+.school-high {color:#ffd200}
+.school-high.tit .ico {background-position:-392px -133px}
+.school-college {color:#90d6e8}
+.school-college.tit .ico{background-position:-401px -133px}
+.school-university {color:#85d488}
+.school-university.tit .ico {background-position:-410px -133px}
+.school-graduate {color:#bbb}
+.school-graduate.tit .ico {background-position:-419px -133px}
+
+/*지원자통계 공통 그래프*/
+.vertical-progress {display:table-cell;width:4px;height:128px;*height:129px;vertical-align:bottom;font-size:0;background:#f2f2f2}
+.vertical-progress .vertical-progress__counter {display:inline-block;zoom:1;*display:inline;margin:-23px 0 0 -12px;*margin-left:-14px;width:28px;height:20px;position:absolute;line-height:16px;font-size:10px;color:#fff;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -305px -133px}
+.vertical-progress .vertical-progress__graph {overflow:hidden;display:inline-block;zoom:1;*display:inline;width:100%;height:0;position:relative;*position:absolute;left:0;bottom:0}
+.vertical-progress .vertical-progress__graph--bg {display:block;width:100%;height:128px;position:absolute;left:0;bottom:0;background:#aaa}
+.vertical-progress.on .vertical-progress__counter {color:#333;background:url("//image.alba.kr/job/JobDetail_bg.png") no-repeat -337px -133px}
+.vertical-progress.on .vertical-progress__graph--bg {background:#ffd200}
+
+/* 취업우대알바 */
+#JobAnnexBrandSpecial #Location {margin:0}
+#BrandSpecial>h1 {padding:0}
+
+.brandspecial__list {overflow:hidden;width:1070px;margin-bottom:20px;border-top:1px solid #222;border-bottom:1px solid #222;background:url('http://image.alba.kr/job/BrandSpecial_arrow.png') no-repeat 560px 225px}
+.brandspecial__item {float:left;width:570px;height:454px;padding-top:40px}
+.brandspecial__item>li {position:relative;float:left;width:80px;margin:0 0 20px 10px}
+.brandspecial__action {display:block;padding-bottom:7px;text-align:center}
+.brandspecial__action>img {display:block;width:58px;height:58px;margin:0 auto 7px;border:1px solid #e8e8e8;border-radius:50%;}
+.brandspecial__selected>span {position:absolute;top:0;left:10px;width:60px;height:60px;border-radius:50%;background-color:#ffd200;filter:alpha(opacity=70);opacity:0.7}
+.brandspecial__selected>img {position:absolute;top:21px;left:27px}
+
+.brandspecial__guide {float:right;width:370px;height:444px;padding:50px 50px 0 60px;background-color:#edf4fc}
+.brandspecial__guide-company {margin-bottom:23px}
+.brandspecial__guide-company>img {display:block;width:120px;height:120px;margin-bottom:24px;border-radius:50%;background-color:#fff}
+.brandspecial__guide-company>strong {display:block;padding-left:10px;font-weight:bold;font-size:20px}
+.brandspecial__guide-summary {margin-bottom:10px;padding-left:10px;font-weight:bold;font-size:12px;line-height:1.67}
+.brandspecial__guide-detail {padding-left:10px;font-size:12px;line-height:1.67;letter-spacing:-0.05em}
+
+/* modal-form1 */
+.modal-form1 {z-index:999;display:none;position:fixed;top:0;right:0;bottom:0;left:0}
+.modal-form1__wrap {z-index:999;position:fixed;top:50%;left:50%;border:1px solid #1a1a1a;background-color:#fff}
+.modal-form1__title {height:60px;padding-left:20px;font-weight:bold;font-size:20px;line-height:58px;color:#fff;background-color:#464a56}
+.modal-form1__action {padding:30px 0;text-align:center}
+.modal-form1__action>a {display:inline-block;width:120px;height:38px;margin:0 3px;line-height:34px;border:1px solid #ccc;letter-spacing:0;text-align:center;text-decoration:none;color:#474747;background-color:#fff}
+.modal-form1__action>a.type2 {border-color:#363d42;color:#fff;background-color:#52575b}
+.modal-form1__close {position:absolute;top:0;right:0;width:20px;height:20px;padding:20px}
+.modal-form1__close>span {display:block;width:20px;height:20px;font-size:0;color:transparent;background:url('http://image.alba.kr/job/modal.png') no-repeat 0 0}
+
+.modal-tel .modal-form1__wrap {width:498px;height:462px;margin:-232px 0 0 -250px}
+.modal-tel .modal-form1__content {padding:30px 40px 0}
+.modal-tel__type {padding-bottom:15px;border-bottom:1px solid #ddd;font-size:14px;text-align:center}
+.modal-tel__tel {padding:20px 0;border-bottom:1px solid #ddd;text-align:center}
+.modal-tel__tel>dt {margin-bottom:10px;font-weight:bold;font-size:24px;color:#222}
+.modal-tel__tel>dd {font-weight:bold;font-size:20px;line-height:1.3;color:#438de8}
+.modal-tel__guide {padding:20px 0 0}
+.modal-tel__guide>li {padding-left:8px !important;font-size:12px !important;line-height:1.75 !important;color:#888;background:url('http://image.alba.kr/job/modal.png') no-repeat -28px 10px}
+
+.modal-apply .modal-form1__wrap {width:398px;height:258px;margin:-130px 0 0 -200px}
+.modal-apply .modal-form1__content {padding:30px 40px 0}
+.modal-apply__explain {margin-bottom:10px;font-size:14px;line-height:1.5;text-align:center}
+.modal-apply__guide {text-align:center}
+.modal-apply__guide>li {display:inline-block;padding-left:8px !important;font-size:12px !important;line-height:1.75 !important;color:#888;background:url('http://image.alba.kr/job/modal.png') no-repeat -28px 10px}
+
+/* 축제 알바 */
+.festivallist {position:relative;margin-top:-20px}
+.festivallist * {font-family:'Malgun Gothic';letter-spacing:-0.1em}
+.festivallist__inquiry {position:absolute;top:32px;right:38px}
+.festivallist__inquiry>a {display:block;width:97px;height:97px;border-radius:50%;font-size:0;color:transparent}
+
+.festivallist__swiper {position:relative;overflow:hidden;width:1070px;height:434px}
+.festivallist__swiper-list {width:1435px}
+.festivallist__swiper-list>li {float:left;width:340px;margin-left:25px;background-repeat:no-repeat;background-position:0 0;-webkit-background-size:340px 434px;-moz-background-size:340px 434px;-o-background-size:340px 434px;background-size:340px 434px}
+.festivallist__swiper-list>li:first-child {margin-left:0}
+.festivallist__swiper-list a {position:relative;display:block;width:340px;height:80px;padding-top:354px;font-size:15px;line-height:1.5;text-align:center;text-decoration:none;color:#fff}
+.festivallist__swiper-list a>strong {position:absolute;bottom:91px;left:0;width:100%;font-size:34px;line-height:1.2;text-align:center}
+.festivallist__swiper-prev {position:absolute;top:177px;left:0;width:30px;height:80px}
+.festivallist__swiper-next {position:absolute;top:177px;right:0;width:30px;height:80px}
+
+#FestivalType {padding-top:24px}
+.festivallist__type {overflow:hidden;width:1070px;border-top:1px solid #cecece}
+.festivallist__type>li {float:left;width:12.5%;*width:12.4%}
+.festivallist__type a {display:block;width:100%;height:124px;padding-top:26px;font-size:13px;text-align:center;color:#666}
+.festivallist__type span {position:relative;display:block;width:64px;height:64px;margin:0 auto 10px;background:url('//image.alba.kr/job/festivallist_category.png') no-repeat 0 0}
+.festivallist__type span>img {position:absolute;top:0;left:0}
+.festivallist__type--zz0  span {background-position:0 0}
+.festivallist__type--zz1  span {background-position:-72px 0}
+.festivallist__type--zz2  span {background-position:-144px 0}
+.festivallist__type--zz3  span {background-position:0 -72px}
+.festivallist__type--zz4  span {background-position:-72px -72px}
+.festivallist__type--zz5  span {background-position:-144px -72px}
+.festivallist__type--zz6  span {background-position:0 -144px}
+.festivallist__type--zz7  span {background-position:-72px -144px}
+
+.festivaldetail {position:relative}
+.festivaldetail * {font-family:'Malgun Gothic';letter-spacing:-0.1em}
+.festivaldetail__h1 {margin-bottom:10px;padding:0 !important;font-weight:bold;font-size:24px}
+.festivaldetail__guide {position:absolute;top:7px;right:0;font-size:13px;color:#666}
+.festivaldetail__poster {position:relative;width:650px;height:305px;margin-bottom:17px;padding:95px 94px 0 326px;background-repeat:no-repeat;background-position:0 0}
+.festivaldetail__poster>dt {margin-bottom:14px;padding-bottom:20px;border-bottom:1px solid #d8d8d8;font-weight:bold;font-size:38px;color:#fff}
+.festivaldetail__poster>dd {margin-bottom:8px;font-size:15px;color:#fff}
+.festivaldetail__poster>dd>em {margin-left:10px}
+.festivaldetail__poster>dd.festivaldetail__poster--term>em {letter-spacing:0}
+.festivaldetail__poster>dd.festivaldetail__poster--location {margin-bottom:20px}
+.festivaldetail__poster>dd.festivaldetail__poster--content {font-size:18px;line-height:1.4}
+.festivaldetail__poster>dd.festivaldetail__poster--poster {position:absolute;top:58px;left:58px}
+.festivaldetail__poster>dd.festivaldetail__poster--poster>img {width:210px;height:285px}
+

@@ -56,7 +56,7 @@ margin-top:20px;
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/proalba" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -134,7 +134,7 @@ margin-top:20px;
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="contract" varStatus="i" items="${contracts}">
+						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
 								<td>${contract.work_place_name}</td>
 								<td>${contract.start_period}</td>
@@ -163,27 +163,38 @@ margin-top:20px;
    </div>
 
 
-   
-   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
-   <script src="resources/js/servicepage2/popper.min.js"></script> 
-   <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
 
-   <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
+   <script src="resources/js/servicepage2/popper.min.js"></script>
+    <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
+      <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
+        <script src="resources/js/servicepage2/moment.min.js"></script>
+          <script src="resources/js/servicepage2/sweetalert2.js"></script>
+            <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
+              <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
+                <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
+                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
+                    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
+             <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
                         <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
-   <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
-   <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
+                        <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
+                       <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
                               <script src="resources/js/servicepage2/nouislider.min.js"></script>
                                  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
                                    <script src="resources/js/servicepage2/arrive.min.js"></script>
                                       <script src="resources/js/servicepage2/chartist.min.js"></script>
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
-   								<script src="resources/js/servicepage2/demo.js"></script>
+                                            <script src="resources/js/servicepage2/demo.js"></script>
+   								
+ 	
+   								
 
 
 
 
                                                 
+                                 
    <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -367,36 +378,9 @@ margin-top:20px;
       }); 
     });
   </script>
-  
 
 
 
-   <script src="resources/js/servicepage2/demo.js"></script>	
-<!-- 	<script>
-	$(document).ready(function(){
-		$(".searchIcon").click(function(e){
-			var sa_code = e.currentTarget.id;
-			var salarys = ${salarys};
-			salarys.forEach(function (salary) {
-				if(salary.sa_code == sa_code){
-					$("#basic_salary").text(salary.basic_salary);
-					$("#national_pension_cost").text(salary.national_pension_cost);
-					$("#food_expenses").text(salary.food_expenses);
-					$("#health_insurance_cost").text(salary.health_insurance_cost);
-					$("#transportation_fee").text(salary.transportation_fee);
-					$("#employment_insurance_cost").text(salary.employment_insurance_cost);
-					$("#additional_extended").text(salary.additional_extended);
-					$("#additional_night").text(salary.additional_night);
-					$("#total_salary").text(parseInt(salary.basic_salary)+parseInt(salary.food_expenses)
-							+parseInt(salary.transportation_fee)+parseInt(salary.additional_extended)+parseInt(salary.additional_night));
-					$("#total_deduction_amount").text(salary.total_deduction_amount);
-					$("#actual_salary").text(salary.actual_salary);
-				}
-			});
-		});
-	})
-	</script>
- -->
  
 </body>
 </html>

@@ -51,17 +51,14 @@ public class SignUpController {
 	
     // ȸ������ ó��
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
-    public String pregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
-    	
-    	
-    	
-    	
+    public String pregisterPOST(MemberVO memberVO) throws Exception {
+ 
     	logger.info(memberVO.getPhone());
+    	logger.info(memberVO.getEmail());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);
         memberService.pregister(memberVO);
-        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
         return "redirect:/";
     }

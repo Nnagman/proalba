@@ -8,15 +8,19 @@
 		<li class="menuLi">
 			<a class="menuLink" href="/proalba">MAIN</a>
 		</li>
+		
+		<li class="menuLi">
+			<a class="menuLink" href="/proalba">채용공고</a>
+		</li>
 	
 		<li class="menuLi">
-			<a class="menuLink" href="#">기업서비스</a>
+			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
 <!-- 			Full Down Menu --> 
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
 					<h3>지원 관리</h3> 
 					<ul>
-						<li><a href="${path}/cserWcontract" class="manuli">전자 근로계약서 작성</a></li>
+						<li><a href="${path}/cserWcontract" class="manuli" >전자 근로계약서 작성</a></li>
 					</ul>
 					<ul>
 						

@@ -41,11 +41,6 @@ public class PworkmanageController {
 		
 		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
 		return mav; // list.jsp濡� List媛� ���щ����.
-		
-		
-		
-		
-	
 	}
 	
 }
