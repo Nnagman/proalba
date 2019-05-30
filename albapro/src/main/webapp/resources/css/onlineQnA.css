@@ -71,15 +71,16 @@
 
       td{
         width: 1000px;
-        padding-left: 10px;
+        padding: 5px 0 5px 10px;
         border-bottom: 1px solid lightgray;
       }
       .noborder{
         border-bottom: none;
       }
-       table{
-        border-bottom: 1px solid #A297BD;
-        border-top: 1px solid #A297BD;
+
+      table{
+        border-bottom: 1px solid #2E2E2E;
+        border-top: 1px solid #2E2E2E;
       }
 
       .checkbox{
@@ -92,9 +93,15 @@
 
       th{
         width: 94px;
-        background-color: #E8F5FF;
+        background-color: #E7E7E7;
         color: #323232;
+        border-bottom:1px solid lightgray; 
       }
+      
+	th:last-child{
+		border-bottom: 1px solid #2E2E2E;
+	}
+
       .typeCheckbox{
         vertical-align: middle;
       }
