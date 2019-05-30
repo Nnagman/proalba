@@ -70,7 +70,7 @@
           
         </div>
         <hr>
-        <span class="sps">계정이 없다면 바로 가입하세요!</span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
+        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
         <!-- <div id="my-signin2"></div> -->
         <div class="footer-copyright">
         <span>© 2019 Copyright:</span>
