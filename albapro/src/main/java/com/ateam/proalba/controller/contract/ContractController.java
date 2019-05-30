@@ -71,27 +71,28 @@ public class ContractController {
 		this.pdfFileService = pdfFileService;
 	}
 	
-	@RequestMapping(value = "/contract", method = RequestMethod.GET)
-
-	public String pcontractGET(HttpServletRequest request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
-		PageMaker pageMaker = new PageMaker();
-		criteria.setM_code("p"+loginDTO.getId()); // m_code�ϱ� �տ� p�ٿ������.
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(contractService.count_contract(loginDTO));
-	    
-	    String id = criteria.getId();
-	    criteria.setId("p"+id);
-	    
-	    request.setAttribute("message", "contractPage");
-	    request.setAttribute("contracts", contractService.listCriteria(criteria));
-	    request.setAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
 	
-		return "servicepage/pserContract";
-	}
-
+	/*
+	 * public String pcontractGET(HttpServletRequest
+	 * request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO)
+	 * throws Exception { PageMaker pageMaker = new PageMaker();
+	 * criteria.setM_code("p"+loginDTO.getId()); // m_code�ϱ� �տ� p�ٿ������.
+	 * pageMaker.setCriteria(criteria);
+	 * pageMaker.setTotalCount(contractService.count_contract(loginDTO));
+	 * 
+	 * String id = criteria.getId(); criteria.setId("p"+id);
+	 * 
+	 * request.setAttribute("message", "contractPage");
+	 * request.setAttribute("contracts", contractService.listCriteria(criteria));
+	 * request.setAttribute("pageMaker", pageMaker);
+	 * logger.info(Integer.toString(criteria.getPageStart()));
+	 * logger.info(Integer.toString(criteria.getPerPageNum()));
+	 * logger.info(Integer.toString(criteria.getPerPageNum()));
+	 * criteria.setPage(20);
+	 * 
+	 * return "servicepage/pserContract"; }
+	 */
+	@RequestMapping(value = "/contract", method = RequestMethod.GET)
 	public ModelAndView pcontractGET(Model model,@RequestParam("id") String id) throws Exception {
 		model.addAttribute("message", "");
 		List<WcontractVO> list = contractService.select_contract("p"+id);
