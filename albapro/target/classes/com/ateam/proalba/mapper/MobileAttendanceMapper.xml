@@ -4,17 +4,22 @@
 
 <mapper namespace="com.ateam.proalba.mapper.MobileAttendanceMapper">
 
-	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
+	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
+			SELECT	w_code, SUBSTR(sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
+					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
+			FROM	work_record w, salary s
+			WHERE	w.sa_code = s.sa_code AND
+					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
+					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
+	</select>
 	
-			select 
-			w_code, substr(sa_code,0,INSTR(sa_code,'/')-1)sa_c, substr(work_start_time,INSTR(work_start_time,' ')+1) sa_start, substr(work_start_time,0,8) sa_date, substr(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
-			from work_record
-
-			where substr(sa_code,0,INSTR(sa_code,'/')-1)=#{id}
-			 
-
-						 
-
+	<select id="mobileattendance2" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
+			SELECT	w_code, SUBSTR(sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
+					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
+			FROM	work_record w, salary s
+			WHERE	w.sa_code = s.sa_code AND
+					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
+					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
 	</select>
 	
 	<insert id="mobileStartWork">
@@ -29,6 +34,11 @@
 		UPDATE work_record SET
     		work_start_time = substr(work_start_time, 0, INSTR(work_start_time, ' '))||#{work_start_time}, 
     		work_end_time = substr(work_end_time, 0, INSTR(work_end_time, ' '))||#{work_end_time}
+		WHERE w_code = #{w_code}
+	</update>
+	
+	<update id="mobileWorkRecordDelete">
+		DELETE work_record
 		WHERE w_code = #{w_code}
 	</update>
 	

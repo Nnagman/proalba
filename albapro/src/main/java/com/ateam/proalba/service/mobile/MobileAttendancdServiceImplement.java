@@ -21,8 +21,8 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	
 
 	@Override
-	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
-		return mobileAttendanceDAO.mobileattendance(id);
+	public List<MobileAttendanceVO> mobileattendance(Map<String, String> id_map) throws Exception {
+		return mobileAttendanceDAO.mobileattendance(id_map);
 	}
 
 	@Override
@@ -44,6 +44,11 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	@Override
 	public void mobileWorkRecordUpdate(Map<String, String> map) throws Exception {
 		mobileAttendanceDAO.mobileWorkRecordUpdate(map);
+	}
+
+	@Override
+	public void mobileWorkRecordDelete(String delete_w_code) throws Exception {
+		mobileAttendanceDAO.mobileWorkRecordDelete(delete_w_code);
 	}
 
 }

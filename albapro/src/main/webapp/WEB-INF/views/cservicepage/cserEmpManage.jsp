@@ -116,7 +116,7 @@
 												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
 												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
 												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
-												<a href="cserWorkmanagetable?id=${row.id}" class="btn btn-primary card-btn " >근태 기록</a>
+												<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn " >근태 기록</a>
 												<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
 											</div>
 										</div>
