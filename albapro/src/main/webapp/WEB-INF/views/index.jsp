@@ -151,7 +151,7 @@
           <div class="col-md-6 mb-4 content-div">
 
             <!-- Main heading -->
-            <h3 class="h3 mb-3 content-p3">믿어도 됩니다 .</h3>
+            <h3 class="h3 mb-3 content-p3">믿어셔도 됩니다 .</h3>
          
            
             <!-- Main heading -->

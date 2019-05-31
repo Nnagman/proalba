@@ -78,22 +78,32 @@
 
           <!-- Right -->
 
-          <ul class="navbar-nav nav-flex-icons">
-             <li class="nav-item loginicon">
+        
+
+            
+               
+        
+            
+          </div>
+              	
+
+      </div>
+      
+        <div class="navbar-nav nav-flex-icons loginicon">
+             <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
-              <a href="${path}/login" class="nav-link border border-light rounded loginicon">
+              <a href="${path}/login" class="nav-link border border-light rounded ">
                 <i class="fab fa-github mr-2"></i>sign in 
               </a>
               </c:if>
-            </li>
-
-            
-               <li class="nav-item loginicon2">
-              <%-- <a class="nav-link border1 border-light rounded loginicon2"
-               href="${path}/logout"> --%>
+            </div>
+        </div>
+        
+        <div class="nav-item loginicon2">
+         
                
                 <c:if test='${login.m_code!=null}'>
-               	 <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" 
+               	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover" 
               	  data-placement="bottom" data-html="true" 
                	  data-content="<div><h6><span>${login.name}</span>님</h6></div><hr/>
                   <p>Phone : ${login.phone}</p><hr/>
@@ -108,15 +118,10 @@
 					
 				</c:if>
                
-              </a>
-            </li> 
+          
+            </div> 
         
-            
-          </ul>
-              	
-        </div>
-
-      </div>
+        
     </nav>
       
           

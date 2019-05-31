@@ -37,9 +37,147 @@
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script> 
 
+<script src="resources/js/addjobopening.js?ver=3"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+
 
 
 </head>
+
+
+<script>
+  var sel_file;
+	$(function() {
+		$("#startSearchDate, #endSearchDate").datepicker(
+				{
+					dateFormat : 'yy-mm-dd',
+					prevText : '이전 달',
+					nextText : '다음 달',
+					showOn : "both",
+					buttonImage : "resources/images/date1.png",
+					changeMonth : true,
+					changeYear : true,
+					changeMonth : true,
+					dayNames : [ '월', '화', '수', '목', '금', '토', '일' ],
+					dayNamesShort : [ '월', '화', '수', '목', '금', '토', '일' ],
+					dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ],
+					showMonthAfterYear : true,
+					yearSuffix : '년'
+				});
+	});
+
+  $(document).ready(function() {
+    $("#input_img").on("change", imgServerUp);
+    
+    function imgServerUp(e){
+
+		var files = e.target.files; // 드래그한 파일들
+		//console.log(files);
+		var file = files[0]; // 첫번째 첨부파일
+		var formData = new FormData(); // 폼데이터 객체
+		formData.append("file", file); // 첨부파일 추가
+		var filesArr = Array.prototype.slice.call(files);
+		
+         filesArr.forEach(function(f) {
+            if (!f.type.match("image.*")) {
+              alert("이미지만 가능");
+              return;
+            }
+        }); 
+			$.ajax({
+				url: "${path}/addjob/upload",
+				type: "post",
+				data : formData,
+				dataType: "text",
+				processData: false, // processType: false - header가 아닌 body로 전달
+				contentType: false,
+				success: function(data){
+
+					console.log("file_data: "+data);
+					// 첨부 파일의 정보
+					//var fileInfo = getFileInfo(data);
+					
+					if($("#sumImg").html() != ""){
+						$.ajax({
+							type: "post",
+							url: "${path}/addjob/deleteServerFile",
+							data: {fileName: $(".file_del").attr("data-src")},
+							dataType: "text",
+							success: function(result){
+								if(result=="deleted"){
+									$("#sumImg").empty();
+									appendImg();
+								}
+							}
+						});					
+					}else{
+						appendImg();
+					}
+					
+					
+					function appendImg(){
+						// hidden 태그 추가
+						var html = "<div><input type='hidden' name='file' value='"+data+"'>";
+						// 미리보기 추가
+						html += "<img class='attImg' style='width: 125%; max-width: 760px; height:80% ' src='<spring:url value='/resources" + data+ "'/>'/>";
+						//삭제 태그 추가 
+						html += "<a href='#' class='file_del' data-src='"+data+"'>[삭제]</a></div>";
+						
+						// div에 추가
+						$("#sumImg").append(html); 
+						
+					}
+					
+					
+				}     
+        	}); 	
+  	   }
+    
+	$("#sumImg").on("click", ".file_del" , imgServerDelete);
+	
+	function imgServerDelete(e){
+		var that = $(this);
+		$.ajax({
+			type: "post",
+			url: "${path}/addjob/deleteServerFile",
+			data: {fileName:$(this).attr("data-src")},
+			dataType: "text",
+			success: function(result){
+				if(result=="deleted"){
+					that.parent("div").remove();
+				}
+			}
+		});
+	}
+    
+    
+  });
+/* 
+  function e(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+
+    filesArr.forEach(function(f) {
+      if (!f.type.match("image.*")) {
+        alert("이미지만 가능");
+        return;
+      }
+
+      sel_file = f;
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#img").attr("src", e.target.result);
+      }
+      reader.readAsDataURL(f);
+    });
+  } */
+</script>
 
 
 <body>
@@ -58,7 +196,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item active ">
             <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
               <i class="material-icons">dashboard</i>
               채용공고 등록
@@ -72,7 +210,7 @@
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
               직원 관리
@@ -103,47 +241,209 @@
     </div>
 			<!-- End of Sidebar -->
 		</div>
+		
+		<!-- 컨테이너 시작 -->
 		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+		<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
 			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 관리</h4>
-									<p class="card-category">
-										${login.id} 사업장의 직원을 관리할 수 있습니다. 
+		<div class="pser-con">
+		  <div class="container-fluid">
+		  <div class="row">
+		  <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Material Dashboard Heading</h4>
+              <p class="card-category">Created using Roboto Font Family</p>
+            </div>
+            <div class="card-body">
+              <div id="typography">
+                <div class="card-title">
+                  <h2>Typography</h2>
+                </div>
+                <div class="row">
+                 <form method="post" action="addjobopening_free">
+	<div class="container">
+	<input type="hidden" id="id" name="custId" value='${login.id}'/>
+	<br>
+		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
+		<br>
+		<div class="div_table_border">
+			<h5>근무지 정보</h5>
+			<table class="table_addjobopening">
+				<tr>
+					<td class="table-active">공고제목</td>
+					<td><input type="text" name="title" value="" style="width: 200%;"></td>
+				</tr>	
 
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										
-										
-											<c:forEach var="row" items="${list}">
-											<div class="card">
-											<div class="card-header"><h3>${row.name}</h3></div>
-											<div class="card-body">
-												<h5 class="card-title">휴대번호: ${row.phone}</h5><br>
-												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
-												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
-												<a href="cserWorkmanagetable?id=${row.id}" class="btn btn-primary card-btn " >근태 기록</a>
-											</div>
-										</div>
-												</c:forEach>
-										
-										
-									</div>
-								</div>
-							</div>
-						</div>
+				<tr>
+					<td class="table-active">회사/점포명</td>
+					<td><input type="text" name="work_place_name" value=""></td>
+					<td class="table-active">대표자명(CEO)</td>
+					<td><input type="text" name="c_name" value=""></td>
+				</tr>
 
-					</div>
-				</div>
-			</div>
+				<tr>
+					<td class="table-active">모집인원</td>
+					<td><input type="text" name="personnel" value=""></td>
+				</tr>
+
+				<tr>
+					<td class="table-active">회사로고</td>
+					<td>
+						<div class="img_wrap">
+							<div id="sumImg" ></div>
+						</div> <input type="file" class="fileupload" id="input_img" name="inputFile" value="">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="div_table_border">
+			<h5>근무지역</h5>
+			<table class="table_addjobopening">
+
+				<tr>
+					<td class="table-active">근무지</td>
+						<td>
+							<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호">
+							<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소" style="width: 50%;"><br>
+							<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소" style="width: 50%;"><br>
+							<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
+						</td>
+					</tr>
+			</table>
+		</div>
+		<br>
+		<div class="div_table_border">
+			<h5>근무조건</h5>
+			<table class="table_addjobopening">
+
+
+				<tr>
+					<td class="table-active">근무기간</td>
+					<td><input type="radio" name="term" value="1">1주일이하
+						<input type="radio" name="term" value="2">1주일-1개월
+						<input type="radio" name="term" value="3">1개월-3개월
+						<input type="radio" name="term" value="4">3개월-6개월 
+						<input type="radio" name="term" value="5">6개월-1년
+						<input type="radio" name="term" value="6">1년 이상
+						<input type="radio" name="term" value="0">기간협의</td>
+				</tr>
+
+				<tr>
+					<td class="table-active">근무요일</td>
+					<td>
+						<select name="work_day" class="week">
+							<option value="none">선택</option>
+							<option value="1">평일</option>
+							<option value="2">주말</option>
+							<option value="3">기간협의</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="table-active">근무시간</td>
+					<td>
+						<select class="se_walk_time" name="work_time1">
+							<option value="none">선택</option>
+							<option value="1">오전</option>
+							<option value="2">오후</option>
+							<option value="3">세벽</option>
+							<option value="4">오전~오후</option>
+							<option value="5">오후~세벽</option>
+							<option value="6">풀타임</option>
+						</select>	시간	<input type="text" name="work_time2" value=" ">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="table-active">급여</td>
+					<td>급여 <input type="text" name="hour_wage" value="">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+
+		<div class="div_table_border">
+			<h5>지원조건</h5>
+			<table class="table_addjobopening">
+
+
+				<tr>
+					<td class="table-active">성별</td>
+					<td><input type="radio" name="sex" value="1">성별무관
+						<input type="radio" name="sex" value="2">남자
+						<input type="radio" name="sex" value="3">여자
+
+					</td>
+				</tr>
+
+				<tr>
+					<td class="table-active">연령</td>
+					<td>
+						<input type="radio" name="age_set" id="age_set" value="1">연령무관
+						<input type="text" name="age_min" id="age_min" value=" ">세 이상
+						<input type="text" name="age_max" id="age_max" value=" ">세 이하
+					</td>
+				</tr>
+
+				<tr>
+					<td class="table-active">학력조건</td>
+					<td>
+						<select class="se_walk_time" name="education">
+							<option value="none">선택</option>
+							<option value="1">초졸</option>
+							<option value="2">중졸</option>
+							<option value="3">고졸</option>
+							<option value="4">초대졸</option>
+							<option value="5">대졸</option>
+							<option value="6">무관</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="div_table_border">
+			<h5>모집종료일</h5>
+			<table class="table_addjobopening">
+				<tr>
+					<td class="table-active">모집종료일</td>
+					<td>
+						<input type="text" id="startSearchDate" name="end_date" value="" style="height: 18px; width: 120px">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="div_table_border">
+			<h5>추가내용</h5>
+			<table class="table_addjobopening">
+				<tr>
+					<td>
+						<textarea rows="5" cols="100" id="content" name="content"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		
+		<div class="buttonline_addjobopening_free">
+			<input type="submit" id="submit" value="등록" />
+		</div> <br>
+	</div>
+</form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 
@@ -369,6 +669,6 @@
   
   
 
- 
+ <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </body>
 </html>

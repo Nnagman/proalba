@@ -13,7 +13,7 @@
 		</li>
 		
 		<li class="menuLi">
-			<a class="menuLink" href="/proalba">채용공고</a>
+			<a class="menuLink" href="${path}/recruinfo">채용공고</a>
 		</li>
 		
 		<li class="menuLi">
