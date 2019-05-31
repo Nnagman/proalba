@@ -13,7 +13,7 @@
 					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
 	</select>
 	
-	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
+	<select id="mobileattendance2" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
 			SELECT	w_code, SUBSTR(sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
 					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
 			FROM	work_record w, salary s
