@@ -37,8 +37,6 @@
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script> 
 
-
-
 </head>
 <style>
  .odd { background-color:#EAEAEA; }
@@ -47,9 +45,9 @@
 </style>
 
 <body>
-	<div class="wrapper">
-	<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+   <div class="wrapper">
+   <div class="div-sidebar">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -62,8 +60,16 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              알바목록
+            </a>
+          </li>
+          
+          
            <li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
+            <a class="nav-link" href="cserWcontract">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
@@ -82,78 +88,93 @@
             </a>
           </li> --%>
           <li class="nav-item ">
+            <a class="nav-link" href="inqcareer?id=${login.id}">
+              <i class="material-icons">library_books</i>
+              직원 경력 조회
+            </a>
+          </li>
+          <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>     
+          </li>
+        
         </ul>
       </div>
     </div>
-			<!-- End of Sidebar -->
-		</div>
-		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
-									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
+         <!-- End of Sidebar -->
+      </div>
+      <div class="content">
+         <div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+         </div>
+         <div class="pser-con">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header card-header-primary">
+                           <h4 class="card-title ">근태 관리</h4>
+                           <p class="card-category">
+                              ${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
+                                 class="material-icons calicon" data-toggle="modal"
+                                 data-target="#myModal">달력보기 calendar_today</i>
 
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table id="example" class="mdl-data-table" style="width: 100%">
-											<thead>
-												<tr>
-													<th class="th-sm">날짜</th>
-													<th class="th-sm">출근시간</th>
-													<th class="th-sm">퇴근 시간</th>
+                           </p>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table id="example" class="mdl-data-table" style="width: 100%">
+                                 <thead>
+                                    <tr>
+                                       <th class="th-sm">날짜</th>
+                                       <th class="th-sm">출근 시간</th>
+                                       <th class="th-sm">퇴근 시간</th>
+                                       <th class="th-sm">수정 하기</th>
+                                       <th class="th-sm">삭제 하기 </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 
+                                    <c:forEach var="row" items="${map.list}" varStatus="status" >
+                                    
+                                       <tr id="${status.count}" class="${row.w_code}">
+                                          <td>${row.sa_date}</td>
+                                          <td>${row.sa_start}</td>
+                                          <td>${row.sa_end}</td>
+                                          <td><input type="button" value="수정하기" class="Bupdate"/></td>
+                                          <td><input type="button" value="삭제하기" class="Bdelete"/></td>
+                                       </tr>
+                                    
+                                    </c:forEach>
 
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="row" items="${map.list}">
-													<tr>
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
-													</tr>
-												</c:forEach>
+                                 </tbody>
 
-											</tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                     <input type="button" value="추가하기" id="Binsert" onclick="workinsert();"/>
+                     
+                  </div>
 
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
+               </div>
+            </div>
+         </div>
+         <div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
+      </div>
 
-					</div>
-				</div>
-			</div>
-			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
-		</div>
-
-	</div>
+   </div>
 
 
 
 
-	<!-- 부트스트랩 -->
-  	<!-- 부트스트랩 modal -->
+   <!-- 부트스트랩 -->
+     <!-- 부트스트랩 modal -->
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-    	<script src="resources/js/bootstrap.js"></script>
+       <script src="resources/js/bootstrap.js"></script>
       <!-- Modal content  -->
       <div class="modal-content">
         <div class="modal-header">
@@ -384,12 +405,54 @@
           }, 1000);
 
         });
-      }); 
-    });
+      });
+      
+      var id;
+      var class1;
+      var tag;
+      
+      //수정하기 버튼
+      $(document).on("click",".Bupdate",function(){
+    	  $('#'+id).html(tag);
+    	  id = $(this).parent().parent().attr('id');
+    	  class1 = $(this).parent().parent().attr('class');
+    	  tag = $(this).parent().parent().html();
+          $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
+          $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
+          $(this).replaceWith('<input type="button" id="recordupdate" value="업데이트" "/>');
+      });
+      
+      $(document).on("click","#recordupdate",function(){
+    	  alert($("#time1").html());
+    	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
+    	  $.ajax({
+			async: false,
+			type: 'POST',
+			data: time,
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			url: 'http://localhost:8080/proalba/cserWorkmanagetableUpdate',
+			success: function(data){ alert(data.message); location.reload(); },
+			error : function(error) {alert("error : " + error);}
+    	  });
+      });
+      
+      $(document).on("click",".Bdelete",function(){
+    	  var delete_w_code = $(this).parent().parent().attr('class');
+    	  alert(delete_w_code);
+    	  $.ajax({
+			async: false,
+			type: 'POST',
+			data: delete_w_code,
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			url: 'http://localhost:8080/proalba/cserWorkmanagetableDelete',
+			success: function(data){ alert(data.message); location.reload(); },
+			error : function(error) {alert("error : " + error);}
+    	  });
+      });
+  });
   </script>
-  
-  
-
  
 </body>
 </html>
