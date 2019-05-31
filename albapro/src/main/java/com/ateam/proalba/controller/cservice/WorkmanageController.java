@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -82,6 +83,20 @@ public class WorkmanageController {
 		
 		mav.addObject("map", map);
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserWorkmanagetableUpdate", method = RequestMethod.POST)
+	public JSON cserWorkmanageUpdatePOST(@RequestBody String time) throws Exception {
+		logger.info(time);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("work_start_time", time.substring(0, time.indexOf("/")));
+		map.put("work_end_time", time.substring(time.indexOf("/")+1, time.indexOf("!")));
+		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")));
+		mobileAttendanceService.mobileWorkRecordUpdate(map);
+		JSONObject json = new JSONObject();
+		json.put("message", "업데이트 성공");
+		return json;
 	}
 	
 	

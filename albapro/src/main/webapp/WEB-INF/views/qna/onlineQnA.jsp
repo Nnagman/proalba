@@ -73,7 +73,7 @@
 						</td>
 					</tr>
 					<tr class="noborder">
-						<th class="tt"><span class="sp">*</span><span class="sp1">휴대폰 번호</span></th>
+						<th class="tt lastTb" ><span class="sp">*</span><span class="sp1">휴대폰 번호</span></th>
 						<td class="noborder">
 							<select class="sel1" id="tel1" name="tel1">
 								<option value="선택">선택</option>
@@ -104,7 +104,7 @@
 						<td><span class="sp10">온라인 문의 내용 답변 안내</span></td>
 					</tr>
 					<tr>
-						<th class="td"><h5>보유기간</h5></th>
+						<th class="td lastTb"><h5>보유기간</h5></th>
 						<td class="noborder"><span class="sp10">온라인 문의 완료 후, 관련법령에 의해 3년 후 파기</span></td>
 					</tr>
 				</table>

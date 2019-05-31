@@ -15,9 +15,13 @@
 		<li class="menuLi">
 			<a class="menuLink" href="/proalba">채용공고</a>
 		</li>
-		
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/pworkmanage?id=${login.id}" target="blank">개인서비스</a>
+		<c:if test="${login.id != null}">
+			<a id="pservice" class="menuLink" href="${path}/pworkmanage?id=${login.id}" target="blank">개인서비스</a>
+		</c:if>
+		<c:if test="${login.id == null}">
+			<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>
+		</c:if>
 <!--	Full Down Menu -->
 			<%-- <div class="fulldrop scrolling-navbar Asize">
 
@@ -65,7 +69,13 @@
 					<ul>
 						<li><a href="${path}/onlineQnA" class="manuli">문의하기</a></li>
 						</ul>
-						<ul><li><a href="${path}/qnalist?m_code=${login.m_code}" class="manuli">나의 문의 내역</a></li>
+						<ul>
+						<c:if test="${login.id != null}">
+						<li><a href="${path}/qnalist?m_code=${login.m_code}" class="manuli">나의 문의 내역</a></li>
+						</c:if>
+						<c:if test="${login.id == null}">
+						<li><a href="${path}/login" class="manuli">나의 문의 내역</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
