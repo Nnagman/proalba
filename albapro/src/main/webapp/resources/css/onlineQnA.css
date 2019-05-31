@@ -98,7 +98,7 @@
         border-bottom:1px solid lightgray; 
       }
       
-	th:last-child{
+	.lastTb{
 		border-bottom: 1px solid #2E2E2E;
 	}
 
