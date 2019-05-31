@@ -96,6 +96,7 @@
         background-color: #E7E7E7;
         color: #323232;
         border-bottom:1px solid lightgray; 
+        vertical-align: middle;
       }
       
 	.lastTb{
@@ -125,6 +126,9 @@
       }
       .td{
         height: 35px;
+      }
+      .td h6{
+      	margin-bottom: 0 !important;
       }
       
       .god{
