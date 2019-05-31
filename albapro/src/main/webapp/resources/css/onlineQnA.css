@@ -100,6 +100,10 @@
         background-color: #E7E7E7;
         color: #323232;
         border-bottom:1px solid lightgray; 
+<<<<<<< HEAD
+        vertical-align: middle;
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 >>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
       }
       
@@ -130,6 +134,9 @@
       }
       .td{
         height: 35px;
+      }
+      .td h6{
+      	margin-bottom: 0 !important;
       }
       
       .god{

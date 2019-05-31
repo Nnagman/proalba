@@ -92,19 +92,19 @@
 				<h5 class="vv">개인정보 수집 및 이용동의 안내</h5>
 				<table class="tab2" border="1">
 					<tr>
-						<th class="td"><h5>수집주체</h5></th>
+						<th class="td"><h6>수집주체</h6></th>
 						<td><span class="sp10">A-Team</span></td>
 					</tr>
 					<tr>
-						<th class="td"><h5>수집항목</h5></th>
+						<th class="td"><h6>수집항목</h6></th>
 						<td><span class="sp10">작성자, 이메일, 휴대폰번호</span></td>
 					</tr>
 					<tr>
-						<th class="td"><h5>수집목적</h5></th>
+						<th class="td"><h6>수집목적</h6></th>
 						<td><span class="sp10">온라인 문의 내용 답변 안내</span></td>
 					</tr>
 					<tr>
-						<th class="td lastTb"><h5>보유기간</h5></th>
+						<th class="td lastTb"><h6>보유기간</h6></th>
 						<td class="noborder"><span class="sp10">온라인 문의 완료 후, 관련법령에 의해 3년 후 파기</span></td>
 					</tr>
 				</table>
