@@ -92,8 +92,8 @@
 
       th{
         width: 94px;
-        background-color: #E8F5FF;
-        color: #323232;
+        background-color: #f8f8f8;
+        color: rgba(0, 0, 0, 0.6);
       }
       .typeCheckbox{
         vertical-align: middle;
