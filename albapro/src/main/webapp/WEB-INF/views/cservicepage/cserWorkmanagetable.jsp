@@ -131,14 +131,12 @@
                                        <th class="th-sm">출근 시간</th>
                                        <th class="th-sm">퇴근 시간</th>
                                        <th class="th-sm">수정 하기</th>
-                                       <th class="th-sm">삭제 하기 </th>
+                                       <th class="th-sm">삭제 하기      <input type="button" value="추가하기" id="Binsert"/> </th>
                                     </tr>
                                  </thead>
-                                 <tbody>
-                                 
-                                    <c:forEach var="row" items="${map.list}" varStatus="status" >
-                                    
-                                       <tr id="${status.count}" class="${row.w_code}">
+                                 <tbody id="tbody">
+                                    <c:forEach var="row" items="${map.list}" varStatus="status" >         
+                                       <tr id="${status.count}" class="${row.w_code}" sa_code="${row.sa_code}">
                                           <td>${row.sa_date}</td>
                                           <td>${row.sa_start}</td>
                                           <td>${row.sa_end}</td>
@@ -153,9 +151,7 @@
                               </table>
                            </div>
                         </div>
-                     </div>
-                     <input type="button" value="추가하기" id="Binsert" onclick="workinsert();"/>
-                     
+                     </div>          
                   </div>
 
                </div>
@@ -422,6 +418,7 @@
           $(this).replaceWith('<input type="button" id="recordupdate" value="업데이트" "/>');
       });
       
+      //업데이트 버튼
       $(document).on("click","#recordupdate",function(){
     	  alert($("#time1").html());
     	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
@@ -437,6 +434,7 @@
     	  });
       });
       
+      //삭제 버튼
       $(document).on("click",".Bdelete",function(){
     	  var delete_w_code = $(this).parent().parent().attr('class');
     	  alert(delete_w_code);
@@ -447,6 +445,40 @@
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
 			url: 'http://localhost:8080/proalba/cserWorkmanagetableDelete',
+			success: function(data){ alert(data.message); location.reload(); },
+			error : function(error) {alert("error : " + error);}
+    	  });
+      });
+      
+      var w_code;
+      
+      //추가 버튼
+      $(document).on("click","#Binsert",function(){
+    	  var pid1 = $("tbody").children().attr('class');
+    	  var pid2 = pid1.substr(0, pid1.indexOf('/')); 
+    	  var d = new Date();
+    	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    	  var sa_code = $("tbody").children().attr('sa_code').split('/');
+    	  var sa_code2 = sa_code[0] + '/' + d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + '/' + sa_code[2];
+    	  alert(sa_code2);
+    	  w_code = pid2+'/'+d.getFullYear()+("0" + (d.getMonth() + 1)).slice(-2)+d.getDate()+'/'+sa_code[2];
+    	  var str1 = '<tr id="inserted_row" class="'+sa_code2+'">';
+    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time22" value=""/></td>';
+    	  var str3 = '<td><input type="time" id="time11" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
+    	  var str = str1+str2+str3;
+    	  $("#tbody").prepend(str);
+      });
+      
+      $(document).on("click","#insertRecord",function(){
+    	  alert($('#inserted_row').attr('class'));
+    	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+$("#time11").val()+'#'+$("#time22").val()+'$'+w_code;
+    	  $.ajax({
+			async: false,
+			type: 'POST',
+			data: str,
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			url: 'http://localhost:8080/proalba/cserWorkmanagetableInsert',
 			success: function(data){ alert(data.message); location.reload(); },
 			error : function(error) {alert("error : " + error);}
     	  });

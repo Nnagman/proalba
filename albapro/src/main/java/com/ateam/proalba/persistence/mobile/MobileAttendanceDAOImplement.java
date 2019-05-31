@@ -19,8 +19,8 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<MobileAttendanceVO> mobileattendance(Map<String, String> id_map) throws Exception {
-		return sqlSession.selectList(NAMESPACE +".mobileattendance", id_map);
+	public List<MobileAttendanceVO> cmobileattendance(Map<String, String> id_map) throws Exception {
+		return sqlSession.selectList(NAMESPACE +".cmobileattendance", id_map);
 	}
 
 	@Override
@@ -48,6 +48,16 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	@Override
 	public void mobileWorkRecordDelete(String delete_w_code) throws Exception {
 		sqlSession.delete(NAMESPACE+".mobileWorkRecordDelete", delete_w_code);
+	}
+
+	@Override
+	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE +".mobileattendance", id);
+	}
+
+	@Override
+	public void mobileWorkRecordInsert(Map<String, String> map) throws Exception {
+		sqlSession.insert(NAMESPACE+".mobileWorkRecordInsert", map);
 	}
 	
 }

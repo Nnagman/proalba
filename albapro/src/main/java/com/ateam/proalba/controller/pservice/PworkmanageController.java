@@ -29,19 +29,18 @@ public class PworkmanageController {
 	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
 	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id) throws Exception {
 	
-//		model.addAttribute("message", "");
-//		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
-//		logger.info("workManager:  "+list.toString());
-//		logger.info(id);
-//		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("servicepage/pworkmanage"); // 酉곕�� list.jsp濡� �ㅼ��
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		map.put("list",list);
-//		
-//		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
-//		return mav; // list.jsp濡� List媛� ���щ����.
-		return null;
+		model.addAttribute("message", "");
+		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
+		logger.info("workManager:  "+list.toString());
+		logger.info(id);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pworkmanage"); // 酉곕�� list.jsp濡� �ㅼ��
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
+		return mav; // list.jsp濡� List媛� ���щ����.
 	}
 	
 }

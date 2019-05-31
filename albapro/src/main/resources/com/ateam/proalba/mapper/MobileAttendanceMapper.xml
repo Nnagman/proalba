@@ -4,23 +4,26 @@
 
 <mapper namespace="com.ateam.proalba.mapper.MobileAttendanceMapper">
 
-	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
-			SELECT	w_code, SUBSTR(sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
+	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
+			SELECT	w_code, SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
 					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
+			FROM	work_record
+			WHERE	SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)=#{id}
+	</select>
+	
+	<select id="cmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
+			SELECT	w_code, SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
+					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end, w.sa_code
 			FROM	work_record w, salary s
 			WHERE	w.sa_code = s.sa_code AND
 					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
 					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
 	</select>
 	
-	<select id="mobileattendance2" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
-			SELECT	w_code, SUBSTR(sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
-					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end 
-			FROM	work_record w, salary s
-			WHERE	w.sa_code = s.sa_code AND
-					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
-					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
-	</select>
+	<insert id="mobileInsertWork" parameterType="hashmap">
+		INSERT INTO work_record(w_code, sa_code, work_start_time, work_end_time, working_hours)
+		VALUES (#{w_code}, #{sa_code}, #{work_start_time}, #{work_end_time}, #{working_hours})
+	</insert>
 	
 	<insert id="mobileStartWork">
 		INSERT INTO work_record(w_code, sa_code, work_start_time) VALUES (#{w_code}, #{sa_code}, #{work_start_time})

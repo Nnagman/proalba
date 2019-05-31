@@ -75,7 +75,7 @@ public class WorkmanageController {
 		Map<String, String> id_map = new HashMap<String, String>();
 		id_map.put("id", id);
 		id_map.put("cid", cid);
-		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id_map);
+		List<MobileAttendanceVO> list = mobileAttendanceService.cmobileattendance(id_map);
 		logger.info("workManager:  "+list.toString());
 		logger.info(id);
 		ModelAndView mav = new ModelAndView();
@@ -109,6 +109,30 @@ public class WorkmanageController {
 		mobileAttendanceService.mobileWorkRecordDelete(delete_w_code);
 		JSONObject json = new JSONObject();
 		json.put("message", "삭제 성공");
+		return json;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserWorkmanagetableInsert", method = RequestMethod.POST)
+	public JSON cserWorkmanageInsertPOST(@RequestBody String str) throws Exception {
+		logger.info(str);
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("sa_code", str.substring(0, str.indexOf("!")));
+		str = str.substring(str.indexOf("!")+1, str.length());
+		
+		str = str.substring(str.indexOf("@")+1, str.length());
+		
+		map.put("work_start_time", str.substring(0, str.indexOf("#")));
+		str = str.substring(str.indexOf("#")+1, str.length());
+		
+		map.put("work_end_time",str.substring(0, str.indexOf("$")));
+		str = str.substring(str.indexOf("$")+1, str.length());
+		
+		map.put("w_code", str);
+
+		JSONObject json = new JSONObject();
+		json.put("message", "업데이트 성공");
 		return json;
 	}
 	
