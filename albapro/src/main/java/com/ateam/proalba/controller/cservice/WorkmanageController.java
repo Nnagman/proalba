@@ -70,12 +70,14 @@ public class WorkmanageController {
 	MobileAttendanceService mobileAttendanceService;
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id) throws Exception {
+	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id, @RequestParam("cid") String cid) throws Exception {
 		model.addAttribute("message", "");
-		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
+		Map<String, String> id_map = new HashMap<String, String>();
+		id_map.put("id", id);
+		id_map.put("cid", cid);
+		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id_map);
 		logger.info("workManager:  "+list.toString());
 		logger.info(id);
-		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserWorkmanagetable");
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -99,6 +101,16 @@ public class WorkmanageController {
 		return json;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/cserWorkmanagetableDelete", method = RequestMethod.POST)
+	public JSON cserWorkmanageDeletePOST(@RequestBody String delete_w_code) throws Exception {
+		delete_w_code = delete_w_code.substring(0, delete_w_code.indexOf(" "));
+		logger.info("w_code: "+ delete_w_code);
+		mobileAttendanceService.mobileWorkRecordDelete(delete_w_code);
+		JSONObject json = new JSONObject();
+		json.put("message", "삭제 성공");
+		return json;
+	}
 	
 	
 	@RequestMapping(value = "/cserSalary", method = RequestMethod.GET)
