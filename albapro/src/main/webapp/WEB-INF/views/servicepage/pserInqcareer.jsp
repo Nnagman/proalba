@@ -40,11 +40,15 @@
 
 
 </head>
+<style>
+ .odd { background-color:#EAEAEA; }
 
+        .Even { background-color : white; }
+</style>
 
 <body>
 	<div class="wrapper">
-		<div class="div-sidebar">
+	<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -56,38 +60,41 @@
         proalba
         </a>
       </div>
-    
-    
       <div class="sidebar-wrapper">
         <ul class="nav">
-
-<li class="nav-item  ">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+          <li class="nav-item  ">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 등록
+              알바목록
             </a>
           </li>
-
-
-		<li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
+          
+          
+           <li class="nav-item active">
+            <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+          <li class="nav-item">
+            <a class="nav-link" href="pworkmanage?id=${login.id}">
               <i class="material-icons">person</i>
-              직원 관리
+              근태 관리
             </a>
           </li>
-        <%--   <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
               급여 관리
             </a>
-          </li> --%>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="inqcareer?id=${login.id}">
+              <i class="material-icons">library_books</i>
+              경력 관리
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
@@ -101,7 +108,7 @@
 			<!-- End of Sidebar -->
 		</div>
 		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
 			</div>
 			<div class="pser-con">
 				<div class="container-fluid">
@@ -109,31 +116,34 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 관리</h4>
+									<h4 class="card-title ">직원 경력 조회</h4>
 									<p class="card-category">
-										${login.id} 사업장의 직원을 관리할 수 있습니다. 
-
+										${login.name} 님의 경력을 볼수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
-										
-										
-											<c:forEach var="row" items="${list}">
-											<div class="card">
-											<div class="card-header"><h3>${row.name}</h3></div>
-											<div class="card-body">
-												<h5 class="card-title">휴대번호: ${row.phone}</h5><br>
-												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
-												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
-												<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn " >근태 기록</a>
-												<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
-											</div>
-										</div>
+										<table id="example" class="mdl-data-table" style="width: 100%">
+											<thead>
+												<tr>
+													<th class="th-sm">사업장명</th>
+													<th class="th-sm">입사일</th>
+													<th class="th-sm">퇴사일</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="row" items="${map.list}">
+													<tr>
+														<td>${row.work_place_name}</td>
+														<td>${row.join_date}</td>
+														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
+														<c:if test="${row.end_date == null}"><td>현재 근무 중인 사업장입니다.</td></c:if>
+													</tr>
 												</c:forEach>
-										
-										
+											</tbody>
+
+										</table>
 									</div>
 								</div>
 							</div>
@@ -145,13 +155,8 @@
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 
-	</div>
-
-
-
-
-
-
+	</div> 
+            
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
 
@@ -213,6 +218,10 @@
                     }
                 ]
             } );
+            
+            $('table.mdl-data-table tbody tr:odd').addClass('odd');
+
+            $('table.mdl-data-table tbody tr:even').addClass('Even');
       
 
         /*  $('.fixed-plugin a').click(function(event) {

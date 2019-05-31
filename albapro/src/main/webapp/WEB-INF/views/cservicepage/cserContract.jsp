@@ -11,40 +11,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
   <title>Swefwefgw  sdfrf sdd </title>
 
   <!-- Custom fonts for this template-->
-
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
   <!-- Custom styles for this template-->
- <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
   <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
   <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-    <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
- 
-
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
-
- 
- <link rel="stylesheet" href="resources/css/albamanage.css" />
-<link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <script src="resources/js/albamanage.js"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script> 
-
-
 
 </head>
+<style>
+.content{
+height: 100%;
+    max-height: 100%;
+        position: relative;
+    float: right;
+    width: calc(100% - 260px);
+    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+    
+.cser-con{
+position:relative;
+margin-top:70px;
+}
+.fluid2{
+margin-top:100px;
+}
 
+.fluid-row{
+margin-top:20px;
+}
+</style>
 
 <body>
-	<div class="wrapper">
-		<div class="div-sidebar">
+<div class="wrapper">
+	<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -56,26 +60,15 @@
         proalba
         </a>
       </div>
-    
-    
       <div class="sidebar-wrapper">
         <ul class="nav">
-
-<li class="nav-item  ">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 등록
-            </a>
-          </li>
-
-
-		<li class="nav-item ">
+           <li class="nav-item active">
             <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
               직원 관리
@@ -98,59 +91,62 @@
         </ul>
       </div>
     </div>
-			<!-- End of Sidebar -->
-		</div>
-		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 관리</h4>
-									<p class="card-category">
-										${login.id} 사업장의 직원을 관리할 수 있습니다. 
+<!-- End of Sidebar -->
+	  </div>
+      <div class="content">
+         <div class="cser-header"><%@ include file="cserNavHeader.jsp"%>
+         </div>
+         <div class="cser-con">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header card-header-primary">
+                           <h4 class="card-title ">전자근로 계약서 목록</h4>
+                           <p class="card-category">
+                              	전자 근로 계약서 목록 입니다. 
 
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										
-										
-											<c:forEach var="row" items="${list}">
-											<div class="card">
-											<div class="card-header"><h3>${row.name}</h3></div>
-											<div class="card-body">
-												<h5 class="card-title">휴대번호: ${row.phone}</h5><br>
-												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
-												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
-												<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn " >근태 기록</a>
-												<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
-											</div>
-										</div>
-												</c:forEach>
-										
-										
-									</div>
-								</div>
-							</div>
-						</div>
+                           </p>
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table id="example" class="mdl-data-table" style="width: 100%">
+                               <thead>
+						<tr>
+							<th class="appDate" scope="col">회사명</th>
+							<th class="endDate" scope="col">계약시작일</th>
+							<th class="resume" scope="col">계약종료일</th>
+							<th class="check" scope="col">서명여부</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="contract" varStatus="i" items="${map.list}">
+							<tr>
+								<td>${contract.work_place_name}</td>
+								<td>${contract.start_period}</td>
+								<td>${contract.end_period}</td>
+								<c:if test="${contract.email_check eq '1'}">
+								<jsp:useBean id="now" class="java.util.Date" />
+								<td><a href="${path}/downloadContract?fileName=${contract.c_date}근로계약서.pdf&downName=${contract.fileName}">서명완료</a></td>
+								</c:if>
+								<c:if test="${contract.email_check eq '0'}">
+								<td><a href="${path}/csercheckContract?link=${contract.fileName}">서명필요</a></td>
+								</c:if>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
 
-					</div>
-				</div>
-			</div>
-			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
-		</div>
-
-	</div>
-
-
-
-
-
+               </div>
+            </div>
+         </div>
+         <div class="cser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
+      </div>
+   </div>
 
 
   <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
@@ -176,11 +172,15 @@
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
                                             <script src="resources/js/servicepage2/demo.js"></script>
-                                            
-                                            
-                                            
-                                
-                                            
+   								
+ 	
+   								
+
+
+
+
+                                                
+                                 
    <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -364,8 +364,8 @@
       }); 
     });
   </script>
-  
-  
+
+
 
  
 </body>

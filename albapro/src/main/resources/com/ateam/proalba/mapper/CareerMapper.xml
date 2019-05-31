@@ -39,6 +39,16 @@
     	
     	]]>
 	</select>
+	
+	<select id="selectCareers" resultMap="CareerVOResultMap">
+	    <![CDATA[
+	    SELECT
+            join_date,
+            work_place_name,
+            end_date
+    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date from career where m_code = #{m_code} order by join_date desc)    	
+    	]]>
+	</select>
 
     <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
         <id property="join_date" column="join_date" />

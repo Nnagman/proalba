@@ -1,7 +1,7 @@
 package com.ateam.proalba.service.mobile;
 
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +21,8 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	
 
 	@Override
-	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
-		return mobileAttendanceDAO.mobileattendance(id);
+	public List<MobileAttendanceVO> cmobileattendance(Map<String, String> id_map) throws Exception {
+		return mobileAttendanceDAO.cmobileattendance(id_map);
 	}
 
 	@Override
@@ -39,6 +39,26 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	@Override
 	public List<MobileWorkRecordVO> mobileFoundWorkRecord(String sa_code) throws Exception {
 		return mobileAttendanceDAO.mobileFoundWorkRecord(sa_code);
+	}
+
+	@Override
+	public void mobileWorkRecordUpdate(Map<String, String> map) throws Exception {
+		mobileAttendanceDAO.mobileWorkRecordUpdate(map);
+	}
+
+	@Override
+	public void mobileWorkRecordDelete(String delete_w_code) throws Exception {
+		mobileAttendanceDAO.mobileWorkRecordDelete(delete_w_code);
+	}
+
+	@Override
+	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
+		return mobileAttendanceDAO.mobileattendance(id);
+	}
+
+	@Override
+	public void mobileWorkRecordInsert(Map<String, String> map) throws Exception {		
+		mobileAttendanceDAO.mobileWorkRecordInsert(map);
 	}
 
 }

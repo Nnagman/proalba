@@ -71,15 +71,16 @@
 
       td{
         width: 1000px;
-        padding-left: 10px;
+        padding: 5px 0 5px 10px;
         border-bottom: 1px solid lightgray;
       }
       .noborder{
         border-bottom: none;
       }
-       table{
-        border-bottom: 1px solid #A297BD;
-        border-top: 1px solid #A297BD;
+
+      table{
+        border-bottom: 1px solid #2E2E2E;
+        border-top: 1px solid #2E2E2E;
       }
 
       .checkbox{
@@ -92,9 +93,24 @@
 
       th{
         width: 94px;
-        background-color: #E8F5FF;
+<<<<<<< HEAD
+        background-color: #f8f8f8;
+        color: rgba(0, 0, 0, 0.6);
+=======
+        background-color: #E7E7E7;
         color: #323232;
+        border-bottom:1px solid lightgray; 
+<<<<<<< HEAD
+        vertical-align: middle;
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
       }
+      
+	.lastTb{
+		border-bottom: 1px solid #2E2E2E;
+	}
+
       .typeCheckbox{
         vertical-align: middle;
       }
@@ -118,6 +134,9 @@
       }
       .td{
         height: 35px;
+      }
+      .td h6{
+      	margin-bottom: 0 !important;
       }
       
       .god{

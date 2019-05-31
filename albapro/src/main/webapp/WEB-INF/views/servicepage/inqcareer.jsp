@@ -368,7 +368,7 @@ margin-top:20px;
             clearInterval(simulateWindowResize);
           }, 1000);
 
-        });
+        });   
       });
     });
   </script>

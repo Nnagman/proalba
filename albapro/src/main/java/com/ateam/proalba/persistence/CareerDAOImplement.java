@@ -55,4 +55,9 @@ public class CareerDAOImplement implements CareerDAO {
 		return sqlSession.selectOne(NAMESPACE + ".countCareers", loginDTO);
 	}
 
+	@Override
+	public List<CareerVO> selectCareers(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".selectCareers", id);
+	}
+
 }

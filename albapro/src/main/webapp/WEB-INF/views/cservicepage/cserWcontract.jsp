@@ -41,16 +41,8 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="cserWcontract">
+           <li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
@@ -68,12 +60,6 @@
               급여 관리
             </a>
           </li> --%>
-          <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-             직원 경력 조회
-            </a>
-          </li>
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>

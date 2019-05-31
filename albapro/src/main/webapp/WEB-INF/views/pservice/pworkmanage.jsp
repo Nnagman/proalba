@@ -30,10 +30,10 @@
 
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script>  -->
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
- <link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script> 
