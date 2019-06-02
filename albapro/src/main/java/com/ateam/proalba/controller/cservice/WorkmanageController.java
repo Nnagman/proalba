@@ -22,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
@@ -34,7 +33,6 @@ import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import net.sf.json.JSONArray;
 
 import net.sf.json.JSON;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
@@ -130,7 +128,19 @@ public class WorkmanageController {
 		str = str.substring(str.indexOf("$")+1, str.length());
 		
 		map.put("w_code", str);
-
+		System.out.println(map);
+		
+		String work_start_time = map.get("work_start_time");
+		String work_end_time = map.get("work_end_time");
+		
+		int working_hours1 = (Integer.parseInt(work_end_time.substring(0,2))-Integer.parseInt(work_start_time.substring(0,2)))*60;
+		int working_hours2 = Integer.parseInt(work_end_time.substring(3,5))-Integer.parseInt(work_start_time.substring(3,5));
+		
+		String working_hours = Integer.toString(working_hours1+working_hours2);
+		map.put("working_hours", working_hours);
+		
+		mobileAttendanceService.mobileWorkRecordInsert(map);
+		
 		JSONObject json = new JSONObject();
 		json.put("message", "업데이트 성공");
 		return json;

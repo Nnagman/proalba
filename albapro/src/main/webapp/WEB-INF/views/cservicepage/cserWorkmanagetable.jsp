@@ -451,20 +451,23 @@
       });
       
       var w_code;
+      var sa_code_date
       
       //추가 버튼
       $(document).on("click","#Binsert",function(){
     	  var pid1 = $("tbody").children().attr('class');
-    	  var pid2 = pid1.substr(0, pid1.indexOf('/')); 
+    	  var pid2 = pid1.substr(0, pid1.indexOf('/'));
     	  var d = new Date();
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+    	  sa_code_date = $('#date').val().substr(0, 4);
+    	  
     	  var sa_code = $("tbody").children().attr('sa_code').split('/');
-    	  var sa_code2 = sa_code[0] + '/' + d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + '/' + sa_code[2];
+    	  var sa_code2 = sa_code[0] + '/' + '/' + sa_code[2];
     	  alert(sa_code2);
     	  w_code = pid2+'/'+d.getFullYear()+("0" + (d.getMonth() + 1)).slice(-2)+d.getDate()+'/'+sa_code[2];
     	  var str1 = '<tr id="inserted_row" class="'+sa_code2+'">';
-    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time22" value=""/></td>';
-    	  var str3 = '<td><input type="time" id="time11" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
+    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
+    	  var str3 = '<td><input type="time" id="time22" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
     	  var str = str1+str2+str3;
     	  $("#tbody").prepend(str);
       });
