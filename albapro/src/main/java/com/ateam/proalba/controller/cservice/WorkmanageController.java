@@ -133,8 +133,12 @@ public class WorkmanageController {
 		String work_start_time = map.get("work_start_time");
 		String work_end_time = map.get("work_end_time");
 		
-		int working_hours1 = (Integer.parseInt(work_end_time.substring(0,2))-Integer.parseInt(work_start_time.substring(0,2)))*60;
-		int working_hours2 = Integer.parseInt(work_end_time.substring(3,5))-Integer.parseInt(work_start_time.substring(3,5));
+		int start_hour = Integer.parseInt(work_start_time.substring(9,11));
+		int end_hour = Integer.parseInt(work_end_time.substring(9,11));
+		if(start_hour > end_hour) { end_hour = end_hour + 24; }
+		int working_hours1 = (end_hour - start_hour)*60;
+		
+		int working_hours2 = Integer.parseInt(work_end_time.substring(12,14))-Integer.parseInt(work_start_time.substring(12,14));
 		
 		String working_hours = Integer.toString(working_hours1+working_hours2);
 		map.put("working_hours", working_hours);

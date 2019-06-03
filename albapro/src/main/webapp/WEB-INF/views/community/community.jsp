@@ -14,7 +14,7 @@
 $(function(){
 
 	$("#btnWrite").click(function(){
-		location.href="${path}/comm/write";
+		location.href="${path}/commwrite";
 	});
 	
 	$("#hLogin").click(function(){
@@ -57,7 +57,6 @@ ${map.count}개의 게시물이 있습니다. <br>
 		<input name="keyword" value="${map.keyword}">
 		<input type="submit" value="조회">
 		<c:if test="${login.id != null}">
-		<button type="button" class="btn10" id="btnWrite">글쓰기</button>
 	</c:if>
 	<!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
 
@@ -74,7 +73,7 @@ ${map.count}개의 게시물이 있습니다. <br>
 	<tr>
 		<th>${row.p_code }</th>
 		<th> 
-			<a href="${path}/comm/view?p_code=${row.p_code}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title }</a>
+			<a href="${path}/commview?p_code=${row.p_code}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title }</a>
 			<c:if test="${row.recnt > 0}">
 				<span style="color:red;">( ${row.recnt})</span>
 			</c:if>
@@ -86,7 +85,7 @@ ${map.count}개의 게시물이 있습니다. <br>
 </c:forEach>
 		<!-- 페이징 -->
 		<tr>
-			<td colspan="5">
+			<td colspan="4">
 				<!-- 처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
 				<c:if test="${map.boardPager.curBlock > 1}">
 					<a href="javascript:list('1')">[처음]</a>
@@ -119,6 +118,9 @@ ${map.count}개의 게시물이 있습니다. <br>
 				<c:if test="${map.boardPager.curPage <= map.boardPager.totPage}">
 					<a href="javascript:list('${map.boardPager.totPage}')">[끝]</a>
 				</c:if>
+			</td>
+			<td>
+				<button type="button" class="btn10" id="btnWrite" style="z-index: 999;">글쓰기</button>
 			</td>
 		</tr>
 		<!-- 페이징 -->

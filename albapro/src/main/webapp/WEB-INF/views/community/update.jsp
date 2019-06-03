@@ -193,7 +193,7 @@
 
       <!-- Post Content Column -->
       <div class="col-lg-8">
- 	<form name="updateForm" id="updateForm" method="post" action="${path}/comm/update.do">
+ 	<form name="updateForm" id="updateForm" method="post" action="${path}/commupdate.do">
         
         <div>
 			<!-- 원하는 날짜형식으로 출력하기 위해 fmt태그 사용 -->

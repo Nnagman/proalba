@@ -51,4 +51,9 @@ public class MemberServiceImplement implements MemberService {
 		return memberDAO.getList(id);
 	}
 
+	@Override
+	public void cregisterModify(MemberVO memberVO) throws Exception {
+		memberDAO.cregisterModify(memberVO);
+	}
+
 }

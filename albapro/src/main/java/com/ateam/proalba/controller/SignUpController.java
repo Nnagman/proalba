@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -49,15 +48,11 @@ public class SignUpController {
 		return "login/com_register";
 	}
 	
-    // ȸ������ ó��
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
     public String pregisterPOST(MemberVO memberVO) throws Exception {
  
     	logger.info(memberVO.getPhone());
     	logger.info(memberVO.getEmail());
-//        String hashedPassword = BCrypt.hashpw(memberVO.getId(), BCrypt.gensalt());
-//        memberVO.setPassword(hashedPassword);
-//        logger.info(hashedPassword);
         memberService.pregister(memberVO);
 
         return "redirect:/";
@@ -68,7 +63,15 @@ public class SignUpController {
     	logger.info(memberVO.getId());
     	memberService.pregisterModify(memberVO);
     	
-    	return "redirect:/";
+    	return "login/pMyinfo";
+    }
+    
+    @RequestMapping(value = "/cregisterModify", method = RequestMethod.POST)
+    public String cregisterModifyPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
+    	logger.info(memberVO.getId());
+    	memberService.cregisterModify(memberVO);
+    	
+    	return "login/cMyinfo";
     }
     
     
