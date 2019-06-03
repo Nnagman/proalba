@@ -11,6 +11,7 @@
    <head>   
    <meta charset="UTF-8">
    <title>프로알바 로그인</title>
+
    <meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
     <script>
        function init(){
@@ -51,23 +52,30 @@
 <div class="form">
   <div class="form-panel one">
     <div class="form-header">
-      <h1>로그인</h1>
+    <img src="resources/images/biglogo.png" class="logo">
+<!-- <h1>Login</h1> -->
     </div>
     <div class="form-content">
       <form name="signUpForm" method="post" action="${path}/login/loginPost">
         <div class="form-group">
           <label for="username">UserID</label>
-          <input type="text" id="username" name="id" required="required"/>
+          <input type="text" id="username" class="inp" name="id" required="required"/>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required="required"/>
+          <input type="password" id="password" class="inp" name="password" required="required"/>
         </div>
         <div class="form-group">
           <button type="submit">로그인</button>
-          <button type="submit" class="btn-regist">회원가입</button>          
+          
         </div>
-        <div id="my-signin2"></div>
+        <hr>
+        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
+        <!-- <div id="my-signin2"></div> -->
+        <div class="footer-copyright">
+        <span>© 2019 Copyright:</span>
+         <a href="${path}/" class="sp1" style="text-decoration:none">Proalba</a>
+        </div>
           <script>
              function onSuccess(googleUser) {
                 console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
