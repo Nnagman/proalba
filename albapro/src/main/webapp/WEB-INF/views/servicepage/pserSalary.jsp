@@ -127,6 +127,7 @@
                                     <tr>
                                      
                                        <th>보낸이</th>
+                                       <th>총 근로시간</th>
                                        <th>지급총액</th>
                                        <th>공제총액</th>
                                        <th>실지급액</th>
@@ -141,6 +142,7 @@
                                  <tr>
                                      
                                        <td>${salary.work_place_name}</td>
+                                       <td>${salary.work_hours }시간${salary.work_minute }분</td>
                                        <td>${salary.basic_salary}</td>
                                        <td>${salary.total_deduction_amount}</td>
                                        <td>${salary.actual_salary}</td>
