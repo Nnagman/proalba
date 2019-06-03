@@ -273,10 +273,18 @@ text-align:center;
            			 	<input type="checkbox" class="appperiod-Visit">방문 접수	
            			 	
 						</div>	
-           		      	<div class="workcon-map">
-           		      		근무지역 <br>
-							맵점여 
-           		      	</div>		
+						
+						<div class="appperiod-hidden-tel">
+						
+						
+						</div>
+						
+						<div class="appperiod-hidden-online">
+						
+						
+						</div>
+           		      
+           		      
            		      		
            			</div>
            		
