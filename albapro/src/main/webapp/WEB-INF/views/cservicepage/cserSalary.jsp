@@ -121,9 +121,9 @@
                            <div class="table-responsive">
                               <table id="example" class="mdl-data-table" style="width: 100%">
                                  <thead>
-                                    <tr>
-                                       <th>이름</th>
+                                    <tr>    
                                        <th>보낸이</th>
+                                       <th>총 근로시간</th>
                                        <th>지급총액</th>
                                        <th>공제총액</th>
                                        <th>실지급액</th>
@@ -135,8 +135,8 @@
                                  <tbody>
                                  <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
-                                       <td id="sal_name">${salary.name}</td>
                                        <td id="sal_work_place_name">${salary.work_place_name}</td>
+                                       <td>${salary.work_hours }시간${salary.work_minute }분</td>
                                        <td id="sal_basic_salary">${salary.basic_salary}</td>
                                        <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
                                        <td id="sal_actual_salary">${salary.actual_salary}</td>

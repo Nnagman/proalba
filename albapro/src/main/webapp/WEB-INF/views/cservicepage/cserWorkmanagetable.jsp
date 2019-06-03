@@ -125,23 +125,31 @@
 									</p>
 								</div>
 								<div class="card-body">
-									<div class="table-responsive">
-										<table id="example" class="mdl-data-table" style="width: 100%">
+									<div id="table" class="table-editable">
+									    <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            							 aria-hidden="true">wf</i></a></span>
+										<table id="example" class="table table-bordered table-responsive-md table-striped text-center" style="width: 100%">
 											<thead>
 												<tr>
 													<th class="th-sm">날짜</th>
-													<th class="th-sm">출근시간</th>
+													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
-
+													<th class="th-sm">수정 하기</th>
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach var="row" items="${map.list}">
+											
+												<c:forEach var="row" items="${map.list}" varStatus="status" >
+												
 													<tr>
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
-													</tr>
+														<td class="pt-3-half" contenteditable="true">${row.sa_date}</td>
+														<td class="pt-3-half" contenteditable="true">${row.sa_start}</td>
+														<td class="pt-3-half" contenteditable="true">${row.sa_end}</td>
+													  <td>
+              					<span class="table-remove"><button type="button"class="btn btn-danger btn-rounded btn-sm ">Remove</button></span>
+            								</td>
+            							</tr>
+												
 												</c:forEach>
 
 											</tbody>
@@ -150,6 +158,8 @@
 									</div>
 								</div>
 							</div>
+							<input type="button" value="추가하기" id="Binsert" onclick="workinsert();"/>
+							
 						</div>
 
 					</div>
@@ -210,6 +220,7 @@
                                        <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
                                            <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
                                             <script src="resources/js/servicepage2/demo.js"></script>
+                                             <script src="resources/js/cserWorkmanagetableSC.js"></script>
                                             
                                             
                                             
@@ -400,9 +411,48 @@
 
         });
       }); 
-    });
-  </script>
+      
+        //수정하기 버튼
+    
+      	
   
+     
+      $(document).on('click','.Bupdate',function() {
+    	  $(this).parent().prev().replaceWith('<td><input type="time" /></td>');
+          $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1"/></td>');
+          $(this).replaceWith('<input type="button" class="recordupdate" value="업데이트" />');
+      });  
+
+  
+        
+      
+      
+    });
+    $(document).on('click','.recordupdate',function() {
+    	  $(this).parent().prev().replaceWith('<td>${row.sa_start}</td>');
+          $(this).parent().prev().prev().replaceWith('<td>${row.sa_end}</td>');
+    	$(this).replaceWith('<input type="button" class="Bupdate" value="수정하기" />');
+    });
+    /* $(".Bupdate").click(function(){
+    	
+        
+        $(this).parent().prev().replaceWith('<td><input type="time" /></td>');
+        $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1"/></td>');
+        $(this).replaceWith('<input type="button" class="recordupdate" value="업데이트" />');
+       
+    });
+    $(".recordupdate").click(function(){
+
+        
+        $(this).replaceWith('<input type="button" class="recordupdate" value="수정하기" />');
+       
+    }); */
+    
+   
+    
+ 
+
+  </script>
   
 
  
