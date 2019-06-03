@@ -105,7 +105,6 @@ public class ContractController {
 		
 		mav.addObject("map", map);
 		return mav;
-
 	}
 	
 	@RequestMapping(value = "/ccontract", method = RequestMethod.GET)
@@ -142,13 +141,14 @@ public class ContractController {
 		logger.info(wcontractVO.toString());
 		MemberVO memberVO = memberService.getList(p_id);
 		logger.info("getList success");
-		int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
+		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
 		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
 		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
 		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
 		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
-		if(mail==0) { return "cservicepage/cserWcontract"; }
-		else { return "/"; }
+		//if(mail==0) { return "cservicepage/cserWcontract"; }
+		//else { return "/"; }
+		return "cservicepage/cserWcontract";
 	}
 	
 	@ResponseBody
