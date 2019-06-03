@@ -81,13 +81,7 @@
               직원 관리
             </a>
           </li>
-        <%--   <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
-            </a>
-          </li> --%>
+       
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>

@@ -57,8 +57,8 @@ body{
     
      
    .carousel{
-      width:430px !important;
-      left:10% !important;
+      width:25% !important;
+      left:20% !important;
       }
  .mr-auto, .mx-auto{
     margin-right:0px !important;
@@ -102,10 +102,10 @@ margin-left:500px !important;
   	margin-right: 80px;
   }
     
-  .loginicon{
+  /* .loginicon{
   	margin:0 0 0 45% !important;
   	
-  }
+  } */
  /*  
    .loginicon2{
   		margin:0 0 0 45% !important;
@@ -136,6 +136,10 @@ margin-left:500px !important;
 	   background-color: #5D5D5D;
 
 
+}
+
+.containermo{
+	width:90%;
 }
   
   

@@ -40,6 +40,9 @@
     
     
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    
+    
+    
       <div class="containermo">
 		<div  class=" header-logo">
 		<a href= "${path}">
@@ -89,7 +92,7 @@
 
       </div>
       
-        <div class="navbar-nav nav-flex-icons loginicon">
+           <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
               <a href="${path}/login" class="nav-link border border-light rounded ">
@@ -98,6 +101,8 @@
               </c:if>
             </div>
         </div>
+      
+   
         
         <div class="nav-item loginicon2">
          

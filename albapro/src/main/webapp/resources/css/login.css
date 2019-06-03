@@ -4,9 +4,8 @@ html {
 }
 
 body {
-  background-color: #f8f8f8 !important;
- /*  background: -webkit-linear-gradient(45deg, rgba(255, 0, 0, 0) 0%, rgba(66, 245, 189, 0.4) 50%, rgba(255, 0, 0, 0) 100%);
-  background: linear-gradient(45deg, rgba(255, 0, 0, 0) 0%, rgba(115, 227, 239, 0.4) 50%, rgba(255, 0, 0, 0) 100%); */
+  background: -webkit-linear-gradient(45deg, rgba(255, 0, 0, 0) 0%, rgba(66, 245, 189, 0.4) 50%, rgba(255, 0, 0, 0) 100%);
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0) 0%, rgba(115, 227, 239, 0.4) 50%, rgba(255, 0, 0, 0) 100%);
   color: rgba(0, 0, 0, 0.6);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -39,7 +38,7 @@ body {
   z-index: 15;
   position: relative;
   background: #FFFFFF;
-  width: 400px;
+  width: 600px;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -67,8 +66,6 @@ body {
 .form-group label {
   display: block;
   margin: 0 0 10px;
-  margin-right: 50px;
-  margin-left: 50px;
   color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   font-weight: 500;
@@ -81,9 +78,8 @@ body {
   outline: none;
   display: block;
   background: rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 100%;
   border: 0;
-  margin-left: 50px;
   border-radius: 4px;
   box-sizing: border-box;
   padding: 12px 20px;
@@ -100,42 +96,28 @@ body {
 }
 .form-group button {
   outline: none;
-  background: #78A9ED;
-  width: 300px;
+  background: #4285F4;
+  width: 100%;
   border: 0;
   border-radius: 4px;
   padding: 12px 20px;
   color: #FFFFFF;
   font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: inherit;
+  font-weight: 500;
   line-height: inherit;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   cursor: pointer;
   margin-top: 20px;
-  margin-left: 50px;
-  
 }
-.sps{
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 12px;
-	margin-left: 60px;
-	font-weight: bold;
-}
-.btn-regist{
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 12px;
-	font-weight: bold;
-}
+
 .g-signin2{
-	margin-top: 40px;
+   margin-top: 40px;
 }
 
 .form-panel {
-  /* padding: 60px 100px 60px 100px; */
+  padding: 60px calc(5% + 60px) 60px 60px;
   box-sizing: border-box;
-  height: 750px;
-  background-color: #f8f8f8;
 }
 .form-panel.one:before {
   content: '';
@@ -156,41 +138,8 @@ body {
 }
 .form-header h1 {
   padding: 4px 0;
-  color: #616161;
+  color: #000000;
   font-size: 24px;
   font-weight: 700;
-  /* text-transform: uppercase; */
-}
-a{
-	color: #ffffff;
-}
-#my-signin2{
-	margin-left: 75px;
-}
-.abcRioButtonBlue{
-	background-color: skyblue !important;
-	color: white !important;
-}
-
-.logo{
-	margin-bottom: 30px;
-	margin-top: 40px;
-	margin-left: 43px;
-	width: 300px;
-	height: 130px;
-}
-.footer-copyright{
-	margin-top: 180px;
-	margin-left:110px;
-}
-.sp1{
-	font-size:15px;
-	font-weight: 500;
-	color: rgba(0, 0, 0, 0.6);
-}
-hr{
-	border: 0.5px solid #e1e1e1;
-	width: 330px;
-	margin-top: 15px;
-	margin-bottom: 10px;
+  text-transform: uppercase;
 }

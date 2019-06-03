@@ -46,139 +46,13 @@
 </head>
 
 
-<script>
-  var sel_file;
-	$(function() {
-		$("#startSearchDate, #endSearchDate").datepicker(
-				{
-					dateFormat : 'yy-mm-dd',
-					prevText : '이전 달',
-					nextText : '다음 달',
-					showOn : "both",
-					buttonImage : "resources/images/date1.png",
-					changeMonth : true,
-					changeYear : true,
-					changeMonth : true,
-					dayNames : [ '월', '화', '수', '목', '금', '토', '일' ],
-					dayNamesShort : [ '월', '화', '수', '목', '금', '토', '일' ],
-					dayNamesMin : [ '월', '화', '수', '목', '금', '토', '일' ],
-					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
-							'7월', '8월', '9월', '10월', '11월', '12월' ],
-					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
-							'8월', '9월', '10월', '11월', '12월' ],
-					showMonthAfterYear : true,
-					yearSuffix : '년'
-				});
-	});
 
-  $(document).ready(function() {
-    $("#input_img").on("change", imgServerUp);
-    
-    function imgServerUp(e){
+<style>
+.row{
+text-align:center;
+}
 
-		var files = e.target.files; // 드래그한 파일들
-		//console.log(files);
-		var file = files[0]; // 첫번째 첨부파일
-		var formData = new FormData(); // 폼데이터 객체
-		formData.append("file", file); // 첨부파일 추가
-		var filesArr = Array.prototype.slice.call(files);
-		
-         filesArr.forEach(function(f) {
-            if (!f.type.match("image.*")) {
-              alert("이미지만 가능");
-              return;
-            }
-        }); 
-			$.ajax({
-				url: "${path}/addjob/upload",
-				type: "post",
-				data : formData,
-				dataType: "text",
-				processData: false, // processType: false - header가 아닌 body로 전달
-				contentType: false,
-				success: function(data){
-
-					console.log("file_data: "+data);
-					// 첨부 파일의 정보
-					//var fileInfo = getFileInfo(data);
-					
-					if($("#sumImg").html() != ""){
-						$.ajax({
-							type: "post",
-							url: "${path}/addjob/deleteServerFile",
-							data: {fileName: $(".file_del").attr("data-src")},
-							dataType: "text",
-							success: function(result){
-								if(result=="deleted"){
-									$("#sumImg").empty();
-									appendImg();
-								}
-							}
-						});					
-					}else{
-						appendImg();
-					}
-					
-					
-					function appendImg(){
-						// hidden 태그 추가
-						var html = "<div><input type='hidden' name='file' value='"+data+"'>";
-						// 미리보기 추가
-						html += "<img class='attImg' style='width: 125%; max-width: 760px; height:80% ' src='<spring:url value='/resources" + data+ "'/>'/>";
-						//삭제 태그 추가 
-						html += "<a href='#' class='file_del' data-src='"+data+"'>[삭제]</a></div>";
-						
-						// div에 추가
-						$("#sumImg").append(html); 
-						
-					}
-					
-					
-				}     
-        	}); 	
-  	   }
-    
-	$("#sumImg").on("click", ".file_del" , imgServerDelete);
-	
-	function imgServerDelete(e){
-		var that = $(this);
-		$.ajax({
-			type: "post",
-			url: "${path}/addjob/deleteServerFile",
-			data: {fileName:$(this).attr("data-src")},
-			dataType: "text",
-			success: function(result){
-				if(result=="deleted"){
-					that.parent("div").remove();
-				}
-			}
-		});
-	}
-    
-    
-  });
-/* 
-  function e(e) {
-    var files = e.target.files;
-    var filesArr = Array.prototype.slice.call(files);
-
-    filesArr.forEach(function(f) {
-      if (!f.type.match("image.*")) {
-        alert("이미지만 가능");
-        return;
-      }
-
-      sel_file = f;
-
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $("#img").attr("src", e.target.result);
-      }
-      reader.readAsDataURL(f);
-    });
-  } */
-</script>
-
+</style>
 
 <body>
 	<div class="wrapper">
@@ -216,19 +90,7 @@
               직원 관리
             </a>
           </li>
-        <%--   <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
-            </a>
-          </li> --%>
-          <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-           직원  경력 조회     
-              </a>
-          </li>
+  
           <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
@@ -251,204 +113,195 @@
 		  <div class="row">
 		  <div class="col-md-12">
           <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title">Material Dashboard Heading</h4>
-              <p class="card-category">Created using Roboto Font Family</p>
-            </div>
             <div class="card-body">
-              <div id="typography">
-                <div class="card-title">
-                  <h2>Typography</h2>
-                </div>
-                <div class="row">
-                 <form method="post" action="addjobopening_free">
-	<div class="container">
-	<input type="hidden" id="id" name="custId" value='${login.id}'/>
-	<br>
-		<div class="addjobopening_title"><h2>채용 공고 등록</h2></div>
-		<br>
-		<div class="div_table_border">
-			<h5>근무지 정보</h5>
-			<table class="table_addjobopening">
-				<tr>
-					<td class="table-active">공고제목</td>
-					<td><input type="text" name="title" value="" style="width: 200%;"></td>
-				</tr>	
-
-				<tr>
-					<td class="table-active">회사/점포명</td>
-					<td><input type="text" name="work_place_name" value=""></td>
-					<td class="table-active">대표자명(CEO)</td>
-					<td><input type="text" name="c_name" value=""></td>
-				</tr>
-
-				<tr>
-					<td class="table-active">모집인원</td>
-					<td><input type="text" name="personnel" value=""></td>
-				</tr>
-
-				<tr>
-					<td class="table-active">회사로고</td>
-					<td>
-						<div class="img_wrap">
-							<div id="sumImg" ></div>
-						</div> <input type="file" class="fileupload" id="input_img" name="inputFile" value="">
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br>
-		<div class="div_table_border">
-			<h5>근무지역</h5>
-			<table class="table_addjobopening">
-
-				<tr>
-					<td class="table-active">근무지</td>
-						<td>
-							<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호">
-							<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소" style="width: 50%;"><br>
-							<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소" style="width: 50%;"><br>
-							<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
-						</td>
-					</tr>
-			</table>
-		</div>
-		<br>
-		<div class="div_table_border">
-			<h5>근무조건</h5>
-			<table class="table_addjobopening">
-
-
-				<tr>
-					<td class="table-active">근무기간</td>
-					<td><input type="radio" name="term" value="1">1주일이하
-						<input type="radio" name="term" value="2">1주일-1개월
-						<input type="radio" name="term" value="3">1개월-3개월
-						<input type="radio" name="term" value="4">3개월-6개월 
-						<input type="radio" name="term" value="5">6개월-1년
-						<input type="radio" name="term" value="6">1년 이상
-						<input type="radio" name="term" value="0">기간협의</td>
-				</tr>
-
-				<tr>
-					<td class="table-active">근무요일</td>
-					<td>
-						<select name="work_day" class="week">
-							<option value="none">선택</option>
-							<option value="1">평일</option>
-							<option value="2">주말</option>
-							<option value="3">기간협의</option>
-						</select>
-					</td>
-				</tr>
-
-				<tr>
-					<td class="table-active">근무시간</td>
-					<td>
-						<select class="se_walk_time" name="work_time1">
-							<option value="none">선택</option>
-							<option value="1">오전</option>
-							<option value="2">오후</option>
-							<option value="3">세벽</option>
-							<option value="4">오전~오후</option>
-							<option value="5">오후~세벽</option>
-							<option value="6">풀타임</option>
-						</select>	시간	<input type="text" name="work_time2" value=" ">
-					</td>
-				</tr>
-
-				<tr>
-					<td class="table-active">급여</td>
-					<td>급여 <input type="text" name="hour_wage" value="">
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br>
-
-		<div class="div_table_border">
-			<h5>지원조건</h5>
-			<table class="table_addjobopening">
-
-
-				<tr>
-					<td class="table-active">성별</td>
-					<td><input type="radio" name="sex" value="1">성별무관
-						<input type="radio" name="sex" value="2">남자
-						<input type="radio" name="sex" value="3">여자
-
-					</td>
-				</tr>
-
-				<tr>
-					<td class="table-active">연령</td>
-					<td>
-						<input type="radio" name="age_set" id="age_set" value="1">연령무관
-						<input type="text" name="age_min" id="age_min" value=" ">세 이상
-						<input type="text" name="age_max" id="age_max" value=" ">세 이하
-					</td>
-				</tr>
-
-				<tr>
-					<td class="table-active">학력조건</td>
-					<td>
-						<select class="se_walk_time" name="education">
-							<option value="none">선택</option>
-							<option value="1">초졸</option>
-							<option value="2">중졸</option>
-							<option value="3">고졸</option>
-							<option value="4">초대졸</option>
-							<option value="5">대졸</option>
-							<option value="6">무관</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br>
-		<div class="div_table_border">
-			<h5>모집종료일</h5>
-			<table class="table_addjobopening">
-				<tr>
-					<td class="table-active">모집종료일</td>
-					<td>
-						<input type="text" id="startSearchDate" name="end_date" value="" style="height: 18px; width: 120px">
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br>
-		<div class="div_table_border">
-			<h5>추가내용</h5>
-			<table class="table_addjobopening">
-				<tr>
-					<td>
-						<textarea rows="5" cols="100" id="content" name="content"></textarea>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br>
-		
-		<div class="buttonline_addjobopening_free">
-			<input type="submit" id="submit" value="등록" />
-		</div> <br>
-	</div>
-</form>
+              
+               
+                
+           	
+						<div class="row">
+		 		 <div class="col-md-12">
+		 		 
+          			<div class="addjob-1">
+           			 <h2>어떤알바생을 원하세요?</h2>
+           			 
+           			   			
+           			직종/업무: <input type="text" class="jobchoice"/> <button>전체 카테고리</button><br><br>
+           			경력여부: <input type="checkbox" class="careerchoice1">신입 
+           					<input type="checkbox" class="careerchoice2">경력
+           					<input type="checkbox" class="careerchoice3">경력무관
+           					<br>
+           					<br>
+           			고용형태:	<input type="checkbox" class="jobchoice1">정규직
+           					<input type="checkbox" class="jobchoice2">계약직
+           					<input type="checkbox" class="jobchoice3">아르바이트	<br><br>
+           			</div><br>
+         
+         
+           		
+  
+           			<hr>
+           			 </div>
+           			 </div>
+           			 
+           			  <div class="col-md-12">
+		 		 
+          			<div class="addjob-2">
+           			
+           			 
+           			 	모집요강(*)필수입력 사항 입니다.
+           			 	<div class="Recruitmentrule">
+           			 	
+           			 	<div class="recruitper">	
+           			 	 모집인원(*):  <input type="text" class="recruitper-txt"/>
+									<input type="radio" class="recruitper-radio1"/>0명
+									<input type="radio" class="recruitper-radio2"/>00명     
+						</div>
+           		      			 	
+           			 
+           			 	<div class="assignedtask">	
+           			 	담당업무: <input type="text" class="assignedtask-txt" placeholder="ex)상품진열,재고정리 등">
+           				
+           				</div>
+           				
+           				<div class="Recruitment-time">
+           					모집시작일: 오늘날짜<br> 	
+           			 		
+           			 		모집종료일 : <input type="text" class="Recruitment-endtime" placeholder="ex)2019-05-08">
+           				
+           				</div>
+           		
+           					
+           			
+           			 
+           		
+           			
+           			</div><br>
+           			
+           		
+           			
+           		
+  
+           			<hr>
+           			 </div>
+           			 </div>
+           			 
+           			   <div class="col-md-12">
+		 		 
+          			<div class="addjob-3">
+           			
+           			 
+           			 	자격조건 우대조건
+           			 	<div class="preconditions">
+           			 	
+           				<div class="recruitper">	
+           			 	 학력(*):<input type="checkbox" class="preconditions1"/>무관
+								<input type="checkbox" class="preconditions2"/>제한
+								<select>
+									<option>고등학교졸업이상</option>
+									<option>대학졸업(2,3년)이상</option>
+									<option>대학졸업(4년)이상</option>
+									<option>석사졸업이상</option>
+									<option>박사졸업이상</option>
+									<option>졸업예정</option>
+								</select><br>
+							기타 학력사항 <input type="text" class="preconditions-Other-txt"/>
+						</div>
+           		      			 	
+           			 
+           			 	<div class="Major">	
+           			 	전공/학과: <input type="text" class="preconditions-Other-major" placeholder="ex)컴퓨터 정보계열 등">
+           				
+           				</div>
+           				
+           				<div class="preterms-txt">
+           					우대조건 <br>
+           					<textarea></textarea><br> 	
+           			 
+           				</div>
+           		
+ 
+           			
+           			</div>
+           		
+           			
+           		
+  
+           			<hr>
+           			
+           			 </div>
+           			 </div>
+           			 
+           			<!--  ------------------------------------------------- -->
+           				   <div class="col-md-12">
+		 		 
+          			<div class="addjob-4">
+           			
+           			 
+           				근무조건
+           			 	<div class="workcon">
+           			 	
+           				<div class="workcon-salary">	
+           			 	 급여(*):<input type="text" class="salary-txt"/>원
+						</div>	
+           		      	<div class="workcon-map">
+           		      		근무지역 <br>
+							맵점여 
+           		      	</div>		
+           		      		
+           			</div>
+           		
+           			
+           		
+  
+           			<hr>
+           			
+           			 </div>
+           			 </div>
+           			 
+           			 <!--  ------------------------------------------------- -->
+           				   <div class="col-md-12">
+		 		 
+          			<div class="addjob-5">
+           			
+           			 
+           				접수  방법
+           			 	<div class="appperiod">
+           			 	
+           				<div class="appperiod-how">
+           				<input type="checkbox" class="appperiod-online">온라인 접수	
+           			 	<input type="checkbox" class="appperiod-tel">전화 접수	
+           			 	<input type="checkbox" class="appperiod-Visit">방문 접수	
+           			 	
+						</div>	
+           		      	<div class="workcon-map">
+           		      		근무지역 <br>
+							맵점여 
+           		      	</div>		
+           		      		
+           			</div>
+           		
+           			
+           		
+  
+           			<hr>
+           			
+           			 </div>
+           			 </div>
+			
+			
                 </div>
               </div>
             </div>
           </div>
           </div>
           </div>
-          </div>
-          </div>
+       
+          
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
-		</div>
+	
+ </div>
 
-	</div>
-
+  </div>
 
 
 
