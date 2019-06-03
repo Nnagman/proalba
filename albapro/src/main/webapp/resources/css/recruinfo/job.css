@@ -130,14 +130,14 @@ a.selectAnchor.disabled span {padding:1px 2px 3px;color:#474747;border-color:#af
 .jobSearch dl {width:1068px}
 .jobSearch dl:after {content:" ";display:block;clear:both;height:0;visibility:hidden}
 .jobSearch dl .content {position:relative}
-.jobSearch dl .content .blank {display:inline-block;width:940px;height:19px;height:18px\0;*height:18px;padding:7px 8px 0;padding-top:8px\0;*padding-top:8px;text-decoration:none;color:#728fb0;background:#fff;border:1px solid #bbb}
+.jobSearch dl .content .blank {display:inline-block;width:940px;height:35px;height:18px\0;*height:18px;padding:7px 8px 0;padding-top:8px\0;*padding-top:8px;text-decoration:none;color:#728fb0;background:#fff;border:1px solid #bbb}
 .jobSearch dl .content .value {display:inline-block;width:950px;padding:0 3px 3px;text-decoration:none;background:#fff;border:1px solid #bbb}
 .jobSearch dl .content .value span {display:inline-block;height:15px;height:14px\0;*height:14px;margin:3px 4px 0 0;padding:3px 5px 0;padding-top:4px\0;*padding-top:4px;color:#222;background:#e5f3ff;border:1px solid #cbe6ff}
 .jobSearch dl .content .value span button {display:inline-block;width:10px;height:15px;margin:0 0 0 4px;padding:0;vertical-align:middle;cursor:pointer;background:url('//image.alba.kr/job/jobSearch.png') no-repeat -337px -36px;border:0 none}
-.jobSearch dl .data {display:none;float:left;position:relative;width:1066px;margin:5px -1px 0;background:#fff;border:2px solid #5da3d3}
+.jobSearch dl .data {display:none;float:left;position:relative;width:1070px;margin:5px -1px 0;background:#fff;border:2px solid #5da3d3}
 .jobSearch dl .data .tabForm {overflow:hidden;width:1066px;height:70px;background:#f3f3f4;border-bottom:2px solid #f8f8f8}
 .jobSearch dl .data .tabForm li {float:left}
-.jobSearch dl .data .tabForm li a {display:block;height:24px;height:23px\0;*height:23px;padding-top:10px;padding-top:11px\0;*padding-top:11px;text-align:center;border-right:1px solid #bbb;border-bottom:1px solid #bbb}
+.jobSearch dl .data .tabForm li a {display:block;height:25px;height:23px\0;*height:23px;padding-top:10px;padding-top:11px\0;*padding-top:11px;text-align:center;border-right:1px solid #bbb;border-bottom:1px solid #bbb}
 .jobSearch dl .data .tabForm li.last a {border-right:0 none}
 .jobSearch dl .data .tabForm li.on a {font-weight:bold;color:#fff;background:#5da3d3;border-color:#487da1}
 .jobSearch dl .data .inputWrap {width:1020px;padding:6px 18px 15px}

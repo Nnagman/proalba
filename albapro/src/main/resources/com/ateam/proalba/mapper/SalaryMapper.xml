@@ -6,7 +6,33 @@
 <mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[
-        select sa_code, BASIC_SALARY, NATIONAL_PENSION_COST, HEALTH_INSURANCE_COST, EMPLOYMENT_INSURANCE_COST, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
+        select * from  salary_view	
+       WHERE m_code='p'||+#{id} and
+       rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
+		 ]]>
+	</select>
+	    
+	     <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
+	     <![CDATA[
+	    select * from  salary_view
+      	where  sa_code=#{sa_code};
+	    ]]>
+	    </select>  
+	 <!--    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
+	     <![CDATA[
+	      select sa_code, BASIC_SALARY, NATIONAL_PENSION_COST, HEALTH_INSURANCE_COST, EMPLOYMENT_INSURANCE_COST, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
+      from (select s.sa_code, s.BASIC_SALARY, d.NATIONAL_PENSION_COST, d.HEALTH_INSURANCE_COST, d.EMPLOYMENT_INSURANCE_COST, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
+      from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
+      where 
+      s.sa_code=#{sa_code} and
+         m.m_code=e.m_code and 
+        e.em_code=s.em_code and
+        e.c_code =c.c_code and
+        s.sa_code=d.sa_code and
+        s.sa_code=sd.sa_code);
+	    ]]>
+	    </select> -->
+	     <!--  select sa_code, BASIC_SALARY, NATIONAL_PENSION_COST, HEALTH_INSURANCE_COST, EMPLOYMENT_INSURANCE_COST, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
       from (select s.sa_code, s.BASIC_SALARY, d.NATIONAL_PENSION_COST, d.HEALTH_INSURANCE_COST, d.EMPLOYMENT_INSURANCE_COST, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
       from salary s, contract c, employee e, member m, salary_details sd, deduction_amount d
       where c.p_id='p'||#{id} and
@@ -15,17 +41,7 @@
         e.c_code =c.c_code and
         s.sa_code=d.sa_code and
         s.sa_code=sd.sa_code)
-        WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
-		 ]]>
-	</select>
-	    
-	    
-	    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
-	    select * from salary s, salary_details sd
-	    where s.sa_code=sd.sa_code and s.sa_code=#{sa_code}
-	    
-	    </select>
-	    
+        WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum}) -->
     <select id="countSalarys" resultType="int">
     	<![CDATA[
     	SELECT

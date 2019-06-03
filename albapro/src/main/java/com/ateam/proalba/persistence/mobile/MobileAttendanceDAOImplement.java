@@ -1,6 +1,7 @@
 package com.ateam.proalba.persistence.mobile;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
-		return sqlSession.selectList(NAMESPACE +".mobileattendance", id);
+	public List<MobileAttendanceVO> cmobileattendance(Map<String, String> id_map) throws Exception {
+		return sqlSession.selectList(NAMESPACE +".cmobileattendance", id_map);
 	}
 
 	@Override
@@ -36,6 +37,27 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	@Override
 	public List<MobileWorkRecordVO> mobileFoundWorkRecord(String sa_code) throws Exception {
 		return sqlSession.selectList(NAMESPACE+".mobileFoundWorkRecord",sa_code);
+	}
+
+	@Override
+	public void mobileWorkRecordUpdate(Map<String, String> map) throws Exception {
+		System.out.println(map);
+		sqlSession.update(NAMESPACE+".mobileWorkRecordUpdate", map);
+	}
+
+	@Override
+	public void mobileWorkRecordDelete(String delete_w_code) throws Exception {
+		sqlSession.delete(NAMESPACE+".mobileWorkRecordDelete", delete_w_code);
+	}
+
+	@Override
+	public List<MobileAttendanceVO> mobileattendance(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE +".mobileattendance", id);
+	}
+
+	@Override
+	public void mobileWorkRecordInsert(Map<String, String> map) throws Exception {
+		sqlSession.insert(NAMESPACE+".mobileWorkRecordInsert", map);
 	}
 	
 }

@@ -30,6 +30,13 @@
 		where id = #{id}
 		]]>
 	</update>
+	
+	<update id="cregisterModify">
+		<![CDATA[
+		update member set password=#{password}, b_number=#{b_number}, phone=#{phone}, coordinate=#{coordinate}
+		where id = #{id}
+		]]>
+	</update>
 
 	<select id="login" resultType="com.ateam.proalba.domain.MemberVO">
 		<![CDATA[

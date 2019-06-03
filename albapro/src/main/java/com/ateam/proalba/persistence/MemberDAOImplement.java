@@ -52,4 +52,9 @@ public class MemberDAOImplement implements MemberDAO {
 	public MemberVO getList(String id) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".getList", id);
 	}
+
+	@Override
+	public void cregisterModify(MemberVO memberVO) {
+		sqlSession.update(NAMESPACE + ".cregisterModify", memberVO);
+	}
 }

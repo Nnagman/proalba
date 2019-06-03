@@ -1,5 +1,9 @@
 package com.ateam.proalba.controller.pservice;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
@@ -79,21 +86,17 @@ public class PserviceController {
 	}
 		
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
-	public String inqcareerGET(Model model,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO) throws Exception {
-		logger.info("Welcome inqcareerPage");
+	public ModelAndView inqcareerGET(Model model,@RequestParam("id") String id) throws Exception {
+		model.addAttribute("message", "");
+		List<CareerVO> list = careerService.selectCareers("p"+id);
 		
-		PageMaker pageMaker = new PageMaker();
-		loginDTO.setId('p'+ loginDTO.getId());
-		criteria.setM_code(loginDTO.getId());
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(careerService.countCareers(loginDTO));
-	    
-		model.addAttribute("message", "inqcareerPage");
-		model.addAttribute("careers", careerService.listCriteria(criteria));
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "servicepage/inqcareer";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pserInqcareer");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 	
 

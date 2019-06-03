@@ -57,7 +57,7 @@ body{
     
      
    .carousel{
-      width:600px !important;
+      width:25% !important;
       left:20% !important;
       }
  .mr-auto, .mx-auto{
@@ -95,22 +95,22 @@ margin-left:500px !important;
     }
     
   
-    
-  .btn-secondary{
-   left:1000px !important;
-   top:2px;
-    }
-    
+
   .modifyLink{
   	font-size:14px !important;
   	font-weight: normal !important;
   	margin-right: 80px;
   }
     
-  .loginicon{
-  	left:1020px !important;
-  	top:8px;
-  }
+  /* .loginicon{
+  	margin:0 0 0 45% !important;
+  	
+  } */
+ /*  
+   .loginicon2{
+  		margin:0 0 0 45% !important;
+  	
+  } */
     .header-logo{
     float:left !important;
     margin-left:50px!important;
@@ -136,6 +136,10 @@ margin-left:500px !important;
 	   background-color: #5D5D5D;
 
 
+}
+
+.containermo{
+	width:90%;
 }
   
   

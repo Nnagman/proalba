@@ -55,7 +55,7 @@ public class CommunityController {
 		return mav; // list.jsp濡� List媛� ���щ����.
 	}
 	
-	@RequestMapping(value="comm/view", method=RequestMethod.GET)
+	@RequestMapping(value="commview", method=RequestMethod.GET)
 	public ModelAndView view(@RequestParam int p_code, @RequestParam int curPage, @RequestParam String searchOption, 
 			@RequestParam String keyword, HttpSession session, ServletRequest request) throws Exception {
 		postService.increaseViewcnt(p_code, session);
@@ -74,12 +74,12 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping("comm/write")
+	@RequestMapping("commwrite")
 	public String write() {
 		return "community/write";
 	}
 	
-	@RequestMapping("comm/insert.do")
+	@RequestMapping("comminsert.do")
 	public String insert(@ModelAttribute PostVO vo, HttpSession session) throws Exception {
 		logger.info("insert Controller.....");
 		String id = vo.getId();
@@ -91,7 +91,7 @@ public class CommunityController {
 		return "redirect:/comm";
 	}
 	
-	@RequestMapping(value = "comm/update", method=RequestMethod.POST)
+	@RequestMapping(value = "commupdate", method=RequestMethod.POST)
 	public ModelAndView update(int p_code, String[] fullname) throws Exception {
 		logger.info("update P_code" + p_code);	
 		ModelAndView mav = new ModelAndView();
@@ -102,13 +102,13 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "comm/update.do", method=RequestMethod.POST)
+	@RequestMapping(value = "commupdate.do", method=RequestMethod.POST)
 	public String update(@ModelAttribute PostVO vo) throws Exception {
 		postService.update(vo);
 		return "redirect:/comm";
 	}
 	
-	@RequestMapping("comm/delete.do")
+	@RequestMapping("commdelete.do")
 	public String delete(int p_code, String[] fullname, ServletRequest request) throws Exception {
 		logger.info("delete Controller.....p_code: " + p_code + " , fullname : " + fullname);
 		String uploadPath = request.getServletContext().getRealPath("/resources");

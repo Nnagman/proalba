@@ -64,11 +64,11 @@ public class CserviceController {
 		return "redirect:/addjobopening_free";
 	}
 	
-	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.GET)
+	@RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.GET)
 	public String addjobopeningfreeGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
 		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
-		return "cservice/addjobopening_free";
+		return "cservicepage/cserAddJobopening_free";
 	}
 
 	

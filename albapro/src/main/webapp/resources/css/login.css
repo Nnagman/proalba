@@ -112,7 +112,7 @@ body {
 }
 
 .g-signin2{
-	margin-top: 40px;
+   margin-top: 40px;
 }
 
 .form-panel {
@@ -142,10 +142,4 @@ body {
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
-}
-a{
-	color: #ffffff;
-}
-#my-signin2{
-	margin-left: 100px;
 }

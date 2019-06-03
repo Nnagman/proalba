@@ -17,5 +17,7 @@ public interface MemberDAO {
 
 	public void pregisterModify(MemberVO memberVO);
 	
+	public void cregisterModify(MemberVO memberVO);
+	
 	public MemberVO getList(String id) throws Exception;
 }

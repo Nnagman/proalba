@@ -28,7 +28,7 @@
 <script>
   var sel_file;
 	$(function() {
-		$("#startSearchDate, #endSearchDate").datepicker(
+		$("#startSearchDate").datepicker(
 				{
 					dateFormat : 'yy-mm-dd',
 					prevText : '이전 달',

@@ -50,23 +50,31 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 	  }
 	 
 	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.POST)
-	  public String PasswordGET (LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception { 
+	  public String passwordGET (LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception { 
 		  MemberVO memberVO = memberService.login(loginDTO);
 //		  logger.info("pwd: "+memberVO.getPassword());
 //		  logger.info("input_pwd  "+loginDTO.getPassword());
-		  		
-		  if( memberVO != null ) {
+		  String m_code = memberVO.getM_code().substring(0,1);
+
+		  if( m_code.equals("p") ) {
 			  return "login/pMyinfo";
+		  }else if(m_code.equals("c")) {
+			  return "login/cMyinfo";
 		  }else {
-			  System.out.println("�ㅼ�����ν���몄��");
 			  return "redirect:MyinfoModify";
-		  } 
+		  }
 
 	  }	
 	  
 	  @RequestMapping(value = "/pMyinfo", method = RequestMethod.GET)
-	  public String ModifyGet (HttpSession httpSession, Model model) {
+	  public String pModifyGet (HttpSession httpSession, Model model) {
 			return "login/pMyinfo"; 
+
+	  }
+	  
+	  @RequestMapping(value = "/cMyinfo", method = RequestMethod.GET)
+	  public String cModifyGet (HttpSession httpSession, Model model) {
+			return "login/cMyinfo"; 
 
 	  }
 

@@ -111,7 +111,7 @@ margin-right:20px;
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
+            <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>

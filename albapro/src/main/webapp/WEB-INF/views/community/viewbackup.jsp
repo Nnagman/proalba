@@ -35,13 +35,13 @@
 		});
 		
 		$("#btnUpdate").click(function(){
-			document.form1.action = "${path}/comm/update";
+			document.form1.action = "${path}/commupdate";
 			document.form1.submit();
 		});
 		
 		$("#btnDelete").click(function(){
 			if(confirm("삭제하시겠습니까?")){
-				document.form1.action = "${path}/comm/delete.do";
+				document.form1.action = "${path}/commdelete.do";
 				document.form1.submit();
 			}
 		});

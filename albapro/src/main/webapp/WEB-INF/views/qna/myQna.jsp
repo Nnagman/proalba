@@ -36,7 +36,7 @@
 							<tr>
 								<td>${qna.service_type}</td>
 								<td>${qna.cs_code}</td>
-								<td><a href="${path}/viewQnA?cs_code=${qna.cs_code}">
+								<td><a class="title" href="${path}/viewQnA?cs_code=${qna.cs_code}">
 								${qna.title}</a></td>
 								<td>
 									<c:if test="${qna.whether_response == '1'}">답변완료</c:if>
