@@ -61,17 +61,21 @@
         </a>
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item  ">
+
+      
+         <ul class="nav">
+
+<li class="nav-item  ">
             <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
               <i class="material-icons">dashboard</i>
               채용공고 등록
             </a>
           </li>
-          
-          
-           <li class="nav-item ">
-            <a class="nav-link" href="cserWcontract">
+
+
+		<li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
@@ -84,7 +88,7 @@
           </li>
 
           <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
+            <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>

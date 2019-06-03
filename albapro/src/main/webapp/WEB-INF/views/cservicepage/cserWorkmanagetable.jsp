@@ -60,16 +60,17 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+
+<li class="nav-item  ">
+            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              알바목록
+              채용공고 등록
             </a>
           </li>
-          
-          
-           <li class="nav-item ">
-            <a class="nav-link" href="cserWcontract">
+
+
+		<li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
@@ -80,7 +81,7 @@
               직원 관리
             </a>
           </li>
-       <%--    <li class="nav-item">
+        <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
               
@@ -88,13 +89,7 @@
             </a>
           </li> --%>
           <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              직원 경력 조회
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
+            <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
@@ -451,27 +446,54 @@
       });
       
       var w_code;
+      var sa_code_date
+      var sa_code
       
       //추가 버튼
       $(document).on("click","#Binsert",function(){
     	  var pid1 = $("tbody").children().attr('class');
-    	  var pid2 = pid1.substr(0, pid1.indexOf('/')); 
+    	  var pid2 = pid1.substr(0, pid1.indexOf('/'));
     	  var d = new Date();
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-    	  var sa_code = $("tbody").children().attr('sa_code').split('/');
-    	  var sa_code2 = sa_code[0] + '/' + d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + '/' + sa_code[2];
-    	  alert(sa_code2);
-    	  w_code = pid2+'/'+d.getFullYear()+("0" + (d.getMonth() + 1)).slice(-2)+d.getDate()+'/'+sa_code[2];
-    	  var str1 = '<tr id="inserted_row" class="'+sa_code2+'">';
-    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time22" value=""/></td>';
-    	  var str3 = '<td><input type="time" id="time11" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
+    	  
+    	  sa_code = $("tbody").children().attr('sa_code').split('/');
+    	  alert(sa_code);
+    	  w_code = pid2;
+    	  var str1 = '<tr id="inserted_row" class="">';
+    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
+    	  var str3 = '<td><input type="time" id="time22" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
     	  var str = str1+str2+str3;
     	  $("#tbody").prepend(str);
       });
       
       $(document).on("click","#insertRecord",function(){
+    	  sa_code_date = $('#date').val();
+    	  alert('date: ' + $('#date').val().substr(0, 7));
+    	  sa_code_date = $('#date').val().substr(0,7);
+    	  sa_code_date = sa_code_date.replace('-',''); 
+    	  alert('sa_code_date: '+ sa_code_date);
+    	  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
+    	  alert(sa_code2);
+    	  $('#inserted_row').attr('class',sa_code2);
+    	  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
+    	  alert(w_code);
+    	  
     	  alert($('#inserted_row').attr('class'));
-    	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+$("#time11").val()+'#'+$("#time22").val()+'$'+w_code;
+    	  
+    	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
+        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
+	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
+    	  }
+    	  
+    	  if($("#time11").val().substr(0,3) <= $("#time22").val().substr(0,3)){
+    		  var split_date = $('#date').split('-');
+    		  split_date[1] = split_date[1]+1;
+    		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
+    		  
+        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
+	  					+'#' + split_date.substring(2) + " " +$("#time22").val()+'$'+w_code;
+    	  }
+    	  
     	  $.ajax({
 			async: false,
 			type: 'POST',

@@ -70,7 +70,7 @@
           </li>
           
           
-           <li class="nav-item active">
+           <li class="nav-item">
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
@@ -89,14 +89,14 @@
               급여 관리
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
+          <li class="nav-item">
+            <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>

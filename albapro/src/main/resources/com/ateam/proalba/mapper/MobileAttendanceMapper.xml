@@ -20,7 +20,7 @@
 					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
 	</select>
 	
-	<insert id="mobileInsertWork" parameterType="hashmap">
+	<insert id="mobileWorkRecordInsert" parameterType="hashmap">
 		INSERT INTO work_record(w_code, sa_code, work_start_time, work_end_time, working_hours)
 		VALUES (#{w_code}, #{sa_code}, #{work_start_time}, #{work_end_time}, #{working_hours})
 	</insert>
