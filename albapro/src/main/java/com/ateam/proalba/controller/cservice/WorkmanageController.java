@@ -132,7 +132,8 @@ public class WorkmanageController {
 		
 		String work_start_time = map.get("work_start_time");
 		String work_end_time = map.get("work_end_time");
-		
+		logger.info("work_start_time: "+ work_start_time.substring(9,11));
+		logger.info("work_end_time: " + work_end_time.substring(9,11));
 		int start_hour = Integer.parseInt(work_start_time.substring(9,11));
 		int end_hour = Integer.parseInt(work_end_time.substring(9,11));
 		if(start_hour > end_hour) { end_hour = end_hour + 24; }
