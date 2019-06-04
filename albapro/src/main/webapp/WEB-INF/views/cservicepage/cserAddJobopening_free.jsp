@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>채용공고 등록 </title>
 
   <!-- Custom fonts for this template-->
 
@@ -77,12 +77,16 @@ text-align:center;
               채용공고 등록
             </a>
           </li>
-
-
 		<li class="nav-item">
             <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
             </a>
           </li>
           <li class="nav-item">
@@ -527,10 +531,40 @@ text-align:center;
         });
       }); 
     });
-  </script>
+	</script>
   
-  
+  <script>
+    $(function() {
+        $("#startSearchDate, #endSearchDate").datepicker({ 
+            dateFormat: 'yy-mm-dd',
+            prevText: '이전 달',
+            nextText: '다음 달',
+            showOn: "both",  
+            buttonImage: "resources/images/date1.png",
+            changeMonth: true,
+            changeYear: true,
+            changeMonth: true,
+            dayNames: ['월', '화', '수', '목', '금', '토', '일'],
+            dayNamesShort: ['월', '화', '수', '목', '금', '토', '일'],
+            dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            showMonthAfterYear: true,
+            yearSuffix: '년'
+        });
+	});
 
- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    $(function() {
+        $('#datetimepicker3').datetimepicker({ pickDate: false });
+
+        $('#datetimepicker4').datetimepicker({ pickDate: false });
+
+        $('#datetimepicker5').datetimepicker({ pickDate: false });
+
+        $('#datetimepicker6').datetimepicker({ pickDate: false });
+    });
+	</script>
+  
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </body>
 </html>
