@@ -4,7 +4,7 @@
         top:20px;
         color:#666666;
       }
-      .title h1{
+      .title h2{
         margin-left:80px;
         margin-top:40px;
         font-weight:400 !important;
@@ -93,18 +93,11 @@
 
       th{
         width: 94px;
-<<<<<<< HEAD
-        background-color: #f8f8f8;
-        color: rgba(0, 0, 0, 0.6);
-=======
         background-color: #E7E7E7;
         color: #323232;
         border-bottom:1px solid lightgray; 
-<<<<<<< HEAD
         vertical-align: middle;
-=======
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
       }
       
 	.lastTb{

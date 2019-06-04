@@ -12,7 +12,7 @@
 <%@ include file = "../include/header.jsp" %>
 	<form action="" method="POST">
 	<div class="contents">
-		<div class="title"> <h1>온라인 문의</h1> </div> <br>
+		<div class="title"> <h2>온라인 문의</h2> </div> <br>
 		<div class="god">
 			<h5 class="mm">문의하실 내용을 작성하신 후 보내기 버튼을 클릭하세요.</h5>
 			<div class="box">

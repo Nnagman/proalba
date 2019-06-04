@@ -19,4 +19,6 @@ public class SalaryVO {
 	private String national_pension_cost;
 	private String health_insurance_cost;
 	private String employment_insurance_cost;
+	private String work_hours;
+	private String work_minute;
 }
