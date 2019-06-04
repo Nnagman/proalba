@@ -36,7 +36,8 @@
  <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script> 
-
+<script src="resources/js/recruinfo/test13.js"></script> 
+<script src="resources/js/cserAddjobopening_freeSC.js"></script> 
 <script src="resources/js/addjobopening.js?ver=3"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="resources/js/bootstrap.js"></script>
@@ -52,7 +53,64 @@
 text-align:center;
 }
 
+.appperiod-hidden-tel, .appperiod-hidden-online{
+	display:none;
+}
+
+.jobcho1{
+width:25%;
+}
+
+.jobcho1,.jobcho2{
+display:inline-block;
+}
+
+.jobcho2{
+width:70%;
+height:300px;
+/* background-color:black; */
+
+}
 </style>
+
+
+
+
+
+  <script>
+
+		$(document).ready(function(){
+			console.log(arrJobCodeWide);
+			
+			
+			
+		});
+
+/* 	  $('.jobchoice-btn').click(function() {
+	    $.getJSON('ex1.json', function(data) {
+	      var html = '';
+	      $.each(data, function(entryIndex, entry) {
+	    	  html += '<div class="entry">';
+	    	  html += '<h3 class="term">' + entry.term + '</h3>';
+	    	  html += '<div class="part">' + entry.part + '</div>';
+	    	  html += '<div class="definition">';
+	    	  html += entry.definition;
+	    	  html += '</div>';
+	    	  html += '</div>';
+	      });
+	      console.log(html);
+	      $('#dictionary').html(html);
+	    });
+	    return false;
+	  }); */
+
+    </script>
+    
+
+
+
+
+
 
 <body>
 	<div class="wrapper">
@@ -126,7 +184,8 @@ text-align:center;
            			 <h2>어떤알바생을 원하세요?</h2>
            			 
            			   			
-           			직종/업무: <input type="text" class="jobchoice"/> <button>전체 카테고리</button><br><br>
+           			직종/업무: <input type="text" class="jobchoice"/> <button class="jobchoice-btn" onclick="jsonout()"  data-toggle="modal"
+											data-target="#myModal">전체 카테고리</button><br><br>
            			경력여부: <input type="checkbox" class="careerchoice1">신입 
            					<input type="checkbox" class="careerchoice2">경력
            					<input type="checkbox" class="careerchoice3">경력무관
@@ -269,19 +328,32 @@ text-align:center;
            			 	<div class="appperiod">
            			 	
            				<div class="appperiod-how">
-           				<input type="checkbox" class="appperiod-online">온라인 접수	
-           			 	<input type="checkbox" class="appperiod-tel">전화 접수	
-           			 	<input type="checkbox" class="appperiod-Visit">방문 접수	
+           				<input type="radio" id="appperiod-online" name="appperiod-name" class="appperiod-online" onclick="hiddendiv()">온라인 접수	
+           			 	<input type="radio" id="appperiod-tel" name="appperiod-name" class="appperiod-tel" onclick="hiddendiv()">전화 접수	
+           			 	<input type="radio" id="appperiod-Visit" name="appperiod-name" class="appperiod-Visit" onclick="hiddendiv()">방문 접수	
            			 	
 						</div>	
 						
-						<div class="appperiod-hidden-tel">
+						<div id="appperiod-hidden-tel" class="appperiod-hidden-tel">
+						담당자 번호: <input type="text" class="President-num">-<input type="text" class="President-num1">-<input type="text" class="President-num2">
 						
 						
 						</div>
 						
-						<div class="appperiod-hidden-online">
-						
+						<div id="appperiod-hidden-online" class="appperiod-hidden-online">
+							
+							<div class="documents">
+							필요한 제출서류<br>
+							<textarea>
+							</textarea> 
+							</div>
+							
+							<div class="interview">
+							사전인터뷰<br>
+							<textarea>
+							</textarea> 
+							</div>
+							
 						
 						</div>
            		      
@@ -296,6 +368,35 @@ text-align:center;
            			
            			 </div>
            			 </div>
+           			 
+           			  <!--  ------------------------------------------------- -->
+           				   <div class="col-md-12">
+		 		 
+          			<div class="addjob-6">
+           			
+           			 <div class="Recruitment-title-div" id="Recruitment-title-div">	 	
+           				체용 제목 <input type="text" class="Recruitment-title"/>
+           				
+           				
+           			 	<p id="innertest" class="innertest"></p>
+           				
+						
+						</div>
+           		      
+           		      
+           		      		
+           
+           		
+           			
+           		
+  
+           			<hr>
+           			
+           			 </div>
+           			 </div>
+           			 
+           			 
+           			 
 			
 			
                 </div>
@@ -313,6 +414,38 @@ text-align:center;
   </div>
 
 
+
+
+ 	<!-- 부트스트랩 -->
+  	<!-- 부트스트랩 modal -->
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    	<script src="resources/js/bootstrap.js"></script>
+      <!-- Modal content  -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">출근 시간</h4>
+        </div>
+        <div class="modal-body" >
+         	<div class="jobcho1">
+         		
+         	
+         	</div>
+         	<div class="jobcho2">
+         	<ul class="jobcho-detail2">
+         	
+         	</ul>
+         	</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
 
 
 
