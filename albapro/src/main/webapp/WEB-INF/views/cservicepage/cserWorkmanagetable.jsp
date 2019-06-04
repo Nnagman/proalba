@@ -68,35 +68,40 @@
 					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
-					<ul class="nav">
-
-						<li class="nav-item  "><a class="nav-link"
-							href="cserAddJobopening_free?id=${login.id}"> <i
-								class="material-icons">dashboard</i> 채용공고 등록
-						</a></li>
-
-
-						<li class="nav-item "><a class="nav-link"
-							href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
-								전자근로 계약서
-						</a></li>
-						<li class="nav-item active"><a class="nav-link"
-							href="cserEmpManage?id=${login.id}"> <i
-								class="material-icons">person</i> 직원 관리
-						</a></li>
-						<%--   <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
+        <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고 등록
             </a>
-          </li> --%>
-						<li class="nav-item "><a class="nav-link"
-							href="${path}/proalba/comm"> <i class="material-icons">bubble_chart</i>
-								커뮤니티
-						</a></li>
-
-					</ul>
+          </li>
+           <li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+              <i class="material-icons">person</i>
+             직원 관리
+            </a>
+          </li>
+     
+          <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li>
+        
+        </ul>
 				</div>
 			</div>
 			<!-- End of Sidebar -->
