@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +21,12 @@
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
 <link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
  
-
+<style>
+.content{ text-align:center; }
+.tex{ margin-left:0px; }
+.tex3{ margin-left:0px; }
+.row{ text-align:center; }
+</style>
 
 </head>
 <body>
@@ -85,49 +91,41 @@
                 <div class="box">
                    
             <h3 class="contract_title">전자 근로 계약서</h3>
-   
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="${login.id}" />
-                    <input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
+                    <div>${contract.start_period}
                     <span>부터</span>
-
-                    <input class="tex1" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
-                    <span>까지</span>
+                    ${contract.end_period}
+                    <span>까지</span></div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
-                    <input class="tex3" name="work_place" type="text" />
+                    ${contract.work_place_name}
 
                     <h4 class="gg">3. 업무의 내용</h4><br>
-                    <input class="tex3" name="work_detail" type="text" />
+                    ${contract.work_detail}
 
                     <h4 class="gg">4. 소정근로시간</h4><br>
-
                     <div class="worktime_div">
                         <span class="timepiker_txt_title">근로시간</span>
-
-                        <div id="datetimepicker3" class="input-append">
-                            <input class="timepiker" id="time1" name="start_work_time" data-format="hh:mm:ss" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
-                        </div>
+                            ${contract.start_work_time}
                         <span class="timepiker_txt">부터</span>
-
-                        <div id="datetimepicker4" class="input-append">
-                            <input class="timepiker2" id="time2" name="end_work_time" data-format="hh:mm:ss" type="text"></input>
-                            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
-                        </div>
+                            ${contract.end_work_time}
                         <span class="timepiker_txt">까지</span>
                     </div>
 
                     <h4 class="gg">5. 임금</h4><br>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
-                    <input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" />
+                    ${contract.hour_wage}
                     <span>원</span><br><br>
+                    
                     <span class="t1">ㅡ 기타 급여(재수당 등) </span>
-                    <input class="ra" id="y" name="additional_wage" type="radio" value="1" /><span>있음 </span>
-                    <input class="ra" id="n" name="additional_wage" type="radio" value="0" /><span>없음 </span><br><br>
+                    <c:if test="${contract.additional_wage}==0">없음</c:if>
+                    <c:if test="${contract.additional_wage}==1">있음</c:if>
+                    
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
-                    <input class="tex2" type="text" name="payday" maxlength="2" onkeypress="onlyNumber();" /><span>일(휴일의 경우는 전일 지급)</span><br>
+                    ${contract.payday}
+                    <span>일(휴일의 경우는 전일 지급)</span><br>
 
                     <h4 class="gg">6. 연차유급휴가</h4><br>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
@@ -141,11 +139,11 @@
                     <h4 class="gg">8. 근로계약서 교부</h4><br>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
-                    <input class="tex7" type="text" maxlength="4" onkeypress="onlyNumber();" />
+                    20${fn:substring(contract.c_date,2,4)}
                     <span>년</span>
-                    <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
+                    ${fn:substring(contract.c_date,5,7)}
                     <span>월</span>
-                    <input class="tex2" type="text" maxlength="2" onkeypress="onlyNumber();" />
+                    ${fn:substring(contract.c_date,8,10)}
                     <span>일</span>
 
                     <hr><br>
@@ -156,15 +154,15 @@
                     	<img class="can1" id="myImage" style="margin:1px;">
                 	</div>	
                     <span class="t3">사업체명: </span>
-                    <input class="tex8" name="work_place_name" type="text" style="z-index: 100;" /><br>
+                    ${contract.work_place_name}<br>
                     <span class="t3">사업자등록번호: </span>
-                    <input class="tex8" name="b_number" type="text" style="z-index: 100;" onkeypress="onlyNumber();"/><br>
+                    ${contract.b_number}<br>
                     <span class="t3" id="mySign">대표자: </span>
-                    <input class="tex8" name="b_name" type="text" /><br>
+                    ${contract.b_name}<br>
                     <span class="t3">주소: </span>
-                    <input class="tex10" name="c_address" type="text" /><br>
+                    ${contract.c_address}<br>
                     <span class="t3">연락처: </span>
-                    <input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" /><br><br>
+                    ${contract.work_place_phone}<br><br>
                     </div>
                 </div>
                 <div style="text-align: center;">

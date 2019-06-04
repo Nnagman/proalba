@@ -94,16 +94,16 @@
 		  <div class="row">
 		  <div class="col-md-12">
           <div class="card">
-          <form action="${path}/cserWcontract" method="post">
+          <form action="${path}/proalba/cserWcontract" method="post">
           <div class="card-body">
           <div class="row">
 		 		<div class="col-md-12"> 
           			<div class="addjob-1">
            			 <h2>전자근로계약서 작성 폼</h2>
            			 <h2>근로계약서에 들어 갈 내용입니다.</h2>
-           			 <input type="hidden" name="c_id" value="${login.id}" />
+           			 			<input type="hidden" name="c_id" value="${login.id}" />
            			  			
-           			근로 계약기간: <input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
+           			근로 계약기간:	<input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
            						<span>부터</span>
            						<input class="tex1" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
            						<span>까지</span>
@@ -158,11 +158,13 @@
 		 						
 		 				연락처:	<input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
 		 						<br><hr>
+		 						
+		 				<input class="tex8" name="p_id" type="hidden" value=" "/>
            			</div>
            		</div>
            		<div class="col-md-12">
 		 			<div class="addjob-3">
-		 				<input type='submit' class="bt2" id="submit2"/>
+		 				<input type='submit' class="bt2"/>
           				<hr>
            			</div>
            		</div>
@@ -176,15 +178,6 @@
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 	</div>
-  
-
-  
-
-
-
-
-
-
 
 <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
 
@@ -257,55 +250,6 @@
     });
 
 </script>
-
-
-
-
-    <script>
-
-
-        $(document).ready(function() {
-        	
-        	var test = false;
-
-            $("#submit2").on("click", contractServerUp);
-
-            function contractServerUp(e) {
-            	if(test) return;
-            	
-                html2canvas(document.getElementById('createPdf'),	{
-                    onrendered: function(canvas)	{
-                    	canvas.toBlob(function(blob)	{
-                            var formData = new FormData();
-                            var d = new Date();
-                            var fileName = String('${login.id}' + '-' + $('#p_id').val() + '-' + d.getTime() + '.png');
-                            formData.set('file', blob, fileName);
-                            console.log(formData);
-
-                            $.ajax({
-                                url: "http://39.127.7.84:8080/proalba/wcontract/upload",
-                                type: "post",
-                                data: formData,
-                                dataType: "text",
-                                processData: false, // processType: false - header가 아닌 body로 전달
-                                contentType: false,
-                                success: function(data) {
-                                    var fileName = '${fileName}';
-                                    alert(fileName);
-                                    var c_id = '${login.id}';
-                                    $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
-                                    test = true;
-                                    $("#formCon").attr({"method" : 'post', "action" : 'http://39.127.7.84:8080/proalba/cserWcontract'});
-                                    $("#submit2").attr({"type" : 'submit'});
-                                    $("#submit2").trigger('click');
-                                }
-                            });
-                    	});
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,10 +47,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.LoginDTO;
-import com.ateam.proalba.domain.MemberVO;
-import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
@@ -106,29 +102,41 @@ public class ContractController {
 		return "cservicepage/cserWcontract";
 	}
 	
+	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
+	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
+
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
+		contractService.add_contract(wcontractVO);
+		model.addAttribute("contract", wcontractVO);
+		logger.info(wcontractVO.toString());
+		return "cservicepage/cserWcontract";
+	}
+	
 	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
 	public String wcontractFormGET() throws Exception {
 		return "cservicepage/cserWcontractForm";
 	}
 
-	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
-	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
-		wcontractVO.setC_id("c" + wcontractVO.getC_id());
-		wcontractVO.setP_id("p" + wcontractVO.getP_id());
-		contractService.add_contract(wcontractVO);
-		String p_id = wcontractVO.getP_id().replace("p","");
-		logger.info(wcontractVO.toString());
-		MemberVO memberVO = memberService.getList(p_id);
-		logger.info("getList success");
-		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
-		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
-		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
-		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
-		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
-		//if(mail==0) { return "cservicepage/cserWcontract"; }
-		//else { return "/"; }
-		return "cservicepage/cserWcontract";
-	}
+//	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
+//	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
+//		wcontractVO.setC_id("c" + wcontractVO.getC_id());
+//		wcontractVO.setP_id("p" + wcontractVO.getP_id());
+//		contractService.add_contract(wcontractVO);
+//		String p_id = wcontractVO.getP_id().replace("p","");
+//		logger.info(wcontractVO.toString());
+//		MemberVO memberVO = memberService.getList(p_id);
+//		logger.info("getList success");
+//		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
+//		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
+//		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
+//		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
+//		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
+//		//if(mail==0) { return "cservicepage/cserWcontract"; }
+//		//else { return "/"; }
+//		return "cservicepage/cserWcontract";
+//	}
 	
 	@ResponseBody
 	@RequestMapping(value="/wcontract/upload", method=RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
