@@ -305,7 +305,12 @@ height:300px;
 						</div>	
            		      	<div class="workcon-map">
            		      		근무지역 <br>
-							맵점여 
+								<div class="search" style="margin-left:20%;">
+						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
+						<input id="submit" type="button" value="주소 검색" />
+						<input type="hidden" id="coordinate" name="coordinate" value=""/>
+					</div>
+					<div id="map" style="width:60%;height:400px; margin-left:20%;"></div>
            		      	</div>		
            		      		
            			</div>
@@ -665,5 +670,8 @@ height:300px;
   
 
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+ <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
+<script src="resources/js/map.js?ver=5"></script>
 </body>
 </html>

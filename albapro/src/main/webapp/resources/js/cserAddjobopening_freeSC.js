@@ -53,7 +53,7 @@ function jsonout(){
 	    
 	                          
 	  var id = $(this).attr('id');
-	  alert(id);
+	
 	   for(i=0; i < mycont2; i++ ){
 			if(id == arrJobCodeMid.JOBCD[i].MCD){
 				
@@ -67,7 +67,7 @@ function jsonout(){
 			
 		}
 	   
-	   id = 0;
+	 
 	});
 
 		
