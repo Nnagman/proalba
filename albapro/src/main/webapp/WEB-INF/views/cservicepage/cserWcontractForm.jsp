@@ -100,8 +100,8 @@
 		 		<div class="col-md-12"> 
           			<div class="addjob-1">
            			 <h2>전자근로계약서 작성 폼</h2>
-           			 <h2>근로계약서에 들어 갈 내용입니다.</h2>
-           			 			<input type="hidden" name="c_id" value="${login.id}" />
+           			 <h3>근로계약서에 들어 갈 내용입니다.</h3>
+           			 			<input type="hidden" name="c_id" value="c${login.id}" />
            			  			
            			근로 계약기간:	<input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
            						<span>부터</span>
@@ -147,7 +147,7 @@
 		 						<br><br>
 		 				
 		 				사업자번호:
-		 						<input class="tex8" name="b_number" type="text" style="z-index: 100;" onkeypress="onlyNumber();"/>
+		 						${login.b_number}
 		 						<br><br>
 		 						
 		 				대표자:	<input class="tex8" name="b_name" type="text" />

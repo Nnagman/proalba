@@ -60,6 +60,7 @@
         </a>
       </div>
       <div class="sidebar-wrapper">
+      <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
         <ul class="nav">
           <li class="nav-item  ">
             <a class="nav-link" href="pworkmanage?id=${login.id}">
@@ -102,18 +103,57 @@
           </li>
         
         </ul>
+      </c:if>
+      
+      <c:if test="${fn:substring(login.m_code,0,1)=='c'}">
+              <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고 등록
+            </a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+              <i class="material-icons">person</i>
+             직원 관리
+            </a>
+          </li>
+     
+          <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li>    
+        </ul>
+      </c:if>
+
       </div>
     </div>
          <!-- End of Sidebar -->
     </div>
 <div class="content">
-		<form id="form">
+		<form>
             <div id="createPdf" class="div_createPdf">
                 <div class="box">
                    
             <h3 class="contract_title">전자 근로 계약서</h3>
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
+                    <input type="hidden" name="c_id" value="${login.id}" />
                     <input type="hidden" name="c_code" value="${contract.c_code}" />
                     <div>
                     ${fn:substring(contract.start_period,0,10)}
@@ -153,7 +193,7 @@
                     <h4 class="gg">6. 연차유급휴가</h4><br>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
 
-                    <h4 class="gg">7. 사회보험 적용여부(해당란에 체크)</h4><br>
+                    <h4 class="gg">7. 사회보험 적용여부</h4><br>
                     <input class="che2" type="checkbox" id="고용보험" checked/><span>고용보험</span>
                     <input class="che2" type="checkbox" id="국민보험" checked /><span>국민연금</span>
                     <input class="che2" type="checkbox" id="건강보험" checked /><span>건강보험</span>
@@ -174,7 +214,6 @@
                     <h4 class="hh">사업주</h4>
                     <div id="" style="width: 40%; display: inline-block; float:right;">
                     	<img class="can1" id="" src="${contract.c_sign}" style="margin:1px;">
-                    	<div id="sign2"></div>
                 	</div>	
                     <span class="t3">사업체명: </span>
                     ${contract.work_place_name}<br>
@@ -191,29 +230,23 @@
                     
                     <h2 class="hh">근로자</h2><br>
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
-                    	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
-                    	<img class="can1" id="myImage" style="margin:1px;">
-                    	<div id="sign2"></div>
+                    	<img class="can1" id="myImage" src="${contract.p_sign}" style="margin:1px;">
                 	</div>
                     <span class="t3">근로자: </span>
-                    <input class="tex6" name="p_name" type="text" maxlength="11" value="${login.name}"/><br><br> 
+                    ${contract.p_name}
+                    <br><br> 
                      
-
                     <span class="t3">연락처: </span>
-                    <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" value="${login.phone}" /><br><br>
+                    ${contract.p_phone}
+                    <br><br>
                     
                     <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
-                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
+                    ${contract.p_address}
+                    <Br><Br>
+                    <button type='button' class="bt2" id="submit2">근로계약서 다운로드</button>
                 </div>
                </div>
             </form>
-            <div style="text-align: center;">
-				<button type="button" class="bt1" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
-            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-				<input type="button" class="bt1" onclick="toDataURL2();"value="서명 저장">
-				<button type="button" class="bt1" id="moveSign">서명란이동</button>
-				<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
-			</div>
     </div>
 
 </div>
@@ -350,14 +383,13 @@
     $(document).ready(function() {
     	var test = false;
 
-       // $("#submit2").on("click", contractServerUp);
+        $("#submit2").on("click", contractServerUp);
 
         function contractServerUp(e) {
     		$(".submit2").remove();
     		$(".signAgain").remove();
         	if(test) return;
         	
-            console.log("aaa");
             html2canvas(document.getElementById('createPdf'), {
                 onrendered: function(canvas) {
 
@@ -383,45 +415,11 @@
                         doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                         heightLeft -= pageHeight;
                     }
-
-                    var formData = new FormData();
-                    var d = new Date();
-                    var pngName = "${contractPath}";
-                    var fileName = "${contractPath}";
-                    // 파일 저장
-                    var file = doc.output('blob');
-                    console.log(file);
-                    formData.set('file', file, fileName);
-                    console.log(doc);
-                    console.log(formData);
-
-                    $.ajax({
-                    	async: false,
-                        url: "${path}/wcontract/checkContract",
-                        type: "post",
-                        data: formData,
-                        dataType: "text",
-                        processData: false, // processType: false - header가 아닌 body로 전달
-                        contentType: false,
-                        success: function(data) {
-                        	self.location = "${path}/removeFile?fileName="+encodeURI(data);
-                        }
-                    });
+                    
+                   	doc.save('전자근로계약서.pdf');
                 }
             });
         }
-        
-        $("#submit2").click(function(){
-        	var formData = $("#form").serialize();
-        	$.ajax({
-        		async: false,
-        		url: "${path}/psercheckContract",
-        		type: "post",
-        		data: formData,
-    			success: function(data){ alert("계약서작성성공!"); },
-                error : function(error) { alert("error : " + error); }
-        	});
-        });
     }); 
 	</script>
 </body>

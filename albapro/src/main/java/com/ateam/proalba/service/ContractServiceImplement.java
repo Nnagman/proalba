@@ -47,5 +47,17 @@ public class ContractServiceImplement implements ContractService {
 	public WcontractVO select_contract2(Map<String, String[]> map) throws Exception {
 		return contractDAO.select_contract2(map);
 	}
+	@Override
+	public void send_contract(WcontractVO wcontractVO) throws Exception {
+		contractDAO.send_contract(wcontractVO);
+	}
+	@Override
+	public WcontractVO select_contract3(String c_code) throws Exception {
+		return contractDAO.select_contract3(c_code);
+	}
+	@Override
+	public void check_contract(WcontractVO wcontractVO) throws Exception {
+		contractDAO.check_contract(wcontractVO);
+	}
 
 }

@@ -25,6 +25,11 @@ public class WcontractVO {
 	private String b_name; //대표자이름
 	private String c_address; //사업장주소
 	private String work_place_phone; //사업자연락처
-	private String c_date;
-	private String email_check;
+	private String c_date; //계약서 최초 작성일
+	private String email_check; //계약서 확인 여부
+	private String c_sign; // 사업자 싸인
+	private String p_sign; // 근로자 싸인
+	private String p_name; // 근로자 이름
+	private String p_phone; // 근로자 번호
+	private String p_address; // 근로자 주소
 }

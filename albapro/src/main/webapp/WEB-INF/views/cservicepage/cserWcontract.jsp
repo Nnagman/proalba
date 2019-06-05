@@ -22,10 +22,10 @@
 <link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
  
 <style>
-.content{ text-align:center; }
-.tex{ margin-left:0px; }
-.tex3{ margin-left:0px; }
-.row{ text-align:center; }
+	.content{ text-align:center; }
+	.tex{ margin-left:0px; }
+	.tex3{ margin-left:0px; }
+	.row{ text-align:center; }
 </style>
 
 </head>
@@ -83,10 +83,7 @@
          <!-- End of Sidebar -->
 
 <div class="content">
-
-
-     
-        <form id="formCon" name="formCon">
+        <form id="form">
             <div id="createPdf" class="div_createPdf">
                 <div class="box">
                    
@@ -94,9 +91,11 @@
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="${login.id}" />
-                    <div>${contract.start_period}
+                    <input type="hidden" name="c_code" value="${contract.c_code}" />
+                    <div>
+                    ${fn:substring(contract.start_period,0,10)}
                     <span>부터</span>
-                    ${contract.end_period}
+                    ${fn:substring(contract.end_period,0,10)}
                     <span>까지</span></div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
@@ -152,6 +151,7 @@
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
                     	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
                     	<img class="can1" id="myImage" style="margin:1px;">
+                    	<div id="sign2"></div>
                 	</div>	
                     <span class="t3">사업체명: </span>
                     ${contract.work_place_name}<br>
@@ -165,42 +165,32 @@
                     ${contract.work_place_phone}<br><br>
                     </div>
                 </div>
-                <div style="text-align: center;">
-						<button type="button" class="bt1" id="moveSign">서명란이동</button>
-						<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
-                        <button type="button" class="bt1" value="근로계약서 작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">근로계약서 작성완료</button>
-            			<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-            			<input type="button" class="bt1" onclick="toDataURL();" value="서명 저장">
-            	</div>
             <!-- Large modal -->
             <div class="modal fade bs-example-modal-lg where-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <p>전송할 근로자 아이디 입력</p>
                         <input id="p_id" name="p_id" type="text" maxlength="20"/><br/>
-                        <button type='button' class="bt2" id="submit2">근로계약서 보내기</button>
+                        <input type='button' class="bt2" id="submit2"/>근로계약서 보내기
                     </div>
                 </div>
             </div>
-        </form>
+            </form>
+                <div style="text-align: center;">
+						<button type="button" class="bt1" id="moveSign">서명란이동</button>
+						<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
+                        <button type="button" class="bt1" value="근로계약서 작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">근로계약서 작성완료</button>
+            			<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+            			<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
+            	</div>
     </div>
 
 </div>
 
 </div>
-  
-
-  
-
-
-
-
-
-
-
  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/js/contract.js?ver=3"></script>
+<script type="text/javascript" src="resources/js/contract.js?ver=5"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
 </script>
@@ -265,57 +255,25 @@
             pickDate: false
         });
     });
-
-</script>
-
-
-
-
-    <script>
-
-
-        $(document).ready(function() {
-        	
-        	var test = false;
-
-            $("#submit2").on("click", contractServerUp);
-
-            function contractServerUp(e) {
-            	if(test) return;
-            	
-                html2canvas(document.getElementById('createPdf'),	{
-                    onrendered: function(canvas)	{
-                    	canvas.toBlob(function(blob)	{
-                            var formData = new FormData();
-                            var d = new Date();
-                            var fileName = String('${login.id}' + '-' + $('#p_id').val() + '-' + d.getTime() + '.png');
-                            formData.set('file', blob, fileName);
-                            console.log(formData);
-
-                            $.ajax({
-                                url: "http://39.127.7.84:8080/proalba/wcontract/upload",
-                                type: "post",
-                                data: formData,
-                                dataType: "text",
-                                processData: false, // processType: false - header가 아닌 body로 전달
-                                contentType: false,
-                                success: function(data) {
-                                    var fileName = '${fileName}';
-                                    alert(fileName);
-                                    var c_id = '${login.id}';
-                                    $("#p_id").append('<input id="fileName" name="fileName" type="hidden" value= "'+ data +'" />');
-                                    test = true;
-                                    $("#formCon").attr({"method" : 'post', "action" : 'http://39.127.7.84:8080/proalba/cserWcontract'});
-                                    $("#submit2").attr({"type" : 'submit'});
-                                    $("#submit2").trigger('click');
-                                }
-                            });
-                    	});
-                    }
-                });
-            }
+    
+    $("#submit2").click(function(){
+        var formData = $("#form").serialize();
+        $(function(){
+        	$.ajax({
+    			async: false,
+    			type: 'POST',
+    			data: formData,
+    			url: 'http://localhost:8080/proalba/sendWcontract',
+    			success: function(data){
+                    alert("계약서전송성공!");
+                },
+                error : function(error) {
+                    alert("error : " + error);
+    			}
+        	});
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
