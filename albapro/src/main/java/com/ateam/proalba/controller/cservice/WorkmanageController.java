@@ -1,5 +1,7 @@
 package com.ateam.proalba.controller.cservice;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,10 +91,21 @@ public class WorkmanageController {
 	@RequestMapping(value = "/cserWorkmanagetableUpdate", method = RequestMethod.POST)
 	public JSON cserWorkmanageUpdatePOST(@RequestBody String time) throws Exception {
 		logger.info(time);
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("work_start_time", time.substring(0, time.indexOf("/")));
 		map.put("work_end_time", time.substring(time.indexOf("/")+1, time.indexOf("!")));
 		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")));
+		
+		Date today = new Date();
+		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+		String[] w_code = map.get("w_code").split("/");
+		if(!w_code[1].substring(4,6).equals(date.format(today).substring(5,7))) {
+			JSONObject json = new JSONObject();
+			json.put("message", "이번달이 아니면 근태기록을 수정할 수 없습니다.");
+			return json;
+		}
+		
 		mobileAttendanceService.mobileWorkRecordUpdate(map);
 		JSONObject json = new JSONObject();
 		json.put("message", "업데이트 성공");
@@ -104,6 +117,16 @@ public class WorkmanageController {
 	public JSON cserWorkmanageDeletePOST(@RequestBody String delete_w_code) throws Exception {
 		delete_w_code = delete_w_code.substring(0, delete_w_code.indexOf(" "));
 		logger.info("w_code: "+ delete_w_code);
+		
+		Date today = new Date();
+		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+		String[] w_code = delete_w_code.split("/");
+		if(!w_code[1].substring(4,6).equals(date.format(today).substring(5,7))) {
+			JSONObject json = new JSONObject();
+			json.put("message", "이번달이 아니면 근태기록을 수정할 수 없습니다.");
+			return json;
+		}
+		
 		mobileAttendanceService.mobileWorkRecordDelete(delete_w_code);
 		JSONObject json = new JSONObject();
 		json.put("message", "삭제 성공");
@@ -129,6 +152,17 @@ public class WorkmanageController {
 		
 		map.put("w_code", str);
 		System.out.println(map);
+		
+		 Date today = new Date();
+		 SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+		 String[] sa_code = map.get("sa_code").split("/");
+		 if(!sa_code[1].substring(4,6).equals(date.format(today).substring(5,7))) {
+			 logger.info("sa_code[1].substring(4,6): "+sa_code[1].substring(4,6));
+			 logger.info("date.format(today).substring(5,7): "+date.format(today).substring(5,7));
+			 JSONObject json = new JSONObject();
+			json.put("message", "이번달이 아니면 근태기록을 수정할 수 없습니다.");
+			return json;
+		 }
 		
 		String work_start_time = map.get("work_start_time");
 		String work_end_time = map.get("work_end_time");

@@ -18,6 +18,19 @@
 		]]>
 	</insert>
 	
+	<update id="send_contract">
+		<![CDATA[
+			update contract set p_id = #{p_id}, c_sign = #{c_sign} where c_code = #{c_code}
+		]]>
+	</update>
+	
+	<update id="check_contract">
+		<![CDATA[
+			update contract set p_name = #{p_name}, p_address = #{p_address}, p_sign = #{p_sign}, p_phone = #{p_phone}, email_check = '1'
+			where c_code = #{c_code}
+		]]>
+	</update>
+	
 	<select id="select_contract" resultType="com.ateam.proalba.domain.WcontractVO">
 		<![CDATA[
 		SELECT * FROM contract
@@ -31,6 +44,12 @@
 		SELECT * FROM (SELECT * FROM contract
 		WHERE c_id = ('c'||#{id[0]}) AND p_id = ('p'||#{id[1]}) ORDER BY c_code DESC)
 		WHERE rownum = 1
+  	  	]]>
+	</select>
+	
+	<select id="select_contract3" resultType="com.ateam.proalba.domain.WcontractVO">
+		<![CDATA[
+		SELECT * FROM contract WHERE c_code = #{c_code}
   	  	]]>
 	</select>
 	

@@ -1,8 +1,17 @@
 function toDataURL(){
 	var myImage = document.getElementById('myImage');
 	myImage.src = myCanvas.toDataURL();
+	$("#myImage").append('<input type="hidden" id="c_sign" name="c_sign" value="'+myImage.src+'"/>');
 	$("#myCanvas").hide();
 }
+
+function toDataURL2(){
+	var myImage = document.getElementById('myImage');
+	myImage.src = myCanvas.toDataURL();
+	$("#myImage").append('<input type="hidden" id="p_sign" name="p_sign" value="'+myImage.src+'"/>');
+	$("#myCanvas").hide();
+}
+
 var canvas, context;
 $(document).ready(function(){
 	

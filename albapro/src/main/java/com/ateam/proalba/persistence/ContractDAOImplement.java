@@ -75,4 +75,19 @@ public class ContractDAOImplement implements ContractDAO {
 		return sqlSession.selectOne(NAMESPACE + ".select_contract2", map);
 	}
 
+	@Override
+	public void send_contract(WcontractVO wcontractVO) {
+		sqlSession.update(NAMESPACE + ".send_contract", wcontractVO);
+	}
+
+	@Override
+	public WcontractVO select_contract3(String c_code) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".select_contract3", c_code);
+	}
+
+	@Override
+	public void check_contract(WcontractVO wcontractVO) throws Exception {
+		sqlSession.update(NAMESPACE + ".check_contract", wcontractVO);
+	}
+
 }

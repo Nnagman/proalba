@@ -103,15 +103,42 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
-	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
+	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		contractService.add_contract(wcontractVO);
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		logger.info(list.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/sendWcontract", method = RequestMethod.GET)
+	public String sendWcontractGET(ServletRequest request, @RequestParam("c_code") String c_code, Model model) throws Exception {
+		logger.info("sendWcontractGET: "+ c_code);
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
 		model.addAttribute("contract", wcontractVO);
-		logger.info(wcontractVO.toString());
+		
 		return "cservicepage/cserWcontract";
+	}
+	
+	@RequestMapping(value = "/sendWcontract", method = RequestMethod.POST)
+	public String sendWcontractPOST(WcontractVO wcontractVO) throws Exception {
+		String p_id = "p"+wcontractVO.getP_id();
+		wcontractVO.setP_id(p_id);
+		
+		logger.info("sendWcontractPOST: "+ wcontractVO.toString());
+		contractService.send_contract(wcontractVO);
+		return "cservicepage/ccontract";
 	}
 	
 	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
@@ -155,11 +182,30 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/psercheckContract", method = RequestMethod.GET)
-	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
-		HttpSession httpSession = request.getSession();
-		String contractPath = link;
-		httpSession.setAttribute("contractPath", contractPath);
+	public String checkContractGET(@RequestParam("c_code") String c_code, HttpServletRequest request, Model model) throws Exception {	
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		String contractPath = request.getServletContext().getRealPath("/resources") + '\\' + "contract";
+		model.addAttribute("contractPath", contractPath);
+		model.addAttribute("contract", wcontractVO);
 		return "servicepage/psercheckContract";
+	}
+	
+	@RequestMapping(value = "/psercheckContract", method = RequestMethod.POST)
+	public String checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
+		logger.info("checkContractPOST: "+ wcontractVO.toString());
+		contractService.check_contract(wcontractVO);
+		return "servicepage/pserContract";
+	}
+	
+	@RequestMapping(value = "/vcontract", method = RequestMethod.GET)
+	public String contractGET(HttpServletRequest request, @RequestParam("c_code") String c_code, Model model) throws Exception {
+		String folderName = "contract";	//회사로고 폴더 이름 설정 
+		
+		String uploadPath = request.getServletContext().getRealPath("/resources");
+		
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		model.addAttribute("contract", wcontractVO);
+		return "contract/contract";
 	}
 	
 	@ResponseBody

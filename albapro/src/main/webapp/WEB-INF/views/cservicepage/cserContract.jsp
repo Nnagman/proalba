@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+      <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
@@ -136,14 +137,14 @@ margin-top:20px;
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
 								<td>${contract.work_place_name}</td>
-								<td>${contract.start_period}</td>
-								<td>${contract.end_period}</td>
+								<td>${fn:substring(contract.start_period,2,10)}</td>
+								<td>${fn:substring(contract.start_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
-								<td><a href="${path}/downloadContract?fileName=${contract.c_date}근로계약서.pdf&downName=${contract.fileName}">서명완료</a></td>
+								<td><a href="${path}/vcontract?c_code=${contract.c_code}">서명완료</a></td>
 								</c:if>
 								<c:if test="${contract.email_check eq '0'}">
-								<td><a href="${path}/csercheckContract?link=${contract.fileName}">서명필요</a></td>
+								<td><a href="${path}/sendWcontract?c_code=${contract.c_code}">서명필요</a></td>
 								</c:if>
 							</tr>
 						</c:forEach>
