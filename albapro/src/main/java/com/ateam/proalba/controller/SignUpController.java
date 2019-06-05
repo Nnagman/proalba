@@ -47,7 +47,14 @@ public class SignUpController {
 	public String cregisterGET() {
 		return "login/com_register";
 	}
-	
+	@RequestMapping(value = "/articles", method = RequestMethod.GET)
+	public String articlesGET() {
+		return "login/articles";
+	}
+	@RequestMapping(value = "/pdata", method = RequestMethod.GET)
+	public String pdataGET() {
+		return "login/pdata";
+	}
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
     public String pregisterPOST(MemberVO memberVO) throws Exception {
  
