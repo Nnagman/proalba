@@ -147,6 +147,7 @@ margin-right:20px;
 													<th class="th-sm">날짜</th>
 													<th class="th-sm">출근시간</th>
 													<th class="th-sm">퇴근 시간</th>
+													<th class="th-sm">근로 시간</th>
 
 												</tr>
 											</thead>
@@ -156,6 +157,8 @@ margin-right:20px;
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
+														<td>${row.working_hours}시간</td>
+														
 													</tr>
 												</c:forEach>
 
@@ -430,7 +433,7 @@ margin-right:20px;
     });
   </script>
   
-  
+
 
  
 </body>

@@ -117,18 +117,18 @@ body {
   
 }
 .sps{
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 12px;
-	margin-left: 60px;
-	font-weight: bold;
+   color: rgba(0, 0, 0, 0.6);
+   font-size: 12px;
+   margin-left: 60px;
+   font-weight: bold;
 }
 .btn-regist{
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 12px;
-	font-weight: bold;
+   color: rgba(0, 0, 0, 0.6);
+   font-size: 12px;
+   font-weight: bold;
 }
 .g-signin2{
-	margin-top: 40px;
+   margin-top: 40px;
 }
 
 .form-panel {
@@ -162,35 +162,35 @@ body {
   /* text-transform: uppercase; */
 }
 a{
-	color: #ffffff;
+   color: #ffffff;
 }
 #my-signin2{
-	margin-left: 75px;
+   margin-left: 75px;
 }
 .abcRioButtonBlue{
-	background-color: skyblue !important;
-	color: white !important;
+   background-color: skyblue !important;
+   color: white !important;
 }
 
 .logo{
-	margin-bottom: 30px;
-	margin-top: 40px;
-	margin-left: 43px;
-	width: 300px;
-	height: 130px;
+   margin-bottom: 30px;
+   margin-top: 40px;
+   margin-left: 43px;
+   width: 300px;
+   height: 130px;
 }
 .footer-copyright{
-	margin-top: 180px;
-	margin-left:110px;
+   margin-top: 180px;
+   margin-left:110px;
 }
 .sp1{
-	font-size:15px;
-	font-weight: 500;
-	color: rgba(0, 0, 0, 0.6);
+   font-size:15px;
+   font-weight: 500;
+   color: rgba(0, 0, 0, 0.6);
 }
 hr{
-	border: 0.5px solid #e1e1e1;
-	width: 330px;
-	margin-top: 15px;
-	margin-bottom: 10px;
+   border: 0.5px solid #e1e1e1;
+   width: 330px;
+   margin-top: 15px;
+   margin-bottom: 10px;
 }

@@ -80,6 +80,12 @@
              전자근로 계약서
             </a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
@@ -126,12 +132,13 @@
 											</thead>
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
+												<c:if test="${row.end_date != null}">
 													<tr>
 														<td>${row.work_place_name}</td>
 														<td>${row.join_date}</td>
 														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
-														<c:if test="${row.end_date == null}"><td>현재 근무 중인 사업장입니다.</td></c:if>
 													</tr>
+												</c:if>
 												</c:forEach>
 											</tbody>
 

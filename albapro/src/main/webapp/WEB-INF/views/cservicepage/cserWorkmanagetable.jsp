@@ -68,35 +68,40 @@
 					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
-					<ul class="nav">
-
-						<li class="nav-item  "><a class="nav-link"
-							href="cserAddJobopening_free?id=${login.id}"> <i
-								class="material-icons">dashboard</i> 채용공고 등록
-						</a></li>
-
-
-						<li class="nav-item "><a class="nav-link"
-							href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
-								전자근로 계약서
-						</a></li>
-						<li class="nav-item active"><a class="nav-link"
-							href="cserEmpManage?id=${login.id}"> <i
-								class="material-icons">person</i> 직원 관리
-						</a></li>
-						<%--   <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
+        <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고 등록
             </a>
-          </li> --%>
-						<li class="nav-item "><a class="nav-link"
-							href="${path}/proalba/comm"> <i class="material-icons">bubble_chart</i>
-								커뮤니티
-						</a></li>
-
-					</ul>
+          </li>
+           <li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+              <i class="material-icons">person</i>
+             직원 관리
+            </a>
+          </li>
+     
+          <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li>
+        
+        </ul>
 				</div>
 			</div>
 			<!-- End of Sidebar -->
@@ -232,68 +237,7 @@
             
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
-      
-        /*  $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-          var new_color = $(this).data('color');
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-          var new_color = $(this).data('background-color');
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-          var new_image = $(this).find("img").attr('src');
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        }); */
+
         $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');
           $input = $(this);
@@ -369,8 +313,13 @@
 			data: time,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://localhost:8080/proalba/cserWorkmanagetableUpdate',
-			success: function(data){ alert(data.message); location.reload(); },
+			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableUpdate',
+			success: function(data){
+				if(data == null || data == undefined){
+					alert(data.message); location.reload();
+				}
+				alert(data.message); location.reload();
+			},
 			error : function(error) {alert("error : " + error);}
     	  });
       });
@@ -385,8 +334,13 @@
 			data: delete_w_code,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://localhost:8080/proalba/cserWorkmanagetableDelete',
-			success: function(data){ alert(data.message); location.reload(); },
+			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableDelete',
+			success: function(data){
+				if(data == null || data == undefined){
+					alert(data.message); location.reload();
+				}
+				alert(data.message); location.reload();
+			},
 			error : function(error) {alert("error : " + error);}
     	  });
       });
@@ -417,7 +371,14 @@
     	  sa_code_date = sa_code_date.replace('-',''); 
     	  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
     	  $('#inserted_row').attr('class',sa_code2);
-    	  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
+    	  
+    	  if(sa_code[2].substr(0,1) != 0){
+    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
+    	  };
+    	  
+    	  if(sa_code[2].substr(0,1) == 0){
+    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+ sa_code[2].substr(1,2);
+    	  };
     	  
     	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
         	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
@@ -429,8 +390,8 @@
     		  split_date[1] = split_date[1]+1;
     		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
     		  
-        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
+        	  var str = $('#inserted_row').attr('class') + '!' + $('#date').val() +'@' + $('#date').val().substring(2) + " " + $("#time11").val()
+	  					+'#' + $('#date').val().substring(2) + " " + $("#time22").val() + '$' + w_code;
     	  }
     	  
     	  $.ajax({
@@ -439,9 +400,14 @@
 			data: str,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://localhost:8080/proalba/cserWorkmanagetableInsert',
-			success: function(data){ alert(data.message); location.reload(); },
-			error : function(error) {alert("error : " + error);}
+			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableInsert',
+			success: function(data){ 
+				if(data == null || data == undefined){
+					alert(data.message); location.reload();
+				}
+				alert(data.message); location.reload();
+			},
+			error : function(error) {alert("error : " + error); location.reload();}
     	  });
       });
   });

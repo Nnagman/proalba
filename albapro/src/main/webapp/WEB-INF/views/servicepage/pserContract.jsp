@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+      <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
@@ -137,14 +138,14 @@ margin-top:20px;
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
 								<td>${contract.work_place_name}</td>
-								<td>${contract.start_period}</td>
-								<td>${contract.end_period}</td>
+								<td>${fn:substring(contract.start_period,2,10)}</tdz>
+								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
-								<td><a href="${path}/downloadContract?fileName=${contract.c_date}근로계약서.pdf&downName=${contract.fileName}">서명완료</a></td>
+								<td><a href="${path}/vcontract?c_code=${contract.c_code}">서명완료</a></td>
 								</c:if>
 								<c:if test="${contract.email_check eq '0'}">
-								<td><a href="${path}/psercheckContract?link=${contract.fileName}">서명필요</a></td>
+								<td><a href="${path}/psercheckContract?c_code=${contract.c_code}">서명필요</a></td>
 								</c:if>
 							</tr>
 						</c:forEach>
@@ -227,88 +228,6 @@ margin-top:20px;
                     }
                 ]
             } );
-      
-
-        /*  $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        }); */
 
         $('.switch-sidebar-image input').change(function() {
           $full_page_background = $('.full-page-background');

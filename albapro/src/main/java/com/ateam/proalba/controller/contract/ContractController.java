@@ -13,6 +13,7 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,10 +47,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.LoginDTO;
-import com.ateam.proalba.domain.MemberVO;
-import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
@@ -71,27 +67,6 @@ public class ContractController {
 		this.pdfFileService = pdfFileService;
 	}
 	
-	
-	/*
-	 * public String pcontractGET(HttpServletRequest
-	 * request,@ModelAttribute("criteria") Criteria criteria, LoginDTO loginDTO)
-	 * throws Exception { PageMaker pageMaker = new PageMaker();
-	 * criteria.setM_code("p"+loginDTO.getId()); // m_code�ϱ� �տ� p�ٿ������.
-	 * pageMaker.setCriteria(criteria);
-	 * pageMaker.setTotalCount(contractService.count_contract(loginDTO));
-	 * 
-	 * String id = criteria.getId(); criteria.setId("p"+id);
-	 * 
-	 * request.setAttribute("message", "contractPage");
-	 * request.setAttribute("contracts", contractService.listCriteria(criteria));
-	 * request.setAttribute("pageMaker", pageMaker);
-	 * logger.info(Integer.toString(criteria.getPageStart()));
-	 * logger.info(Integer.toString(criteria.getPerPageNum()));
-	 * logger.info(Integer.toString(criteria.getPerPageNum()));
-	 * criteria.setPage(20);
-	 * 
-	 * return "servicepage/pserContract"; }
-	 */
 	@RequestMapping(value = "/contract", method = RequestMethod.GET)
 	public ModelAndView pcontractGET(Model model,@RequestParam("id") String id) throws Exception {
 		model.addAttribute("message", "");
@@ -127,29 +102,68 @@ public class ContractController {
 		return "cservicepage/cserWcontract";
 	}
 	
+	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
+	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
+
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
+		contractService.add_contract(wcontractVO);
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		logger.info(list.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/sendWcontract", method = RequestMethod.GET)
+	public String sendWcontractGET(ServletRequest request, @RequestParam("c_code") String c_code, Model model) throws Exception {
+		logger.info("sendWcontractGET: "+ c_code);
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		model.addAttribute("contract", wcontractVO);
+		
+		return "cservicepage/cserWcontract";
+	}
+	
+	@RequestMapping(value = "/sendWcontract", method = RequestMethod.POST)
+	public String sendWcontractPOST(WcontractVO wcontractVO) throws Exception {
+		String p_id = "p"+wcontractVO.getP_id();
+		wcontractVO.setP_id(p_id);
+		
+		logger.info("sendWcontractPOST: "+ wcontractVO.toString());
+		contractService.send_contract(wcontractVO);
+		return "cservicepage/ccontract";
+	}
+	
 	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
 	public String wcontractFormGET() throws Exception {
 		return "cservicepage/cserWcontractForm";
 	}
 
-	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
-	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
-		wcontractVO.setC_id("c" + wcontractVO.getC_id());
-		wcontractVO.setP_id("p" + wcontractVO.getP_id());
-		contractService.add_contract(wcontractVO);
-		String p_id = wcontractVO.getP_id().replace("p","");
-		logger.info(wcontractVO.toString());
-		MemberVO memberVO = memberService.getList(p_id);
-		logger.info("getList success");
-		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
-		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
-		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
-		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
-		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
-		//if(mail==0) { return "cservicepage/cserWcontract"; }
-		//else { return "/"; }
-		return "cservicepage/cserWcontract";
-	}
+//	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
+//	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO) throws Exception {
+//		wcontractVO.setC_id("c" + wcontractVO.getC_id());
+//		wcontractVO.setP_id("p" + wcontractVO.getP_id());
+//		contractService.add_contract(wcontractVO);
+//		String p_id = wcontractVO.getP_id().replace("p","");
+//		logger.info(wcontractVO.toString());
+//		MemberVO memberVO = memberService.getList(p_id);
+//		logger.info("getList success");
+//		//int mail = mailSender(memberVO.getEmail(), wcontractVO.getFileName());
+//		String originalFilePath = request.getServletContext().getRealPath("/resources") + wcontractVO.getFileName();
+//		String outFilePath = request.getServletContext().getRealPath("/resources")+wcontractVO.getFileName();
+//		boolean fileMove = nioFileCopy(originalFilePath, outFilePath);
+//		if(fileMove == true) logger.info("fileMoveSuccess to" + outFilePath);
+//		//if(mail==0) { return "cservicepage/cserWcontract"; }
+//		//else { return "/"; }
+//		return "cservicepage/cserWcontract";
+//	}
 	
 	@ResponseBody
 	@RequestMapping(value="/wcontract/upload", method=RequestMethod.POST, consumes="multipart/form-data", produces="text/plain;charset=utf-8")
@@ -168,11 +182,30 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/psercheckContract", method = RequestMethod.GET)
-	public String checkContractGET(String link, HttpServletRequest request) throws Exception {
-		HttpSession httpSession = request.getSession();
-		String contractPath = link;
-		httpSession.setAttribute("contractPath", contractPath);
+	public String checkContractGET(@RequestParam("c_code") String c_code, HttpServletRequest request, Model model) throws Exception {	
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		String contractPath = request.getServletContext().getRealPath("/resources") + '\\' + "contract";
+		model.addAttribute("contractPath", contractPath);
+		model.addAttribute("contract", wcontractVO);
 		return "servicepage/psercheckContract";
+	}
+	
+	@RequestMapping(value = "/psercheckContract", method = RequestMethod.POST)
+	public String checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
+		logger.info("checkContractPOST: "+ wcontractVO.toString());
+		contractService.check_contract(wcontractVO);
+		return "servicepage/pserContract";
+	}
+	
+	@RequestMapping(value = "/vcontract", method = RequestMethod.GET)
+	public String contractGET(HttpServletRequest request, @RequestParam("c_code") String c_code, Model model) throws Exception {
+		String folderName = "contract";	//회사로고 폴더 이름 설정 
+		
+		String uploadPath = request.getServletContext().getRealPath("/resources");
+		
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		model.addAttribute("contract", wcontractVO);
+		return "contract/contract";
 	}
 	
 	@ResponseBody
