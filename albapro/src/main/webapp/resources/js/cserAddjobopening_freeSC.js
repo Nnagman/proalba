@@ -28,15 +28,15 @@ console.log('arrJobCodeWide: ' + JSON.stringify(arrJobCodeWide));
 
 var mycont = Object.keys(arrJobCodeWide.JOBCD).length;
 var mycont2 = Object.keys(arrJobCodeMid.JOBCD).length;
+var mymajorlen = Object.keys(amajorser.content).length;
+console.log(mymajorlen);
 console.log(mycont);
 console.log(mycont2);
-for(i=0; mycont2; i++){
-console.log(arrJobCodeMid.JOBCD[i].MCD)
-}
+
 
 function jsonout(){
 	var modal = $('.jobcho1');
-	$(modal).text('');
+	$('.jobcho1').text('');
 	
 
 
@@ -50,7 +50,6 @@ function jsonout(){
 	$('.jobcho-de').click(function(){
 		var modal2= $('.jobcho-detail2');
 		$(modal2).text('');
-	    
 	                          
 	  var id = $(this).attr('id');
 	
@@ -67,11 +66,14 @@ function jsonout(){
 			
 		}
 	   
-	 
+
 	});
 
 		
 	};
+	
+	
+
 	
 	
 	
