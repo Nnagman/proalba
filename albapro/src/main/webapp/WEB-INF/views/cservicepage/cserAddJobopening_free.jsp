@@ -121,6 +121,14 @@ margin: 0 0 0 20px;
 .checkbox-line1{
 display:inline-block;
 }
+
+.recruitper-radio1 ,.custom-radio{
+display:inline-block;
+}
+
+.custom-control-label{
+color:black !important;
+}
 </style>
 
 
@@ -265,10 +273,36 @@ display:inline-block;
 													</div>
 													
 												
-													<br> <br> 고용형태: <input type="checkbox"
-														class="jobchoice1">정규직 <input type="checkbox"
-														class="jobchoice2">계약직 <input type="checkbox"
-														class="jobchoice3">아르바이트
+												
+												<br> <br> 
+												
+														<div class="checkbox-line1">
+													고용형태:
+													<div class="custom-control custom-checkbox">
+													
+														<input type="checkbox"
+															class="jobchoice1 custom-control-input"
+															id="jobUnchecked"> <label
+															class="custom-control-label" for="jobUnchecked">정규직</label>
+													</div>
+													
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox"
+															class="jobchoice2 custom-control-input"
+															id="jobUnchecked1"> <label
+															class="custom-control-label" for="jobUnchecked1">계약직</label>
+													</div>	
+													
+													<div class="custom-control custom-checkbox">	
+														<input type="checkbox"
+															class="jobchoice3 custom-control-input"
+															id="jobUnchecked2"> <label
+															class="custom-control-label" for="jobUnchecked2">아르바이트</label>
+													</div>
+													</div>
+												
+												
+													
 												</div>
 
 											</div>
@@ -290,11 +324,32 @@ display:inline-block;
 												<div class="Recruitmentrule">
 
 													<div class="recruitper">
-														모집인원(*): <input type="text" class="recruitper-txt" /> <input
-															type="radio" class="recruitper-radio1" />0명 <input
-															type="radio" class="recruitper-radio2" />00명
-													</div>
+													
 
+													
+													<div class="radio-line1">
+													<!-- Default unchecked -->
+												모집인원(*): <input type="text" class="recruitper-txt" />명
+														<div class="custom-control custom-radio">
+															 <input
+																type="radio"
+																class="recruitper-radio1 custom-control-input"
+																id="Recru-radio1" name="defaultExampleRadios">
+															<label class=" custom-control-label"
+																for="Recru-radio1">0명</label> 
+															</div>
+															
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="recruitper-radio1 custom-control-input"
+																id="Recru-radio2" name="defaultExampleRadios">
+															<label class=" custom-control-label"
+																for="Recru-radio2">00명</label>
+														</div>
+
+													</div>
+													</div>
 
 													<div class="assignedtask">
 														담당업무: <input type="text" class="assignedtask-txt"
@@ -333,8 +388,28 @@ display:inline-block;
 												<div class="preconditions">
 
 													<div class="recruitper">
-														학력(*):<input type="checkbox" class="preconditions1" />무관 <input
-															type="checkbox" class="preconditions2" />제한 <select>
+													
+													<div class="checkbox-line1">
+													학력(*):
+													<div class="custom-control custom-checkbox">
+													
+														<input type="checkbox"
+															class="jobchoice1 custom-control-input"
+															id="recruUnchecked"> <label
+															class="custom-control-label" for="recruUnchecked">무관</label>
+													</div>
+													
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox"
+															class="jobchoice2 custom-control-input"
+															id="recruUnchecked1"> <label
+															class="custom-control-label" for="recruUnchecked1">제한</label>
+													</div>	
+													
+												
+													</div>
+											
+													 <select>
 															<option>고등학교졸업이상</option>
 															<option>대학졸업(2,3년)이상</option>
 															<option>대학졸업(4년)이상</option>
@@ -408,14 +483,40 @@ display:inline-block;
 												<div class="appperiod">
 
 													<div class="appperiod-how">
-														<input type="radio" id="appperiod-online"
-															name="appperiod-name" class="appperiod-online"
-															onclick="hiddendiv()">온라인 접수 <input type="radio"
-															id="appperiod-tel" name="appperiod-name"
-															class="appperiod-tel" onclick="hiddendiv()">전화 접수
-														<input type="radio" id="appperiod-Visit"
-															name="appperiod-name" class="appperiod-Visit"
-															onclick="hiddendiv()">방문 접수
+													
+													
+													<div class="custom-control custom-radio">
+															 <input
+																type="radio"
+																class="appperiod-online custom-control-input"
+																id="appperiod-online" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-online">온라인 접수</label> 
+															</div>
+															
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="appperiod-tel custom-control-input"
+																id="appperiod-tel" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-tel">전화 접수</label>
+														</div>
+														
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="appperiod-Visit custom-control-input"
+																id="appperiod-Visit" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-Visit">방문접수</label>
+														</div>
+													
+													
+														
 
 													</div>
 
