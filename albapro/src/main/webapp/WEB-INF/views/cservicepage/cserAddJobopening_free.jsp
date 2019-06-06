@@ -42,6 +42,8 @@
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+	<link rel="stylesheet" href="resources/css/cserAddjobOpningCS.css" />
+
 <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script>
@@ -58,78 +60,6 @@
 
 
 
-<style>
-.row {
-	text-align: center;
-}
-
-.appperiod-hidden-tel, .appperiod-hidden-online {
-	display: none;
-}
-
-.jobcho1 {
-	width: 25%;
-}
-
-.jobcho1, .jobcho2 {
-	display: inline-block;
-}
-
-.jobcho2 {
-	width: 70%;
-	height: 300px;
-	/* background-color:black; */
-}
-
-.col-md-12 * {
-	font-family: 'Noto Sans KR', sans-serif !important;
-}
-
-.div-cont {
-	width: 800px;
-	text-align: left;
-	margin: 0 auto;
-	padding: 0 0 0 100px;
-}
-
-.div-cont input {
-	padding: 4px 10px 9px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	margin: 0 0 20px 20px;
-}
-
-.jobchoice {
-	width: 350px;
-}
-
-.card {
-	height: 100%;
-}
-
-.div-cont input[type=text]:focus, .div-cont input[type=text]:hover {
-	border: 2px solid #45a049;
-}
-
-.custom-checkbox{
-display:inline-block;   
-margin: 0 0 0 20px;
-}
-
-.checkbox-line1{
-display:inline-block;
-}
-
-.recruitper-radio1 ,.custom-radio{
-display:inline-block;
-}
-
-.custom-control-label{
-color:black !important;
-}
-</style>
 
 
 
@@ -232,7 +162,7 @@ color:black !important;
 										<div class="col-md-12">
 
 											<div class="addjob-1">
-												<h2>어떤알바생을 원하세요?</h2>
+												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
 
 												<div class="div-cont">
 													직종/업무: <input type="text" class="jobchoice" />
@@ -274,7 +204,7 @@ color:black !important;
 													
 												
 												
-												<br> <br> 
+											
 												
 														<div class="checkbox-line1">
 													고용형태:
@@ -320,7 +250,7 @@ color:black !important;
 										<div class="addjob-2">
 
 											<div class="div-cont">
-												모집요강(*)필수입력 사항 입니다.
+												<h5 class="div-cont-title">모집요강(*)</h5> 
 												<div class="Recruitmentrule">
 
 													<div class="recruitper">
@@ -358,7 +288,8 @@ color:black !important;
 													</div>
 
 													<div class="Recruitment-time">
-														모집시작일: 오늘날짜<br> 모집종료일 : <input type="text"
+														모집시작일: 오늘날짜<br><br> 
+														모집종료일 : <input type="text"
 															class="Recruitment-endtime" placeholder="ex)2019-05-08">
 
 													</div>
@@ -384,10 +315,12 @@ color:black !important;
 										<div class="addjob-3">
 
 											<div class="div-cont">
-												자격조건 우대조건
+											
+											<h5 class="div-cont-title">자격조건 우대조건</h5> 
+											
 												<div class="preconditions">
 
-													<div class="recruitper">
+												
 													
 													<div class="checkbox-line1">
 													학력(*):
@@ -416,11 +349,11 @@ color:black !important;
 															<option>석사졸업이상</option>
 															<option>박사졸업이상</option>
 															<option>졸업예정</option>
-														</select><br> 기타 학력사항 <input type="text"
+														</select><br>
+														
+														 기타 학력사항: <input type="text"
 															class="preconditions-Other-txt" />
-													</div>
-
-
+													
 													<div class="Major">
 														전공/학과: <input type="text"
 															class="preconditions-Other-major"
@@ -431,15 +364,16 @@ color:black !important;
 													<div class="preterms-txt">
 														우대조건 <br>
 														<textarea></textarea>
-														<br>
+														
 
 													</div>
+													
 												</div>
 
 
 											</div>
 
-
+										<br>
 
 
 											<hr>
@@ -453,14 +387,21 @@ color:black !important;
 										<div class="addjob-4">
 
 											<div class="div-cont">
-												근무조건
+											<h5 class="div-cont-title">근무조건</h5>
+												
 												<div class="workcon">
 
 													<div class="workcon-salary">
 														급여(*):<input type="text" class="salary-txt" />원
 													</div>
 													<div class="workcon-map">
-														근무지역 <br> 맵점여
+														근무지역  
+														<div class="search">
+						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
+						<input id="submit" type="button" value="주소 검색" />
+						<input type="hidden" id="coordinate" name="coordinate" value=""/>
+					</div>
+					<div id="map" style="width:100%;height:400px; margin:0 0 40px 0"></div>
 													</div>
 
 												</div>
@@ -479,7 +420,8 @@ color:black !important;
 										<div class="addjob-5">
 
 											<div class="div-cont">
-												접수 방법
+											<h5 class="div-cont-title">접수 방법</h5>
+												
 												<div class="appperiod">
 
 													<div class="appperiod-how">
@@ -521,16 +463,21 @@ color:black !important;
 													</div>
 
 													<div id="appperiod-hidden-tel" class="appperiod-hidden-tel">
-														담당자 번호: <input type="text" class="President-num">-<input
-															type="text" class="President-num1">-<input
-															type="text" class="President-num2">
+														담당자 번호: <select class="President-num">
+																<option>010</option>
+																<option>011</option>
+																<option>016</option>
+																<option>017</option>
+																<option>019</option>
+														</select>
+														-<input type="text" class="President-num1"> -<input type="text" class="President-num2">
 
 
 													</div>
 
 													<div id="appperiod-hidden-online"
-														class="appperiod-hidden-online">
-
+														class="appperiod-hidden-online"><br>
+	
 														<div class="documents">
 															필요한 제출서류<br>
 															<textarea>
@@ -565,7 +512,9 @@ color:black !important;
 											<div class="div-cont">
 												<div class="Recruitment-title-div"
 													id="Recruitment-title-div">
-													체용 제목 <input type="text" class="Recruitment-title" />
+													
+													<h5 class="div-cont-title">채용제목</h5> 
+													<input type="text" class="Recruitment-title" />
 
 
 													<p id="innertest" class="innertest"></p>
@@ -621,11 +570,9 @@ color:black !important;
 				</div>
 				<div class="modal-body">
 					<div class="jobcho1"></div>
-					<div class="jobcho2">
-						<ul class="jobcho-detail2">
-
-						</ul>
-					</div>
+					<div class="jobcho2"></div>
+					<div class="jobcho3"></div>
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -734,5 +681,8 @@ color:black !important;
 
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
+<script src="resources/js/map.js?ver=5"></script>
 </body>
 </html>
