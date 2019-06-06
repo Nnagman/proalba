@@ -32,4 +32,8 @@ public class SalaryServiceImple implements SalaryService{
 	public SalaryVO select_salary(String sa_code) throws Exception {
 		return salaryDAO.select_salary(sa_code);
 	}
+	@Override
+	public void insert_salary(String sa_code) throws Exception {
+		salaryDAO.insert_salary(sa_code);
+	}
 }

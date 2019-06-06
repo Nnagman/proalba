@@ -59,5 +59,15 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	public void mobileWorkRecordInsert(Map<String, String> map) throws Exception {
 		sqlSession.insert(NAMESPACE+".mobileWorkRecordInsert", map);
 	}
+
+	@Override
+	public void mobileStartWork(Map<String, String> map) throws Exception {
+		sqlSession.insert(NAMESPACE+".mobileStartWork", map);
+	}
+
+	@Override
+	public void mobileEndWork(Map<String, String> map) throws Exception {
+		sqlSession.update(NAMESPACE+".mobileEndWork", map);
+	}
 	
 }

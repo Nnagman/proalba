@@ -19,4 +19,6 @@ public interface MobileAttendanceDAO {
 	void mobileWorkRecordUpdate(Map<String, String> map) throws Exception;
 	void mobileWorkRecordDelete(String delete_w_code) throws Exception;
 	void mobileWorkRecordInsert(Map<String, String> map) throws Exception;
+	void mobileStartWork(Map<String, String> map) throws Exception;
+	void mobileEndWork(Map<String, String> map) throws Exception;
 }

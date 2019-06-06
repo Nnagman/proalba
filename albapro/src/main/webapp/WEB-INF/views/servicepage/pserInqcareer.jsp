@@ -137,8 +137,12 @@
 													<tr>
 														<td>${row.work_place_name}</td>
 														<td>${row.join_date}</td>
-														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
-														<c:if test="${row.end_date == null}"><td>현재 근무 중인 사업장입니다.</td></c:if>
+														<c:if test="${row.end_date != null}">
+															<td>${row.end_date}</td>
+														</c:if>
+														<c:if test="${row.end_date == null}">
+															<td>아직 근무 중입니다.</td>
+														</c:if>
 													</tr>
 												</c:forEach>
 											</tbody>
