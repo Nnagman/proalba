@@ -195,10 +195,10 @@ display:inline-block;
 								class="material-icons">person</i> 직원 관리
 						</a></li>
 
-						<li class="nav-item "><a class="nav-link"
+						<%-- <li class="nav-item "><a class="nav-link"
 							href="${path}/proalba/comm"> <i class="material-icons">bubble_chart</i>
 								커뮤니티
-						</a></li>
+						</a></li> --%>
 
 					</ul>
 				</div>
@@ -291,8 +291,8 @@ display:inline-block;
 
 													<div class="recruitper">
 														모집인원(*): <input type="text" class="recruitper-txt" /> <input
-															type="radio" class="recruitper-radio1" />0명 <input
-															type="radio" class="recruitper-radio2" />00명
+															type="radio" class="recruitper-radio1" name="ff" />0명 <input
+															type="radio" class="recruitper-radio2" name="ff" />00명
 													</div>
 
 
@@ -464,7 +464,7 @@ display:inline-block;
 											<div class="div-cont">
 												<div class="Recruitment-title-div"
 													id="Recruitment-title-div">
-													체용 제목 <input type="text" class="Recruitment-title" />
+													채용 제목 <input type="text" class="Recruitment-title" />
 
 
 													<p id="innertest" class="innertest"></p>

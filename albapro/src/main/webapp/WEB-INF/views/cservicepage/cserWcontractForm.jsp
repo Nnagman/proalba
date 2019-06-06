@@ -24,7 +24,7 @@
 .row{ text-align:center; }
 .tex{ margin-left:0px; }
 .tex3{ margin-left:0px; }
-
+.sss{font-size: 12px; color: red; font-weight:lighter;}
 </style>
 
 </head>
@@ -72,12 +72,12 @@
             </a>
           </li>
 
-          <li class="nav-item ">
+          <%-- <li class="nav-item ">
             <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>
@@ -127,9 +127,10 @@
                         		<br><br>
                         		
 					시급:			<input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" />
-								<span>원</span>
-								<br><br>
-					
+								<span>원</span>		
+					<span class="sss">　(2019년 최저시급: 8350원)</span>
+								<br>
+								<br>
 					기타 급여(재수당 등):
 								<input class="ra" id="y" name="additional_wage" type="radio" value="1" /><span>있음 </span>
 								<input class="ra" id="n" name="additional_wage" type="radio" value="0" /><span>없음 </span>
