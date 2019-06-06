@@ -42,6 +42,8 @@
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+	<link rel="stylesheet" href="resources/css/cserAddjobOpningCS.css" />
+
 <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script>
@@ -58,70 +60,6 @@
 
 
 
-<style>
-.row {
-	text-align: center;
-}
-
-.appperiod-hidden-tel, .appperiod-hidden-online {
-	display: none;
-}
-
-.jobcho1 {
-	width: 25%;
-}
-
-.jobcho1, .jobcho2 {
-	display: inline-block;
-}
-
-.jobcho2 {
-	width: 70%;
-	height: 300px;
-	/* background-color:black; */
-}
-
-.col-md-12 * {
-	font-family: 'Noto Sans KR', sans-serif !important;
-}
-
-.div-cont {
-	width: 800px;
-	text-align: left;
-	margin: 0 auto;
-	padding: 0 0 0 100px;
-}
-
-.div-cont input {
-	padding: 4px 10px 9px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	margin: 0 0 20px 20px;
-}
-
-.jobchoice {
-	width: 350px;
-}
-
-.card {
-	height: 100%;
-}
-
-.div-cont input[type=text]:focus, .div-cont input[type=text]:hover {
-	border: 2px solid #45a049;
-}
-
-.custom-checkbox{
-display:inline-block;   
-margin: 0 0 0 20px;
-}
-
-.checkbox-line1{
-display:inline-block;
-}
-</style>
 
 
 
@@ -224,7 +162,7 @@ display:inline-block;
 										<div class="col-md-12">
 
 											<div class="addjob-1">
-												<h2>어떤알바생을 원하세요?</h2>
+												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
 
 												<div class="div-cont">
 													직종/업무: <input type="text" class="jobchoice" />
@@ -265,10 +203,36 @@ display:inline-block;
 													</div>
 													
 												
-													<br> <br> 고용형태: <input type="checkbox"
-														class="jobchoice1">정규직 <input type="checkbox"
-														class="jobchoice2">계약직 <input type="checkbox"
-														class="jobchoice3">아르바이트
+												
+											
+												
+														<div class="checkbox-line1">
+													고용형태:
+													<div class="custom-control custom-checkbox">
+													
+														<input type="checkbox"
+															class="jobchoice1 custom-control-input"
+															id="jobUnchecked"> <label
+															class="custom-control-label" for="jobUnchecked">정규직</label>
+													</div>
+													
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox"
+															class="jobchoice2 custom-control-input"
+															id="jobUnchecked1"> <label
+															class="custom-control-label" for="jobUnchecked1">계약직</label>
+													</div>	
+													
+													<div class="custom-control custom-checkbox">	
+														<input type="checkbox"
+															class="jobchoice3 custom-control-input"
+															id="jobUnchecked2"> <label
+															class="custom-control-label" for="jobUnchecked2">아르바이트</label>
+													</div>
+													</div>
+												
+												
+													
 												</div>
 
 											</div>
@@ -286,15 +250,43 @@ display:inline-block;
 										<div class="addjob-2">
 
 											<div class="div-cont">
-												모집요강(*)필수입력 사항 입니다.
+												<h5 class="div-cont-title">모집요강(*)</h5> 
 												<div class="Recruitmentrule">
 
 													<div class="recruitper">
+<<<<<<< HEAD
+													
+=======
 														모집인원(*): <input type="text" class="recruitper-txt" /> <input
 															type="radio" class="recruitper-radio1" name="ff" />0명 <input
 															type="radio" class="recruitper-radio2" name="ff" />00명
 													</div>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
+													
+													<div class="radio-line1">
+													<!-- Default unchecked -->
+												모집인원(*): <input type="text" class="recruitper-txt" />명
+														<div class="custom-control custom-radio">
+															 <input
+																type="radio"
+																class="recruitper-radio1 custom-control-input"
+																id="Recru-radio1" name="defaultExampleRadios">
+															<label class=" custom-control-label"
+																for="Recru-radio1">0명</label> 
+															</div>
+															
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="recruitper-radio1 custom-control-input"
+																id="Recru-radio2" name="defaultExampleRadios">
+															<label class=" custom-control-label"
+																for="Recru-radio2">00명</label>
+														</div>
+
+													</div>
+													</div>
 
 													<div class="assignedtask">
 														담당업무: <input type="text" class="assignedtask-txt"
@@ -303,7 +295,8 @@ display:inline-block;
 													</div>
 
 													<div class="Recruitment-time">
-														모집시작일: 오늘날짜<br> 모집종료일 : <input type="text"
+														모집시작일: 오늘날짜<br><br> 
+														모집종료일 : <input type="text"
 															class="Recruitment-endtime" placeholder="ex)2019-05-08">
 
 													</div>
@@ -329,23 +322,45 @@ display:inline-block;
 										<div class="addjob-3">
 
 											<div class="div-cont">
-												자격조건 우대조건
+											
+											<h5 class="div-cont-title">자격조건 우대조건</h5> 
+											
 												<div class="preconditions">
 
-													<div class="recruitper">
-														학력(*):<input type="checkbox" class="preconditions1" />무관 <input
-															type="checkbox" class="preconditions2" />제한 <select>
+												
+													
+													<div class="checkbox-line1">
+													학력(*):
+													<div class="custom-control custom-checkbox">
+													
+														<input type="checkbox"
+															class="jobchoice1 custom-control-input"
+															id="recruUnchecked"> <label
+															class="custom-control-label" for="recruUnchecked">무관</label>
+													</div>
+													
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox"
+															class="jobchoice2 custom-control-input"
+															id="recruUnchecked1"> <label
+															class="custom-control-label" for="recruUnchecked1">제한</label>
+													</div>	
+													
+												
+													</div>
+											
+													 <select>
 															<option>고등학교졸업이상</option>
 															<option>대학졸업(2,3년)이상</option>
 															<option>대학졸업(4년)이상</option>
 															<option>석사졸업이상</option>
 															<option>박사졸업이상</option>
 															<option>졸업예정</option>
-														</select><br> 기타 학력사항 <input type="text"
+														</select><br>
+														
+														 기타 학력사항: <input type="text"
 															class="preconditions-Other-txt" />
-													</div>
-
-
+													
 													<div class="Major">
 														전공/학과: <input type="text"
 															class="preconditions-Other-major"
@@ -356,15 +371,16 @@ display:inline-block;
 													<div class="preterms-txt">
 														우대조건 <br>
 														<textarea></textarea>
-														<br>
+														
 
 													</div>
+													
 												</div>
 
 
 											</div>
 
-
+										<br>
 
 
 											<hr>
@@ -378,14 +394,21 @@ display:inline-block;
 										<div class="addjob-4">
 
 											<div class="div-cont">
-												근무조건
+											<h5 class="div-cont-title">근무조건</h5>
+												
 												<div class="workcon">
 
 													<div class="workcon-salary">
 														급여(*):<input type="text" class="salary-txt" />원
 													</div>
 													<div class="workcon-map">
-														근무지역 <br> 맵점여
+														근무지역  
+														<div class="search">
+						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
+						<input id="submit" type="button" value="주소 검색" />
+						<input type="hidden" id="coordinate" name="coordinate" value=""/>
+					</div>
+					<div id="map" style="width:100%;height:400px; margin:0 0 40px 0"></div>
 													</div>
 
 												</div>
@@ -404,32 +427,64 @@ display:inline-block;
 										<div class="addjob-5">
 
 											<div class="div-cont">
-												접수 방법
+											<h5 class="div-cont-title">접수 방법</h5>
+												
 												<div class="appperiod">
 
 													<div class="appperiod-how">
-														<input type="radio" id="appperiod-online"
-															name="appperiod-name" class="appperiod-online"
-															onclick="hiddendiv()">온라인 접수 <input type="radio"
-															id="appperiod-tel" name="appperiod-name"
-															class="appperiod-tel" onclick="hiddendiv()">전화 접수
-														<input type="radio" id="appperiod-Visit"
-															name="appperiod-name" class="appperiod-Visit"
-															onclick="hiddendiv()">방문 접수
+													
+													
+													<div class="custom-control custom-radio">
+															 <input
+																type="radio"
+																class="appperiod-online custom-control-input"
+																id="appperiod-online" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-online">온라인 접수</label> 
+															</div>
+															
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="appperiod-tel custom-control-input"
+																id="appperiod-tel" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-tel">전화 접수</label>
+														</div>
+														
+														<div class="custom-control custom-radio">
+															
+															<input type="radio"
+																class="appperiod-Visit custom-control-input"
+																id="appperiod-Visit" name="defaultExampleRadios"
+																onclick="hiddendiv()">
+															<label class=" custom-control-label"
+																for="appperiod-Visit">방문접수</label>
+														</div>
+													
+													
+														
 
 													</div>
 
 													<div id="appperiod-hidden-tel" class="appperiod-hidden-tel">
-														담당자 번호: <input type="text" class="President-num">-<input
-															type="text" class="President-num1">-<input
-															type="text" class="President-num2">
+														담당자 번호: <select class="President-num">
+																<option>010</option>
+																<option>011</option>
+																<option>016</option>
+																<option>017</option>
+																<option>019</option>
+														</select>
+														-<input type="text" class="President-num1"> -<input type="text" class="President-num2">
 
 
 													</div>
 
 													<div id="appperiod-hidden-online"
-														class="appperiod-hidden-online">
-
+														class="appperiod-hidden-online"><br>
+	
 														<div class="documents">
 															필요한 제출서류<br>
 															<textarea>
@@ -464,7 +519,13 @@ display:inline-block;
 											<div class="div-cont">
 												<div class="Recruitment-title-div"
 													id="Recruitment-title-div">
+<<<<<<< HEAD
+													
+													<h5 class="div-cont-title">채용제목</h5> 
+													<input type="text" class="Recruitment-title" />
+=======
 													채용 제목 <input type="text" class="Recruitment-title" />
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 
 													<p id="innertest" class="innertest"></p>
@@ -520,11 +581,9 @@ display:inline-block;
 				</div>
 				<div class="modal-body">
 					<div class="jobcho1"></div>
-					<div class="jobcho2">
-						<ul class="jobcho-detail2">
-
-						</ul>
-					</div>
+					<div class="jobcho2"></div>
+					<div class="jobcho3"></div>
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -633,5 +692,8 @@ display:inline-block;
 
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
+<script src="resources/js/map.js?ver=5"></script>
 </body>
 </html>
