@@ -133,10 +133,10 @@
 								class="material-icons">person</i> 직원 관리
 						</a></li>
 
-						<li class="nav-item "><a class="nav-link"
+						<%-- <li class="nav-item "><a class="nav-link"
 							href="${path}/proalba/comm"> <i class="material-icons">bubble_chart</i>
 								커뮤니티
-						</a></li>
+						</a></li> --%>
 
 					</ul>
 				</div>
@@ -254,7 +254,14 @@
 												<div class="Recruitmentrule">
 
 													<div class="recruitper">
+<<<<<<< HEAD
 													
+=======
+														모집인원(*): <input type="text" class="recruitper-txt" /> <input
+															type="radio" class="recruitper-radio1" name="ff" />0명 <input
+															type="radio" class="recruitper-radio2" name="ff" />00명
+													</div>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 													
 													<div class="radio-line1">
@@ -512,9 +519,13 @@
 											<div class="div-cont">
 												<div class="Recruitment-title-div"
 													id="Recruitment-title-div">
+<<<<<<< HEAD
 													
 													<h5 class="div-cont-title">채용제목</h5> 
 													<input type="text" class="Recruitment-title" />
+=======
+													채용 제목 <input type="text" class="Recruitment-title" />
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
 
 													<p id="innertest" class="innertest"></p>

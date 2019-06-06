@@ -31,18 +31,18 @@
 
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c1" name="c1" />
-							 프로알바 이용약관 동의 (필수)<br />
 							</label>
+							 프로알바 <a href="articles">이용약관</a> 동의 (필수)<br />
 						</p>
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c2" name="c2" /> 
-							개인정보 처리방침 동의 (필수)<br />
 							</label>
+							<a href="pdata">개인정보처리방침</a> 동의 (필수)<br />
 						</p>
 						<p>
-							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" /> 
-							이메일, SMS알림 수신 동의 (선택)<br />
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" />
 							</label>
+							이메일, SMS알림 수신 동의 (선택)<br />
 						</p>
 					</div>
 				</form>

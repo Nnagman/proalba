@@ -185,6 +185,21 @@ font-weight: bold;
 		font-family: 'Noto Sans KR', sans-serif !important;
 }
 
+/* 서비스 소개 */
+.serviceBox{
+	width: 90%;
+	height: 120px;
+	line-height: 120px;
+	border: 1px solid #EAEAEA;
+	background-color: #F3F3F3; 
+	font-size: 
+}
+
+.row{
+	padding-left: 30px;
+}
+
+
 
 .footer-icon{
 	font-size:30px;
@@ -220,4 +235,5 @@ footer.page-footer{
 	/* height:100% !important; */
 /* 	margin-top:50px; */
 }
+
 

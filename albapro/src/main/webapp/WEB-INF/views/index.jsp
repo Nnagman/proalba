@@ -101,31 +101,36 @@
 
   <div class="row">
     <div class="col con2-div-p">
-      <i class="fas fa-file-contract con2-icon"></i><br><Br>
-  	간단한 근로 계약
+    	<div class="serviceBox">
+    	  	간단한 근로 계약
+    	</div>
     </div>
     <div class="col con2-div-p">
-    <i class="fas fa-user-clock con2-icon"></i><br><Br>
-    근로시간에 따른 급여 계산
+    	<div class="serviceBox">
+    		근로시간에 따른 급여 계산
+    	</div>
     </div>
     <div class="col con2-div-p">
-     <i class="fas fa-cubes con2-icon"></i><Br><Br>
-     블록체인으로 저장되는 경력
+    	<div class="serviceBox">
+     		블록체인으로 저장되는 경력
+     	</div>
     </div>
   </div>
   <div class="row">
     <div class="col con2-div-p">
-     <i class="fas fa-fingerprint con2-icon"></i><br><Br>
-    	지문인식을 통한 출석 체크
+    	<div class="serviceBox">
+    		지문인식을 통한 출석 체크
+    	</div>
     </div>
     <div class="col con2-div-p">
-
-  	  <i class="far fa-handshake con2-icon"></i><br><Br>
-       확실한 급여 계산
+    	<div class="serviceBox">
+      		 확실한 급여 계산
+      	</div>
     </div>
     <div class="col con2-div-p">
-     <i class="far fa-calendar-alt con2-icon"></i><br><br>
-    	알바생의 근태 관리
+    	<div class="serviceBox">
+    		알바생의 근태 관리
+    	</div>
     </div>
   </div>
  </section>
