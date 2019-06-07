@@ -149,6 +149,7 @@
 		 				
 		 				사업자번호:
 		 						${login.b_number}
+		 						<input type="hidden" value="${login.b_number}" name="b_number"/>
 		 						<br><br>
 		 						
 		 				대표자:	<input class="tex8" name="b_name" type="text" />
