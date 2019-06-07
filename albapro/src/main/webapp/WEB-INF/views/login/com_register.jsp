@@ -25,7 +25,7 @@
 				</div>
 
 				<!--개인 정보 동의 -->
-				<form id="agree_form" method="post" action="">
+				<form id="agree_form">
 					<div class="all_agree">
 						<p>
 							<label></label> <input type="checkbox" id="all" name="all" />
@@ -54,7 +54,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" method="post" action="cregister">
+				<form name="signUpForm" id="form">
 				
 					<table>
 						<tbody>
@@ -98,11 +98,13 @@
 										<option value="016">017</option>
 										<option value="018">018</option>
 										<option value="019">019</option>
-								</select> - <input id="dev_hphone2" name="Phone2" class="tBox tPhone"
-									type="text" title="휴대폰 번호" value="" size="4" maxlength="4"
-									autocomplete="off"> - <input id="dev_hphone3"
-									name="Phone3" class="tBox tPhone" type="text" title="휴대폰 번호"
-									value="" size="4" maxlength="4" autocomplete="off"></td>
+								</select> - 
+									<input id="dev_hphone2" name="Phone2" class="tBox tPhone" type="text" title="휴대폰 번호" value="" size="4" maxlength="4"
+									autocomplete="off"> - 
+									<input id="dev_hphone3" name="Phone3" class="tBox tPhone" type="text" title="휴대폰 번호"
+									value="" size="4" maxlength="4" autocomplete="off">
+                                    <input id="phone" name="phone" value="" type="hidden"/>
+									</td>
 							</tr>
 
 
@@ -116,17 +118,20 @@
               <tr>
                 <th>사업자등록번호</th>
                 <td>
-                  <input type="text" class="tBox comName" name="b_number" id="comName" size="10" maxlength="10">
-                    <input type="button" name="comName_check" id="comName_check" value="확인">
-                    <input name="name" type="hidden">
-                    <input name="email" type="hidden">
-                    <input name="birthday" type="hidden">
-                    <input name="sex" type="hidden">
-                    <input id="m_code" name="m_code" type="hidden" value="c">
+                  <input type="text" class="tBox comNum" name="b_number" id="comNum" size="10" maxlength="10" value="">
+                    <input type="button" name="comNum_check" id="comNum_check" value="확인">
                 </td>
               </tr>
-						</tbody>
-					</table>
+              
+              <tr>
+              	<th>사업체명</th>
+              	<td>
+              		<input type="text" class="tBox comName" name="work_place_name" id="comName" size="25" maxlength="25">
+                    <input id="m_code" name="m_code" type="hidden" value="c">
+              	</td>
+              </tr>
+			</tbody>
+		</table>
 					<div class="search" style="margin-left:20%;">
 						<input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
 						<input id="submit" type="button" value="주소 검색" />
@@ -134,13 +139,151 @@
 					</div>
 					<div id="map" style="width:60%;height:400px; margin-left:20%;"></div>
 					<div class="btnfield">
-						<input type="submit" id="btn_signup" value="가입하기" disabled>
+						<button class="btn btn-dark" id="btn_signup" value="가입하기" disabled>가입하기</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+       //이용약관 동의
+ var doc = document;
+ var agree_form = doc.getElementById('agree_form');
+ var inputs = agree_form.getElementsByTagName('INPUT');
+ var agree_form_data = {
+   "c1": false,
+   "c2": false,
+   "c3": false
+ };
+ var c1 = doc.getElementById('c1');
+ var c2 = doc.getElementById('c2');
+ var c3 = doc.getElementById('c3');
+ function checkboxListener() {
+   agree_form_data[this.name] = this.checked;
+   if(this.checked) {
+     // submit 할때 체크하지 않아 색이 변한 font 를 다시 원래 색으로 바꾸는 부분.
+     this.parentNode.style.color = "#000";
+   }
+ }
+   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+   var all = doc.getElementById('all');
+   all.onclick = function() {
+     if (this.checked) {
+       setCheckbox(agree_form_data, true);
+     } else {
+       setCheckbox(agree_form_data, false);
+     }
+   };
+   function setCheckbox(obj, state) {
+     for (var x in obj) {
+       obj[x] = state;
+       for(var i = 0; i < inputs.length; i++) {
+         if(inputs[i].type == "checkbox") {
+           inputs[i].checked = state;
+         }
+       }
+     }
+   }
+       </script>
+       <script>
+            $(document).ready(function(){
+             $("#passwd_success").hide();
+             $("#passwd_danger").hide();
+             $("#dev_pwdconfirm").keyup(function(){
+                     var pwd1=$("#dev_pwd1").val();
+                     var pwd2=$("#dev_pwdconfirm").val();
+                     if(pwd1 != "" || pwd2 != ""){
+                             if(pwd1 == pwd2){
+                                     $("#passwd_success").show();
+                                     $("#passwd_danger").hide();
+                                     $("#submit").removeAttr("disabled");
+                             }else{
+                                     $("#passwd_success").hide();
+                                     $("#passwd_danger").show();
+                                     $("#submit").attr("disabled", "disabled");
+                             }
+                     }
+             });
+		
+
+
+        $("#double_check").click(function(){
+			var id = $("#id").val();
+			
+			$.ajax({
+				async: false,
+				type: 'POST',
+				data: id,
+				url: 'http://39.127.7.54:8080/proalba/idcheck',
+				dataType: 'json',
+				contentType: 'application/json; charset=UTF-8',
+				success: function(data){
+	                if (data.cnt > 0) {
+	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
+	                    $("#dev_idchk").focus();
+	                } else {
+	                    alert("사용가능한 아이디입니다.");
+	                    $("#dev_pwd1").focus();
+	                    $("#btn_signup").removeAttr("disabled");
+	                    $("#dev_idchk").attr("disabled");
+	            		var m_code = 'p'+$('#id').val();
+	            		console.log(m_code);
+	            		$("#m_code").val(m_code);
+	                }
+	            },
+	            error : function(error) {
+	                alert("error : " + error);
+	            }
+			});
+		});
+        
+		$("#email_select").change(function () {
+		    if ($("#email_select").val() != "1") {
+		      $("#dev_mail_etc").val($("#email_select").val());
+		      $("#dev_mail_etc").attr("disabled", true);
+		    }
+		    if ($("#email_select").val() == "1") {
+		      $("#dev_mail_etc").attr("disabled", false);
+		    }
+		  });
+
+        $("#btn_signup").click(function(){
+            var pnum1,pnum2,pnum3,p_Number;
+            pnum1 = $("select[name=Phone1]").val();
+            pnum2 = $("#dev_hphone2").val();
+			pnum3 = $("#dev_hphone3").val();
+			p_Number = pnum1+pnum2+pnum3;
+			$( "#phone" ).val("");
+			$("#phone").val(p_Number);
+			console.log($("#phone").val());
+			console.log(pnum1);
+			console.log(pnum2);
+            console.log(pnum3);
+			
+            var formData = $("#form").serialize(); 
+			$.ajax({
+				async: false,
+				type: 'POST',
+				data: formData,
+				url: 'http://39.127.7.54:8080/proalba/cregister',
+				success: function(data){
+                    alert("회원가입성공!");
+	            },
+	            error : function(error) {
+	                alert("error : " + error);
+	            }
+			});
+			
+			//핸드폰 번호 숫자만 입력받기.
+			$(".tPhone").on("keyup", function(){
+				 $(this).val($(this).val().replace(/[^0-9]/g,""));
+			});
+
+		});
+    });      
+            </script>
+
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
 <script src="resources/js/map.js?ver=5"></script>

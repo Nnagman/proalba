@@ -14,4 +14,5 @@ public class MemberVO {
 	private String sex;
 	private String b_number;
 	private String coordinate;
+	private String work_place_name;
 }
