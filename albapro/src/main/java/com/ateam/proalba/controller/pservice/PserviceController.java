@@ -21,6 +21,7 @@ import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 
@@ -68,21 +69,43 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/pserSalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
-		System.out.println("넘어왔어용");
+	public ModelAndView inqsalaryGET(Model model,@RequestParam("id") String id,@RequestParam("work_place_name") String work_place_name) throws Exception {
 		logger.info("Welcome inqsalaryPage");
 		
-		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
-	    logger.info(id);
-		model.addAttribute("message", "inqsalaryPage");
-		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(criteria, id));
+		Map<String, String> id_work_place_name = new HashMap<String, String>();
+		id_work_place_name.put("id", id);
+		id_work_place_name.put("work_place_name", work_place_name);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pserSalary");
+		
+		List<SalaryVO> list = salaryService.pserSalary(id_work_place_name);
+		
+		JSONArray pJson = JSONArray.fromObject(list);
 		model.addAttribute("salarys", pJson);
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
-		return "servicepage/pserSalary";
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		mav.addObject("salarys", pJson);
+		
+		System.out.println("SalaryVO List : " + mav);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/pserworkList", method = RequestMethod.GET)
+	public ModelAndView pworkListGET(Model model,@RequestParam("id") String id) throws Exception {
+		model.addAttribute("message", "");
+		List<CareerVO> list = careerService.selectCareers("p"+id);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pserworkList");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 		
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)

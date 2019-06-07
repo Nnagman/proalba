@@ -43,6 +43,7 @@
 
 
 <body>
+<c:if test="${login.id != null}">
 	<div class="wrapper">
 		<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
@@ -368,6 +369,6 @@
   
   
 
- 
+ </c:if>
 </body>
 </html>
