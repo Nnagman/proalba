@@ -90,7 +90,7 @@
             <h3 class="contract_title">전자 근로 계약서</h3>
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
-                    <input type="hidden" name="c_id" value="${login.id}" />
+                    <input type="hidden" name="c_id" value="c${login.id}" />
                     <input type="hidden" name="c_code" value="${contract.c_code}" />
                     <div>
                     ${fn:substring(contract.start_period,0,10)}

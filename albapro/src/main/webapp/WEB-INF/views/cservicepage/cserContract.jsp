@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-      <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-    <%@ page import="java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
@@ -95,12 +94,12 @@ margin-top:20px;
               급여 관리
             </a>
           </li> --%>
-          <li class="nav-item ">
+          <%-- <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>

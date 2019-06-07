@@ -88,13 +88,13 @@
             </a>
           </li>
 
-           <li class="nav-item ">
+           <%-- <li class="nav-item ">
 
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>

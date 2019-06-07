@@ -46,9 +46,8 @@ function jsonout(){
 		
 		
 	}
-	
 	$('.jobcho-de').click(function(){
-		var modal2= $('.jobcho-detail2');
+		var modal2= $('.jobcho2');
 		$(modal2).text('');
 	                          
 	  var id = $(this).attr('id');
@@ -58,7 +57,7 @@ function jsonout(){
 				
 				
 			
-					$('<li></li>').text(arrJobCodeMid.JOBCD[i].NM).appendTo(modal2);
+					$('<p></p>').addClass('jobcho-de2').text(arrJobCodeMid.JOBCD[i].NM).appendTo(modal2);
 				
 			
 				
@@ -68,6 +67,8 @@ function jsonout(){
 	   
 
 	});
+	
+
 
 		
 	};
@@ -77,7 +78,13 @@ function jsonout(){
 	
 	
 	
-	
+	$(document).on('click','.jobcho-de2',function(){
+		var modal3= $('.jobcho3');
+		var text = $(this).text();
+		
+		
+		$('<p></p>').addClass('jobcho-de3').text(text).appendTo(modal3);
+	});
 
 	
 	

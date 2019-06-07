@@ -11,13 +11,19 @@
        rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
 		 ]]>
 	</select>
-	    
-	     <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
+	
+	<insert id="insert_salary">
+		<![CDATA[
+			insert into salary(sa_code) values (#{sa_code})
+		]]>
+	</insert>
+	
+	<select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[
-	    select * from  salary_view
-      	where  sa_code=#{sa_code};
+	    select * from  salary
+      	where  sa_code=#{sa_code}
 	    ]]>
-	    </select>  
+	</select>  
 	 <!--    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[
 	      select sa_code, BASIC_SALARY, NATIONAL_PENSION_COST, HEALTH_INSURANCE_COST, EMPLOYMENT_INSURANCE_COST, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name

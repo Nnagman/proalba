@@ -51,4 +51,9 @@ public class SalaryDAOImple implements SalaryDAO {
 	public SalaryVO select_salary(String sa_code) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".select_salary", sa_code);
 	}
+
+	@Override
+	public void insert_salary(String sa_code) throws Exception {
+		sqlSession.insert(NAMESPACE + ".insert_salary", sa_code);
+	}
 }
