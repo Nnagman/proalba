@@ -27,6 +27,7 @@ import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
@@ -216,6 +217,18 @@ public class WorkmanageController {
 		logger.info("c id:  "+ id);
 		logger.info("Welcome CserviceController");
 		List<WorkManageVO> list = workManage.listAll(id);
+		logger.info(list.toString());
+		JSONArray pJson = JSONArray.fromObject(list);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value ="/m.csalary", method = RequestMethod.POST)
+	public JSON mcsalaryPOST(Model model, String id) throws Exception {
+		
+		logger.info("id:  "+ id);
+		logger.info("Welcome CserviceController");
+		List<MobileSalaryInfoVO> list = workManage.csalary(id);
 		logger.info(list.toString());
 		JSONArray pJson = JSONArray.fromObject(list);
 		return pJson;

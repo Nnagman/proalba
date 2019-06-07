@@ -33,4 +33,13 @@
 		FROM SALARY s, EMPLOYEE e, contract c
 		WHERE s.em_code = e.em_code AND e.m_code = c.p_id AND e.c_code = c.c_code AND e.m_code = #{m_code}
 	</select>
+	
+	<select id="csalary" resultType="com.ateam.proalba.domain.mobile.MobileSalaryInfoVO">
+		SELECT s.BASIC_SALARY, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, 
+		s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
+		FROM SALARY s, EMPLOYEE e, contract c
+		WHERE s.em_code = e.em_code AND e.m_code = c.p_id AND e.c_code = c.c_code
+        AND e.m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
+        AND SUBSTR(s.em_code,0,INSTR(s.em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
+	</select>
 </mapper>
