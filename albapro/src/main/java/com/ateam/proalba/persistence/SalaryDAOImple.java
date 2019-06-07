@@ -28,18 +28,8 @@ public class SalaryDAOImple implements SalaryDAO {
 	}
 
 	@Override
-	public List<SalaryVO> listCriteria(Criteria criteria, String id) throws Exception {
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum() + criteria.getPageStart()));
-		Map<String, Object> map = new HashMap<String, Object>();
-
-		/*
-		 * LoginDTO loginDTO = new LoginDTO(); loginDTO.setId("p_id");
-		 */ 
-		map.put("criteria", criteria);
-		map.put("id", id);
-
-		return sqlSession.selectList(NAMESPACE + ".listCriteria", map);
+	public List<SalaryVO> listCriteria(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".listCriteria", id);
 	}
 
 	@Override
@@ -55,5 +45,10 @@ public class SalaryDAOImple implements SalaryDAO {
 	@Override
 	public void insert_salary(String sa_code) throws Exception {
 		sqlSession.insert(NAMESPACE + ".insert_salary", sa_code);
+	}
+
+	@Override
+	public List<SalaryVO> pserSalary(Map<String, String> map) {
+		return sqlSession.selectList(NAMESPACE + ".pserSalary", map);
 	}
 }

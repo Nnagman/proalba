@@ -1,11 +1,15 @@
 package com.ateam.proalba.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 
 public interface WorkManageDAO {
 	
 	List<WorkManageVO> listAll(String id) throws Exception;
+
+	List<MobileAttendanceVO> workRecord(Map<String, String> map) throws Exception;
 
 }

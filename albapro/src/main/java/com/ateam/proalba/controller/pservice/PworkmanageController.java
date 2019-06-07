@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
-import com.ateam.proalba.service.mobile.MobileAttendanceService;
+import com.ateam.proalba.service.WorkManageService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,14 +23,18 @@ import org.slf4j.LoggerFactory;
 public class PworkmanageController {
 
 	@Autowired
-	MobileAttendanceService mobileAttendanceService;
+	WorkManageService workManageService;
 	private static final Logger logger = LoggerFactory.getLogger(PworkmanageController.class);
 	
 	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id) throws Exception {
-	
+	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id, @RequestParam("work_place_name") String work_place_name) throws Exception {
+		Map<String, String> id_work_place_name = new HashMap<String, String>();
+		id_work_place_name.put("id", id);
+		id_work_place_name.put("work_place_name", work_place_name);
+		System.out.println(id_work_place_name);
+		
 		model.addAttribute("message", "");
-		List<MobileAttendanceVO> list = mobileAttendanceService.mobileattendance(id);
+		List<MobileAttendanceVO> list = workManageService.workRecord(id_work_place_name);
 		logger.info("workManager:  "+list.toString());
 		logger.info(id);
 		
@@ -42,7 +46,6 @@ public class PworkmanageController {
 		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
 		return mav; // list.jsp濡� List媛� ���щ����.
 	}
-	
 }
 	
 

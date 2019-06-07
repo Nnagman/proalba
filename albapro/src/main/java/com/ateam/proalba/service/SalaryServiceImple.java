@@ -1,6 +1,7 @@
 package com.ateam.proalba.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -20,8 +21,8 @@ public class SalaryServiceImple implements SalaryService{
         this.salaryDAO = salaryDAO;
     }
 	@Override
-	public List<SalaryVO> listCriteria(Criteria criteria, String id) throws Exception {
-		return salaryDAO.listCriteria(criteria, id);
+	public List<SalaryVO> listCriteria(String id) throws Exception {
+		return salaryDAO.listCriteria(id);
 	}
 
 	@Override
@@ -35,5 +36,9 @@ public class SalaryServiceImple implements SalaryService{
 	@Override
 	public void insert_salary(String sa_code) throws Exception {
 		salaryDAO.insert_salary(sa_code);
+	}
+	@Override
+	public List<SalaryVO> pserSalary(Map<String, String> map) {
+		return salaryDAO.pserSalary(map);
 	}
 }
