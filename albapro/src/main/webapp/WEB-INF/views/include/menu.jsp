@@ -18,7 +18,7 @@
 		</li>
 		<li class="menuLi">
 		<c:if test="${login.id != null}">
-			<a id="pservice" class="menuLink" href="${path}/pworkmanage?id=${login.id}" target="blank">개인서비스</a>
+			<a id="pservice" class="menuLink" href="${path}/pserworkList?id=${login.id}" target="blank">개인서비스</a>
 		</c:if>
 		<c:if test="${login.id == null}">
 			<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>

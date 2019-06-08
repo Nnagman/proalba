@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
-import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
@@ -187,21 +185,13 @@ public class WorkmanageController {
 	
 	
 	@RequestMapping(value = "/cserSalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
-	
-	
-		
-		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
+	public String inqsalaryGET(Model model, String id) throws Exception {
+
 	    logger.info(id);
 	    model.addAttribute("salary_id", id);
 		model.addAttribute("message", "inqsalaryPage");
-		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(criteria, id));
+		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(id));
 		model.addAttribute("salarys", pJson);
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
 		logger.info(pJson.toString());
 		return "cservicepage/cserSalary";
 	}
@@ -216,6 +206,18 @@ public class WorkmanageController {
 		logger.info("c id:  "+ id);
 		logger.info("Welcome CserviceController");
 		List<WorkManageVO> list = workManage.listAll(id);
+		logger.info(list.toString());
+		JSONArray pJson = JSONArray.fromObject(list);
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value ="/m.csalary", method = RequestMethod.POST)
+	public JSON mcsalaryPOST(Model model, String id) throws Exception {
+		
+		logger.info("id:  "+ id);
+		logger.info("Welcome CserviceController");
+		List<MobileSalaryInfoVO> list = workManage.csalary(id);
 		logger.info(list.toString());
 		JSONArray pJson = JSONArray.fromObject(list);
 		return pJson;

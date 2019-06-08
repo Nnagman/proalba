@@ -64,7 +64,7 @@ margin-top:20px;
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="pserworkList?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
@@ -75,19 +75,6 @@ margin-top:20px;
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
             </a>
           </li>
           <li class="nav-item ">

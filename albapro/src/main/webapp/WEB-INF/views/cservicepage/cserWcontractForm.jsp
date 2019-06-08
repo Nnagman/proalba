@@ -144,11 +144,14 @@
            	</div>
            		<div class="col-md-12">
 		 			<div class="addjob-2">
-		 				사업체명:	<input class="tex8" name="work_place_name" type="text" style="z-index: 100;" />
+		 				사업체명:	
+		 						${login.work_place_name}
+		 						<input type="hidden" value="${login.work_place_name}" name="work_place_name"/>
 		 						<br><br>
 		 				
 		 				사업자번호:
 		 						${login.b_number}
+		 						<input type="hidden" value="${login.b_number}" name="b_number"/>
 		 						<br><br>
 		 						
 		 				대표자:	<input class="tex8" name="b_name" type="text" />
