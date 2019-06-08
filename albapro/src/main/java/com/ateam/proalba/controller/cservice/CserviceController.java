@@ -67,8 +67,16 @@ public class CserviceController {
 	@RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.GET)
 	public String addjobopeningfreeGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤");
+		model.addAttribute("message", "");
 		return "cservicepage/cserAddJobopening_free";
+		
+		/*
+		 * redirectAttributes.addFlashAttribute("msg", "POSTED");
+		 * model.addAttribute("message",
+		 * "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤"); return
+		 * "cservicepage/cserAddJobopening_free";
+		 */
+		
 	}
 
 	
