@@ -17,6 +17,11 @@ div{
     font-weight: bold;
 }
 
+.timepiker_txt_title {
+	margin-left: 12%;
+	vertical-align: middle;
+}
+
 .doller_addjob, .free_addjob{
 	position:relative;
     display:inline-block;

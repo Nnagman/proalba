@@ -2,32 +2,44 @@ function hiddendiv() {
 	var checkBox = document.getElementById("appperiod-tel");
 	var checkBox2 = document.getElementById("appperiod-online");
 	var checkBox3 = document.getElementById("appperiod-Visit");
-	var showdiv = document.getElementById("appperiod-hidden-tel");
-	var showdiv2 = document.getElementById("appperiod-hidden-online");
-	var checkpreconditionschoice2 = document.getElementById("recruUnchecked1");
+	var checkpreconditionschoice1 = document.getElementById("recruUnchecked1");
 	var select1 = document.getElementById("schcho");
 	
-	if (checkBox.checked == true) {
-		showdiv.style.display = "block";
-	} else {
-		showdiv.style.display = "none";
-	}
-
 	if (checkBox2.checked == true) {
-		showdiv2.style.display = "block";
-	} else {
-		showdiv2.style.display = "none";
-	}
-
-	if (checkBox3.checked == true) {
-		showdiv.style.display = "none";
-		showdiv2.style.display = "none";
+		var str1 = '<div id="appperiod-hidden-online"><br><div class="documents">필요한 제출서류<br><textarea form="form" name="documents"></textarea>';
+		var str2 = '</div><div class="interview">사전인터뷰<br><textarea form="form" name="interview"></textarea></div></div>';
+		$(".appperiod-how").append(str1+str2);
+		checkBox2.disabled = true;
 	}
 	
-	if (checkpreconditionschoice2.checked == true) {
-		select1.style.display = 'inline-block';	
-	}else{
-		select1.style.display ="none";
+	if (checkBox2.checked != true) {
+		$("#appperiod-hidden-online").remove();
+		checkBox2.disabled = false;
+	}
+
+	if (checkBox.checked == true) {
+		$("#appperiod-hidden-tel").remove();
+		var str1 = '<div id="appperiod-hidden-tel">담당자 번호:<select class="President-num"><option>010</option><option>011</option>';
+		var str2 = '<option>016</option><option>017</option><option>019</option></select> - <input type="text" class="President-num1"> -<input type="text" class="President-num2"></div>';
+		$(".appperiod-how").append(str1+str2);
+		
+		checkBox.disabled = true;
+	}
+	
+	if(checkBox.checked != true) {
+		$("#appperiod-hidden-tel").remove();
+		checkBox.disabled = false;
+	}
+	
+	if (checkpreconditionschoice1.checked == true) {
+		var str1 = '<select class="schcho" id="schcho"><option>고등학교졸업이상</option><option>대학졸업(2,3년)이상</option>';
+		var str2 = '<option>대학졸업(4년)이상</option><option>석사졸업이상</option><option>박사졸업이상</option><option>졸업예정</option></select>';
+		var str = str1 + str2;
+		$("#education_box").append(str);
+	}
+	
+	if (document.getElementById("recruUnchecked2").checked == true){
+		$("#schcho").remove();
 	}
 
 }
@@ -65,6 +77,7 @@ var st_date = new Date().toISOString().substr(0, 10).replace('T', ' ');
 $(document).ready(function(){
 	var tod = $('.today1');
 	$('<p></p>').text(st_date).appendTo(tod);	
+	$('<input type="hidden" name="p_date" value="'+st_date+'"/>');
 });
 
 function jsonout() {

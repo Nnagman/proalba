@@ -11,11 +11,11 @@
   border-spacing: 0px;
 border-collapse: separate;
 float:center;
+}
 
-
-
-
-
+.timepiker_txt_title {
+	margin-left: 12%;
+	vertical-align: middle;
 }
 
 .table_addjobopening td{

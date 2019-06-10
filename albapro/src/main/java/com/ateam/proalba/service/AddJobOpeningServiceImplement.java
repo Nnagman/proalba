@@ -28,17 +28,17 @@ public class AddJobOpeningServiceImplement implements AddJobOpeningService {
 	@Transactional
 	@Override
 	public void addJobOpening(NoticeVO noticeVO) throws Exception {
-		logger.info("service");
-		
 		addJobOepningDAO.addJobOpening(noticeVO);		
-		logger.info(noticeVO.getFile());
-		addJobOepningDAO.addJobOpenAttach(noticeVO);
-		
 	}
 
 	@Override
 	public List<NoticeVO> jobOpeningManage(LoginDTO loginDTO) throws Exception {
 		return addJobOepningDAO.jobOpeningManage(loginDTO);
+	}
+
+	@Override
+	public void addJobOpenAttach(NoticeVO noticeVO) throws Exception {
+		addJobOepningDAO.addJobOpenAttach(noticeVO);	
 	}
 
 }

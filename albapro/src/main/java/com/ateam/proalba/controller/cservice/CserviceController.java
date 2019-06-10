@@ -46,40 +46,21 @@ public class CserviceController {
 		return "cservice/cservice";
 	}
 	
-	@RequestMapping(value ="/addjobopening", method = RequestMethod.GET)
-	public String addjobopeningGET(Model model) throws Exception {
-		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "");
-		return "cservice/addjobopening";
-	}
-	
-	@RequestMapping(value ="/addjobopening_free", method = RequestMethod.POST)
-	public String addjobopeningPOST(NoticeVO noticeVO, RedirectAttributes redirectAttributes) throws Exception {
-		
-		logger.info(noticeVO.toString());
-		
-		addJobOpeningService.addJobOpening(noticeVO);
-		
-		redirectAttributes.addFlashAttribute("msg", "POSTED");
-		return "redirect:/addjobopening_free";
-	}
-	
 	@RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.GET)
 	public String addjobopeningfreeGET(Model model) throws Exception {
 		logger.info("Welcome CserviceController");
 		model.addAttribute("message", "");
 		return "cservicepage/cserAddJobopening_free";
 		
-		/*
-		 * redirectAttributes.addFlashAttribute("msg", "POSTED");
-		 * model.addAttribute("message",
-		 * "ê³ ê°�ì„¼í„° íŽ˜ì�´ì§€ ë°©ë¬¸ì�„ í™˜ì˜�í•©ë‹ˆë‹¤"); return
-		 * "cservicepage/cserAddJobopening_free";
-		 */
-		
 	}
 
-	
+	@RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.POST)
+	public String addjobopeningfreePOST(Model model, NoticeVO noticeVO) throws Exception {
+		logger.info(noticeVO.toString());
+		addJobOpeningService.addJobOpening(noticeVO);
+		return "cservicepage/cserAddJobopening_free";
+		
+	}
 	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
 	public String jobopeningmanageGET(HttpServletRequest request, LoginDTO loginDTO, Model model) throws Exception {
 		loginDTO.setId('c'+loginDTO.getId());
