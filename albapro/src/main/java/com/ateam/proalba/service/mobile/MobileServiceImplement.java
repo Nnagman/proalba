@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
@@ -42,5 +43,11 @@ public class MobileServiceImplement implements MobileService {
 	public List<MobileSalaryInfoVO> salaryInfo(String m_code) throws Exception {
 		return mobileDAO.salaryInfo(m_code);
 	}
+	
+	@Override
+	public List<CareerVO> careerInfo(String m_code) throws Exception {
+		return mobileDAO.careerInfo(m_code);
+	}
+
 
 }

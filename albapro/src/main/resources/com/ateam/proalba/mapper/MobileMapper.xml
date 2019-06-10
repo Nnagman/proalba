@@ -41,4 +41,15 @@
 		WHERE m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
         AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
 	</select>
+	
+	<select id="cInqcareer" resultType="com.ateam.proalba.domain.CareerVO">
+	 	SELECT
+            c.join_date,
+            c.work_place_name,
+            c.end_date,
+            m.name
+    	FROM career c, member m 
+    	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code
+    	ORDER BY c.join_date desc
+	</select>
 </mapper>

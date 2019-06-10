@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +28,12 @@ import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
-
-import net.sf.json.JSONArray;
+import com.ateam.proalba.service.mobile.MobileService;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
@@ -44,6 +45,8 @@ public class WorkmanageController {
 	SalaryService salaryService;
 	@Autowired
 	CareerService careerService;
+	@Autowired
+	MobileService mobileService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(WorkmanageController.class);
 	
@@ -236,6 +239,28 @@ public class WorkmanageController {
 		
 		mav.addObject("map", map);
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/m.cInqcareer")
+	public JSON mcInqcareerPOST(Model model,@RequestBody String m_code) throws Exception {
+		
+		logger.info("m_code:  "+ m_code);
+		logger.info("Welcome CserviceController");
+		List<CareerVO> list = mobileService.careerInfo(m_code);
+
+		for(CareerVO careerVO : list) {
+			if(careerVO.getEnd_date() == null) {
+				Date date = careerVO.getJoin_date();
+				careerVO.setEnd_date(date);
+			}
+		}
+		
+		JSONArray pJson = JSONArray.fromObject(list);
+		
+		System.out.println(pJson);
+		
+		return pJson;
 	}
 
 }
