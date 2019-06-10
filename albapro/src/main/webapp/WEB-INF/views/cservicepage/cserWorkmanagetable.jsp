@@ -133,7 +133,7 @@
 													<th class="th-sm">퇴근 시간</th>
 													<th class="th-sm">수정 하기</th>
 													<th class="th-sm">삭제 하기 <input type="button"
-														value="추가하기" id="Binsert" />
+														value="추가하기" id="Binsert" style="margin-left: 50px;" />
 													</th>
 												</tr>
 											</thead>
