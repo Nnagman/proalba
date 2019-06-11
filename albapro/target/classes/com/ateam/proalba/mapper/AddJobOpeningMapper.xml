@@ -29,4 +29,7 @@
 		insert into notice_file 
 			values( #{file}, #{n_code}, sysdate)
 	</insert>
+	
+	
+
 </mapper>
