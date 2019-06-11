@@ -13,7 +13,15 @@ public class RecruinfoController {
 	@RequestMapping("/recruinfo")
 	public String recruinfo(Model model) {
 		logger.info("Welcome recruinfoPage");
-		model.addAttribute("message", "채용정보 페이지 방문을 환영합니다");
+		model.addAttribute("message", "梨��⑹��蹂� ���댁� 諛⑸Ц�� �����⑸����");
 		return "recruinfo/recruinfo";
+	}
+	
+	
+	@RequestMapping("/recruinfoDetail")
+	public String recruinfoDetail(Model model) {
+		logger.info("Welcome recruinfoPage");
+		model.addAttribute("message", "梨��⑹��蹂� ���댁� 諛⑸Ц�� �����⑸����");
+		return "recruinfo/recruinfoDetail";
 	}
 }

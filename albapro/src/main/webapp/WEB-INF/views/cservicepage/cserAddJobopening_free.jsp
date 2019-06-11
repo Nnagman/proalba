@@ -779,7 +779,7 @@ geocoder.addressSearch(address1, function(result, status) {
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new daum.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리매장</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">매장 위치</div>'
         });
         infowindow.open(map, marker);
 

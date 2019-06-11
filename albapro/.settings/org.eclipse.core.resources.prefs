@@ -11,6 +11,7 @@ encoding//src/main/java/com/ateam/proalba/controller/login/LoginController.java=
 encoding//src/main/java/com/ateam/proalba/controller/mobile/MobileCommunityController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/pservice/PserviceController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/pservice/PworkmanageController.java=UTF-8
+encoding//src/main/java/com/ateam/proalba/controller/recruinfo/RecruinfoController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/domain/AttachVO.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/domain/Criteria.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/domain/PageMaker.java=UTF-8
