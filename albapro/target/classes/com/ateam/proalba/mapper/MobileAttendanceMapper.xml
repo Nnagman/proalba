@@ -31,9 +31,9 @@
 		VALUES (#{w_code}, #{sa_code}, #{work_start_time})
 	</insert>
 	
-	<insert id="mobileEndWork" parameterType="hashmap">
+	<update id="mobileEndWork" parameterType="hashmap">
 		UPDATE work_record SET work_end_time = #{work_end_time}, working_hours = (#{work_end_time}-work_start_time) WHERE w_code = #{w_code}
-	</insert>
+	</update>
 	
 	<update id="mobileWorkRecordUpdate" parameterType="hashmap">
 		UPDATE work_record SET

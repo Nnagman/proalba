@@ -1,17 +1,15 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -36,7 +34,7 @@
 <script src="resources/js/cal/interaction.js"></script>
 <script src="resources/js/recruinfo/test13.js"></script>
 <script src="resources/js/recruinfo/majorjson.js"></script>
-<script src="resources/js/cserAddjobopening_freeSC.js"></script>
+<script src="resources/js/cserAddjobopening_freeSC.js?ver=2"></script>
 <script src="resources/js/addjobopening.js?ver=3"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="resources/js/bootstrap.js"></script>
@@ -45,23 +43,6 @@
 		$(document).ready(function(){
 			console.log(arrJobCodeWide);			
 		});
-/* 	  $('.jobchoice-btn').click(function() {
-	    $.getJSON('ex1.json', function(data) {
-	      var html = '';
-	      $.each(data, function(entryIndex, entry) {
-	    	  html += '<div class="entry">';
-	    	  html += '<h3 class="term">' + entry.term + '</h3>';
-	    	  html += '<div class="part">' + entry.part + '</div>';
-	    	  html += '<div class="definition">';
-	    	  html += entry.definition;
-	    	  html += '</div>';
-	    	  html += '</div>';
-	      });
-	      console.log(html);
-	      $('#dictionary').html(html);
-	    });
-	    return false;
-	  }); */
 </script>
 <body>
 	<div class="wrapper">
@@ -122,6 +103,7 @@
 										<div class="col-md-12">
 											<div class="addjob-1">
 												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
+												<h2>필수사항 미입력시 제출 못하게 해야함.</h2>
 												<div class="div-cont">
 													<div class="jobcho-line1">
 														<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -133,7 +115,7 @@
 													</div>
 													<Br>
 													<div class="checkbox-line1">
-														경력여부:
+														경력여부*:
 														<div class="custom-control custom-radio">
 															<input type="radio" class="recruitper-radio1 custom-control-input" id="career1" name="career" value="신입"/>
 															<label class=" custom-control-label" for="career1">신입</label>
@@ -148,7 +130,7 @@
 														</div>
 													</div>
 													<div class="checkbox-line1">
-														고용형태:
+														고용형태*:
 														<div class="custom-control custom-radio">
 															<input type="radio" class="recruitper-radio1 custom-control-input" id="employment_type1" name="employment_type" value="정규직"/>
 															<label class=" custom-control-label" for="employment_type1">정규직</label>
@@ -175,7 +157,7 @@
 												<div class="Recruitmentrule">
 													<div class="radio-line1">
 														<!-- Default unchecked -->
-														모집인원: <input type="text" class="recruitper-txt" id="personnel1" name="personnel" value=" "/>명
+														모집인원: <input type="text" class="recruitper-txt" id="personnel1" name="personnel" value="0"/>명
 														<div class="custom-control custom-radio">
 															<input type="radio" class="recruitper-radio1 custom-control-input" id="personnel2" name="personnel" value="0"/>
 															<label class=" custom-control-label" for="personnel2">0명</label>
@@ -186,25 +168,25 @@
 														</div>
 													</div>
 													<div class="checkbox-line1">
-														나이:
+														연령:
 														<div class="custom-control custom-radio">
 															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="agechecked" name="age" value="10대"/>
 															<label class="custom-control-label" for="agechecked">10대</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice2 custom-control-input custom-radio" id="agenchecked1" name="age" value="20대" onclick="hiddendiv()"/>
+															<input type="radio" class="preconditionschoice2 custom-control-input custom-radio" id="agenchecked1" name="age" value="20대"/>
 															<label class="custom-control-label" for="agenchecked1">20대</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio"class="preconditionschoice3 custom-control-input custom-radio" id="agechecked2" name="age" value="30대" onclick="hiddendiv()"/>
+															<input type="radio"class="preconditionschoice3 custom-control-input custom-radio" id="agechecked2" name="age" value="30대"/>
 															<label class="custom-control-label" for="agechecked2">30대</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice4 custom-control-input custom-radio" id="agechecked3" name="age" value="40대" onclick="hiddendiv()"/>
+															<input type="radio" class="preconditionschoice4 custom-control-input custom-radio" id="agechecked3" name="age" value="40대"/>
 															<label class="custom-control-label" for="agechecked3">40대</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice5 custom-control-input custom-radio" id="agechecked4" name="age" value="무관" onclick="hiddendiv()"/>
+															<input type="radio" class="preconditionschoice5 custom-control-input custom-radio" id="agechecked4" name="age" value="무관" checked/>
 															<label class="custom-control-label" for="agechecked4">무관</label>
 														</div>
 													</div>
@@ -219,29 +201,29 @@
 															<label class="custom-control-label" for="gender2">여</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="gender3" name="gender" value="무관"/>
+															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="gender3" name="gender" value="무관" checked/>
 															<label class="custom-control-label" for="gender3">무관</label>
 														</div>
 													</div>
 													<div class="assignedtask">
-														담당업무: <input type="text" class="assignedtask-txt" placeholder="ex)상품진열,재고정리 등" name="assigned_task" value="0"/>
+														담당업무*: <input type="text" class="assignedtask-txt" placeholder="ex)상품진열,재고정리 등" name="assigned_task" value=""/>
 													</div>
 													<div class="Recruitment-time">
 														<div class="startime">
 															모집시작일: <div class="today1"></div>
 														</div>
-														모집종료일 : <input type="text" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value="0"/>
+														모집종료일* : <input type="date" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value=""/>
 													</div>
 													<div class="workcon-Period">
-														근무기간:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="0"/>개월
+														근무기간*:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="0"/>개월
 													</div>
 													<div class="workcon-time">
-														근무시간:
-														<input type="time" name="work_time1" value=" "/>부터
-														<input type="time" name="work_time2" value=" "/>까지
+														근무시간*:
+														<input type="time" name="work_time1" id="work_time1" value=" "/>부터
+														<input type="time" name="work_time2" id="work_time2" value=" "/>까지
 													</div>
 													<div class="dayline">
-														요일:<br>
+														요일*:<br>
 														<div class="custom-control custom-checkbox">
 															<input type="checkbox" class="preconditionschoice1 custom-control-input" id="work-day1" name="work_day" value="월"/>
 															<label class="custom-control-label" for="work-day1">월</label>
@@ -278,10 +260,14 @@
 															<input type="checkbox" class="preconditionschoice1 custom-control-input" id="work-day9" name="work_day" value="주말"/>
 															<label class="custom-control-label" for="work-day9">주말</label>
 														</div>
+														<div class="custom-control custom-checkbox">
+															<input type="checkbox" class="preconditionschoice1 custom-control-input" id="work-day10" name="work_day" value="요일협의" checked/>
+															<label class="custom-control-label" for="work-day10">요일협의</label>
+														</div>
 													</div>
 													<div>
 														추가내용:<br>
-														<textarea form="form" name="content"></textarea>
+														<textarea form="form" name="content"> </textarea>
 													</div>
 													<!-- dayline -->
 												</div>
@@ -297,7 +283,7 @@
 													<div class="checkbox-line1" id="education_box">
 														학력:
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="recruUnchecked2" name="education" value="무관" onclick="hiddendiv()"/>
+															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="recruUnchecked2" name="education" value="무관" onclick="hiddendiv()" checked/>
 															<label class="custom-control-label" for="recruUnchecked2">무관</label>
 														</div>
 														<div class="custom-control custom-radio">
@@ -313,7 +299,7 @@
 													</div>
 													<div class="preferential_conditions" id="preferential_conditions">
 														우대조건 <br>
-														<textarea form="form" name="preferential_conditions"></textarea>
+														<textarea form="form" name="preferential_conditions"> </textarea>
 													</div>
 												</div>
 											</div>
@@ -327,7 +313,7 @@
 												<h5 class="div-cont-title">근무지 정보</h5>
 												<div class="workcon">
 													<div class="work_place_name">
-														근무지 명:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=" "/>
+														근무지 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
 													</div>
 													<div class="salary">
 														급여:<input type="text" class="salary" id="salary" name="salary" value="0"/>원
@@ -336,7 +322,7 @@
 														시급: <input type="text" class="hour_wage" name="hour_wage" value="0"/>원
 													</div>
 													<div class="workcon-map">
-														근무지역 
+														근무지역* 
 														<input type="text" id="sample6_postcode" placeholder="우편번호"/>
 														<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn"/>
 														<br>
@@ -345,7 +331,7 @@
 														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 														<input type="button" class="searchmap btn btn-light-green adr-btn" value="위치찾기"/>
 														<div id="map" style="width: 100%; height: 350px;" class="map"></div>
-														<input type="hidden" id="address" name="address"/>
+														<input type="hidden" id="address" name="address" value=""/>
 													</div>
 												</div>
 											</div>
@@ -356,24 +342,25 @@
 									<div class="col-md-12">
 										<div class="addjob-5">
 											<div class="div-cont">
-												<h5 class="div-cont-title">접수 방법</h5>
+												<h5 class="div-cont-title">접수 방법*</h5>
 												<div class="appperiod">
 													<div class="appperiod-how">
 														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="way" onclick="hiddendiv()"/>
+															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-online"> 온라인접수</label>
 															<input type="hidden" id="documents" name="documents" value="0"/>
 															<input type="hidden" id="interview" name="interview" value="0"/>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="way" onclick="hiddendiv()"/>
+															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-tel"> 전화접수</label>
 															<input type="hidden" id="contact_number" name="contact_number" value="0"/>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="way" onclick="hiddendiv()"/>
+															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-Visit">방문접수</label>
 														</div>
+														<input type="hidden" id="way" name="way" value=""/>
 													</div>
 												</div>
 											</div>
@@ -386,9 +373,9 @@
 											<div class="div-cont">
 												<div class="workplace-info">
 													<div class="workplace-info-title">
-														<h5 class="div-cont-title">채용제목</h5>
+														<h5 class="div-cont-title">채용제목*</h5>
 													</div>
-													<input type="text" class="Recruitment-title" name="title" />
+													<input type="text" class="Recruitment-title" id="Recruitment-title" name="title" />
 													<input type="button" class="regaddjob btn btn-light-green adr-btn" value="등록" id="submit1"/>
 												</div>
 											</div>
@@ -562,8 +549,9 @@
 	        });
 	        
 	        $('#submit1').on("click", function() {
+	        	
 	        	var jobchoice = $('.jobchoice > .sejobre').text();
-	        	$('.jobchoice').append('<input type="hidden" name="job_type" value="'+jobchoice+'"/>');
+	        	$('.jobchoice').append('<input type="hidden" name="job_type" id="job_type" value="'+jobchoice+'"/>');
 	        	
 	        	var address = $("#sample6_postcode").val() + "/" + $("#sample6_address").val() + "/" + $("#sample6_detailAddress").val();
 	        	$('#address').val(address);
@@ -578,7 +566,21 @@
 		        	$('#recruUnchecked1').val(education);
 	        	}
 	        	
-	        	if($('#salary').val() == ""){ $('#salary').val() == "0"; alert("null");}
+	        	$('#way').val($('input:radio[name="radio"]:checked').val());
+	        	
+	        	if( $('#job_type').val() == "" ){ alert("직종/업무를 선택해주세요."); return };
+	        	if( $('input:radio[name="career"]:checked').val() == undefined ){ alert("경력여부를 선택해주세요."); return };
+	        	if( $('input:radio[name="employment_type"]:checked').val() == undefined ){ alert("고용형태를 선택해주세요."); return };
+	        	if( $('.assignedtask-txt').val() == ""){ alert("담당업무를 입력해주세요."); return };
+	        	if( $('.Recruitment-endtime').val() == ""){ alert("모집종료일을 입력해주세요."); return };
+	        	if( $('#work_time1').val() == ""){ alert("근무시간을 입력해주세요."); return };
+	        	if( $('#work_time2').val() == ""){ alert("근무시간을 입력해주세요."); return };
+	        	if( $("[name='work_day']").val() == "" ){ alert("요일을 선택해주세요."); return };
+	        	if( $('#work_place_name').val() == "" ){ alert("근무지명을 입력해주세요."); return };
+	        	if( $('#salary').val() == ""){ salary.val("0"); };
+	        	if( $('#hour_wage').val() == ""){ hour_wage.val("0"); };
+	        	if( $('#address').val() == "//"){ alert("주소를 입력해주세요."); return};
+	        	if( $('#Recruitment-title').val() == ""){ alert("제목을 입력해주세요."); return};
 	        	
 	        	var form = $("#form").serialize();
 	        	
