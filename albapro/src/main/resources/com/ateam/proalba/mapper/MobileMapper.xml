@@ -35,11 +35,21 @@
 	</select>
 	
 	<select id="csalary" resultType="com.ateam.proalba.domain.mobile.MobileSalaryInfoVO">
-		SELECT s.BASIC_SALARY, s.FOOD_EXPENSES, s.TRANSPORTATION_FEE, s.YEAR_MONTH, s.ACTUAL_SALARY, 
-		s.TOTAL_DEDUCTION_AMOUNT, s.ADDITIONAL_EXTENDED, s.ADDITIONAL_NIGHT, s.em_code, c.work_place_name
-		FROM SALARY s, EMPLOYEE e, contract c
-		WHERE s.em_code = e.em_code AND e.m_code = c.p_id AND e.c_code = c.c_code
-        AND e.m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
-        AND SUBSTR(s.em_code,0,INSTR(s.em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
+		SELECT BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, 
+		TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name, work_hours, work_minute
+		FROM salary_view
+		WHERE m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
+        AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
+	</select>
+	
+	<select id="cInqcareer" resultType="com.ateam.proalba.domain.CareerVO">
+	 	SELECT
+            c.join_date,
+            c.work_place_name,
+            c.end_date,
+            m.name
+    	FROM career c, member m 
+    	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code
+    	ORDER BY c.join_date desc
 	</select>
 </mapper>

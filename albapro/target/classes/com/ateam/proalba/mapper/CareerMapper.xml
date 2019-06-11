@@ -43,10 +43,13 @@
 	<select id="selectCareers" resultMap="CareerVOResultMap">
 	    <![CDATA[
 	    SELECT
-            join_date,
-            work_place_name,
-            end_date
-    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date from career where m_code = #{m_code} order by join_date desc)    	
+            c.join_date,
+            c.work_place_name,
+            c.end_date,
+            m.name
+    	FROM career c, member m 
+    	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code
+    	ORDER BY c.join_date desc
     	]]>
 	</select>
 

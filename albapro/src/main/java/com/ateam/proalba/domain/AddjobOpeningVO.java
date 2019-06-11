@@ -5,7 +5,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class NoticeVO {
+public class AddjobOpeningVO {
 	private String n_code;
 	private String m_code;
 	private String title;
@@ -30,11 +30,10 @@ public class NoticeVO {
 	private String interview;
 	private String contact_number;
 	private String career;
-	private String employment_type;
+	private String employeement_type;
 	private String assigned_task;
 	private String education_etc;
 	private String major;
 	private String preferential_conditions;
 	private int salary;
-	private String file;
 }

@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
@@ -153,6 +156,30 @@ public class MobileController {
 		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
 		return pJson;
 	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkRecord")
+	public List<MobileCWorkRecordVO> cmobileWorkRecordPOST(String id, String p_id) throws Exception {
+		logger.info("sss");
+		logger.info(id);
+		logger.info(p_id);
+		Map<String, String> id_map = new HashMap<String, String>();
+		id_map.put("id", id);
+		id_map.put("p_id", p_id);
+		List<MobileCWorkRecordVO> list = mobileAttendanceService.mobileCFoundWorkRecord(id_map);
+		logger.info("workManager:  "+list.toString());
+		logger.info(id);
+		/*
+		 * ModelAndView mav = new ModelAndView(); mav.setViewName("cworkManage.html");
+		 * Map<String, Object> map = new HashMap<String, Object>();
+		 * map.put("list",list);
+		 * 
+		 * mav.addObject("map", map);
+		 */
+		return list;
+		
+	}
+			
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)

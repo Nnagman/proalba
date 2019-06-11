@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 import com.ateam.proalba.persistence.mobile.MobileAttendanceDAO;
@@ -69,6 +70,12 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	@Override
 	public void mobileEndWork(Map<String, String> map) throws Exception {
 		mobileAttendanceDAO.mobileEndWork(map);
+	}
+	
+	@Override
+	public List<MobileCWorkRecordVO>mobileCFoundWorkRecord(Map<String, String> id_map) throws Exception {
+		return mobileAttendanceDAO.mobileCFoundWorkRecord(id_map);
+		
 	}
 
 }

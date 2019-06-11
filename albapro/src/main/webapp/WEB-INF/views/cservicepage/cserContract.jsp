@@ -90,7 +90,6 @@ margin-top:20px;
         <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
-              
               급여 관리
             </a>
           </li> --%>

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
@@ -36,5 +37,10 @@ public class MobileDAOImplement implements MobileDAO {
 	@Override
 	public List<MobileSalaryInfoVO> salaryInfo(String m_code) throws Exception {
 		return sqlSession.selectList(NAMESPACE+".salaryInfo", m_code);
+	}
+	
+	@Override
+	public List<CareerVO> careerInfo(String m_code) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".cInqcareer", m_code);
 	}
 }

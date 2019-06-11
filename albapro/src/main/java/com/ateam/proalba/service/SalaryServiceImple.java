@@ -24,7 +24,6 @@ public class SalaryServiceImple implements SalaryService{
 	public List<SalaryVO> listCriteria(String id) throws Exception {
 		return salaryDAO.listCriteria(id);
 	}
-
 	@Override
 	public int countSalarys(Criteria criteria) throws Exception {
 		return salaryDAO.countSalarys(criteria);
