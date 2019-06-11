@@ -37,4 +37,5 @@ public class NoticeVO {
 	private String preferential_conditions;
 	private int salary;
 	private String file;
+	
 }

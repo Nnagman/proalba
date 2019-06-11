@@ -47,7 +47,7 @@
 
 </script>
 <body>
-<<<<<<< HEAD
+
    <div class="wrapper">
       <div class="div-sidebar">
          <div class="sidebar" data-color="purple"
@@ -458,7 +458,7 @@
 													<div class="jobcho-line1">
 														<c:set var="now" value="<%=new java.util.Date()%>" />
 														<input type="hidden"value='${login.m_code}<fmt:formatDate value='${now}' pattern='yyyy-MM-dd hh:mm:ss'/>' name="n_code"/>
-														<input type="hidden" value=${login.m_code}  name="m_code"/>
+														<input type="hidden" value='${login.m_code}'  name="m_code"/>
 														<input type="hidden" value=<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /> name="p_date"/>
 														직종/업무: <div class="jobchoice"></div>
 														<input type="button" class="btn btn-light-green adr-btn jobchoice-btn" onclick="jsonout()" data-toggle="modal"data-target="#myModal" value="전체 카테고리"/>
@@ -591,7 +591,7 @@
 															<label class="custom-control-label" for="work-day4">목</label>
 														</div>
 														<div class="custom-control custom-checkbox">
-															<input type="checkbox" class="preconditionschoice1 custom-control-input" id="work-day5" name="work_day" valu="금"/>
+															<input type="checkbox" class="preconditionschoice1 custom-control-input" id="work-day5" name="work_day" value="금"/>
 															<label class="custom-control-label" for="work-day5">금</label>
 														</div>
 														<div class="custom-control custom-checkbox">
@@ -741,7 +741,7 @@
 			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 
    <!-- 부트스트랩 -->
    <!-- 부트스트랩 modal -->
@@ -850,89 +850,9 @@
                columnDefs: [ { targets: [ 0, 1, 2 ], className: 'mdl-data-table__cell--non-numeric' } ]
             } );
       
-<<<<<<< HEAD
-           $('.switch-sidebar-image input').change(function() {
-              $full_page_background = $('.full-page-background');
-              $input = $(this);
-              if ($input.is(':checked')) {
-                 if ($sidebar_img_container.length != 0) {
-                    $sidebar_img_container.fadeIn('fast');
-                    $sidebar.attr('data-image', '#');
-                 }
-                 if ($full_page_background.length != 0) {
-                     $full_page_background.fadeIn('fast');
-                     $full_page.attr('data-image', '#');
-                  }
-                 background_image = true;
-              } else {
-                 if ($sidebar_img_container.length != 0) {
-                    $sidebar.removeAttr('data-image');
-                    $sidebar_img_container.fadeOut('fast');
-                 }
-                 if ($full_page_background.length != 0) {
-                    $full_page.removeAttr('data-image', '#');
-                    $full_page_background.fadeOut('fast');
-                 }
-                 background_image = false;
-              }
-           });
-           $('.switch-sidebar-mini input').change(function() {
-              $body = $('body');
-              $input = $(this);
-              if (md.misc.sidebar_mini_active == true) {
-                 $('body').removeClass('sidebar-mini');
-                 md.misc.sidebar_mini_active = false;
-                 $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-              } else {
-                 $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-                 setTimeout(function() {
-                    $('body').addClass('sidebar-mini');
-                    md.misc.sidebar_mini_active = true;
-                 }, 300);
-              }
-              // we simulate the window Resize so the charts will get updated in realtime.
-              var simulateWindowResize = setInterval(function() {
-                 window.dispatchEvent(new Event('resize'));
-              }, 180);
-              // we stop the simulation of Window Resize after the animations are completed
-              setTimeout(function() {
-                 clearInterval(simulateWindowResize);
-              }, 1000);
-           });
+
            
-           $('#submit1').on("click", function() {
-              
-              var jobchoice = $('.jobchoice > .sejobre').text();
-              $('.jobchoice').append('<input type="hidden" name="job_type" id="job_type" value="'+jobchoice+'"/>');
-              
-              var address = $("#sample6_postcode").val() + "/" + $("#sample6_address").val() + "/" + $("#sample6_detailAddress").val();
-              $('#address').val(address);
-=======
-	        $('.switch-sidebar-image input').change(function() {
-	        	$full_page_background = $('.full-page-background');
-	        	$input = $(this);
-	        	if ($input.is(':checked')) {
-	        		if ($sidebar_img_container.length != 0) {
-	        			$sidebar_img_container.fadeIn('fast');
-	        			$sidebar.attr('data-image', '#');
-	        		}
-	        		if ($full_page_background.length != 0) {
-	            		$full_page_background.fadeIn('fast');
-	            		$full_page.attr('data-image', '#');
-	            	}
-	        		background_image = true;
-	        	} else {
-	        		if ($sidebar_img_container.length != 0) {
-	        			$sidebar.removeAttr('data-image');
-	        			$sidebar_img_container.fadeOut('fast');
-	        		}
-	        		if ($full_page_background.length != 0) {
-	        			$full_page.removeAttr('data-image', '#');
-	        			$full_page_background.fadeOut('fast');
-	        		}
-	        		background_image = false;
-	        	}
-	        });
+    
 	        $('.switch-sidebar-mini input').change(function() {
 	        	$body = $('body');
 	        	$input = $(this);
@@ -964,9 +884,7 @@
 	        	
 	        	var address = $("#sample6_postcode").val() + "/" + $("#sample6_address").val() + "/" + $("#sample6_detailAddress").val();
 	        	$('#address').val(address);
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 
-<<<<<<< HEAD
               if(document.getElementById("appperiod-tel").checked == true){
                  var contact_number = $('.President-num option:selected').val() + $('.President-num1').val() + $('.President-num2').val();
                  $('#contact_number').val(contact_number);
@@ -1006,47 +924,8 @@
            });
       }); 
    });
-=======
-	        	if(document.getElementById("appperiod-tel").checked == true){
-	        		var contact_number = $('.President-num option:selected').val() + $('.President-num1').val() + $('.President-num2').val();
-	        		$('#contact_number').val(contact_number);
-	        	}
+
 	        	
-	        	if(document.getElementById("recruUnchecked1").checked == true){
-	        		var education = $("#schcho option:selected").val();
-		        	$('#recruUnchecked1').val(education);
-	        	}
-	        	
-	        	$('#way').val($('input:radio[name="radio"]:checked').val());
-	        	
-	        	if( $('#job_type').val() == "" ){ alert("직종/업무를 선택해주세요."); return };
-	        	if( $('input:radio[name="career"]:checked').val() == undefined ){ alert("경력여부를 선택해주세요."); return };
-	        	if( $('input:radio[name="employment_type"]:checked').val() == undefined ){ alert("고용형태를 선택해주세요."); return };
-	        	if( $('.assignedtask-txt').val() == ""){ alert("담당업무를 입력해주세요."); return };
-	        	if( $('.Recruitment-endtime').val() == ""){ alert("모집종료일을 입력해주세요."); return };
-	        	if( $('#work_time1').val() == ""){ alert("근무시간을 입력해주세요."); return };
-	        	if( $('#work_time2').val() == ""){ alert("근무시간을 입력해주세요."); return };
-	        	if( $("[name='work_day']").val() == "" ){ alert("요일을 선택해주세요."); return };
-	        	if( $('#work_place_name').val() == "" ){ alert("근무지명을 입력해주세요."); return };
-	        	if( $('#salary').val() == ""){ salary.val("0"); };
-	        	if( $('#hour_wage').val() == ""){ hour_wage.val("0"); };
-	        	if( $('#address').val() == "//"){ alert("주소를 입력해주세요."); return};
-	        	if( $('#Recruitment-title').val() == ""){ alert("제목을 입력해주세요."); return};
-	        	
-	        	var form = $("#form").serialize();
-	        	
-				$.ajax({
-					async: false,
-					type: 'POST',
-					data: form,
-					url: '${path}/proalba/cserAddJobopening_free',
-					success: function(data){ alert("일단 보내짐.") },
-		            error : function(error) { alert("error : " + error); }
-				});
-	        });
-		}); 
-	});
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 </script>
 </body>
 </html>

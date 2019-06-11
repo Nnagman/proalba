@@ -20,11 +20,19 @@
 	
 	<select id="jobOpeningManage" resultType="com.ateam.proalba.domain.NoticeVO">
 		<![CDATA[
-		SELECT * FROM notice
+		SELECT * 
+		FROM notice
 		WHERE m_code = #{id}
   	  	]]>
 	</select>
 	
+	<select id="get_notice_list" resultType="com.ateam.proalba.domain.NoticeVO">
+		<![CDATA[
+			SELECT * 
+			FROM notice
+  	  	]]>
+	</select>
+
 	<insert id="addAttach">
 		insert into notice_file 
 			values( #{file}, #{n_code}, sysdate)

@@ -234,32 +234,47 @@ include media-breakpoint-only (xl ) {
 
 
 
+<div class="recruinfo-list">
+
+<table>
+	<thead></thead>
+		<tr>
+			<th class="local">근무지</th>
+			<th class="title">점표명</th>
+			<th class="data">근무시간</th>
+			<th class="salary">급여</th>
+			
+		</tr>
+	<tbody>
+
+		<c:forEach var="row" items="${list}">
+	
+			<tr>
+				<td class="local">${row.address}</td>
+				<td class="title">${row.work_place_name}</td>
+				<td class="data"></td>
+				<td class="salary"></td>
+			</tr>
+		</c:forEach>
+	
+	</tbody>	
+</table>
+
+</div>
+
+   
+
 
 <div class="card-deck">
- <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-      <a href="recruinfoDetail?id=${login.id}"> 
-    <span class="card-title"> 점포명:</span><br> 
-    
-   <span class="card-text">
-   지역:<br />
-    시급 :<br /> 
-    상세설명: 
-   </span>
-   
-	</a>
-  </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
 
-  
-  
- <div class="card border-success mb-3" style="max-width: 18rem;">
+
+  <c:forEach var="row" items="${list}">
+
+<div class="card border-success mb-3" style="max-width: 18rem;">
   <div class="card-header bg-transparent border-success">Header</div>
   <div class="card-body text-success">
       <a href="recruinfoDetail?id=${login.id}"> 
-    <span class="card-title"> 점포명:</span><br> 
+    <span class="card-title"> 점포명: ${row.work_place_name}</span><br> 
     
    <span class="card-text">
    지역:<br />
@@ -273,22 +288,9 @@ include media-breakpoint-only (xl ) {
 </div>
 
 
-   <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-      <a href="recruinfoDetail?id=${login.id}"> 
-    <span class="card-title"> 점포명:</span><br> 
-    
-   <span class="card-text">
-   지역:<br />
-    시급 :<br /> 
-    상세설명: 
-   </span>
-   
-	</a>
-  </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
+
+</c:forEach>
+
 
 
 
@@ -330,6 +332,14 @@ include media-breakpoint-only (xl ) {
 
 
 
+
+<script>
+	
+	var td= $('tbody .local').text();  
+	 
+	var subad = td.substr(td.indexOf('/',1)+1, td.indexOf(" ",1));
+	alert(subad); 
+</script>
 
 </body>
 
