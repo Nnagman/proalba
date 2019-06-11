@@ -177,10 +177,11 @@ $(document).on(
 		});
 
 $(document).on('click', '.btn-remove', function() {
-	$('.jobcho3').text('');
+	$('.jobcho3').text('efef');
 	 jobchoid =[];
 
 	 jobchotext =[];
+	 alert('ejfij');
 
 });
 

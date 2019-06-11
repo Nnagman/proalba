@@ -108,7 +108,7 @@
 													<div class="jobcho-line1">
 														<c:set var="now" value="<%=new java.util.Date()%>" />
 														<input type="hidden"value='${login.m_code}<fmt:formatDate value='${now}' pattern='yyyy-MM-dd hh:mm:ss'/>' name="n_code"/>
-														<input type="hidden" value=${login.m_code} name="m_code"/>
+														<input type="hidden" value=${login.m_code}  name="m_code"/>
 														<input type="hidden" value=<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /> name="p_date"/>
 														직종/업무: <div class="jobchoice"></div>
 														<input type="button" class="btn btn-light-green adr-btn jobchoice-btn" onclick="jsonout()" data-toggle="modal"data-target="#myModal" value="전체 카테고리"/>
@@ -470,6 +470,75 @@
 	});
 </script>
 <script>
+<<<<<<< HEAD
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};  
+
+
+//지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+</script>
+
+
+
+
+<script>
+
+$(document).on('click','.searchmap',function(){
+var address1 = $('.sample6_address').val();	
+
+// 주소-좌표 변환 객체를 생성합니다
+
+var geocoder = new daum.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch(address1, function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === daum.maps.services.Status.OK) {
+
+        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">매장 위치</div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+});
+</script>
+
+	<script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+        $full_page = $('.full-page');
+        $sidebar_responsive = $('body > .navbar-collapse');
+        window_width = $(window).width();
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+        }
+        
+        
+     
+
 	$(document).ready(function() {
 		$().ready(function() {
 			$("#salary").on("keyup", function(){
@@ -495,6 +564,7 @@
             		$('.fixed-plugin .dropdown').addClass('open');
           		}
         	}
+
             $('#example').DataTable( {
             	columnDefs: [ { targets: [ 0, 1, 2 ], className: 'mdl-data-table__cell--non-numeric' } ]
             } );

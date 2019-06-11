@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
@@ -28,6 +29,7 @@ import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
@@ -48,6 +50,7 @@ public class MobileController {
 	private QnAService qnaService;
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
+	private MemberService memberService;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -168,7 +171,6 @@ public class MobileController {
 		id_map.put("p_id", p_id);
 		List<MobileCWorkRecordVO> list = mobileAttendanceService.mobileCFoundWorkRecord(id_map);
 		logger.info("workManager:  "+list.toString());
-		logger.info(id);
 		/*
 		 * ModelAndView mav = new ModelAndView(); mav.setViewName("cworkManage.html");
 		 * Map<String, Object> map = new HashMap<String, Object>();
@@ -179,6 +181,19 @@ public class MobileController {
 		return list;
 		
 	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkname")
+	public JSON getListPOST(String id) throws Exception {
+		logger.info(id);
+		MemberVO memberVO;
+		memberVO = memberService.getList(id);
+		JSONArray list = JSONArray.fromObject(memberVO);
+//		logger.info("workManager:  "+list.toString());
+		return list;
+		
+	}
+	
 			
 	
 	@ResponseBody
