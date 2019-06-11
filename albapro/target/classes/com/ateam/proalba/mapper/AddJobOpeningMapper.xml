@@ -29,4 +29,10 @@
 		insert into notice_file 
 			values( #{file}, #{n_code}, sysdate)
 	</insert>
+	
+	<select id="get_notice_list" resultType="com.ateam.proalba.domain.NoticeVO">
+		<![CDATA[
+		SELECT * FROM notice
+  	  	]]>
+	</select>
 </mapper>
