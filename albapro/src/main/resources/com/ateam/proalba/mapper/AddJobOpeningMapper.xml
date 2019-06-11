@@ -28,8 +28,11 @@
 	
 	<select id="get_notice_list" resultType="com.ateam.proalba.domain.NoticeVO">
 		<![CDATA[
-			SELECT * 
-			FROM notice
+		SELECT n_code, m_code, title, job_type, personnel, end_date, hour_wage, gender, age, way, term, 
+		        work_day, work_time1, work_time2, p_date, viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),INSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),'/')+1) address, 
+		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
+		        assigned_task, education_etc, major, preferential_conditions, salary
+		FROM notice
   	  	]]>
 	</select>
 

@@ -248,7 +248,6 @@ include media-breakpoint-only (xl ) {
 	<tbody>
 
 		<c:forEach var="row" items="${list}">
-	
 			<tr>
 				<td class="local">${row.address}</td>
 				<td class="title">${row.work_place_name}</td>
@@ -335,10 +334,10 @@ include media-breakpoint-only (xl ) {
 
 <script>
 	
-	var td= $('tbody .local').text();  
+	//var td= $('tbody .local').text();  
 	 
-	var subad = td.substr(td.indexOf('/',1)+1, td.indexOf(" ",1));
-	alert(subad); 
+	//var subad = td.substr(td.indexOf('/',1)+1, td.indexOf(" "));
+	//alert(subad); 
 </script>
 
 </body>
