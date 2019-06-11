@@ -223,9 +223,6 @@
             $('.fixed-plugin .dropdown').addClass('open');
           }
         }
-        
-        
-     
             $('#example').DataTable( {
                 columnDefs: [
                     {

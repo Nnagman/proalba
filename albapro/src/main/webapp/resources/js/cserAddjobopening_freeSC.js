@@ -1,13 +1,29 @@
 function hiddendiv() {
+	var checkpreconditionschoice1 = document.getElementById("recruUnchecked1");
+	
+	if (checkpreconditionschoice1.checked == true) {
+		var str1 = '<select class="schcho" id="schcho"><option>고등학교졸업이상</option><option>대학졸업(2,3년)이상</option>';
+		var str2 = '<option>대학졸업(4년)이상</option><option>석사졸업이상</option><option>박사졸업이상</option><option>졸업예정</option></select>';
+		var str = str1 + str2;
+		$("#education_box").append(str);
+		checkpreconditionschoice1.disabled = true;
+	}
+	
+	if (document.getElementById("recruUnchecked2").checked == true){
+		checkpreconditionschoice1.disabled = false;
+		$("#schcho").remove();
+	}
+
+}
+
+function hiddendiv2() {
 	var checkBox = document.getElementById("appperiod-tel");
 	var checkBox2 = document.getElementById("appperiod-online");
 	var checkBox3 = document.getElementById("appperiod-Visit");
-	var checkpreconditionschoice1 = document.getElementById("recruUnchecked1");
-	var select1 = document.getElementById("schcho");
 	
 	if (checkBox2.checked == true) {
-		var str1 = '<div id="appperiod-hidden-online"><br><div class="documents">필요한 제출서류<br><textarea form="form" name="documents"></textarea>';
-		var str2 = '</div><div class="interview">사전인터뷰<br><textarea form="form" name="interview"></textarea></div></div>';
+		var str1 = '<div id="appperiod-hidden-online"><br><div class="documents">필요한 제출서류<br><textarea form="form" name="documents" id="documents"></textarea>';
+		var str2 = '</div><div class="interview">사전인터뷰<br><textarea form="form" name="interview" id="interview"></textarea></div></div>';
 		$(".appperiod-how").append(str1+str2);
 		checkBox2.disabled = true;
 	}
@@ -19,7 +35,7 @@ function hiddendiv() {
 
 	if (checkBox.checked == true) {
 		$("#appperiod-hidden-tel").remove();
-		var str1 = '<div id="appperiod-hidden-tel">담당자 번호:<select class="President-num"><option>010</option><option>011</option>';
+		var str1 = '<div id="appperiod-hidden-tel">담당자 번호:<select class="President-num" id="President-num"><option>010</option><option>011</option>';
 		var str2 = '<option>016</option><option>017</option><option>019</option></select> - <input type="text" class="President-num1"> -<input type="text" class="President-num2"></div>';
 		$(".appperiod-how").append(str1+str2);
 		
@@ -30,18 +46,6 @@ function hiddendiv() {
 		$("#appperiod-hidden-tel").remove();
 		checkBox.disabled = false;
 	}
-	
-	if (checkpreconditionschoice1.checked == true) {
-		var str1 = '<select class="schcho" id="schcho"><option>고등학교졸업이상</option><option>대학졸업(2,3년)이상</option>';
-		var str2 = '<option>대학졸업(4년)이상</option><option>석사졸업이상</option><option>박사졸업이상</option><option>졸업예정</option></select>';
-		var str = str1 + str2;
-		$("#education_box").append(str);
-	}
-	
-	if (document.getElementById("recruUnchecked2").checked == true){
-		$("#schcho").remove();
-	}
-
 }
 
 var mycont = Object.keys(arrJobCodeWide.JOBCD).length;

@@ -30,6 +30,5 @@
 			values( #{file}, #{n_code}, sysdate)
 	</insert>
 	
-	
 
 </mapper>

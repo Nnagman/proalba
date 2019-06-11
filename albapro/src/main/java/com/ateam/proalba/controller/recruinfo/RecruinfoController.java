@@ -13,7 +13,6 @@ public class RecruinfoController {
 	@RequestMapping("/recruinfo")
 	public String recruinfo(Model model) {
 		logger.info("Welcome recruinfoPage");
-		model.addAttribute("message", "梨��⑹��蹂� ���댁� 諛⑸Ц�� �����⑸����");
 		return "recruinfo/recruinfo";
 	}
 	
@@ -21,7 +20,6 @@ public class RecruinfoController {
 	@RequestMapping("/recruinfoDetail")
 	public String recruinfoDetail(Model model) {
 		logger.info("Welcome recruinfoPage");
-		model.addAttribute("message", "梨��⑹��蹂� ���댁� 諛⑸Ц�� �����⑸����");
 		return "recruinfo/recruinfoDetail";
 	}
 }

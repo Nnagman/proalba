@@ -258,8 +258,6 @@ public class WorkmanageController {
 		
 		JSONArray pJson = JSONArray.fromObject(list);
 		
-		System.out.println(pJson);
-		
 		return pJson;
 	}
 
