@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,7 +173,7 @@ width:100px;
 	</div>
 	
 	<div class="res-title">
-			<h1>공고 제목</h1>
+			<h1>${list[0].title}</h1>
 		</div>
 		
 		<div class="com-line">
@@ -181,7 +182,7 @@ width:100px;
 			
 			</div>
 			<div class="infotop">
-				<h5>기업명</h5>
+				<h5>${list[0].work_place_name}</h5>
 				
 				<ul class="infotop-ul">
 					<li class="user">담당자</li>
@@ -199,18 +200,18 @@ width:100px;
 			<div class="infoQualify">
 			<h5>지원자격</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">경력</span> 경력db</li>
-					<li class="tel"><span class="item">연령</span> 연령db</li>
-					<li class="emailr"><span class="item">학력</span>학력db</li>
+					<li class="user"><span class="item">경력</span> ${list[0].career}</li>
+					<li class="tel"><span class="item">연령</span> ${list[0].age}</li>
+					<li class="emailr"><span class="item">학력</span> ${list[0].education}</li>
 				
 				</ul>
 			</div>
 			<div class="infoContent divide">
 			<h5>모집내용</h5>
 			<ul class="infotop-ul">
-					<li class="user"><span class="item">모집직종</span> 직종db</li>
-					<li class="tel"><span class="item">고용형태</span> 고용db</li>
-					<li class="emailr"><span class="item">모집인원</span>모집db</li>
+					<li class="user"><span class="item">모집직종</span> ${list[0].job_type}</li>
+					<li class="tel"><span class="item">고용형태</span> ${list[0].employment_type}</li>
+					<li class="emailr"><span class="item">모집인원</span> ${list[0].personnel}명</li>
 				
 				</ul>
 			</div>
@@ -221,9 +222,9 @@ width:100px;
 			<div class="infoQualify">
 			<h5>근무조건</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">근무기간</span> 기간db</li>
-					<li class="tel"><span class="item">근무요일</span> 요일db</li>
-					<li class="emailr"><span class="item">근무시간</span>시간db</li>
+					<li class="user"><span class="item">근무기간</span> ${list[0].term}개월</li>
+					<li class="tel"><span class="item">근무요일</span> ${list[0].work_day}</li>
+					<li class="emailr"><span class="item">근무시간</span> ${list[0].work_time1} ~ ${list[0].work_time2}</li>
 				
 				</ul>
 			
@@ -236,7 +237,7 @@ width:100px;
 			<div class="infoaddress">
 		
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">근무지주소</span> 주소db</li>
+					<li class="user"><span class="item">근무지주소</span> ${list[0].address}</li>
 					<li>맵</li>
 				
 				</ul>

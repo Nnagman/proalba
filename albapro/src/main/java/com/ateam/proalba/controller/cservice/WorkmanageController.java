@@ -29,8 +29,7 @@ import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+
 
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;

@@ -11,12 +11,27 @@
 
 <head>
 
+
+
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
 <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
+ 
+ 
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+ 
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/css/mdb.min.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+     <link href="resources/css/datatables.min.css" rel="stylesheet">
 
 
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+ 
+ 
 
 
 <script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
@@ -93,14 +108,112 @@ p {
 	height: 23px !important;
 }
 
-.card-columns { @include media-breakpoint-only(lg) { column-count:4;
-	
+.recruinfo-list{
+width:100%;
 }
 
-@
-include media-breakpoint-only (xl ) {
-	column-count: 5;
+.recruinfo-table{
+
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Malgun Gothic';
+    letter-spacing: -1px;
+    border-top: 1px solid #aaa;
 }
+
+.recruinfo-table th{
+
+text-align:left !important;
+    font-weight: bold;
+    text-align: -internal-center;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.recruinfo-list table tr th {
+    padding: 9px 0 10px;
+    padding: 11px 0 8px\0;
+      padding-left: 15px;
+    line-height: 1;
+    color: #666a5b;
+    background-color: #f2f2f2;
+    border: 0px solid !important;
+    border-bottom: 1px solid #b5b5b5 !important;
+}
+
+.recruinfo-list table tr td {
+    padding: 12px 0;
+    line-height: 1;
+    text-align: left;
+    color: #474747;
+     border: 0px solid !important;
+    border-bottom: 1px solid #e4e4e4 !important;
+        padding-left: 15px;
+       
+}
+
+.recruinfo-list table tr td.local {
+    width: 100px;
+    padding-left: 15px;
+    
+}
+
+
+
+.company{
+    display: block;
+    height: auto;
+    padding: 2px 0 6px !important;
+    font-size: 13px;
+
+    background: none !important;
+    color: #0075ab;
+}
+
+.recruinfo-list .title a span {
+    position: relative;
+    overflow: hidden;
+  
+    
+ 
+    font-family: tahoma;
+    line-height: 12px;
+    vertical-align: top;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: left;
+
+}
+
+
+#Example_info{
+display:none;
+}
+
+#Example_paginate{
+float:left;
 }
 </style>
 
@@ -236,24 +349,28 @@ include media-breakpoint-only (xl ) {
 
 <div class="recruinfo-list">
 
-<table>
-	<thead></thead>
+<table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
+	<thead>
 		<tr>
 			<th class="local">근무지</th>
-			<th class="title">점표명</th>
+			<th class="title">공고제목</th>
 			<th class="data">근무시간</th>
 			<th class="salary">급여</th>
 			
 		</tr>
+	</thead>
 	<tbody>
 
 		<c:forEach var="row" items="${list}">
 	
 			<tr>
 				<td class="local">${row.address}</td>
-				<td class="title">${row.work_place_name}</td>
-				<td class="data"></td>
-				<td class="salary"></td>
+				<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">
+										<span class="company">${row.work_place_name}</span>
+										<span>${row.title} </span>
+									</a></td>
+				<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
+				<td class="salary">${row.hour_wage}</td>
 			</tr>
 		</c:forEach>
 	
@@ -265,36 +382,7 @@ include media-breakpoint-only (xl ) {
    
 
 
-<div class="card-deck">
 
-
-  <c:forEach var="row" items="${list}">
-
-<div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-      <a href="recruinfoDetail?id=${login.id}"> 
-    <span class="card-title"> 점포명: ${row.work_place_name}</span><br> 
-    
-   <span class="card-text">
-   지역:<br />
-    시급 :<br /> 
-    상세설명: 
-   </span>
-   
-	</a>
-  </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
-
-
-
-</c:forEach>
-
-
-
-
-</div>
    </div>
    
    </div>
@@ -333,13 +421,34 @@ include media-breakpoint-only (xl ) {
 
 
 
-<script>
-	
-	var td= $('tbody .local').text();  
-	 
-	var subad = td.substr(td.indexOf('/',1)+1, td.indexOf(" ",1));
-	alert(subad); 
-</script>
+
+
+ <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
+   
+
+  
+  <script type="text/javascript">
+ 
+  $(document).ready(function () {
+	    $('#Example').DataTable({
+	      "paging": true // false to disable pagination (or any other option)
+	    });
+	    $('.dataTables_length').addClass('bs-select');
+	  });
+  
+  </script>
+  
+  
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+
+  <script type="text/javascript" src="resources/js/popper.min.js"></script>
+  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
+  <script type="text/javascript" src="resources/js/datatables.min.js"></script>
+  
+  
+ 
+
 
 </body>
 

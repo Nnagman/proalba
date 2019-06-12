@@ -139,8 +139,7 @@
 											</thead>
 											<tbody id="tbody">
 												<c:forEach var="row" items="${map.list}" varStatus="status">
-													<tr id="${status.count}" class="${row.w_code}"
-														sa_code="${row.sa_code}">
+													<tr id="${status.count}" class="${row.w_code}">
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>

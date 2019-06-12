@@ -32,6 +32,14 @@
 			FROM notice
   	  	]]>
 	</select>
+	
+		<select id="get_noticeDe_list" resultType="com.ateam.proalba.domain.NoticeVO">
+		<![CDATA[
+			SELECT * 
+			FROM notice
+			where n_code = #{n_code}
+  	  	]]>
+	</select>
 
 	<insert id="addAttach">
 		insert into notice_file 

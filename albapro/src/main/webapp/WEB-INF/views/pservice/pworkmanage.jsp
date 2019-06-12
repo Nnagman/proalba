@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%-- <%@ include file = "../include/header.jsp" %>  --%>
+
 
 
 <link rel="stylesheet" href="resources/css/workmanage.css" />
