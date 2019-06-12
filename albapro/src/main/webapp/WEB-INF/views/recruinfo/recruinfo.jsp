@@ -102,6 +102,8 @@ p {
 
 .jobSearch dl .data .tabForm li a {
 	height: 34px !important;
+	padding-top: 5px !important;
+	vertical-align: middle !important;
 }
 
 .jobSearch dl .content .value span {
@@ -215,6 +217,8 @@ display:none;
 #Example_paginate{
 float:left;
 }
+
+
 </style>
 
 <body>
