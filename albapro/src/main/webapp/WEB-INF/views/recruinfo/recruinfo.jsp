@@ -362,7 +362,6 @@ float:left;
 	<tbody>
 
 		<c:forEach var="row" items="${list}">
-	
 			<tr>
 				<td class="local">${row.address}</td>
 				<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">
@@ -448,6 +447,7 @@ float:left;
   
   
  
+
 
 
 </body>
