@@ -175,7 +175,7 @@ tbody {
 }
 
 .recruinfo-list table tr td.local {
-    width: 100px;
+    width: 13rem;
     padding-left: 15px;
     
 }

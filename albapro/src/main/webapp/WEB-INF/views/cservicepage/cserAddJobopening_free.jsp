@@ -110,7 +110,7 @@
 												<div class="div-cont">
 													<div class="jobcho-line1">
 														<c:set var="now" value="<%=new java.util.Date()%>" />
-														<input type="hidden"value='${login.m_code}<fmt:formatDate value='${now}' pattern='yyyy-MM-dd hh:mm:ss'/>' name="n_code"/>
+														<input type="hidden"value='${login.m_code}/<fmt:formatDate value='${now}' pattern='yyyy-MM-dd hh:mm:ss'/>' name="n_code"/>
 														<input type="hidden" value='${login.m_code}'  name="m_code"/>
 														<input type="hidden" value=<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /> name="p_date"/>
 														직종/업무: <div class="jobchoice"></div>

@@ -148,6 +148,14 @@ display:inline-block;
 width:100px;
 }
 
+#map{
+margin: 20px 0 0 0;
+}
+
+
+.minpay2{
+color:red;
+}
 .card-columns { @include media-breakpoint-only(lg) { column-count:4;
 	
 }
@@ -165,9 +173,9 @@ width:100px;
 	<div class="container">
 	<div class="title-line">
 	<h4 class="recDetail-title">채용정보 상세보기</h4>
-		<div class="rec-update">등록된: 
+		<div class="rec-update">
 	
-			<em>날짜</em>
+			<em>등록된 날짜:${list[0].n_code_date}</em>
 		</div>	
 
 	</div>
@@ -237,8 +245,8 @@ width:100px;
 			<div class="infoaddress">
 		
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">근무지주소</span> ${list[0].address}</li>
-					<li>맵</li>
+					<li class="address" ><span class="item">근무지주소</span> <span id="address">${list[0].address}</span> </li>
+					<li><div id="map" style="width: 100%; height: 350px;" class="map"></div></li>
 				
 				</ul>
 			
@@ -251,8 +259,8 @@ width:100px;
 			<div class="infoSalary">
 		
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">급여</span> 시급db</li>
-					<li class="subDe">현재 최저시급은 8350 원 입니다.</li>
+					<li class="salary"><span class="item">급여</span> ${list[0].hour_wage}원</li>
+					<li class="minpay">현재 최저시급은 <span class="minpay2">8350</span> 원 입니다.</li>
 				
 				</ul>
 			
@@ -267,7 +275,7 @@ width:100px;
 			<div class="infoSalary">
 		
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">지원방법</span> 지원db</li>
+					<li class="user"><span class="item">지원방법</span> ${list[0].way}</li>
 					
 				
 				</ul>
@@ -313,6 +321,42 @@ width:100px;
     <!--/.Copyright-->
 
   </footer>
+
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+   <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+   mapOption = {
+       center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+       level: 3 // 지도의 확대 레벨
+   };  
+   //지도를 생성합니다    
+   var map = new daum.maps.Map(mapContainer, mapOption); 
+</script>
+<script>
+   $(document).ready(function(){
+      var address1 = $('#address').text();   
+      console.log(address1);
+      // 주소-좌표 변환 객체를 생성합니다
+      var geocoder = new daum.maps.services.Geocoder();
+      // 주소로 좌표를 검색합니다
+      geocoder.addressSearch(address1, function(result, status) {
+          // 정상적으로 검색이 완료됐으면 
+          if (status === daum.maps.services.Status.OK) {
+             var coords = new daum.maps.LatLng(result[0].y, result[0].x);   
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              var marker = new daum.maps.Marker({ map: map, position: coords });
+              // 인포윈도우로 장소에 대한 설명을 표시합니다
+              var infowindow = new daum.maps.InfoWindow({ content: '<div style="width:150px;text-align:center;padding:6px 0;">매장위치</div>' });
+              infowindow.open(map, marker);
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
+          } 
+      });    
+   });
+</script>
+
 
 </body>
 </html>
