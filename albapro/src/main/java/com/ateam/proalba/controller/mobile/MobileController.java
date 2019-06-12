@@ -1,5 +1,7 @@
 package com.ateam.proalba.controller.mobile;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,14 +17,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.MemberService;
+import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
@@ -41,6 +49,8 @@ public class MobileController {
 	private MobileAttendanceService mobileAttendanceService;
 	private QnAService qnaService;
 	private WorkManageService workmanage;
+	private SalaryService salaryService;
+	private MemberService memberService;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -92,6 +102,53 @@ public class MobileController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "/m.startWork", method = RequestMethod.POST)
+	public JSON mobileStartWorkPOST(@RequestBody String str) throws Exception {
+		//str에 담겨 있는 내용 -> '개인회원아이디/근무지명(workplace)/sa_code'
+		String[] str_arr = str.split("/");
+		String p_id = str_arr[0];
+		String workplace = str_arr[1];
+		String c_id = str_arr[4];
+		
+		String month = (new SimpleDateFormat("yyyyMM").format(new Date()));
+		String time = (new SimpleDateFormat("yyyyMMdd HH:mm").format(new Date()));
+		String w_code = p_id + "/" + time;
+		
+		String thisMonthSa_code = p_id.substring(1)+"/"+month+"/"+c_id;
+		
+		//출석하려면 work_record 테이블에 새로운 열을 추가해야 하는데, 그러기 위해선 w_code, sa_code, work_start_time가 필요하다.
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("sa_code", thisMonthSa_code);
+		map.put("work_start_time", time);
+		map.put("w_code", w_code);
+		
+		//해당 월에 급여코드가 없다면 새로운 급여 코드를 만들고 출석한다. 급여코드가 있으면 그냥 출석한다.
+		if(salaryService.select_salary(thisMonthSa_code) != null) {
+			mobileAttendanceService.mobileStartWork(map);
+		}else {
+			salaryService.insert_salary(thisMonthSa_code);
+			mobileAttendanceService.mobileStartWork(map);
+		}
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "출근완료");
+		return json;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.endtWork", method = RequestMethod.POST)
+	public JSON mobileEndWorkPOST(@RequestBody String str) throws Exception {
+		String[] str_arr = str.split("/");
+		String p_id = str_arr[0];
+		String workplace = str_arr[1];
+		String c_id = str_arr[4];
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "퇴근완료");
+		return json;
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "m.workRecord", method = RequestMethod.POST)
 	public JSON mobileWorkRecordPOST(@RequestBody String sa_code) throws Exception {
 		logger.info(sa_code);
@@ -102,6 +159,42 @@ public class MobileController {
 		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
 		return pJson;
 	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkRecord")
+	public List<MobileCWorkRecordVO> cmobileWorkRecordPOST(String id, String p_id) throws Exception {
+		logger.info("sss");
+		logger.info(id);
+		logger.info(p_id);
+		Map<String, String> id_map = new HashMap<String, String>();
+		id_map.put("id", id);
+		id_map.put("p_id", p_id);
+		List<MobileCWorkRecordVO> list = mobileAttendanceService.mobileCFoundWorkRecord(id_map);
+		logger.info("workManager:  "+list.toString());
+		/*
+		 * ModelAndView mav = new ModelAndView(); mav.setViewName("cworkManage.html");
+		 * Map<String, Object> map = new HashMap<String, Object>();
+		 * map.put("list",list);
+		 * 
+		 * mav.addObject("map", map);
+		 */
+		return list;
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkname")
+	public JSON getListPOST(String id) throws Exception {
+		logger.info(id);
+		MemberVO memberVO;
+		memberVO = memberService.getList(id);
+		JSONArray list = JSONArray.fromObject(memberVO);
+//		logger.info("workManager:  "+list.toString());
+		return list;
+		
+	}
+	
+			
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)

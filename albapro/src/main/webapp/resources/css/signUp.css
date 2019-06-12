@@ -99,8 +99,8 @@ table td #find_addr{width: 120px; height: 29px; background: #f2f2f2; border: 1px
 
 table td p.compul {color: #ec0101; margin-top: 6px; font-size: 12px;}
 
-table td .comName{width: 180px;}
-table td #comName_check{width: 50px; height: 29px; background: #f2f2f2; border: 1px solid #a4a4a4; border-radius: 7px;}
+table td .comNum{width: 180px;}
+table td #comNum_check{width: 50px; height: 29px; background: #f2f2f2; border: 1px solid #a4a4a4; border-radius: 7px;}
 
 
 .btnfield{

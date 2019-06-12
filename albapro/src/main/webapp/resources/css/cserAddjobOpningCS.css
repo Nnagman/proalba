@@ -1,0 +1,204 @@
+.row {
+	text-align: center;
+}
+
+.appperiod-hidden-tel, .appperiod-hidden-online {
+	display: none;
+}
+
+.jobcho1 {
+	width: 30%;
+}
+
+.jobcho1, .jobcho2 {
+	display: inline-block;
+}
+
+.jobcho2 {
+	width: 69%;
+	height: 300px;
+	   overflow:overlay;
+	/* background-color:black; */
+}
+
+.col-md-12 * {
+	font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.div-cont {
+	width: 800px;
+	text-align: left;
+	margin: 0 auto;
+	padding: 0 0 0 100px;
+}
+
+.div-cont input {
+	padding: 4px 10px 9px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin: 0 0 40px 20px;
+}
+
+.jobchoice {
+	height:40px;
+	width: 450px;
+	display:inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin: 0 0 0 20px;
+	    vertical-align: middle;
+	    overflow:overlay;
+}
+
+.card {
+	height: 100%;
+}
+
+.div-cont input[type=text]:focus, .div-cont input[type=text]:hover {
+	border: 2px solid #45a049;
+}
+
+.div-cont select {
+	margin: 0 0 0 20px;
+	
+}
+
+.custom-checkbox{
+display:inline-block;   
+margin: 0 0 40px 50px;
+}
+
+.custom-radio{
+display:inline-block;   
+margin: 0 0 0 30px;
+}
+
+.checkbox-line1{
+display:inline-block;
+margin:0 0 30px 0;
+}
+
+.recruitper-radio1 ,.custom-radio{
+display:inline-block;
+}
+
+.custom-control-label{
+color:black !important;
+}
+
+.recruitper-txt{
+	width:50px;
+}
+
+.assignedtask-txt{
+	width:500px;
+	
+}
+
+.Recruitment-endtime{
+	width:150px;
+}
+
+.addjob-title, .div-cont-title{
+	margin:30px 0 50px 0; 
+}
+
+textarea{
+	
+	width:500px;
+	height:80px !important;
+	margin: 10px 0 0 20px;
+}
+
+.preterms-txt{
+	margin:0 0 40px 0;
+}
+
+.search,.address,.submit{
+	height:0px !important;
+	margin: 0 0 0 0;
+	
+}
+
+.President-num,.President-num1,.President-num2{
+	margin: 20px 0 0 5px !important;
+	padding: 0 0 0 0 !important;
+	width:80px;
+}
+
+.Recruitment-title{
+	width:550px;
+}
+
+.appperiod-how{
+	margin: 0 0 30px 0;
+}
+
+.jobcho3{
+	width:100%;
+	height:100px;
+	border: 1px solid;
+	   overflow:overlay;
+}
+}
+
+.jobcho-de,.jobcho-de2{
+	cursor:pointer;
+	
+}
+
+.jobcho-de3{
+	display:inline-block;
+	margin: 0 0 0 10px;
+		
+}
+
+.sejobre{
+	display:inline-block;
+	margin: 5px 0 0 3px;
+	    vertical-align: middle;
+}
+
+.jobcho3-title{
+	margin:20px 0 0 0;
+}
+
+.today1{
+	margin: 0 0 0 20px;
+	display:inline-block;
+}
+
+.workplace-info-title{
+	display:inline-block;
+	
+}
+
+.workcon-day, .workcon-day2{
+	    display: inline-block;
+}
+
+.workcon-day2 select, .workcon-day select{
+	margin: 0 0 0 20px !important;
+	width:100px;
+	
+}
+
+.adr-btn{
+	width:120px !important;
+	height:40px !important; 
+	padding: 0 0 0 0 !important;
+	margin: 0px 0 0 0 !important;
+}
+
+.map{
+	margin: 0px 0 0 0;
+}
+
+.regaddjob{
+	width:200px !important;
+	height:50px !important;
+	    margin: 0 0 0 38% !important;
+}

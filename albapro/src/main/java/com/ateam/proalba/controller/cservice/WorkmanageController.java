@@ -5,13 +5,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,18 +21,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
-import com.ateam.proalba.domain.Criteria;
-import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
-
-import net.sf.json.JSONArray;
+import com.ateam.proalba.service.mobile.MobileService;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import net.sf.json.JSON;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
@@ -46,6 +45,8 @@ public class WorkmanageController {
 	SalaryService salaryService;
 	@Autowired
 	CareerService careerService;
+	@Autowired
+	MobileService mobileService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(WorkmanageController.class);
 	
@@ -187,21 +188,13 @@ public class WorkmanageController {
 	
 	
 	@RequestMapping(value = "/cserSalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model,@ModelAttribute("criteria") Criteria criteria, String id) throws Exception {
-	
-	
-		
-		PageMaker pageMaker = new PageMaker();
-	    pageMaker.setCriteria(criteria);
-	    pageMaker.setTotalCount(salaryService.countSalarys(criteria));
+	public String inqsalaryGET(Model model, String id) throws Exception {
+
 	    logger.info(id);
 	    model.addAttribute("salary_id", id);
 		model.addAttribute("message", "inqsalaryPage");
-		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(criteria, id));
+		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(id));
 		model.addAttribute("salarys", pJson);
-		model.addAttribute("pageMaker", pageMaker);
-		logger.info(Integer.toString(criteria.getPageStart()));
-		logger.info(Integer.toString(criteria.getPerPageNum()));
 		logger.info(pJson.toString());
 		return "cservicepage/cserSalary";
 	}
@@ -222,6 +215,18 @@ public class WorkmanageController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value ="/m.csalary", method = RequestMethod.POST)
+	public JSON mcsalaryPOST(Model model, String id) throws Exception {
+		
+		logger.info("id:  "+ id);
+		logger.info("Welcome CserviceController");
+		List<MobileSalaryInfoVO> list = workManage.csalary(id);
+		logger.info(list.toString());
+		JSONArray pJson = JSONArray.fromObject(list);
+		return pJson;
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET)
 	public ModelAndView inqcareerGET(Model model,@RequestParam("id") String id) throws Exception {
 		model.addAttribute("message", "");
@@ -234,6 +239,26 @@ public class WorkmanageController {
 		
 		mav.addObject("map", map);
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/m.cInqcareer")
+	public JSON mcInqcareerPOST(Model model,@RequestBody String m_code) throws Exception {
+		
+		logger.info("m_code:  "+ m_code);
+		logger.info("Welcome CserviceController");
+		List<CareerVO> list = mobileService.careerInfo(m_code);
+
+		for(CareerVO careerVO : list) {
+			if(careerVO.getEnd_date() == null) {
+				Date date = careerVO.getJoin_date();
+				careerVO.setEnd_date(date);
+			}
+		}
+		
+		JSONArray pJson = JSONArray.fromObject(list);
+		
+		return pJson;
 	}
 
 }

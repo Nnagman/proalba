@@ -12,7 +12,6 @@ import com.ateam.proalba.domain.MemberVO;
 public class MemberDAOImplement implements MemberDAO {
 
 	private static final String NAMESPACE = "com.ateam.proalba.mapper.MemberMapper";
-	
 	private final SqlSession sqlSession;
 	
 	@Inject

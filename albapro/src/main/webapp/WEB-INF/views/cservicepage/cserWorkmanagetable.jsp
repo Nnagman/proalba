@@ -69,7 +69,7 @@
 				</div>
 				<div class="sidebar-wrapper">
         <ul class="nav">
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
               <i class="material-icons">dashboard</i>
               채용공고 등록
@@ -94,12 +94,12 @@
             </a>
           </li>
      
-          <li class="nav-item ">
+          <%-- <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
 				</div>
@@ -133,7 +133,7 @@
 													<th class="th-sm">퇴근 시간</th>
 													<th class="th-sm">수정 하기</th>
 													<th class="th-sm">삭제 하기 <input type="button"
-														value="추가하기" id="Binsert" />
+														value="추가하기" id="Binsert" style="margin-left: 50px;" />
 													</th>
 												</tr>
 											</thead>
@@ -223,9 +223,6 @@
             $('.fixed-plugin .dropdown').addClass('open');
           }
         }
-        
-        
-     
             $('#example').DataTable( {
                 columnDefs: [
                     {

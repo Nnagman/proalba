@@ -88,6 +88,7 @@ public class SignUpController {
     public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
     	
     	logger.info(memberVO.getPhone());
+    	logger.info(memberVO.getB_number());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);

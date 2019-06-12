@@ -11,20 +11,31 @@ public class NoticeVO {
 	private String title;
 	private String job_type;
 	private int personnel;
+	private Date p_date;
 	private Date end_date;
 	private int hour_wage;
-	private int sex;
+	private String gender;
 	private String age;
-	private int way;
+	private String way;
 	private int term;
-	private int work_day;
-	private int work_time1;
+	private String work_day;
+	private String work_time1;
 	private String work_time2;
-	private Date p_date;
+	private int viewcnt;
 	private String address;
 	private String content;
 	private String work_place_name;
-	private int education;
+	private String education;
+	private String documents;
+	private String interview;
+	private String contact_number;
+	private String career;
+	private String employment_type;
+	private String assigned_task;
+	private String education_etc;
+	private String major;
+	private String preferential_conditions;
+	private int salary;
 	private String file;
-	private int viewcnt;
+	
 }

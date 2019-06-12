@@ -13,4 +13,5 @@ public class MobileAttendanceVO {
 	private String sa_code;
 	private String w_code;
 	private String working_hours;
+	private String work_place_name;
 }

@@ -12,7 +12,7 @@ body{
 	padding-right:200px;
 }
 
-..menucontainer{
+.menucontainer{
     width:100%;
     margin: 0 auto;
     padding: 20px 0 22px 0; 
@@ -145,6 +145,7 @@ body{
 	opacity: 1;
 	visibility: visible;
 	margin-top: 0px;
+	width: 200px;
 }
 
 .nav ul li:hover:after {

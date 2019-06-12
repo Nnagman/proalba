@@ -132,13 +132,23 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/sendWcontract", method = RequestMethod.POST)
-	public String sendWcontractPOST(WcontractVO wcontractVO) throws Exception {
+	public ModelAndView sendWcontractPOST(WcontractVO wcontractVO) throws Exception {
 		String p_id = "p"+wcontractVO.getP_id();
 		wcontractVO.setP_id(p_id);
 		
 		logger.info("sendWcontractPOST: "+ wcontractVO.toString());
 		contractService.send_contract(wcontractVO);
-		return "cservicepage/ccontract";
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		logger.info(list.toString());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)

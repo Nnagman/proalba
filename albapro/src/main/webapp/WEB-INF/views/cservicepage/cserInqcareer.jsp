@@ -93,12 +93,12 @@
             </a>
           </li>
 
-          <li class="nav-item ">
+         <%--  <li class="nav-item ">
             <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>
@@ -116,7 +116,7 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">직원 경력 조회</h4>
 									<p class="card-category">
-										${login.name} 님의 경력을 볼수 있습니다.
+										${map.list[0].name} 님의 경력을 볼수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">

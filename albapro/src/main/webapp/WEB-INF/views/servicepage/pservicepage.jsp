@@ -61,18 +61,6 @@ margin-top:70px;
               알바목록
             </a>
           </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              급여 관리
-            </a>
-          </li>
           <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>

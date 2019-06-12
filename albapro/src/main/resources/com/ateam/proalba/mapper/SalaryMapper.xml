@@ -4,20 +4,33 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
-	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO">
 	    <![CDATA[
         select * from  salary_view	
-       WHERE m_code='p'||+#{id} and
-       rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum})
+       	WHERE m_code='p'||+#{id}
 		 ]]>
 	</select>
-	    
-	     <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
+	
+	<select id="pserSalary" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
+	    <![CDATA[
+        select * from  salary_view	
+       	WHERE m_code='p'||+#{id} and work_place_name = #{work_place_name}
+		 ]]>
+	</select>
+	
+	<insert id="insert_salary">
+		<![CDATA[
+			insert into salary(sa_code) values (#{sa_code})
+		]]>
+	</insert>
+	
+	<select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[
-	    select * from  salary_view
-      	where  sa_code=#{sa_code};
+	    select * from  salary
+      	where  sa_code=#{sa_code}
 	    ]]>
-	    </select>  
+	</select> 
+	 
 	 <!--    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[
 	      select sa_code, BASIC_SALARY, NATIONAL_PENSION_COST, HEALTH_INSURANCE_COST, EMPLOYMENT_INSURANCE_COST, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place_name
@@ -42,6 +55,7 @@
         s.sa_code=d.sa_code and
         s.sa_code=sd.sa_code)
         WHERE rownum >= #{criteria.pageStart} AND rownum <= (#{criteria.pageStart}+#{criteria.perPageNum}) -->
+        
     <select id="countSalarys" resultType="int">
     	<![CDATA[
     	SELECT

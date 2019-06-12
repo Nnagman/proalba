@@ -63,7 +63,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+            <a class="nav-link" href="pserworkList?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
@@ -76,31 +76,18 @@
              전자근로 계약서
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
-            </a>
-          </li>
           <li class="nav-item active">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리
             </a>
           </li>
-          <li class="nav-item">
+          <%-- <li class="nav-item">
             <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>
@@ -137,8 +124,12 @@
 													<tr>
 														<td>${row.work_place_name}</td>
 														<td>${row.join_date}</td>
-														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
-														<c:if test="${row.end_date == null}"><td>현재 근무 중인 사업장입니다.</td></c:if>
+														<c:if test="${row.end_date != null}">
+															<td>${row.end_date}</td>
+														</c:if>
+														<c:if test="${row.end_date == null}">
+															<td>아직 근무 중입니다.</td>
+														</c:if>
 													</tr>
 												</c:forEach>
 											</tbody>
