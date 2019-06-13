@@ -122,8 +122,9 @@ public class WorkmanageController {
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("work_start_time", time.substring(0, time.indexOf("/")));
-		map.put("work_end_time", time.substring(time.indexOf("/") + 1, time.indexOf("!")));
-		map.put("w_code", time.substring(time.indexOf("!") + 1, time.indexOf(" ")));
+
+		map.put("work_end_time", time.substring(time.indexOf("/")+1, time.indexOf("!")));
+		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")+6));
 
 		Date today = new Date();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
@@ -154,9 +155,9 @@ public class WorkmanageController {
 	@ResponseBody
 	@RequestMapping(value = "/cserWorkmanagetableDelete", method = RequestMethod.POST)
 	public JSON cserWorkmanageDeletePOST(@RequestBody String delete_w_code) throws Exception {
-		delete_w_code = delete_w_code.substring(0, delete_w_code.indexOf(" "));
-		logger.info("w_code: " + delete_w_code);
-
+		delete_w_code = delete_w_code.substring(0, delete_w_code.indexOf(" ")+6);
+		logger.info("w_code: "+ delete_w_code);
+		
 		Date today = new Date();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
 		String[] w_code = delete_w_code.split("/");
@@ -280,9 +281,10 @@ public class WorkmanageController {
 
 	@ResponseBody
 	@RequestMapping("/m.cInqcareer")
-	public JSON mcInqcareerPOST(Model model, @RequestBody String m_code) throws Exception {
 
-		logger.info("m_code:  " + m_code);
+	public JSON mcInqcareerPOST(@RequestBody String m_code) throws Exception {
+		
+		logger.info("m_code:  "+ m_code);
 		logger.info("Welcome CserviceController");
 		List<CareerVO> list = mobileService.careerInfo(m_code);
 

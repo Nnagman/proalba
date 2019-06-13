@@ -222,6 +222,7 @@ public class ContractController {
 		
 		//근로계약서 테이블에 사인한 근로계약서의 행의 값들을 VO에 저장한다.
 		wcontractVO = contractService.select_contract3(Integer.toString(c_code));
+		logger.info("contractService.select_contract3 : " + wcontractVO);
 		
 		//VO에 저장된 사업자 아이디와 현재시간으로 직원 테이블의 기본키 값을 만든다.
 		Date date = new Date();
@@ -242,7 +243,7 @@ public class ContractController {
 		format = new SimpleDateFormat("yyyy-MM-dd");
 		
 		//경력 테이블에 넣을 값을 Map에 담는다.
-		map.put("join_date", format.format(wcontractVO.getStart_period()));
+		map.put("join_date", wcontractVO.getStart_period().substring(0,wcontractVO.getStart_period().indexOf(" ")));
 		map.put("work_place", wcontractVO.getWork_place());
 		System.out.println("Career Map : "+map);
 		
