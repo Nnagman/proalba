@@ -52,6 +52,28 @@
 .Even {
 	background-color: white;
 }
+
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: -1;
+	font-size: 0.8rem;
+}
+
 </style>
 
 <body>
@@ -102,6 +124,22 @@
           </li> --%>
         
         </ul>
+          	<div class="nav-itemsub">
+							<ul>
+
+								<li><a class="nav-link" href="#"> 근태 관리 </a></li>
+
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
+										급여 관리 </a></li>
+
+								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+								
+									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+
+							</ul>
+
+						</div>
+        
 				</div>
 			</div>
 			<!-- End of Sidebar -->
@@ -128,23 +166,27 @@
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
+													
 													<th class="th-sm">날짜</th>
+													<th class="th-sm">이름</th>
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">수정 하기</th>
-													<th class="th-sm">삭제 하기 <input type="button"
-														value="추가하기" id="Binsert" style="margin-left: 50px;" />
-													</th>
+												
+													
+											
 												</tr>
 											</thead>
 											<tbody id="tbody">
-												<c:forEach var="row" items="${map.list}" varStatus="status">
-													<tr id="${status.count}" class="${row.w_code}">
+												<c:forEach var="row" items="${list}" varStatus="status">
+													<tr >
+														
+													
 														<td>${row.sa_date}</td>
+														<td>${row.name}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														<td><input type="button" value="수정하기" class="Bupdate" /></td>
-														<td><input type="button" value="삭제하기" class="Bdelete" /></td>
+														
+											
 													</tr>
 
 												</c:forEach>
@@ -234,58 +276,11 @@
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
 
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-          $input = $(this);
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-            background_image = false;
-          }
-        });
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-          $input = $(this);
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-          } else {
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-        });
-      });
-      
    
-      });
+      
+     
+      
+    });
   });
   </script>
 </body>

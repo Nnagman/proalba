@@ -12,4 +12,5 @@ public interface WorkManageService {
 	
 	List<MobileSalaryInfoVO> csalary(String id) throws Exception;
 	List<MobileAttendanceVO> workRecord(Map<String, String> map) throws Exception;
+	
 }
