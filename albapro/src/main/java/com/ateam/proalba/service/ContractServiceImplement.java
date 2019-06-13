@@ -66,9 +66,6 @@ public class ContractServiceImplement implements ContractService {
 		contractDAO.add_storeTXid(bmap);
 	}
 
-	@Override
-	public WcontractVO select_contract4(Date date) throws Exception {
-		return contractDAO.select_contract4(date);
-	}
+	
 
 }

@@ -57,7 +57,7 @@
 	<select id="mobileFoundWorkRecord" resultType="com.ateam.proalba.domain.mobile.MobileWorkRecordVO">
 		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')-1) as w_code,sa_c, sa_start, sa_end, working_hours, work_place_name 
 		from workrecord_view v
-		where v.sa_c=#{id}
+		where v.sa_c=#{id} AND v.work_place_name = #{work_place_name}
 		order by w_code asc
 	</select>
 	<select id="mobileCFoundWorkRecord" resultType="com.ateam.proalba.domain.mobile.MobileCWorkRecordVO">
