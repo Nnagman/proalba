@@ -150,13 +150,13 @@ public class MobileController {
 	
 	@ResponseBody
 	@RequestMapping("m.workRecord")
-	public List<MobileWorkRecordVO> mobileWorkRecordPOST(String id, String work_place_name) throws Exception {
+	public List<MobileWorkRecordVO> mobileWorkRecordPOST(String id, String work_place) throws Exception {
 		logger.info("sss");
 		logger.info(id);
-		logger.info(work_place_name);
+		logger.info(work_place);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
-		map.put("work_place_name", work_place_name);
+		map.put("work_place", work_place);
 		List<MobileWorkRecordVO> list = mobileAttendanceService.mobileFoundWorkRecord(map);
 		logger.info("workManager:  "+list.toString());
 //		List<MobileWorkRecordVO> mobileWorkRecordVO;
