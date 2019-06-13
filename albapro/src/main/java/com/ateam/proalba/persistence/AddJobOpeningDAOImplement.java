@@ -38,8 +38,7 @@ public class AddJobOpeningDAOImplement implements AddJobOpeningDAO {
 
 	@Override
 	public void addJobOpenAttach(NoticeVO noticeVO) throws Exception {
-		sqlSession.insert(NAMESPACE+".addAttach", noticeVO);
-		
+		sqlSession.insert(NAMESPACE+".addAttach", noticeVO);	
 	}
 
 

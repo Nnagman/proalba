@@ -9,10 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 
 @Repository
 public class WorkManageDAOImpl implements WorkManageDAO {
 
+	private static final String NAMESPACE = "com.ateam.proalba.mapper.MobileMapper";
+	
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -22,6 +25,10 @@ public class WorkManageDAOImpl implements WorkManageDAO {
 	}
 
 	@Override
+	public List<MobileSalaryInfoVO> csalary(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".csalary", id);
+	}
+	
 	public List<MobileAttendanceVO> workRecord(Map<String, String> map) throws Exception {
 		System.out.println("workRecord map : "+map);
 		return sqlSession.selectList("workManage.workRecord", map);

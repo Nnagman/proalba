@@ -9,10 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%-- <%@ include file = "../include/header.jsp" %>  --%>
 
-- 
- <link rel="stylesheet" href="resources/css/workmanage.css" />
+
+
+<link rel="stylesheet" href="resources/css/workmanage.css" />
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"> 
 
 <!--   <link href="resources/css/mdb.min.css" rel="stylesheet">

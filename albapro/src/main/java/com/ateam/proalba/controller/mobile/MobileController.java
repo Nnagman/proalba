@@ -17,14 +17,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
@@ -45,6 +50,7 @@ public class MobileController {
 	private QnAService qnaService;
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
+	private MemberService memberService;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -144,15 +150,51 @@ public class MobileController {
 	
 	@ResponseBody
 	@RequestMapping(value = "m.workRecord", method = RequestMethod.POST)
-	public JSON mobileWorkRecordPOST(@RequestBody String sa_code) throws Exception {
-		logger.info(sa_code);
+	public JSON mobileWorkRecordPOST(@RequestBody String id) throws Exception {
+		logger.info(id);
 		List<MobileWorkRecordVO> mobileWorkRecordVO;
-		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(sa_code);
-		String str = mobileWorkRecordVO.get(0).getW_code();
-		logger.info(str);
+		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(id);
+//		String str = mobileWorkRecordVO.get(0).getW_code();
+//		logger.info(str);
 		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
 		return pJson;
 	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkRecord")
+	public List<MobileCWorkRecordVO> cmobileWorkRecordPOST(String id, String p_id) throws Exception {
+		logger.info("sss");
+		logger.info(id);
+		logger.info(p_id);
+		Map<String, String> id_map = new HashMap<String, String>();
+		id_map.put("id", id);
+		id_map.put("p_id", p_id);
+		List<MobileCWorkRecordVO> list = mobileAttendanceService.mobileCFoundWorkRecord(id_map);
+		logger.info("workManager:  "+list.toString());
+		/*
+		 * ModelAndView mav = new ModelAndView(); mav.setViewName("cworkManage.html");
+		 * Map<String, Object> map = new HashMap<String, Object>();
+		 * map.put("list",list);
+		 * 
+		 * mav.addObject("map", map);
+		 */
+		return list;
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("m.cworkname")
+	public JSON getListPOST(String id) throws Exception {
+		logger.info(id);
+		MemberVO memberVO;
+		memberVO = memberService.getList(id);
+		JSONArray list = JSONArray.fromObject(memberVO);
+//		logger.info("workManager:  "+list.toString());
+		return list;
+		
+	}
+	
+			
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)

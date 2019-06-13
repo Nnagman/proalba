@@ -90,7 +90,6 @@ margin-top:20px;
         <%--   <li class="nav-item">
             <a class="nav-link" href="pserSalary?id=${login.id}">
               <i class="material-icons">content_paste</i>
-              
               급여 관리
             </a>
           </li> --%>
@@ -135,7 +134,7 @@ margin-top:20px;
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
-								<td>${contract.work_place_name}</td>
+								<td>${contract.work_place}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</td>
 								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">
@@ -219,6 +218,7 @@ margin-top:20px;
         
      
             $('#example').DataTable( {
+            	"order": [[ 2, "dedc" ]],
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],

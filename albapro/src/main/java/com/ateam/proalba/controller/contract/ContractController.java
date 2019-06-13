@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.WcontractVO;
+import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
+import com.ateam.proalba.service.EmployeeService;
 import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.PdfFileService;
 import com.ateam.proalba.util.UploadFileUtils;
@@ -60,12 +63,16 @@ public class ContractController {
 	private final ContractService contractService;
 	private final MemberService memberService;
 	private final PdfFileService pdfFileService;
+	private final EmployeeService employeeService;
+	private final CareerService careerService;
 	
 	@Inject
-	public ContractController(ContractService contractService, MemberService memberService, PdfFileService pdfFileService) {
+	public ContractController(ContractService contractService, MemberService memberService, PdfFileService pdfFileService, EmployeeService employeeService, CareerService careerService) {
 		this.contractService = contractService;
 		this.memberService = memberService;
 		this.pdfFileService = pdfFileService;
+		this.employeeService = employeeService;
+		this.careerService = careerService;
 	}
 	
     @CrossOrigin
@@ -131,9 +138,8 @@ public class ContractController {
 	
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
-
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-
+		
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		contractService.add_contract(wcontractVO);
 		
@@ -156,26 +162,6 @@ public class ContractController {
 		model.addAttribute("contract", wcontractVO);
 		
 		return "cservicepage/cserWcontract";
-	}
-	
-	@RequestMapping(value = "/sendWcontract", method = RequestMethod.POST)
-	public ModelAndView sendWcontractPOST(WcontractVO wcontractVO) throws Exception {
-		String p_id = "p"+wcontractVO.getP_id();
-		wcontractVO.setP_id(p_id);
-		
-		logger.info("sendWcontractPOST: "+ wcontractVO.toString());
-		contractService.send_contract(wcontractVO);
-		
-		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
-		logger.info(list.toString());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cservicepage/cserContract");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list",list);
-		
-		mav.addObject("map", map);
-		return mav;
 	}
 	
 	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
@@ -231,7 +217,39 @@ public class ContractController {
 	public String checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
 		logger.info("checkContractPOST: "+ wcontractVO.toString());
 		contractService.check_contract(wcontractVO);
+		
+		int c_code = wcontractVO.getC_code();
+		
+		//근로계약서 테이블에 사인한 근로계약서의 행의 값들을 VO에 저장한다.
+		wcontractVO = contractService.select_contract3(Integer.toString(c_code));
+		
+		//VO에 저장된 사업자 아이디와 현재시간으로 직원 테이블의 기본키 값을 만든다.
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHMMSS");
+		String em_code = wcontractVO.getC_id() + "/" + format.format(date);
+		
+		//직원 테이블에 넣을 값을 Map에 담는다.
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("c_code", c_code);
+		map.put("em_code", em_code);
+		map.put("m_code", wcontractVO.getP_id());
+		map.put("hourly_wage", wcontractVO.getHour_wage());
+		System.out.println("Employee Map : "+map);
+		
+		//직원 테이블에 Map안의 값들을 insert한다.
+		employeeService.insert_employee(map);
+		
+		format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		//경력 테이블에 넣을 값을 Map에 담는다.
+		map.put("join_date", format.format(wcontractVO.getStart_period()));
+		map.put("work_place", wcontractVO.getWork_place());
+		System.out.println("Career Map : "+map);
+		
+		careerService.insert_career(map);
+		
 		return "servicepage/pserContract";
+
 	}
 	
 	@ResponseBody

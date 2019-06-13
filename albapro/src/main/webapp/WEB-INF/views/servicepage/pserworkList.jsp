@@ -3,6 +3,7 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,9 +104,9 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 경력 조회</h4>
+									<h4 class="card-title ">직원 알바목록 조회</h4>
 									<p class="card-category">
-										${login.name} 님의 경력을 볼수 있습니다.
+										${login.name} 님의 알바목록을 볼 수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">
@@ -124,9 +125,9 @@
 												<c:forEach var="row" items="${map.list}">
 													<tr>
 														<td>${row.work_place_name}</td>
-														<td>${row.join_date}</td>
+														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 														<c:if test="${row.end_date != null}">
-															<td>${row.end_date}</td>
+															<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
 														</c:if>
 														<c:if test="${row.end_date == null}">
 															<td>아직 근무 중입니다.</td>

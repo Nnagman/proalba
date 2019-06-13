@@ -35,7 +35,6 @@
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
@@ -149,9 +148,7 @@
 
                     <h4 class="hh">사업주</h4>
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
-                    	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
-                    	<img class="can1" id="myImage" style="margin:1px;">
-                    	<div id="sign2"></div>
+                    	<img class="can1" id="myImage" src="${contract.c_sign}" style="margin:1px;">
                 	</div>	
                     <span class="t3">사업체명: </span>
                     ${contract.work_place_name}<br>
@@ -165,24 +162,7 @@
                     ${contract.work_place_phone}<br><br>
                     </div>
                 </div>
-            <!-- Large modal -->
-            <div class="modal fade bs-example-modal-lg where-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <p>전송할 근로자 아이디 입력</p>
-                        <input id="p_id" name="p_id" type="text" maxlength="20"/><br/>
-                        <input type='button' class="bt2" id="submit2"/>근로계약서 보내기
-                    </div>
-                </div>
-            </div>
             </form>
-                <div style="text-align: center;">
-						<button type="button" class="bt1" id="moveSign">서명란이동</button>
-						<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
-                        <button type="button" class="bt1" value="근로계약서 작성완료" data-toggle="modal" data-target=".bs-example-modal-lg" id="submit1">근로계약서 작성완료</button>
-            			<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-            			<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
-            	</div>
     </div>
 
 </div>
@@ -208,71 +188,6 @@
 </script>
 
 <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-</script>
-
-
-
-
-
-
-<script>
-    $(function() {
-        $("#startSearchDate, #endSearchDate").datepicker({ 
-            dateFormat: 'yy-mm-dd',
-            prevText: '이전 달',
-            nextText: '다음 달',
-            showOn: "both",  
-            buttonImage: "resources/images/date1.png",
-            changeMonth: true,
-            changeYear: true,
-            changeMonth: true,
-            dayNames: ['월', '화', '수', '목', '금', '토', '일'],
-            dayNamesShort: ['월', '화', '수', '목', '금', '토', '일'],
-            dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
-            monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-            showMonthAfterYear: true,
-            yearSuffix: '년'
-        });
-
-
-    });
-
-    $(function() {
-        $('#datetimepicker3').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker4').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker5').datetimepicker({
-            pickDate: false
-        });
-
-        $('#datetimepicker6').datetimepicker({
-            pickDate: false
-        });
-    });
-    
-    $("#submit2").click(function(){
-        var formData = $("#form").serialize();
-        $(function(){
-        	$.ajax({
-    			async: false,
-    			type: 'POST',
-    			data: formData,
-    			url: 'http://localhost:8080/proalba/sendWcontract',
-    			success: function(data){
-                    alert("계약서전송성공!");
-                },
-                error : function(error) {
-                    alert("error : " + error);
-    			}
-        	});
-        });
-    });
 </script>
 </body>
 

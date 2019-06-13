@@ -15,7 +15,7 @@ select.select {height:28px;padding:0 25px 0 3px;padding-right:0\0;*padding-right
 span.input {position:relative;display:inline-block}
 span.input * {vertical-align:middle;cursor:pointer}
 span.input input {position:absolute;width:0;height:0;margin:0;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
-span.input label {display:inline-block;height:14px;height:13px\0;*height:13px;padding:1px 0 0 20px;padding-top:2px\0;*padding-top:2px;background:url('//image.alba.kr/comm/input.png') no-repeat;white-space:nowrap}
+span.input label {display:inline-block;height:19px;height:13px\0;*height:13px;padding:1px 0 0 20px;padding-top:2px\0;*padding-top:2px;background:url('//image.alba.kr/comm/input.png') no-repeat;white-space:nowrap}
 span.input.alone label {padding-left:22px}
 span.input input[type="checkbox"] + label {background-position:0 0}
 span.input.on input[type="checkbox"] + label {background-position:0 -20px;color:#2073f0}
@@ -152,7 +152,7 @@ a.selectAnchor.disabled span {padding:1px 2px 3px;color:#474747;border-color:#af
 .jobSearch .base dl.area .data .tabForm li.last {width:122px}
 .jobSearch .base dl.area .data .inputWrap li {width:127px}
 .jobSearch .base dl.area .data .inputWrap .input input[type="radio"] + label {background-position:0 40px}
-.jobSearch .base dl.area .data .inputWrap .input.on input[type="radio"] + label {background-position:0 -60px}
+.jobSearch .base dl.area .data .inputWrap .input.on input[type="radio"] + label {background-position:0 -56px}
 .jobSearch .base dl.area .data .inputWrap.dongWrap {background:#fafeff;border-top:1px solid #d3e3ed}
 .jobSearch .base dl.subway select {width:200px}
 .jobSearch .base dl.kind .data .tabForm li {width:266px}
