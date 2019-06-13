@@ -124,7 +124,7 @@ margin-top:20px;
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
-								<td>${contract.work_place_name}</td>
+								<td>${contract.work_place}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</tdz>
 								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">

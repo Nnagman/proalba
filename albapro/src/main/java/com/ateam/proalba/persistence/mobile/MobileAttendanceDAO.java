@@ -16,7 +16,7 @@ public interface MobileAttendanceDAO {
 	List<MobileAttendanceVO> mobileattendance(String id) throws Exception;
 	List<MobileAttendanceVO> listCriteria(Criteria criteria) throws Exception;
 	List<MobileWorkPlaceVO> mobileFoundWorkPlace(String p_id) throws Exception;
-	List<MobileWorkRecordVO> mobileFoundWorkRecord(String sa_code) throws Exception;
+	List<MobileWorkRecordVO> mobileFoundWorkRecord(String id) throws Exception;
 	List<MobileCWorkRecordVO> mobileCFoundWorkRecord(Map<String, String> id_map) throws Exception;
 	void mobileWorkRecordUpdate(Map<String, String> map) throws Exception;
 	void mobileWorkRecordDelete(String delete_w_code) throws Exception;
