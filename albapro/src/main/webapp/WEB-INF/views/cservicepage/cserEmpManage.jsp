@@ -185,13 +185,10 @@
 														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
 														
 													
-														<a href="cserSalary?id=${row.id}"
-															class="btn btn-primary card-btn">급여 기록</a> <a
-															href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}"
-															class="btn btn-primary card-btn ">근태 기록</a> <a
-															href="cserInqcareer?id=${row.id}"
-															class="btn btn-primary card-btn">경력 조회</a>
-															<button type="button" class="addbtnfi btn btn-primary card-btn"   >지문등록</button>
+														<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn">급여 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
+														<button type="button" class="addbtnfi btn btn-primary card-btn"   >지문등록</button>
 													</div>
 													
 														<!--============= 지문id등록 div   -->
@@ -336,6 +333,8 @@ $(document).ready(function(){
 		$('.fingerdivclose').on('click',function(){
 			console.log($(this).parent());
 		});
+		
+		$('.savefinger').on('click', function() { });
 	 });
 });
 

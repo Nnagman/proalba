@@ -311,7 +311,10 @@ margin: 0 0 0 20px;
       
       //수정하기 버튼
       $(document).on("click",".Bupdate",function(){
+    	  $('#'+id).html(tag);
     	  id = $(this).parent().parent().attr('id');
+    	  class1 = $(this).parent().parent().attr('class');
+    	  tag = $(this).parent().parent().html();
     	  class1 = $(this).parent().parent().attr('class');
           $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
           $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');

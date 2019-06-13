@@ -7,5 +7,13 @@
 	<insert id="insert_employee">
 		INSERT INTO employee(em_code, m_code, c_code, hourly_wage) VALUES (#{em_code}, #{m_code}, #{c_code}, #{hourly_wage})
 	</insert>
-
+	
+	<update id="update_finger_id">
+		UPDATE employee SET finger_id = #{finger_id} WHERE em_code = #{em_code}
+	</update>
+	
+	<update id="remove_finger_id">
+		UPDATE employee SET finger_id = 0 WHERE em_code = #{em_code}
+	</update>
+	
 </mapper>
