@@ -153,7 +153,12 @@ public class WorkmanageController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("work_start_time", time.substring(0, time.indexOf("/")));
 
-		map.put("work_end_time", time.substring(time.indexOf("/")+1, time.indexOf("!")));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date year_month_date = new Date();
+				
+		String work_end_time = format.format(year_month_date) + " " + time.substring(time.indexOf("/")+1, time.indexOf("!"));
+		
+		map.put("work_end_time", work_end_time);
 		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")+6));
 
 		Date today = new Date();

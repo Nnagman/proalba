@@ -49,7 +49,7 @@
 	<update id="mobileWorkRecordUpdate" parameterType="hashmap">
 		UPDATE work_record SET
     		work_start_time = substr(work_start_time, 0, INSTR(work_start_time, ' '))||#{work_start_time}, 
-    		work_end_time = substr(work_end_time, 0, INSTR(work_end_time, ' '))||#{work_end_time}
+    		work_end_time = #{work_end_time}
 		WHERE w_code = #{w_code}
 	</update>
 	
