@@ -126,7 +126,7 @@
                                  <c:forEach var="salary" items="${map.list}" varStatus="status"> 
                                  <tr>
                                      
-                                       <td>${salary.work_place_name}</td>
+                                       <td>${salary.work_place}</td>
                                        <td>${salary.work_hours }시간${salary.work_minute }분</td>
                                        <td>${salary.basic_salary}</td>
                                        <td>${salary.total_deduction_amount}</td>
