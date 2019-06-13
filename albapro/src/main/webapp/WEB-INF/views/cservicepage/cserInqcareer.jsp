@@ -3,6 +3,7 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,8 +136,8 @@
 												<c:if test="${row.end_date != null}">
 													<tr>
 														<td>${row.work_place_name}</td>
-														<td>${row.join_date}</td>
-														<c:if test="${row.end_date != null}"><td>${row.end_date}</td></c:if>
+														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
+														<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
 													</tr>
 												</c:if>
 												</c:forEach>

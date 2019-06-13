@@ -101,6 +101,8 @@ p {
 
 .jobSearch dl .data .tabForm li a {
 	height: 34px !important;
+	padding-top: 5px !important;
+	vertical-align: middle !important;
 }
 
 .jobSearch dl .content .value span {
@@ -179,7 +181,14 @@ tbody {
     
 }
 
+div.dataTables_filter label{
+float: right;
+margin-right: 40px;
+}
 
+.jobcho-line1{
+text-align: center;
+}
 
 .company{
     display: block;
@@ -214,6 +223,8 @@ display:none;
 #Example_paginate{
 float:left;
 }
+
+
 </style>
 
 <body>
