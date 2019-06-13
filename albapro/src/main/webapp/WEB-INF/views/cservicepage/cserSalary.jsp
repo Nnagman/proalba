@@ -286,6 +286,7 @@
         
      
             $('#example').DataTable( {
+            	"order": [[ 5, "asc" ]],
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],

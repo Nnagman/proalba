@@ -84,4 +84,10 @@
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
 		]]>
 	</select>
+	
+	<insert id="add_storeTXid">
+		INSERT INTO cont_blocktxid(c_code, tx_1, tx_2, tx_3)
+		VALUES(#{c_code}, #{tx1}, #{tx2}, #{tx3})
+	</insert>
+	
 </mapper>

@@ -1,6 +1,6 @@
 package com.ateam.proalba.service;
 
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,6 +60,11 @@ public class ContractServiceImplement implements ContractService {
 	public void check_contract(WcontractVO wcontractVO) throws Exception {
 		contractDAO.check_contract(wcontractVO);
 	}
+	@Override
+	public void add_storeTXid(Map<String, Object> bmap) throws Exception {
+		contractDAO.add_storeTXid(bmap);
+	}
+
 	@Override
 	public WcontractVO select_contract4(Date date) throws Exception {
 		return contractDAO.select_contract4(date);

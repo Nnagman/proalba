@@ -1,200 +1,277 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>Swefwefgw  sdfrf sdd </title>
+<title>Swefwefgw sdfrf sdd</title>
 
-  <!-- Custom fonts for this template-->
+<!-- Custom fonts for this template-->
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-  <!-- Custom styles for this template-->
- <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
-  <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
-  <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-    <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
- 
+<!-- Custom styles for this template-->
+<!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
+<link href="resources/css/servicepage/material-dashboard.css"
+	rel="stylesheet">
+<link href="resources/css/servicepage/demo.css" rel="stylesheet">
+<link href="resources/css/servicepage/pservicepagecus.css"
+	rel="stylesheet">
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
 
- 
- <link rel="stylesheet" href="resources/css/albamanage.css" />
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <script src="resources/js/albamanage.js"></script>
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script> 
+<script src="resources/js/cal/interaction.js"></script>
+<script src="resources/js/bootstrap.js"></script>
 
 
 
 </head>
+<style>
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
 
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: -1;
+	font-size: 0.8rem;
+}
+
+.card-btn {
+	background-color: #2e3949 !important;
+}
+
+
+.addfingerid{
+    width: 250px;
+    padding:10px;
+    position: relative;
+    text-align: center;
+    border: 1px solid;
+    margin: 0 0 20px 70rem;
+
+        border: 1px solid #999;
+            box-shadow: 1px 1px 1px 1px #999;
+    border-radius: 5px;
+}
+</style>
 
 <body>
-<c:if test="${login.id != null}">
-	<div class="wrapper">
-		<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
+	<c:if test="${login.id != null}">
+		<div class="wrapper">
+			<div class="div-sidebar">
+				<div class="sidebar" data-color="purple"
+					data-background-color="white"
+					data-image="../assets/img/sidebar-1.jpg">
+					<!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo">
-        <a href="/proalba" class="simple-text logo-normal">
-        proalba
-        </a>
-      </div>
-    
-    
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-
-<li class="nav-item  ">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 등록
-            </a>
-          </li>
+					<div class="logo">
+						<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+					</div>
 
 
-		<li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 작성
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
-              <i class="material-icons">person</i>
-              직원 관리
-            </a>
-          </li>
+					<div class="sidebar-wrapper">
+						<ul class="nav">
 
-           <%-- <li class="nav-item ">
+							<li class="nav-item  "><a class="nav-link"
+								href="cserAddJobopening_free?id=${login.id}"> <i
+									class="material-icons">dashboard</i> 채용공고 등록
+							</a></li>
 
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
-        </ul>
-      </div>
-    </div>
-			<!-- End of Sidebar -->
-		</div>
-		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 관리</h4>
-									<p class="card-category">
-										${login.id} 사업장의 직원을 관리할 수 있습니다. 
 
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										
-										
-											<c:forEach var="row" items="${list}">
-											<div class="card">
-											<div class="card-header"><h3>${row.name}</h3></div>
-											<div class="card-body">
-												<h5 class="card-title">휴대번호: ${row.phone}</h5><br>
-												<h5 class="card-title">생년 월일: ${row.birthday}</h5><br>
-												<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-												<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn " >급여 기록</a>
-												<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn " >근태 기록</a>
-												<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
-											</div>
-										</div>
-												</c:forEach>
-										
-										
-									</div>
-								</div>
-							</div>
+							<li class="nav-item "><a class="nav-link"
+								href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
+									전자근로 계약서
+							</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="cserWcontractForm?id=${login.id}"> <i
+									class="material-icons">dashboard</i> 전자근로 계약서 작성
+							</a></li>
+
+							<li class="nav-item active"><a class="nav-link"
+								href="cserEmpManage?id=${login.id}"> <i
+									class="material-icons">person</i> 직원 관리
+
+
+							</a></li>
+
+
+						</ul>
+
+
+						<div class="nav-itemsub">
+							<ul>
+
+								<li><a class="nav-link" href="#"> 근태 관리 </a></li>
+
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
+										급여 관리 </a></li>
+
+								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+								
+									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+
+							</ul>
+
 						</div>
 
 					</div>
 				</div>
+				<!-- End of Sidebar -->
 			</div>
-			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
+			<div class="content">
+				<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
+				</div>
+				<div class="pser-con">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header card-header-primary">
+										<h4 class="card-title ">직원 관리</h4>
+										<p class="card-category">${login.id}사업장의 직원을 관리할 수 있습니다.</p>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive">
+
+								
+											<c:forEach var="row" items="${list}">
+												
+												<div class="card">
+													<div class="card-header">
+														<h3>${row.name}</h3>
+													</div>
+													<div class="card-body">
+														<h5 class="card-title">휴대번호: ${row.phone}</h5>
+														<br>
+														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
+														<br>
+														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
+														
+													
+														<a href="cserSalary?id=${row.id}"
+															class="btn btn-primary card-btn">급여 기록</a> <a
+															href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}"
+															class="btn btn-primary card-btn ">근태 기록</a> <a
+															href="cserInqcareer?id=${row.id}"
+															class="btn btn-primary card-btn">경력 조회</a>
+															<button type="button" class="addbtnfi btn btn-primary card-btn"   >지문등록</button>
+													</div>
+													
+														<!--============= 지문id등록 div   -->
+														
+														
+														<!--============= 지문id등록 div   -->
+														
+												</div>
+												</c:forEach>
+										
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="pser-footer"><%@ include
+						file="../servicepage/pserfooter.jsp"%></div>
+			</div>
+
 		</div>
 
-	</div>
+
+
+
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="basicExampleModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+				
+				
+						
+					</div>
+					<div class="modal-footer">
+
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
+
+		<script src="resources/js/servicepage2/popper.min.js"></script>
+
+		<script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
+		<script src="resources/js/servicepage2/demo.js"></script>
 
 
 
 
 
 
-
-  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-
-   <script src="resources/js/servicepage2/popper.min.js"></script>
-    <!-- <script src="resources/js/servicepage2/bootstrap-material-design.min.js"></script>
-      <script src="resources/js/servicepage2/perfect-scrollbar.jquery.min.js"></script>
-        <script src="resources/js/servicepage2/moment.min.js"></script>
-          <script src="resources/js/servicepage2/sweetalert2.js"></script>
-            <script src="resources/js/servicepage2/jquery.validate.min.js"></script>
-              <script src="resources/js/servicepage2/jquery.bootstrap-wizard.js"></script>
-                <script src="resources/js/servicepage2/bootstrap-selectpicker.js"></script>
-                  <script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script> -->
-                    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-             <!--          <script src="resources/js/servicepage2/bootstrap-tagsinput.js"></script>
-                        <script src="resources/js/servicepage2/jasny-bootstrap.min.js"></script> -->
-                        <!--   <script src="resources/js/servicepage2/fullcalendar.min.js"></script> -->
-                       <!--      <script src="resources/js/servicepage2/jquery-jvectormap.js"></script>
-                              <script src="resources/js/servicepage2/nouislider.min.js"></script>
-                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-                                   <script src="resources/js/servicepage2/arrive.min.js"></script>
-                                      <script src="resources/js/servicepage2/chartist.min.js"></script>
-                                       <script src="resources/js/servicepage2/bootstrap-notify.js"></script>
-                                           <script src="resources/js/servicepage2/material-dashboard.js"></script> -->
-                                            <script src="resources/js/servicepage2/demo.js"></script>
-                                            
-                                            
-                                            
-                                
-                                            
-   <script>
+		<script>
     $(document).ready(function() {
       $().ready(function() {
-        $sidebar = $('.sidebar');
-
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-        $full_page = $('.full-page');
-
+    	  
+    	
+            
+       
         $sidebar_responsive = $('body > .navbar-collapse');
-
         window_width = $(window).width();
+   
 
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
@@ -216,159 +293,55 @@
                 ]
             } );
       
-
-        /*  $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        }); */
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
+     	      /*   $('#savefinger').on('submit',function(e){
+     	    	  var fingerid=$('#fingerid').val();
+     	       	if(fingerid > 127){
+     	       		alert('127이상은 안됩니다.');
+     	       	}else{
+     	       	 $.ajax({
+                     url: "${path}/empfingeridUpdate",
+                     type: "POST",
+                     data:{
+                    	 
+                    	 "fingerid":fingerid
+                    	 
+                    	 },
+                     success: function(data){
+                         alert("Successfully submitted.")
+                     }
+                 });
+     	       	alert('지문아이디'+ fingerid + '저장!');
+     	       	}
+     	       });  */
+		
       }); 
     });
+    
+    
+    
+    
   </script>
-  
-  
 
- </c:if>
+<script>
+/* ------지문등록 div show script */
+ 
+
+$(document).ready(function(){
+	 $().ready(function() {
+	$('.addbtnfi').on('click',function(e){
+		 $(this).after('<div class="addfingerid"  <p>1~127까지 중 숫자를 입력해주세요</p> <input type="text" id="fingerid"maxlength="3" name="fingerid" /> <br/> <input type="button" class="btn btn-primary savefinger"  value="저장"/> <input type="button" class="btn btn-primary fingerdivclose"  value="닫기" /> </div>')
+
+		});
+
+		$('.fingerdivclose').on('click',function(){
+			console.log($(this).parent());
+		});
+	 });
+});
+
+/*  end */
+</script>
+
+	</c:if>
 </body>
 </html>
