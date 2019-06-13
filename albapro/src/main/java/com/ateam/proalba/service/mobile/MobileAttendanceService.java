@@ -12,6 +12,7 @@ import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 public interface MobileAttendanceService {
 	List<MobileAttendanceVO> mobileattendance(String id) throws Exception;
 	List<MobileAttendanceVO> cmobileattendance(Map<String, String> id_map) throws Exception;
+	List<MobileAttendanceVO> fullcmobileattendance(String id) throws Exception;
 	List<MobileAttendanceVO> listCriteria(Criteria criteria) throws Exception;
 	List<MobileWorkPlaceVO> mobileFoundWorkPlace(String id) throws Exception;
 	List<MobileWorkRecordVO> mobileFoundWorkRecord(Map<String, String> map) throws Exception;

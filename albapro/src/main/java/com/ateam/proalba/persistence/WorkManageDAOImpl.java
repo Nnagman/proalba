@@ -34,4 +34,6 @@ public class WorkManageDAOImpl implements WorkManageDAO {
 		return sqlSession.selectList("workManage.workRecord", map);
 	}
 
+
+
 }
