@@ -36,8 +36,8 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	}
 
 	@Override
-	public List<MobileWorkRecordVO> mobileFoundWorkRecord(String id) throws Exception {
-		return sqlSession.selectList(NAMESPACE+".mobileFoundWorkRecord",id);
+	public List<MobileWorkRecordVO> mobileFoundWorkRecord(Map<String, String> map) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".mobileFoundWorkRecord", map);
 	}
 	
 	@Override
