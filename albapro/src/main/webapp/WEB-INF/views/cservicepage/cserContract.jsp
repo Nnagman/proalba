@@ -136,7 +136,7 @@ margin-top:20px;
 							<tr>
 								<td>${contract.work_place}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</td>
-								<td>${fn:substring(contract.start_period,2,10)}</td>
+								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
 								<td><a href="${path}/vcontract?c_code=${contract.c_code}">서명완료</a></td>

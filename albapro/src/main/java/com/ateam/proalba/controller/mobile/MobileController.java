@@ -149,15 +149,22 @@ public class MobileController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "m.workRecord", method = RequestMethod.POST)
-	public JSON mobileWorkRecordPOST(@RequestBody String id) throws Exception {
+	@RequestMapping("m.workRecord")
+	public List<MobileWorkRecordVO> mobileWorkRecordPOST(String id, String work_place_name) throws Exception {
+		logger.info("sss");
 		logger.info(id);
-		List<MobileWorkRecordVO> mobileWorkRecordVO;
-		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(id);
+		logger.info(work_place_name);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("work_place_name", work_place_name);
+		List<MobileWorkRecordVO> list = mobileAttendanceService.mobileFoundWorkRecord(map);
+		logger.info("workManager:  "+list.toString());
+//		List<MobileWorkRecordVO> mobileWorkRecordVO;
+//		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(id);
 //		String str = mobileWorkRecordVO.get(0).getW_code();
 //		logger.info(str);
-		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
-		return pJson;
+//		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
+		return list;
 	}
 	
 	@ResponseBody
@@ -236,5 +243,5 @@ public class MobileController {
 		
 		return pJson;
 	}
-	
+
 }

@@ -101,7 +101,7 @@
             <h3 class="contract_title">전자 근로 계약서</h3>
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
-                    <input type="hidden" name="c_code" value="${contract.c_code}" />
+                    <input type="hidden" id="c_code" name="c_code" value="${contract.c_code}" />
                     <div>
                     ${fn:substring(contract.start_period,0,10)}
                     <span>부터</span>
@@ -400,12 +400,66 @@
         
         $("#submit2").click(function(){
         	var formData = $("#form").serialize();
-        	$.ajax({
+        	var c_code = $("#c_code").val();
+        	var blc;
+		  	
+		  	
+		 	$.ajax({
         		async: false,
         		url: "${path}/psercheckContract",
         		type: "post",
         		data: formData,
-    			success: function(data){ alert("계약서작성성공!"); },
+    			success: function(data){ 
+    				alert("계약서작성성공!"); 
+    				
+    				$.ajax({
+    					url: "${path}/getCon",
+    					type : "post",
+    					data : {"c_code":c_code},
+    					success : function(data){
+    					    var myCont = JSON.stringify(data);
+    					    var myContJson = JSON.parse(myCont);
+    					    blc = myContJson;
+    					    console.log(blc);
+    					    
+    					    console.log("dd   "+blc);
+    					  	var c_code = blc.c_code;
+    			    		var start_period = blc.start_period;
+    			    		var end_period = blc.end_period;
+    			    		var c_date = blc.c_date;
+    			    		var c_id = blc.c_id;
+    			    		var p_id = blc.p_id;
+    			    		var work_place_name = blc.work_place_name;
+    			    		var email_check = blc.email_check;
+    			    		var hour_wage = blc.hour_wage;
+    			    		var dedicated_work = blc.dedicated_work;
+    			    		var work_place = blc.work_place;
+    			    		var work_detail = blc.work_detail;
+    			    		var start_work_time = blc.start_work_time;
+    			    		var end_work_time = blc.end_work_time;
+    			    		var additional_wage = blc.additional_wage;
+    			    		var payday = blc.payday;
+    			    		var b_number = blc.b_number;
+    			    		var b_name = blc.b_name;
+    			    		var c_address = blc.c_address;
+    			    		var work_place_phone = blc.work_place_phone;
+    			    		var p_name = blc.p_name;
+    			    		var p_phone = blc.p_phone;
+    			    		var p_address = blc.p_address;
+
+    			    	   console.log(start_period);
+    			    	   
+    			    	  window.open("http://39.127.7.53:8008/?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address,
+    			    			  'popup', 'width=900, height=2000, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
+    					    
+    					},
+    					error : function(){
+    						alert("?");
+    					}  
+    				}); 
+    				
+    				
+    			},
                 error : function(error) { alert("error : " + error); }
         	});
         });

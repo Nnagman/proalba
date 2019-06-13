@@ -137,10 +137,7 @@ margin: 0 0 0 20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">지문 관리</h4>
 									<p class="card-category">
-										직원의 근태를 볼수 있습니다. <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
-
+										직원의 근태를 볼수 있습니다. 
 									</p>
 								</div>
 								<div class="card-body">
@@ -190,28 +187,6 @@ margin: 0 0 0 20px;
 
 
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<script src="resources/js/bootstrap.js"></script>
-			<!-- Modal content  -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
-				</div>
-				<div class="modal-body">
-					<%@ include file="../cservice/calendar.jsp"%>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
 
 
 	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
@@ -258,43 +233,43 @@ margin: 0 0 0 20px;
         
 
       
-       var id;
-      var class1;
-      var tag;
-      
-      //수정하기 버튼
-      $(document).on("click",".Bupdate",function(){
-    	  $('#'+id).html(tag);
-    	  id = $(this).parent().parent().attr('id');
-    	  class1 = $(this).parent().parent().attr('class');
-    	  tag = $(this).parent().parent().html();
-          $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
-          $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
-          $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
-          
+            var id;
+            var class1;
+            var tag;
+            
+            //수정하기 버튼
+            $(document).on("click",".Bupdate",function(){
+          	
+          	  id = $(this).parent().parent().attr('id');
+          	  class1 = $(this).parent().parent().attr('class');
+          	  tag = $(this).parent().parent().html();
+                $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
+                $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
+                $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
+                
 
-      });
-      
-      //업데이트 버튼
-      $(document).on("click","#recordupdate",function(){
-    	  alert($("#time1").html());
-    	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: time,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableUpdate',
-			success: function(data){
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error);}
-    	  });
-      });
+            });
+            
+            //업데이트 버튼
+            $(document).on("click","#recordupdate",function(){
+          	  alert($("#time1").html());
+          	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
+          	  $.ajax({
+      			async: false,
+      			type: 'POST',
+      			data: time,
+      			dataType: 'json',
+      			contentType: 'application/json; charset=UTF-8',
+      			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableUpdate',
+      			success: function(data){
+      				if(data == null || data == undefined){
+      					alert(data.message); location.reload();
+      				}
+      				alert(data.message); location.reload();
+      			},
+      			error : function(error) {alert("error : " + error);}
+          	  });
+            });
       
    
     	  

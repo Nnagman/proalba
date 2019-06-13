@@ -1,6 +1,7 @@
 package com.ateam.proalba.persistence;
 
 import java.util.Date;
+
 import java.util.List;
 import java.util.Map;
 
@@ -20,4 +21,6 @@ public interface ContractDAO {
 	void update_contract(String preFileName) throws Exception;
 	void send_contract(WcontractVO wcontractVO) throws Exception;
 	void check_contract(WcontractVO wcontractVO) throws Exception;
+	void add_storeTXid(Map<String, Object> bmap) throws Exception;
+
 }
