@@ -136,7 +136,7 @@
                                  <tbody>
                                  <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
-                                       <td id="sal_work_place_name">${salary.work_place_name}</td>
+                                       <td id="sal_work_place">${salary.work_place}</td>
                                        <td>${salary.work_hours }시간${salary.work_minute }분</td>
                                        <td id="sal_basic_salary">${salary.actual_salary+salary.total_deduction_amount}</td>
                                        <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
