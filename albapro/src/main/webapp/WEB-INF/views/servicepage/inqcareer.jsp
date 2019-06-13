@@ -3,6 +3,7 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,7 +125,7 @@ margin-top:20px;
 							아직 진행중인 알바 입니다.
 							</c:when>
 							<c:otherwise>
-							${career.end_date}
+							<fmt:formatDate value="${career.end_date}" pattern="yyyy-MM-dd"/>
 							</c:otherwise>
 					</c:choose>
 					</p>

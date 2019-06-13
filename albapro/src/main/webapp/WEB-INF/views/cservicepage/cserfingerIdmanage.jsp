@@ -135,9 +135,9 @@ margin: 0 0 0 20px;
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">지문 관리</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
+										직원의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
 											data-target="#myModal">달력보기 calendar_today</i>
 
@@ -148,23 +148,23 @@ margin: 0 0 0 20px;
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">날짜</th> 
-													<th class="th-sm">출근 시간</th>
-													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
+													<th class="th-sm">직원</th> 
+													<th class="th-sm">지문 아이디</th>
+														<th class="th-sm">추가</th>
+													
 												
 												</tr>
 											</thead>
 											<tbody id="tbody">
-												<c:forEach var="row" items="${map.list}" varStatus="status">
-													<tr id="${status.count}" class="${row.w_code}">
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
+												<c:forEach var="row" items="${list}" varStatus="status">
+													<tr id="${row.id}" class="${row.id}">
+														<td>${row.name}</td>
+													<td>${row.finger_id}</td>
 														<td>
 													<i class="fas fa-pencil-alt Bupdate"></i>
 													<i class="fas fa-trash-alt Bdelete"></i>
 													</td>
+												
 												
 													</tr>
 
@@ -255,57 +255,10 @@ margin: 0 0 0 20px;
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
 
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-          $input = $(this);
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-            background_image = false;
-          }
-        });
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-          $input = $(this);
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-          } else {
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-        });
-      });
+        
+
       
-      var id;
+       var id;
       var class1;
       var tag;
       
@@ -343,75 +296,7 @@ margin: 0 0 0 20px;
     	  });
       });
       
-      //삭제 버튼
-      $(document).on("click",".Bdelete",function(){
-    	  var delete_w_code = $(this).parent().parent().attr('class');
-    	  alert(delete_w_code);
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: delete_w_code,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableDelete',
-			success: function(data){
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error);}
-    	  });
-      });
-      
-      var w_code;
-      var sa_code_date
-      var sa_code
-      
-      //추가 버튼
-      $(document).on("click","#Binsert",function(){
-    	  var pid1 = $("tbody").children().attr('class');
-    	  var pid2 = pid1.substr(0, pid1.indexOf('/'));
-    	  var d = new Date();
-    	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-    	  
-    	  sa_code = $("tbody").children().attr('sa_code').split('/');
-    	  w_code = pid2;
-    	  var str1 = '<tr id="inserted_row" class="">';
-    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
-    	  var str3 = '<td><input type="time" id="time22" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
-    	  var str = str1+str2+str3;
-    	  $("#tbody").prepend(str);
-      });
-      
-      $(document).on("click","#insertRecord",function(){
-    	  sa_code_date = $('#date').val();
-    	  sa_code_date = $('#date').val().substr(0,7);
-    	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
-    	  $('#inserted_row').attr('class',sa_code2);
-    	  
-    	  if(sa_code[2].substr(0,1) != 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
-    	  };
-    	  
-    	  if(sa_code[2].substr(0,1) == 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+ sa_code[2].substr(1,2);
-    	  };
-    	  
-    	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
-        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
-    	  }
-    	  
-    	  if($("#time11").val().substr(0,3) <= $("#time22").val().substr(0,3)){
-    		  var split_date = $('#date').val().split('-');
-    		  split_date[1] = split_date[1]+1;
-    		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
-    		  
-        	  var str = $('#inserted_row').attr('class') + '!' + $('#date').val() +'@' + $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " + $("#time22").val() + '$' + w_code;
-    	  }
+   
     	  
     	  $.ajax({
 			async: false,
@@ -429,7 +314,7 @@ margin: 0 0 0 20px;
 			error : function(error) {alert("error : " + error); location.reload();}
     	  });
       });
-  });
+  }); 
   </script>
 </body>
 </html>

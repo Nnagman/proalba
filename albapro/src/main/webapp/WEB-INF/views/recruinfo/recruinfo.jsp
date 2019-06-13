@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 
 
@@ -50,8 +50,7 @@
 <script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript"
-	src="resources/js/recruinfo/recruinfoCus.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
 
 
 
@@ -182,7 +181,14 @@ tbody {
     
 }
 
+div.dataTables_filter label{
+float: right;
+margin-right: 40px;
+}
 
+.jobcho-line1{
+text-align: center;
+}
 
 .company{
     display: block;
@@ -236,7 +242,6 @@ float:left;
 			<div class="all">
 				<p class="title1">전체 채용공고</p>
 				<p class="count">
-					<strong>db값</strong>
 				</p>
 			</div>
 
@@ -352,7 +357,7 @@ float:left;
 
 
 <div class="recruinfo-list">
-
+<input type="hidden" class="form-control form-control-sm" placeholder="" id="job_type_search" aria-controls="Example">
 <table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
 	<thead>
 		<tr>
@@ -360,7 +365,7 @@ float:left;
 			<th class="title">공고제목</th>
 			<th class="data">근무시간</th>
 			<th class="salary">급여</th>
-			
+			<th class="p_date">공고등록일</th>	
 		</tr>
 	</thead>
 	<tbody>
@@ -374,6 +379,7 @@ float:left;
 									</a></td>
 				<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
 				<td class="salary">${row.hour_wage}</td>
+				<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 		</c:forEach>
 	
@@ -432,12 +438,16 @@ float:left;
   
   <script type="text/javascript">
  
-  $(document).ready(function () {
-	    $('#Example').DataTable({
-	      "paging": true // false to disable pagination (or any other option)
-	    });
-	    $('.dataTables_length').addClass('bs-select');
-	  });
+	$(document).ready(function () {
+		$('#Example').DataTable({
+			"paging": true // false to disable pagination (or any other option)
+		});
+		$('.dataTables_length').addClass('bs-select');
+	});
+	
+	$('.value > span').on('click', function(){
+		console.log($('.value > span').text());
+	});
   
   </script>
   

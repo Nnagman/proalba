@@ -77,7 +77,7 @@
 								<i class="material-icons">dashboard</i> 전자근로 계약서 작성
 							</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item dropdown">
 							<a class="nav-link" href="cserEmpManage?id=${login.id}">
 								<i class="material-icons">person</i> 직원 관리
 							</a>
@@ -87,6 +87,8 @@
 								커뮤니티
 						</a></li> --%>
 					</ul>
+					
+				
 				</div>
 			</div>
 			<!-- End of Sidebar -->
