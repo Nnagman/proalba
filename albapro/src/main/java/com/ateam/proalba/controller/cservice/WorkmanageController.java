@@ -280,15 +280,10 @@ public class WorkmanageController {
 
 	@ResponseBody
 	@RequestMapping("/m.cInqcareer")
-<<<<<<< HEAD
+
 	public JSON mcInqcareerPOST(@RequestBody String m_code) throws Exception {
 		
 		logger.info("m_code:  "+ m_code);
-=======
-	public JSON mcInqcareerPOST(Model model, @RequestBody String m_code) throws Exception {
-
-		logger.info("m_code:  " + m_code);
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 		logger.info("Welcome CserviceController");
 		List<CareerVO> list = mobileService.careerInfo(m_code);
 
