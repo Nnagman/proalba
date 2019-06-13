@@ -5,4 +5,9 @@ import lombok.Data;
 @Data
 public class MobileWorkRecordVO {
 	private String w_code;
+	private String sa_c;
+	private String sa_start;
+	private String sa_end;
+	private int working_hours;
+	private String work_place_name;
 }

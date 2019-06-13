@@ -150,12 +150,12 @@ public class MobileController {
 	
 	@ResponseBody
 	@RequestMapping(value = "m.workRecord", method = RequestMethod.POST)
-	public JSON mobileWorkRecordPOST(@RequestBody String sa_code) throws Exception {
-		logger.info(sa_code);
+	public JSON mobileWorkRecordPOST(@RequestBody String id) throws Exception {
+		logger.info(id);
 		List<MobileWorkRecordVO> mobileWorkRecordVO;
-		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(sa_code);
-		String str = mobileWorkRecordVO.get(0).getW_code();
-		logger.info(str);
+		mobileWorkRecordVO = mobileAttendanceService.mobileFoundWorkRecord(id);
+//		String str = mobileWorkRecordVO.get(0).getW_code();
+//		logger.info(str);
 		JSONArray pJson = JSONArray.fromObject(mobileWorkRecordVO);
 		return pJson;
 	}
