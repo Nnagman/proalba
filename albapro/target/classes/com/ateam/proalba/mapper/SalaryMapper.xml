@@ -7,14 +7,14 @@
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO">
 	    <![CDATA[
         select * from  salary_view	
-       	WHERE m_code='p'||+#{id}
+       	WHERE m_code='p'||#{id}
 		 ]]>
 	</select>
 	
 	<select id="pserSalary" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
 	    <![CDATA[
         select * from  salary_view	
-       	WHERE m_code='p'||+#{id} and work_place_name = #{work_place_name}
+       	WHERE m_code='p'||#{id} and work_place_name = #{work_place_name}
 		 ]]>
 	</select>
 	

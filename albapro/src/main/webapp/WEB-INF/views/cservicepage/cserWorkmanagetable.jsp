@@ -333,7 +333,7 @@ margin: 0 0 0 20px;
 			data: time,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableUpdate',
+			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableUpdate',
 			success: function(data){
 				if(data == null || data == undefined){
 					alert(data.message); location.reload();
@@ -354,7 +354,7 @@ margin: 0 0 0 20px;
 			data: delete_w_code,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableDelete',
+			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableDelete',
 			success: function(data){
 				if(data == null || data == undefined){
 					alert(data.message); location.reload();
