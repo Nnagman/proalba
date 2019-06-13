@@ -38,8 +38,8 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	}
 
 	@Override
-	public List<MobileWorkRecordVO> mobileFoundWorkRecord(String id) throws Exception {
-		return mobileAttendanceDAO.mobileFoundWorkRecord(id);
+	public List<MobileWorkRecordVO> mobileFoundWorkRecord(Map<String, String> map) throws Exception {
+		return mobileAttendanceDAO.mobileFoundWorkRecord(map);
 	}
 
 	@Override
