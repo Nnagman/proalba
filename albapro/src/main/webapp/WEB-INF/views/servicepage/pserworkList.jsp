@@ -124,7 +124,7 @@
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
-														<td>${row.work_place_name}</td>
+														<td>${row.work_place}</td>
 														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 														<c:if test="${row.end_date != null}">
 															<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
@@ -132,8 +132,8 @@
 														<c:if test="${row.end_date == null}">
 															<td>아직 근무 중입니다.</td>
 														</c:if>
-														<td><a href="pserSalary?id=${login.id}&&work_place_name=${row.work_place_name}">급여내역</a></td>
-														<td><a href="pworkmanage?id=${login.id}&&work_place_name=${row.work_place_name}">근태내역</a></td>
+														<td><a href="pserSalary?id=${login.id}&&work_place=${row.work_place}">급여내역</a></td>
+														<td><a href="pworkmanage?id=${login.id}&&work_place=${row.work_place}">근태내역</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
