@@ -218,6 +218,7 @@ margin-top:20px;
         
      
             $('#example').DataTable( {
+            	"order": [[ 2, "dedc" ]],
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],

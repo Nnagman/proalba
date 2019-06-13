@@ -21,11 +21,6 @@
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-	
-	<link rel="stylesheet"
-   href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-   crossorigin="anonymous">
 
 <!-- Custom styles for this template-->
 <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
@@ -56,21 +51,6 @@
 
 .Even {
 	background-color: white;
-}
-
-.Bdelete{
-	margin: 0 0 0 20px;
-	color:#F15F5F;
-	    font-size: 1.2rem;
-}
-.Bupdate{
-    font-size: 1.2rem;
-    color:#CC723D;
-}
-#Binsert{
-margin: 0 0 0 20px;
-	color:#B7F0B1;
-	    font-size: 1.2rem;
 }
 </style>
 
@@ -148,11 +128,13 @@ margin: 0 0 0 20px;
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">날짜</th> 
+													<th class="th-sm">날짜</th>
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
-												
+													<th class="th-sm">수정 하기</th>
+													<th class="th-sm">삭제 하기 <input type="button"
+														value="추가하기" id="Binsert" style="margin-left: 50px;" />
+													</th>
 												</tr>
 											</thead>
 											<tbody id="tbody">
@@ -161,11 +143,8 @@ margin: 0 0 0 20px;
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														<td>
-													<i class="fas fa-pencil-alt Bupdate"></i>
-													<i class="fas fa-trash-alt Bdelete"></i>
-													</td>
-												
+														<td><input type="button" value="수정하기" class="Bupdate" /></td>
+														<td><input type="button" value="삭제하기" class="Bdelete" /></td>
 													</tr>
 
 												</c:forEach>
@@ -305,127 +284,7 @@ margin: 0 0 0 20px;
         });
       });
       
-      var id;
-      var class1;
-      var tag;
-      
-      //수정하기 버튼
-      $(document).on("click",".Bupdate",function(){
-    	  id = $(this).parent().parent().attr('id');
-    	  class1 = $(this).parent().parent().attr('class');
-          $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
-          $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
-          $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
-          
-
-      });
-      
-      //업데이트 버튼
-      $(document).on("click","#recordupdate",function(){
-    	  alert($("#time1").html());
-    	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: time,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableUpdate',
-			success: function(data){
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error);}
-    	  });
-      });
-      
-      //삭제 버튼
-      $(document).on("click",".Bdelete",function(){
-    	  var delete_w_code = $(this).parent().parent().attr('class');
-    	  alert(delete_w_code);
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: delete_w_code,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableDelete',
-			success: function(data){
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error);}
-    	  });
-      });
-      
-      var w_code;
-      var sa_code_date
-      var sa_code
-      
-      //추가 버튼
-      $(document).on("click","#Binsert",function(){
-    	  var pid1 = $("tbody").children().attr('class');
-    	  var pid2 = pid1.substr(0, pid1.indexOf('/'));
-    	  var d = new Date();
-    	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-    	  
-    	  sa_code = $("tbody").children().attr('class').split('/');
-    	  w_code = pid2;
-    	  var str1 = '<tr id="inserted_row" class="">';
-    	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
-    	  var str3 = '<td><input type="time" id="time22" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
-    	  var str = str1+str2+str3;
-    	  $("#tbody").prepend(str);
-      });
-      
-      $(document).on("click","#insertRecord",function(){
-    	  sa_code_date = $('#date').val();
-    	  sa_code_date = $('#date').val().substr(0,7);
-    	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0].substring(1,sa_code[0].length) + '/' + sa_code_date + '/' + sa_code[2].substring(0,sa_code[2].indexOf(' '));
-    	  $('#inserted_row').attr('class',sa_code2);
-    	  
-    	  if(sa_code[2].substr(0,1) != 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
-    	  };
-    	  
-    	  if(sa_code[2].substr(0,1) == 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+ sa_code[2].substr(1,2);
-    	  };
-    	  
-    	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
-        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
-    	  }
-    	  
-    	  if($("#time11").val().substr(0,3) <= $("#time22").val().substr(0,3)){
-    		  var split_date = $('#date').val().split('-');
-    		  split_date[1] = split_date[1]+1;
-    		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
-    		  
-        	  var str = $('#inserted_row').attr('class') + '!' + $('#date').val() +'@' + $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " + $("#time22").val() + '$' + w_code;
-    	  }
-    	  
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: str,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableInsert',
-			success: function(data){ 
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error); location.reload();}
-    	  });
+   
       });
   });
   </script>
