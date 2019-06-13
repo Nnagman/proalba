@@ -182,7 +182,14 @@ tbody {
     
 }
 
+div.dataTables_filter label{
+float: right;
+margin-right: 40px;
+}
 
+.jobcho-line1{
+text-align: center;
+}
 
 .company{
     display: block;
