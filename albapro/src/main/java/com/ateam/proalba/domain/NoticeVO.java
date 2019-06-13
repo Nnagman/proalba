@@ -38,5 +38,9 @@ public class NoticeVO {
 	private int salary;
 	private String file;
 	private String n_code_date;
+	private String name;
+	private String phone;
+	private String email;
+	
 	
 }
