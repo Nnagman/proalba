@@ -75,5 +75,11 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 	public void mobileEndWork(Map<String, String> map) throws Exception {
 		sqlSession.update(NAMESPACE+".mobileEndWork", map);
 	}
+
+	@Override
+	public List<MobileAttendanceVO> fullcmobileattendance(String id) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE +".fullcmobileattendance", id);
+	}
 	
 }

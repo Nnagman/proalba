@@ -97,21 +97,17 @@ public class WorkmanageController {
 	}
 
 	@RequestMapping(value = "/cserFullWorkmanagetable", method = RequestMethod.GET)
-	public ModelAndView FullpservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid)
+	public ModelAndView FullpservicepageGET(Model model,  String id)
 			throws Exception {
 		model.addAttribute("message", "");
-		Map<String, String> id_map = new HashMap<String, String>();
-		id_map.put("id", id);
-		id_map.put("cid", cid);
-		List<MobileAttendanceVO> list = mobileAttendanceService.cmobileattendance(id_map);
+		
+	
+		List<MobileAttendanceVO> list = mobileAttendanceService.fullcmobileattendance(id);
 		logger.info("workManager:  " + list.toString());
 		logger.info(id);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cservicepage/cserWorkmanagetable");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
-
-		mav.addObject("map", map);
+		mav.setViewName("cservicepage/cserFullWorkmanagetable");
+		mav.addObject("list", list);
 		return mav;
 	}
 

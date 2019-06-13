@@ -77,5 +77,11 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 		return mobileAttendanceDAO.mobileCFoundWorkRecord(id_map);
 		
 	}
+ 
+	@Override
+	public List<MobileAttendanceVO> fullcmobileattendance(String id) throws Exception {
+		
+		return mobileAttendanceDAO.fullcmobileattendance(id);
+	}
 
 }
