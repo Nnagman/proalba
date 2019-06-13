@@ -242,7 +242,7 @@ public class WorkmanageController {
 	
 	@ResponseBody
 	@RequestMapping("/m.cInqcareer")
-	public JSON mcInqcareerPOST(Model model,@RequestBody String m_code) throws Exception {
+	public JSON mcInqcareerPOST(@RequestBody String m_code) throws Exception {
 		
 		logger.info("m_code:  "+ m_code);
 		logger.info("Welcome CserviceController");
