@@ -1,5 +1,6 @@
 package com.ateam.proalba.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,4 +18,6 @@ public interface ContractService {
 	WcontractVO select_contract2(Map<String, String[]> hashMap) throws Exception;
 	void send_contract(WcontractVO wcontractVO) throws Exception;
 	void check_contract(WcontractVO wcontractVO) throws Exception;
+	void add_storeTXid(Map<String, Object> bmap) throws Exception;
+
 }

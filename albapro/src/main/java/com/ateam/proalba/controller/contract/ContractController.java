@@ -40,6 +40,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +67,32 @@ public class ContractController {
 		this.memberService = memberService;
 		this.pdfFileService = pdfFileService;
 	}
+	
+    @CrossOrigin
+    @RequestMapping("/cross")
+	//consumes 하는 형태는 application/json 형태이다.
+	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
+	public Map<String, String> startApp1(int c_code, String tx1, String tx2, String tx3) throws Exception {
+    	logger.info(tx1);
+    	logger.info(tx2);
+    	logger.info(tx3);
+
+    	logger.info("cross!!");
+    	
+    	Map<String,Object> bmap = new HashMap<String, Object>();
+    	bmap.put("c_code",c_code);
+    	bmap.put("tx1",tx1);
+    	bmap.put("tx2",tx2);
+    	bmap.put("tx3",tx3);
+    	contractService.add_storeTXid(bmap);
+    	
+    	Map<String,String> map = new HashMap<String, String>();
+    	map.put("name","jw KIM");
+    	map.put("age", "22");
+       
+	return map;
+	}   
+
 	
 	@RequestMapping(value = "/contract", method = RequestMethod.GET)
 	public ModelAndView pcontractGET(Model model,@RequestParam("id") String id) throws Exception {
@@ -205,6 +232,14 @@ public class ContractController {
 		logger.info("checkContractPOST: "+ wcontractVO.toString());
 		contractService.check_contract(wcontractVO);
 		return "servicepage/pserContract";
+	}
+	
+	@ResponseBody
+    @RequestMapping("/getCon")
+    public WcontractVO getCon(Model model,String c_code) throws Exception{
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		logger.info(wcontractVO.toString());
+		return wcontractVO;	 
 	}
 	
 	@RequestMapping(value = "/vcontract", method = RequestMethod.GET)

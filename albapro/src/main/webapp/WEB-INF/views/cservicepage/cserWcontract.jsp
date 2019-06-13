@@ -99,7 +99,7 @@
                     <span>까지</span></div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
-                    ${contract.work_place_name}
+                    ${contract.work_place}
 
                     <h4 class="gg">3. 업무의 내용</h4><br>
                     ${contract.work_detail}
