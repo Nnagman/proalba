@@ -15,7 +15,7 @@
         ]]>
     </select>
     
-    <select id="listPaging" resultMap="CareerVOResultMap">
+    <select id="listPaging" resultType="com.ateam.proalba.domain.CareerVO">
     	<![CDATA[
     	SELECT
             join_date,
@@ -28,7 +28,7 @@
     	]]>
 	</select>
 	
-	<select id="listCriteria" resultMap="CareerVOResultMap">
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.CareerVO">
 	    <![CDATA[
 	    SELECT
             join_date,
@@ -40,7 +40,7 @@
     	]]>
 	</select>
 	
-	<select id="selectCareers" resultMap="CareerVOResultMap">
+	<select id="selectCareers" resultType="com.ateam.proalba.domain.CareerVO">
 	    <![CDATA[
 	    SELECT
             c.join_date,
@@ -52,12 +52,6 @@
     	ORDER BY c.join_date desc
     	]]>
 	</select>
-
-    <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
-        <id property="join_date" column="join_date" />
-        <result property="work_palce_name" column="work_palce_name" />
-        <result property="end_date" column="end_date" />
-    </resultMap>
     
     <select id="countCareers" resultType="int">
     	<![CDATA[

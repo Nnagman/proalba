@@ -311,10 +311,8 @@ margin: 0 0 0 20px;
       
       //수정하기 버튼
       $(document).on("click",".Bupdate",function(){
-    	
     	  id = $(this).parent().parent().attr('id');
     	  class1 = $(this).parent().parent().attr('class');
-    	  tag = $(this).parent().parent().html();
           $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
           $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
           $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
@@ -375,7 +373,7 @@ margin: 0 0 0 20px;
     	  var d = new Date();
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
     	  
-    	  sa_code = $("tbody").children().attr('sa_code').split('/');
+    	  sa_code = $("tbody").children().attr('class').split('/');
     	  w_code = pid2;
     	  var str1 = '<tr id="inserted_row" class="">';
     	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
@@ -388,7 +386,7 @@ margin: 0 0 0 20px;
     	  sa_code_date = $('#date').val();
     	  sa_code_date = $('#date').val().substr(0,7);
     	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
+    	  var sa_code2 = sa_code[0].substring(1,sa_code[0].length) + '/' + sa_code_date + '/' + sa_code[2].substring(0,sa_code[2].indexOf(' '));
     	  $('#inserted_row').attr('class',sa_code2);
     	  
     	  if(sa_code[2].substr(0,1) != 0){

@@ -1,35 +1,33 @@
 package com.ateam.proalba.domain;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data
 public class WcontractVO {
 	private int c_code;
-	private String start_period;	//±Ù·Î°è¾à±â°£
-	private String end_period;	//±Ù·Î°è¾à±â°£
-	private String c_id;	//»ç¾÷ÁÖ¾ÆÀÌµð
-	private String p_id;	//¾Ë¹Ù»ý¾ÆÀÌµð
-	private String work_place_name;	//»ç¾÷Ã¼¸í
-	private String fileName; //ÆÄÀÏÀ§Ä¡¶û ÀÌ¸§
-	private int hour_wage; //½Ã±Þ
-	private String dedicated_work; //¾÷Á¾
-	private String work_place; //±Ù¹«Àå¼Ò
-	private String work_detail; //¾÷¹«³»¿ë
-	private String start_work_time; //±Ù¹«½ÃÀÛ½ÃÀå
-	private String end_work_time; //±Ù¹«Á¾·á½Ã°£
-	private String additional_wage; //±âÅ¸±Þ¿©Áö±Þ¿©ºÎ
-	private String payday; //¿ù±ÞÀÏ
-	private String b_number; //»ç¾÷ÀÚµî·Ï¹øÈ£
-	private String b_name; //´ëÇ¥ÀÚÀÌ¸§
-	private String c_address; //»ç¾÷ÀåÁÖ¼Ò
-	private String work_place_phone; //»ç¾÷ÀÚ¿¬¶ôÃ³
-	private String c_date; //°è¾à¼­ ÃÖÃÊ ÀÛ¼ºÀÏ
-	private String email_check; //°è¾à¼­ È®ÀÎ ¿©ºÎ
-	private String c_sign; // »ç¾÷ÀÚ ½ÎÀÎ
-	private String p_sign; // ±Ù·ÎÀÚ ½ÎÀÎ
-	private String p_name; // ±Ù·ÎÀÚ ÀÌ¸§
-	private String p_phone; // ±Ù·ÎÀÚ ¹øÈ£
-	private String p_address; // ±Ù·ÎÀÚ ÁÖ¼Ò
+	private String start_period;	//ï¿½Ù·Î°ï¿½ï¿½â°£
+	private String end_period;	//ï¿½Ù·Î°ï¿½ï¿½â°£
+	private String c_id;	//ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½Ìµï¿½
+	private String p_id;	//ï¿½Ë¹Ù»ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+	private String work_place_name;	//ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½
+	private String fileName; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ì¸ï¿½
+	private int hour_wage; //ï¿½Ã±ï¿½
+	private String dedicated_work; //ï¿½ï¿½ï¿½ï¿½
+	private String work_place; //ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½
+	private String work_detail; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String start_work_time; //ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½Û½ï¿½ï¿½ï¿½
+	private String end_work_time; //ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	private String additional_wage; //ï¿½ï¿½Å¸ï¿½Þ¿ï¿½ï¿½ï¿½ï¿½Þ¿ï¿½ï¿½ï¿½
+	private String payday; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String b_number; //ï¿½ï¿½ï¿½ï¿½Úµï¿½Ï¹ï¿½È£
+	private String b_name; //ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½Ì¸ï¿½
+	private String c_address; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½
+	private String work_place_phone; //ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½Ã³
+	private String c_date; //ï¿½ï¿½à¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½
+	private String email_check; //ï¿½ï¿½à¼­ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String c_sign; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String p_sign; // ï¿½Ù·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String p_name; // ï¿½Ù·ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	private String p_phone; // ï¿½Ù·ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private String p_address; // ï¿½Ù·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
 }
