@@ -573,7 +573,7 @@
                type: 'POST',
                data: form,
                url: '${path}/proalba/cserAddJobopening_free',
-               success: function(data){ alert("일단 보내짐.") },
+               success: function(data){ alert("등록완료."); location.reload(); },
                   error : function(error) { alert("error : " + error); }
             });
            });

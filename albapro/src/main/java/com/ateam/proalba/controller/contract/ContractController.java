@@ -139,14 +139,29 @@ public class ContractController {
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat parse = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date date = new Date();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		for(WcontractVO contractVO : list) {
+			if(parse.parse(contractVO.getEnd_period()).getTime() > date.getTime()){
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("list",list);
+				mav.addObject("map", map);
+				mav.addObject("message", "등록 실패. 기존의 계약서와 새로운 계약서의 기간이 중복됩니다.");
+				return mav;
+			}
+		}
 		
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		contractService.add_contract(wcontractVO);
 		
-		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		list = contractService.select_contract(wcontractVO.getC_id());
 		logger.info(list.toString());
-		
-		ModelAndView mav = new ModelAndView();
+
 		mav.setViewName("cservicepage/cserContract");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
