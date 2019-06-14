@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>나의 급여</title>
+<title>프로알바</title>
 <!-- Custom fonts for this template-->
 
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -401,7 +401,7 @@
         $("#submit2").click(function(){
         	var formData = $("#form").serialize();
         	var c_code = $("#c_code").val();
-        	var blc;
+        	var blc, car;
 		  	
 		  	
 		 	$.ajax({
@@ -410,6 +410,11 @@
         		type: "post",
         		data: formData,
     			success: function(data){ 
+    				
+					var caree = JSON.stringify(data);
+				    var careeJ = JSON.parse(caree);
+				    car = careeJ;
+				    console.log(car);
     				
     				alert("계약서작성성공!"); 
     				console.log("aaa: "+data);
@@ -422,7 +427,8 @@
     					    var myContJson = JSON.parse(myCont);
     					    blc = myContJson;
     					    console.log(blc);
-    					    
+    						window.location.href = "${path}/contract?id=${login.id}";
+
     					    console.log("dd   "+blc);
     					  	var c_code = blc.c_code;
     			    		var start_period = blc.start_period;
@@ -447,11 +453,17 @@
     			    		var p_name = blc.p_name;
     			    		var p_phone = blc.p_phone;
     			    		var p_address = blc.p_address;
+    			    		
+    			    		var em_code = car.em_code;
+    			    		var m_code = car.m_code;
+    			    		var join_date = car.join_date;
+    			    		var end_date = car.end_date;
+    			    		var work_place = car.work_place;
 
-    			    	   console.log(start_period);
+    			    	   	console.log(start_period);
     			    	   
-    			    	  window.open("http://39.127.7.53:3000/?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address,
-    			    			  'popup', 'width=900, height=2000, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
+    			    	   	window.open("http://39.127.7.53:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
+    				    			  "popup",'width=600, height=350, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
     					    
     					},
     					error : function(){

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기업회원 가입</title>
+<title>프로알바</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
@@ -43,11 +43,6 @@
 								name="c2" /></label>
 								<a href="pdata">개인정보처리방침</a> 동의 (필수)<br />
 							
-						</p>
-						<p>
-							<label> &nbsp;&nbsp;<input type="checkbox" id="c3"
-								name="c3" /> 이메일, SMS알림 수신 동의 (선택)<br />
-							</label>
 						</p>
 					</div>
 				</form>
@@ -215,7 +210,7 @@
 				async: false,
 				type: 'POST',
 				data: id,
-				url: 'http://39.127.7.54:8080/proalba/idcheck',
+				url: 'http://39.127.7.84:8080/proalba/idcheck',
 				dataType: 'json',
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data){
@@ -227,7 +222,7 @@
 	                    $("#dev_pwd1").focus();
 	                    $("#btn_signup").removeAttr("disabled");
 	                    $("#dev_idchk").attr("disabled");
-	            		var m_code = 'p'+$('#id').val();
+	            		var m_code = 'c'+$('#id').val();
 	            		console.log(m_code);
 	            		$("#m_code").val(m_code);
 	                }
@@ -237,16 +232,6 @@
 	            }
 			});
 		});
-        
-		$("#email_select").change(function () {
-		    if ($("#email_select").val() != "1") {
-		      $("#dev_mail_etc").val($("#email_select").val());
-		      $("#dev_mail_etc").attr("disabled", true);
-		    }
-		    if ($("#email_select").val() == "1") {
-		      $("#dev_mail_etc").attr("disabled", false);
-		    }
-		  });
 
         $("#btn_signup").click(function(){
             var pnum1,pnum2,pnum3,p_Number;
@@ -266,7 +251,7 @@
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://39.127.7.54:8080/proalba/cregister',
+				url: 'http://39.127.7.84:8080/proalba/cregister',
 				success: function(data){
                     alert("회원가입성공!");
 	            },

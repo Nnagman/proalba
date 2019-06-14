@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>근태관리</title>
+<title>프로알바</title>
 
 <!-- Custom fonts for this template-->
 
@@ -181,6 +181,7 @@ margin: 0 0 0 20px;
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
+									
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>

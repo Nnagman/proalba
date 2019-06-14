@@ -79,12 +79,18 @@ public class ContractController {
     @RequestMapping("/cross")
 	//consumes 하는 형태는 application/json 형태이다.
 	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
-	public Map<String, String> startApp1(int c_code, String tx1, String tx2, String tx3) throws Exception {
+	public Map<String, String> startApp1(int c_code, String em_code, String tx, String tx1, String tx2, String tx3) throws Exception {
+    	logger.info(tx);
     	logger.info(tx1);
     	logger.info(tx2);
     	logger.info(tx3);
-
+    	logger.info(em_code);
     	logger.info("cross!!");
+    	
+    	Map<String,Object> cmap = new HashMap<String, Object>();
+    	cmap.put("em_code",em_code);
+    	cmap.put("tx",tx);
+    	careerService.add_storeCTXid(cmap);
     	
     	Map<String,Object> bmap = new HashMap<String, Object>();
     	bmap.put("c_code",c_code);
@@ -94,7 +100,7 @@ public class ContractController {
     	contractService.add_storeTXid(bmap);
     	
     	Map<String,String> map = new HashMap<String, String>();
-    	map.put("name","jw KIM");
+    	map.put("name","ok");
     	map.put("age", "22");
        
 	return map;
@@ -139,14 +145,29 @@ public class ContractController {
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat parse = new SimpleDateFormat("yyyyMMddHHmmss");
+		Date date = new Date();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserContract");
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		for(WcontractVO contractVO : list) {
+			if(parse.parse(contractVO.getEnd_period()).getTime() > date.getTime()){
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("list",list);
+				mav.addObject("map", map);
+				mav.addObject("message", "등록 실패. 기존의 계약서와 새로운 계약서의 기간이 중복됩니다.");
+				return mav;
+			}
+		}
 		
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		contractService.add_contract(wcontractVO);
 		
-		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		list = contractService.select_contract(wcontractVO.getC_id());
 		logger.info(list.toString());
-		
-		ModelAndView mav = new ModelAndView();
+
 		mav.setViewName("cservicepage/cserContract");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
@@ -213,8 +234,9 @@ public class ContractController {
 		return "servicepage/psercheckContract";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "/psercheckContract", method = RequestMethod.POST)
-	public String checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
+	public Map<String, Object> checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
 		logger.info("checkContractPOST: "+ wcontractVO.toString());
 		contractService.check_contract(wcontractVO);
 		
@@ -249,8 +271,7 @@ public class ContractController {
 		
 		careerService.insert_career(map);
 		
-		return "servicepage/pserContract";
-
+		return map;
 	}
 	
 	@ResponseBody

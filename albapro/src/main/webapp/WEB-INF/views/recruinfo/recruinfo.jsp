@@ -10,7 +10,7 @@
 	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 
 <head>
-
+<title>프로알바</title>
 
 
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
@@ -445,10 +445,10 @@ float:left;
 		$('.dataTables_length').addClass('bs-select');
 	});
 	
-	$('.value > span').on('click', function(){
+	$('#ulGugun').on('click',function(){
 		console.log($('.value > span').text());
 	});
-  
+
   </script>
   
   
