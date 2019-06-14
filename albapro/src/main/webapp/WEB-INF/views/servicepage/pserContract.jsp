@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>프로알바</title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -106,7 +106,7 @@ margin-top:20px;
                         <div class="card-header card-header-primary">
                            <h4 class="card-title ">전자근로 계약서 목록</h4>
                            <p class="card-category">
-                              ${login.id} 님의 전자 근로 계약서 입니다. 
+                              ${login.name} 님의 전자 근로 계약서 입니다. 
 
                            </p>
                         </div>

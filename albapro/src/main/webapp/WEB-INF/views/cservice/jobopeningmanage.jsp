@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>공고관리 - 프로알바</title>
+<title>프로알바</title>
 <link rel="stylesheet" href="resources/css/jobopeningmanage.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"

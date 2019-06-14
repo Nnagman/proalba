@@ -35,7 +35,7 @@
 <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
 </script>
 
-<title>전자 근로계약서-프로알바</title>
+<title>프로알바</title>
 </head>
 
 

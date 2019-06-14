@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>프로알바</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/articles.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
