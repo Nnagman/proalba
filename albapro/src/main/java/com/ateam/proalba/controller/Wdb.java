@@ -27,6 +27,7 @@ class Server {
             }
          }
 
+        
       } catch (IOException e) {
          System.err.println("다음의 포트 번호에 연결할 수 없습니다: 3810");
          serverSocket.close();
@@ -106,7 +107,7 @@ class ClientClone implements Runnable {
     	  
       }else {
       start = receivedData.indexOf("#");
-
+      
       end = receivedData.lastIndexOf("#");
       
       type = receivedData.indexOf("!");
@@ -144,10 +145,12 @@ class ClientClone implements Runnable {
          System.out.print(" 출근 : ");
          }else if(typeID==3) {
          query = "UPDATE work_record w SET w.work_end_time = TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi')" + 
-         		"    where   " + 
-         		"    rownum=1 and" + 
-         		"    w.work_end_time IS NULL  and" + 
-         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")";
+         		"    where  " + 
+         		"    rownum=1 and    " + 
+         		"    w.work_start_time = ( select max(work_start_time)" + 
+         		"    from work_record " + 
+         		"    where work_end_time IS NULL" + 
+         		"    ) and 'p'||SUBSTR(w_code,1,INSTR(w_code,'/',1)-1) = (select m_code from employee where finger_id="+fingerID+")";
          Statement stmt1 = conn.createStatement();
          stmt1.executeUpdate(query);
          query = "UPDATE work_record w SET w.working_hours =  (SELECT (dd*24*60)+SUBSTR (hms,1,2)*60+SUBSTR (hms, 3,2) time_minute" + 
