@@ -213,8 +213,9 @@ public class ContractController {
 		return "servicepage/psercheckContract";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "/psercheckContract", method = RequestMethod.POST)
-	public String checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
+	public Map<String, Object> checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
 		logger.info("checkContractPOST: "+ wcontractVO.toString());
 		contractService.check_contract(wcontractVO);
 		
@@ -249,8 +250,7 @@ public class ContractController {
 		
 		careerService.insert_career(map);
 		
-		return "servicepage/pserContract";
-
+		return map;
 	}
 	
 	@ResponseBody
