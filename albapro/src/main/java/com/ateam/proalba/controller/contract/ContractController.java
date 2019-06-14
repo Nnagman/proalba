@@ -79,12 +79,18 @@ public class ContractController {
     @RequestMapping("/cross")
 	//consumes 하는 형태는 application/json 형태이다.
 	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
-	public Map<String, String> startApp1(int c_code, String tx1, String tx2, String tx3) throws Exception {
+	public Map<String, String> startApp1(int c_code, String em_code, String tx, String tx1, String tx2, String tx3) throws Exception {
+    	logger.info(tx);
     	logger.info(tx1);
     	logger.info(tx2);
     	logger.info(tx3);
-
+    	logger.info(em_code);
     	logger.info("cross!!");
+    	
+    	Map<String,Object> cmap = new HashMap<String, Object>();
+    	cmap.put("em_code",em_code);
+    	cmap.put("tx",tx);
+    	careerService.add_storeCTXid(cmap);
     	
     	Map<String,Object> bmap = new HashMap<String, Object>();
     	bmap.put("c_code",c_code);
@@ -94,7 +100,7 @@ public class ContractController {
     	contractService.add_storeTXid(bmap);
     	
     	Map<String,String> map = new HashMap<String, String>();
-    	map.put("name","jw KIM");
+    	map.put("name","ok");
     	map.put("age", "22");
        
 	return map;

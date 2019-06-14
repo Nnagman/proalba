@@ -66,4 +66,10 @@ public class CareerDAOImplement implements CareerDAO {
 		sqlSession.insert(NAMESPACE + ".insert_career", map);
 	}
 
+	@Override
+	public void add_storeCTXid(Map<String, Object> cmap) throws Exception {
+		sqlSession.insert(NAMESPACE + ".careerTXid", cmap);
+		
+	}
+
 }
