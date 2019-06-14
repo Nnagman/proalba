@@ -108,7 +108,6 @@
 										<div class="col-md-12">
 											<div class="addjob-1">
 												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
-												<h2>필수사항 미입력시 제출 못하게 해야함.</h2>
 												<div class="div-cont">
 													<div class="jobcho-line1">
 														<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -573,7 +572,7 @@
                type: 'POST',
                data: form,
                url: '${path}/proalba/cserAddJobopening_free',
-               success: function(data){ alert("일단 보내짐.") },
+               success: function(data){ alert("등록완료."); location.reload(); },
                   error : function(error) { alert("error : " + error); }
             });
            });

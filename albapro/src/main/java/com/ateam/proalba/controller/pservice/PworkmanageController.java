@@ -27,14 +27,14 @@ public class PworkmanageController {
 	private static final Logger logger = LoggerFactory.getLogger(PworkmanageController.class);
 	
 	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id, @RequestParam("work_place_name") String work_place_name) throws Exception {
-		Map<String, String> id_work_place_name = new HashMap<String, String>();
-		id_work_place_name.put("id", id);
-		id_work_place_name.put("work_place_name", work_place_name);
-		System.out.println(id_work_place_name);
+	public ModelAndView pservicepageGET(Model model,@RequestParam("id") String id, @RequestParam("work_place") String work_place) throws Exception {
+		Map<String, String> id_work_place = new HashMap<String, String>();
+		id_work_place.put("id", id);
+		id_work_place.put("work_place", work_place);
+		System.out.println(id_work_place);
 		
 		model.addAttribute("message", "");
-		List<MobileAttendanceVO> list = workManageService.workRecord(id_work_place_name);
+		List<MobileAttendanceVO> list = workManageService.workRecord(id_work_place);
 		logger.info("workManager:  "+list.toString());
 		logger.info(id);
 		

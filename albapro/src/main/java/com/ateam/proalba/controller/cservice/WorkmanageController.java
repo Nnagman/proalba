@@ -25,26 +25,27 @@ import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.EmployeeService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
 
+import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
+@AllArgsConstructor
 public class WorkmanageController {
 
-	@Autowired
 	WorkManageService workManage;
-	@Autowired
 	SalaryService salaryService;
-	@Autowired
 	CareerService careerService;
-	@Autowired
 	MobileService mobileService;
+	MobileAttendanceService mobileAttendanceService;
+	EmployeeService employeeService;
 
 	private static final Logger logger = LoggerFactory.getLogger(WorkmanageController.class);
 
@@ -62,7 +63,7 @@ public class WorkmanageController {
 	}
 	
 	@RequestMapping(value = "/cserfingerIdmanage", method = RequestMethod.GET)
-	public ModelAndView cserfingeridmanage(Model model, String id) throws Exception {
+	public ModelAndView cserfingeridmanageGET(Model model, String id) throws Exception {
 
 		logger.info("c id:  " + id);
 		logger.info("Welcome CserviceController");
@@ -73,9 +74,42 @@ public class WorkmanageController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserfingerIdupdate", method = RequestMethod.POST)
+	public JSON cserfingerIdupdate(Model model, @RequestBody String str) throws Exception {
 
-	@Autowired
-	MobileAttendanceService mobileAttendanceService;
+		logger.info("str:  " + str);
+		String id = str.substring(0, str.indexOf("/"));
+		String em_code = str.substring(0 , str.indexOf(" "));
+		String finger_id = str.substring(str.lastIndexOf("/")+1);
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("finger_id", finger_id);
+		map.put("em_code", em_code);
+		System.out.println(map);
+		
+		employeeService.update_finger_id(map);
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "업데이트 성공");
+		return json;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserfingerIdremove", method = RequestMethod.POST)
+	public JSON cserfingerIdremove(Model model, @RequestBody String str) throws Exception {
+
+		String em_code = str.substring(0 , str.indexOf(" "));
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("em_code", em_code);
+		System.out.println(map);
+		
+		employeeService.remove_finger_id(map);
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "삭제 성공");
+		return json;
+	}
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
 	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid)
@@ -119,8 +153,13 @@ public class WorkmanageController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("work_start_time", time.substring(0, time.indexOf("/")));
 
-		map.put("work_end_time", time.substring(time.indexOf("/")+1, time.indexOf("!")));
-		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")+6));
+		SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
+		Date year_month_date = new Date();
+				
+		String work_end_time = format.format(year_month_date) + " " + time.substring(time.indexOf("/")+1, time.indexOf("!"));
+		
+		map.put("work_end_time", work_end_time);
+		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")));
 
 		Date today = new Date();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");

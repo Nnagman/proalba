@@ -135,7 +135,7 @@
 												<c:forEach var="row" items="${map.list}">
 												<c:if test="${row.end_date != null}">
 													<tr>
-														<td>${row.work_place_name}</td>
+														<td>${row.work_place}</td>
 														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 														<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
 													</tr>

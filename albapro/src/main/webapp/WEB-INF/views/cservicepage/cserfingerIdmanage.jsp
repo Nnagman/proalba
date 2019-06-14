@@ -185,26 +185,21 @@ margin: 0 0 0 20px;
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">직원</th> 
+													<th class="th-sm">직원</th>
+													<th class="th-sm">계약시작일</th>
 													<th class="th-sm">지문 아이디</th>
-														<th class="th-sm">추가</th>
-													
-												
+													<th class="th-sm">추가</th>	
 												</tr>
 											</thead>
 											<tbody id="tbody">
 												<c:forEach var="row" items="${list}" varStatus="status">
-													<tr id="${row.id}" class="${row.id}">
+													<tr id="${status.count}" class="${row.em_code}">
 														<td>${row.name}</td>
-													<td>${row.finger_id}</td>
-														<td>
-													<i class="fas fa-pencil-alt Bupdate"></i>
-													<i class="fas fa-trash-alt Bdelete"></i>
-													</td>
-												
-												
+														<td>${row.start_period}</td>
+														<c:if test='${row.finger_id == 0}'> <td> 등록된 지문이 없습니다. </td> </c:if>
+														<c:if test='${row.finger_id != 0}'> <td> ${row.finger_id} </td> </c:if>
+														<td> <i class="fas fa-pencil-alt Bupdate"></i> <i class="fas fa-trash-alt Bdelete"></i> </td>
 													</tr>
-
 												</c:forEach>
 											</tbody>
 
@@ -269,38 +264,33 @@ margin: 0 0 0 20px;
             
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
-
-        
-
-      
+    
             var id;
             var class1;
             var tag;
-            
+
             //수정하기 버튼
             $(document).on("click",".Bupdate",function(){
-          	
-          	  id = $(this).parent().parent().attr('id');
-          	  class1 = $(this).parent().parent().attr('class');
-          	  tag = $(this).parent().parent().html();
-                $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
-                $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
+            	$('#'+id).html(tag);
+          	  	id = $(this).parent().parent().attr('id');
+          	  	class1 = $(this).parent().parent().attr('class');
+          	  	tag = $(this).parent().parent().html();
+          	  	console.log('tag : ' + tag  + '//' + 'id : ' + id);
+                $(this).parent().prev().replaceWith('<td><input type="text" id="finger_id" value=""/></td>');
                 $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
-                
-
             });
             
             //업데이트 버튼
             $(document).on("click","#recordupdate",function(){
-          	  alert($("#time1").html());
-          	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
+          	  var str = class1 + '/' + $('#finger_id').val();
+          	  console.log(str);
           	  $.ajax({
       			async: false,
       			type: 'POST',
-      			data: time,
+      			data: str,
       			dataType: 'json',
       			contentType: 'application/json; charset=UTF-8',
-      			url: 'http://39.127.7.52:8080/proalba/cserWorkmanagetableUpdate',
+      			url: 'http://39.127.7.84:8080/proalba/cserfingerIdupdate',
       			success: function(data){
       				if(data == null || data == undefined){
       					alert(data.message); location.reload();
@@ -310,24 +300,26 @@ margin: 0 0 0 20px;
       			error : function(error) {alert("error : " + error);}
           	  });
             });
-      
-   
-    	  
-    	  $.ajax({
-			async: false,
-			type: 'POST',
-			data: str,
-			dataType: 'json',
-			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableInsert',
-			success: function(data){ 
-				if(data == null || data == undefined){
-					alert(data.message); location.reload();
-				}
-				alert(data.message); location.reload();
-			},
-			error : function(error) {alert("error : " + error); location.reload();}
-    	  });
+            
+            //삭제 버튼
+            $(document).on("click",".Bdelete",function(){
+          	  var str = $(this).parent().parent().attr('class');
+          	  $.ajax({
+      			async: false,
+      			type: 'POST',
+      			data: str,
+      			dataType: 'json',
+      			contentType: 'application/json; charset=UTF-8',
+      			url: 'http://39.127.7.84:8080/proalba/cserfingerIdremove',
+      			success: function(data){
+      				if(data == null || data == undefined){
+      					alert(data.message); location.reload();
+      				}
+      				alert(data.message); location.reload();
+      			},
+      			error : function(error) {alert("error : " + error);}
+          	  });
+            });
       });
   }); 
   </script>

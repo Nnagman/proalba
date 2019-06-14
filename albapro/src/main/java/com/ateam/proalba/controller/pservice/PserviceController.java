@@ -69,17 +69,17 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/pserSalary", method = RequestMethod.GET)
-	public ModelAndView inqsalaryGET(Model model,@RequestParam("id") String id,@RequestParam("work_place_name") String work_place_name) throws Exception {
+	public ModelAndView inqsalaryGET(Model model,@RequestParam("id") String id,@RequestParam("work_place") String work_place) throws Exception {
 		logger.info("Welcome inqsalaryPage");
 		
-		Map<String, String> id_work_place_name = new HashMap<String, String>();
-		id_work_place_name.put("id", id);
-		id_work_place_name.put("work_place_name", work_place_name);
+		Map<String, String> id_work_place = new HashMap<String, String>();
+		id_work_place.put("id", id);
+		id_work_place.put("work_place", work_place);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("servicepage/pserSalary");
 		
-		List<SalaryVO> list = salaryService.pserSalary(id_work_place_name);
+		List<SalaryVO> list = salaryService.pserSalary(id_work_place);
 		
 		JSONArray pJson = JSONArray.fromObject(list);
 		model.addAttribute("salarys", pJson);

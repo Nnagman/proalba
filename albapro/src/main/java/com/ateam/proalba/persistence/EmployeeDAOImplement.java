@@ -19,4 +19,14 @@ public class EmployeeDAOImplement implements EmployeeDAO {
 		sqlSession.insert(NAMESPACE + ".insert_employee", map);
 	}
 
+	@Override
+	public void update_finger_id(Map<String, Object> map) {
+		sqlSession.update(NAMESPACE + ".update_finger_id", map);
+	}
+
+	@Override
+	public void remove_finger_id(Map<String, Object> map) {
+		sqlSession.update(NAMESPACE + ".remove_finger_id", map);
+	}
+
 }
