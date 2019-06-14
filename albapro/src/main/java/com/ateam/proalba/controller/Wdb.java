@@ -27,6 +27,7 @@ class Server {
             }
          }
 
+        
       } catch (IOException e) {
          System.err.println("다음의 포트 번호에 연결할 수 없습니다: 3810");
          serverSocket.close();
@@ -106,7 +107,7 @@ class ClientClone implements Runnable {
     	  
       }else {
       start = receivedData.indexOf("#");
-
+      
       end = receivedData.lastIndexOf("#");
       
       type = receivedData.indexOf("!");
@@ -131,23 +132,54 @@ class ClientClone implements Runnable {
          String id = "proalba";
          String password = "pro123";
          String query = "";
+         String query1 = "";
          conn = DriverManager.getConnection(url, id, password);
           System.out.println("데이터베이스와 연결 성공");
          if(typeID==2) {
-        	   System.out.println("쿼리문 들어옴");
-         query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
-         		"        SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time" + 
-         		"        from salary s, employee e" + 
-         		"        where e.finger_id = "+ fingerID + 
-         		"        and s.em_code = e.em_code" + 
-         		"        and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,INSTR(sa_code,'/',2)-2) = to_char(sysdate, 'yyyymm')";
-         System.out.print(" 출근 : ");
+        	 
+        	 
+        	 query = "SELECT * FROM employee e, salary s " +
+        			 "WHERE (SELECT em_code from employee WHERE finger_id = "+fingerID+") = s.em_code " +
+        			 "AND (SELECT SUBSTR(sa_code, INSTR(sa_code,'/', 1)+1, 6) FROM salary ) = to_char(sysdate, 'YYYYMM') " +
+        			 "AND e.em_code = s.em_code";
+             Statement stmt1 = conn.createStatement();
+             rs = stmt1.executeQuery(query);
+             System.out.println(rs);
+             System.out.println("쿼리문 들어옴");
+             if(rs.next()) {
+            	 query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
+            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time " + 
+            			 " from salary s, employee e " + 
+            			 " where e.finger_id = "+ fingerID + 
+            			 " and s.em_code = e.em_code " + 
+            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,6) = to_char(sysdate, 'yyyymm') ";
+            	 System.out.print(" 출근 : ");
+             }else {
+            	 
+            	 query1 = "INSERT INTO salary (sa_code,em_code)  select SUBSTR(e.m_code,2,INSTR(e.em_code,'/',1)-2)||'/'||to_char(sysdate,'yyyymm')||'/'||SUBSTR(em_code,2,INSTR(em_code,'/',1)-2) as sa_code, e.em_code " + 
+            	 		"        from member m, employee e" + 
+            	 		"        where " + 
+            	 		"        m.m_code = SUBSTR(em_code,1,INSTR(em_code,'/',1)-1) and " + 
+            	 		"        e.finger_id = "+fingerID;
+            	 stmt1 = conn.createStatement();
+                 rs = stmt1.executeQuery(query1);
+                 query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
+            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time " + 
+            			 " from salary s, employee e " + 
+            			 " where e.finger_id = "+ fingerID + 
+            			 " and s.em_code = e.em_code " + 
+            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,6) = to_char(sysdate, 'yyyymm') ";
+                 stmt1 = conn.createStatement();
+                 rs = stmt1.executeQuery(query);
+             }
          }else if(typeID==3) {
          query = "UPDATE work_record w SET w.work_end_time = TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi')" + 
-         		"    where   " + 
-         		"    rownum=1 and" + 
-         		"    w.work_end_time IS NULL  and" + 
-         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")";
+         		"    where  " + 
+         		"    rownum=1 and    " + 
+         		"    w.work_start_time = ( select max(work_start_time)" + 
+         		"    from work_record " + 
+         		"    where work_end_time IS NULL" + 
+         		"    ) and 'p'||SUBSTR(w_code,1,INSTR(w_code,'/',1)-1) = (select m_code from employee where finger_id="+fingerID+")";
          Statement stmt1 = conn.createStatement();
          stmt1.executeUpdate(query);
          query = "UPDATE work_record w SET w.working_hours =  (SELECT (dd*24*60)+SUBSTR (hms,1,2)*60+SUBSTR (hms, 3,2) time_minute" + 
@@ -163,12 +195,12 @@ class ClientClone implements Runnable {
          		"                 rownum=1 and" + 
          		"                w.working_hours  IS NULL  and" + 
          		"                " + 
-         		"                'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id=1)" + 
+         		"                'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
          		"                )" + 
          		"       )) where    " + 
          		"       rownum=1 and" + 
          		"        w.working_hours IS NULL  and" + 
-         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id=1)" + 
+         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
          		"         ";
          System.out.print(" 퇴근 : ");
          }
