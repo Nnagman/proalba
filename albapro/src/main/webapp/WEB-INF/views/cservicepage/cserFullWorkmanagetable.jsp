@@ -91,6 +91,12 @@
     width: 105px;
     margin: 0 0 20px 0;
 }
+
+.dataTables_filter{
+	display:none;
+	}
+	
+	
 </style>
 
 <body>
@@ -136,7 +142,7 @@
 					<div class="nav-itemsub">
 						<ul>
 
-							<li><a class="nav-link" href="#"> 근태 관리 </a></li>
+							<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
 
 							<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 									급여 관리 </a></li>
@@ -165,9 +171,7 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
+										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. 
 
 									</p>
 								</div>
@@ -175,7 +179,7 @@
 									<div class="table-responsive">
 
 										<!--날짜 선택기  -->
-										날짜: <input type="text" id="datepicker" class="form-control datesel">
+										날짜: <input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
 										<button id="searbtn">조회</button>
 													<script>
 													
@@ -277,7 +281,7 @@
     $(document).ready(function() {
       $().ready(function() {
           
-  
+    	  var search =$('#datepicker').val();
       	
         $sidebar = $('.sidebar');
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -291,6 +295,7 @@
           }
         }
             $('#example').DataTable( {
+            	
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],
@@ -298,15 +303,19 @@
                     }
                 ]
             } );
+    		/* var search =$('#datepicker').val();
+        	var table =$('#example').dataTable();
+    		table.fnFilter(search); */
+    		
             
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
 
    
       
-     
+     	
 
-      
+     
     });
   });
 
@@ -315,44 +324,42 @@
 
 
 
-<!--  날짜만 검색하게 만들기 -->
-<script>
+<!--  날짜만 검색하게 만들기 조회버튼 -->
+<!--   <script>
 
 $(document).ready(function(){
 
+
+	
+	
+	
 	
 	  
-	$(document).on('click','#searbtn',function(event){
-	
-	
-	
-	
-	
-	
+	$(document).on("click",'#searbtn',function(){ 
 		var search =$('#datepicker').val();
+	
 		 search = search.substring(2,10); 
 		console.log(search); 
+
+		var table =$('#example').dataTable();
+		table.fnFilter(search);
 		
-		var search1 =$('input[type="search"]');
+	
+
+	
+
+
+	/* keypress 실패작 */
+
+/* 		var search1 =$('input[type="search"]');
 		
 		search1.attr('id','search_input');
 	
-	 	var fosearch =search1.focus(); 
+	  	var fosearch =search1.focus(); 
 			var search2 =$('input[type="search"]').value = search;  
-		 	var search3 =$('input[type="search"]').val(search2);   
-			
-		
-
-		 	
-			console.log(search2);   
-		
-		
-			
-			var e = jQuery.Event( "keydown", { keyCode: 32 } );
-	
-		$('#search_input').trigger(e); 
-			
-			
+		 	var search3 =$('input[type="search"]').val(search2);    */ 
+		 
+		/* keypress 실패작 */	 	
 	
 	});
 		
@@ -360,9 +367,24 @@ $(document).ready(function(){
 
    
 
-</script>
-<!--  날짜만 검색하게 만들기 -->
+</script> 
+ 날짜만 검색하게 만들기 -->
 
+<!-- 날짜별 조회 버튼 없이 -->
+<script>
+function changedate(){
+	var search =$('#datepicker').val();
+	
+	 search = search.substring(2,10); 
+	console.log(search); 
+
+	var table =$('#example').dataTable();
+	table.fnFilter(search);
+	
+	
+}
+</script>
+<!-- 날짜별 조회 버튼 없이 -->
 
 </body>
 </html>
