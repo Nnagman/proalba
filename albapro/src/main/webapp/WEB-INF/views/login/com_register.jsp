@@ -14,9 +14,7 @@
 	<div id="wrap">
 		<hr>
 		<div class="header">
-			<img src="resources/images/프로알바ver3.png" alt="logo" width="200px"
-				height="150px" />
-			<h1>회원가입</h1>
+			
 		</div>
 		<div id="container">
 			<div id="content">
