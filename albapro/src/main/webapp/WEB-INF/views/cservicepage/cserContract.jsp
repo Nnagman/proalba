@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>프로알바</title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -134,9 +134,9 @@ margin-top:20px;
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
-								<td>${contract.work_place_name}</td>
+								<td>${contract.work_place}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</td>
-								<td>${fn:substring(contract.start_period,2,10)}</td>
+								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">
 								<jsp:useBean id="now" class="java.util.Date" />
 								<td><a href="${path}/vcontract?c_code=${contract.c_code}">서명완료</a></td>
@@ -218,6 +218,7 @@ margin-top:20px;
         
      
             $('#example').DataTable( {
+            	"order": [[ 2, "dedc" ]],
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],
@@ -374,6 +375,13 @@ margin-top:20px;
 
         });
       }); 
+      
+      $(function(){
+          var responseMessage = "<c:out value="${message}" />";
+          if(responseMessage != ""){
+              alert(responseMessage)
+          }
+      }) 
     });
   </script>
 

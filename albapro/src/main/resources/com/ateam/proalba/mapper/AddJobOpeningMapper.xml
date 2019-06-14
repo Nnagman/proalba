@@ -35,6 +35,20 @@
 		FROM notice
   	  	]]>
 	</select>
+	
+		<select id="get_noticeDe_list" resultType="com.ateam.proalba.domain.NoticeVO">
+		<![CDATA[
+				SELECT a.n_code, a.m_code, a.title, a.job_type, a.personnel, a.end_date, a.hour_wage, a.gender, a.age, a.way, a.term, 
+		        a.work_day, a.work_time1, a.work_time2, a.p_date, a.viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,'/',1,2)-1),INSTR(SUBSTR(address,0,INSTR(address,'/',1,2)),'/')+1) address, 
+		        a.content, a.work_place_name, a.education, a.documents, a.interview, a.contact_number, a.career, a.employment_type,
+		        a.assigned_task, a.education_etc, a.major, a.preferential_conditions, a.salary ,SUBSTR(SUBSTR(n_code,INSTR(n_code,'/',1)+1),0,INSTR(SUBSTR(n_code,INSTR(n_code,'/',1)+1),' ')) n_code_date,
+		        b.name, b.phone, b.email
+			FROM notice a , member b
+			where 
+			a.m_code = b.m_code and
+			a.n_code = #{n_code}
+  	  	]]>
+	</select>
 
 	<insert id="addAttach">
 		insert into notice_file 

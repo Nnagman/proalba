@@ -18,4 +18,10 @@ public class RecruinfoServiceImplement implements RecruinfoService {
 		return recruinfoDAO.get_notice_list();
 	}
 
+	
+	 
+	public List<NoticeVO> get_noticeDe_list(String n_code) throws Exception { 
+		return recruinfoDAO.get_noticeDe_list(n_code); 
+		}
+	 
 }

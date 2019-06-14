@@ -13,7 +13,7 @@ public class SalaryVO {
 	private String total_deduction_amount;
 	private String additional_extended;
 	private String additional_night;
-	private String work_place_name;
+	private String work_place;
 	private String name;
 	private String sa_code;
 	private String national_pension_cost;

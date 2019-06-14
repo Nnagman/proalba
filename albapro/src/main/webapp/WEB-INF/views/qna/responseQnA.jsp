@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/onlineQnA.css?ver=2">
 <script type="text/javascript" src="resources/js/onlineQnA.js?ver=3"></script>
-<title>온라인알바-프로알바</title>
+<title>프로알바</title>
 </head>
 <body>
 <%@ include file = "../include/header.jsp" %>

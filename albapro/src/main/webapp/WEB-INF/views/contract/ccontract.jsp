@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로알바</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <%@ include file = "../include/header.jsp" %>
@@ -36,7 +36,7 @@
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${contracts}">
 							<tr>
-								<td>${contract.work_place_name}</td>
+								<td>${contract.work_place}</td>
 								<td>${contract.start_period}</td>
 								<td>${contract.end_period}</td>
 								<c:if test="${contract.email_check eq '1'}">

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.service.recruinfo.RecruinfoService;
 
 @Controller
@@ -35,10 +36,15 @@ public class RecruinfoController {
 	
 	
 	@RequestMapping("/recruinfoDetail")
-	public String recruinfoDetail(Model model)  {
-		logger.info("Welcome recruinfoPage");
+	public ModelAndView recruinfoDetail(Model model, String n_code)throws Exception  {
 		
-		
-		return "recruinfo/recruinfoDetail";
+		logger.info("n_code:"+ n_code);
+		 List<NoticeVO> list=recruinfoService.get_noticeDe_list(n_code); 
+		 
+			logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("recruinfo/recruinfoDetail");
+		mav.addObject("list", list); 
+		return mav;
 	}
 }

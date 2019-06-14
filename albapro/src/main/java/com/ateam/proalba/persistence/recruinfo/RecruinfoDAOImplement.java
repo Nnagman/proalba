@@ -19,5 +19,10 @@ public class RecruinfoDAOImplement implements RecruinfoDAO {
 	public List<NoticeVO> get_notice_list() throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".get_notice_list");
 	}
+	
+	@Override
+	public List<NoticeVO> get_noticeDe_list(String n_code) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".get_noticeDe_list",n_code);
+	}
 
 }

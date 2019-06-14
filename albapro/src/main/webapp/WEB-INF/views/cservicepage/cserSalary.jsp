@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>나의 급여</title>
+<title>프로알바</title>
 <!-- Custom fonts for this template-->
 
 <link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -136,7 +136,7 @@
                                  <tbody>
                                  <c:forEach var="salary" items="${salarys}" varStatus="status"> 
                                  <tr>
-                                       <td id="sal_work_place_name">${salary.work_place_name}</td>
+                                       <td id="sal_work_place">${salary.work_place}</td>
                                        <td>${salary.work_hours }시간${salary.work_minute }분</td>
                                        <td id="sal_basic_salary">${salary.actual_salary+salary.total_deduction_amount}</td>
                                        <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
@@ -286,6 +286,7 @@
         
      
             $('#example').DataTable( {
+            	"order": [[ 5, "asc" ]],
                 columnDefs: [
                     {
                         targets: [ 0, 1, 2 ],

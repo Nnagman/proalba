@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<%-- <%@ include file = "../include/header.jsp" %>  --%>
+<title>프로알바</title>
+
 
 
 <link rel="stylesheet" href="resources/css/workmanage.css" />

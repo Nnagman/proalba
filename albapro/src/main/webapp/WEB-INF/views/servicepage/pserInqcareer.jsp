@@ -3,6 +3,7 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>프로알바</title>
 
   <!-- Custom fonts for this template-->
 
@@ -122,10 +123,10 @@
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
-														<td>${row.work_place_name}</td>
-														<td>${row.join_date}</td>
+														<td>${row.work_place}</td>
+														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 														<c:if test="${row.end_date != null}">
-															<td>${row.end_date}</td>
+															<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
 														</c:if>
 														<c:if test="${row.end_date == null}">
 															<td>아직 근무 중입니다.</td>

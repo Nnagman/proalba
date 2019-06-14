@@ -1,5 +1,7 @@
 package com.ateam.proalba.persistence;
 
+import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -88,6 +90,16 @@ public class ContractDAOImplement implements ContractDAO {
 	@Override
 	public void check_contract(WcontractVO wcontractVO) throws Exception {
 		sqlSession.update(NAMESPACE + ".check_contract", wcontractVO);
+	}
+
+	@Override
+	public void add_storeTXid(Map<String, Object> bmap) throws Exception {
+		sqlSession.insert(NAMESPACE + ".add_storeTXid", bmap);
+	}	
+	
+	@Override
+	public WcontractVO select_contract4(Date date) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".select_contract4", date);
 	}
 
 }

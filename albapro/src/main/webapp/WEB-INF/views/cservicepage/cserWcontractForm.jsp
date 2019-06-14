@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>전자 근로계약서-프로알바</title>
+    <title>프로알바</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 
@@ -36,7 +36,6 @@
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
@@ -161,18 +160,24 @@
 		 						<br><br>
 		 						
 		 				연락처:	<input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
-		 						<br><hr>
+		 						<br>
 		 						
-		 				<input class="tex8" name="p_id" type="hidden" value=" "/>
-           			</div>
-           		</div>
-           		<div class="col-md-12">
-		 			<div class="addjob-3">
-		 				<input type='submit' class="bt2"/>
-          				<hr>
+		 				전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외): <br/>
+		 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/><hr/>
+		 				<input type="hidden" name="p_id" value=" "/>
            			</div>
            		</div>
            		</div>
+                <div id="sign" style="width: 40%; margin: auto;">
+                    <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+                    <img class="can1" id="myImage" style="margin:1px;">
+                    <div id="sign2"></div>
+                </div>
+           		<div style="text-align: center;">
+            		<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+            		<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
+            		<input type='submit' class="bt2" value="근로계약서 보내기" id="submit2"/>
+            	</div>
            		</form>
               </div>
             </div>
@@ -231,28 +236,21 @@
             showMonthAfterYear: true,
             yearSuffix: '년'
         });
-
-
     });
-
     $(function() {
         $('#datetimepicker3').datetimepicker({
             pickDate: false
         });
-
         $('#datetimepicker4').datetimepicker({
             pickDate: false
         });
-
         $('#datetimepicker5').datetimepicker({
             pickDate: false
         });
-
         $('#datetimepicker6').datetimepicker({
             pickDate: false
         });
     });
-
 </script>
 </body>
 

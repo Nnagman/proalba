@@ -1,6 +1,7 @@
 package com.ateam.proalba.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -58,6 +59,17 @@ public class CareerDAOImplement implements CareerDAO {
 	@Override
 	public List<CareerVO> selectCareers(String id) throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectCareers", id);
+	}
+
+	@Override
+	public void insert_career(Map<String, Object> map) throws Exception {
+		sqlSession.insert(NAMESPACE + ".insert_career", map);
+	}
+
+	@Override
+	public void add_storeCTXid(Map<String, Object> cmap) throws Exception {
+		sqlSession.insert(NAMESPACE + ".careerTXid", cmap);
+		
 	}
 
 }

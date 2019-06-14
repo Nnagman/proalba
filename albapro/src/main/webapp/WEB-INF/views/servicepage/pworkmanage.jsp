@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>프로알바</title>
 
   <!-- Custom fonts for this template-->
 
@@ -78,7 +78,7 @@ margin-right:20px;
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
+            <a class="nav-link" href="pserworkList?id=${login.name}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>

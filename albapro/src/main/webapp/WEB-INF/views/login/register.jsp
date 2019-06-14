@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>프로알바</title>
 <link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
 <link rel="stylesheet" type="text/css" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

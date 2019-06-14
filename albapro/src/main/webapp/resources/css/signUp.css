@@ -41,7 +41,7 @@ a{
 }
 input {
   height: 27px;
-  vertical-align: top;
+  vertical-align: middle;
   font: 12px arial;
 }
 
@@ -138,7 +138,7 @@ h1 {
   position: relative;
   top: 15px;
   font-size: 2.5em;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .signUpForm-header {
@@ -182,5 +182,21 @@ button {
   width: 80px;
   border-radius: 7px;
   background-color:  #f2f2f2;
-  border: 1px solid #a4a4a4
+  border: 1px solid #a4a4a4;
+}
+#address1{
+	height: 29px;
+	border-radius: 7px;
+  background-color:  #f2f2f2;
+  border: 1px solid #a4a4a4;
+}
+#address{
+	height: 29px;
+	margin-top: 9px !important;
+	border-radius: 7px;
+  background-color:  #f2f2f2;
+  border: 1px solid #a4a4a4;
+}
+.addr, #sample6_detailAddress, .sample6_address{
+	border: 1px solid #c0c0c0 !important; background: #fdfdfd !important; border-bottom: 1px solid #dbdee1 !important;
 }

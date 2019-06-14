@@ -36,4 +36,5 @@ public class AddjobOpeningVO {
 	private String major;
 	private String preferential_conditions;
 	private int salary;
+
 }

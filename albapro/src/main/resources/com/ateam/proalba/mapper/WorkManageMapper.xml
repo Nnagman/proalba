@@ -4,7 +4,7 @@
 
 <mapper namespace="workManage">
 	<select id="listAll" resultType="com.ateam.proalba.domain.WorkManageVO">
-		SELECT em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period
+		SELECT em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period,finger_id
 		FROM employee e, member m, contract c
 		WHERE e.m_code = m.m_code AND e.c_code = c.c_code AND
 		em_code LIKE '%'||#{id}||'%'
@@ -13,6 +13,6 @@
 	<select id="workRecord" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
 			SELECT	w_code, sa_c, sa_start, sa_date, sa_end, working_hours
 			FROM	workrecord_view
-			WHERE	sa_c=#{id} AND work_place_name = #{work_place_name}
+			WHERE	sa_c=#{id} AND work_place = #{work_place}
 	</select>
 </mapper>

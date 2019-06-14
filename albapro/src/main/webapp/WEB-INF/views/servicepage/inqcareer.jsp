@@ -3,6 +3,7 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
-  <title>Swefwefgw  sdfrf sdd </title>
+  <title>프로알바</title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -124,7 +125,7 @@ margin-top:20px;
 							아직 진행중인 알바 입니다.
 							</c:when>
 							<c:otherwise>
-							${career.end_date}
+							<fmt:formatDate value="${career.end_date}" pattern="yyyy-MM-dd"/>
 							</c:otherwise>
 					</c:choose>
 					</p>

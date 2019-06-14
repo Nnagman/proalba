@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로알바</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <link rel="stylesheet" type="text/css" href="resources/css/myqna.css?ver=1">
@@ -33,9 +33,10 @@
 					</thead>
 					<tbody>
 						<c:forEach var="qna" varStatus="i" items="${qnas}">
+						<c:set var="date" value="${fn:split(qna.cs_code, '/')}" />
 							<tr>
 								<td>${qna.service_type}</td>
-								<td>${qna.cs_code}</td>
+								<td>${fn:substring(date[2], 0, 10)}</td>
 								<td><a class="title" href="${path}/viewQnA?cs_code=${qna.cs_code}">
 								${qna.title}</a></td>
 								<td>

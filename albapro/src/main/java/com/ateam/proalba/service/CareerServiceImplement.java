@@ -1,6 +1,7 @@
 package com.ateam.proalba.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -39,6 +40,17 @@ public class CareerServiceImplement implements CareerService {
 	@Override
 	public List<CareerVO> selectCareers(String id) throws Exception {
 		return careerDAO.selectCareers(id);
+	}
+
+	@Override
+	public void insert_career(Map<String, Object> map) throws Exception {
+		careerDAO.insert_career(map);
+	}
+
+	@Override
+	public void add_storeCTXid(Map<String, Object> cmap) throws Exception {
+		careerDAO.add_storeCTXid(cmap);
+		
 	}
 
 }

@@ -9,17 +9,17 @@
         <![CDATA[
         SELECT
             join_date,
-            work_place_name,
+            work_place,
             end_date
         FROM career
         ]]>
     </select>
     
-    <select id="listPaging" resultMap="CareerVOResultMap">
+    <select id="listPaging" resultType="com.ateam.proalba.domain.CareerVO">
     	<![CDATA[
     	SELECT
             join_date,
-            work_place_name,
+            work_place,
             end_date
     	FROM career
     	WHERE join_date != null
@@ -28,23 +28,23 @@
     	]]>
 	</select>
 	
-	<select id="listCriteria" resultMap="CareerVOResultMap">
+	<select id="listCriteria" resultType="com.ateam.proalba.domain.CareerVO">
 	    <![CDATA[
 	    SELECT
             join_date,
-            work_place_name,
+            work_place,
             end_date
-    	FROM (SELECT rownum rn, m_code, join_date, work_place_name, end_date from career where m_code = #{m_code} order by join_date desc)
+    	FROM (SELECT rownum rn, m_code, join_date, work_place, end_date from career where m_code = #{m_code} order by join_date desc)
     	WHERE rn >= #{pageStart} AND rn <= (#{pageStart}+#{perPageNum})
     	
     	]]>
 	</select>
 	
-	<select id="selectCareers" resultMap="CareerVOResultMap">
+	<select id="selectCareers" resultType="com.ateam.proalba.domain.CareerVO">
 	    <![CDATA[
 	    SELECT
             c.join_date,
-            c.work_place_name,
+            c.work_place,
             c.end_date,
             m.name
     	FROM career c, member m 
@@ -52,12 +52,6 @@
     	ORDER BY c.join_date desc
     	]]>
 	</select>
-
-    <resultMap id="CareerVOResultMap" type="com.ateam.proalba.domain.CareerVO">
-        <id property="join_date" column="join_date" />
-        <result property="work_palce_name" column="work_palce_name" />
-        <result property="end_date" column="end_date" />
-    </resultMap>
     
     <select id="countCareers" resultType="int">
     	<![CDATA[
@@ -67,5 +61,12 @@
     	WHERE m_code = #{id} AND rownum > 0
     	]]>
 	</select>
-
+	
+	<insert id="insert_career">
+		INSERT INTO career(em_code, m_code, join_date, work_place) VALUES (#{em_code}, #{m_code}, #{join_date}, #{work_place})
+	</insert>
+	
+	<insert id="careerTXid">
+		INSERT INTO career_txid VALUES( #{em_code}, #{tx})
+	</insert>
 </mapper>

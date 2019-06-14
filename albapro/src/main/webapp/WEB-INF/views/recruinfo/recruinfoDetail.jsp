@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로알바</title>
 </head>
 
 <style>
@@ -106,6 +107,7 @@ margin: 20px 0 0 0;
 
 .infotop h5{
 margin: 25px 0 0 0 !important;
+font-weight: 540 !important;
  
 }
 
@@ -129,6 +131,12 @@ padding: 30px 60px 30px!important;
 border-bottom:1px solid #D8D8D8 !important;
 }
 
+.infoSubEnd{
+padding: 30px 60px 30px!important;
+
+
+}
+
 .infoQualify,.infoContent{
 display:inline-block;
 }
@@ -145,6 +153,19 @@ display:inline-block;
 
 .footer-logo{
 width:100px;
+}
+
+#map{
+margin: 20px 0 0 0;
+}
+
+
+.minpay2{
+color:red;
+}
+
+h5{
+font-weight: 550 !important;
 }
 
 .card-columns { @include media-breakpoint-only(lg) { column-count:4;
@@ -164,15 +185,15 @@ width:100px;
 	<div class="container">
 	<div class="title-line">
 	<h4 class="recDetail-title">채용정보 상세보기</h4>
-		<div class="rec-update">등록된: 
+		<div class="rec-update">
 	
-			<em>날짜</em>
+			<em>등록된 날짜:${list[0].n_code_date}</em>
 		</div>	
 
 	</div>
 	
 	<div class="res-title">
-			<h1>공고 제목</h1>
+			<h1>${list[0].title}</h1>
 		</div>
 		
 		<div class="com-line">
@@ -181,12 +202,12 @@ width:100px;
 			
 			</div>
 			<div class="infotop">
-				<h5>기업명</h5>
+				<h5>${list[0].work_place_name}</h5>
 				
 				<ul class="infotop-ul">
-					<li class="user">담당자</li>
-					<li class="tel">TEL:번호</li>
-					<li class="emailr">Email: 이매일</li>
+					<li class="user">담당자: ${list[0].name}</li>
+					<li class="tel">TEL: ${list[0].phone}</li>
+					<li class="emailr">Email: ${list[0].email}</li>
 					<li class="subDe">구직이 아닌 공고 등의 목적으로 연락처를 이용할 경우 법적 처벌을 받습니다.</li>
 				</ul>
 			</div> 
@@ -199,18 +220,18 @@ width:100px;
 			<div class="infoQualify">
 			<h5>지원자격</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">경력</span> 경력db</li>
-					<li class="tel"><span class="item">연령</span> 연령db</li>
-					<li class="emailr"><span class="item">학력</span>학력db</li>
+					<li class="career"><span class="item">경력</span> ${list[0].career}</li>
+					<li class="age"><span class="item">연령</span> ${list[0].age}</li>
+					<li class="education"><span class="item">학력</span> ${list[0].education}</li>
 				
 				</ul>
 			</div>
 			<div class="infoContent divide">
 			<h5>모집내용</h5>
 			<ul class="infotop-ul">
-					<li class="user"><span class="item">모집직종</span> 직종db</li>
-					<li class="tel"><span class="item">고용형태</span> 고용db</li>
-					<li class="emailr"><span class="item">모집인원</span>모집db</li>
+					<li class="job_type"><span class="item">모집직종</span> ${list[0].job_type}</li>
+					<li class="employment_type"><span class="item">고용형태</span> ${list[0].employment_type}</li>
+					<li class="personnel"><span class="item">모집인원</span> ${list[0].personnel}명</li>
 				
 				</ul>
 			</div>
@@ -221,9 +242,9 @@ width:100px;
 			<div class="infoQualify">
 			<h5>근무조건</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">근무기간</span> 기간db</li>
-					<li class="tel"><span class="item">근무요일</span> 요일db</li>
-					<li class="emailr"><span class="item">근무시간</span>시간db</li>
+					<li class="term"><span class="item">근무기간</span> ${list[0].term}개월</li>
+					<li class="work_day"><span class="item">근무요일</span> ${list[0].work_day}</li>
+					<li class="work_time"><span class="item">근무시간</span> ${list[0].work_time1} ~ ${list[0].work_time2}</li>
 				
 				</ul>
 			
@@ -234,10 +255,10 @@ width:100px;
 	
 	<div class="infoSub infoJob">
 			<div class="infoaddress">
-		
+				<h5>근무지위치</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">근무지주소</span> 주소db</li>
-					<li>맵</li>
+					<li class="address" ><span class="item">근무지주소</span> <span id="address">${list[0].address}</span> </li>
+					<li><div id="map" style="width: 100%; height: 350px;" class="map"></div></li>
 				
 				</ul>
 			
@@ -248,10 +269,10 @@ width:100px;
 	
 		<div class="infoSub infoJob">
 			<div class="infoSalary">
-		
+			<h5>급여</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">급여</span> 시급db</li>
-					<li class="subDe">현재 최저시급은 8350 원 입니다.</li>
+					<li class="salary"><span class="item">급여</span> ${list[0].hour_wage}원</li>
+					<li class="minpay">현재 최저시급은 <span class="minpay2">8350</span> 원 입니다.</li>
 				
 				</ul>
 			
@@ -262,11 +283,11 @@ width:100px;
 	
 	
 	
-	<div class="infoSub infoJob">
+	<div class="infoSubEnd infoJob">
 			<div class="infoSalary">
-		
+					<h5>지원</h5>
 				<ul class="infotop-ul">
-					<li class="user"><span class="item">지원방법</span> 지원db</li>
+					<li class="way"><span class="item">지원방법</span> ${list[0].way}</li>
 					
 				
 				</ul>
@@ -312,6 +333,42 @@ width:100px;
     <!--/.Copyright-->
 
   </footer>
+
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+   <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+   mapOption = {
+       center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+       level: 3 // 지도의 확대 레벨
+   };  
+   //지도를 생성합니다    
+   var map = new daum.maps.Map(mapContainer, mapOption); 
+</script>
+<script>
+   $(document).ready(function(){
+      var address1 = $('#address').text();   
+      console.log(address1);
+      // 주소-좌표 변환 객체를 생성합니다
+      var geocoder = new daum.maps.services.Geocoder();
+      // 주소로 좌표를 검색합니다
+      geocoder.addressSearch(address1, function(result, status) {
+          // 정상적으로 검색이 완료됐으면 
+          if (status === daum.maps.services.Status.OK) {
+             var coords = new daum.maps.LatLng(result[0].y, result[0].x);   
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              var marker = new daum.maps.Marker({ map: map, position: coords });
+              // 인포윈도우로 장소에 대한 설명을 표시합니다
+              var infowindow = new daum.maps.InfoWindow({ content: '<div style="width:150px;text-align:center;padding:6px 0;">매장위치</div>' });
+              infowindow.open(map, marker);
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
+          } 
+      });    
+   });
+</script>
+
 
 </body>
 </html>

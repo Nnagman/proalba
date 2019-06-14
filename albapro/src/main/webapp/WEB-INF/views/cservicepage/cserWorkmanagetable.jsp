@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>근태관리</title>
+<title>프로알바</title>
 
 <!-- Custom fonts for this template-->
 
@@ -21,6 +21,11 @@
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	
+	<link rel="stylesheet"
+   href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+   integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+   crossorigin="anonymous">
 
 <!-- Custom styles for this template-->
 <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
@@ -51,6 +56,21 @@
 
 .Even {
 	background-color: white;
+}
+
+.Bdelete{
+	margin: 0 0 0 20px;
+	color:#F15F5F;
+	    font-size: 1.2rem;
+}
+.Bupdate{
+    font-size: 1.2rem;
+    color:#CC723D;
+}
+#Binsert{
+margin: 0 0 0 20px;
+	color:#B7F0B1;
+	    font-size: 1.2rem;
 }
 </style>
 
@@ -128,24 +148,24 @@
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">날짜</th>
+													<th class="th-sm">날짜</th> 
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">수정 하기</th>
-													<th class="th-sm">삭제 하기 <input type="button"
-														value="추가하기" id="Binsert" style="margin-left: 50px;" />
-													</th>
+													<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
+												
 												</tr>
 											</thead>
 											<tbody id="tbody">
 												<c:forEach var="row" items="${map.list}" varStatus="status">
-													<tr id="${status.count}" class="${row.w_code}"
-														sa_code="${row.sa_code}">
+													<tr id="${status.count}" class="${row.w_code}">
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														<td><input type="button" value="수정하기" class="Bupdate" /></td>
-														<td><input type="button" value="삭제하기" class="Bdelete" /></td>
+														<td>
+													<i class="fas fa-pencil-alt Bupdate"></i>
+													<i class="fas fa-trash-alt Bdelete"></i>
+													</td>
+												
 													</tr>
 
 												</c:forEach>
@@ -295,9 +315,12 @@
     	  id = $(this).parent().parent().attr('id');
     	  class1 = $(this).parent().parent().attr('class');
     	  tag = $(this).parent().parent().html();
+    	  class1 = $(this).parent().parent().attr('class');
           $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
           $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
-          $(this).replaceWith('<input type="button" id="recordupdate" value="업데이트" "/>');
+          $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
+          
+
       });
       
       //업데이트 버튼
@@ -353,7 +376,7 @@
     	  var d = new Date();
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
     	  
-    	  sa_code = $("tbody").children().attr('sa_code').split('/');
+    	  sa_code = $("tbody").children().attr('class').split('/');
     	  w_code = pid2;
     	  var str1 = '<tr id="inserted_row" class="">';
     	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
@@ -366,7 +389,7 @@
     	  sa_code_date = $('#date').val();
     	  sa_code_date = $('#date').val().substr(0,7);
     	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
+    	  var sa_code2 = sa_code[0].substring(1,sa_code[0].length) + '/' + sa_code_date + '/' + sa_code[2].substring(0,sa_code[2].indexOf(' '));
     	  $('#inserted_row').attr('class',sa_code2);
     	  
     	  if(sa_code[2].substr(0,1) != 0){

@@ -38,8 +38,8 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	}
 
 	@Override
-	public List<MobileWorkRecordVO> mobileFoundWorkRecord(String sa_code) throws Exception {
-		return mobileAttendanceDAO.mobileFoundWorkRecord(sa_code);
+	public List<MobileWorkRecordVO> mobileFoundWorkRecord(Map<String, String> map) throws Exception {
+		return mobileAttendanceDAO.mobileFoundWorkRecord(map);
 	}
 
 	@Override
@@ -76,6 +76,12 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 	public List<MobileCWorkRecordVO>mobileCFoundWorkRecord(Map<String, String> id_map) throws Exception {
 		return mobileAttendanceDAO.mobileCFoundWorkRecord(id_map);
 		
+	}
+ 
+	@Override
+	public List<MobileAttendanceVO> fullcmobileattendance(String id) throws Exception {
+		
+		return mobileAttendanceDAO.fullcmobileattendance(id);
 	}
 
 }
