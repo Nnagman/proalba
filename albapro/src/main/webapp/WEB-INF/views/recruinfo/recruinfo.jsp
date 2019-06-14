@@ -439,16 +439,17 @@ float:left;
   <script type="text/javascript">
  
 	$(document).ready(function () {
+		alert("Hi");
 		$('#Example').DataTable({
 			"paging": true // false to disable pagination (or any other option)
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});
 	
-	$('.value > span').on('click', function(){
+	$('#ulGugun').on('click',function(){
 		console.log($('.value > span').text());
 	});
-  
+
   </script>
   
   

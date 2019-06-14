@@ -375,6 +375,13 @@ margin-top:20px;
 
         });
       }); 
+      
+      $(function(){
+          var responseMessage = "<c:out value="${message}" />";
+          if(responseMessage != ""){
+              alert(responseMessage)
+          }
+      }) 
     });
   </script>
 
