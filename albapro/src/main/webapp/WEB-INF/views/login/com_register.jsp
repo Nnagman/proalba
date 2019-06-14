@@ -4,20 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
-<title>기업회원 가입</title>
 
-=======
-<title>프로알바</title>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+<title>기업회원 가입</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 <body>
 	<div id="wrap">
-		<hr>
+		
 		<div class="header">
 			
 		</div>
@@ -128,21 +123,25 @@
                     <input id="m_code" name="m_code" type="hidden" value="c">
               	</td>
               </tr>
-			</tbody>
-		</table>
-					<div class="search" style="margin-left:20%;">
+              <tr>
+              <th>주소</th>
+              <td>
+              <div class="search" style="margin-left:20%;">
 				
 						<input type="hidden" id="coordinate" name="coordinate" value=""/>
 					</div>
 					
-					<input type="text" id="sample6_postcode" placeholder="우편번호"/>
-					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn"/>
+					<input type="text" id="sample6_postcode" class="addr" placeholder="우편번호"/>
+					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn" id="address1" />
 					<br>
 					<input type="text" id="sample6_address" class="sample6_address" placeholder="주소"/>
 					<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
-					<input type="button" class="searchmap btn btn-light-green adr-btn" value="위치찾기"/>
-					
+					<input type="button" class="searchmap btn btn-light-green adr-btn" id="address" value="위치찾기"/>
+              </td>
+              </tr>
+			</tbody>
+		</table>
 				<div id="map" style="width:60%;height:400px; margin-left:20%;" class="map"></div>
 					<div class="btnfield">
 						<button class="btn btn-dark" id="btn_signup" value="가입하기" disabled>가입하기</button>
