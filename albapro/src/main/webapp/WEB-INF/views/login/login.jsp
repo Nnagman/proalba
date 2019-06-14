@@ -12,7 +12,7 @@
 <html lang="kr">
    <head>   
    <meta charset="UTF-8">
-   <title>프로알바 로그인</title>
+   <title>프로알바</title>
 
    <meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
     <script>
@@ -54,7 +54,7 @@
 <div class="form">
   <div class="form-panel one">
     <div class="form-header">
-    <img src="resources/images/biglogo.png" class="logo">
+    <a href="/proalba"><img src="resources/images/biglogo.png" class="logo"></a>
 <!-- <h1>Login</h1> -->
     </div>
     <div class="form-content">

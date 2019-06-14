@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Swefwefgw sdfrf sdd</title>
+<title>프로알바</title>
 
 <!-- Custom fonts for this template-->
 
@@ -189,6 +189,7 @@
 														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
 														<button type="button" class="addbtnfi btn btn-primary card-btn"   >지문등록</button>
+														<button type="button" class="btn btn-primary card-btn ">퇴사처리</button>
 													</div>
 													
 														<!--============= 지문id등록 div   -->

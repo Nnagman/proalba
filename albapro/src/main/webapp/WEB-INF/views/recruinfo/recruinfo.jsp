@@ -10,7 +10,7 @@
 	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 
 <head>
-
+<title>프로알바</title>
 
 
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
@@ -439,7 +439,6 @@ float:left;
   <script type="text/javascript">
  
 	$(document).ready(function () {
-		alert("Hi");
 		$('#Example').DataTable({
 			"paging": true // false to disable pagination (or any other option)
 		});

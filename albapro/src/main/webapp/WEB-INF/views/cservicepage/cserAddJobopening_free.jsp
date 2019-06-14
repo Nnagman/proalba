@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>채용공고 등록</title>
+<title>프로알바</title>
 <!-- Custom fonts for this template-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- Custom styles for this template-->
@@ -323,7 +323,7 @@
 														급여:<input type="text" class="salary" id="salary" name="salary" value="0"/>원
 													</div>
 													<div class="hour_wage">
-														시급: <input type="text" class="hour_wage" name="hour_wage" value="0"/>원
+														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="0"/>원
 													</div>
 													<div class="workcon-map">
 														근무지역* 
@@ -557,20 +557,28 @@
               }
               
               $('#way').val($('input:radio[name="radio"]:checked').val());
+              console.log($('#salary').val());
+              console.log($('#hour_wage').val());
+              console.log($('#workcon-Period-txt').val());
               
               if( $('#job_type').val() == "" ){ alert("직종/업무를 선택해주세요."); return };
               if( $('input:radio[name="career"]:checked').val() == undefined ){ alert("경력여부를 선택해주세요."); return };
               if( $('input:radio[name="employment_type"]:checked').val() == undefined ){ alert("고용형태를 선택해주세요."); return };
               if( $('.assignedtask-txt').val() == ""){ alert("담당업무를 입력해주세요."); return };
               if( $('.Recruitment-endtime').val() == ""){ alert("모집종료일을 입력해주세요."); return };
+              if( $('#workcon-Period-txt').val() == "" || $('#workcon-Period-txt').val() == undefined || $('#workcon-Period-txt').val() == null){ $('#workcon-Period-txt').val("0"); };
               if( $('#work_time1').val() == ""){ alert("근무시간을 입력해주세요."); return };
               if( $('#work_time2').val() == ""){ alert("근무시간을 입력해주세요."); return };
               if( $("[name='work_day']").val() == "" ){ alert("요일을 선택해주세요."); return };
               if( $('#work_place_name').val() == "" ){ alert("근무지명을 입력해주세요."); return };
-              if( $('#salary').val() == ""){ salary.val("0"); };
-              if( $('#hour_wage').val() == ""){ hour_wage.val("0"); };
+              if( $('#salary').val() == "" || $('#salary').val() == undefined || $('#salary').val() == null){ $('#salary').val("0"); };
+              if( $('#hour_wage').val() == "" || $('#hour_wage').val() == undefined || $('#hour_wage').val() == null ){ $('#hour_wage').val("0"); };
               if( $('#address').val() == "//"){ alert("주소를 입력해주세요."); return};
               if( $('#Recruitment-title').val() == ""){ alert("제목을 입력해주세요."); return};
+              
+              console.log($('#salary').val());
+              console.log($('#hour_wage').val());
+              console.log($('#workcon-Period-txt').val());
               
               var form = $("#form").serialize();
               

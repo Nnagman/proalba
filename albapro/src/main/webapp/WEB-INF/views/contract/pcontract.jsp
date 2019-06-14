@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로알바</title>
 </head>
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <%@ include file = "../include/header.jsp" %>

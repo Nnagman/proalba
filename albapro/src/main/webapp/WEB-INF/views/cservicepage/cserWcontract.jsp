@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>전자 근로계약서-프로알바</title>
+    <title>프로알바</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 

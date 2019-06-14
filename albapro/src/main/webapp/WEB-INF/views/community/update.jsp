@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>프로알바</title>
 <%@ include file="../include/header.jsp"%>
 <script type="text/javascript" src="${path}/resources/js/common.js"></script>
  <script src="${path}/resources/ckeditor/ckeditor.js"></script>
