@@ -47,4 +47,10 @@ public class CareerServiceImplement implements CareerService {
 		careerDAO.insert_career(map);
 	}
 
+	@Override
+	public void add_storeCTXid(Map<String, Object> cmap) throws Exception {
+		careerDAO.add_storeCTXid(cmap);
+		
+	}
+
 }
