@@ -78,11 +78,14 @@
              <p class="content-p">버튼을 통해 지금바로 알바생과의 계약을 시도 해보세요.</p>
 
             <!-- CTA -->
-          
-            <a href="${path}/wcontract" class="btn peach-gradient btn-md">
+          <c:if
+			test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+			<a href="${path}/cserWcontractForm" class="btn peach-gradient btn-md">
               	계약서 작성하기
               <i class="far fa-image ml-1"></i>
             </a>
+		  </c:if>
+            
 
           </div>
           <!--Grid column-->
