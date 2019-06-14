@@ -109,14 +109,18 @@
                     <span>까지</span></div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
-                    ${contract.work_place}
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
+                    </div>
 
                     <h4 class="gg">3. 업무의 내용</h4><br>
-                    ${contract.work_detail}
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
+                    </div>
 
                     <h4 class="gg">4. 소정근로시간</h4><br>
                     <div class="worktime_div">
-                        <span class="timepiker_txt_title">근로시간</span>
+                        <span class="timepiker_txt_title">ㅡ근로시간</span>
                             ${contract.start_work_time}
                         <span class="timepiker_txt">부터</span>
                             ${contract.end_work_time}
@@ -149,12 +153,13 @@
                     <h4 class="gg">8. 근로계약서 교부</h4><br>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
-                    20${fn:substring(contract.c_date,2,4)}
-                    <span>년</span>
-                    ${fn:substring(contract.c_date,5,7)}
-                    <span>월</span>
-                    ${fn:substring(contract.c_date,8,10)}
-                    <span>일</span>
+                    <div class="worktime_div">
+                    <span class="sp1">
+                    	20${fn:substring(contract.c_date,2,4)}년
+                    	${fn:substring(contract.c_date,5,7)}월
+                    	${fn:substring(contract.c_date,8,10)}일
+                    </span>
+                    </div>
 
                     <hr><br>
 

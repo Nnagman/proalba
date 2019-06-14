@@ -162,16 +162,15 @@ public class ContractController {
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat parse = new SimpleDateFormat("yyyyMMddHHmmss");
 		Date date = new Date();
+		date = transFormat.parse(transFormat.format(date));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserContract");
 		
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 		for(WcontractVO contractVO : list) {
-			System.out.println(parse.parse(contractVO.getEnd_period()).getTime() - date.getTime());
-			if(parse.parse(contractVO.getEnd_period()).getTime() > date.getTime()){
+			if(transFormat.parse(contractVO.getEnd_period()).compareTo(date) != -1){
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("list",list);
 				mav.addObject("map", map);
