@@ -22,6 +22,8 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
+
+
 <!-- Custom styles for this template-->
 <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
 <link href="resources/css/servicepage/material-dashboard.css"
@@ -30,20 +32,31 @@
 <link href="resources/css/servicepage/pservicepagecus.css"
 	rel="stylesheet">
 
-
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
 <link rel="stylesheet" href="resources/css/albamanage.css" />
 <link rel="stylesheet" href="resources/css/albamanagecus.css" />
 <link rel="stylesheet" href="resources/css/cal/albamanage.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="resources/js/albamanage.js"></script>
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script>
 
+
 </head>
+
+
+
+
+
+
 <style>
 .odd {
 	background-color: #EAEAEA;
@@ -74,6 +87,10 @@
 	font-size: 0.8rem;
 }
 
+.datesel{
+    width: 105px;
+    margin: 0 0 20px 0;
+}
 </style>
 
 <body>
@@ -90,56 +107,49 @@
 					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
-        <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 등록
-            </a>
-          </li>
-           <li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 작성
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
-              <i class="material-icons">person</i>
-             직원 관리
-            </a>
-          </li>
-     
-          <%-- <li class="nav-item ">
+					<ul class="nav">
+						<li class="nav-item"><a class="nav-link"
+							href="cserAddJobopening_free?id=${login.id}"> <i
+								class="material-icons">dashboard</i> 채용공고 등록
+						</a></li>
+						<li class="nav-item "><a class="nav-link"
+							href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
+								전자근로 계약서
+						</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="cserWcontractForm?id=${login.id}"> <i
+								class="material-icons">dashboard</i> 전자근로 계약서 작성
+						</a></li>
+						<li class="nav-item active"><a class="nav-link"
+							href="cserEmpManage?id=${login.id}"> <i
+								class="material-icons">person</i> 직원 관리
+						</a></li>
+
+						<%-- <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
           </li> --%>
-        
-        </ul>
-          	<div class="nav-itemsub">
-							<ul>
 
-								<li><a class="nav-link" href="#"> 근태 관리 </a></li>
+					</ul>
+					<div class="nav-itemsub">
+						<ul>
 
-								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
-										급여 관리 </a></li>
+							<li><a class="nav-link" href="#"> 근태 관리 </a></li>
 
-								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
-								
-									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+							<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
+									급여 관리 </a></li>
 
-							</ul>
+							<li><a class="nav-link" href="#"> 경력 관리 </a></li>
 
-						</div>
-        
+							<li><a class="nav-link"
+								href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+
+						</ul>
+
+					</div>
+
 				</div>
 			</div>
 			<!-- End of Sidebar -->
@@ -163,30 +173,45 @@
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
+
+										<!--날짜 선택기  -->
+										날짜: <input type="text" id="datepicker" class="form-control datesel">
+										<button id="searbtn">조회</button>
+													<script>
+													
+														  $("#datepicker").datepicker({
+		      													 dateFormat:'yy-mm-dd'  //Input Display Format 변경
+		      	      												     
+		      												  });
+		      												 $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+												
+      												
+   													 </script>
+										<!--날짜 선택기  -->
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													
+
 													<th class="th-sm">날짜</th>
 													<th class="th-sm">이름</th>
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
-												
-													
-											
+
+
+
 												</tr>
 											</thead>
 											<tbody id="tbody">
 												<c:forEach var="row" items="${list}" varStatus="status">
-													<tr >
-														
-													
+													<tr>
+
+
 														<td>${row.sa_date}</td>
 														<td>${row.name}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														
-											
+
+
 													</tr>
 
 												</c:forEach>
@@ -242,17 +267,18 @@
 	<script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
 	<script src="resources/js/servicepage2/demo.js"></script>
 	<script src="resources/js/cserWorkmanagetableSC.js"></script>
-
-
-
-
-
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/servicepage2/moment.min.js"></script>
+	<script src="resources/js/servicepage2/bootstrap-datetimepicker.min.js"></script>
 
 
 	<script>
 
     $(document).ready(function() {
       $().ready(function() {
+          
+  
+      	
         $sidebar = $('.sidebar');
         $sidebar_img_container = $sidebar.find('.sidebar-background');
         $full_page = $('.full-page');
@@ -279,9 +305,64 @@
    
       
      
+
       
     });
   });
-  </script>
+
+    
+</script>
+
+
+
+<!--  날짜만 검색하게 만들기 -->
+<script>
+
+$(document).ready(function(){
+
+	
+	  
+	$(document).on('click','#searbtn',function(event){
+	
+	
+	
+	
+	
+	
+		var search =$('#datepicker').val();
+		 search = search.substring(2,10); 
+		console.log(search); 
+		
+		var search1 =$('input[type="search"]');
+		
+		search1.attr('id','search_input');
+	
+	 	var fosearch =search1.focus(); 
+			var search2 =$('input[type="search"]').value = search;  
+		 	var search3 =$('input[type="search"]').val(search2);   
+			
+		
+
+		 	
+			console.log(search2);   
+		
+		
+			
+			var e = jQuery.Event( "keydown", { keyCode: 32 } );
+	
+		$('#search_input').trigger(e); 
+			
+			
+	
+	});
+		
+	}); 
+
+   
+
+</script>
+<!--  날짜만 검색하게 만들기 -->
+
+
 </body>
 </html>
