@@ -138,27 +138,28 @@ class ClientClone implements Runnable {
          if(typeID==2) {
         	 
         	 
-        	 query = "SELECT * FROM employee e, salary s" +
-        			 "WHERE (SELECT em_code from employee WHERE finger_id = "+fingerID+") = s.em_code" +
-        			 "AND (SELECT SUBSTR(sa_code, INSTR(sa_code,'/', 1)+1, 6) FROM salary ) = to_char(sysdate, 'YYYYMM')" +
-        			 "AND e.em_code = s.em_code;";
+        	 query = "SELECT * FROM employee e, salary s " +
+        			 "WHERE (SELECT em_code from employee WHERE finger_id = "+fingerID+") = s.em_code " +
+        			 "AND (SELECT SUBSTR(sa_code, INSTR(sa_code,'/', 1)+1, 6) FROM salary ) = to_char(sysdate, 'YYYYMM') " +
+        			 "AND e.em_code = s.em_code";
              Statement stmt1 = conn.createStatement();
              rs = stmt1.executeQuery(query);
+             System.out.println(rs);
              System.out.println("Äõ¸®¹® µé¾î¿È");
-             if(rs != null) {
+             if(rs.next()) {
             	 query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
             			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time " + 
             			 " from salary s, employee e " + 
             			 " where e.finger_id = "+ fingerID + 
             			 " and s.em_code = e.em_code " + 
-            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,INSTR(sa_code,'/',2)-2) = to_char(sysdate, 'yyyymm') ";
+            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,6) = to_char(sysdate, 'yyyymm') ";
             	 System.out.print(" Ãâ±Ù : ");
              }else {
             	 
-            	 query1 = "INSERT INTO salary (sa_code)  select SUBSTR(e.m_code,2,INSTR(e.em_code,'/',1)-2)||'/'||to_char(sysdate,'yyyymm')||'/'||SUBSTR(em_code,2,INSTR(em_code,'/',1)-2) as sa_code\r\n" + 
-            	 		"        from member m, employee e\r\n" + 
-            	 		"        where \r\n" + 
-            	 		"        m.m_code = SUBSTR(em_code,1,INSTR(em_code,'/',1)-1) and \r\n" + 
+            	 query1 = "INSERT INTO salary (sa_code,em_code)  select SUBSTR(e.m_code,2,INSTR(e.em_code,'/',1)-2)||'/'||to_char(sysdate,'yyyymm')||'/'||SUBSTR(em_code,2,INSTR(em_code,'/',1)-2) as sa_code, e.em_code " + 
+            	 		"        from member m, employee e" + 
+            	 		"        where " + 
+            	 		"        m.m_code = SUBSTR(em_code,1,INSTR(em_code,'/',1)-1) and " + 
             	 		"        e.finger_id = "+fingerID;
             	 stmt1 = conn.createStatement();
                  rs = stmt1.executeQuery(query1);
@@ -167,7 +168,7 @@ class ClientClone implements Runnable {
             			 " from salary s, employee e " + 
             			 " where e.finger_id = "+ fingerID + 
             			 " and s.em_code = e.em_code " + 
-            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,INSTR(sa_code,'/',2)-2) = to_char(sysdate, 'yyyymm') ";
+            			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,6) = to_char(sysdate, 'yyyymm') ";
                  stmt1 = conn.createStatement();
                  rs = stmt1.executeQuery(query);
              }
@@ -194,12 +195,12 @@ class ClientClone implements Runnable {
          		"                 rownum=1 and" + 
          		"                w.working_hours  IS NULL  and" + 
          		"                " + 
-         		"                'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id=1)" + 
+         		"                'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
          		"                )" + 
          		"       )) where    " + 
          		"       rownum=1 and" + 
          		"        w.working_hours IS NULL  and" + 
-         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id=1)" + 
+         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
          		"         ";
          System.out.print(" Åð±Ù : ");
          }
