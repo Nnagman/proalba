@@ -423,6 +423,12 @@
          </div>
       </div>
    </div>
+   
+   
+   
+   
+   
+   
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
    <script src="resources/js/servicepage2/popper.min.js"></script>
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
@@ -463,6 +469,7 @@
           // 정상적으로 검색이 완료됐으면 
           if (status === daum.maps.services.Status.OK) {
              var coords = new daum.maps.LatLng(result[0].y, result[0].x);   
+         
               // 결과값으로 받은 위치를 마커로 표시합니다
               var marker = new daum.maps.Marker({ map: map, position: coords });
               // 인포윈도우로 장소에 대한 설명을 표시합니다

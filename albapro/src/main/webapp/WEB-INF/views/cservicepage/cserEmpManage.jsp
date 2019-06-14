@@ -138,7 +138,7 @@
 						<div class="nav-itemsub">
 							<ul>
 
-								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 근태 관리 </a></li>
+								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
 
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 										급여 관리 </a></li>
