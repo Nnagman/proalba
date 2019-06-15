@@ -346,9 +346,14 @@ float:left;
 					직종/업무:
 					<div class="jobchoice"></div>
 
-					<button class="btn btn-light-green jobchoice-btn"
+				<!-- 	<button class="btn btn-light-green jobchoice-btn"
 						onclick="jsonout()" data-toggle="modal" data-target="#myModal">전체
-						카테고리</button>
+						카테고리</button> -->
+						
+						<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
+전체카테고리
+</button>
 				</div>
 
 			</div>
@@ -398,38 +403,37 @@ float:left;
   
 			
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<script src="resources/js/bootstrap.js"></script>
-			<!-- Modal content  -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">직종 선택</h4>
-				</div>
-				<div class="modal-body">
-					<div class="jobcho1"></div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       	<div class="jobcho1"></div>
 					<div class="jobcho2"></div>
 					<div class="jobcho3-title">선택된 직종</div>
 					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-
-
-
+					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
+        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 

@@ -138,6 +138,8 @@
 						<div class="nav-itemsub">
 							<ul>
 
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
+								
 								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
 
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
@@ -188,7 +190,7 @@
 														<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn">급여 기록</a>
 														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
-														<button type="button" class="addbtnfi btn btn-primary card-btn"   >지문등록</button>
+													
 														<button type="button" class="btn btn-primary card-btn ">퇴사처리</button>
 													</div>
 													

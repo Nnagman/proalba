@@ -63,11 +63,12 @@ ss(function(){
 		
 	
 		
-		if(jobchotext[0]==text || jobchotext[1]==text || jobchotext[2]==text || jobchotext[3]==text || jobchotext[4]==text){
+	/*	if(jobchotext[0]==text || jobchotext[1]==text || jobchotext[2]==text || jobchotext[3]==text || jobchotext[4]==text){
 		
-			alert('중복'); 
+			alert('중복'); */
+		/*--------중복체크--------------*/
 		
-		}else if (divcnt < 5) {
+		if (divcnt < 1) {
 
 			$('<div></div>').addClass('jobcho-de3').text(text).attr('id',
 					textid).appendTo(modal3);
@@ -76,7 +77,7 @@ ss(function(){
 			jobchotext.push(text);
 
 		}  else {
-			alert("5개이상 선택 불가능 합니다.");
+			alert("1개이상 선택 불가능 합니다.");
 		}
 		
 		

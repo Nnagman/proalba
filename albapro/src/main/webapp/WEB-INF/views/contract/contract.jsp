@@ -62,34 +62,21 @@
       <div class="sidebar-wrapper">
       <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+         <li class="nav-item active">
+            <a class="nav-link" href="pserworkList?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
           </li>
           
           
-           <li class="nav-item active">
+           <li class="nav-item">
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
-            </a>
-          </li>
-          <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리

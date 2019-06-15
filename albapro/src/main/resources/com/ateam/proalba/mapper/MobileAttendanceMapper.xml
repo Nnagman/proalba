@@ -18,7 +18,7 @@
 			FROM	work_record w, salary s
 			WHERE	w.sa_code = s.sa_code AND
 					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
-					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
+					SUBSTR(em_code,0,INSTR(em_code,'/')-1)='c'||#{cid}
 	</select>
 	
 		<select id="fullcmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" >

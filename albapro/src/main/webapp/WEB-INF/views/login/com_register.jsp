@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <title>기업회원 가입</title>
 
-=======
-<title>프로알바</title>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">

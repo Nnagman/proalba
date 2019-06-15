@@ -282,7 +282,7 @@
 									<div class="col-md-12">
 										<div class="addjob-3">
 											<div class="div-cont">
-												<h5 class="div-cont-title">자격조건 우대조건</h5>
+												<h5 class="div-cont-title">자격 우대조건 <span class="notRequired">(필수 입력 사항이 아닙니다.)</span></h5>
 												<div class="preconditions">
 													<div class="checkbox-line1" id="education_box">
 														학력:
@@ -319,9 +319,7 @@
 													<div class="work_place_name">
 														근무지 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
 													</div>
-													<div class="salary">
-														급여:<input type="text" class="salary" id="salary" name="salary" value="0"/>원
-													</div>
+												
 													<div class="hour_wage">
 														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="0"/>원
 													</div>
@@ -414,8 +412,8 @@
                <div class="jobcho2"></div>
                <div class="jobcho3-title">선택된 직종</div>
                <div class="jobcho3"></div>
-               <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-               <button class="btn-remove">모두지우기</button>
+               <button class="btn btn-default btn-sejob" data-dismiss="modal">선택 완료</button>
+               <button class="btn btn-default btn-remove">모두지우기</button>
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -424,8 +422,7 @@
       </div>
    </div>
    
-   
-   
+
    
    
    
@@ -571,7 +568,7 @@
               if( $('#work_time2').val() == ""){ alert("근무시간을 입력해주세요."); return };
               if( $("[name='work_day']").val() == "" ){ alert("요일을 선택해주세요."); return };
               if( $('#work_place_name').val() == "" ){ alert("근무지명을 입력해주세요."); return };
-              if( $('#salary').val() == "" || $('#salary').val() == undefined || $('#salary').val() == null){ $('#salary').val("0"); };
+       
               if( $('#hour_wage').val() == "" || $('#hour_wage').val() == undefined || $('#hour_wage').val() == null ){ $('#hour_wage').val("0"); };
               if( $('#address').val() == "//"){ alert("주소를 입력해주세요."); return};
               if( $('#Recruitment-title').val() == ""){ alert("제목을 입력해주세요."); return};

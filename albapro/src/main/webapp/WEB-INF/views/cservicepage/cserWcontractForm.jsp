@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>프로알바</title>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 
 <link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
@@ -19,7 +19,8 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
 <link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
- 
+ <link href="resources/css/servicepage/cserwContractFormcus.css" rel="stylesheet">
+
 <style>
 .row{ text-align:center; }
 .tex{ margin-left:0px; }
@@ -97,9 +98,10 @@
           <div class="card-body">
           <div class="row">
 		 		<div class="col-md-12"> 
+		 			 <h2>전자근로계약서 작성 </h2>
           			<div class="addjob-1">
-           			 <h2>전자근로계약서 작성 폼</h2>
-           			 <h3>근로계약서에 들어 갈 내용입니다.</h3>
+           		
+           		
            			 			<input type="hidden" name="c_id" value="c${login.id}" />
            			  			
            			근로 계약기간:	<input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
@@ -144,8 +146,8 @@
            		<div class="col-md-12">
 		 			<div class="addjob-2">
 		 				사업체명:	
-		 						${login.work_place_name}
-		 						<input type="hidden" value="${login.work_place_name}" name="work_place_name"/>
+		 				<%-- 		${login.work_place_name} --%>
+		 						<input type="text"  name="work_place_name"/>
 		 						<br><br>
 		 				
 		 				사업자번호:
@@ -156,27 +158,37 @@
 		 				대표자:	<input class="tex8" name="b_name" type="text" />
 		 						<br><br>
 		 						
-		 				주소:		<input class="tex10" name="c_address" type="text" />
+		 				주소:	 	<input type="text" id="sample6_postcode" placeholder="우편번호" />
+														<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/>
+														<br>
+														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address"/>
+														<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
+														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 		 						<br><br>
 		 						
 		 				연락처:	<input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
 		 						<br>
 		 						
 		 				전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외): <br/>
-		 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/><hr/>
+		 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/>
 		 				<input type="hidden" name="p_id" value=" "/>
+		 				
+		 		
            			</div>
+           			
+           		
            		</div>
+           		<hr/>
            		</div>
-                <div id="sign" style="width: 40%; margin: auto;">
+           			     <div id="sign" style="width: 40%; margin: auto;">
                     <canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
                     <img class="can1" id="myImage" style="margin:1px;">
                     <div id="sign2"></div>
                 </div>
-           		<div style="text-align: center;">
+           		<div class="btn_line1">
             		<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-            		<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
-            		<input type='submit' class="bt2" value="근로계약서 보내기" id="submit2"/>
+            		<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장"><br/>
+            		<input type='submit' class="submitbtn" value="작성완료" id="submit2"/>
             	</div>
            		</form>
               </div>
@@ -212,6 +224,7 @@
 <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
 </script>
 
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 
 
@@ -251,6 +264,58 @@
             pickDate: false
         });
     });
+</script>
+
+<script>
+
+
+function execDaumPostcode(){
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if(data.userSelectedType === 'R'){
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraAddr !== ''){
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                document.getElementById("sample6_extraAddress").value = extraAddr;
+            
+            } else {
+                document.getElementById("sample6_extraAddress").value = '';
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
+}
 </script>
 </body>
 
