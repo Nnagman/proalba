@@ -178,7 +178,7 @@ public class ContractController {
 		id_map.put("id", id);
 		
 		WcontractVO check_wcontractVO = contractService.select_contract2(id_map);
-		if(transFormat.parse(check_wcontractVO.getEnd_period()).compareTo(date) != -1){
+		if(check_wcontractVO != null && (transFormat.parse(check_wcontractVO.getEnd_period()).compareTo(date) != -1)){
 			List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("list",list);
