@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 
+
 <title>기업회원 가입</title>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
 <link rel="stylesheet" href="resources/css/signUp.css">

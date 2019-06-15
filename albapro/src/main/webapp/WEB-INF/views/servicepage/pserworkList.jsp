@@ -104,41 +104,56 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">직원 알바목록 조회</h4>
+									<h4 class="card-title ">나의 알바목록 조회</h4>
 									<p class="card-category">
 										${login.name} 님의 알바목록을 볼 수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
-										<table id="example" class="mdl-data-table" style="width: 100%">
-											<thead>
-												<tr>
-													<th class="th-sm">사업장명</th>
-													<th class="th-sm">입사일</th>
-													<th class="th-sm">퇴사일</th>
-													<th class="th-sm">근태내역</th>
-													<th class="th-sm">급여내역</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="row" items="${map.list}">
-													<tr>
-														<td>${row.work_place}</td>
-														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
+									
+										
+										<c:forEach var="row" items="${map.list}" >
+												
+												<div class="card">
+													<div class="card-header">
+														<h3>${row.work_place}</h3>
+													</div>
+												<div class="card-body">
+														<h5 class="card-title">입사일: <fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></h5>
+														<br>
+														
 														<c:if test="${row.end_date != null}">
-															<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
+															<h5 class="card-title">퇴사일: ${row.end_date}</h5>
 														</c:if>
 														<c:if test="${row.end_date == null}">
-															<td>아직 근무 중입니다.</td>
+															<p>퇴사일 : 아직 근무 중입니다.</p>
 														</c:if>
-														<td><a href="pserSalary?id=${login.id}&&work_place=${row.work_place}">급여내역</a></td>
-														<td><a href="pworkmanage?id=${login.id}&&work_place=${row.work_place}">근태내역</a></td>
-													</tr>
+												
+												
+														
+													
+														<a href="pserSalary?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn">급여내역</a>
+														<a href="pworkmanage?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn ">근태내역</a>
+														
+													</div>
+													
+														
+														
+												</div>
+												
+												
+								
 												</c:forEach>
-											</tbody>
+										
+										
+										
+										
+										
+										
+										
 
-										</table>
+									
 									</div>
 								</div>
 							</div>

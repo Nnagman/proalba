@@ -10,11 +10,11 @@
 			(n_code, m_code, title, job_type, personnel, end_date, hour_wage, gender, age, way, term, 
 			work_day, work_time1, work_time2, p_date, viewcnt, address, content, work_place_name, education, 
 			documents, interview, contact_number, career, employment_type, assigned_task, education_etc, major,
-			preferential_conditions, salary)
+			preferential_conditions)
 			values( #{n_code}, #{m_code}, #{title}, #{job_type}, #{personnel}, #{end_date}, #{hour_wage}, #{gender}, 
 			#{age}, #{way}, #{term}, #{work_day}, #{work_time1}, #{work_time2}, #{p_date}, #{viewcnt}, #{address}, 
 			#{content}, #{work_place_name}, #{education}, ${documents}, ${interview}, ${contact_number}, '${career}',
-			'${employment_type}', '${assigned_task}', '${education_etc}', '${major}', '${preferential_conditions}', ${salary})
+			'${employment_type}', '${assigned_task}', '${education_etc}', '${major}', '${preferential_conditions}')
 		]]>
 	</insert>
 	

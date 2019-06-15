@@ -269,9 +269,9 @@ font-weight: 550 !important;
 	
 		<div class="infoSub infoJob">
 			<div class="infoSalary">
-			<h5>급여</h5>
+			<h5>시급</h5>
 				<ul class="infotop-ul">
-					<li class="salary"><span class="item">급여</span> ${list[0].hour_wage}원</li>
+					<li class="salary"><span class="item">시급</span> ${list[0].hour_wage}원</li>
 					<li class="minpay">현재 최저시급은 <span class="minpay2">8350</span> 원 입니다.</li>
 				
 				</ul>

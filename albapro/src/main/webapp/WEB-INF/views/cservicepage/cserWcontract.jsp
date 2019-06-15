@@ -20,6 +20,8 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 <link href="resources/css/servicepage/demo.css" rel="stylesheet">
 <link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
+<link href="resources/css/servicepage/cserWcontract.css" rel="stylesheet">
+
  
 <style>
 	.content{ text-align:center; }
@@ -69,12 +71,12 @@
             </a>
           </li>
      
-          <li class="nav-item ">
+     <%--      <li class="nav-item ">
             <a class="nav-link" href="${path}/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>
+          </li> --%>
         
         </ul>
       </div>
@@ -91,15 +93,16 @@
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="c${login.id}" />
                     <input type="hidden" name="c_code" value="${contract.c_code}" />
+                    
                     <div class="worktime_div">
                     	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
                     </div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
                     <div class="worktime_div">
-                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place}</span>
                     </div>
-
+                    
                     <h4 class="gg">3. 업무의 내용</h4><br>
                     <div class="worktime_div">
                     	<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
@@ -117,11 +120,11 @@
                     <h4 class="gg">5. 임금</h4><br>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
                     ${contract.hour_wage}
-                    <span>원</span><br><br>
+                    <span>원</span><br>
                     
                     <span class="t1">ㅡ 기타 급여(재수당 등) </span>
-                    <c:if test="${contract.additional_wage}==0">없음</c:if>
-                    <c:if test="${contract.additional_wage}==1">있음</c:if>
+                    <c:if test="${contract.additional_wage == '0'}">없음</c:if>
+                    <c:if test="${contract.additional_wage =='1'}">있음</c:if><Br/>
                     
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
                     ${contract.payday}
