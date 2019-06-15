@@ -69,8 +69,7 @@
 								<%@ include file="menu.jsp"%>
 							</c:if>
 
-							<c:if
-								test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+							<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 								<%@ include file="cmenu.jsp"%>
 							</c:if>
 							<c:if
@@ -108,15 +107,25 @@
          
                
                 <c:if test='${login.m_code!=null}'>
-               	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover" 
-              	  data-placement="bottom" data-html="true" 
-               	  data-content="<div><h6><span>${login.name}</span>님</h6></div><hr/>
-                  <p>Phone : ${login.phone}</p><hr/>
-              	  <p>E-mail : ${login.email}</p><hr />
-                <div class='popoverFoot'>
-                	<span class='modifyLink'><a href='${path}/MyinfoModify'>정보 수정</a></span>
-                	<a href='${path}/logout'>로그아웃</a>
-                </div>">
+               	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" 
+               	  data-content=
+               	   "
+               	   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+               	   		<div><h6><span>${login.id}</span>님</h6></div><hr/>
+               	   	</c:if>
+               	   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
+               	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
+               	   	</c:if>
+                  	<p>Phone : ${login.phone}</p><hr/>
+                  	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
+              	  	<p>E-mail : ${login.email}</p><hr />
+              	  	</c:if>
+                	<div class='popoverFoot'>
+                		<span class='modifyLink'><a href='${path}/MyinfoModify'>정보 수정</a></span>
+                		<a href='${path}/logout'>로그아웃</a>
+                	</div>
+                	"
+                >
                                 ${login.id}
 				</button>
 
