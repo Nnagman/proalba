@@ -167,7 +167,7 @@
 								<div class="card">
 									<div class="card-header card-header-primary">
 										<h4 class="card-title ">직원 관리</h4>
-										<p class="card-category">${login.id}사업장의 직원을 관리할 수 있습니다.</p>
+										<p class="card-category">사업장내 직원을 관리할 수 있습니다.</p>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">

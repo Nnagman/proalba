@@ -80,6 +80,7 @@ public class ContractController {
 	//consumes 하는 형태는 application/json 형태이다.
 	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
 	public Map<String, String> startApp1(int c_code, String em_code, String tx, String tx1, String tx2, String tx3) throws Exception {
+    	
     	logger.info(tx);
     	logger.info(tx1);
     	logger.info(tx2);
@@ -98,6 +99,22 @@ public class ContractController {
     	bmap.put("tx2",tx2);
     	bmap.put("tx3",tx3);
     	contractService.add_storeTXid(bmap);
+    	
+    	Map<String,String> map = new HashMap<String, String>();
+    	map.put("name","ok");
+    	map.put("age", "22");
+       
+	return map;
+	}  
+    
+    @CrossOrigin
+    @RequestMapping("/cross2")
+	//consumes 하는 형태는 application/json 형태이다.
+	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
+	public Map<String, String> startApp12() throws Exception {
+   
+    	logger.info("cross!!");
+ 
     	
     	Map<String,String> map = new HashMap<String, String>();
     	map.put("name","ok");
@@ -145,15 +162,15 @@ public class ContractController {
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat parse = new SimpleDateFormat("yyyyMMddHHmmss");
 		Date date = new Date();
+		date = transFormat.parse(transFormat.format(date));
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserContract");
 		
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 		for(WcontractVO contractVO : list) {
-			if(parse.parse(contractVO.getEnd_period()).getTime() > date.getTime()){
+			if(transFormat.parse(contractVO.getEnd_period()).compareTo(date) != -1){
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("list",list);
 				mav.addObject("map", map);
@@ -161,7 +178,7 @@ public class ContractController {
 				return mav;
 			}
 		}
-		
+
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		contractService.add_contract(wcontractVO);
 		
