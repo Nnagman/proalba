@@ -101,7 +101,6 @@ margin: 0 0 0 20px;
 	font-size: 0.8rem;
 }
 
-
 </style>
 
 <body>
@@ -247,8 +246,8 @@ margin: 0 0 0 20px;
 			<!-- Modal content  -->
 			<div class="modal-content">
 				<div class="modal-header">
+				<h4 class="modal-title">출근 시간</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
 				</div>
 				<div class="modal-body">
 					<%@ include file="../cservice/calendar.jsp"%>
