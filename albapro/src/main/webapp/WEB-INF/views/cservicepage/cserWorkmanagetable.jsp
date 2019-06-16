@@ -185,7 +185,7 @@ margin: 0 0 0 20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
+										${id} 님의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
 											data-target="#myModal">달력보기 calendar_today</i>
 
@@ -425,6 +425,9 @@ margin: 0 0 0 20px;
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
     	  
     	  sa_code = $("tbody").children().attr('class').split('/');
+    	  console.log(sa_code[0]);
+    	  console.log('${map.id}' + ' ' + '${login.id}');
+
     	  w_code = pid2;
     	  var str1 = '<tr id="inserted_row" class="">';
     	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
@@ -437,30 +440,25 @@ margin: 0 0 0 20px;
     	  sa_code_date = $('#date').val();
     	  sa_code_date = $('#date').val().substr(0,7);
     	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0].substring(1,sa_code[0].length) + '/' + sa_code_date + '/' + sa_code[2].substring(0,sa_code[2].indexOf(' '));
+    	  
+    	  if(sa_code[0] == "odd"){
+    		  sa_code = "";
+    		  sa_code = '${map.id}' + '/' + ' ' + '/' + '${login.id}';
+    		  var sa_code2 = sa_code[0] + '/' + sa_code_date + '/' + sa_code[2];
+    		  alert('sa_code is odd');
+    		  alert(sa_code2);
+		  }else{
+			  var sa_code2 = sa_code[0] + '/' + sa_code[1] + '/' + sa_code[2];
+			  alert('sa_code is not odd');
+			  alert('sa_code2');
+		  }
+    	  
     	  $('#inserted_row').attr('class',sa_code2);
+
+    	  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'');
     	  
-    	  if(sa_code[2].substr(0,1) != 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
-    	  };
-    	  
-    	  if(sa_code[2].substr(0,1) == 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+ sa_code[2].substr(1,2);
-    	  };
-    	  
-    	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
-        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
-    	  }
-    	  
-    	  if($("#time11").val().substr(0,3) <= $("#time22").val().substr(0,3)){
-    		  var split_date = $('#date').val().split('-');
-    		  split_date[1] = split_date[1]+1;
-    		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
-    		  
-        	  var str = $('#inserted_row').attr('class') + '!' + $('#date').val() +'@' + $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " + $("#time22").val() + '$' + w_code;
-    	  }
+    	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
+    	  			+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
     	  
     	  $.ajax({
 			async: false,
