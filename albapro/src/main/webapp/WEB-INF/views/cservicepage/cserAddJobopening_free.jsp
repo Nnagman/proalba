@@ -314,10 +314,10 @@
 									<div class="col-md-12">
 										<div class="addjob-4">
 											<div class="div-cont">
-												<h5 class="div-cont-title">근무지 정보</h5>
+												<h5 class="div-cont-title">사업체 정보</h5>
 												<div class="workcon">
 													<div class="work_place_name">
-														근무지 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
+														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
 													</div>
 												
 													<div class="hour_wage">
