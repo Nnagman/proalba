@@ -96,7 +96,12 @@
 	display:none;
 	}
 	
-	
+	.datediv{
+	    position: absolute;
+    margin: -4px 0 0 55%;
+    z-index:5;
+    color:#AAAAAA;
+	}
 </style>
 
 <body>
@@ -141,6 +146,9 @@
 					</ul>
 					<div class="nav-itemsub">
 						<ul>
+						
+							<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
+						
 
 							<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
 
@@ -169,18 +177,20 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">일별 근태 관리</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. 
+										직원의 일별 근태를 볼수 있습니다. 
 
 									</p>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
 
+			
 										<!--날짜 선택기  -->
+										<div class="datediv">
 										날짜: <input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
-										<button id="searbtn">조회</button>
+									
 													<script>
 													
 														  $("#datepicker").datepicker({
@@ -192,6 +202,7 @@
       												
    													 </script>
 										<!--날짜 선택기  -->
+										</div>
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>

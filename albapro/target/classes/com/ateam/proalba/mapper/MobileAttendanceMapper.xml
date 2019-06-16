@@ -5,25 +5,25 @@
 <mapper namespace="com.ateam.proalba.mapper.MobileAttendanceMapper">
 
 	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
-			SELECT	w_code, SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
-					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end, TRUNC(WORKING_HOURS/60) WORKING_HOURS 
+			SELECT	w_code, SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)sa_c, work_start_time sa_start,
+					SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, work_end_time sa_end, TRUNC(WORKING_HOURS/60) WORKING_HOURS 
 			FROM	work_record
 			WHERE	SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)=#{id}
 	</select>
 	
 
 	<select id="cmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
-			SELECT	w_code, SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start,
-					SUBSTR(work_start_time,0,8) sa_date, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end, w.sa_code
+			SELECT	w_code, SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, work_start_time sa_start,
+					SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, work_end_time sa_end, w.sa_code
 			FROM	work_record w, salary s
 			WHERE	w.sa_code = s.sa_code AND
 					SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)=#{id} AND
-					SUBSTR(em_code,0,INSTR(em_code,'/')-1)=#{cid}
+					SUBSTR(em_code,0,INSTR(em_code,'/')-1)='c'||#{cid}
 	</select>
 	
 		<select id="fullcmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" >
-       select DISTINCT w.w_code, SUBSTR(w.sa_code,0,INSTR(w.sa_code,'/')-1)sa_c, SUBSTR(work_start_time,INSTR(work_start_time,' ')+1) sa_start, 
-       SUBSTR(work_start_time,0,8) sa_date, c.c_ID, SUBSTR(work_end_time,INSTR(work_end_time,' ')+1) sa_end, w.sa_code,  e.m_code, w.work_start_time, w.work_end_time, w.working_hours, m.name
+       select DISTINCT w.w_code, w.sa_code sa_c, work_start_time sa_start, 
+       SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, c.c_ID, work_end_time sa_end, w.sa_code,  e.m_code, w.work_start_time, w.work_end_time, w.working_hours, m.name
         from contract c, employee  e, work_record w, salary s, member m
         where c.c_ID='c'||#{id}  and
         m.m_code = e.m_code and
@@ -48,9 +48,9 @@
 	
 	<update id="mobileWorkRecordUpdate" parameterType="hashmap">
 		UPDATE work_record SET
-    		work_start_time = substr(work_start_time, 0, INSTR(work_start_time, ' '))||#{work_start_time}, 
+    		work_start_time = #{work_start_time}, 
     		work_end_time = #{work_end_time},
-    		working_hours = #{work_end_time} - substr(work_start_time, 0, INSTR(work_start_time, ' '))||#{work_start_time}
+    		working_hours = #{working_hours}
 		WHERE w_code = #{w_code}
 	</update>
 	

@@ -95,6 +95,13 @@ margin: 0 0 0 20px;
 	z-index: -1;
 	font-size: 0.8rem;
 }
+
+#recordupdate{
+
+	color:#2F9D27;
+	    font-size: 1.2rem;
+}
+
 </style>
 
 <body>
@@ -148,8 +155,10 @@ margin: 0 0 0 20px;
         
         	<div class="nav-itemsub">
 							<ul>
+							
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
 
-								<li><a class="nav-link" href="#"> 근태 관리 </a></li>
+								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
 
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 										급여 관리 </a></li>

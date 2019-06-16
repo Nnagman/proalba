@@ -16,7 +16,7 @@ textarea {resize:none}
 select {height:20px;line-height:16px}
 img, fieldset, button {border:0}
 img {vertical-align:top}
-hr {display:none} 
+/* hr {display:none}  */
 em, address {font-style:normal}
 label {cursor:pointer}
 select {font-family:tahoma}

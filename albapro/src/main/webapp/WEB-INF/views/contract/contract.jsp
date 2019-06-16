@@ -62,34 +62,21 @@
       <div class="sidebar-wrapper">
       <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
+         <li class="nav-item active">
+            <a class="nav-link" href="pserworkList?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
             </a>
           </li>
           
           
-           <li class="nav-item active">
+           <li class="nav-item">
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pworkmanage?id=${login.id}">
-              <i class="material-icons">person</i>
-              근태 관리
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              
-              급여 관리
-            </a>
-          </li>
-          <li class="nav-item ">
             <a class="nav-link" href="inqcareer?id=${login.id}">
               <i class="material-icons">library_books</i>
               경력 관리
@@ -203,12 +190,13 @@
                     <h4 class="gg">8. 근로계약서 교부</h4><br>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
-                    20${fn:substring(contract.c_date,2,4)}
-                    <span>년</span>
-                    ${fn:substring(contract.c_date,5,7)}
-                    <span>월</span>
-                    ${fn:substring(contract.c_date,8,10)}
-                    <span>일</span>
+                    <div class="worktime_div">
+                    <span class="sp1">
+                    	20${fn:substring(contract.c_date,2,4)}년
+                    	${fn:substring(contract.c_date,5,7)}월
+                    	${fn:substring(contract.c_date,8,10)}일
+                    </span>
+                    </div>
 
                     <hr><br>
 

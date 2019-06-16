@@ -9,18 +9,50 @@
 }
 
 .jobcho2 {
-	width: 69%;
-	height: 300px;
+	width: 60%;
+	height: 350px;
 	   overflow:overlay;
-	/* background-color:black; */
+	margin:0 0 0 9%;
 }
 
 
+.footer-icon{
+	font-size:30px;
+	margin-right:10px;
+	
+}
+    
+.footer-logo{
+	left:500px;
+	width:80px;
+}
+
+footer.page-footer{
+	background-color:#2e3949;
+}
 
 
+#plachoice{
+	height:40px !important;
+	width:200px;
+	
+}
 .jobchoice {
-	height:40px;
-	width: 450px;
+	height:40px !important;
+	width: 200px;
+	display:inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+
+	    vertical-align: middle;
+	    overflow:overlay;
+}
+
+.placho{
+	
+	height:40px !important;
+	width: 200px;
 	display:inline-block;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -32,9 +64,32 @@
 
 
 
+.placho1,.placho2{
 
+		display: inline-block;
+}
 
+.placho1{
+	width: 30%;
 
+ 
+	
+}
+
+.placho2{
+	width: 60%;
+		height: 420px;
+ overflow:overlay !important;
+  margin:10px 0 0 9%;
+	
+	
+}
+.placho3{
+		width:100%;
+	height:100px;
+	border: 1px solid;
+	   overflow:overlay;
+}
 
 
 
@@ -103,4 +158,28 @@
 	width:200px !important;
 	height:50px !important;
 	    margin: 0 0 0 38% !important;
+}
+
+.jobcho-line1,.placho-line1{
+	display:inline-block;
+	
+	
+}
+
+.placho-line1{
+	margin: 0 0 0 50px;
+	
+}
+
+.footer-icon{
+	margin-top:20px;
+	color:white;
+	font-size:30px;
+	margin-right:10px;
+	
+}
+
+.dataTables_filter{
+	display:none;
+	
 }

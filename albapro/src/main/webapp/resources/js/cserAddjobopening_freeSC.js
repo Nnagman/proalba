@@ -33,15 +33,16 @@ function hiddendiv2() {
 		checkBox2.disabled = false;
 	}
 
-	if (checkBox.checked == true) {
+/* 모집 방법 전화 아래 번호입력란*/
+	/*	if (checkBox.checked == true) {
 		$("#appperiod-hidden-tel").remove();
 		var str1 = '<div id="appperiod-hidden-tel">담당자 번호:<select class="President-num" id="President-num"><option>010</option><option>011</option>';
 		var str2 = '<option>016</option><option>017</option><option>019</option></select> - <input type="text" class="President-num1"> -<input type="text" class="President-num2"></div>';
 		$(".appperiod-how").append(str1+str2);
 		
 		checkBox.disabled = true;
-	}
-	
+	}*/
+	/* 모집 방법 전화 아래 번호입력란*/
 	if(checkBox.checked != true) {
 		$("#appperiod-hidden-tel").remove();
 		checkBox.disabled = false;
@@ -141,11 +142,9 @@ $(document).on(
 			
 		
 			
-			if(jobchotext[0]==text || jobchotext[1]==text || jobchotext[2]==text || jobchotext[3]==text || jobchotext[4]==text){
+
 			
-				alert('중복'); 
-			
-			}else if (divcnt < 5) {
+			if (divcnt < 1) {
 
 				$('<div></div>').addClass('jobcho-de3').text(text).attr('id',
 						textid).appendTo(modal3);
@@ -154,7 +153,7 @@ $(document).on(
 				jobchotext.push(text);
 
 			}  else {
-				alert("5개이상 선택 불가능 합니다.");
+				alert("1개이상 선택 불가능 합니다.");
 			}
 			
 			
@@ -176,12 +175,15 @@ $(document).on(
 			
 		});
 
+
+
+// 모두지우기
 $(document).on('click', '.btn-remove', function() {
-	$('.jobcho3').text('efef');
+	$('.jobcho3').text('');
 	 jobchoid =[];
 
 	 jobchotext =[];
-	 alert('ejfij');
+
 
 });
 

@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>프로알바</title>
 <%@ include file = "../include/header.jsp" %>
-<link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
-<link rel="stylesheet" type="text/css" href="${path}/resources/viewCss/blog-post.css"  />
+<%-- <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  /> --%>
+<%-- <link rel="stylesheet" type="text/css" href="${path}/resources/viewCss/blog-post.css"  /> --%>
 <script>
 $(function(){
 
@@ -35,6 +35,9 @@ $(function(){
 	}
 	form{
 		margin-bottom: 5px;
+	}
+	.left{
+		text-align: left;
 	}
 </style>
 </head>
@@ -72,7 +75,7 @@ ${map.count}개의 게시물이 있습니다. <br>
 <c:forEach var="row" items="${map.list }" >
 	<tr>
 		<th>${row.p_code }</th>
-		<th> 
+		<th class="left"> 
 			<a href="${path}/commview?p_code=${row.p_code}&curPage=${map.boardPager.curPage}&searchOption=${map.searchOption}&keyword=${map.keyword}">${row.title }</a>
 			<c:if test="${row.recnt > 0}">
 				<span style="color:red;">( ${row.recnt})</span>

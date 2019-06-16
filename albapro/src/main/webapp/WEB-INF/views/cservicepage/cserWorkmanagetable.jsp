@@ -72,6 +72,35 @@ margin: 0 0 0 20px;
 	color:#B7F0B1;
 	    font-size: 1.2rem;
 }
+
+#recordupdate{
+	margin: 0 0 0 20px;
+	color:#2F9D27;
+	    font-size: 1.2rem;
+}
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: -1;
+	font-size: 0.8rem;
+}
+
 </style>
 
 <body>
@@ -122,6 +151,24 @@ margin: 0 0 0 20px;
           </li> --%>
         
         </ul>
+        
+        	<div class="nav-itemsub">
+							<ul>
+							
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
+
+								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
+
+								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
+										급여 관리 </a></li>
+
+								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+								
+									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+
+							</ul>
+
+						</div>
 				</div>
 			</div>
 			<!-- End of Sidebar -->
@@ -137,7 +184,7 @@ margin: 0 0 0 20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${map.list[0].sa_c} 님의 근태를 볼수 있습니다. <i
+										${id} 님의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
 											data-target="#myModal">달력보기 calendar_today</i>
 
@@ -199,8 +246,8 @@ margin: 0 0 0 20px;
 			<!-- Modal content  -->
 			<div class="modal-content">
 				<div class="modal-header">
+				<h4 class="modal-title">출근 시간</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
 				</div>
 				<div class="modal-body">
 					<%@ include file="../cservice/calendar.jsp"%>
@@ -315,7 +362,6 @@ margin: 0 0 0 20px;
     	  id = $(this).parent().parent().attr('id');
     	  class1 = $(this).parent().parent().attr('class');
     	  tag = $(this).parent().parent().html();
-    	  class1 = $(this).parent().parent().attr('class');
           $(this).parent().prev().replaceWith('<td><input type="time" id="time2" value=""/></td>');
           $(this).parent().prev().prev().replaceWith('<td><input type="time" id="time1" value=""/></td>');
           $(this).replaceWith(' <i class="fas fa-check-square" id="recordupdate"></i>');
@@ -365,19 +411,19 @@ margin: 0 0 0 20px;
     	  });
       });
       
-      var w_code;
       var sa_code_date
       var sa_code
       
       //추가 버튼
       $(document).on("click","#Binsert",function(){
     	  var pid1 = $("tbody").children().attr('class');
-    	  var pid2 = pid1.substr(0, pid1.indexOf('/'));
     	  var d = new Date();
     	  var date = d.getFullYear()+(d.getMonth()+1)+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
     	  
     	  sa_code = $("tbody").children().attr('class').split('/');
-    	  w_code = pid2;
+    	  console.log(sa_code[0]);
+    	  console.log('${map.id}' + ' ' + '${login.id}');
+
     	  var str1 = '<tr id="inserted_row" class="">';
     	  var str2 = '<td><input type="date" id="date" value=""/></td><td><input type="time" id="time11" value=""/></td>';
     	  var str3 = '<td><input type="time" id="time22" value=""/></td><td><input type="button" id="insertRecord" value="추가"/></td></tr>';
@@ -389,30 +435,16 @@ margin: 0 0 0 20px;
     	  sa_code_date = $('#date').val();
     	  sa_code_date = $('#date').val().substr(0,7);
     	  sa_code_date = sa_code_date.replace('-',''); 
-    	  var sa_code2 = sa_code[0].substring(1,sa_code[0].length) + '/' + sa_code_date + '/' + sa_code[2].substring(0,sa_code[2].indexOf(' '));
-    	  $('#inserted_row').attr('class',sa_code2);
     	  
-    	  if(sa_code[2].substr(0,1) != 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+sa_code[2];
-    	  };
+    	  if(sa_code[0] == "odd"){
+    		  var sa_code2 = '${map.id}' + '/' + sa_code_date + '/' + '${login.id}';
+		  }else{
+			  var sa_code2 = sa_code[0] + '/' + sa_code[1].substr(0,6) + '/' + '${login.id}';
+		  }
     	  
-    	  if(sa_code[2].substr(0,1) == 0){
-    		  w_code = w_code + '/' + $('#date').val().substr(0,10).replace(/-/gi,'') + '/'+ sa_code[2].substr(1,2);
-    	  };
+    	  var w_code = '${map.id}' + '/' + $('#date').val().replace(/-/gi,'') + ' ' + $("#time11").val();
     	  
-    	  if($("#time11").val().substr(0,3) > $("#time22").val().substr(0,3)){
-        	  var str = $('#inserted_row').attr('class')+'!'+$('#date').val()+'@'+ $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " +$("#time22").val()+'$'+w_code;
-    	  }
-    	  
-    	  if($("#time11").val().substr(0,3) <= $("#time22").val().substr(0,3)){
-    		  var split_date = $('#date').val().split('-');
-    		  split_date[1] = split_date[1]+1;
-    		  var split_date = split_date[0] + '-' + split_date[1] + '-' + split_date[2];
-    		  
-        	  var str = $('#inserted_row').attr('class') + '!' + $('#date').val() +'@' + $('#date').val().substring(2) + " " + $("#time11").val()
-	  					+'#' + $('#date').val().substring(2) + " " + $("#time22").val() + '$' + w_code;
-    	  }
+    	  var str = sa_code2 + '!' + $('#date').val() + '@' + $("#time11").val() +'#' + $("#time22").val() + '$' + w_code + '*' + '${map.em_code}';
     	  
     	  $.ajax({
 			async: false,

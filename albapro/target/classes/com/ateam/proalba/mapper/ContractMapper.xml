@@ -41,8 +41,11 @@
 	
 	<select id="select_contract2" resultType="com.ateam.proalba.domain.WcontractVO" parameterType="hashmap">
 		<![CDATA[
-		SELECT * FROM (SELECT * FROM contract
-		WHERE c_id = ('c'||#{id[0]}) AND p_id = ('p'||#{id[1]}) ORDER BY c_code DESC)
+		SELECT * 
+		FROM 
+			(SELECT * FROM contract
+			WHERE c_id = #{id[0]} AND p_id = (SELECT p_id FROM contract WHERE p_phone = #{id[1]})
+			ORDER BY c_code DESC)
 		WHERE rownum = 1
   	  	]]>
 	</select>
