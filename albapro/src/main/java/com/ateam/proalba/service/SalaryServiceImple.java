@@ -33,8 +33,8 @@ public class SalaryServiceImple implements SalaryService{
 		return salaryDAO.select_salary(sa_code);
 	}
 	@Override
-	public void insert_salary(String sa_code) throws Exception {
-		salaryDAO.insert_salary(sa_code);
+	public void insert_salary(Map<String, String> map) throws Exception {
+		salaryDAO.insert_salary(map);
 	}
 	@Override
 	public List<SalaryVO> pserSalary(Map<String, String> map) {

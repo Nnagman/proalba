@@ -43,8 +43,8 @@ public class SalaryDAOImple implements SalaryDAO {
 	}
 
 	@Override
-	public void insert_salary(String sa_code) throws Exception {
-		sqlSession.insert(NAMESPACE + ".insert_salary", sa_code);
+	public void insert_salary(Map<String, String> map) throws Exception {
+		sqlSession.insert(NAMESPACE + ".insert_salary", map);
 	}
 
 	@Override
