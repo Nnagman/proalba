@@ -188,7 +188,7 @@
 														
 													
 														<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn">급여 기록</a>
-														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
 													
 														<button type="button" class="btn btn-primary card-btn ">퇴사처리</button>
