@@ -126,7 +126,7 @@ public class MobileController {
 		if(salaryService.select_salary(thisMonthSa_code) != null) {
 			mobileAttendanceService.mobileStartWork(map);
 		}else {
-			salaryService.insert_salary(thisMonthSa_code);
+			//salaryService.insert_salary(thisMonthSa_code);
 			mobileAttendanceService.mobileStartWork(map);
 		}
 		

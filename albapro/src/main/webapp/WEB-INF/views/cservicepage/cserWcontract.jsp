@@ -93,22 +93,20 @@
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="c${login.id}" />
                     <input type="hidden" name="c_code" value="${contract.c_code}" />
-                    <div class="start_end_per">
-                    <span class="t1">
-                    ${fn:substring(contract.start_period,0,10)}
-                    </span>
-                     <span>부터</span>
-                    ${fn:substring(contract.end_period,0,10)}
-                     <span>까지</span></div>
+                    
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
+                    </div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
-                    <span class="t1">
-                    ${contract.work_place}
-					</span>
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place}</span>
+                    </div>
+                    
                     <h4 class="gg">3. 업무의 내용</h4><br>
-                    <span class="t1">
-                    ${contract.work_detail}
-                    </span>
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
+                    </div>
 
                     <h4 class="gg">4. 소정근로시간</h4><br>
                     <div class="worktime_div">
@@ -122,11 +120,11 @@
                     <h4 class="gg">5. 임금</h4><br>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
                     ${contract.hour_wage}
-                    <span>원</span><br><br>
+                    <span>원</span><br>
                     
                     <span class="t1">ㅡ 기타 급여(재수당 등) </span>
-                    <c:if test="${contract.additional_wage}==0">없음</c:if>
-                    <c:if test="${contract.additional_wage}==1">있음</c:if><Br/><Br/>
+                    <c:if test="${contract.additional_wage == '0'}">없음</c:if>
+                    <c:if test="${contract.additional_wage =='1'}">있음</c:if><Br/>
                     
                     <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
                     ${contract.payday}
@@ -144,12 +142,13 @@
                     <h4 class="gg">8. 근로계약서 교부</h4><br>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
-                    20${fn:substring(contract.c_date,2,4)}
-                    <span>년</span>
-                    ${fn:substring(contract.c_date,5,7)}
-                    <span>월</span>
-                    ${fn:substring(contract.c_date,8,10)}
-                    <span>일</span>
+                    <div class="worktime_div">
+                    <span class="sp1">
+                    	20${fn:substring(contract.c_date,2,4)}년
+                    	${fn:substring(contract.c_date,5,7)}월
+                    	${fn:substring(contract.c_date,8,10)}일
+                    </span>
+                    </div>
 
                     <hr><br>
 

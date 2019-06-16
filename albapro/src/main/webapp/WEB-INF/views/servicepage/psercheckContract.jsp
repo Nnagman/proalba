@@ -102,11 +102,9 @@
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" id="c_code" name="c_code" value="${contract.c_code}" />
-                    <div>
-                    ${fn:substring(contract.start_period,0,10)}
-                    <span>부터</span>
-                    ${fn:substring(contract.end_period,0,10)}
-                    <span>까지</span></div>
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
+                    </div>
 
                     <h4 class="gg">2. 근무장소</h4><br>
                     <div class="worktime_div">
