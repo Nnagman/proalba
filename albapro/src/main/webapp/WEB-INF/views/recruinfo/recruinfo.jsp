@@ -75,7 +75,7 @@ html, body, header, .carousel {
 
 header {
 	background-image: url("#") !important;
-	background-color: yellow !important;
+	background-color: #5D5D5D !important;
 }
 
 .recruinfo-title {
@@ -224,6 +224,14 @@ display:none;
 float:left;
 }
 
+.navbar{
+padding-right:0 !important;
+}
+
+footer{
+top:300px;
+    position: relative;
+}
 
 </style>
 
@@ -285,9 +293,9 @@ float:left;
 
 
 					<!-- 지역 -->
-					<dl class="area">
+			<!--		<dl class="area">
 						<dt class="item">지역</dt>
-						<dd class="content">
+						 <dd class="content">
 							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
 						</dd>
 						<dd class="data" style="display: block;">
@@ -337,8 +345,9 @@ float:left;
 							</ul>
 							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
 						</dd>
-					</dl>
+					</dl> -->
 
+					<!-- 지역 -->
 				</div>
 
 
@@ -346,16 +355,20 @@ float:left;
 					직종/업무:
 					<div class="jobchoice"></div>
 
-				<!-- 	<button class="btn btn-light-green jobchoice-btn"
-						onclick="jsonout()" data-toggle="modal" data-target="#myModal">전체
-						카테고리</button> -->
-						
-						<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
-전체카테고리
-</button>
+					<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
+					전체카테고리
+					</button>
 				</div>
+					
+				<div class="placho-line1">
+					지역:
+					<input type="text" class="plachoice" id="plachoice" onchange="plasearch(this.value)" />
 
+				 	<button type="button" class="btn btn-primary placho-btn" data-toggle="modal" onclick="placho()"  data-target="#ExampleModal">
+					전체카테고리
+					</button>
+				</div>
+					
 			</div>
 
 
@@ -400,15 +413,14 @@ float:left;
    </div>
    
    </div>
-  
-			
+   
+   
 
 
 
 
 
-
-<!-- Modal -->
+<!-- Modal 직종 -->
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -435,12 +447,51 @@ float:left;
   </div>
 </div>
 
+<!-- Modal 직종 -->
+
+
+<!-- Modal 지역 -->
+<div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       		<div class="placho1"></div>
+		<div class="placho2"></div>		
+			<div class="jobcho3-title">선택된 지역</div>
+			<div class="placho3"></div>
+		
+					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
+        <button type="button" class="btn btn-primary btn-plremove">모두지우기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 지역 -->
 
  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
    
 
+
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+
+  <script type="text/javascript" src="resources/js/popper.min.js"></script>
+  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
+  <script type="text/javascript" src="resources/js/datatables.min.js"></script>
   
-  <script type="text/javascript">
+   <script type="text/javascript">
  
 	$(document).ready(function () {
 		$('#Example').DataTable({
@@ -456,17 +507,60 @@ float:left;
   </script>
   
   
-    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
+  
+  
+<script>
 
-  <script type="text/javascript" src="resources/js/popper.min.js"></script>
-  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
-  <script type="text/javascript" src="resources/js/datatables.min.js"></script>
+
+
+ function plasearch() {
+	
+	var search =$('#plachoice').val();
+
+
+	console.log(search); 
+
+	var table =$('#Example').dataTable();
+	table.fnFilter(search);
+	
+
+};  
+
+</script>
   
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+   
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+   
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+      </a>
+     
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
   
+			
+
  
-
-
 
 </body>
 
