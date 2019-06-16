@@ -210,6 +210,7 @@ public class MobileController {
 		List<MobileSalaryInfoVO> mobileSalaryInfoVO;
 		mobileSalaryInfoVO = mobileService.salaryInfo(m_code);
 		JSONArray pJson = JSONArray.fromObject(mobileSalaryInfoVO);
+		logger.info("salaryInfo:  "+pJson.toString());
 		return pJson;
 	}
 	
