@@ -29,7 +29,7 @@
 	    select * from  salary
       	where  sa_code=#{sa_code}
 	    ]]>
-	</select> 
+	</select>
 	 
 	 <!--    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[

@@ -15,4 +15,5 @@ public class MobileSalaryInfoVO {
 	private String work_place;
 	private String work_hours;
 	private String work_minute;
+	private String sa_code;
 }

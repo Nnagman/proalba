@@ -62,7 +62,7 @@
       <div class="sidebar-wrapper">
       <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
         <ul class="nav">
-         <li class="nav-item active">
+         <li class="nav-item">
             <a class="nav-link" href="pserworkList?id=${login.id}">
               <i class="material-icons">dashboard</i>
               알바목록
@@ -70,7 +70,7 @@
           </li>
           
           
-           <li class="nav-item">
+           <li class="nav-item active">
             <a class="nav-link" href="contract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
@@ -88,14 +88,16 @@
       </c:if>
       
       <c:if test="${fn:substring(login.m_code,0,1)=='c'}">
-              <ul class="nav">
-        <li class="nav-item">
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+<li class="nav-item">
             <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
               <i class="material-icons">dashboard</i>
               채용공고 등록
             </a>
           </li>
-           <li class="nav-item active">
+		<li class="nav-item active">
             <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서
@@ -110,17 +112,19 @@
           <li class="nav-item">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
-             직원 관리
+              직원 관리
             </a>
           </li>
-     
-          <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
+
+          <%-- <li class="nav-item ">
+            <a class="nav-link" href="${path}/proalba/comm">
               <i class="material-icons">bubble_chart</i>
               커뮤니티
               </a>
-          </li>    
+          </li> --%>
+        
         </ul>
+      </div>
       </c:if>
 
       </div>

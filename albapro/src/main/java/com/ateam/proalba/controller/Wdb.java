@@ -147,8 +147,8 @@ class ClientClone implements Runnable {
              System.out.println(rs);
              System.out.println("Äõ¸®¹® µé¾î¿È");
              if(rs.next()) {
-            	 query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
-            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time " + 
+            	 query = " INSERT INTO work_record(w_code, sa_code, work_start_time) " + 
+            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyyMMdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'hh24:mi') as work_start_time " + 
             			 " from salary s, employee e " + 
             			 " where e.finger_id = "+ fingerID + 
             			 " and s.em_code = e.em_code " + 
@@ -163,8 +163,8 @@ class ClientClone implements Runnable {
             	 		"        e.finger_id = "+fingerID;
             	 stmt1 = conn.createStatement();
                  rs = stmt1.executeQuery(query1);
-                 query = " INSERT INTO work_record(w_code, sa_code, work_start_time)" + 
-            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyymmdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi') as work_start_time " + 
+                 query = " INSERT INTO work_record(w_code, sa_code, work_start_time) " + 
+            			 " SELECT  SUBSTR(s.sa_code,1,INSTR(s.sa_code,'/',1))||TO_CHAR(SYSDATE,'yyyyMMdd hh24:mi') as w_code, s.sa_code, TO_CHAR(SYSDATE,'hh24:mi') as work_start_time " + 
             			 " from salary s, employee e " + 
             			 " where e.finger_id = "+ fingerID + 
             			 " and s.em_code = e.em_code " + 
@@ -173,35 +173,46 @@ class ClientClone implements Runnable {
                  rs = stmt1.executeQuery(query);
              }
          }else if(typeID==3) {
-         query = "UPDATE work_record w SET w.work_end_time = TO_CHAR(SYSDATE,'yy-mm-dd hh24:mi')" + 
+         query = "UPDATE work_record w SET w.work_end_time = TO_CHAR(SYSDATE,'hh24:mi')" + 
          		"    where  " + 
          		"    rownum=1 and    " + 
-         		"    w.work_start_time = ( select max(work_start_time)" + 
+         		"    w.work_start_time = ( select max(work_start_time) " + 
          		"    from work_record " + 
-         		"    where work_end_time IS NULL" + 
-         		"    ) and 'p'||SUBSTR(w_code,1,INSTR(w_code,'/',1)-1) = (select m_code from employee where finger_id="+fingerID+")";
+         		"    where work_end_time IS NULL " + 
+         		"    ) and 'p'||SUBSTR(w_code,1,INSTR(w_code,'/',1)-1) = (select m_code from employee where finger_id="+fingerID+") ";
          Statement stmt1 = conn.createStatement();
          stmt1.executeUpdate(query);
-         query = "UPDATE work_record w SET w.working_hours =  (SELECT (dd*24*60)+SUBSTR (hms,1,2)*60+SUBSTR (hms, 3,2) time_minute" + 
-         		"  FROM (" + 
-         		"         SELECT TRUNC (end_date - start_date) dd," + 
-         		"                TO_CHAR (TO_DATE (TRUNC ( MOD(end_date - start_date, 1) * 24 * 60 * 60), 'sssss'), 'hh24mi') hms" + 
-         		"           FROM (" + 
-         		"                 SELECT TO_DATE (w.work_end_time, 'yy-mm-dd hh24:mi') end_date," + 
-         		"                        TO_DATE (w.work_start_time, 'yy-mm-dd hh24:mi') start_date" + 
-         		"                FROM work_record w" + 
-         		"                " + 
-         		"                where " + 
-         		"                 rownum=1 and" + 
-         		"                w.working_hours  IS NULL  and" + 
-         		"                " + 
-         		"                'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
-         		"                )" + 
-         		"       )) where    " + 
-         		"       rownum=1 and" + 
-         		"        w.working_hours IS NULL  and" + 
-         		"    'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+")" + 
-         		"         ";
+         
+         query = "SELECT w.work_end_time work_end_time, w.work_start_time work_start_time " +
+                 "FROM work_record w " +
+                 "where rownum=1 " +
+                 "and 'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+") ";
+         rs = stmt1.executeQuery(query);
+         
+         int working_hours = 0;
+         
+         while(rs.next()) {
+         String work_start_time = rs.getString("work_start_time");
+         System.out.println("work_start_time : " + work_start_time);
+         String work_end_time = rs.getString("work_end_time");
+         System.out.println("work_end_time : " + work_end_time);
+         
+ 		int start_hour = Integer.parseInt(work_start_time.substring(0, 2));
+ 		int end_hour = Integer.parseInt(work_end_time.substring(0, 2));
+ 		
+ 		if (start_hour > end_hour) { end_hour = end_hour + 24; }
+ 		int working_hours1 = (end_hour - start_hour) * 60;
+
+ 		int working_hours2 = Integer.parseInt(work_end_time.substring(3, 5)) - Integer.parseInt(work_start_time.substring(3, 5));
+ 		
+ 		working_hours = working_hours1 + working_hours2;
+ 		System.out.println(working_hours);
+        }
+         
+         query ="UPDATE work_record w SET w.working_hours = "+working_hours+" "+
+        		"where rownum=1 "+
+        		"and w.working_hours IS NULL "+
+        		"and 'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+") ";
          System.out.print(" Åð±Ù : ");
          }
 //        //query = "INSERT INTO ATT_SIGN(FINGER_ID, SIGN_DATE)  VALUES (" + fingerID + ", sysdate )";
