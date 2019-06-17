@@ -4,7 +4,7 @@
 <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
 <meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
 
-<link rel="stylesheet" type="text/css" href="resources/css/login.css">
+<link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
 
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 

@@ -356,7 +356,7 @@
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-tel"> 전화접수</label>
-															<input type="hidden" id="contact_number" name="contact_number" value="0"/>
+															<!-- <input type="hidden" id="contact_number" name="contact_number" value="0"/> -->
 														</div>
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>

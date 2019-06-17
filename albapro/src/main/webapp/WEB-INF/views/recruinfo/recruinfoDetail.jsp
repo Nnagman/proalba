@@ -23,7 +23,7 @@ html, body, header, .carousel {
 
 header {
 	background-image: url("#") !important;
-	background-color: yellow !important;
+	background-color: #5D5D5D !important;
 }
 
 .recruinfo-title {

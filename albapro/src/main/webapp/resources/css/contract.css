@@ -196,6 +196,24 @@ hr {
 	    background-color:#2e3949 !important;
 }
 
+.subbt2{
+	width: 170px;
+	height: 50px !important;
+	   margin: 160px 0 30px 40%;
+	    background-color:#2e3949 !important;
+	    
+	    	background: #1AAB8A;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 0.8em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+
 .div_sign {
 	position: relative;
 	top: 550px;

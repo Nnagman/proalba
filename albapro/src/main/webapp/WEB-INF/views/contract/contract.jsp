@@ -82,12 +82,7 @@
               경력 관리
             </a>
           </li>
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
+      
         
         </ul>
       </c:if>
@@ -232,7 +227,7 @@
                     <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
                     ${contract.p_address}
                     <Br><Br>
-                    <button type='button' class="bt2" id="submit2">근로계약서 다운로드</button>
+                    <button type='button' class="subbt2" id="submit2">근로계약서 다운로드</button>
                 </div>
                </div>
             </form>
