@@ -314,10 +314,10 @@
 									<div class="col-md-12">
 										<div class="addjob-4">
 											<div class="div-cont">
-												<h5 class="div-cont-title">근무지 정보</h5>
+												<h5 class="div-cont-title">사업체 정보</h5>
 												<div class="workcon">
 													<div class="work_place_name">
-														근무지 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
+														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
 													</div>
 												
 													<div class="hour_wage">
@@ -356,7 +356,7 @@
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-tel"> 전화접수</label>
-															<input type="hidden" id="contact_number" name="contact_number" value="0"/>
+															<!-- <input type="hidden" id="contact_number" name="contact_number" value="0"/> -->
 														</div>
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>

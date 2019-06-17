@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
+import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
@@ -112,7 +112,7 @@ public class WorkmanageController {
 	}
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid)
+	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid, @RequestParam("em_code") String em_code)
 			throws Exception {
 		model.addAttribute("message", "");
 		Map<String, String> id_map = new HashMap<String, String>();
@@ -125,6 +125,9 @@ public class WorkmanageController {
 		mav.setViewName("cservicepage/cserWorkmanagetable");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
+		map.put("id", id);
+		map.put("em_code", em_code);
+		System.out.println(map);
 
 		mav.addObject("map", map);
 		return mav;
@@ -153,18 +156,41 @@ public class WorkmanageController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("work_start_time", time.substring(0, time.indexOf("/")));
 
-		SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
-		Date year_month_date = new Date();
 				
-		String work_end_time = format.format(year_month_date) + " " + time.substring(time.indexOf("/")+1, time.indexOf("!"));
+		String work_end_time = time.substring(time.indexOf("/")+1, time.indexOf("!"));
 		
 		map.put("work_end_time", work_end_time);
-		map.put("w_code", time.substring(time.indexOf("!")+1, time.indexOf(" ")));
+		String w_code = time.substring(time.lastIndexOf("!")+1);
+		String[] w_code_arr = new String[3];
+		
+		w_code_arr = w_code.split(" ");
+		System.out.println(w_code_arr[0]);
+
+		map.put("w_code", w_code_arr[0] + " " + w_code_arr[1]);
+		
+		String work_start_time = map.get("work_start_time");
+		logger.info("work_start_time: " + work_start_time.substring(0, 2));
+		logger.info("work_end_time: " + work_end_time.substring(0, 2));
+		
+		int start_hour = Integer.parseInt(work_start_time.substring(0, 2));
+		int end_hour = Integer.parseInt(work_end_time.substring(0, 2));
+		
+		if (start_hour > end_hour) { end_hour = end_hour + 24; }
+		int working_hours1 = (end_hour - start_hour) * 60;
+
+		int working_hours2 = Integer.parseInt(work_end_time.substring(3, 5)) - Integer.parseInt(work_start_time.substring(3, 5));
+
+		String working_hours = Integer.toString(working_hours1 + working_hours2);
+		map.put("working_hours", working_hours);
+		
+		System.out.println(map);
+		
+		mobileAttendanceService.mobileWorkRecordUpdate(map);
 
 		Date today = new Date();
-		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
-		String[] w_code = map.get("w_code").split("/");
-		if (!w_code[1].substring(4, 6).equals(date.format(today).substring(5, 7))) {
+		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
+		System.out.println("today : " + w_code_arr[0].substring(w_code_arr[0].indexOf("/")+1, w_code_arr[0].indexOf("/")+7));
+		if (!w_code_arr[0].substring(w_code_arr[0].indexOf("/")+1,  w_code_arr[0].indexOf("/")+7).equals(date.format(today).substring(0, 6))) {
 			JSONObject json = new JSONObject();
 			json.put("message", "이번달이 아니면 근태기록을 수정할 수 없습니다.");
 			return json;
@@ -213,7 +239,7 @@ public class WorkmanageController {
 	public JSON cserWorkmanageInsertPOST(@RequestBody String str) throws Exception {
 		logger.info(str);
 		Map<String, String> map = new HashMap<String, String>();
-
+		
 		map.put("sa_code", str.substring(0, str.indexOf("!")));
 		str = str.substring(str.indexOf("!") + 1, str.length());
 
@@ -225,13 +251,17 @@ public class WorkmanageController {
 		map.put("work_end_time", str.substring(0, str.indexOf("$")));
 		str = str.substring(str.indexOf("$") + 1, str.length());
 
-		map.put("w_code", str);
+		map.put("w_code", str.substring(0, str.indexOf("*")));
+		str = str.substring(str.indexOf("*") + 1, str.length());
+		
+		map.put("em_code", str);
 		System.out.println(map);
 
 		Date today = new Date();
-		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String[] sa_code = map.get("sa_code").split("/");
-		if (!sa_code[1].substring(4, 6).equals(date.format(today).substring(5, 7))) {
+		sa_code[1] = sa_code[1].substring(0,6);
+		if (!sa_code[1].equals(date.format(today).substring(0,6))) {
 			logger.info("sa_code[1].substring(4,6): " + sa_code[1].substring(4, 6));
 			logger.info("date.format(today).substring(5,7): " + date.format(today).substring(5, 7));
 			JSONObject json = new JSONObject();
@@ -241,25 +271,35 @@ public class WorkmanageController {
 
 		String work_start_time = map.get("work_start_time");
 		String work_end_time = map.get("work_end_time");
-		logger.info("work_start_time: " + work_start_time.substring(9, 11));
-		logger.info("work_end_time: " + work_end_time.substring(9, 11));
-		int start_hour = Integer.parseInt(work_start_time.substring(9, 11));
-		int end_hour = Integer.parseInt(work_end_time.substring(9, 11));
-		if (start_hour > end_hour) {
-			end_hour = end_hour + 24;
-		}
+		logger.info("work_start_time: " + work_start_time.substring(0, 2));
+		logger.info("work_end_time: " + work_end_time.substring(0, 2));
+		
+		int start_hour = Integer.parseInt(work_start_time.substring(0, 2));
+		int end_hour = Integer.parseInt(work_end_time.substring(0, 2));
+		
+		if (start_hour > end_hour) { end_hour = end_hour + 24; }
 		int working_hours1 = (end_hour - start_hour) * 60;
 
-		int working_hours2 = Integer.parseInt(work_end_time.substring(12, 14))
-				- Integer.parseInt(work_start_time.substring(12, 14));
+		int working_hours2 = Integer.parseInt(work_end_time.substring(3, 5)) - Integer.parseInt(work_start_time.substring(3, 5));
 
 		String working_hours = Integer.toString(working_hours1 + working_hours2);
 		map.put("working_hours", working_hours);
-
+		System.out.println(map.get("sa_code"));
+		
+		if(salaryService.select_salary(map.get("sa_code")) == null) {
+			Map<String, String> salary_map = new HashMap<String, String>();
+			salary_map.put("sa_code", map.get("sa_code"));
+			salary_map.put("em_code", map.get("em_code"));
+			
+			String year_month = map.get("sa_code").substring(map.get("sa_code").indexOf("/")+1, map.get("sa_code").lastIndexOf("/"));
+			salary_map.put("year_month", year_month);
+			
+			salaryService.insert_salary(salary_map);
+		}
+		
 		mobileAttendanceService.mobileWorkRecordInsert(map);
-
 		JSONObject json = new JSONObject();
-		json.put("message", "업데이트 성공");
+		json.put("message", "추가 성공");
 		return json;
 	}
 

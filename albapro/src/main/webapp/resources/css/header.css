@@ -102,6 +102,9 @@ margin-left:500px !important;
   	margin-right: 80px;
   }
     
+   .modifyLink a, .popoverFoot > a{
+    color: black !important;
+    }
   /* .loginicon{
   	margin:0 0 0 45% !important;
   	

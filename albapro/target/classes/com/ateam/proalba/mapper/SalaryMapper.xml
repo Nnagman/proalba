@@ -18,9 +18,9 @@
 		 ]]>
 	</select>
 	
-	<insert id="insert_salary">
+	<insert id="insert_salary" parameterType="hashmap">
 		<![CDATA[
-			insert into salary(sa_code) values (#{sa_code})
+			insert into salary(sa_code, em_code, whether_to_pay, year_month) values (#{sa_code}, #{em_code}, '0', #{year_month})
 		]]>
 	</insert>
 	
@@ -29,7 +29,7 @@
 	    select * from  salary
       	where  sa_code=#{sa_code}
 	    ]]>
-	</select> 
+	</select>
 	 
 	 <!--    <select id="select_salary" resultType="com.ateam.proalba.domain.SalaryVO">
 	     <![CDATA[

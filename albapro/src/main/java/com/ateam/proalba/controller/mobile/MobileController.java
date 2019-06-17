@@ -17,13 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
-import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
@@ -126,7 +124,7 @@ public class MobileController {
 		if(salaryService.select_salary(thisMonthSa_code) != null) {
 			mobileAttendanceService.mobileStartWork(map);
 		}else {
-			salaryService.insert_salary(thisMonthSa_code);
+			//salaryService.insert_salary(thisMonthSa_code);
 			mobileAttendanceService.mobileStartWork(map);
 		}
 		
@@ -210,6 +208,7 @@ public class MobileController {
 		List<MobileSalaryInfoVO> mobileSalaryInfoVO;
 		mobileSalaryInfoVO = mobileService.salaryInfo(m_code);
 		JSONArray pJson = JSONArray.fromObject(mobileSalaryInfoVO);
+		logger.info("salaryInfo:  "+pJson.toString());
 		return pJson;
 	}
 	

@@ -194,7 +194,7 @@
 													<script>
 													
 														  $("#datepicker").datepicker({
-		      													 dateFormat:'yy-mm-dd'  //Input Display Format 변경
+		      													 dateFormat:'yymmdd'  //Input Display Format 변경
 		      	      												     
 		      												  });
 		      												 $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
