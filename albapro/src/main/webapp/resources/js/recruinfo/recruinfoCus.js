@@ -111,7 +111,7 @@ ss(function(){
 	}else*/
 
  
-		if (divcnt < 1) {
+		if (divcnt < 5) {
 
 			$('<p></p>').addClass('placho-de3').text(text).attr('id',
 					textid).appendTo(plmodal3);
@@ -226,7 +226,7 @@ ss(function(){
 			alert('중복'); */
 		/*--------중복체크--------------*/
 		
-		if (divcnt < 1) {
+		if (divcnt < 5) {
 
 			$('<div></div>').addClass('jobcho-de3').text(text).attr('id',
 					textid).appendTo(modal3);
