@@ -67,15 +67,15 @@
 	</select>
 	
 	<select id="mobileFoundWorkRecord" resultType="com.ateam.proalba.domain.mobile.MobileWorkRecordVO">
-		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')+2) as w_code,sa_c, sa_start, sa_end, working_hours, work_place
+		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')+1) as w_code,sa_c, sa_start, sa_end, working_hours, work_place
 		from workrecord_view v
 		where v.sa_c=#{id} AND v.work_place = #{work_place}
 		order by w_code asc
 	</select>
 	<select id="mobileCFoundWorkRecord" resultType="com.ateam.proalba.domain.mobile.MobileCWorkRecordVO">
-		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')+2) as w_code,sa_c, sa_start, sa_end, working_hours, work_place 
+		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')+1) as w_code,sa_c, sa_start, sa_end, working_hours, work_place 
 		from workrecord_view v
-		where v.sa_c=#{p_id} AND v.work_place = (select m.work_place_name from member m where m.id=#{id})
+		where v.sa_c=(select SUBSTR(c.p_id, 2) from contract c where c.p_id='p'||#{p_id}) AND v.work_place IN (select c.work_place from contract c where c.c_id='c'||#{id})
 		order by w_code asc
 		
 	</select>
