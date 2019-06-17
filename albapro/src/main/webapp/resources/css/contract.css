@@ -283,10 +283,7 @@ hr {
 	outline: none;
 }
 
-button:hover {
-	background: #fff;
-	color: #1AAB8A;
-}
+
 
 button:before, button:after {
 	content: '';
@@ -295,7 +292,7 @@ button:before, button:after {
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #1AAB8A;
+	
 	transition: 400ms ease all;
 }
 
@@ -309,5 +306,10 @@ button:after {
 button:hover:before, button:hover:after {
 	width: 100%;
 	transition: 800ms ease all;
+}
+
+.sidebar-wrapper{
+	overflow:hidden !important;
+	
 }
 
