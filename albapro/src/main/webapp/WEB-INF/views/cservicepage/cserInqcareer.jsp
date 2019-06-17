@@ -45,6 +45,29 @@
  .odd { background-color:#EAEAEA; }
 
         .Even { background-color : white; }
+        
+        
+        .nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: -1;
+	font-size: 0.8rem;
+}
+        
 </style>
 
 <body>
@@ -74,20 +97,22 @@
           </li>
 
 
-		<li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
 
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
+		     <li class="nav-item">
             <a class="nav-link" href="cserWcontractForm?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
             </a>
           </li>
-          <li class="nav-item ">
+		<li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 목록
+            </a>
+          </li>
+      
+          <li class="nav-item active">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
               직원 관리
@@ -102,6 +127,26 @@
           </li> --%>
         
         </ul>
+        
+        	<div class="nav-itemsub">
+						<ul>
+						
+							<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
+						
+
+							<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
+
+							<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
+									급여 관리 </a></li>
+
+							<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+
+							<li><a class="nav-link"
+								href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
+
+						</ul>
+
+					</div>
       </div>
     </div>
 			<!-- End of Sidebar -->

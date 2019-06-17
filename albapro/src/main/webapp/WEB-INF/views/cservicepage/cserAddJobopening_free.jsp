@@ -67,16 +67,18 @@
 								<i class="material-icons">dashboard</i> 채용공고 등록
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="ccontract?id=${login.id}">
-								<i class="material-icons">dashboard</i> 전자근로 계약서
-							</a>
-						</li>
 						<li class="nav-item ">
 							<a class="nav-link" href="cserWcontractForm?id=${login.id}">
 								<i class="material-icons">dashboard</i> 전자근로 계약서 작성
 							</a>
 						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="ccontract?id=${login.id}">
+								<i class="material-icons">dashboard</i> 전자근로 계약서 목록
+							</a>
+						</li>
+					
 						<li class="nav-item dropdown">
 							<a class="nav-link" href="cserEmpManage?id=${login.id}">
 								<i class="material-icons">person</i> 직원 관리
@@ -356,7 +358,7 @@
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-tel"> 전화접수</label>
-															<input type="hidden" id="contact_number" name="contact_number" value="0"/>
+															<!-- <input type="hidden" id="contact_number" name="contact_number" value="0"/> -->
 														</div>
 														<div class="custom-control custom-radio">
 															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>

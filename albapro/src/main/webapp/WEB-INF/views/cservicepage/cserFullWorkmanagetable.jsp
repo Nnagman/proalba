@@ -123,13 +123,15 @@
 							href="cserAddJobopening_free?id=${login.id}"> <i
 								class="material-icons">dashboard</i> 채용공고 등록
 						</a></li>
-						<li class="nav-item "><a class="nav-link"
-							href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
-								전자근로 계약서
-						</a></li>
+					
 						<li class="nav-item"><a class="nav-link"
 							href="cserWcontractForm?id=${login.id}"> <i
 								class="material-icons">dashboard</i> 전자근로 계약서 작성
+						</a></li>
+						
+							<li class="nav-item "><a class="nav-link"
+							href="ccontract?id=${login.id}"> <i class="material-icons">dashboard</i>
+								전자근로 계약서 목록
 						</a></li>
 						<li class="nav-item active"><a class="nav-link"
 							href="cserEmpManage?id=${login.id}"> <i
@@ -194,7 +196,7 @@
 													<script>
 													
 														  $("#datepicker").datepicker({
-		      													 dateFormat:'yy-mm-dd'  //Input Display Format 변경
+		      													 dateFormat:'yymmdd'  //Input Display Format 변경
 		      	      												     
 		      												  });
 		      												 $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
@@ -314,9 +316,9 @@
                     }
                 ]
             } );
-    		/* var search =$('#datepicker').val();
+    		 var search =$('#datepicker').val();
         	var table =$('#example').dataTable();
-    		table.fnFilter(search); */
+    		table.fnFilter(search); 
     		
             
             $('table.mdl-data-table tbody tr:odd').addClass('odd');

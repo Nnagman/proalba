@@ -23,7 +23,7 @@
 	
 		<select id="fullcmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" >
        select DISTINCT w.w_code, w.sa_code sa_c, work_start_time sa_start, 
-       SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, c.c_ID, work_end_time sa_end, w.sa_code,  e.m_code, w.work_start_time, w.work_end_time, w.working_hours, m.name
+       SUBSTR(w_code, INSTR(w_code,'/')+1,9) sa_date, c.c_ID, work_end_time sa_end, w.sa_code,  e.m_code, w.work_start_time, w.work_end_time, w.working_hours, m.name
         from contract c, employee  e, work_record w, salary s, member m
         where c.c_ID='c'||#{id}  and
         m.m_code = e.m_code and
