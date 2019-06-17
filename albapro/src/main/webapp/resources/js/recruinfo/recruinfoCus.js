@@ -120,7 +120,7 @@ ss(function(){
 			pljobchotext.push(text);
 
 		}  else {
-			alert("1개이상 선택 불가능 합니다.");
+			alert("5개이상 선택 불가능 합니다.");
 		}
 
 		
@@ -235,7 +235,7 @@ ss(function(){
 			jobchotext.push(text);
 
 		}  else {
-			alert("1개이상 선택 불가능 합니다.");
+			alert("5개이상 선택 불가능 합니다.");
 		}
 		
 		
