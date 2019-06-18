@@ -196,7 +196,7 @@ hr {
 	    background-color:#2e3949 !important;
 }
 
-.subbt2{
+  .subbt2{
 	width: 170px;
 	height: 50px !important;
 	   margin: 160px 0 30px 40%;
@@ -212,7 +212,7 @@ hr {
 	cursor: pointer;
 	transition: 800ms ease all;
 	outline: none;
-}
+} 
 
 .div_sign {
 	position: relative;

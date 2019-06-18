@@ -117,5 +117,47 @@ margin:auto;
 	position: relative;
 }
 
+.hiddenbtn{
+	    display: none;
+}
+
+.canvas_btn{
+	margin:0 0 0 7px !important;
+	
+}
 
 
+.subbt2{
+	width: 300px;
+	height: 50px !important;
+	   margin: 170px 0 30px 39%;
+	    background-color:#2e3949 !important;
+	    
+	    	background: #1AAB8A;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 0.8em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+.subbtn2{
+		width: 300px;
+	height: 50px !important;
+	   margin: 30px 0 30px 39%;
+	    background-color:#2e3949 !important;
+	    
+	    	background: #1AAB8A;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 30px;
+	font-size: 0.8em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}

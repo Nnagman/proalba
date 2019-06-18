@@ -117,7 +117,7 @@
 												
 												<div class="card">
 													<div class="card-header">
-														<h3>${row.work_place}</h3>
+														<h3>${row.work_place_name}</h3>
 													</div>
 												<div class="card-body">
 														<h5 class="card-title">입사일: <fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></h5>

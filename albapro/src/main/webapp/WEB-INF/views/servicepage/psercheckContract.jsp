@@ -184,7 +184,23 @@
                     	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
                     	<img class="can1" id="myImage" style="margin:1px;">
                     	<div id="sign2"></div>
+                	
+                	    <div class="canvas_btn">
+		
+            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+				<input type="button" class="bt1" onclick="toDataURL2();"value="서명 저장">
+				<!-- 시연 안할거라 숨겨 둡니다. -->
+				<div class="hiddenbtn">
+				<button  class="bt1" id="moveSign">서명란이동</button>
+				<button  class="bt1" id="moveSignEnd">이동완료</button>
+				</div>
+					<!-- 시연 안할거라 숨겨 둡니다. -->
+		
+			</div>
+                	
                 	</div>
+                	
+                	
                     <span class="t3">근로자: </span>
                     <input class="tex6" name="p_name" type="text" maxlength="11" value="${login.name}"/><br><br> 
                      
@@ -193,17 +209,17 @@
                     <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" value="${login.phone}" /><br><br>
                     
                     <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
-                    <input class="tex10" name="p_address" type="text" /> <Br><Br>
+                    <input class="tex10" name="p_address" type="text" /> <Br>
+                    		
+		 		
                 </div>
                </div>
             </form>
-            <div style="text-align: center;">
-				<button type="button" class="bt1" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
-            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-				<input type="button" class="bt1" onclick="toDataURL2();"value="서명 저장">
-				<button type="button" class="bt1" id="moveSign">서명란이동</button>
-				<button type="button" class="bt1" id="moveSignEnd">이동완료</button>
-			</div>
+        
+				<div> 
+					<button type="button" class="subbtn2" value="근로계약서 작성완료" id="submit2">근로계약서 작성완료</button>
+				</div>
+				
     </div>
 
 </div>
