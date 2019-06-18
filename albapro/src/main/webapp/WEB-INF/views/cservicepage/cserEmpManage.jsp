@@ -188,9 +188,9 @@
 														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
 														
 													
-														<a href="cserSalary?id=${row.id}" class="btn btn-primary card-btn">급여 기록</a>
-														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}" class="btn btn-primary card-btn ">근태 기록</a>
-														<a href="cserInqcareer?id=${row.id}" class="btn btn-primary card-btn">경력 조회</a>
+														<a href="cserSalary?id=${row.id}/${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn">급여 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserInqcareer?id=${row.id}&&name=${row.name}" class="btn btn-primary card-btn">경력 조회</a>
 													
 														<button type="button" class="btn btn-primary card-btn ">퇴사처리</button>
 													</div>

@@ -162,7 +162,7 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">직원 경력 조회</h4>
 									<p class="card-category">
-										${map.list[0].name} 님의 경력을 볼수 있습니다.
+										${name} 님의 경력을 볼수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">

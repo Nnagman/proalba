@@ -124,7 +124,9 @@
 														<br>
 														
 														<c:if test="${row.end_date != null}">
-															<h5 class="card-title">퇴사일: ${row.end_date}</h5>
+															<h5 class="card-title">
+																퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
+															</h5>
 														</c:if>
 														<c:if test="${row.end_date == null}">
 															<p>퇴사일 : 아직 근무 중입니다.</p>

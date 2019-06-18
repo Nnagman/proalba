@@ -188,7 +188,7 @@ margin: 0 0 0 20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${id} 님의 근태를 볼수 있습니다. <i
+										${name}님의 근태를 볼수 있습니다. <i
 											class="material-icons calicon" data-toggle="modal"
 											data-target="#myModal">달력보기 calendar_today</i>
 
@@ -439,13 +439,9 @@ margin: 0 0 0 20px;
     	  sa_code_date = $('#date').val();
     	  sa_code_date = $('#date').val().substr(0,7);
     	  sa_code_date = sa_code_date.replace('-',''); 
-    	  
-    	  if(sa_code[0] == "odd"){
-    		  var sa_code2 = '${map.id}' + '/' + sa_code_date + '/' + '${login.id}';
-		  }else{
-			  var sa_code2 = sa_code[0] + '/' + sa_code[1].substr(0,6) + '/' + '${login.id}';
-		  }
-    	  
+
+    	  var sa_code2 = '${map.id}' + '/' + sa_code_date + '/' + '${login.id}';
+
     	  var w_code = '${map.id}' + '/' + $('#date').val().replace(/-/gi,'') + ' ' + $("#time11").val();
     	  
     	  var str = sa_code2 + '!' + $('#date').val() + '@' + $("#time11").val() +'#' + $("#time22").val() + '$' + w_code + '*' + '${map.em_code}';
