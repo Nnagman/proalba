@@ -28,18 +28,19 @@
 	</select>
 	
 	<select id="salaryInfo" resultType="com.ateam.proalba.domain.mobile.MobileSalaryInfoVO">
-		SELECT BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, 
+		SELECT sa_code, BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, 
 		TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place
 		FROM salary_view
-		WHERE em_code = (SELECT em_code FROM employee WHERE m_code = #{m_code})
+		WHERE m_code = #{m_code}
 	</select>
 	
 	<select id="csalary" resultType="com.ateam.proalba.domain.mobile.MobileSalaryInfoVO">
 		SELECT sa_code, BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, 
 		TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place, work_hours, work_minute
 		FROM salary_view
-		WHERE m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
-        AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
+		WHERE m_code = 'p'||SUBSTR('clamp2957/spark7',INSTR('clamp2957/spark7','/')+1)
+        AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR('clamp2957/spark7',0,INSTR('clamp2957/spark7','/')-1)
+        ORDER BY sa_code desc
 	</select>
 	
 	<select id="cInqcareer" resultType="com.ateam.proalba.domain.CareerVO">

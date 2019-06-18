@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
@@ -118,7 +119,7 @@
                         <div class="card-header card-header-primary pser-header">
                            <h4 class="card-title ">급여 관리</h4>
                            <p class="card-category">
-                              ${salary_id} 님의 급여 현황 입니다. 
+                              ${name} 님의 급여 현황 입니다. 
 
                            </p>
                         </div>
@@ -145,7 +146,8 @@
                                        <td id="sal_basic_salary">${salary.actual_salary+salary.total_deduction_amount}</td>
                                        <td id="sal_total_deduction_amount">${salary.total_deduction_amount}</td>
                                        <td id="sal_actual_salary">${salary.actual_salary}</td>
-                                       <td id="sal_year_month">${salary.year_month}</td>
+                                       <c:set var="sa_code" value="${fn:split(salary.sa_code, '/')}" />
+                                       <td id="sal_year_month">${sa_code[1]}</td>
                                      <td>
                                      	<input type="hidden" value="${status.index}"/>
                                         <i class="material-icons searchIcon" data-toggle="modal"

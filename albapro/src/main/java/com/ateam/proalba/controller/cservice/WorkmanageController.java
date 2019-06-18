@@ -112,9 +112,10 @@ public class WorkmanageController {
 	}
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid, @RequestParam("em_code") String em_code)
+	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid, @RequestParam("em_code") String em_code,@RequestParam("name") String name)
 			throws Exception {
 		model.addAttribute("message", "");
+		model.addAttribute("name", name);
 		Map<String, String> id_map = new HashMap<String, String>();
 		id_map.put("id", id);
 		id_map.put("cid", cid);
@@ -261,6 +262,7 @@ public class WorkmanageController {
 		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
 		String[] sa_code = map.get("sa_code").split("/");
 		sa_code[1] = sa_code[1].substring(0,6);
+		logger.info(sa_code[1]);
 		if (!sa_code[1].equals(date.format(today).substring(0,6))) {
 			logger.info("sa_code[1].substring(4,6): " + sa_code[1].substring(4, 6));
 			logger.info("date.format(today).substring(5,7): " + date.format(today).substring(5, 7));
@@ -304,10 +306,11 @@ public class WorkmanageController {
 	}
 
 	@RequestMapping(value = "/cserSalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model, String id) throws Exception {
+	public String inqsalaryGET(Model model, String id, String name) throws Exception {
 
+		String p_id = id.substring(0,id.indexOf("/"));
 		logger.info(id);
-		model.addAttribute("salary_id", id);
+		model.addAttribute("name", name);
 		model.addAttribute("message", "inqsalaryPage");
 		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(id));
 		model.addAttribute("salarys", pJson);
@@ -341,8 +344,9 @@ public class WorkmanageController {
 
 	@ResponseBody
 	@RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET)
-	public ModelAndView inqcareerGET(Model model, @RequestParam("id") String id) throws Exception {
+	public ModelAndView inqcareerGET(Model model, @RequestParam("id") String id, @RequestParam("name") String name) throws Exception {
 		model.addAttribute("message", "");
+		model.addAttribute("name", name);
 		List<CareerVO> list = careerService.selectCareers("p" + id);
 		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();

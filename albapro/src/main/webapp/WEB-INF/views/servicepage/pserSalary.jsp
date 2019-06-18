@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
@@ -131,7 +132,8 @@
                                        <td>${salary.basic_salary}</td>
                                        <td>${salary.total_deduction_amount}</td>
                                        <td>${salary.actual_salary}</td>
-                                       <td>${salary.year_month}</td>
+                                       <c:set var="sa_code" value="${fn:split(salary.sa_code, '/')}" />
+                                       <td>${sa_code[1]}</td>
                                      <td>
                                      	<input type="hidden" value="${status.index}"/>
                                         <i class="material-icons searchIcon" data-toggle="modal"
