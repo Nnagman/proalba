@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.WcontractVO;
 
 @Repository
@@ -74,7 +75,14 @@ public class ContractDAOImplement implements ContractDAO {
 
 	@Override
 	public WcontractVO select_contract2(Map<String, String[]> map) throws Exception {
+		
 		return sqlSession.selectOne(NAMESPACE + ".select_contract2", map);
+	}
+	
+	@Override
+	public List<NoticeVO> select_contract5(String n_code) throws Exception {
+		
+		return sqlSession.selectList (NAMESPACE + ".select_contract5", n_code);
 	}
 
 	@Override
@@ -101,5 +109,7 @@ public class ContractDAOImplement implements ContractDAO {
 	public WcontractVO select_contract4(Date date) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".select_contract4", date);
 	}
+	
+	
 
 }

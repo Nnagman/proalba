@@ -53,9 +53,7 @@ float:center;
 	margin-left:800px;
 } 
 
-.addjobopening_title{
-	
-}
+
 
 
 
@@ -63,4 +61,10 @@ body {
   color: #111;
   font-size: 16px;
  font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.jobcho-de, .jobcho-de2{
+	cursor:pointer !important;
+	margin: 0 0 0.5cm 0 !important;
+	
 }

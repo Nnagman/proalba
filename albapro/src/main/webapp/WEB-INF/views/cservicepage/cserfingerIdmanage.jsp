@@ -120,15 +120,15 @@ margin: 0 0 0 20px;
 				<div class="sidebar-wrapper">
         <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 등록
+              채용공고 
             </a>
           </li>
           
               </li>
            <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
             </a>
