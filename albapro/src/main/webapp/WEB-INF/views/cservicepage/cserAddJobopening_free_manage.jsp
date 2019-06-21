@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
@@ -59,13 +60,18 @@
 }
 
 .Bdelete{
-	margin: 0 0 0 20px;
+	margin: 0 0 0 5px;
 	color:#F15F5F;
 	    font-size: 1.2rem;
 }
 .Bupdate{
     font-size: 1.2rem;
     color:#CC723D;
+}
+
+.Bcontract{
+	 font-size: 1.5rem;
+	 margin: 0 0 0 40px;
 }
 #Binsert{
 margin: 0 0 0 20px;
@@ -97,7 +103,7 @@ margin: 0 0 0 20px;
 	opacity: 0.8;
 	color: white !important;
 	top: -10px;
-	z-index: -1;
+	z-index: 1 !important;
 	font-size: 0.8rem;
 }
 
@@ -118,12 +124,30 @@ margin: 0 0 0 20px;
 				</div>
 				<div class="sidebar-wrapper">
         <ul class="nav">
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고
+              채용공고 
             </a>
           </li>
+          
+           <!-- 채용공고 등록 하위 메뉴 -->
+								<div class="nav-itemsub">
+							<ul>
+
+								<li><a class="nav-link" href="cserAddJobopening_free?id=${login.id}">채용공고 등록 </a></li>
+								
+								<li><a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}"> 채용공고  관리 </a></li>
+
+							
+
+							</ul>
+
+						</div>
+
+				
+				<!-- 채용공고 등록 하위 메뉴 -->
+          
         
           <li class="nav-item">
             <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
@@ -140,7 +164,7 @@ margin: 0 0 0 20px;
             </a>
           </li>
          
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
              직원 관리
@@ -156,23 +180,6 @@ margin: 0 0 0 20px;
         
         </ul>
         
-        	<div class="nav-itemsub">
-							<ul>
-							
-								<li><a class="nav-link" href="cserEmpManage?id=${login.id}"> 직원 목록 </a></li>
-
-								<li><a class="nav-link" href="cserFullWorkmanagetable?id=${login.id}"> 일별 근태 관리 </a></li>
-
-								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
-										급여 관리 </a></li>
-
-								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
-								
-									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
-
-							</ul>
-
-						</div>
 				</div>
 			</div>
 			<!-- End of Sidebar -->
@@ -186,12 +193,9 @@ margin: 0 0 0 20px;
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">채용공고 관리</h4>
 									<p class="card-category">
-										${name}님의 근태를 볼수 있습니다. <i
-											class="material-icons calicon" data-toggle="modal"
-											data-target="#myModal">달력보기 calendar_today</i>
-
+										자신이 작성한 채용공고를 관리하는 페이지 입니다.
 									</p>
 								</div>
 								<div class="card-body">
@@ -199,23 +203,30 @@ margin: 0 0 0 20px;
 										<table id="example" class="mdl-data-table" style="width: 100%">
 											<thead>
 												<tr>
-													<th class="th-sm">날짜</th> 
-													<th class="th-sm">출근 시간</th>
-													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
+														<th class="local">근무지</th>
+														<th class="title">공고제목</th>
+														<th class="data">근무시간</th>
+														<th class="salary">급여</th>
+														<th class="p_date">공고등록일</th>	
+													<th class="th-sm">빠른 근로계약서</th>
+													<th class="th-sm">삭제 </th>
+													
 												
 												</tr>
 											</thead>
 											<tbody id="tbody">
-												<c:forEach var="row" items="${map.list}" varStatus="status">
-													<tr id="${status.count}" class="${row.w_code}">
-														<td>${row.sa_date}</td>
-														<td>${row.sa_start}</td>
-														<td>${row.sa_end}</td>
-														<td>
-													<i class="fas fa-pencil-alt Bupdate"></i>
-													<i class="fas fa-trash-alt Bdelete"></i>
-													</td>
+												<c:forEach var="row" items="${list}" varStatus="status">
+													<tr id="${row.n_code}">
+													<td class="local">${row.address}</td>
+													<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">
+														<span class="company">${row.work_place_name}</span>
+															<span>${row.title} </span>
+																					</a></td>
+													<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
+													<td class="salary">${row.hour_wage}</td>
+													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
+													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a></td>
+													<td><i class="fas fa-trash-alt Bdelete"></i></td>
 												
 													</tr>
 
@@ -373,7 +384,7 @@ margin: 0 0 0 20px;
 
       });
       
-      //업데이트 버튼
+  /*     //업데이트 버튼
       $(document).on("click","#recordupdate",function(){
     	  alert($("#time1").html());
     	  var time = $("#time1").val()+'/'+$("#time2").val()+'!'+class1;
@@ -392,19 +403,19 @@ margin: 0 0 0 20px;
 			},
 			error : function(error) {alert("error : " + error);}
     	  });
-      });
+      }); */
       
       //삭제 버튼
       $(document).on("click",".Bdelete",function(){
-    	  var delete_w_code = $(this).parent().parent().attr('class');
-    	  alert(delete_w_code);
-    	  $.ajax({
+    	  var delete_n_code = $(this).parent().parent().attr('id');
+    	  alert(delete_n_code);
+     	  $.ajax({
 			async: false,
 			type: 'POST',
-			data: delete_w_code,
+			data: delete_n_code,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableDelete',
+			url: 'http://39.127.7.52:8080/proalba/cserAddJobopeningfreemanageDelete',
 			success: function(data){
 				if(data == null || data == undefined){
 					alert(data.message); location.reload();
@@ -412,7 +423,7 @@ margin: 0 0 0 20px;
 				alert(data.message); location.reload();
 			},
 			error : function(error) {alert("error : " + error);}
-    	  });
+    	  });  
       });
       
       var sa_code_date

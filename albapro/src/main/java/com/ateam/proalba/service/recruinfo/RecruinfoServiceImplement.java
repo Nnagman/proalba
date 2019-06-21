@@ -23,5 +23,21 @@ public class RecruinfoServiceImplement implements RecruinfoService {
 	public List<NoticeVO> get_noticeDe_list(String n_code) throws Exception { 
 		return recruinfoDAO.get_noticeDe_list(n_code); 
 		}
+
+
+
+	@Override
+	public List<NoticeVO> get_addjobopening_free_manage_list(String id) throws Exception {
+		
+		return recruinfoDAO.get_addjobopening_free_manage_list(id);
+	}
+
+
+
+	@Override
+	public List<NoticeVO> get_addjobopening_free_manage_delete(String delete_n_code) throws Exception {
+	
+		return recruinfoDAO.get_addjobopening_free_manage_delete(delete_n_code);
+	}
 	 
 }

@@ -25,4 +25,16 @@ public class RecruinfoDAOImplement implements RecruinfoDAO {
 		return sqlSession.selectList(NAMESPACE + ".get_noticeDe_list",n_code);
 	}
 
+	@Override
+	public List<NoticeVO> get_addjobopening_free_manage_list(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NAMESPACE + ".get_addjobopening_free_manage_list",id);
+	}
+
+	@Override
+	public List<NoticeVO> get_addjobopening_free_manage_delete(String delete_n_code) throws Exception {
+	
+		return sqlSession.selectList(NAMESPACE + ".get_addjobopening_free_manage_delete",delete_n_code);
+	}
+
 }

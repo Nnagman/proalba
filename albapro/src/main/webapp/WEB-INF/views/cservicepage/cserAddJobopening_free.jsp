@@ -46,6 +46,28 @@
 		});
 
 </script>
+<style>
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: 1 !important;
+	font-size: 0.8rem;
+}
+</style>
 <body>
 
 	<div class="wrapper">
@@ -63,12 +85,30 @@
 				<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li class="nav-item active">
-							<a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-								<i class="material-icons">dashboard</i> 채용공고 등록
+							<a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+								<i class="material-icons">dashboard</i> 채용공고 
 							</a>
 						</li>
+									
+								 <!-- 채용공고 등록 하위 메뉴 -->
+								<div class="nav-itemsub">
+							<ul>
+
+								<li><a class="nav-link" href="cserAddJobopening_free?id=${login.id}">채용공고 등록 </a></li>
+								
+								<li><a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}"> 채용공고  관리 </a></li>
+
+							
+
+							</ul>
+
+						</div>
+
+				
+									<!-- 채용공고 등록 하위 메뉴 -->
+						
 						<li class="nav-item ">
-							<a class="nav-link" href="cserWcontractForm?id=${login.id}">
+							<a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
 								<i class="material-icons">dashboard</i> 전자근로 계약서 작성
 							</a>
 						</li>
@@ -89,6 +129,11 @@
 								커뮤니티
 						</a></li> --%>
 					</ul>
+					
+				
+					
+
+					
 					
 				
 				</div>

@@ -50,6 +50,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.WcontractVO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.EmployeeService;
@@ -174,14 +175,20 @@ public class ContractController {
 		id[1] = wcontractVO.getP_phone();
 		id[0] = wcontractVO.getC_id();
 		
+		
+		
+		
 		Map<String, String[]> id_map = new HashMap<String, String[]>();
 		id_map.put("id", id);
 		
 		WcontractVO check_wcontractVO = contractService.select_contract2(id_map);
+		
 		if(check_wcontractVO != null && (transFormat.parse(check_wcontractVO.getEnd_period()).compareTo(date) != -1)){
 			List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("list",list);
+			
 				
 			mav.addObject("map", map);
 			mav.addObject("message", "등록 실패. 기존의 계약서와 새로운 계약서의 기간이 중복됩니다.");
@@ -211,9 +218,22 @@ public class ContractController {
 		return "cservicepage/cserWcontract";
 	}
 	
-	@RequestMapping(value = "/cserWcontractForm", method = RequestMethod.GET)
-	public String wcontractFormGET() throws Exception {
-		return "cservicepage/cserWcontractForm";
+	@RequestMapping("/cserWcontractForm")
+	public ModelAndView wcontractFormGET(String n_code, Model model) throws Exception {
+	
+	
+		List<NoticeVO> list = contractService.select_contract5(n_code);
+		logger.info("n_code:" + n_code);
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserWcontractForm");
+	
+		mav.addObject("list",list);
+	
+		
+		return mav;
+		
+	
 	}
 
 //	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)

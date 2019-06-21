@@ -30,5 +30,6 @@ public class WcontractVO {
 	private String p_name; // 占쌕뤄옙占쏙옙 占싱몌옙
 	private String p_phone; // 占쌕뤄옙占쏙옙 占쏙옙호
 	private String p_address; // 占쌕뤄옙占쏙옙 占쌍쇽옙
+	
 
 }
