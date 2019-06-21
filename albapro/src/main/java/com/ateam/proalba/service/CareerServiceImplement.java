@@ -53,4 +53,9 @@ public class CareerServiceImplement implements CareerService {
 		
 	}
 
+	@Override
+	public void career_leave(String em_code) throws Exception {
+		careerDAO.career_leave(em_code);
+	}
+
 }

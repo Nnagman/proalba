@@ -73,6 +73,18 @@
 			}
 		});
 	}
+	
+	function reply_delete(r_code){
+		var param = {"r_code" : r_code};
+		$.ajax({
+			type: "post",
+			url: "${path}/reply/reply_delete.do",
+			data: param,
+			success: function(result){
+				listReply(1);
+			}
+		});
+	}
 </script>
 </head>
 <body>

@@ -112,7 +112,8 @@ public class WorkmanageController {
 	}
 
 	@RequestMapping(value = "/cserWorkmanagetable", method = RequestMethod.GET)
-	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid, @RequestParam("em_code") String em_code,@RequestParam("name") String name)
+	public ModelAndView pservicepageGET(Model model, @RequestParam("id") String id, @RequestParam("cid") String cid, 
+			@RequestParam("em_code") String em_code,@RequestParam("name") String name, @RequestParam("end_date") String end_date)
 			throws Exception {
 		model.addAttribute("message", "");
 		model.addAttribute("name", name);
@@ -131,6 +132,7 @@ public class WorkmanageController {
 		System.out.println(map);
 
 		mav.addObject("map", map);
+		mav.addObject("end_date", end_date);
 		return mav;
 	}
 
@@ -355,6 +357,21 @@ public class WorkmanageController {
 		map.put("list", list);
 
 		mav.addObject("map", map);
+		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cserCareerLeave", method = RequestMethod.GET)
+	public ModelAndView cserCareerLeavePost(@RequestParam("em_code") String em_code, @RequestParam("id") String id) throws Exception {
+		careerService.career_leave(em_code);
+		
+		logger.info("c id:  " + id);
+		logger.info("Welcome CserviceController");
+		List<WorkManageVO> list = workManage.listAll(id);
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserEmpManage");
+		mav.addObject("list", list);
 		return mav;
 	}
 

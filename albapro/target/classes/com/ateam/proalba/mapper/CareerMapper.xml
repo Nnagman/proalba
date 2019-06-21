@@ -70,4 +70,8 @@
 	<insert id="careerTXid">
 		INSERT INTO career_txid VALUES( #{em_code}, #{tx})
 	</insert>
+	
+	<update id="career_leave">
+		UPDATE career SET end_date = sysdate WHERE em_code = #{em_code}
+	</update>
 </mapper>

@@ -8,7 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +21,6 @@ import com.ateam.proalba.service.post.PostService;
 import com.ateam.proalba.service.post.ReplyService;
 
 @Controller
-@RequestMapping("/reply/*")
 public class ReplyController {
 	
 	@Autowired
@@ -31,7 +32,7 @@ public class ReplyController {
 	private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
 
 	@ResponseBody
-	@RequestMapping("insert.do")
+	@RequestMapping("/reply/insert.do")
 	public void insert(String id, ReplyDTO dto, HttpSession session) throws Exception {
 		logger.info("this is replyController INSERT.DO!!");
 		logger.info("id: "+id);
@@ -42,7 +43,7 @@ public class ReplyController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("list.do")
+	@RequestMapping("/reply/list.do")
 	public ModelAndView list(int p_code, @RequestParam(defaultValue ="1") int curPage, ModelAndView mav, HttpSession session) {
 		logger.info("this is replyController list.DO!!");
 		int count = replyService.count(p_code);
@@ -54,6 +55,14 @@ public class ReplyController {
 		mav.addObject("list", list);
 		mav.addObject("pager", pager);
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/reply/reply_delete.do")
+	public void reply_delete(String r_code, HttpSession session) {
+		logger.info("this is replyController delete.DO!!");
+		logger.info(r_code);
+		replyService.deleteReply(r_code);
 	}
 }
 
