@@ -51,7 +51,7 @@ public class PserviceController {
 	public String wresumeGET(Model model) throws Exception {
 		logger.info("Welcome wresumePage");
 		model.addAttribute("message", "wresumePage");
-		return "pservice/writeResume";
+		return "servicepage/pwriteResume";
 	}
 	
 	@RequestMapping(value = "/maresume", method = RequestMethod.GET)
