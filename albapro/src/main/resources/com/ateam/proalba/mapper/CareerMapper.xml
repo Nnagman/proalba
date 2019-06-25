@@ -67,6 +67,6 @@
 	</insert>
 	
 	<insert id="careerTXid">
-		INSERT INTO career_txid VALUES( #{em_code}, #{tx})
+		INSERT INTO career_txid(em_code, tx1, career_h) VALUES( #{em_code}, #{tx}, #{h1})
 	</insert>
 </mapper>
