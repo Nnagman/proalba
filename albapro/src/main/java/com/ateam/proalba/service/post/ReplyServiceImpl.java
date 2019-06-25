@@ -37,9 +37,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public void delete(Integer p_code) {
-		// TODO Auto-generated method stub
-
+	public void deleteReply(String r_code) {
+		dao.deleteReply(r_code);
 	}
 
 	@Override

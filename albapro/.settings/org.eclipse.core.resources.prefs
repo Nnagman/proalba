@@ -15,6 +15,7 @@ encoding//src/main/java/com/ateam/proalba/controller/recruinfo/RecruinfoControll
 encoding//src/main/java/com/ateam/proalba/domain/AttachVO.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/domain/Criteria.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/domain/PageMaker.java=UTF-8
+encoding//src/main/java/com/ateam/proalba/domain/WcontractVO.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/persistence/post/PostDAOImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/cservice/calendar.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/recruinfo/recruinfo.jsp=UTF-8

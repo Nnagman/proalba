@@ -46,6 +46,28 @@
 		});
 
 </script>
+<style>
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: 1 !important;
+	font-size: 0.8rem;
+}
+</style>
 <body>
 
 	<div class="wrapper">
@@ -63,20 +85,40 @@
 				<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li class="nav-item active">
-							<a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-								<i class="material-icons">dashboard</i> 채용공고 등록
+							<a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+								<i class="material-icons">dashboard</i> 채용공고 
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="ccontract?id=${login.id}">
-								<i class="material-icons">dashboard</i> 전자근로 계약서
-							</a>
-						</li>
+									
+								 <!-- 채용공고 등록 하위 메뉴 -->
+								<div class="nav-itemsub">
+							<ul>
+
+								<li><a class="nav-link" href="cserAddJobopening_free?id=${login.id}">채용공고 등록 </a></li>
+								
+								<li><a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}"> 채용공고  관리 </a></li>
+
+							
+
+							</ul>
+
+						</div>
+
+				
+									<!-- 채용공고 등록 하위 메뉴 -->
+						
 						<li class="nav-item ">
-							<a class="nav-link" href="cserWcontractForm?id=${login.id}">
+							<a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
 								<i class="material-icons">dashboard</i> 전자근로 계약서 작성
 							</a>
 						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="ccontract?id=${login.id}">
+								<i class="material-icons">dashboard</i> 전자근로 계약서 목록
+							</a>
+						</li>
+					
 						<li class="nav-item dropdown">
 							<a class="nav-link" href="cserEmpManage?id=${login.id}">
 								<i class="material-icons">person</i> 직원 관리
@@ -87,6 +129,11 @@
 								커뮤니티
 						</a></li> --%>
 					</ul>
+					
+				
+					
+
+					
 					
 				
 				</div>
@@ -348,7 +395,7 @@
 												<div class="appperiod">
 													<div class="appperiod-how">
 														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
+															<input type="hidden" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-online"> 온라인접수</label>
 															<input type="hidden" id="documents" name="documents" value="0"/>
 															<input type="hidden" id="interview" name="interview" value="0"/>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
@@ -57,31 +58,30 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>  
-           <li class="nav-item ">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
+			<li class="nav-item active">
+          		<a class="nav-link" href="pserworkList?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+					알바목록
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="contract?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+            	 	전자근로 계약서
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="inqcareer?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				경력 관리
+				</a>
+			</li>
+			<li class="nav-item  ">
+				<a class="nav-link" href="writeResume?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				이력서 작성
+            	</a>
+            </li>
         </ul>
       </div>
     </div>
@@ -131,7 +131,8 @@
                                        <td>${salary.basic_salary}</td>
                                        <td>${salary.total_deduction_amount}</td>
                                        <td>${salary.actual_salary}</td>
-                                       <td>${salary.year_month}</td>
+                                       <c:set var="sa_code" value="${fn:split(salary.sa_code, '/')}" />
+                                       <td>${sa_code[1]}</td>
                                      <td>
                                      	<input type="hidden" value="${status.index}"/>
                                         <i class="material-icons searchIcon" data-toggle="modal"

@@ -63,33 +63,30 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-          <%-- <li class="nav-item">
-            <a class="nav-link" href="${path}/proalba/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
+			<li class="nav-item active">
+          		<a class="nav-link" href="pserworkList?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+					알바목록
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="contract?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+            	 	전자근로 계약서
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="inqcareer?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				경력 관리
+				</a>
+			</li>
+			<li class="nav-item  ">
+				<a class="nav-link" href="writeResume?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				이력서 작성
+            	</a>
+            </li>
         </ul>
       </div>
     </div>
@@ -117,14 +114,16 @@
 												
 												<div class="card">
 													<div class="card-header">
-														<h3>${row.work_place}</h3>
+														<h3>${row.work_place_name}</h3>
 													</div>
 												<div class="card-body">
 														<h5 class="card-title">입사일: <fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></h5>
 														<br>
 														
 														<c:if test="${row.end_date != null}">
-															<h5 class="card-title">퇴사일: ${row.end_date}</h5>
+															<h5 class="card-title">
+																퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
+															</h5>
 														</c:if>
 														<c:if test="${row.end_date == null}">
 															<p>퇴사일 : 아직 근무 중입니다.</p>

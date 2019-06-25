@@ -16,5 +16,5 @@ public interface CareerDAO {
 	List<CareerVO> selectCareers(String id) throws Exception;
 	void insert_career(Map<String, Object> map) throws Exception;
 	void add_storeCTXid(Map<String, Object> cmap) throws Exception;
-
+	void career_leave(String em_code) throws Exception;
 }

@@ -63,33 +63,30 @@ margin-top:20px;
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item  ">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-          <%-- <li class="nav-item  ">
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
+			<li class="nav-item">
+          		<a class="nav-link" href="pserworkList?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+					알바목록
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="contract?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+            	 	전자근로 계약서
+				</a>
+			</li>
+			<li class="nav-item active">
+            	<a class="nav-link" href="inqcareer?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				경력 관리
+				</a>
+			</li>
+			<li class="nav-item  ">
+				<a class="nav-link" href="writeResume?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				이력서 작성
+            	</a>
+            </li>
         </ul>
       </div>
     </div>

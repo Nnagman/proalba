@@ -63,33 +63,30 @@ margin-top:20px;
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
+			<li class="nav-item">
+          		<a class="nav-link" href="pserworkList?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+					알바목록
+				</a>
+			</li>
+			<li class="nav-item active">
+            	<a class="nav-link" href="contract?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+            	 	전자근로 계약서
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="inqcareer?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				경력 관리
+				</a>
+			</li>
+			<li class="nav-item  ">
+				<a class="nav-link" href="writeResume?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				이력서 작성
+            	</a>
+            </li>
         </ul>
       </div>
     </div>
@@ -124,7 +121,7 @@ margin-top:20px;
 					<tbody>
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
-								<td>${contract.work_place}</td>
+								<td>${contract.work_place_name}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</tdz>
 								<td>${fn:substring(contract.end_period,2,10)}</td>
 								<c:if test="${contract.email_check eq '1'}">

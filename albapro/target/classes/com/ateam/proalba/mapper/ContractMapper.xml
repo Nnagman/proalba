@@ -50,6 +50,17 @@
   	  	]]>
 	</select>
 	
+		<select id="select_contract5" resultType="com.ateam.proalba.domain.NoticeVO" parameterType="hashmap">
+		<![CDATA[
+		SELECT * 
+		FROM notice,member
+		WHERE n_code =#{n_code} and
+		member.id= substr(#{n_code},2,INSTR(#{n_code},'/')-2)
+		
+		
+  	  	]]>
+	</select>
+	
 	<select id="select_contract3" resultType="com.ateam.proalba.domain.WcontractVO">
 		<![CDATA[
 		SELECT * FROM contract WHERE c_code = #{c_code}
