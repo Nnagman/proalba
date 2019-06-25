@@ -77,9 +77,9 @@
 				</a>
 			</li>
 			<li class="nav-item  ">
-				<a class="nav-link" href="writeResume?id=${login.id}">
+				<a class="nav-link" href="listResume?id=${login.id}">
 				<i class="material-icons">library_books</i>
-				이력서 작성
+				이력서 관리
             	</a>
             </li>
         </ul>

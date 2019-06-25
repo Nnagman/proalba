@@ -3,6 +3,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,14 +91,12 @@
 			<div class="pser-header"> <%@ include file="pserNavHeader.jsp"%> </div>
 			<div class="pser-con"><div class="container-fluid"><div class="row"><div class="col-md-12"><div class="card">
 				<div class="card-header card-header-primary">
-					<h4 class="card-title ">이력서 작성</h4>
-					<p class="card-category">
-						${login.name} 님만의 이력서를 작성해보세요.
-					</p>
+					<h4 class="card-title ">이력서 수정</h4>
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<form action="${path}/proalba/writeResume" id="form" method="post">
+						<form action="${path}/proalba/updateResume" id="form" method="post">
+						<input type="hidden" name="r_code" value="${resume.r_code}"/>
 							<div class="col-md-12" style="margin-left: 350px">
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
@@ -105,7 +104,12 @@
 								<div id="RegistBaseInfo" class="registArea">
 									<div class="guide">사진을 드래그해서 올려주세요.</div>
 									<div class="photoArea">
-										<span class="photo" id="photo"></span>
+										<span class="photo" id="photo">
+											 <div id='inputed_img'>
+											 	<input type='hidden' class='file' name='file_name' value='${resume.file_name}'>
+											 	<img img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
+											 </div>
+										</span>
 									</div>
 									<div class="baseInfo">
 										<table cellpadding="0" cellspacing="0" summary="개인정보인 휴대폰,유선전화,안심번호,이메일,주소,홈페이지 항목의 표입니다.">
@@ -132,9 +136,10 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
+																<c:set var="address" value = "${fn:split(resume.address,'/')}"/>
 																<input type="hidden" id="hidaddress1" value="">
 																<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
-																<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:100px"/>
+																<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:100px" value="${address[0]}"/>
 																<input type="button" onclick="execDaumPostcode()" value="주소 찾기" class="adr-btn"/>
 															</span>
 														</div>
@@ -145,7 +150,7 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
-																<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address"/>
+																<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" value="${address[1]}"/>
 															</span>
 														</div>
 													</td>
@@ -155,7 +160,7 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
-																<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
+																<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 																<input type="hidden" id="address" name="address" value=""/>
 															</span>
 														</div>
@@ -164,12 +169,13 @@
 											</tbody>
 										</table>
 									</div>
+									<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 								</div>
 								
 								<div id="RegistTitle" class="registArea" style="padding:250px 72px 20px;">
 									<h2><span class="necessary">필수</span>이력서 제목</h2>
 									<div class="registForm registForm--title">
-										<input type="text" id="title" name="title" maxlength="25"/>
+										<input type="text" id="title" name="title" maxlength="25" value="${resume.title}"/>
 										<label for="title">이력서 제목 (최대 25자)</label>
 									</div>
 								</div>
@@ -181,14 +187,14 @@
 										<div id="FreeDoc" class="introduceWrap">
 											<div class="resizable-textarea">
 												<span>
-													<textarea id="resumeContents" name="content" cols="30" rows="10" class="processed"></textarea>
+													<textarea id="resumeContents" name="content" cols="30" rows="10" class="processed">${resume.content}</textarea>
 												</span>
 											</div>
 										</div>
 										<!-- //자유양식 -->
 									</div>
 								</div>
-								<input type='button' class="submitbtn" value="작성완료" id="submit2"/>
+								<input type='button' class="submitbtn" value="수정완료" id="submit2"/>
 							</div>
 						</form>
 					</div>
