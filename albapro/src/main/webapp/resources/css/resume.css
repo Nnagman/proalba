@@ -1,0 +1,158 @@
+.nav-itemsub li {
+	list-style: none;
+	color: white !important;
+}
+
+.nav-itemsub li a {
+	color: white !important;
+	padding: 8px 0 0 0 !important;
+}
+
+.nav-itemsub {
+	position: relative;
+	padding: 20px 0 20px 0;
+	background-color: #2e3949;
+	opacity: 0.8;
+	color: white !important;
+	top: -10px;
+	z-index: -1;
+	font-size: 0.8rem;
+}
+
+ .submitbtn{
+ 	margin :50px 350px;
+    width:200px !important;
+	height:60px;
+    background-color: #2e3949;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius:10px;
+    cursor: pointer;
+ }
+ 
+ .adr-btn{
+ 	width:100px !important;
+	height:30px;
+    background-color: gray;
+    border: none;
+    color:#fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius:10px;
+    cursor: pointer;
+ }
+
+/* 개인정보 */
+#RegistBaseInfo > span.comment {top:10px;right:190px;font-size:12px;color:#9b9b9b}
+#RegistBaseInfo {z-index:1;padding-bottom:19px}
+#RegistBaseInfo .photoArea {float:left;width:188px;height:240px;border:1px solid #dfdfdf}
+#RegistBaseInfo .photoArea .photo {position:relative;display:block;margin:0 auto;width:180px;height:360px;}
+#RegistBaseInfo .photoArea .photo img {max-width:100%;max-height:100%}
+#RegistBaseInfo .photoArea .nameBox {position:relative;display:block;margin:14px 0 0}
+#RegistBaseInfo .photoArea .nameBox span {display:block;text-align:center}
+#RegistBaseInfo .photoArea .nameBox span.comment {position:static;margin-top:19px}
+#RegistBaseInfo .photoArea .nameBox span.comment span {display:inline}
+#RegistBaseInfo .photoArea .nameBox span.name {font-size:24px}
+#RegistBaseInfo .photoArea .nameBox span.genderAge {margin-top:2px;font-size:18px}
+#RegistBaseInfo .photoArea .nameBox span.genderAge em {color:#2073f0}
+#RegistBaseInfo .photoArea .comment {position:absolute;left:0;top:288px;font:11px dotum;color:#888}
+#RegistBaseInfo .photoArea .comment span {letter-spacing:0}
+#RegistBaseInfo .photoArea .applyBtn {position:absolute;left:45px;top:127px;width:100px;height:34px}
+#RegistBaseInfo .photoArea .applyBtn a {display:inline-block;height:34px;font:0/0 dotum;color:transparent;vertical-align:top;background:url('//image.alba.kr/person/newRegist_bg.png') no-repeat}
+#RegistBaseInfo .photoArea .applyBtn a.noImgReg {width:31px;background-position:3px -98px}
+#RegistBaseInfo .photoArea .applyBtn a:hover.noImgReg {width:100px;background-position:-38px -98px}
+#RegistBaseInfo .photoArea .applyBtn a.imgModify {width:31px;background-position:3px -132px}
+#RegistBaseInfo .photoArea .applyBtn a.imgdel {display:none;width:35px;margin-left:-4px;background-position:-223px -98px}
+#RegistBaseInfo .photoArea .applyBtn .modifyBtn {display:inline-block;height:34px}
+#RegistBaseInfo .photoArea .applyBtn .modifyBtn:hover a.imgModify {width:65px;background-position:-158px -98px}
+#RegistBaseInfo .photoArea .applyBtn .modifyBtn:hover a.imgdel {display:inline-block}
+
+#RegistBaseInfo .baseInfo {float: right; width:500px; text-align:right; margin-right: 50px;}
+#RegistBaseInfo .baseInfo table {width:100%}
+#RegistBaseInfo .baseInfo table td {padding:10px 0 9px;font-size:16px;text-align:left;border-bottom:1px solid #e6e6e6}
+#RegistBaseInfo .baseInfo table td.item {width:75px;color:#898989}
+#RegistBaseInfo .baseInfo table td.infoContents {width:auto}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox {position:relative;letter-spacing:-0.1em}
+#RegistBaseInfo .baseInfo table td.infoContents.number .contentsBox,
+#RegistBaseInfo .baseInfo table td.infoContents.userEmail .contentsBox,
+#RegistBaseInfo .baseInfo table td.infoContents.homepage .contentsBox,
+#RegistBaseInfo .baseInfo table td.infoContents.hpNumber .contentsBox {*padding-top:2px;letter-spacing:0}
+#RegistBaseInfo .baseInfo table td.infoContents.address .contentsBox .shortText {overflow:hidden;width:300px;text-overflow:ellipsis;white-space:nowrap}
+#RegistBaseInfo .baseInfo table td.infoContents.address .contentsBox .fullText {display:none;position:absolute;padding:6px 10px 3px;left:-1px;top:-25px;max-width:350px;font:11px/1.2 dotum;letter-spacing:-1px;border:1px solid #d9d4b4;color:#878787;background:#fffeec}
+#RegistBaseInfo .baseInfo table td.infoContents.address .contentsBox .shortText:hover+.fullText {display:block}
+#RegistBaseInfo .baseInfo table td.infoContents.safeNumber .contentsBox {z-index:1}
+#RegistBaseInfo .baseInfo table td.infoContents.homepage .contentsBox span {display:block}
+#RegistBaseInfo .baseInfo table td.infoContents.homepage .contentsBox em {display:inline-block;height:36px;line-height:36px;vertical-align:top;color:#333}
+#RegistBaseInfo .baseInfo table td.infoContents.homepage .contentsBox input {vertical-align:top}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox input {width:300px;height:36px;margin:0;padding:0 0 0 10px;line-height:36px}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox span {top:-1px\0;*top:-1px;display:inline-block;*margin-right:4px;vertical-align:middle}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox em {color:#ff5400}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert {position:static;margin:0 6px 0 4px}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert>span {position:static}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert .certYes {width:52px;height:20px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/person/new_icon_mobileCert.gif') no-repeat}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert .certNo {width:62px;height:20px;font:0/0 dotum;color:transparent;background:url('//image.alba.kr/person/new_icon_mobileCert_no.gif') no-repeat}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert a {position:relative;display:inline-block;zoom:1;*display:inline;margin-left:4px;padding:3px 9px 0 23px;font:13px dotum;letter-spacing:-1px;line-height:24px;font-weight:bold;vertical-align:middle;border:1px solid #bbb;color:#5f5f5f;background:#fff}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .cert a span.icon {display:block;position:absolute;top:6px;left:9px;width:11px;height:14px;background:url('//image.alba.kr/person/resumeIcon.png') no-repeat -100px 0}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .addHelp {display:none;position:absolute;padding:9px 10px 6px;left:0;top:-65px;width:335px;font:11px/1.2 dotum;letter-spacing:-1px;border:1px solid #d9d4b4;color:#878787;background:#fffeec}
+#RegistBaseInfo .baseInfo table td.infoContents .contentsBox .addHelp strong {font-weight:normal;color:#07a195}
+#RegistBaseInfo .baseInfo table td #sample6_address {font-weight:normal;color:#07a195}
+
+/* 입력영역 */
+.registArea {position:relative;padding:0 72px 20px;margin-top:37px; width:1000px}
+.registArea h2 {position:relative;padding-bottom:10px;margin-bottom:20px;font-size:20px;font-weight:bold;letter-spacing:-2px;border-bottom:2px solid #444}
+.registArea h2 .necessary {display:inline-block;margin:6px 7px 0 0;width:6px;height:21px;font-size:0;vertical-align:top;color:transparent;background:url('//image.alba.kr/person/newRegist_bg.png') no-repeat -262px -134px}
+.registArea h2 .smallText {margin-left:10px;position:static;font-size:14px}
+.registArea .totalYear {display:inline;margin-left:5px;font:20px 'Malgun Gothic'}
+.registArea .totalYear strong {color:#2073f0}
+.registArea .space {display:inline-block;width:16px;height:40px;padding-right:6px;line-height:40px;text-align:center}
+.registArea .btn {height:30px;height:29px\0;*height:29px;padding-top:8px;padding-top:9px\0;*padding-top:9px;font-size:15px;font-weight:bold;vertical-align:top}
+.registArea .wordCount {display:inline-block;height:30px;margin-left:10px;padding-top:10px;vertical-align:top}
+.registArea .wordCount strong {color:#ff5a00}
+.registArea>span {position:absolute;right:72px}
+.registArea>span.count {top:20px;font:12px gulim;letter-spacing:0}
+.registArea>span.count strong {color:#2073f0}
+.registArea>span.topBtn {top:-11px}
+.registArea>span.topBtn a.modify {position:relative;display:inline-block;height:33px;padding:3px 14px 0 37px;font:bold 14px gulim;letter-spacing:-1px;line-height:33px;border:1px solid #bbb;background:#fff}
+.registArea>span.topBtn a.modify span.icon {display:block;width:18px;height:18px;position:absolute;top:9px;left:14px;background:url('//image.alba.kr/person/resumeIcon.png') no-repeat -150px 0}
+.registArea>span.topBtn a em {position:relative;top:1px;display:inline-block;width:12px;height:12px;margin-right:8px;vertical-align:top;background:url('//image.alba.kr/person/newRegist_bg.png') no-repeat -192px -67px;cursor:pointer}
+.registArea>span.topBtn a.addInfoBtn {height:20px;padding:8px 15px 0;letter-spacing:0;color:#fff}
+.registArea>span.topBtn a.reset {height:28px;padding:8px 14px 0;font-size:14px}
+.registArea .formBtn {padding-top:5px;text-align:right}
+.registArea .formBtn a.btn {margin-left:7px;min-width:50px;height:28px;padding:8px 19px 0;font-size:13px;font-weight:bold;text-align:center}
+.registArea .formBtn span.saveAlert {position:relative;top:5px;display:none;margin-left:20px}
+
+/*이력서 제목 */
+#RegistTitle input {width:764px;height:48px;margin:0;padding:0;font:bold 20px/48px 'Malgun Gothic';text-align:center;border:1px solid #979797;color:#444}
+ 
+ /* 자기소개서 */
+#RegistIntroduce .registArea {position:relative;padding:0 72px 200px;margin-top:37px;width:766px}
+#RegistIntroduce .introduceTab {position:relative;width:100%;height:38px;border-bottom:1px solid #bbb}
+#RegistIntroduce .introduceTab__list {overflow:hidden;position:absolute;top:0;left:0}
+#RegistIntroduce .introduceTab__list li {float:left}
+#RegistIntroduce .introduceTab__list li:first-child a {border-left:1px solid #e5e5e5}
+#RegistIntroduce .introduceTab__list li a {display:block;width:190px;height:37px;border-top:1px solid #e5e5e5;border-right:1px solid #e5e5e5;border-bottom:1px solid #bbb;font-size:13px;font-weight:bold;line-height:38px;text-align:center;color:#666;background:#fbfbfb}
+#RegistIntroduce .introduceTab__list li:first-child a.on {margin-left:0}
+#RegistIntroduce .introduceTab__list li a.on {margin-left:-1px;padding-bottom:1px;width:191px;height:37px;border:1px solid #bbb;border-bottom:none;background:#fff}
+
+#RegistIntroduce .introduceWrap {margin:10px 0 0}
+#RegistIntroduce .introduceWrap textarea {width:744px;height:378px;padding:10px;font-size:14px;border:1px solid #bbb}
+#RegistIntroduce .introduceWrap .areaCount {position:relative;height:34px;padding-top:24px;text-align:center;border:1px solid #e3e3e3;border-top:0 none;background:#fbfbfb}
+#RegistIntroduce .introduceWrap .areaCount span.text {display:inline-block;margin-right:10px;font:12px gulim;vertical-align:top;color:#777}
+#RegistIntroduce .introduceWrap .areaCount span.text em {*top:-2px;font-family:tahoma;letter-spacing:0;color:#444}
+#RegistIntroduce .introduceWrap .areaCount span.text em strong {color:#2074f1}
+#RegistIntroduce .introduceWrap .areaCount .btn {top:-8px;height:20px;padding-top:8px;font:bold 12px gulim;color:#474747}
+#RegistIntroduce .introduceWrap .grippie {position:relative;height:15px;height:14px\0;*height:14px;padding-top:3px;padding-top:4px\0;*padding-top:4px;font:11px dotum;letter-spacing:-1px;text-align:center;border:1px solid #ddd;border-top:0 none;background:#fdfdfd;color:#888;cursor:s-resize}
+#RegistIntroduce .introduceWrap .grippie span.info {position:absolute;right:50%;top:-40px;padding:6px 10px;padding:7px 10px 5px\0;*padding:7px 10px 5px;width:300px;margin:0 -161px 0 0;font:11px/1.4 dotum;letter-spacing:-1px;border:1px solid #827f7c;color:#878787;background:#fffeec}
+#RegistIntroduce .introduceWrap .grippie span.info em {position:absolute;left:50%;top:26px;width:10px;height:6px;margin-left:-5px;background:url('//image.alba.kr/person/textarea_resize_ico.png') no-repeat 0 -65px}
+#RegistIntroduce .introduceWrap .grippie span.info .closeBtn {position:relative;top:2px;display:inline-block;width:9px;height:9px;margin-left:5px;vertical-align:top;background:url('//image.alba.kr/person/textarea_resize_ico.png') no-repeat -1px -46px}
+#RegistIntroduce .introduceWrap .grippie span.arrow {position:relative;top:2px;display:inline-block;width:5px;height:8px;margin-right:8px;vertical-align:top;background:url('//image.alba.kr/person/textarea_resize_ico.png') no-repeat -1px -1px}
+#RegistIntroduce .introduceWrap .grippie:hover {color:#3dba1b}
+#RegistIntroduce .introduceWrap .grippie:hover span.arrow {background-position:-1px -24px}
+#RegistIntroduce #OneMinDoc.introduceWrap .grippie span.info {display:none !important}

@@ -42,9 +42,8 @@ public class ReplyDAOImpl implements ReplyDAO {
 	}
 
 	@Override
-	public void delete(Integer p_code) {
-		// TODO Auto-generated method stub
-
+	public void deleteReply(String r_code) {
+		sqlSession.delete("reply.deleteReply", r_code);
 	}
 
 	@Override

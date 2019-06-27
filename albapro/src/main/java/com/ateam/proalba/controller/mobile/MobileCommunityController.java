@@ -131,9 +131,10 @@ public class MobileCommunityController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "m.comm/update.do", method=RequestMethod.POST)
+	@RequestMapping(value = "m.comm/create.do", method=RequestMethod.POST)
 	public String update(@ModelAttribute PostVO vo) throws Exception {
-		postService.update(vo);
+		System.out.println(vo);
+		postService.create(vo);
 		return "redirect:/comm.html";
 	}
 	

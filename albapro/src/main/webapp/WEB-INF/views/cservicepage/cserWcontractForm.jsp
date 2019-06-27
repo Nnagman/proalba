@@ -48,16 +48,16 @@
         <ul class="nav">
 
 <li class="nav-item">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 등록
+              채용공고 
             </a>
           </li>
 		
 		
 		
 		   <li class="nav-item active">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=${list[0].n_code}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
             </a>
@@ -109,30 +109,30 @@
            		
            			 			<input type="hidden" name="c_id" value="c${login.id}" />
            			  			
-           			근로 계약기간:	<input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
+           			근로 계약기간:	<input class="tex" name="start_period" type="text" value="${list[0].p_date}" id="startSearchDate" /> 
            						<span>부터</span>
-           						<input class="tex1" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate" />
+           						<input class="tex1" style="width:15%;" name="end_period" type="text" value="${list[0].end_date}" id="endSearchDate"  /> 
            						<span>까지</span>
            						<br><br>
            						
-           			근무장소: 		<input class="tex3" name="work_place" type="text" />
+           		 	근무장소: 		<input class="tex3" name="work_place" type="text" value="" /> 
            						<br><br>
            						
-           			업무의 내용:	<input class="tex3" name="work_detail" type="text" />
+           			업무의 내용:	<input class="tex3" name="work_detail" type="text" value="${list[0].assigned_task}" />
            						<br><br>
            						
            			소정근로시간:	<div id="datetimepicker3" class="input-append">
-                            	<input class="timepiker" id="time1" name="start_work_time" data-format="hh:mm:ss" type="text"></input>
+                            	<input class="timepiker" id="time1" name="start_work_time" data-format="hh:mm:ss" type="text" value="${list[0].work_time1}"></input>
                             	<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
 								</div><span class="timepiker_txt">부터</span>
 								<div id="datetimepicker4" class="input-append">
-                            	<input class="timepiker2" id="time2" name="end_work_time" data-format="hh:mm:ss" type="text"></input>
+                            	<input class="timepiker2" id="time2" name="end_work_time" data-format="hh:mm:ss" type="text" value="${list[0].work_time2}"></input>
                            		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" style="margin-top: -4px;"> </i></span>
                         		</div>
                         		<span class="timepiker_txt">까지</span>
                         		<br><br>
                         		
-					시급:			<input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" />
+					시급:			<input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" value="${list[0].hour_wage}" />
 								<span>원</span>		
 					<span class="sss">　(2019년 최저시급: 8350원)</span>
 								<br>
@@ -151,8 +151,8 @@
            		<div class="col-md-12">
 		 			<div class="addjob-2">
 		 				사업체명:	
-		 				<%-- 		${login.work_place_name} --%>
-		 						<input type="text"  name="work_place_name"/>
+		 			
+		 						<input type="text"  name="work_place_name" value="${list[0].work_place_name}"/>
 		 						<br><br>
 		 				
 		 				사업자번호:
@@ -160,7 +160,7 @@
 		 						<input type="hidden" value="${login.b_number}" name="b_number"/>
 		 						<br><br>
 		 						
-		 				대표자:	<input class="tex8" name="b_name" type="text" />
+		 				대표자:	<input class="tex8" name="b_name" type="text" value="${list[0].name}"/>
 		 						<br><br>
 		 						
 		 				주소:	 	<input type="text" id="sample6_postcode" placeholder="우편번호" />
@@ -171,9 +171,9 @@
 														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 		 						<br><br>
 		 						
-		 				연락처:	<input class="tex6" name="work_place_phone" type="text" maxlength="11" onkeypress="onlyNumber();" />
-		 						<br>
-		 						
+		 				연락처:	<input class="tex6" name="work_place_phone" value="${list[0].phone}" type="text" maxlength="11" onkeypress="onlyNumber();" />
+		 						<br/>
+		 						<Br/>
 		 				전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외): <br/>
 		 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/>
 		 				<input type="hidden" name="p_id" value=" "/>
@@ -272,8 +272,6 @@
 </script>
 
 <script>
-
-
 function execDaumPostcode(){
     new daum.Postcode({
         oncomplete: function(data) {
@@ -321,6 +319,19 @@ function execDaumPostcode(){
         }
     }).open();
 }
+</script>
+
+<script>
+var oaddress0 = $('#sample6_postcode');
+var oaddress1 = $('#sample6_address');
+var paddress0 = "${list[0].address}";
+
+console.log(paddress0.substring(0,5));
+console.log(paddress0.substring(6,paddress0.lastIndexOf('/')));
+oaddress0.val(paddress0.substring(0,5));
+oaddress1.val(paddress0.substring(6,paddress0.lastIndexOf('/')));
+
+
 </script>
 </body>
 

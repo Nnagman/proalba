@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ateam.proalba.mapper.ResumeMapper">
+	<insert id="write_resume" parameterType="hashmap">
+		INSERT ALL
+			INTO resume VALUES(#{r_code} , #{m_code}, #{title}, #{content}, #{address})
+			INTO resume_file VALUES(#{r_code}, #{file_name})
+			SELECT *
+    		FROM dual
+	</insert>
+	
+	<select id="list_resume" resultType="com.ateam.proalba.domain.ResumeVO">
+		SELECT SUBSTR(r_code,INSTR(r_code,'/')+1, 10) r_date, m_code, title, content, address, r_code
+		FROM resume
+		WHERE m_code = 'p' || #{id}
+	</select>
+	
+	<select id="view_resume" resultType="com.ateam.proalba.domain.ResumeVO">
+		SELECT *
+		FROM resume r, resume_file f
+		WHERE r.r_code = f.r_code
+		AND r.r_code = #{r_code}
+	</select>
+	
+	<delete id="delete_resume">
+		DELETE FROM resume
+		WHERE r_code = #{r_code}
+	</delete>
+	
+	<update id="update_resume1">
+		UPDATE resume
+		SET title = #{title}, content = #{content}, address = #{address}
+		WHERE r_code = #{r_code}
+	</update>
+	
+	<update id="update_resume2">	
+		UPDATE resume_file
+		SET file_name = #{file_name}
+		WHERE r_code = #{r_code}
+	</update>
+</mapper>

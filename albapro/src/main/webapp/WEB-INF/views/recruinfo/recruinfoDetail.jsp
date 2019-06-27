@@ -198,7 +198,7 @@ font-weight: 550 !important;
 		
 		<div class="com-line">
 			<div class="infotop-rogo">
-			   <img src="#"/>
+			<!--    <img src="#"/> -->
 			<!-- http://placehold.it/300x200 -->
 			</div>
 			<div class="infotop">

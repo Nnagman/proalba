@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
@@ -110,12 +111,14 @@
 						<ul class="nav">
 
 							<li class="nav-item  "><a class="nav-link"
-								href="cserAddJobopening_free?id=${login.id}"> <i
-									class="material-icons">dashboard</i> 채용공고 등록
+								href="cserAddJobopening_free_manage?id=${login.id}"> <i
+									class="material-icons">dashboard</i> 채용공고
 							</a></li>
+								
+							
 
 								<li class="nav-item"><a class="nav-link"
-								href="cserWcontractForm?id=${login.id}"> <i
+								href="cserWcontractForm?id=${login.id}&n_code="> <i
 									class="material-icons">dashboard</i> 전자근로 계약서 작성
 							</a></li>
 
@@ -186,13 +189,14 @@
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
 														<br>
 														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-														
-													
+														<c:if test="${row.end_date != null}">
+														<h5 class="card-title">계약 종료일: <fmt:formatDate value="${row.end_date}" pattern="yyyy/MM/dd"/></h5>
+														</c:if>
+															
 														<a href="cserSalary?id=${row.id}/${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn">급여 기록</a>
-														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}&&end_date=${row.end_date}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}&&name=${row.name}" class="btn btn-primary card-btn">경력 조회</a>
-													
-														<button type="button" class="btn btn-primary card-btn ">퇴사처리</button>
+														<a href="cserCareerLeave?em_code=${row.em_code}&&id=${login.id}" class="btn btn-primary card-btn">퇴사처리</a>
 													</div>
 													
 														<!--============= 지문id등록 div   -->
@@ -202,9 +206,6 @@
 														
 												</div>
 												</c:forEach>
-										
-
-
 										</div>
 									</div>
 								</div>

@@ -11,6 +11,6 @@ public interface ReplyService {
 	public int count(int p_code);
 	public void create(ReplyDTO dto);
 	public void update(ReplyDTO dto);
-	public void delete(Integer p_code);
+	public void deleteReply(String r_code);
 	public ReplyDTO detail(int p_code);
 }
