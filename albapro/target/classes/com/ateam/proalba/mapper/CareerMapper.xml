@@ -43,7 +43,7 @@
 	<select id="selectCareers" resultType="com.ateam.proalba.domain.CareerVO">
 	    <![CDATA[
 	    SELECT
-	          c.join_date,
+	        c.join_date,
             c.work_place,
             c.end_date,
             m.name,

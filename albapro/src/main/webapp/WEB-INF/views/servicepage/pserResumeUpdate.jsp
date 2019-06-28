@@ -4,6 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -255,6 +256,26 @@
 										<!-- // 일반이력서 셀렉트 -->
 										<input type="hidden" id="education" name="education" value="${resume.education}"/>
 									</div>
+								</div>
+								
+								<div id="RegistCareer" class="registArea" style="">
+									<h2>경력 </h2>
+									<table style="width:100%">
+										<tbody>
+											<tr>
+												<td><p>근무지</p></td>
+												<td><p>입사일</p></td>
+												<td><p>퇴사일</p></td>
+											</tr>
+											<c:forEach var="row" items="${careers}" >
+												<tr>
+													<td>${row.work_place}</td>
+													<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
+													<td><fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
 								</div>
 								
 								<div id="RegistIntroduce" class="registArea">

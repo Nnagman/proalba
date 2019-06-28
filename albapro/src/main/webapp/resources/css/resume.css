@@ -188,6 +188,10 @@
 #RegistEducation .school .schoolName {z-index:1;position:relative;margin-top:10px}
 #RegistEducation .school .areaCount {padding:10px 0 0;font:12px gulim;color:#777;text-align:right}
 
+/* 경력 */
+#RegistCareer input[type="text"] {width:200px}
+#RegistCareer p {width:90px}
+
 /* 추가 버튼 */
 .registArea span.bottomBtn {position:static;}
 .registArea .bottomBtn .btn {padding:0;margin-top:-1px;width:764px;height:37px;line-height:37px;text-align:center;border:1px dashed #4a90e2;font-size:14px;color:#4a90e2;background:#fff}

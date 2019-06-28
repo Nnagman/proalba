@@ -130,7 +130,7 @@
 														이력서 제목: ${row.title}
 													</h5>
 													<br>
-													<a href="viewResume?r_code=${row.r_code}" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
+													<a href="viewResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
 													<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 삭제</a>
 												</div>
 											</div>

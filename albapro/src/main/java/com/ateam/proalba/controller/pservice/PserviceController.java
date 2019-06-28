@@ -54,8 +54,12 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/writeResume", method = RequestMethod.GET)
-	public String wresumeGET(Model model) throws Exception {
+	public String wresumeGET(Model model, @RequestParam("id") String id) throws Exception {
 		logger.info("Welcome wresumePage");
+		
+		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
+		
+		model.addAttribute("careers", careerVO);
 		model.addAttribute("message", "wresumePage");
 		return "servicepage/pserwriteResume";
 	}
@@ -100,8 +104,12 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/viewResume", method = RequestMethod.GET)
-	public String viewResumeGET(Model model, @RequestParam("r_code") String r_code) throws Exception {
+	public String viewResumeGET(Model model, @RequestParam("r_code") String r_code, @RequestParam("id") String id) throws Exception {
 		logger.info("Welcome wresumePage");
+		
+		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
+		
+		model.addAttribute("careers", careerVO);
 		
 		ResumeVO resumeVO = resumeService.view_resume(r_code);
 		
