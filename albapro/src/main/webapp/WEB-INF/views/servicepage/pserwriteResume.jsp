@@ -174,6 +174,53 @@
 									</div>
 								</div>
 								
+								<div id="RegistEducation" class="registArea" style="">
+									<h2>학력</h2>
+									<table style="width:100%">
+										<tbody>
+											<tr>
+												<td><p>    </p></td>
+												<td><p>학교명</p></td>
+												<td><p>졸업일</p></td>
+												<td><p>전공</p></td>
+												<td><p>졸업여부</p></td>
+											</tr>
+											<tr id="high_school">
+												<td><p>고등학교</p></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+											</tr>
+											<tr id="college">
+												<td><p>대 학(2,3년제)</p></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+											</tr>
+											<tr id="university">
+												<td><p>대학교(4년제)</p></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+											</tr>
+											<tr id="graduate_school">
+												<td><p>대학원</p></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+											</tr>
+										</tbody>
+									</table>
+									<div id="RegistEduResult" class="resultForm1">						
+										<!-- // 일반이력서 셀렉트 -->
+										<input type="hidden" id="education" name="education" value=" "/>
+									</div>
+								</div>
+								
 								<div id="RegistIntroduce" class="registArea">
 									<h2><span class="necessary">필수</span>자기소개서</h2>
 									<div class="registForm">
@@ -277,6 +324,30 @@
 	   			var address = $("#sample6_postcode").val();
 	   			address += "/" + $("#sample6_address").val();
 	   			address += "/" + $("#sample6_detailAddress").val();
+	   			
+	   			var high_school = document.getElementsByClassName("high_school")[0].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value;
+	   			
+	   			var college = document.getElementsByClassName("college")[0].value;
+	   			college += "+" + document.getElementsByClassName("college")[1].value;
+	   			college += "+" + document.getElementsByClassName("college")[2].value;
+	   			college += "+" + document.getElementsByClassName("college")[3].value;
+	   			
+	   			var university = document.getElementsByClassName("university")[0].value;
+	   			university += "+" + document.getElementsByClassName("university")[1].value;
+	   			university += "+" + document.getElementsByClassName("university")[2].value;
+	   			university += "+" + document.getElementsByClassName("university")[3].value;
+	   			
+	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value;
+	   			
+	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
+	   			$("#education").val(education);
+	   			
 	   			$("#address").val(address);
 	   			$("#form").append("<input type='submit' id='submit'>");
 	   			$("#submit").trigger("click");

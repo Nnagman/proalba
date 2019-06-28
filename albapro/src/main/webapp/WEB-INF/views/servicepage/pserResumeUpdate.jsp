@@ -28,6 +28,7 @@
     <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
  
 
+	<!-- 구글 차트 스크립트 -->
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  	<script src="resources/js/albamanage.js"></script>
@@ -41,6 +42,30 @@
 
 		.Even { background-color : white; }
 	</style>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: '근태통계',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <body>
 	<div class="wrapper">
@@ -180,6 +205,58 @@
 									</div>
 								</div>
 								
+								<div id="RegistEducation" class="registArea" style="">
+								<c:set var="education" value = "${fn:split(resume.education,'/')}"/>
+								<c:set var="high_school" value = "${fn:split(education[0],'+')}"/>
+								<c:set var="college" value = "${fn:split(education[1],'+')}"/>
+								<c:set var="university" value = "${fn:split(education[2],'+')}"/>
+								<c:set var="graduate_school" value = "${fn:split(education[3],'+')}"/>
+									<h2>학력</h2>
+									<table style="width:100%">
+										<tbody>
+											<tr>
+												<td><p>    </p></td>
+												<td><p>학교명</p></td>
+												<td><p>졸업일</p></td>
+												<td><p>전공</p></td>
+												<td><p>졸업여부</p></td>
+											</tr>
+											<tr id="high_school">
+												<td><p>고등학교</p></td>
+												<td><input type="text" value="${high_school[0]}" class="high_school"/></td>
+												<td><input type="text" value="${high_school[1]}" class="high_school"/></td>
+												<td><input type="text" value="${high_school[2]}" class="high_school"/></td>
+												<td><input type="text" value="${high_school[3]}" class="high_school"/></td>
+											</tr>
+											<tr id="college">
+												<td><p>대 학(2,3년제)</p></td>
+												<td><input type="text" value="${college[0]}" class="college"/></td>
+												<td><input type="text" value="${college[1]}" class="college"/></td>
+												<td><input type="text" value="${college[2]}" class="college"/></td>
+												<td><input type="text" value="${college[3]}" class="college"/></td>
+											</tr>
+											<tr id="university">
+												<td><p>대학교(4년제)</p></td>
+												<td><input type="text" value="${university[0]}" class="university"/></td>
+												<td><input type="text" value="${university[1]}" class="university"/></td>
+												<td><input type="text" value="${university[2]}" class="university"/></td>
+												<td><input type="text" value="${university[3]}" class="university"/></td>
+											</tr>
+											<tr id="graduate_school">
+												<td><p>대학원</p></td>
+												<td><input type="text" value="${graduate_school[0]}" class="graduate_school"/></td>
+												<td><input type="text" value="${graduate_school[1]}" class="graduate_school"/></td>
+												<td><input type="text" value="${graduate_school[2]}" class="graduate_school"/></td>
+												<td><input type="text" value="${graduate_school[3]}" class="graduate_school"/></td>
+											</tr>
+										</tbody>
+									</table>
+									<div id="RegistEduResult" class="resultForm1">						
+										<!-- // 일반이력서 셀렉트 -->
+										<input type="hidden" id="education" name="education" value="${resume.education}"/>
+									</div>
+								</div>
+								
 								<div id="RegistIntroduce" class="registArea">
 									<h2><span class="necessary">필수</span>자기소개서</h2>
 									<div class="registForm">
@@ -194,6 +271,8 @@
 										<!-- //자유양식 -->
 									</div>
 								</div>
+								
+								<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
 								<input type='button' class="submitbtn" value="수정완료" id="submit2"/>
 							</div>
 						</form>
@@ -283,6 +362,30 @@
 	   			var address = $("#sample6_postcode").val();
 	   			address += "/" + $("#sample6_address").val();
 	   			address += "/" + $("#sample6_detailAddress").val();
+	   			
+	   			var high_school = document.getElementsByClassName("high_school")[0].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value;
+	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value;
+	   			
+	   			var college = document.getElementsByClassName("college")[0].value;
+	   			college += "+" + document.getElementsByClassName("college")[1].value;
+	   			college += "+" + document.getElementsByClassName("college")[2].value;
+	   			college += "+" + document.getElementsByClassName("college")[3].value;
+	   			
+	   			var university = document.getElementsByClassName("university")[0].value;
+	   			university += "+" + document.getElementsByClassName("university")[1].value;
+	   			university += "+" + document.getElementsByClassName("university")[2].value;
+	   			university += "+" + document.getElementsByClassName("university")[3].value;
+	   			
+	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value;
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value;
+	   			
+	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
+	   			$("#education").val(education);
+	   			
 	   			$("#address").val(address);
 	   			$("#form").append("<input type='submit' id='submit'>");
 	   			$("#submit").trigger("click");

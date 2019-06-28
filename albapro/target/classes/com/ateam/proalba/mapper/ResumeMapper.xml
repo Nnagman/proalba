@@ -6,7 +6,7 @@
 <mapper namespace="com.ateam.proalba.mapper.ResumeMapper">
 	<insert id="write_resume" parameterType="hashmap">
 		INSERT ALL
-			INTO resume VALUES(#{r_code} , #{m_code}, #{title}, #{content}, #{address})
+			INTO resume VALUES(#{r_code} , #{m_code}, #{title}, #{content}, #{address}, #{education})
 			INTO resume_file VALUES(#{r_code}, #{file_name})
 			SELECT *
     		FROM dual

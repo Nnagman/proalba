@@ -75,6 +75,7 @@ public class PserviceController {
 		map.put("address", resumeVO.getAddress());
 		map.put("content", resumeVO.getContent());
 		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
 		
 		resumeService.write_resume(map);
 		model.addAttribute("message", "wresumePage");
@@ -119,6 +120,7 @@ public class PserviceController {
 		map.put("address", resumeVO.getAddress());
 		map.put("content", resumeVO.getContent());
 		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
 		
 		resumeService.update_resume(map);
 		model.addAttribute("message", "wresumePage");
