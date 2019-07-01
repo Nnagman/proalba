@@ -70,6 +70,10 @@ public class ContractServiceImplement implements ContractService {
 	public void add_storeTXid(Map<String, Object> bmap) throws Exception {
 		contractDAO.add_storeTXid(bmap);
 	}
+	@Override
+	public String getHsCont(String c_code) throws Exception {
+		return contractDAO.getHsCont(c_code);
+	}
 
 	
 

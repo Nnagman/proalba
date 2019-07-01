@@ -1,4 +1,4 @@
-  package com.ateam.proalba.controller.contract;
+package com.ateam.proalba.controller.contract;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -108,19 +108,14 @@ public class ContractController {
 	return map;
 	}  
     
-    @CrossOrigin
-    @RequestMapping("/cross2")
-	//consumes 하는 형태는 application/json 형태이다.
-	@ResponseBody //json 데이터를 받기위해 @ResponseBody 애너테이션
-	public Map<String, String> startApp12() throws Exception {
-   
-    	logger.info("cross!!");
- 
-    	
-    	Map<String,String> map = new HashMap<String, String>();
-    	map.put("name","ok");
-    	map.put("age", "22");
-       
+    
+    @RequestMapping("/getHsCont")
+	@ResponseBody
+	public Map<String, String> getHsCont(String c_code) throws Exception {
+    	String hsCont = contractService.getHsCont(c_code);
+    	logger.info(hsCont);
+    	Map<String, String> map = new HashMap<String,String>();
+    	map.put("dbHsCont", hsCont);
 	return map;
 	}   
 
@@ -283,9 +278,9 @@ public class ContractController {
 	@ResponseBody
 	@RequestMapping(value = "/psercheckContract", method = RequestMethod.POST)
 	public Map<String, Object> checkContractPOST(WcontractVO wcontractVO, HttpServletRequest request, Model model) throws Exception {
+		logger.info("psercheckContract");
 		logger.info("checkContractPOST: "+ wcontractVO.toString());
 		contractService.check_contract(wcontractVO);
-		
 		int c_code = wcontractVO.getC_code();
 		
 		//근로계약서 테이블에 사인한 근로계약서의 행의 값들을 VO에 저장한다.

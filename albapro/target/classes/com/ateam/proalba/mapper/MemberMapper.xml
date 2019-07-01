@@ -51,5 +51,16 @@
       WHERE id = #{id}
 	</select>
 	
+	<select id="checkM" resultType="String">
+		SELECT m_code
+		FROM member
+		WHERE id = #{id}
+	</select>
+
+	<select id="gbnum" resultType="String">
+		SELECT b_number
+		FROM member
+		WHERE id = #{id}
+	</select>
 
 </mapper>
