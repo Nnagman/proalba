@@ -17,5 +17,5 @@ public class WorkManageVO {
 	private String email;
 	private String start_period;
 	private int finger_id;
-	private Date end_date;
+	private Date end_period;
 }
