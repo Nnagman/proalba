@@ -1,5 +1,7 @@
 package com.ateam.proalba.controller.pservice;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,8 +23,10 @@ import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.SalaryVO;
 import com.ateam.proalba.service.CareerService;
+import com.ateam.proalba.service.ResumeService;
 import com.ateam.proalba.service.SalaryService;
 
 import net.sf.json.JSONArray;
@@ -33,9 +37,11 @@ public class PserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(PserviceController.class);
 	private final CareerService careerService;
 	private final SalaryService salaryService;
+	private final ResumeService resumeService;
 	
 	@Inject
-	public PserviceController(CareerService careerService, SalaryService salaryService) {
+	public PserviceController(CareerService careerService, SalaryService salaryService, ResumeService resumeService) {
+		this.resumeService = resumeService;
 		this.careerService = careerService;
 		this.salaryService = salaryService;
 	}
@@ -48,17 +54,93 @@ public class PserviceController {
 	}
 	
 	@RequestMapping(value = "/writeResume", method = RequestMethod.GET)
-	public String wresumeGET(Model model) throws Exception {
+	public String wresumeGET(Model model, @RequestParam("id") String id) throws Exception {
 		logger.info("Welcome wresumePage");
+		
+		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
+		
+		model.addAttribute("careers", careerVO);
 		model.addAttribute("message", "wresumePage");
-		return "servicepage/pwriteResume";
+		return "servicepage/pserwriteResume";
 	}
 	
-	@RequestMapping(value = "/maresume", method = RequestMethod.GET)
-	public String maresumeGET(Model model) throws Exception {
-		logger.info("Welcome maresumePage");
-		model.addAttribute("message", "maresumePage");
-		return "pservice/maresume";
+	@RequestMapping(value = "/writeResume", method = RequestMethod.POST)
+	public String wresumePOST(Model model, ResumeVO resumeVO) throws Exception {
+		logger.info("Welcome wresumePage");
+		String id = resumeVO.getId();
+		
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date = new Date();
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("r_code", id + "/" + fmt.format(date));
+		map.put("m_code", "p" + id);
+		map.put("title", resumeVO.getTitle());
+		map.put("address", resumeVO.getAddress());
+		map.put("content", resumeVO.getContent());
+		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
+		
+		resumeService.write_resume(map);
+		model.addAttribute("message", "wresumePage");
+		return "redirect:/listResume?id="+id;
+	}
+	
+	@RequestMapping(value = "/listResume", method = RequestMethod.GET)
+	public ModelAndView listResumeGET(Model model, @RequestParam("id") String id) throws Exception {
+		logger.info("listResumeGET's id : " + id);
+		logger.info("Welcome wresumePage");
+		model.addAttribute("message", "wresumePage");
+		
+		List<ResumeVO> list = resumeService.list_resume(id);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("servicepage/pserResumeList");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		
+		mav.addObject("map", map);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/viewResume", method = RequestMethod.GET)
+	public String viewResumeGET(Model model, @RequestParam("r_code") String r_code, @RequestParam("id") String id) throws Exception {
+		logger.info("Welcome wresumePage");
+		
+		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
+		
+		model.addAttribute("careers", careerVO);
+		
+		ResumeVO resumeVO = resumeService.view_resume(r_code);
+		
+		model.addAttribute("resume", resumeVO);
+		return "servicepage/pserResumeUpdate";
+	}
+	
+	@RequestMapping(value = "/updateResume", method = RequestMethod.POST)
+	public String updateResumePOST(Model model, ResumeVO resumeVO) throws Exception {
+		logger.info("Welcome wresumePage");
+		String id = resumeVO.getId();
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("r_code", resumeVO.getR_code());
+		map.put("title", resumeVO.getTitle());
+		map.put("address", resumeVO.getAddress());
+		map.put("content", resumeVO.getContent());
+		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
+		
+		resumeService.update_resume(map);
+		model.addAttribute("message", "wresumePage");
+		return "redirect:/listResume?id="+id;
+	}
+	
+	@RequestMapping(value = "/deleteResume", method = RequestMethod.GET)
+	public String deleteResumeGET(Model model, @RequestParam("r_code") String r_code, @RequestParam("id") String id) throws Exception {
+		
+		resumeService.delete_resume(r_code);
+
+		return "redirect:/listResume?id="+id;
 	}
 	
 	@RequestMapping(value = "/ecertifi", method = RequestMethod.GET)

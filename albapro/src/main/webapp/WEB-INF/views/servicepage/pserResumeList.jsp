@@ -4,6 +4,7 @@
     <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
   <meta name="author" content="">
 
   <title>프로알바</title>
+  <link href="resources/css/resume.css" rel="stylesheet">
 
   <!-- Custom fonts for this template-->
 
@@ -63,7 +65,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-			<li class="nav-item active">
+			<li class="nav-item">
           		<a class="nav-link" href="pserworkList?id=${login.id}">
 					<i class="material-icons">dashboard</i>
 					알바목록
@@ -81,13 +83,19 @@
 				경력 관리
 				</a>
 			</li>
-			<li class="nav-item  ">
+			<li class="nav-item active">
 				<a class="nav-link" href="listResume?id=${login.id}">
 				<i class="material-icons">library_books</i>
 				이력서 관리
             	</a>
             </li>
         </ul>
+        <div class="nav-itemsub">
+        	<ul>
+        		<li><a class="nav-link" href="listResume?id=${login.id}"> 이력서 목록 </a></li>
+        		<li><a class="nav-link" href="writeResume?id=${login.id}"> 이력서 작성 </a></li>
+        	</ul>
+        </div>
       </div>
     </div>
 			<!-- End of Sidebar -->
@@ -101,63 +109,36 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">나의 알바목록 조회</h4>
+									<h4 class="card-title ">나의 이력서 조회</h4>
 									<p class="card-category">
-										${login.name} 님의 알바목록을 볼 수 있습니다.
+										${login.name} 님의 이력서목록을 볼 수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
-									
-										
 										<c:forEach var="row" items="${map.list}" >
-												
-												<div class="card">
-													<div class="card-header">
-														<h3>${row.work_place_name}</h3>
-													</div>
+										<c:set var = "idx" value = "${fn:indexOf(row.r_code, '/')}" />
+										<c:set var = "length" value = "${fn:length(row.r_code)}" />
+										<c:set var = "r_date" value = "${fn:substring(row.r_code, idx+1, length)}" />
+											<div class="card">
 												<div class="card-body">
-														<h5 class="card-title">입사일: <fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></h5>
-														<br>
-														
-														<c:if test="${row.end_date != null}">
-															<h5 class="card-title">
-																퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
-															</h5>
-														</c:if>
-														<c:if test="${row.end_date == null}">
-															<p>퇴사일 : 아직 근무 중입니다.</p>
-														</c:if>
-												
-												
-														
-													
-														<a href="pserSalary?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn">급여내역</a>
-														<a href="pworkmanage?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn ">근태내역</a>
-														
-													</div>
-													
-														
-														
+													<h5 class="card-title">
+														작성일: ${row.r_date}
+													</h5>
+													<br>
+													<h5 class="card-title">
+														이력서 제목: ${row.title}
+													</h5>
+													<br>
+													<a href="viewResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
+													<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 삭제</a>
 												</div>
-												
-												
-								
-												</c:forEach>
-										
-										
-										
-										
-										
-										
-										
-
-									
+											</div>
+										</c:forEach>							
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>

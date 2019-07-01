@@ -73,7 +73,7 @@ public class MobileCommunityController {
 	@RequestMapping(value="m.comm/view", method=RequestMethod.POST)
 	public JSON view(@RequestBody JSONObject jsonObj,HttpSession session, HttpServletRequest request) throws Exception {
 		JSONArray arrJson = jsonObj.getJSONArray("post");
-		System.out.println(arrJson.getJSONObject(0));
+		System.out.println("json 내용: " + arrJson.getJSONObject(0));
 		
 		int p_code = Integer.parseInt(arrJson.getJSONObject(0).optString("p_code"));
 		int curPage = 1;
