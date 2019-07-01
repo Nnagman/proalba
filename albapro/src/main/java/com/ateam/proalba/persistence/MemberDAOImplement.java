@@ -56,4 +56,14 @@ public class MemberDAOImplement implements MemberDAO {
 	public void cregisterModify(MemberVO memberVO) {
 		sqlSession.update(NAMESPACE + ".cregisterModify", memberVO);
 	}
+
+	@Override
+	public String getMcode(String id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".checkM", id);
+	}
+
+	@Override
+	public String getbnum(String id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".gbnum", id);
+	}
 }

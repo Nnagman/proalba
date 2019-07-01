@@ -418,8 +418,10 @@
         	var formData = $("#form").serialize();
         	var c_code = $("#c_code").val();
         	var blc, car;
+		  	console.log("formdata!!");
+        	console.log(formData);
 		  	
-		  	
+        	
 		 	$.ajax({
         		async: false,
         		url: "${path}/psercheckContract",

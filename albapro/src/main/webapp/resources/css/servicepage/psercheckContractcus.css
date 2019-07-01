@@ -126,14 +126,17 @@ margin:auto;
 	
 }
 
+.contButton{
+	display : inline-block;
+margin: 170px 0 50px 20%;
+}
 
 .subbt2{
 	width: 300px;
 	height: 50px !important;
-	   margin: 170px 0 30px 39%;
-	    background-color:#2e3949 !important;
-	    
-	    	background: #1AAB8A;
+	margin: 0 0 0 0 !important;
+	background-color:#2e3949 !important;
+	background: #1AAB8A;
 	color: #fff;
 	border: none;
 	position: relative;
