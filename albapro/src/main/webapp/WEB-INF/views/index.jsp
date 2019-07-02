@@ -77,7 +77,7 @@
 			제3자의 개입이 없는 완벽하고 안전한 계약을 약속드립니다.</p>
              <p class="content-p">버튼을 통해 지금바로 알바생과의 계약을 시도 해보세요.</p>
 
-            <!-- CTA -->
+   <%--       메인 근로계약서 작성 버튼 필요없음
           <c:if
 			test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 			<a href="${path}/cserWcontractForm" class="btn peach-gradient btn-md">
@@ -85,7 +85,7 @@
               <i class="far fa-image ml-1"></i>
             </a>
 		  </c:if>
-            
+             --%>
 
           </div>
           <!--Grid column-->

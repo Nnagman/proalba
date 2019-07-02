@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.WcontractVO;
 
 public interface ContractService {
@@ -18,8 +19,11 @@ public interface ContractService {
 	int count_contract(LoginDTO loginDTO) throws Exception;
 	void update_contract(String fileName) throws Exception;
 	WcontractVO select_contract2(Map<String, String[]> hashMap) throws Exception;
+	List<NoticeVO> select_contract5(String n_code) throws Exception;
+	
 	void send_contract(WcontractVO wcontractVO) throws Exception;
 	void check_contract(WcontractVO wcontractVO) throws Exception;
 	void add_storeTXid(Map<String, Object> bmap) throws Exception;
+	String getHsCont(String c_code) throws Exception;
 
 }

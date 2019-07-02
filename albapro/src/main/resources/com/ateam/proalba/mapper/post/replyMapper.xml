@@ -18,6 +18,10 @@
      		   VALUES(re_seq.nextval, #{p_code}, #{r_content}, #{m_code})
 	</insert>
 	
+	<delete id="deleteReply">
+		DELETE FROM reply WHERE r_code = #{r_code}
+	</delete>
+	
 	<select id="count" resultType="int">
 		select count(*) from reply where p_code = #{p_code}
 	</select>

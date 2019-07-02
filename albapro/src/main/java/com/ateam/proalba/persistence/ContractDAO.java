@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.WcontractVO;
 
 public interface ContractDAO {
@@ -15,6 +16,7 @@ public interface ContractDAO {
 	WcontractVO select_contract2(Map<String, String[]> map) throws Exception;
 	WcontractVO select_contract3(String c_code) throws Exception;
 	WcontractVO select_contract4(Date date) throws Exception;
+	List<NoticeVO> select_contract5(String n_code) throws Exception;
 	List<WcontractVO> listPaging(int page) throws Exception;
 	List<WcontractVO> listCriteria(Criteria criteria) throws Exception;
 	int count_contract(LoginDTO loginDTO) throws Exception; 
@@ -22,5 +24,6 @@ public interface ContractDAO {
 	void send_contract(WcontractVO wcontractVO) throws Exception;
 	void check_contract(WcontractVO wcontractVO) throws Exception;
 	void add_storeTXid(Map<String, Object> bmap) throws Exception;
+	String getHsCont(String c_code) throws Exception;
 
 }

@@ -44,9 +44,20 @@
 		SELECT * 
 		FROM 
 			(SELECT * FROM contract
-			WHERE c_id = #{id[0]} AND p_id = (SELECT p_id FROM contract WHERE p_phone = #{id[1]})
+			WHERE c_id = #{id[0]} AND p_id = (SELECT p_id FROM contract WHERE p_phone = #{id[1]} and rownum = 1)
 			ORDER BY c_code DESC)
 		WHERE rownum = 1
+  	  	]]>
+	</select>
+	
+		<select id="select_contract5" resultType="com.ateam.proalba.domain.NoticeVO" parameterType="hashmap">
+		<![CDATA[
+		SELECT * 
+		FROM notice,member
+		WHERE n_code =#{n_code} and
+		member.id= substr(#{n_code},2,INSTR(#{n_code},'/')-2)
+		
+		
   	  	]]>
 	</select>
 	
@@ -89,8 +100,14 @@
 	</select>
 	
 	<insert id="add_storeTXid">
-		INSERT INTO cont_blocktxid(c_code, tx_1, tx_2, tx_3)
-		VALUES(#{c_code}, #{tx1}, #{tx2}, #{tx3})
+		INSERT INTO cont_blocktxid(c_code, tx_1, cont_h)
+		VALUES(#{c_code}, #{tx2}, #{h2})
 	</insert>
+	
+	<select id="getHsCont" resultType="String">
+		SELECT cont_h
+		FROM cont_blocktxid
+		WHERE c_code = #{c_code}
+	</select>
 	
 </mapper>

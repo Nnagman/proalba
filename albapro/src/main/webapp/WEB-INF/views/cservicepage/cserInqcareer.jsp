@@ -90,26 +90,28 @@
          <ul class="nav">
 
 <li class="nav-item  ">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 등록
+              채용공고
             </a>
           </li>
 
 
-		<li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
 
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+		     <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
             </a>
           </li>
+		<li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 목록
+            </a>
+          </li>
+      
           <li class="nav-item active">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
@@ -160,7 +162,7 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">직원 경력 조회</h4>
 									<p class="card-category">
-										${map.list[0].name} 님의 경력을 볼수 있습니다.
+										${name} 님의 경력을 볼수 있습니다.
 									</p>
 								</div>
 								<div class="card-body">

@@ -10,4 +10,5 @@ public class CareerVO {
 	private String work_place;
 	private Date end_date;
 	private String name;
+	private String work_place_name;
 }

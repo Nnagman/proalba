@@ -197,7 +197,7 @@ hr {
 	    background-color:#2e3949 !important;
 }
 
-.subbt2{
+  .subbt2{
 	width: 170px;
 	height: 50px !important;
 	   margin: 160px 0 30px 40%;
@@ -213,7 +213,7 @@ hr {
 	cursor: pointer;
 	transition: 800ms ease all;
 	outline: none;
-}
+} 
 
 .div_sign {
 	position: relative;
@@ -284,10 +284,7 @@ hr {
 	outline: none;
 }
 
-button:hover {
-	background: #fff;
-	color: #1AAB8A;
-}
+
 
 button:before, button:after {
 	content: '';
@@ -296,7 +293,7 @@ button:before, button:after {
 	right: 0;
 	height: 2px;
 	width: 0;
-	background: #1AAB8A;
+	
 	transition: 400ms ease all;
 }
 
@@ -310,5 +307,10 @@ button:after {
 button:hover:before, button:hover:after {
 	width: 100%;
 	transition: 800ms ease all;
+}
+
+.sidebar-wrapper{
+	overflow:hidden !important;
+	
 }
 

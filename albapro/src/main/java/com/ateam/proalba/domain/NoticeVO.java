@@ -1,5 +1,9 @@
 package com.ateam.proalba.domain;
 
+
+
+
+
 import java.sql.Date;
 
 import lombok.Data;
@@ -41,6 +45,7 @@ public class NoticeVO {
 	private String name;
 	private String phone;
 	private String email;
-	
+
+
 	
 }

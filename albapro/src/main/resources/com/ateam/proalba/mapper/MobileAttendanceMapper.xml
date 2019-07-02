@@ -75,7 +75,7 @@
 	<select id="mobileCFoundWorkRecord" resultType="com.ateam.proalba.domain.mobile.MobileCWorkRecordVO">
 		select SUBSTR(w_code,INSTR(w_code,'/')+1,INSTR(w_code,'/')+1) as w_code,sa_c, sa_start, sa_end, working_hours, work_place 
 		from workrecord_view v
-		where v.sa_c=(select SUBSTR(c.p_id, 2) from contract c where c.p_id='p'||#{p_id}) AND v.work_place IN (select c.work_place from contract c where c.c_id='c'||#{id})
+		where v.sa_c=(select distinct SUBSTR(c.p_id, 2) from contract c where c.p_id='p'||#{p_id}) AND v.work_place IN (select distinct c.work_place from contract c where c.c_id='c'||#{id})
 		order by w_code asc
 		
 	</select>

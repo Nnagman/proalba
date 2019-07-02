@@ -60,12 +60,12 @@ margin-right:100px
 </style>
    
       <script type="text/javascript">
-     
+   
       
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
- 
+
     
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	/*   schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source', */ 
@@ -99,21 +99,23 @@ margin-right:100px
   		textColor:'black',
   		events:[
   			
- 			 <c:forEach var="row" items="${map.list }" >
+ 			 <c:forEach var="row" items="${map.list}" >
+ 			
  			 {
  			title:'출근시간 :'+ '${row.sa_start}' , 
  			
- 				start: '20'+'${row.sa_date}'
+ 			/* 	start: '20'+'${row.sa_date}', */
+ 				
  				
  			 },
  			</c:forEach>  
  			 
  			 
- 			 <c:forEach var="row" items="${map.list }" >
+ 			 <c:forEach var="row" items="${map.list}" >
  			 {
  			title:'퇴근시간 :'+ '${row.sa_end}' , 
  			
- 				start: '20'+'${row.sa_date}'
+ 			/* 	start:  '20'+'${row.sa_date}'  */
  				
  			 },
  			</c:forEach> 

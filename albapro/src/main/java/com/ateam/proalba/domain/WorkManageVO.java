@@ -1,5 +1,7 @@
 package com.ateam.proalba.domain;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -15,4 +17,5 @@ public class WorkManageVO {
 	private String email;
 	private String start_period;
 	private int finger_id;
+	private Date end_period;
 }

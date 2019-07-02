@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.persistence.ContractDAO;
 
@@ -50,6 +51,10 @@ public class ContractServiceImplement implements ContractService {
 		return contractDAO.select_contract2(map);
 	}
 	@Override
+	public List<NoticeVO> select_contract5(String n_code) throws Exception {
+		return contractDAO.select_contract5(n_code);
+	}
+	@Override
 	public void send_contract(WcontractVO wcontractVO) throws Exception {
 		contractDAO.send_contract(wcontractVO);
 	}
@@ -64,6 +69,10 @@ public class ContractServiceImplement implements ContractService {
 	@Override
 	public void add_storeTXid(Map<String, Object> bmap) throws Exception {
 		contractDAO.add_storeTXid(bmap);
+	}
+	@Override
+	public String getHsCont(String c_code) throws Exception {
+		return contractDAO.getHsCont(c_code);
 	}
 
 	

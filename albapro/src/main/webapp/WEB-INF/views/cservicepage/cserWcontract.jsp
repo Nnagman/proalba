@@ -47,23 +47,28 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
         <li class="nav-item	">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 등록
+              채용공고
             </a>
           </li>
-           <li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item active">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
+         
+         
+             <li class="nav-item active">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
             </a>
           </li>
+         
+         
+           <li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 목록
+            </a>
+          </li>
+       
           <li class="nav-item">
             <a class="nav-link" href="cserEmpManage?id=${login.id}">
               <i class="material-icons">person</i>
@@ -98,9 +103,9 @@
                     	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
                     </div>
 
-                    <h4 class="gg">2. 근무장소</h4><br>
+                    <h4 class="gg">2. 근무장소</h4><br>  
                     <div class="worktime_div">
-                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place}</span>
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
                     </div>
                     
                     <h4 class="gg">3. 업무의 내용</h4><br>

@@ -72,4 +72,9 @@ public class CareerDAOImplement implements CareerDAO {
 		
 	}
 
+	@Override
+	public void career_leave(String em_code) throws Exception {
+		sqlSession.update(NAMESPACE + ".career_leave", em_code);
+	}
+
 }
