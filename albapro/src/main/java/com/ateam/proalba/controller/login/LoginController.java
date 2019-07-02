@@ -103,7 +103,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 			return "redirect:/"; 
 	  }
     
-    @RequestMapping(value = "/m.login", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/m.login", method = {RequestMethod.POST, RequestMethod.GET}, produces="text/plain;charset=UTF-8")
 	@ResponseBody
 	@CrossOrigin(origins = "*")
 	public String getCustomer(@RequestBody Map<String, Object> params) throws Exception { 
@@ -116,6 +116,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     	loginDTO.setPassword((String)params.get("password"));
 //    	System.out.println(loginDTO.getId());
     	vo = memberService.login(loginDTO);
+    	logger.info(vo.toString());
     	
 
 		return JSONObject.fromObject(vo).toString();
