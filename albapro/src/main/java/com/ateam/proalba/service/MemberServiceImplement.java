@@ -56,4 +56,14 @@ public class MemberServiceImplement implements MemberService {
 		memberDAO.cregisterModify(memberVO);
 	}
 
+	@Override
+	public String getMcode(String id) throws Exception {
+		return memberDAO.getMcode(id);
+	}
+
+	@Override
+	public String getbnum(String id) throws Exception{
+		return memberDAO.getbnum(id);
+	}
+
 }

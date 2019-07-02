@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +25,7 @@ import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
@@ -31,6 +34,7 @@ import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
@@ -54,10 +58,13 @@ public class MobileController {
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
 	private MemberService memberService;
+
 	private RecruinfoService recruinfoService;
 
+	private ContractService contractService;
 
-	// Å×ÀÌºí Çü½Ä ·¹ÀÌ¾Æ¿ô ¸ŞÀÎÆäÀÌÁö
+
+	// å ì™ì˜™å ì‹±ë¸ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì‹±ì•„ìš¸ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™
 	@ResponseBody
 	@RequestMapping(value = "m.workinfo", method = RequestMethod.POST)
 	//	   @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -65,7 +72,7 @@ public class MobileController {
 		logger.info(id);
 		criteria.setId("p"+id);
 		PageMaker pageMaker = new PageMaker();
-		//		   criteria.setM_code("p"+loginDTO.getId()); // m_code´Ï±ñ ¾Õ¿¡ pºÙ¿©Áà¾ßÇÔ.
+		//		   criteria.setM_code("p"+loginDTO.getId()); // m_codeå ì‹¹ê¹ì˜™ å ìŒŒìš¸ì˜™ på ìŒ•ìš¸ì˜™å ì™ì˜™å ì™ì˜™å ï¿½.
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(mobileService.count_mobile_workplace_info("p"+id));
 		System.out.println("mobileService.count_mobile_workplace_info(\"p\"+id) = "+mobileService.count_mobile_workplace_info("p"+id));
@@ -120,7 +127,7 @@ public class MobileController {
 	@ResponseBody
 	@RequestMapping(value = "/m.startWork", method = RequestMethod.POST)
 	public JSON mobileStartWorkPOST(@RequestBody String str) throws Exception {
-		//str¿¡ ´ã°Ü ÀÖ´Â ³»¿ë -> '°³ÀÎÈ¸¿ø¾ÆÀÌµğ/±Ù¹«Áö¸í(workplace)/sa_code'
+		//strå ì™ì˜™ å ì™ì˜™å ï¿½ å ìŒëŒì˜™ å ì™ì˜™å ì™ì˜™ -> 'å ì™ì˜™å ì™ì˜™íšŒå ì™ì˜™å ì™ì˜™å ì‹±ë“¸ì˜™/å ìŒ•ë±„ì˜™å ì™ì˜™å ì™ì˜™(workplace)/sa_code'
 		String[] str_arr = str.split("/");
 		String p_id = str_arr[0];
 		String workplace = str_arr[1];
@@ -132,13 +139,13 @@ public class MobileController {
 		
 		String thisMonthSa_code = p_id.substring(1)+"/"+month+"/"+c_id;
 		
-		//Ãâ¼®ÇÏ·Á¸é work_record Å×ÀÌºí¿¡ »õ·Î¿î ¿­À» Ãß°¡ÇØ¾ß ÇÏ´Âµ¥, ±×·¯±â À§ÇØ¼± w_code, sa_code, work_start_time°¡ ÇÊ¿äÇÏ´Ù.
+		//å ì©ì„å ì‹¹ë¤„ì˜™å ì™ì˜™ work_record å ì™ì˜™å ì‹±ë¸ì˜™ å ì™ì˜™å ì‹¸ìš¸ì˜™ å ì™ì˜™å ì™ì˜™ å ìŒ©ê³¤ì˜™å ìŒ”ì–µì˜™ å ì‹¹ëŠ”ë“¸ì˜™, å ìŒ“ë¤„ì˜™å ì™ì˜™ å ì™ì˜™å ìŒ”ì‡½ì˜™ w_code, sa_code, work_start_timeå ì™ì˜™ å ì‹­ìš¸ì˜™å ì‹¹ëŒì˜™.
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sa_code", thisMonthSa_code);
 		map.put("work_start_time", time);
 		map.put("w_code", w_code);
 		
-		//ÇØ´ç ¿ù¿¡ ±Ş¿©ÄÚµå°¡ ¾ø´Ù¸é »õ·Î¿î ±Ş¿© ÄÚµå¸¦ ¸¸µé°í Ãâ¼®ÇÑ´Ù. ±Ş¿©ÄÚµå°¡ ÀÖÀ¸¸é ±×³É Ãâ¼®ÇÑ´Ù.
+		//å ìŒ”ëŒì˜™ å ì™ì˜™å ì™ì˜™ å ìŒ¨ìš¸ì˜™å ìŒ˜ë“œê°€ å ì™ì˜™å ìŒ•ëªŒì˜™ å ì™ì˜™å ì‹¸ìš¸ì˜™ å ìŒ¨ìš¸ì˜™ å ìŒ˜ë“œë¥¼ å ì™ì˜™å ì™ì˜™å ï¿½ å ì©ì„å ì‹¼ëŒì˜™. å ìŒ¨ìš¸ì˜™å ìŒ˜ë“œê°€ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ìŒ“ë†‚ì˜™ å ì©ì„å ì‹¼ëŒì˜™.
 		if(salaryService.select_salary(thisMonthSa_code) != null) {
 			mobileAttendanceService.mobileStartWork(map);
 		}else {
@@ -147,7 +154,7 @@ public class MobileController {
 		}
 		
 		JSONObject json = new JSONObject();
-		json.put("message", "Ãâ±Ù¿Ï·á");
+		json.put("message", "å ì™ì˜™ç‰Ÿç‹—å ï¿½");
 		return json;
 	}
 	
@@ -160,7 +167,7 @@ public class MobileController {
 		String c_id = str_arr[4];
 		
 		JSONObject json = new JSONObject();
-		json.put("message", "Åğ±Ù¿Ï·á");
+		json.put("message", "å ì™ì˜™ç‰Ÿç‹—å ï¿½");
 		return json;
 	}
 	
@@ -218,7 +225,7 @@ public class MobileController {
 	}
 	
 	
-	/* ¸ğ¹ÙÀÏ Ãâ±ÙÇöÈ² */
+	/* ëª¨ë°”ì¼ ì¶œê·¼í˜„í™© */
 	@ResponseBody
 	@RequestMapping(value = "m.attendancecheck", method = RequestMethod.POST)
 	public JSON mobileattendancecheckPOST(@RequestBody String id) throws Exception {
@@ -229,11 +236,11 @@ public class MobileController {
 		logger.info("mo_attendance_check:  "+pJson.toString());
 		return pJson;
 	}
-	/* ¸ğ¹ÙÀÏ Ãâ±ÙÇöÈ² */
+	/* ëª¨ë°”ì¼ ì¶œê·¼í˜„í™© */
 	
 	
 	
-	/*¸ğ¹ÙÀÏ Ã¤¿ë°ø°í °ü¸® */
+	/*ëª¨ë°”ì¼ ì±„ìš©ê³µê³  ê´€ë¦¬ */
 	@ResponseBody
 	@RequestMapping(value ="m.AddJobfreemanage",method = RequestMethod.POST )
 	public JSON mobileAddJobopening_free_manage(@RequestBody String id)throws Exception {
@@ -245,7 +252,7 @@ public class MobileController {
 			return pJson;
 	}
 	
-	 /*¸ğ¹ÙÀÏ Ã¤¿ë°ø°í °ü¸® */
+	 /*ëª¨ë°”ì¼ ì±„ìš©ê³µê³  ê´€ë¦¬ */
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)
@@ -262,7 +269,7 @@ public class MobileController {
 	@RequestMapping(value = "m.qnalist", method = RequestMethod.POST)
 	public JSON qnaListPOST(@ModelAttribute("criteria") Criteria criteria, @RequestBody String m_code) throws Exception {
 		PageMaker pageMaker = new PageMaker();
-		criteria.setM_code(m_code); // m_code´Ï±ñ ¾Õ¿¡ pºÙ¿©Áà¾ßÇÔ.
+		criteria.setM_code(m_code); // m_codeå ì‹¹ê¹ì˜™ å ìŒŒìš¸ì˜™ på ìŒ•ìš¸ì˜™å ì™ì˜™å ì™ì˜™å ï¿½.
 		logger.info(m_code);
 		
 	    pageMaker.setCriteria(criteria);
@@ -288,5 +295,76 @@ public class MobileController {
 		
 		return pJson;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value= "/m.getContList", method = RequestMethod.POST)
+	public List<WcontractVO> getContList(HttpServletRequest request,@RequestBody String id) throws Exception {
+		logger.info("getContList");
+		String m_code = memberService.getMcode(id);
+		List<WcontractVO> list = contractService.select_contract(m_code);
+		logger.info(list.toString());
+		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.vcontract", method = RequestMethod.POST)
+	public WcontractVO contractGET(@RequestBody String c_code) throws Exception {	
+		WcontractVO wcontractVO = contractService.select_contract3(c_code);
+		logger.info("m.vcontract");
+		return wcontractVO;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.gebnum", method = RequestMethod.POST)
+	public Map<String, String> gebnum(String id) throws Exception {	
+		logger.info("dd");
+		logger.info(id);
+		String bnum = memberService.getbnum(id);
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("b_num",bnum);
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.cserWcontract", method = RequestMethod.POST)
+	public Map<String, Object> wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = new Date();
+		date = transFormat.parse(transFormat.format(date));
+				
+		logger.info(wcontractVO.toString());
+		
+		String[] id = new String[2];
+		id[1] = wcontractVO.getP_phone();
+		id[0] = wcontractVO.getC_id();
+		
+		
+		Map<String, String[]> id_map = new HashMap<String, String[]>();
+		id_map.put("id", id);
+		
+		WcontractVO check_wcontractVO = contractService.select_contract2(id_map);
+		
+		if(check_wcontractVO != null && (transFormat.parse(check_wcontractVO.getEnd_period()).compareTo(date) != -1)){
+			List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("list",list);
+			map.put("message", "ï¿½ê¹…ï¿½ ï¿½ã…½ï¿½ï¿½. æ¹²ê³—ã€ˆï¿½ï¿½ æ€¨ï¿½ï¿½ìŒï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½æ¿¡ï¿½ï¿½ï¿½ æ€¨ï¿½ï¿½ìŒï¿½ï¿½ï¿½ï¿½ æ¹²ê³Œï¿½ï¿½ï¿½ ä»¥ï¿½è¹‚ë“¬ï¿½â‘¸ï¿½ï¿½ï¿½ï¿½.");
+			
+			return map;
+		}
+		
+		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
+		contractService.add_contract(wcontractVO);
+		
+		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
+		logger.info(list.toString());
 
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+		map.put("message","æ€¨ï¿½ï¿½ìŒï¿½ï¿½ ï¿½ê¹…ï¿½ ï¿½ï¿½çŒ·ï¿½");
+		map.put("check","success");
+		return map;
+	}
+	
 }

@@ -231,7 +231,11 @@
                     <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
                     ${contract.p_address}
                     <Br><Br>
-                    <button type='button' class="subbt2" id="submit2">근로계약서 다운로드</button>
+                    <div class="contButton">                    
+	                    <button type='button' class="subbt2" id="submit2">근로계약서 다운로드</button>
+	                    <button type='button' class="subbt2" id="contCheck">위변조 확인</button>
+                    </div>
+                    
                 </div>
                </div>
             </form>
@@ -361,6 +365,49 @@
 
         });
       }); 
+      
+      
+      $("#contCheck").click(function(){
+    	  var cid = ${contract.c_code};
+  		
+  		 $.ajax({
+ 			url: "http://39.127.7.53:3000/getCont",
+ 			type: "post",
+ 			data : {"c_code" : cid},
+ 			dataType : 'json',
+ 			success : function(data){
+ 				var dbhsCont = data;
+ 				
+ 		  		 $.ajax({
+ 		 			url: "${path}/getHsCont",
+ 		 			type: "post",
+ 		 			data : {"c_code" : cid},
+ 		 			dataType : 'json',
+ 		 			success : function(data2){
+ 		 				console.log(data.blockHsCont);	
+ 		 				console.log(data2.dbHsCont);
+ 		 				//console.log(data2[0].blockHsCont);
+ 		 				if(data.blockHsCont === data2.dbHsCont){
+ 		 					alert("계약서가 위변조 되지 않았습니다.");
+ 		 				}else{
+ 		 					alert("계약서가 위변조 되었습니다.");
+ 		 				}
+ 		 			},
+ 		 			error : function(err){
+ 		 				console.log(err);
+ 		 			}
+ 		 		});
+ 			},
+ 			error : function(err){
+ 				console.log(err);
+ 			}
+ 		});   
+      });
+      
+      
+      
+      
+      
     });
   </script>
 	<script src="resources/js/servicepage2/demo.js"></script>	

@@ -9,6 +9,7 @@ encoding//src/main/java/com/ateam/proalba/controller/cservice/CserviceController
 encoding//src/main/java/com/ateam/proalba/controller/cservice/WorkmanageController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/login/LoginController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/mobile/MobileCommunityController.java=UTF-8
+encoding//src/main/java/com/ateam/proalba/controller/mobile/MobileController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/pservice/PserviceController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/pservice/PworkmanageController.java=UTF-8
 encoding//src/main/java/com/ateam/proalba/controller/recruinfo/RecruinfoController.java=UTF-8

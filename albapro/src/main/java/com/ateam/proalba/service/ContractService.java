@@ -24,5 +24,6 @@ public interface ContractService {
 	void send_contract(WcontractVO wcontractVO) throws Exception;
 	void check_contract(WcontractVO wcontractVO) throws Exception;
 	void add_storeTXid(Map<String, Object> bmap) throws Exception;
+	String getHsCont(String c_code) throws Exception;
 
 }

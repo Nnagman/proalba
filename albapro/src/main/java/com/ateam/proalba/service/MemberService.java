@@ -18,4 +18,6 @@ public interface MemberService {
 	public void cregisterModify(MemberVO memberVO) throws Exception;
 	
 	public MemberVO getList(String id) throws Exception;
+	public String getMcode(String id) throws Exception;
+	public String getbnum(String id) throws Exception;
 }

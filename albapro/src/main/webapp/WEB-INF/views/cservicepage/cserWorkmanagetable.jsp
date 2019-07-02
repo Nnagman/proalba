@@ -188,7 +188,7 @@ margin: 0 0 0 20px;
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
-										${name}님의 근태를 볼수 있습니다. <i
+										${name}님의 근태를 볼수 있습니다.<i
 											class="material-icons calicon" data-toggle="modal"
 											data-target="#myModal">달력보기 calendar_today</i>
 
@@ -201,9 +201,10 @@ margin: 0 0 0 20px;
 												<tr>
 													<th class="th-sm">날짜</th> 
 													<th class="th-sm">출근 시간</th>
-													<th class="th-sm">퇴근 시간</th>
-													<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
-												
+													<th class="th-sm">퇴근 시간	</th>
+													<c:if test="${end_date == null}">
+														<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
+													</c:if>
 												</tr>
 											</thead>
 											<tbody id="tbody">
@@ -212,13 +213,13 @@ margin: 0 0 0 20px;
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														<td>
-													<i class="fas fa-pencil-alt Bupdate"></i>
-													<i class="fas fa-trash-alt Bdelete"></i>
-													</td>
-												
+														<c:if test="${end_date == null}">
+															<td>
+																<i class="fas fa-pencil-alt Bupdate"></i>
+																<i class="fas fa-trash-alt Bdelete"></i>
+															</td>
+														</c:if>
 													</tr>
-
 												</c:forEach>
 											</tbody>
 
