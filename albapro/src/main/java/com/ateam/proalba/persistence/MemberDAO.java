@@ -20,4 +20,8 @@ public interface MemberDAO {
 	public void cregisterModify(MemberVO memberVO);
 	
 	public MemberVO getList(String id) throws Exception;
+
+	public String getMcode(String id) throws Exception;
+
+	public String getbnum(String id) throws Exception;
 }

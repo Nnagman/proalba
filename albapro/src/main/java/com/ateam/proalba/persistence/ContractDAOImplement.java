@@ -109,6 +109,11 @@ public class ContractDAOImplement implements ContractDAO {
 	public WcontractVO select_contract4(Date date) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".select_contract4", date);
 	}
+
+	@Override
+	public String getHsCont(String c_code) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getHsCont", c_code);
+	}
 	
 	
 

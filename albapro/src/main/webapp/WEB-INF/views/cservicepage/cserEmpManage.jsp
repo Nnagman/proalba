@@ -149,7 +149,7 @@
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 										급여 관리 </a></li>
 
-								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+								<!-- <li><a class="nav-link" href="#"> 경력 관리 </a></li> -->
 								
 									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
 

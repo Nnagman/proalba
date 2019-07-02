@@ -242,6 +242,33 @@
 									</table>
 								</div>
 								
+								<div id="RegistLicense" class="registArea" style="">
+									<h2>자격증</h2>
+					
+									<div id="RegistLicenseResult" class="resultForm2">
+										
+									</div>
+					
+									<div id="licensebase" class="registForm">
+										<ul class="inputArea">
+											<li>
+												<input type="text" id="licensenm0" name="licensenm0" placeholder="자격증 명" style="width:373px" maxlength="20" class="ui-autocomplete-input" autocomplete="off">
+												<input type="text" id="organ0" name="organ0" placeholder="발행처" maxlength="20" style="width:170px">
+												<input type="text" id="certificateyyyy0" name="certificateyyyy0" placeholder="취득년도" maxlength="4" style="width:170px;margin-right:0">
+												<input type="hidden" id="licensecd0" name="licensecd0">
+												<input type="hidden" id="license" name="license">
+												<span class="tip message"><em></em></span>
+											</li>
+										</ul>
+										<p class="formBtn">
+											<a href="#" class="btn whiteBtn" onclick="hideLicense(); return false;">취소</a>
+											<a href="#" class="btn grayBtn" onclick="addLicense(0); return false;">자격증저장</a>
+											<span class="saveAlert"></span>
+										</p>
+									</div>
+									<span class="bottomBtn"><a href="#" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"><em></em>자격증 추가</a></span>
+								</div>
+								
 								<div id="RegistIntroduce" class="registArea">
 									<h2><span class="necessary">필수</span>자기소개서</h2>
 									<div class="registForm">
@@ -369,6 +396,15 @@
 	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
 	   			$("#education").val(education);
 	   			
+	   			var license_length =  document.getElementsByClassName("license_input").length;
+	   			var license = "";
+	   			
+	   			for(var i=0 ; i<license_length-1; i++){
+	   				license +=  document.getElementsByClassName("license_input")[i].value + "+";
+	   			}
+	   			license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			
+	   			$("#license").val(license);
 	   			$("#address").val(address);
 	   			$("#form").append("<input type='submit' id='submit'>");
 	   			$("#submit").trigger("click");
@@ -426,5 +462,322 @@
    			}).open();
    		}
    	</script>
+   	
+   	<script type="text/javascript">
+   	//자격증
+	function Licenseautocomplete(row){
+		$( "#licensenm"+row ).autocomplete({
+			source: function( request, response ) {
+				$.ajax({
+					url: "/rsc/lib/resume/LicenseListJSON.asp?licensenm="+$( "#licensenm"+row).val(),
+					dataType: "json",
+					//contentType: "application/x-www-form-urlencoded; charset=EUC-KR",
+					success: function( data ) {
+						if (data.count != 0) {
+							response( $.map( data.licenseList, function( item ) {
+								return {
+									label: item.licenseName.toLowerCase().replace($("#licensenm"+row ).val().toLowerCase(),"" + $("#licensenm"+row).val().toLowerCase() + ""),
+									value: item.licenseName,
+									licenseCd:item.licenseCd,
+									organ:item.organ,
+									licenseName:item.licenseName
+								}
+							}));
+						} else {
+							$('#licensecd'+row).val("");
+							$('#organ'+row).val("");
+							$('#organ'+row).attr("readonly", false);
+						}
+					}
+				});
+			},
+			minLength: 2,
+			focus: function( event, ui ) {	//포커싱 막기위해 추가 (2013-11-15 김지훈)
+				return false;
+			},
+			select: function( event, ui ) {
+				var rowNum = parseInt($("div[id^='divLicense']").length, 0);
+				for (var i = 1; i <= rowNum; i++) {
+					if (ui.item.licenseName == $("#licensenm"+i).val() && i != row) {
+						alert("동일한 자격증은 중복 등록할 수 없습니다.");
+						$('#licensecd'+row).val("");
+						$('#licensenm'+row).val("");
+						$('#organ'+row).val(""); //ui.item.organ
+						return false;
+					}
+				}
+				// 사이버진흥원 자격증 체크
+				rowNum = parseInt($("div[id^='divCertLicense']").length, 0);
+				for (var i = 1; i <= rowNum; i++) {
+					if (ui.item.licenseName == $("#cert_licensenm" + i).val() && i != row) {
+						alert("동일한 자격증은 중복 등록할 수 없습니다.");
+						$('#licensecd'+row).val("");
+						$('#licensenm'+row).val("");
+						$('#organ'+row).val(""); //ui.item.organ
+						return false;
+					}
+				}
+				$('#licensecd'+row).val(ui.item.licenseCd);
+				$('#licensenm'+row).val(ui.item.licenseName);
+				$('#organ'+row).val(ui.item.organ); //ui.item.organ
+				$('#organ'+row).attr("readonly", true);
+			},
+			open: function() {
+				$( this ).autocomplete("widget").css("z-index","9999");
+				$( this ).autocomplete("widget").css("max-height","200px");
+				$( this ).autocomplete("widget").css("width","310px");
+				$( this ).autocomplete("widget").css("overflow-y","auto");
+				$( this ).autocomplete("widget").css("overflow-x","hidden");
+				$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+				if( $('#organ'+row).val() =="")  $('#organ'+row).attr("readonly",false);
+			},
+			close: function() {
+				$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+			},
+			error: function(xhr, ajaxOptions, thrownError){ alert(thrownError);  alert(xhr.responseText); }
+		})
+		.autocomplete("instance")._renderItem = function(ul, item) {
+		return $("<li>")
+			.append(item.licenseName + "<br>" + "<span class='organ-name'>발행처 " + item.organ + "</span>")
+			.appendTo(ul);
+		};
+	}
+
+
+	/**
+	 * 보유자격증 초기화
+	 */
+	function emptyLicense() {
+		$("#licensecd0").val("");
+		$("#licensenm0").val("");
+		$("#organ0").val("");
+		$("#certificateyyyy0").val("");
+	}
+
+	function showLicense() {
+		$("#RegistLicense #licensebase").show();
+		$("#RegistLicense a.addInfoBtn").hide();
+	}
+
+	function hideLicense() {
+		var limitcnt = $("div[id^='divLicense']").length;
+
+		if (limitcnt == 0) {
+			$("#RegistLicense").prev("a.fullsizeBtn").click();
+		}
+		else {
+			$("#RegistLicense #licensebase").hide();
+
+			(limitcnt >= 10) ? $("#RegistLicense a.addInfoBtn").hide() : $("#RegistLicense a.addInfoBtn").show();
+		}
+
+		emptyLicense();
+	}
+
+	function delLicense(idx) {
+		var limitcnt = 0;
+		var radiochk = false;
+
+		if(confirm("삭제하시겠습니까?")) {
+			if ($("#licenseChk"+idx).is(":checked")) { radiochk = true; }
+
+			$("#divLicense"+idx).remove();
+
+			limitcnt = $("div[id^='divLicense']").length;
+
+			if (limitcnt == 0) {
+				showLicense();
+				$("#RegistLicense span.comment").hide();
+				$("#RegistLicense").prev("a.fullsizeBtn").click();
+			}
+			else {
+				$("#RegistLicense a.addInfoBtn").show();
+				if (radiochk) {
+					$(":radio[id^='licenseChk']").each(function() {
+						$(this).attr("checked", true).parent().addClass("on");
+						return false;
+					});
+				}
+			}
+
+			TimerComplete();
+
+			chkSpecEss();
+		}
+	}
+
+	function clickLicenseCert(idx) {
+		var limitcnt = $("div[id^='divLicense']").length;
+		var certlimitcnt = $("input:radio[id^='cert_licenseopenY']:checked").length;
+		if (!$("#cert_licenseopenY" + idx).is(":checked")) {
+			if (limitcnt + certlimitcnt >= 10) {
+				alert("자격증은 최대 10개까지 노출 가능합니다.");
+				$("input:radio[name='licenseChk']:radio[value='" + $("#hidLicenseText").val() + "']").prop("checked", true);
+				$("input:radio[name='cert_licenseopen" + idx + "']:radio[value='N']").prop("checked", true);
+			} else {
+				$("#hidLicenseText").val($("input:radio[name='licenseChk']:checked").val());
+				$("input:radio[name='cert_licenseopen" + idx + "']:radio[value='Y']").prop("checked", true);
+				$("input:radio[name='cert_licenseopen" + idx + "']:radio[value='N']").prop("checked", false).parent().removeClass("on");
+			}
+		}
+	}
+
+	function clickLicenseOpen(idx) {
+		var openyn = $("input[name='cert_licenseopen" + idx + "']:checked").val();
+		if (openyn == "N") {
+			if ($("#cert_licenseChk" + idx).is(":checked")) {
+				$("#cert_licenseChk" + idx).attr("checked", false).parent().removeClass("on");
+				$(":radio[id^='licenseChk']").each(function() {
+					$(this).attr("checked", true).parent().addClass("on");
+					return false;
+				});
+			}
+		} else {
+			var limitcnt = $("div[id^='divLicense']").length;
+			var certlimitcnt = $("input:radio[id^='cert_licenseopenY']:checked").length;
+			if (limitcnt + certlimitcnt > 10) {
+				alert("자격증은 최대 10개까지 노출 가능합니다.");
+				$("input:radio[name='cert_licenseopen" + idx + "']:radio[value='N']").prop("checked", true);
+			}
+		}
+	}
+
+	function modLicense(idx) {
+		var strLicense = "";
+
+		strLicense = strLicense + "<div class='registForm'> ";
+		strLicense = strLicense + "	<ul class='inputArea'> ";
+		strLicense = strLicense + "		<li> ";
+		strLicense = strLicense + "			<input type='text' id='licensenm10"+idx+"' name='licensenm10"+idx+"' placeholder='자격증 명' style='width:373px;' maxlength='20' value='"+$("#licensenm"+idx).val()+"' /> ";
+		strLicense = strLicense + "			<input type='text' style='width:170px;' id='organ10"+idx+"' name='organ10"+idx+"' placeholder='발행처' maxlength='20' value='"+$("#organ"+idx).val()+"'/> ";
+		strLicense = strLicense + "			<input type='text' style='width:170px;margin-right:0' id='certificateyyyy10"+idx+"' name='certificateyyyy10"+idx+"' placeholder='취득년도' maxlength='4'' /> ";
+		strLicense = strLicense + "			<input type='hidden' id='licensecd10"+idx+"' name='licensecd10"+idx+"' value='"+$("#licensecd"+idx).val()+"' />";
+		strLicense = strLicense + "			<span class='tip message'><em></em></span>";
+		strLicense = strLicense + "		</li> ";
+		strLicense = strLicense + "	</ul> ";
+		strLicense = strLicense + "	<p class='formBtn'> ";		
+		strLicense = strLicense + "		<a href='#' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">취소</a> ";
+		strLicense = strLicense + "		<a href='#' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\">수정완료</a> ";
+		strLicense = strLicense + "	</p> ";
+		strLicense = strLicense + "</div> ";
+
+		emptyLicense();
+		$("#RegistLicense #licensebase").hide();
+		$("#RegistLicense a.addInfoBtn").hide();
+
+		$("div[id^='divLicense']").each(function(i) {
+			$(this).find(".registResult").show();
+			$(this).find(".registForm").remove();
+		});
+
+		$("#divLicense"+idx+" .registResult").hide();
+		$("#divLicense"+idx).append(strLicense);
+
+		Licenseautocomplete("10"+idx);
+	}
+
+	function cancelModLicense(idx) {
+		var limitcnt = $("div[id^='divLicense']").length;
+
+		(limitcnt >= 10) ? $("#RegistLicense a.addInfoBtn").hide() : $("#RegistLicense a.addInfoBtn").show();
+		$("#divLicense"+idx+" .registResult").show();
+		$("#divLicense"+idx+" .registForm").remove();
+	}
+
+	function addLicense(idx) {
+		var strLicense = "";
+		var limitcnt = 0;
+		var certlimitcnt = 0;
+		var objidx = 1;
+		var modidx = "10";
+		var checkdup = false;
+		var radiochk = false;
+
+		limitcnt = $("div[id^='divLicense']").length;
+		certlimitcnt = $("input:radio[id^='cert_licenseopenY']:checked").length;
+
+		if (limitcnt + certlimitcnt >= 10 && idx == 0) {
+			alert("자격증은 최대 10개까지 등록 가능합니다.");
+			return false;
+		} else {
+			if (Number(idx) == 0) {
+				for (var i = 1; i <= (limitcnt + 1); i++) {
+					if ($("#divLicense"+i).length == 0) {
+						objidx = i;
+						break;
+					}
+				}
+
+				modidx = "0";
+			} else {
+				objidx = idx;
+				modidx = "10" + idx;
+			}
+
+			if ($.trim($('#licensenm'+modidx).val()) == "") {
+				alert("자격증 명을 작성해 주세요.");
+				return false;
+			}
+
+			if ($.trim($('#organ'+modidx).val()) == "") {
+				alert("발행처를 작성해 주세요.");
+				return false;
+			}
+
+			if ($("#certificateyyyy"+modidx).val() == "") {
+				alert("certificateyyyy", "취득년도를 입력해 주세요.");
+				return false;
+			}
+
+			if (isNaN($("#certificateyyyy"+modidx).val())) {
+				alert("취득년도는 숫자만 입력해 주세요.");
+				return false;
+			}
+			
+			$("div[id^='divLicense']").each(function(i) {
+				if ($.trim($(this).find("li.name").text()) == $.trim($('#licensenm'+modidx).val())) {
+					checkdup = true;
+					return false;
+				}
+			});
+			
+			if (checkdup && idx == 0) {
+				alert("동일한 자격증은 중복 등록할 수 없습니다.");
+				emptyLicense();
+				return false;
+			}
+			
+			if ((limitcnt == 0 && idx == 0) || ($("#licenseChk"+objidx).is(":checked") && idx > 0)) {
+				radiochk = true;
+			}
+			
+			strLicense = strLicense + "	 <div class='registResult'>";
+			strLicense = strLicense + "		<ul class='textCnt'>";
+			strLicense = strLicense + "			<li class='name'><span class='input" + (radiochk ? " on" : "") + "'><label for='licenseChk" + objidx + "'>" + $('#licensenm' + modidx).val() + "</label></span></li>";
+			strLicense = strLicense + "			<li class='origin'>" + $('#organ' + modidx).val() + " / " + $('#certificateyyyy' + modidx).val() + "년</li>";
+			strLicense = strLicense + "		</ul>";
+			strLicense = strLicense + "		<div class='applBtn'>";
+			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>수정</a>";
+			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>삭제</a>";
+			strLicense = strLicense + "		</div>";
+			strLicense = strLicense + "		<input type='hidden' class='license_input' value='" + $('#licensenm' + modidx).val() + "/" + $('#organ' + modidx).val() + "/" + $('#certificateyyyy' + modidx).val() + "'>";
+			strLicense = strLicense + "		<input type='hidden' name='licensenm" + objidx + "' id='licensenm" + objidx + "' value='" + $("#licensenm" + modidx).val() + "' />";
+			strLicense = strLicense + "		<input type='hidden' name='organ" + objidx + "' id='organ" + objidx + "' value='" + $("#organ" + modidx).val() + "' />";
+			strLicense = strLicense + "		<input type='hidden' name='certificateyyyy" + objidx + "' id='certificateyyyy" + objidx + "' value='" + $("#certificateyyyy" + modidx).val() + "' />";
+			strLicense = strLicense + "		<input type='hidden' id='licensecd" + objidx + "' name='licensecd" + objidx + "' value='" + $("#licensecd" + modidx).val() + "' />";
+			strLicense = strLicense + "	</div>";
+
+			if (idx == 0) {
+				$("#RegistLicenseResult").append("<div id='divLicense" + objidx + "'>" + strLicense + "</div>");
+				$("#RegistLicense span.comment").show();
+			} else {
+				$("#RegistLicenseResult #divLicense" + idx).empty().append(strLicense);
+			}
+			hideLicense();
+			TimerComplete();
+			chkSpecEss();
+		}
+	}
+	</script>
 </body>
 </html>
