@@ -152,7 +152,7 @@
 		 			<div class="addjob-2">
 		 				사업체명:	
 		 			
-		 						<input type="text"  name="work_place_name" value="${list[0].work_place_name}"/>
+		 						<input type="text"  name="work_place_name" value="${list[0].work_place_name}" readonly/>
 		 						<br><br>
 		 				
 		 				사업자번호:

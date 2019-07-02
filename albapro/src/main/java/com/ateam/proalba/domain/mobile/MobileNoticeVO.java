@@ -1,22 +1,20 @@
-package com.ateam.proalba.domain;
+package com.ateam.proalba.domain.mobile;
 
 
 
 
 
-import java.sql.Date;
 
 import lombok.Data;
 
 @Data
-public class NoticeVO {
+public class MobileNoticeVO {
 	private String n_code;
 	private String m_code;
 	private String title;
 	private String job_type;
 	private int personnel;
-	private Date p_date;
-	private Date end_date;
+	private String p_date;
 	private int hour_wage;
 	private String gender;
 	private String age;
@@ -45,7 +43,5 @@ public class NoticeVO {
 	private String name;
 	private String phone;
 	private String email;
-
-
-	
+	private String end_date;
 }

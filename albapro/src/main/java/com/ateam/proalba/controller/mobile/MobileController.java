@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
+import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
@@ -33,6 +37,7 @@ import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
 import com.ateam.proalba.service.qna.QnAService;
+import com.ateam.proalba.service.recruinfo.RecruinfoService;
 
 import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
@@ -49,6 +54,7 @@ public class MobileController {
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
 	private MemberService memberService;
+	private RecruinfoService recruinfoService;
 
 
 	// 테이블 형식 레이아웃 메인페이지
@@ -97,6 +103,18 @@ public class MobileController {
 		WorkManageVO = workmanage.listAll(id);
 		JSONArray pJson = JSONArray.fromObject(WorkManageVO);
 		return pJson;
+	}
+	@ResponseBody
+	@RequestMapping(value ="/m.recruinfoDetail",method = RequestMethod.POST)
+	public JSON mobilerecruinfoDetail(@RequestBody String n_code)throws Exception  {
+		
+		logger.info("n_code:"+ n_code);
+		 List<MobileNoticeVO> MobileNoticeVO; 
+		 MobileNoticeVO = mobileService.mobile_recruinfode(n_code);
+		 JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+			logger.info("mobile_recruinfode:"+ pJson.toString());
+		return pJson;
+		 
 	}
 	
 	@ResponseBody
@@ -199,7 +217,35 @@ public class MobileController {
 		
 	}
 	
-			
+	
+	/* 모바일 출근현황 */
+	@ResponseBody
+	@RequestMapping(value = "m.attendancecheck", method = RequestMethod.POST)
+	public JSON mobileattendancecheckPOST(@RequestBody String id) throws Exception {
+		logger.info(id);
+		List<MobileAttendanceVO> mobileAttendanceVO;
+		mobileAttendanceVO = mobileService.mo_attendance_check(id);
+		JSONArray pJson = JSONArray.fromObject(mobileAttendanceVO);
+		logger.info("mo_attendance_check:  "+pJson.toString());
+		return pJson;
+	}
+	/* 모바일 출근현황 */
+	
+	
+	
+	/*모바일 채용공고 관리 */
+	@ResponseBody
+	@RequestMapping(value ="m.AddJobfreemanage",method = RequestMethod.POST )
+	public JSON mobileAddJobopening_free_manage(@RequestBody String id)throws Exception {
+		logger.info(id + " ?????");
+		List<MobileNoticeVO> MobileNoticeVO; 
+		MobileNoticeVO = mobileService.mobile_addjobopening_free_manage_list(id);
+		JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+		logger.info("AddJobopeningfreemanage:  "+pJson.toString());
+			return pJson;
+	}
+	
+	 /*모바일 채용공고 관리 */
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)

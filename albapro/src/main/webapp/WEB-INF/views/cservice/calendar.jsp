@@ -104,7 +104,7 @@ margin-right:100px
  			 {
  			title:'출근시간 :'+ '${row.sa_start}' , 
  			
- 				start: '20'+'${row.sa_date}',
+ 			/* 	start: '20'+'${row.sa_date}', */
  				
  				
  			 },
@@ -115,7 +115,7 @@ margin-right:100px
  			 {
  			title:'퇴근시간 :'+ '${row.sa_end}' , 
  			
- 				start:  '20'+'${row.sa_date}' 
+ 			/* 	start:  '20'+'${row.sa_date}'  */
  				
  			 },
  			</c:forEach> 

@@ -61,6 +61,11 @@
 		where m_code = 'c'||#{id}
   	  	]]>
 	</select>
+	
+	
+	
+
+	
 
 	<insert id="addAttach">
 		insert into notice_file 
