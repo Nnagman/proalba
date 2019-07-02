@@ -139,8 +139,8 @@ class ClientClone implements Runnable {
         	 
         	 
         	 query = "SELECT * FROM employee e, salary s " +
-        			 "WHERE (SELECT em_code from employee WHERE finger_id = "+fingerID+") = s.em_code " +
-        			 "AND (SELECT SUBSTR(sa_code, INSTR(sa_code,'/', 1)+1, 6) FROM salary ) = to_char(sysdate, 'YYYYMM') " +
+        			 "WHERE (SELECT em_code from employee WHERE finger_id = "+fingerID+" and rownum=1) = s.em_code " +
+        			 "AND (SELECT max(SUBSTR(sa_code, INSTR(sa_code,'/', 1)+1, 6)) FROM salary ) = to_char(sysdate, 'YYYYMM') " +
         			 "AND e.em_code = s.em_code";
              Statement stmt1 = conn.createStatement();
              rs = stmt1.executeQuery(query);
