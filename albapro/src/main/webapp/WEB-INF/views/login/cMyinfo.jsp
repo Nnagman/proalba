@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 
 
-<title>기업회원 가입</title>
+<title>프로알바</title>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
@@ -395,8 +395,8 @@
 			console.log(pnum2);
             console.log(pnum3);
             
-        	var jobchoice = $('.jobchoice > .sejobre').text();
-        	$('.jobchoice').append('<input type="hidden" name="job_type" id="job_type" value="'+jobchoice+'"/>');
+        	var jobchoice = $('.jobchoice').html();
+        	$('.jobchoice').append('<textarea name="job_type">'+jobchoice+'</textarea>');
 			
             var formData = $("#form").serialize(); 
 			$.ajax({

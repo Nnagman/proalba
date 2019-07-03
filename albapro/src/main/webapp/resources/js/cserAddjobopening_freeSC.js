@@ -81,8 +81,7 @@ var st_date = new Date().toISOString().substr(0, 10).replace('T', ' ');
 
 $(document).ready(function(){
 	var tod = $('.today1');
-	$('<p></p>').text(st_date).appendTo(tod);	
-	$('<input type="hidden" name="p_date" value="'+st_date+'"/>');
+	$('.tod').val(yyyy+'-'+mm+'-'+dd);
 });
 
 function jsonout() {
