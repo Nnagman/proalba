@@ -71,5 +71,11 @@ public class MobileServiceImplement implements MobileService {
 		
 	}
 
+	@Override
+	public List<MobileNoticeVO> mobile_recruinfo() throws Exception {
+		
+		return mobileDAO.mobile_recruinfo();
+	}
+
 
 }
