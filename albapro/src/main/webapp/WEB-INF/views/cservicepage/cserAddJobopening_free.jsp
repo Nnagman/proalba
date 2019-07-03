@@ -395,7 +395,7 @@
 												<div class="appperiod">
 													<div class="appperiod-how">
 														<div class="custom-control custom-radio">
-															<input type="hidden" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
+															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-online"> 온라인접수</label>
 															<input type="hidden" id="documents" name="documents" value="0"/>
 															<input type="hidden" id="interview" name="interview" value="0"/>
