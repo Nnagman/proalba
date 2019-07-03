@@ -8,9 +8,19 @@
 
 <title>기업회원 가입</title>
 
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="resources/js/signUp.js?ver=3"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+
+<script src="resources/js/albamanage.js"></script>
+<script src="resources/js/cal/albamanage.js"></script>
+<script src="resources/js/cal/interaction.js"></script>
+<script src="resources/js/recruinfo/test13.js"></script>
+<script src="resources/js/recruinfo/majorjson.js"></script>
+<script src="resources/js/cserAddjobopening_freeSC.js?ver=2"></script>
+
 <link rel="stylesheet" href="resources/css/signUp.css">
 </head>
 <body>
@@ -148,6 +158,17 @@
                     <input id="m_code" name="m_code" type="hidden" value="c">
               	</td>
               </tr>
+              
+              <tr>
+              	<th>업종</th>
+              	<td>
+	              	<div class="jobcho-line1">
+	              		<div class="jobchoice"></div>
+						<input type="button" class="btn btn-light-green adr-btn jobchoice-btn" onclick="jsonout()" data-toggle="modal"data-target="#myModal" value="전체 카테고리"/>
+					</div>
+              	</td>
+              </tr>
+              
               <tr>
               	<th>사업장소개</th>
               	<td>
@@ -157,15 +178,12 @@
               <tr>
               <th>주소</th>
               <td>
-              <div class="search" style="margin-left:20%;">
-				
-						<input type="hidden" id="coordinate" name="coordinate" value=""/>
-					</div>
+              <div class="search" style="margin-left:20%;"></div>
 					
 					<input type="text" id="sample6_postcode" class="addr" placeholder="우편번호"/>
 					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn" id="address1" />
 					<br>
-					<input type="text" id="sample6_address" class="sample6_address" placeholder="주소"/>
+					<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="address"/>
 					<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 					<input type="button" class="searchmap btn btn-light-green adr-btn" id="address" value="위치찾기"/>
@@ -291,6 +309,31 @@
             
             </script>
 		<!-- 주소찾기 api  -->
+		
+		
+	<div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <script src="resources/js/bootstrap.js"></script>
+         <!-- Modal content  -->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">직종 선택</h4>
+            </div>
+            <div class="modal-body">
+               <div class="jobcho1"></div>
+               <div class="jobcho2"></div>
+               <div class="jobcho3-title">선택된 직종</div>
+               <div class="jobcho3"></div>
+               <button class="btn btn-default btn-sejob" data-dismiss="modal">선택 완료</button>
+               <button class="btn btn-default btn-remove">모두지우기</button>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
 </body>
 <script>
        //이용약관 동의
@@ -414,6 +457,9 @@
 			console.log(pnum1);
 			console.log(pnum2);
             console.log(pnum3);
+            
+        	var jobchoice = $('.jobchoice > .sejobre').text();
+        	$('.jobchoice').append('<input type="hidden" name="job_type" id="job_type" value="'+jobchoice+'"/>');
 			
             var formData = $("#form").serialize(); 
 			$.ajax({

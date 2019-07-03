@@ -53,6 +53,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.POST)
 	  public String passwordGET (LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception { 
 		  MemberVO memberVO = memberService.login(loginDTO);
+		  System.out.println(memberVO);
 //		  logger.info("pwd: "+memberVO.getPassword());
 //		  logger.info("input_pwd  "+loginDTO.getPassword());
 		  String m_code = memberVO.getM_code().substring(0,1);
