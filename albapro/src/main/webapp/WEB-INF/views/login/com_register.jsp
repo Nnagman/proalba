@@ -85,7 +85,7 @@
 									<p class="compul" id="passwd_danger">비밀번호가 일치하지 않습니다.</p></td>
 							</tr>
 
-              <tr>
+              				<tr>
 								<th>휴대폰 번호</th>
 								<td><select id="dev_hphone1" name="Phone1"
 									class="tBox joinBx tPhone" title="휴대폰 번호">
@@ -102,7 +102,24 @@
                                     <input id="phone" name="phone" value="" type="hidden"/>
 									</td>
 							</tr>
-
+							
+							<tr>
+								<th>이메일</th>
+								<td>
+									<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+										<span> @</span> 
+									<input type="text" name="EmailDomain" class="tBox tEmail email2" id="dev_mail_etc" maxlength="25" title="이메일계정">
+							        <select class="sel2 tEmail" name="email_select" id="email_select">
+							          <option value="1">직접입력</option>
+							          <option value="naver.com">네이버</option>
+							          <option value="daum.net">다음</option>
+							          <option value="gmail.com">구글</option>
+							          <option value="hanmail.net">한메일</option>
+							          <option value="nate.com">네이트</option>
+							        </select>
+							        <input id="email" name="email" value="" type="hidden"/>
+								</td>
+							</tr>
 
 							<tr>
 								<td colspan="2" class="tLine">
@@ -110,12 +127,17 @@
 								</td>
 							</tr>
 
+              <tr>
+                <th>사업주</th>
+                <td>
+                  <input type="text" class="tBox comNum" name="name" id="comNum" size="10" maxlength="20" value="">
+                </td>
+              </tr>
 
               <tr>
                 <th>사업자등록번호</th>
                 <td>
                   <input type="text" class="tBox comNum" name="b_number" id="comNum" size="10" maxlength="10" value="">
-                    <input type="button" name="comNum_check" id="comNum_check" value="확인">
                 </td>
               </tr>
               
@@ -124,6 +146,12 @@
               	<td>
               		<input type="text" class="tBox comName" name="work_place_name" id="comName" size="25" maxlength="25">
                     <input id="m_code" name="m_code" type="hidden" value="c">
+              	</td>
+              </tr>
+              <tr>
+              	<th>사업장소개</th>
+              	<td>
+              		<textarea form="form" name="introduction"> </textarea>
               	</td>
               </tr>
               <tr>
@@ -355,8 +383,26 @@
 	            }
 			});
 		});
+        
+		$("#email_select").change(function () {
+		    if ($("#email_select").val() != "1") {
+		      $("#dev_mail_etc").val($("#email_select").val());
+		      $("#dev_mail_etc").attr("disabled", true);
+		    }
+		    if ($("#email_select").val() == "1") {
+		      $("#dev_mail_etc").attr("disabled", false);
+		    }
+		  });
 
         $("#btn_signup").click(function(){
+        	
+            var email1,email2,email;
+            email1 = $("#dev_M_Email").val();
+			email2 = $("#dev_mail_etc").val();
+			email = email1 + '@' + email2;
+            $("#email").val("");
+            $("#email").val(email);
+        	
             var pnum1,pnum2,pnum3,p_Number;
             pnum1 = $("select[name=Phone1]").val();
             pnum2 = $("#dev_hphone2").val();

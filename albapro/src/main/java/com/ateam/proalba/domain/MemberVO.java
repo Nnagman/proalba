@@ -15,4 +15,5 @@ public class MemberVO {
 	private String b_number;
 	private String coordinate;
 	private String work_place_name;
+	private String introduction;
 }
