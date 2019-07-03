@@ -13,6 +13,8 @@ public class MemberVO {
 	private String birthday;
 	private String sex;
 	private String b_number;
-	private String coordinate;
+	private String address;
 	private String work_place_name;
+	private String introduction;
+	private String job_type;
 }

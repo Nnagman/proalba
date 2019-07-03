@@ -287,9 +287,12 @@ font-weight: 550 !important;
 			<div class="infoSalary">
 					<h5>지원</h5>
 				<ul class="infotop-ul">
-					<li class="way"><span class="item">지원방법</span> ${list[0].way}</li>
-					
-				
+					<li class="way">
+						<span class="item">지원방법</span> ${list[0].way}
+						<c:if test="${list[0].way == '온라인접수' && login.id != null}">
+							<button id="apply">지원하기</button>
+						</c:if>
+					</li>	
 				</ul>
 			
 			
@@ -365,7 +368,11 @@ font-weight: 550 !important;
               // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
               map.setCenter(coords);
           } 
-      });    
+      });
+      
+      $("#apply").click(funciton(){
+    	        
+      });
    });
 </script>
 
