@@ -54,7 +54,7 @@
           </li>
          
          
-             <li class="nav-item active">
+             <li class="nav-item ">
             <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 작성
@@ -62,7 +62,7 @@
           </li>
          
          
-           <li class="nav-item ">
+           <li class="nav-item active">
             <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 목록
