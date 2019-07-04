@@ -41,4 +41,8 @@
 		SET file_name = #{file_name}
 		WHERE r_code = #{r_code}
 	</update>
+	
+	<insert id="apply_resume">
+		INSERT INTO notice_apply VALUES(#{n_code}, #{r_code})
+	</insert>
 </mapper>
