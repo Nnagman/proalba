@@ -225,6 +225,9 @@ public class MobileController {
 	}
 	
 	
+	
+	
+	
 	/* 모바일 출근현황 */
 	@ResponseBody
 	@RequestMapping(value = "m.attendancecheck", method = RequestMethod.POST)
@@ -253,6 +256,23 @@ public class MobileController {
 	}
 	
 	 /*모바일 채용공고 관리 */
+	
+	
+	 /*모바일 채용공고 페이지 */
+	@ResponseBody
+	@RequestMapping(value="m.recruinfo",method = RequestMethod.POST)
+	public JSON recruinfo()throws Exception {
+	
+		List<MobileNoticeVO> MobileNoticeVO;
+		
+		MobileNoticeVO=mobileService.mobile_recruinfo();
+		JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+		logger.info("notice:  "+pJson.toString());
+		
+		return pJson;
+	}
+	 /*모바일 채용공고 페이지 */
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)

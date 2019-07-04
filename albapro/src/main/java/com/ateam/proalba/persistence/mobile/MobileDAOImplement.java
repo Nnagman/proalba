@@ -64,4 +64,10 @@ public class MobileDAOImplement implements MobileDAO {
 	
 		return sqlSession.selectList(NAMESPACE+".mobile_recruinfode", n_code);
 	}
+
+	@Override
+	public List<MobileNoticeVO> mobile_recruinfo() throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+".mobile_recruinfo");
+	}
 }

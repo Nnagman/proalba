@@ -161,7 +161,7 @@
 														<input type="hidden"value='${login.m_code}/<fmt:formatDate value='${now}' pattern='yyyy-MM-dd hh:mm:ss'/>' name="n_code"/>
 														<input type="hidden" value='${login.m_code}'  name="m_code"/>
 														<input type="hidden" value=<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /> name="p_date"/>
-														직종/업무: <div class="jobchoice"></div>
+														직종/업무: <div class="jobchoice">${login.job_type}</div>
 														<input type="button" class="btn btn-light-green adr-btn jobchoice-btn" onclick="jsonout()" data-toggle="modal"data-target="#myModal" value="전체 카테고리"/>
 													</div>
 													<Br>
@@ -261,7 +261,7 @@
 													</div>
 													<div class="Recruitment-time">
 														<div class="startime">
-															모집시작일: <div class="today1"></div>
+															모집시작일: <input type="date" class="today1" placeholder="ex)2019-05-08" name="start_date" value=""/>
 														</div>
 														모집종료일* : <input type="date" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value=""/>
 													</div>
@@ -318,7 +318,7 @@
 													</div>
 													<div>
 														추가내용:<br>
-														<textarea form="form" name="content"> </textarea>
+														<textarea form="form" name="content">${login.introduction}</textarea>
 													</div>
 													<!-- dayline -->
 												</div>
@@ -364,7 +364,7 @@
 												<h5 class="div-cont-title">사업체 정보</h5>
 												<div class="workcon">
 													<div class="work_place_name">
-														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value=""/>
+														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value="${login.work_place_name}"/>
 													</div>
 												
 													<div class="hour_wage">
@@ -375,7 +375,7 @@
 														<input type="text" id="sample6_postcode" placeholder="우편번호"/>
 														<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn"/>
 														<br>
-														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소"/>
+														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" value="${login.address}"/>
 														<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 														<input type="button" class="searchmap btn btn-light-green adr-btn" value="위치찾기"/>
@@ -395,7 +395,7 @@
 												<div class="appperiod">
 													<div class="appperiod-how">
 														<div class="custom-control custom-radio">
-															<input type="hidden" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
+															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-online"> 온라인접수</label>
 															<input type="hidden" id="documents" name="documents" value="0"/>
 															<input type="hidden" id="interview" name="interview" value="0"/>
