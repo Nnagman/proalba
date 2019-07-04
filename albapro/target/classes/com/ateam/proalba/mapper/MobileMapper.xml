@@ -32,14 +32,15 @@
 		TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place
 		FROM salary_view
 		WHERE m_code = #{m_code}
+		ORDER BY sa_code asc
 	</select>
 	
 	<select id="csalary" resultType="com.ateam.proalba.domain.mobile.MobileSalaryInfoVO">
 		SELECT sa_code, BASIC_SALARY, FOOD_EXPENSES, TRANSPORTATION_FEE, YEAR_MONTH, ACTUAL_SALARY, 
 		TOTAL_DEDUCTION_AMOUNT, ADDITIONAL_EXTENDED, ADDITIONAL_NIGHT, em_code, work_place, work_hours, work_minute
 		FROM salary_view
-		WHERE m_code = 'p'||SUBSTR('clamp2957/spark7',INSTR('clamp2957/spark7','/')+1)
-        AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR('clamp2957/spark7',0,INSTR('clamp2957/spark7','/')-1)
+		WHERE m_code = 'p'||SUBSTR(#{id},INSTR(#{id},'/')+1)
+        AND SUBSTR(em_code,0,INSTR(em_code,'/')-1) = SUBSTR(#{id},0,INSTR(#{id},'/')-1)
         ORDER BY sa_code desc
 	</select>
 	
