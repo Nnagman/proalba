@@ -130,6 +130,7 @@
 
 /*이력서 제목 */
 #RegistTitle input {width:764px;height:48px;margin:0;padding:0;font:bold 20px/48px 'Malgun Gothic';text-align:center;border:1px solid #979797;color:#444}
+#RegistTitle h1 {font:bold 25px 'Malgun Gothic';text-align:center}
  
  /* 자기소개서 */
 #RegistIntroduce .registArea {position:relative;padding:0 72px 200px;margin-top:37px;width:766px}
@@ -196,3 +197,57 @@
 .registArea span.bottomBtn {position:static;}
 .registArea .bottomBtn .btn {padding:0;margin-top:-1px;width:764px;height:37px;line-height:37px;text-align:center;border:1px dashed #4a90e2;font-size:14px;color:#4a90e2;background:#fff}
 .registArea .bottomBtn .btn em {display:inline-block;zoom:1;*display:inline;margin-left:-17px;margin-right:7px;width:10px;height:10px;line-height:37px;background:url("//image.alba.kr/person/resumeIcon.png") no-repeat 0 -50px}
+
+/* 자격증 */
+#RegistLicense .registForm {padding-top:20px}
+#RegistLicense .registResult {padding:20px 0;border-bottom:1px solid #dedede}
+#RegistLicense > span.comment {top:10px;right:72px;font-size:12px;color:#9b9b9b}
+
+/* 작성완료-2 */
+.resultForm2 {position:relative;margin-top:-20px;width:766px}
+.resultForm2:after {content:"";clear:both;display:block}
+.resultForm2>div {position:relative}
+.resultForm2 dl {overflow:hidden;margin-top:20px}
+.resultForm2 dl.first {margin-top:0}
+.resultForm2 dt {float:left;width:160px;padding-left:5px;font-size:25px}
+.resultForm2 dd.content {float:left;width:465px;padding:6px 0 0}
+.resultForm2 dd.content .low,
+.resultForm2 dd.content .middle,
+.resultForm2 dd.content .high {float:left;display:block;top:-2px;margin-right:10px}
+.resultForm2 dd.content .substance {overflow:hidden}
+.resultForm2 dd.content .substance li {padding-bottom:2px;font-size:15px}
+.resultForm2 dd.content .substance li strong {color:#ff5400}
+.resultForm2 dd.button {position:absolute;overflow:hidden;right:0;top:30px}
+.resultForm2 dd.button a:first-child {border-left:none}
+.resultForm2 dd.button a {float:left;padding:0 9px;height:15px;font:normal 13px gulim;letter-spacing:-1px;border:none;border-left:1px solid #dbdbdb;color:#474747;text-align:center}
+.resultForm2 dd.button a:hover {background:none}
+.resultForm2 p.addComment {clear:both;padding-top:10px;margin-top:15px;font-size:15px;border-top:1px solid #e6e6e6}
+.resultForm2 p.addComment strong {color:#ff5400}
+.resultForm2 ul.textCnt li {padding-bottom:5px;font-size:17px}
+.resultForm2 ul.textCnt li .input input[type="radio"]+label {height:auto;background-position:0 -49px}
+.resultForm2 ul.textCnt li .input.on input[type="radio"]+label {background-position:0 -78px}
+.resultForm2 ul.textCnt li.name {padding-bottom:10px}
+.resultForm2 ul.textCnt li.name label {font-size:25px}
+.resultForm2 ul.textCnt li.origin label {font-size:15px}
+.resultForm2 ul.textCnt li em {color:#2073f0}
+.resultForm2 .applBtn {position:absolute;overflow:hidden;right:0;top:30px}
+.resultForm2 .applBtn .input {margin-left:10px}
+.resultForm2 .applBtn a:first-child {border-left:none}
+.resultForm2 .applBtn a {float:left;padding:0 9px;height:15px;font:normal 13px gulim;letter-spacing:-1px;border:none;border-left:1px solid #dbdbdb;color:#474747;text-align:center}
+.resultForm2 .applBtn a:hover {background:none}
+
+/* input */
+input[type="text"] {height:36px;*height:28px;padding:2px 0 0 10px;*padding-top:10px;margin-right:5px;font-size:15px;vertical-align:top;border:1px solid #bbb;color:#666}
+span.input {position:relative;display:inline-block;vertical-align:top}
+span.input * {vertical-align:middle;cursor:pointer}
+span.input input {position:absolute;left:0;margin:0;cursor:pointer;opacity:0;filter:alpha(opacity=0)}
+span.input label {display:inline-block;height:21px;*height:22px;padding:1px 0 0 25px;*padding-top:0;font-size:14px;color:#474747;background:url('//image.alba.kr/person/resume_inputBg.png') no-repeat;white-space:nowrap}
+span.input label strong {position:relative;top:-1px}
+span.input.alone label {padding-left:22px}
+span.input input[type="checkbox"] + label {background-position:0 1px}
+span.input input[type="checkbox"]:checked + label {background-position:0 -28px}
+span.input.on input[type="checkbox"] + label {background-position:0 -28px}
+span.input.disabled input[type="checkbox"] + label {background-position:0 -114px;color:#a9a9a9}
+span.input input[type="radio"] + label {background-position:0 -57px}
+span.input input[type="radio"]:checked + label {background-position:0 -87px}
+span.input.on input[type="radio"] + label {background-position:0 -87px}

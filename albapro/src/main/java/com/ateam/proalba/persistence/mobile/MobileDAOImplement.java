@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
+import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 
@@ -42,5 +45,29 @@ public class MobileDAOImplement implements MobileDAO {
 	@Override
 	public List<CareerVO> careerInfo(String m_code) throws Exception {
 		return sqlSession.selectList(NAMESPACE+".cInqcareer", m_code);
+	}
+
+	@Override
+	public List<MobileAttendanceVO> mo_attendance_check(String id) throws Exception {
+	
+		return  sqlSession.selectList(NAMESPACE+".mo_attendance_check", id);
+	}
+
+	@Override
+	public List<MobileNoticeVO> mobile_addjobopening_free_manage_list(String id) throws Exception {
+	
+		return sqlSession.selectList(NAMESPACE+".mobile_addjobopening_free_manage_list", id);
+	}
+
+	@Override
+	public List<MobileNoticeVO> mobile_recruinfode(String n_code) throws Exception {
+	
+		return sqlSession.selectList(NAMESPACE+".mobile_recruinfode", n_code);
+	}
+
+	@Override
+	public List<MobileNoticeVO> mobile_recruinfo() throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE+".mobile_recruinfo");
 	}
 }

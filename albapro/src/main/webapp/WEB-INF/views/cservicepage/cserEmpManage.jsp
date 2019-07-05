@@ -149,7 +149,7 @@
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 										급여 관리 </a></li>
 
-								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+								<!-- <li><a class="nav-link" href="#"> 경력 관리 </a></li> -->
 								
 									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
 
@@ -184,17 +184,18 @@
 														<h3>${row.name}</h3>
 													</div>
 													<div class="card-body">
+														<fmt:parseNumber var="end_time" value="${row.end_period.time / (1000*60*60*24)}" integerOnly="true"/>
 														<h5 class="card-title">휴대번호: ${row.phone}</h5>
 														<br>
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
 														<br>
 														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-														<c:if test="${row.end_date != null}">
-														<h5 class="card-title">계약 종료일: <fmt:formatDate value="${row.end_date}" pattern="yyyy/MM/dd"/></h5>
+														<c:if test="${row.end_period != null}">
+														<h5 class="card-title">계약 종료일: <fmt:formatDate value="${row.end_period}" pattern="yyyy/MM/dd"/></h5>
 														</c:if>
 															
 														<a href="cserSalary?id=${row.id}/${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn">급여 기록</a>
-														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}&&end_date=${row.end_date}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}&&end_date=${end_time}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}&&name=${row.name}" class="btn btn-primary card-btn">경력 조회</a>
 														<a href="cserCareerLeave?em_code=${row.em_code}&&id=${login.id}" class="btn btn-primary card-btn">퇴사처리</a>
 													</div>

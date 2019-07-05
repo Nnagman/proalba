@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,7 +168,7 @@ margin: 0 0 0 20px;
 								<li><a class="nav-link" href="cserEmpManage?id=${login.id}">
 										급여 관리 </a></li>
 
-								<li><a class="nav-link" href="#"> 경력 관리 </a></li>
+							<!-- 	<li><a class="nav-link" href="#"> 경력 관리 </a></li> -->
 								
 									<li><a class="nav-link" href="cserfingerIdmanage?id=${login.id}"> 지문관리 </a></li>
 
@@ -202,7 +204,9 @@ margin: 0 0 0 20px;
 													<th class="th-sm">날짜</th> 
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간	</th>
-													<c:if test="${end_date == null}">
+													<jsp:useBean id="now" class="java.util.Date" />
+													<fmt:parseNumber var="now_date" value="${now.time / (1000*60*60*24)}" integerOnly="true"/>
+													<c:if test="${end_date > now_date}">
 														<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
 													</c:if>
 												</tr>
@@ -213,7 +217,7 @@ margin: 0 0 0 20px;
 														<td>${row.sa_date}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-														<c:if test="${end_date == null}">
+														<c:if test="${end_date > now_date}">
 															<td>
 																<i class="fas fa-pencil-alt Bupdate"></i>
 																<i class="fas fa-trash-alt Bdelete"></i>

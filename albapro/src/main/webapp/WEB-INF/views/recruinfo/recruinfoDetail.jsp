@@ -287,9 +287,12 @@ font-weight: 550 !important;
 			<div class="infoSalary">
 					<h5>지원</h5>
 				<ul class="infotop-ul">
-					<li class="way"><span class="item">지원방법</span> ${list[0].way}</li>
-					
-				
+					<li class="way">
+						<span class="item">지원방법</span> ${list[0].way}
+						<c:if test="${list[0].way == '온라인접수' && login.id != null}">
+							<a class="btn btn-default" href="http://localhost:8080/proalba/apply?id=${login.id}&&n_code=${list[0].n_code}" role="button">지원하기</a>
+						</c:if>
+					</li>	
 				</ul>
 			
 			
@@ -365,7 +368,7 @@ font-weight: 550 !important;
               // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
               map.setCenter(coords);
           } 
-      });    
+      });
    });
 </script>
 

@@ -19,8 +19,8 @@
 	 
 	<insert id="cregister" >
 		<![CDATA[
-		insert into member( m_code, id, password, phone, b_number, email, birthday, work_place_name, sex, name, coordinate )
-		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, '', '',#{work_place_name}, '', '', #{coordinate} )
+		insert into member( m_code, id, password, phone, b_number, email, birthday, work_place_name, sex, name, address, introduction, job_type )
+		values ( #{m_code}, #{id}, #{password}, #{phone}, #{b_number}, #{email}, '',#{work_place_name}, '', #{name}, #{address}, #{introduction}, #{job_type} )
 		]]>
 	</insert>
 	
@@ -33,7 +33,9 @@
 	
 	<update id="cregisterModify">
 		<![CDATA[
-		update member set password=#{password}, b_number=#{b_number}, phone=#{phone}, coordinate=#{coordinate}
+		update member 
+		set password=#{password}, b_number=#{b_number}, phone=#{phone}, address=#{address}, introduction=#{introduction}, job_type=#{job_type},
+			work_place_name=#{work_place_name}, email=#{email}, name=#{name}
 		where id = #{id}
 		]]>
 	</update>

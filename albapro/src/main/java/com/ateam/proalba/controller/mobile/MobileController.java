@@ -23,10 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.domain.WorkManageVO;
+import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
+import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
@@ -38,6 +41,7 @@ import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
 import com.ateam.proalba.service.mobile.MobileService;
 import com.ateam.proalba.service.qna.QnAService;
+import com.ateam.proalba.service.recruinfo.RecruinfoService;
 
 import lombok.AllArgsConstructor;
 import net.sf.json.JSON;
@@ -54,10 +58,13 @@ public class MobileController {
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
 	private MemberService memberService;
+
+	private RecruinfoService recruinfoService;
+
 	private ContractService contractService;
 
 
-	// ���̺� ���� ���̾ƿ� ����������
+	// 占쏙옙占싱븝옙 占쏙옙占쏙옙 占쏙옙占싱아울옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙
 	@ResponseBody
 	@RequestMapping(value = "m.workinfo", method = RequestMethod.POST)
 	//	   @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -65,7 +72,7 @@ public class MobileController {
 		logger.info(id);
 		criteria.setId("p"+id);
 		PageMaker pageMaker = new PageMaker();
-		//		   criteria.setM_code("p"+loginDTO.getId()); // m_code�ϱ� �տ� p�ٿ������.
+		//		   criteria.setM_code("p"+loginDTO.getId()); // m_code占싹깍옙 占쌌울옙 p占쌕울옙占쏙옙占쏙옙占�.
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(mobileService.count_mobile_workplace_info("p"+id));
 		System.out.println("mobileService.count_mobile_workplace_info(\"p\"+id) = "+mobileService.count_mobile_workplace_info("p"+id));
@@ -104,11 +111,23 @@ public class MobileController {
 		JSONArray pJson = JSONArray.fromObject(WorkManageVO);
 		return pJson;
 	}
+	@ResponseBody
+	@RequestMapping(value ="/m.recruinfoDetail",method = RequestMethod.POST)
+	public JSON mobilerecruinfoDetail(@RequestBody String n_code)throws Exception  {
+		
+		logger.info("n_code:"+ n_code);
+		 List<MobileNoticeVO> MobileNoticeVO; 
+		 MobileNoticeVO = mobileService.mobile_recruinfode(n_code);
+		 JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+			logger.info("mobile_recruinfode:"+ pJson.toString());
+		return pJson;
+		 
+	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/m.startWork", method = RequestMethod.POST)
 	public JSON mobileStartWorkPOST(@RequestBody String str) throws Exception {
-		//str�� ��� �ִ� ���� -> '����ȸ�����̵�/�ٹ�����(workplace)/sa_code'
+		//str占쏙옙 占쏙옙占� 占쌍댐옙 占쏙옙占쏙옙 -> '占쏙옙占쏙옙회占쏙옙占쏙옙占싱듸옙/占쌕뱄옙占쏙옙占쏙옙(workplace)/sa_code'
 		String[] str_arr = str.split("/");
 		String p_id = str_arr[0];
 		String workplace = str_arr[1];
@@ -120,13 +139,13 @@ public class MobileController {
 		
 		String thisMonthSa_code = p_id.substring(1)+"/"+month+"/"+c_id;
 		
-		//�⼮�Ϸ��� work_record ���̺� ���ο� ���� �߰��ؾ� �ϴµ�, �׷��� ���ؼ� w_code, sa_code, work_start_time�� �ʿ��ϴ�.
+		//占썩석占싹뤄옙占쏙옙 work_record 占쏙옙占싱븝옙 占쏙옙占싸울옙 占쏙옙占쏙옙 占쌩곤옙占쌔억옙 占싹는듸옙, 占쌓뤄옙占쏙옙 占쏙옙占쌔쇽옙 w_code, sa_code, work_start_time占쏙옙 占십울옙占싹댐옙.
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sa_code", thisMonthSa_code);
 		map.put("work_start_time", time);
 		map.put("w_code", w_code);
 		
-		//�ش� ���� �޿��ڵ尡 ���ٸ� ���ο� �޿� �ڵ带 ����� �⼮�Ѵ�. �޿��ڵ尡 ������ �׳� �⼮�Ѵ�.
+		//占쌔댐옙 占쏙옙占쏙옙 占쌨울옙占쌘드가 占쏙옙占쌕몌옙 占쏙옙占싸울옙 占쌨울옙 占쌘드를 占쏙옙占쏙옙占� 占썩석占싼댐옙. 占쌨울옙占쌘드가 占쏙옙占쏙옙占쏙옙 占쌓놂옙 占썩석占싼댐옙.
 		if(salaryService.select_salary(thisMonthSa_code) != null) {
 			mobileAttendanceService.mobileStartWork(map);
 		}else {
@@ -135,7 +154,7 @@ public class MobileController {
 		}
 		
 		JSONObject json = new JSONObject();
-		json.put("message", "��ٿϷ�");
+		json.put("message", "占쏙옙牟狗占�");
 		return json;
 	}
 	
@@ -148,7 +167,7 @@ public class MobileController {
 		String c_id = str_arr[4];
 		
 		JSONObject json = new JSONObject();
-		json.put("message", "��ٿϷ�");
+		json.put("message", "占쏙옙牟狗占�");
 		return json;
 	}
 	
@@ -205,7 +224,55 @@ public class MobileController {
 		
 	}
 	
-			
+	
+	
+	
+	
+	/* 모바일 출근현황 */
+	@ResponseBody
+	@RequestMapping(value = "m.attendancecheck", method = RequestMethod.POST)
+	public JSON mobileattendancecheckPOST(@RequestBody String id) throws Exception {
+		logger.info(id);
+		List<MobileAttendanceVO> mobileAttendanceVO;
+		mobileAttendanceVO = mobileService.mo_attendance_check(id);
+		JSONArray pJson = JSONArray.fromObject(mobileAttendanceVO);
+		logger.info("mo_attendance_check:  "+pJson.toString());
+		return pJson;
+	}
+	/* 모바일 출근현황 */
+	
+	
+	
+	/*모바일 채용공고 관리 */
+	@ResponseBody
+	@RequestMapping(value ="m.AddJobfreemanage",method = RequestMethod.POST )
+	public JSON mobileAddJobopening_free_manage(@RequestBody String id)throws Exception {
+		logger.info(id + " ?????");
+		List<MobileNoticeVO> MobileNoticeVO; 
+		MobileNoticeVO = mobileService.mobile_addjobopening_free_manage_list(id);
+		JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+		logger.info("AddJobopeningfreemanage:  "+pJson.toString());
+			return pJson;
+	}
+	
+	 /*모바일 채용공고 관리 */
+	
+	
+	 /*모바일 채용공고 페이지 */
+	@ResponseBody
+	@RequestMapping(value="m.recruinfo",method = RequestMethod.POST)
+	public JSON recruinfo()throws Exception {
+	
+		List<MobileNoticeVO> MobileNoticeVO;
+		
+		MobileNoticeVO=mobileService.mobile_recruinfo();
+		JSONArray pJson = JSONArray.fromObject(MobileNoticeVO);
+		logger.info("notice:  "+pJson.toString());
+		
+		return pJson;
+	}
+	 /*모바일 채용공고 페이지 */
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "m.salaryInfo", method = RequestMethod.POST)
@@ -222,7 +289,7 @@ public class MobileController {
 	@RequestMapping(value = "m.qnalist", method = RequestMethod.POST)
 	public JSON qnaListPOST(@ModelAttribute("criteria") Criteria criteria, @RequestBody String m_code) throws Exception {
 		PageMaker pageMaker = new PageMaker();
-		criteria.setM_code(m_code); // m_code�ϱ� �տ� p�ٿ������.
+		criteria.setM_code(m_code); // m_code占싹깍옙 占쌌울옙 p占쌕울옙占쏙옙占쏙옙占�.
 		logger.info(m_code);
 		
 	    pageMaker.setCriteria(criteria);
@@ -302,7 +369,7 @@ public class MobileController {
 		
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("list",list);
-			map.put("message", "등록 실패. 기존의 계약서와 새로운 계약서의 기간이 중복됩니다.");
+			map.put("message", "�깅� �ㅽ��. 湲곗〈�� 怨��쎌���� ��濡��� 怨��쎌���� 湲곌��� 以�蹂듬�⑸����.");
 			
 			return map;
 		}
@@ -315,7 +382,7 @@ public class MobileController {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
-		map.put("message","계약서 등록 완료");
+		map.put("message","怨��쎌�� �깅� ��猷�");
 		map.put("check","success");
 		return map;
 	}

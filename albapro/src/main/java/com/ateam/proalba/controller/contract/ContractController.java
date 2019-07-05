@@ -50,6 +50,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.WcontractVO;
+import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
@@ -216,7 +217,7 @@ public class ContractController {
 	@RequestMapping("/cserWcontractForm")
 	public ModelAndView wcontractFormGET(String n_code, Model model) throws Exception {
 	
-	
+		//왜... Notice(채용공고)를 가져오는 쿼리문을 contract(계약서) 매퍼에 적어야 했을까?? 난 아무래도 죽을때까지 이해 못 할거 같다.
 		List<NoticeVO> list = contractService.select_contract5(n_code);
 		logger.info("n_code:" + n_code);
 		logger.info(list.toString());
@@ -227,8 +228,24 @@ public class ContractController {
 		mav.addObject("hourWage", memberService.gethourWage());
 		
 		return mav;
-		
+	}
 	
+	@RequestMapping("/applyContractForm")
+	public ModelAndView applyContractForm(@RequestParam("n_code") String n_code, Model model, @RequestParam("id") String id) throws Exception {
+	
+		//왜... Notice(채용공고)를 가져오는 쿼리문을 contract(계약서) 매퍼에 적어야 했을까?? 난 아무래도 죽을때까지 이해 못 할거 같다.
+		//일단 만들어진거라서 그냥 쓰긴하는데, 다음번엔 이렇게 코드 안 짜길 바랍니다.
+		List<NoticeVO> list = contractService.select_contract5(n_code);
+		MemberVO memberVO = memberService.getList(id);
+		
+		logger.info("n_code:" + n_code);
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserWcontractForm");
+	
+		mav.addObject("list",list);
+		mav.addObject("memberVO", memberVO);
+		return mav;
 	}
 
 //	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)

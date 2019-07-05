@@ -80,6 +80,7 @@ public class PserviceController {
 		map.put("content", resumeVO.getContent());
 		map.put("file_name", resumeVO.getFile_name());
 		map.put("education", resumeVO.getEducation());
+		map.put("license", resumeVO.getLicense());
 		
 		resumeService.write_resume(map);
 		model.addAttribute("message", "wresumePage");

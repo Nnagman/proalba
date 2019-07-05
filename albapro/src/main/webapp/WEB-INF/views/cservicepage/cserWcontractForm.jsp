@@ -152,7 +152,7 @@
 		 			<div class="addjob-2">
 		 				사업체명:	
 		 			
-		 						<input type="text"  name="work_place_name" value="${list[0].work_place_name}"/>
+		 						<input type="text"  name="work_place_name" value="${list[0].work_place_name}" readonly/>
 		 						<br><br>
 		 				
 		 				사업자번호:
@@ -175,7 +175,13 @@
 		 						<br/>
 		 						<Br/>
 		 				전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외): <br/>
-		 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/>
+		 				<c:if test="${memberVO.phone != null}">
+		 					<input id="p_phone" name="p_phone" type="text" value="${memberVO.phone}" maxlength="11"/><br/>
+		 				</c:if>
+		 				
+		 				<c:if test="${memberVO.phone == null}">
+		 					<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/>
+		 				</c:if>
 		 				<input type="hidden" name="p_id" value=" "/>
 		 				
 		 		

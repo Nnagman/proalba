@@ -40,4 +40,14 @@ public class ResumeServiceImplement implements ResumeService {
 		resumeDAO.update_resume(map);
 	}
 
+	@Override
+	public void apply_resume(Map<String, String> map) throws Exception {
+		resumeDAO.apply_resume(map);
+	}
+
+	@Override
+	public List<ResumeVO> checkResume(String n_code) throws Exception {
+		return resumeDAO.checkResume(n_code);
+	}
+
 }

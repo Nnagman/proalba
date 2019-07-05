@@ -13,8 +13,8 @@
 			preferential_conditions)
 			values( #{n_code}, #{m_code}, #{title}, #{job_type}, #{personnel}, #{end_date}, #{hour_wage}, #{gender}, 
 			#{age}, #{way}, #{term}, #{work_day}, #{work_time1}, #{work_time2}, #{p_date}, #{viewcnt}, #{address}, 
-			#{content}, #{work_place_name}, #{education}, ${documents}, ${interview}, '${career}',
-			'${employment_type}', '${assigned_task}', '${education_etc}', '${major}', '${preferential_conditions}')
+			#{content}, #{work_place_name}, #{education}, #{documents}, #{interview}, #{career},
+			#{employment_type}, #{assigned_task}, #{education_etc}, #{major}, #{preferential_conditions})
 		]]>
 	</insert>
 	
@@ -39,7 +39,7 @@
 		<select id="get_noticeDe_list" resultType="com.ateam.proalba.domain.NoticeVO">
 		<![CDATA[
 				SELECT a.n_code, a.m_code, a.title, a.job_type, a.personnel, a.end_date, a.hour_wage, a.gender, a.age, a.way, a.term, 
-		        a.work_day, a.work_time1, a.work_time2, a.p_date, a.viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,'/',1,2)-1),INSTR(SUBSTR(address,0,INSTR(address,'/',1,2)),'/')+1) address, 
+		        a.work_day, a.work_time1, a.work_time2, a.p_date, a.viewcnt, SUBSTR(SUBSTR(a.address,0,INSTR(a.address,'/',1,2)-1),INSTR(SUBSTR(a.address,0,INSTR(a.address,'/',1,2)),'/')+1) address, 
 		        a.content, a.work_place_name, a.education, a.documents, a.interview, a.contact_number, a.career, a.employment_type,
 		        a.assigned_task, a.education_etc, a.major, a.preferential_conditions, a.salary ,SUBSTR(SUBSTR(n_code,INSTR(n_code,'/',1)+1),0,INSTR(SUBSTR(n_code,INSTR(n_code,'/',1)+1),' ')) n_code_date,
 		        b.name, b.phone, b.email
@@ -61,6 +61,11 @@
 		where m_code = 'c'||#{id}
   	  	]]>
 	</select>
+	
+	
+	
+
+	
 
 	<insert id="addAttach">
 		insert into notice_file 
