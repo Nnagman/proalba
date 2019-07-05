@@ -208,23 +208,29 @@ margin: 0 0 0 20px;
 														<th class="data">근무시간</th>
 														<th class="salary">급여</th>
 														<th class="p_date">공고등록일</th>	
-													<th class="th-sm">빠른 근로계약서</th>
-													<th class="th-sm">삭제 </th>
-													
-												
+														<th class="th-sm">지원현황</th>
+														<th class="th-sm">빠른 근로계약서</th>
+														<th class="th-sm">삭제 </th>
 												</tr>
 											</thead>
 											<tbody id="tbody">
 												<c:forEach var="row" items="${list}" varStatus="status">
 													<tr id="${row.n_code}">
 													<td class="local">${row.address}</td>
-													<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">
-														<span class="company">${row.work_place_name}</span>
+													<td class="title">
+														<a href="recruinfoDetail?n_code=${row.n_code}">
+															<span class="company">${row.work_place_name}</span>
 															<span>${row.title} </span>
-																					</a></td>
+														</a>
+													</td>
 													<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
 													<td class="salary">${row.hour_wage}</td>
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
+													<td>
+														<c:if test="${row.way eq '온라인접수'}">
+														 <a href="checkResume?n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a>
+														</c:if>
+													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a></td>
 													<td><i class="fas fa-trash-alt Bdelete"></i></td>
 												

@@ -45,4 +45,11 @@
 	<insert id="apply_resume">
 		INSERT INTO notice_apply VALUES(#{n_code}, #{r_code})
 	</insert>
+	
+	<select id="checkResume" resultType="com.ateam.proalba.domain.ResumeVO">
+		SELECT SUBSTR(r.r_code,INSTR(r.r_code,'/')+1, 10) r_date, r.m_code, r.title, r.content, r.address, r.r_code, n.n_code
+		FROM resume r, notice_apply n
+		WHERE r.r_code = n.r_code
+		AND n.n_code = #{n_code}
+	</select>
 </mapper>

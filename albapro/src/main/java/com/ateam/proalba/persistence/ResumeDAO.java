@@ -12,4 +12,5 @@ public interface ResumeDAO {
 	void delete_resume(String r_code) throws Exception;
 	void update_resume(Map<String, String > map) throws Exception;
 	void apply_resume(Map<String, String> map) throws Exception;
+	List<ResumeVO> checkResume(String n_code) throws Exception;
 }

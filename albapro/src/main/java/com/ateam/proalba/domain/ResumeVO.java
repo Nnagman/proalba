@@ -14,4 +14,5 @@ public class ResumeVO {
 	private String file_name;
 	private String education;
 	private String license;
+	private String n_code;
 }
