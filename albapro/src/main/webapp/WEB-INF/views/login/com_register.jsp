@@ -333,7 +333,7 @@
 				async: false,
 				type: 'POST',
 				data: id,
-				url: 'http://39.127.7.84:8080/proalba/idcheck',
+				url: '${path}/idcheck',
 				dataType: 'json',
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data){
@@ -374,7 +374,7 @@
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://39.127.7.84:8080/proalba/cregister',
+				url: '${path}/cregister',
 				success: function(data){
                     alert("회원가입성공!");
 	            },

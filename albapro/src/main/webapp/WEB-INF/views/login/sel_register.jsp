@@ -16,7 +16,7 @@
 	<div id="wrap">
 		
 		<div class="header">
-			<a href="/proalba"><img src="resources/images/biglogo.png" alt="logo" width="200px" height="150px" /></a>
+			<a href="/"><img src="resources/images/biglogo.png" alt="logo" width="200px" height="150px" /></a>
 			<h1>회원가입</h1>
 		</div>
     <div id="container">

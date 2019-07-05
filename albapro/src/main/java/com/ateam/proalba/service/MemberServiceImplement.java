@@ -66,4 +66,35 @@ public class MemberServiceImplement implements MemberService {
 		return memberDAO.getbnum(id);
 	}
 
+	@Override
+	public String getArticles() throws Exception {
+		return memberDAO.getArticles();
+	}
+
+	@Override
+	public String getPdata() {
+		return memberDAO.getPdata();
+	}
+
+	@Override
+	public void modifyPdata(String pdata) {
+		memberDAO.modifyPdata(pdata);
+	}
+
+	@Override
+	public void modifyArticle(String articles) {
+		memberDAO.modifyArticle(articles);
+		
+	}
+
+	@Override
+	public String gethourWage() {
+		return memberDAO.gethourWage();
+	}
+
+	@Override
+	public void hwModify(int hourWage) {
+		memberDAO.hwModify(hourWage);		
+	}
+
 }

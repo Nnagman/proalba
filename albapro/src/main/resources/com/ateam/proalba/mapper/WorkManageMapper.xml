@@ -4,11 +4,10 @@
 
 <mapper namespace="workManage">
 	<select id="listAll" resultType="com.ateam.proalba.domain.WorkManageVO">
-		SELECT e.em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period,finger_id, ca.end_date
-		FROM employee e, member m, contract c, career ca
+		SELECT e.em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period,finger_id
+		FROM employee e, member m, contract c
 		WHERE e.m_code = m.m_code 
 		AND e.c_code = c.c_code 
-		AND ca.em_code = e.em_code 
 		AND e.em_code LIKE '%'||#{id}||'%'
 	</select>
 	

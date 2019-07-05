@@ -24,4 +24,17 @@ public interface MemberDAO {
 	public String getMcode(String id) throws Exception;
 
 	public String getbnum(String id) throws Exception;
+
+	public String getArticles() throws Exception;
+
+	public String getPdata();
+
+	public void modifyPdata(String pdata);
+
+	public void modifyArticle(String articles);
+
+	public String gethourWage();
+
+	public void hwModify(int hourWage);
+
 }

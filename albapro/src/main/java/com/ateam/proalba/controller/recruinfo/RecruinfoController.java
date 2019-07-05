@@ -1,6 +1,7 @@
 package com.ateam.proalba.controller.recruinfo;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.NoticeVO;
-import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.service.recruinfo.RecruinfoService;
 
 @Controller
@@ -32,6 +33,28 @@ public class RecruinfoController {
 		mav.setViewName("recruinfo/recruinfo");
 		mav.addObject("list", list);
 		return mav;
+	}
+	
+	@RequestMapping("/recruinfoManage")
+	public ModelAndView recruinfoManage(Model model)throws Exception {
+		logger.info("Welcome recruinfoPage");
+		List<NoticeVO> list=recruinfoService.get_notice_list();
+		int nCot = recruinfoService.nCount();
+		
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("recruinfo/recruinfoManage");
+		mav.addObject("list", list);
+		mav.addObject("nCot",nCot);
+		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/recruinfoDelete")
+	public String recruinfoDelete(String[] deleteChedNo) throws Exception {
+		logger.info("checked Notice : "+deleteChedNo);
+		recruinfoService.deleteNotice(deleteChedNo);
+		return "s";
 	}
 	
 	

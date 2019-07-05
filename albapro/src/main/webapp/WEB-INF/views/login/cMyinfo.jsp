@@ -144,7 +144,7 @@
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://localhost:8080/proalba/cregisterModify',
+				url: '${path}/cregisterModify',
 				success: function(data){
                     alert("회원 정보 수정 성공");
 	            },

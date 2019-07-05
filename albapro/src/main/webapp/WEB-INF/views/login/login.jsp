@@ -54,7 +54,7 @@
 <div class="form">
   <div class="form-panel one">
     <div class="form-header">
-    <a href="/proalba"><img src="resources/images/biglogo.png" class="logo"></a>
+    <a href="/"><img src="resources/images/biglogo.png" class="logo"></a>
 <!-- <h1>Login</h1> -->
     </div>
     <div class="form-content">

@@ -9,7 +9,7 @@
   <div class="menucontainer">
 	<ul class="nav">
 		<li class="menuLi">
-			<a class="menuLink" href="/proalba">MAIN</a>
+			<a class="menuLink" href="/">MAIN</a>
 		</li>
 		<li>|</li>
 		<li class="menuLi">
@@ -24,6 +24,15 @@
 				</div>
 			</div>
 		</li>
+		
+		<li>|</li>
+		<li class="menuLi">
+			<a class="menuLink" href="${path}/recruinfoManage">채용공고관리</a>
+			<ul class="subMenu">
+
+			</ul>
+		</li>
+		
 		<li>|</li>
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA">고객센터</a>
@@ -42,6 +51,22 @@
 			<ul class="subMenu">
 
 			</ul>
+		</li>
+		
+		<li>|</li>
+		<li class="menuLi">
+			<a class="menuLink" href="#">관리</a>
+			<div class="fulldrop">
+				<div class="column">
+					<ul>
+						<li><a href="${path}/hourWageModify">최저시급 수정</a>
+						<li><a href="${path}/yakModify">약관 수정</a>
+						<li><a href="${path}/mManage">회원 관리</a>
+						<li><a href="${path}/yakModify">계약서 관리</a>
+						
+					</ul>
+				</div>
+			</div>
 		</li>
 	</ul>
 </div>

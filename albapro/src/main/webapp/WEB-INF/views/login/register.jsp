@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,9 @@
 <title>프로알바</title>
 <link rel="stylesheet" type="text/css" href="resources/css/signUp.css">
 <link rel="stylesheet" type="text/css" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>  
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+
 </head>
 
 <body>
@@ -253,7 +256,7 @@
 				async: false,
 				type: 'POST',
 				data: id,
-				url: 'http://localhost:8080/proalba/idcheck',
+				url: '${path}/idcheck',
 				dataType: 'json',
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data){
@@ -287,7 +290,6 @@
 		  });
 
         $("#btn_signup").click(function(){
-
             var email1,email2,email;
             email1 = $("#dev_M_Email").val();
 			email2 = $("#dev_mail_etc").val();
@@ -306,20 +308,21 @@
 			console.log(pnum1);
 			console.log(pnum2);
             console.log(pnum3);
-			
+       
             var formData = $("#form").serialize(); 
-			$.ajax({
+			 $.ajax({
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://localhost:8080/proalba/pregister',
+				url: '${path}/pregister',
 				success: function(data){
-                    alert("회원가입성공!");
-	            },
+                    alert("회원가입성공!");  
+
+				},
 	            error : function(error) {
 	                alert("error : " + error);
 	            }
-			});
+			}); 
 			
 			//핸드폰 번호 숫자만 입력받기.
 			$(".tPhone").on("keyup", function(){
