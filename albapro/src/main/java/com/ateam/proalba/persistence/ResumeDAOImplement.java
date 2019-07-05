@@ -48,4 +48,9 @@ public class ResumeDAOImplement implements ResumeDAO {
 		sqlSession.insert(NAMESPACE + ".apply_resume", map);
 	}
 
+	@Override
+	public List<ResumeVO> checkResume(String n_code) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".checkResume", n_code);
+	}
+
 }
