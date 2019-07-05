@@ -48,8 +48,8 @@
             c.end_date,
             m.name,
             t.work_place_name
-    	FROM career c, member m ,contract t
-    	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code AND t.p_id = c.m_code 
+    	FROM career c, member m ,contract t, employee e
+    	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code AND e.em_code = c.em_code AND e.c_code = t.c_code
     	ORDER BY c.join_date desc
     	]]>
 	</select>
