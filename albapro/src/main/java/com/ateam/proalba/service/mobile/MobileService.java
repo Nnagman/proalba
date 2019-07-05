@@ -20,4 +20,5 @@ public interface MobileService {
 	List<MobileAttendanceVO> mo_attendance_check(String id) throws Exception;
 	List<MobileNoticeVO> mobile_addjobopening_free_manage_list(String id)throws Exception;
 	List<MobileNoticeVO> mobile_recruinfode(String n_code)throws Exception;
+	List<MobileNoticeVO> mobile_recruinfo()throws Exception;
 }

@@ -43,4 +43,9 @@ public class ResumeDAOImplement implements ResumeDAO {
 		sqlSession.update(NAMESPACE + ".update_resume2", map);
 	}
 
+	@Override
+	public void apply_resume(Map<String, String> map) throws Exception {
+		sqlSession.insert(NAMESPACE + ".apply_resume", map);
+	}
+
 }
