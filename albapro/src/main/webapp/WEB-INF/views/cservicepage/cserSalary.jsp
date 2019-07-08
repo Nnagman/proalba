@@ -38,54 +38,34 @@
 
 
 <script type="text/javascript">
-
-	$(function() {
-		
-		var salarydata = ${salarys};
-		
-		console.log(salarydata.length);
-		console.log(salarydata);
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
-		google.charts.setOnLoadCallback(drawChart);
-		var graph = new Array();
-		console.log(1242);
-		console.log(salarydata[0].work_place);
-		graph.push([ 'year_month', salarydata[0].work_place ]);
-
-
-		function drawChart() {
-			for (var i = 0; i < salarydata.length; i++) {
-		
-				console.log((salarydata[i].year_month).split('/',1));
-				graph.push([ (salarydata[i].year_month).split('/',1),
-						parseInt(salarydata[i].actual_salary) ]);
-			}
-			console.log(graph);
-
-			var data = google.visualization.arrayToDataTable(graph);
-
-			var options = {
-				title : 'Salary Graph',
-				curveType : 'function',
-				legend : {
-					position : 'bottom'
-				}
-			};
-
-			var chart = new google.visualization.LineChart(document
-					.getElementById('curve_chart'));
-
-			chart.draw(data, options);
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+var salarydata = ${salarys};
+console.log(salarydata.length);
+console.log(salarydata);
+var graph = new Array();
+graph.push([ 'year', salarydata[0].work_place ]);
+function drawChart() {
+ 
+	  for (var i = 0; i < salarydata.length; i++) {
+			
+			console.log(salarydata[0].year_month);
+			graph.push([salarydata[i].year_month,
+					parseInt(salarydata[i].actual_salary) ]);
 		}
+ 
+	  var data = google.visualization.arrayToDataTable(graph);
+  var options = {
+    title: 'Company Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
 
-	})
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+  chart.draw(data, options);
+}
 </script>
-
-
-
-
 
 
 <link rel="stylesheet" href="resources/css/albamanage.css" />
