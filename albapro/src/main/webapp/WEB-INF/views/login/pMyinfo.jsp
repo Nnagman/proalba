@@ -252,7 +252,7 @@
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://localhost:8080/proalba/pregisterModify',
+				url: '${path}/pregisterModify',
 				success: function(data){
                     alert("수정완료!");
 	            },

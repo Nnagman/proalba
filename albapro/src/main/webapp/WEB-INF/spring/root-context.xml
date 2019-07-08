@@ -14,9 +14,9 @@
    <!-- Root Context: defines shared resources visible to all other web components -->
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-      <property name="url" value="jdbc:log4jdbc:oracle:thin:@39.127.7.85:1521/AteamDB"></property>
-      <property name="username" value="proalba"></property>
-      <property name="password" value="pro123"></property>
+      <property name="url" value="jdbc:log4jdbc:oracle:thin:@mydbinstance.c7pungzjxhk2.ap-northeast-2.rds.amazonaws.com:1521/ORCL"></property>
+      <property name="username" value="awsproalba"></property>
+      <property name="password" value="7895admin"></property>
    </bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

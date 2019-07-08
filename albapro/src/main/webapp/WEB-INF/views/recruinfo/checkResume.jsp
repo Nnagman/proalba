@@ -63,9 +63,9 @@
 								<div class="card-body">
 									<div class="table-responsive">
 										<c:forEach var="row" items="${list}" varStatus="status">
-										<c:set var = "idx" value = "${fn:indexOf(row.r_code, '/')}" />
-										<c:set var = "length" value = "${fn:length(row.r_code)}" />
-										<c:set var = "r_date" value = "${fn:substring(row.r_code, idx+1, length)}" />
+											<c:set var = "idx" value = "${fn:indexOf(row.r_code, '/')}" />
+											<c:set var = "length" value = "${fn:length(row.r_code)}" />
+											<c:set var = "r_date" value = "${fn:substring(row.r_code, idx+1, length)}" />
 											<div class="card">
 												<div class="card-body">
 													<h5 class="card-title">
@@ -116,7 +116,7 @@
 													</h5>
 													<br>
 													<a href="viewApplyResume?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}" target="_blank" class="btn btn-primary card-btn">이력서 보기</a>
-													<a href="applyContractForm?r_code=${row.r_code}&&id=${login.id}&&n_code=${row.n_code}" class="btn btn-primary card-btn">근로계약서 작성</a>
+													<a href="applyContractForm?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}&&n_code=${row.n_code}" class="btn btn-primary card-btn">근로계약서 작성</a>
 												</div>
 											</div>
 										</c:forEach>							

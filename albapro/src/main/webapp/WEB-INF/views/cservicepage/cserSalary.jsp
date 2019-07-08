@@ -116,11 +116,20 @@ function drawChart() {
 
         Tip 2: you can also add an image using data-image tag
     -->
-				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
-				</div>
-				<div class="sidebar-wrapper">
-					<ul class="nav">
+      <div class="logo">
+        <a href="/" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+<li class="nav-item  ">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고
+            </a>
+          </li>
 
 						<li class="nav-item  "><a class="nav-link"
 							href="cserAddJobopening_free_manage?id=${login.id}"> <i

@@ -26,6 +26,7 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.service.AddJobOpeningService;
+import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.recruinfo.RecruinfoService;
 import com.ateam.proalba.util.UploadFileUtils;
 
@@ -34,11 +35,12 @@ public class CserviceController {
 	private static final Logger logger = LoggerFactory.getLogger(CserviceController.class);
 	private static final String NOTICE = "notices";
 	private final AddJobOpeningService addJobOpeningService;
+	private final MemberService memberService;
 
 	@Inject
-	public CserviceController(AddJobOpeningService addJobOpeningService) {
+	public CserviceController(AddJobOpeningService addJobOpeningService,MemberService memberService) {
 		this.addJobOpeningService = addJobOpeningService;
-	
+		this.memberService = memberService;
 	}
 	
 	@Autowired
@@ -58,7 +60,10 @@ public class CserviceController {
 	  @RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.GET)
 	  public String addjobopeningfreeGET(Model model) throws Exception {
 	  logger.info("Welcome CserviceController"); model.addAttribute("message", "");
-	 return "cservicepage/cserAddJobopening_free";
+	  
+		model.addAttribute("hourWage", memberService.gethourWage());
+
+		return "cservicepage/cserAddJobopening_free";
 	  
 	 }
 	 

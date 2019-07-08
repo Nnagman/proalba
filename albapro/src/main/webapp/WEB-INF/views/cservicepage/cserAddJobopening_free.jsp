@@ -67,6 +67,8 @@
 	z-index: 1 !important;
 	font-size: 0.8rem;
 }
+.sss{font-size: 12px; color: red; font-weight:lighter;}
+
 </style>
 <body>
 
@@ -80,7 +82,7 @@
         			Tip 2: you can also add an image using data-image tag
         		-->
 				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+					<a href="/" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
 					<ul class="nav">
@@ -369,6 +371,8 @@
 												
 													<div class="hour_wage">
 														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="0"/>원
+														<span class="sss">　(2019년 최저시급: ${hourWage}원)</span>
+														
 													</div>
 													<div class="workcon-map">
 														근무지역* 
@@ -630,7 +634,7 @@
                async: false,
                type: 'POST',
                data: form,
-               url: '${path}/proalba/cserAddJobopening_free',
+               url: '${path}/cserAddJobopening_free',
                success: function(data){ alert("등록완료."); location.reload(); },
                   error : function(error) { alert("error : " + error); }
             });

@@ -40,7 +40,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="/proalba" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -99,7 +99,7 @@
 		  <div class="row">
 		  <div class="col-md-12">
           <div class="card">
-          <form action="${path}/proalba/cserWcontract" method="post">
+          <form action="${path}/cserWcontract" method="post">
           <div class="card-body">
           <div class="row">
 		 		<div class="col-md-12"> 
@@ -134,7 +134,7 @@
                         		
 					시급:			<input class="tex6" name="hour_wage" type="text" onkeypress="onlyNumber();" value="${list[0].hour_wage}" />
 								<span>원</span>		
-					<span class="sss">　(2019년 최저시급: 8350원)</span>
+					<span class="sss">　(2019년 최저시급: ${hourWage}원)</span>
 								<br>
 								<br>
 					기타 급여(재수당 등):

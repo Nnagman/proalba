@@ -103,7 +103,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
 					<div class="logo">
-						<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+						<a href="/" class="simple-text logo-normal"> proalba </a>
 					</div>
 
 
@@ -184,6 +184,7 @@
 														<h3>${row.name}</h3>
 													</div>
 													<div class="card-body">
+														<fmt:parseNumber var="end_time" value="${row.end_period.time / (1000*60*60*24)}" integerOnly="true"/>
 														<h5 class="card-title">휴대번호: ${row.phone}</h5>
 														<br>
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
@@ -194,7 +195,7 @@
 														</c:if>
 															
 														<a href="cserSalary?id=${row.id}/${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn">급여 기록</a>
-														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}&&end_date=${row.end_period}" class="btn btn-primary card-btn ">근태 기록</a>
+														<a href="cserWorkmanagetable?id=${row.id}&&cid=${login.id}&&em_code=${row.em_code}&&name=${row.name}&&end_date=${end_time}" class="btn btn-primary card-btn ">근태 기록</a>
 														<a href="cserInqcareer?id=${row.id}&&name=${row.name}" class="btn btn-primary card-btn">경력 조회</a>
 														<a href="cserCareerLeave?em_code=${row.em_code}&&id=${login.id}" class="btn btn-primary card-btn">퇴사처리</a>
 													</div>

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,11 +49,14 @@ public class SignUpController {
 		return "login/com_register";
 	}
 	@RequestMapping(value = "/articles", method = RequestMethod.GET)
-	public String articlesGET() {
+	public String articlesGET(Model model) throws Exception {
+		model.addAttribute("articles",memberService.getArticles());
 		return "login/articles";
 	}
+	
 	@RequestMapping(value = "/pdata", method = RequestMethod.GET)
-	public String pdataGET() {
+	public String pdataGET(Model model) {
+		model.addAttribute("pdata",memberService.getPdata());
 		return "login/pdata";
 	}
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
@@ -62,7 +66,7 @@ public class SignUpController {
     	logger.info(memberVO.getEmail());
         memberService.pregister(memberVO);
 
-        return "redirect:/";
+        return "redirect:/";  
     }
     
     @RequestMapping(value = "/pregisterModify", method = RequestMethod.POST)
@@ -81,9 +85,7 @@ public class SignUpController {
     	return "login/cMyinfo";
     }
     
-    
   
-    
     @RequestMapping(value = "/cregister", method = RequestMethod.POST)
     public String cregisterPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
     	
@@ -95,7 +97,7 @@ public class SignUpController {
         memberService.cregister(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REISTERED");
 
-        return "redirect:/";
+        return "redirect:/login/login";
     }
     
     @RequestMapping(value = "/idcheck", method = RequestMethod.POST)
@@ -110,4 +112,5 @@ public class SignUpController {
     	map.put("cnt", count);
 		return map;		
 	}
+    
 }

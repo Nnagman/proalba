@@ -13,6 +13,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <title>프로알바</title>
 
@@ -120,7 +121,7 @@ margin: 0 0 0 20px;
         Tip 2: you can also add an image using data-image tag
     -->
 				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+					<a href="/" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
         <ul class="nav">
@@ -421,7 +422,7 @@ margin: 0 0 0 20px;
 			data: delete_n_code,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.52:8080/proalba/cserAddJobopeningfreemanageDelete',
+			url: '${path}/cserAddJobopeningfreemanageDelete',
 			success: function(data){
 				if(data == null || data == undefined){
 					alert(data.message); location.reload();
@@ -469,7 +470,7 @@ margin: 0 0 0 20px;
 			data: str,
 			dataType: 'json',
 			contentType: 'application/json; charset=UTF-8',
-			url: 'http://39.127.7.84:8080/proalba/cserWorkmanagetableInsert',
+			url: '${path}/cserWorkmanagetableInsert',
 			success: function(data){ 
 				if(data == null || data == undefined){
 					alert(data.message); location.reload();
