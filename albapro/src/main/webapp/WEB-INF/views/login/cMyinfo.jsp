@@ -403,7 +403,7 @@
 				async: false,
 				type: 'POST',
 				data: formData,
-				url: 'http://39.127.7.84:8080/proalba/cregisterModify',
+				url: '${path}/cregisterModify',
 				success: function(data){
                     alert("수정완료!");
 	            },

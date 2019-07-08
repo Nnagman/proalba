@@ -65,4 +65,32 @@
 		WHERE id = #{id}
 	</select>
 
+	<select id="getArticles" resultType="String">
+		SELECT articles 
+		FROM choiyak
+	</select>
+
+	<select id="getPdata" resultType="String">
+		SELECT pdata 
+		FROM choiyak
+	</select>
+	
+	<update id="modifyPdata">
+		UPDATE choiyak 
+		SET pdata = #{pdata}
+	</update>
+	<update id="modifyArticle">
+		UPDATE choiyak 
+		SET articles = #{articles}
+	</update>
+	
+	<select id="gethourWage" resultType="String">
+		SELECT CHOI
+		FROM choiyak
+	</select>
+	
+		<update id="hwModify">
+		UPDATE choiyak 
+		SET choi = #{hourWage}
+	</update>
 </mapper>

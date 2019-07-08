@@ -66,4 +66,36 @@ public class MemberDAOImplement implements MemberDAO {
 	public String getbnum(String id) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".gbnum", id);
 	}
+
+	@Override
+	public String getArticles() throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getArticles");
+	}
+
+	@Override
+	public String getPdata() {
+		return sqlSession.selectOne(NAMESPACE + ".getPdata");
+	}
+
+	@Override
+	public void modifyPdata(String pdata) {
+		sqlSession.update(NAMESPACE + ".modifyPdata",pdata);	
+	}
+
+	@Override
+	public void modifyArticle(String articles) {
+		sqlSession.update(NAMESPACE + ".modifyArticle",articles);	
+		
+	}
+
+	@Override
+	public String gethourWage() {
+		return sqlSession.selectOne(NAMESPACE + ".gethourWage");
+
+	}
+
+	@Override
+	public void hwModify(int hourWage) {
+		sqlSession.update(NAMESPACE + ".hwModify",hourWage);	
+	}
 }

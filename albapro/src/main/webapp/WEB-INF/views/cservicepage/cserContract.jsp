@@ -56,7 +56,7 @@ margin-top:20px;
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="/proalba" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
         proalba
         </a>
       </div>

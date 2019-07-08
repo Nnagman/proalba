@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
@@ -45,6 +46,28 @@ public class RecruinfoController {
 		mav.setViewName("recruinfo/recruinfo");
 		mav.addObject("list", list);
 		return mav;
+	}
+	
+	@RequestMapping("/recruinfoManage")
+	public ModelAndView recruinfoManage(Model model)throws Exception {
+		logger.info("Welcome recruinfoPage");
+		List<NoticeVO> list=recruinfoService.get_notice_list();
+		int nCot = recruinfoService.nCount();
+		
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("recruinfo/recruinfoManage");
+		mav.addObject("list", list);
+		mav.addObject("nCot",nCot);
+		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/recruinfoDelete")
+	public String recruinfoDelete(String[] deleteChedNo) throws Exception {
+		logger.info("checked Notice : "+deleteChedNo);
+		recruinfoService.deleteNotice(deleteChedNo);
+		return "s";
 	}
 	
 	

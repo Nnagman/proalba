@@ -55,7 +55,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="/proalba" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
         proalba
         </a>
       </div>
@@ -371,7 +371,7 @@
     	  var cid = ${contract.c_code};
   		
   		 $.ajax({
- 			url: "http://39.127.7.53:3000/getCont",
+ 			url: "http://54.180.145.99:3000/getCont",
  			type: "post",
  			data : {"c_code" : cid},
  			dataType : 'json',

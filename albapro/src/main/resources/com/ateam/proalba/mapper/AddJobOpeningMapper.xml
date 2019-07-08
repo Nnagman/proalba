@@ -76,4 +76,17 @@
 		DELETE notice
 		WHERE n_code = #{delete_n_code}
 	</update>
+	
+	<select id="nCount" resultType="int">
+		select count(*)
+		from notice
+	</select>
+	
+	<delete id="deleteNotice" parameterType="Map">
+		delete from notice
+		where n_code in 
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">			
+			#{item}
+		</foreach>
+	</delete>
 </mapper>

@@ -38,54 +38,34 @@
 
 
 <script type="text/javascript">
-
-	$(function() {
-		
-		var salarydata = ${salarys};
-		
-		console.log(salarydata.length);
-		console.log(salarydata);
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
-		google.charts.setOnLoadCallback(drawChart);
-		var graph = new Array();
-		console.log(1242);
-		console.log(salarydata[0].work_place);
-		graph.push([ 'year_month', salarydata[0].work_place ]);
-
-
-		function drawChart() {
-			for (var i = 0; i < salarydata.length; i++) {
-		
-				console.log((salarydata[i].year_month).split('/',1));
-				graph.push([ (salarydata[i].year_month).split('/',1),
-						parseInt(salarydata[i].actual_salary) ]);
-			}
-			console.log(graph);
-
-			var data = google.visualization.arrayToDataTable(graph);
-
-			var options = {
-				title : 'Salary Graph',
-				curveType : 'function',
-				legend : {
-					position : 'bottom'
-				}
-			};
-
-			var chart = new google.visualization.LineChart(document
-					.getElementById('curve_chart'));
-
-			chart.draw(data, options);
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+var salarydata = ${salarys};
+console.log(salarydata.length);
+console.log(salarydata);
+var graph = new Array();
+graph.push([ 'year', salarydata[0].work_place ]);
+function drawChart() {
+ 
+	  for (var i = 0; i < salarydata.length; i++) {
+			
+			console.log(salarydata[0].year_month);
+			graph.push([salarydata[i].year_month,
+					parseInt(salarydata[i].actual_salary) ]);
 		}
+ 
+	  var data = google.visualization.arrayToDataTable(graph);
+  var options = {
+    title: 'Company Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
 
-	})
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+  chart.draw(data, options);
+}
 </script>
-
-
-
-
 
 
 <link rel="stylesheet" href="resources/css/albamanage.css" />
@@ -136,11 +116,20 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
-				</div>
-				<div class="sidebar-wrapper">
-					<ul class="nav">
+      <div class="logo">
+        <a href="/" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+<li class="nav-item  ">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고
+            </a>
+          </li>
 
 						<li class="nav-item  "><a class="nav-link"
 							href="cserAddJobopening_free_manage?id=${login.id}"> <i

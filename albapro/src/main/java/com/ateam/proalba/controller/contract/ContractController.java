@@ -225,6 +225,8 @@ public class ContractController {
 		mav.setViewName("cservicepage/cserWcontractForm");
 	
 		mav.addObject("list",list);
+		mav.addObject("hourWage", memberService.gethourWage());
+		
 		return mav;
 	}
 	

@@ -75,7 +75,7 @@
 	      		<!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 					Tip 2: you can also add an image using data-image tag -->
 	      		<div class="logo">
-	        		<a href="/proalba" class="simple-text logo-normal">proalba</a>
+	        		<a href="/" class="simple-text logo-normal">proalba</a>
 				</div>
 	      		<div class="sidebar-wrapper">
 			        <ul class="nav">
@@ -121,7 +121,7 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<form action="${path}/proalba/updateResume" id="form" method="post">
+						<form action="${path}/updateResume" id="form" method="post">
 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
 							<div class="col-md-12" style="margin-left: 350px">
 								<h2><span class="necessary">필수</span>개인정보</h2>
@@ -381,7 +381,7 @@
 	   			var formData = new FormData(); // 폼데이터 객체
 	   			formData.append("file", file); // 첨부파일 추가
 	   			$.ajax({
-	   				url: "${path}/proalba/upload/uploadAjax",
+	   				url: "${path}/upload/uploadAjax",
 	   				type: "post",
 	   				data: formData,
 	   				dataType: "text",
@@ -422,7 +422,7 @@
 	   			var that = $(this);
 	   			$.ajax({
 	   				type: "post",
-	   				url: "${path}/proalba/upload/deleteWriteFile",
+	   				url: "${path}/upload/deleteWriteFile",
 	   				data: {fileName:$(this).attr("data-src")},
 	   				dataType: "text",
 	   				success: function(result){
