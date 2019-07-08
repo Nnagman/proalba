@@ -408,7 +408,10 @@
 	   			for(var i=0 ; i<license_length-1; i++){
 	   				license +=  document.getElementsByClassName("license_input")[i].value + "+";
 	   			}
-	   			license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			
+	   			if(license_length != 0){
+	   				license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			}
 	   			
 	   			$("#license").val(license);
 	   			$("#address").val(address);
