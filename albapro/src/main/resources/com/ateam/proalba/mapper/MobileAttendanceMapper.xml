@@ -6,7 +6,7 @@
 
 	<select id="mobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
 			SELECT	w_code, SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)sa_c, work_start_time sa_start,
-					SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, work_end_time sa_end, TRUNC(WORKING_HOURS/60) WORKING_HOURS 
+					SUBSTR(w_code, INSTR(w_code,'/')+3, 6) sa_date, work_end_time sa_end, TRUNC(WORKING_HOURS/60) WORKING_HOURS, late_status 
 			FROM	work_record
 			WHERE	SUBSTR(sa_code,0,INSTR(sa_code,'/')-1)=#{id}
 	</select>
@@ -79,4 +79,7 @@
 		order by w_code asc
 		
 	</select>
+	
+	
+	
 </mapper>
