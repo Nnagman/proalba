@@ -189,9 +189,9 @@
 														<br>
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
 														<br>
-														<h5 class="card-title">계약 시작일: ${row.start_period}</h5>
-														<c:if test="${row.end_period != null}">
-														<h5 class="card-title">계약 종료일: <fmt:formatDate value="${row.end_period}" pattern="yyyy/MM/dd"/></h5>
+														<h5 class="card-title">계약 시작일:<fmt:formatDate value="${row.join_date}" pattern="yyyy/MM/dd"/></h5>
+														<c:if test="${row.end_date != null}">
+															<h5 class="card-title">계약 종료일: <fmt:formatDate value="${row.end_date}" pattern="yyyy/MM/dd"/></h5>
 														</c:if>
 															
 														<a href="cserSalary?id=${row.id}/${row.em_code}&&name=${row.name}" class="btn btn-primary card-btn">급여 기록</a>

@@ -281,34 +281,35 @@
 								<div id="RegistLicense" class="registArea" style="">
 									<h2>자격증</h2>
 									<c:set var="licenses" value = "${fn:split(resume.license,'+')}"/>
-									<c:forEach var="row" items="${licenses}" >
-										<c:set var="license_split" value = "${fn:split(row,'/')}"/>
-										<c:set var="license_name" value = "${license_split[0]}"/>
-										<c:set var="license_publisher" value = "${license_split[1]}"/>
-										<c:set var="license_year" value = "${license_split[2]}"/>
-										<div id="RegistLicenseResult" class="resultForm2">
-											<div id="divLicense1">
-												<div class="registResult">
-													<ul class="textCnt">
-														<li class="name">
-															<span class="input on"><label for="licenseChk1">${license_name}</label></span>
-														</li>
-														<li class="origin">${license_publisher} / ${license_year}년</li>
-													</ul>
-													<div class="applBtn">
-														<a href="#" class="btn whiteBtn" onclick="modLicense(1);return false;">수정</a>
-														<a href="#" class="btn whiteBtn" onclick="delLicense(1);return false;">삭제</a>
+									<c:if test="${licenses[0] != ''}">
+										<c:forEach var="row" items="${licenses}" >
+											<c:set var="license_split" value = "${fn:split(row,'/')}"/>
+											<c:set var="license_name" value = "${license_split[0]}"/>
+											<c:set var="license_publisher" value = "${license_split[1]}"/>
+											<c:set var="license_year" value = "${license_split[2]}"/>
+											<div id="RegistLicenseResult" class="resultForm2">
+												<div id="divLicense1">
+													<div class="registResult">
+														<ul class="textCnt">
+															<li class="name">
+																<span class="input on"><label for="licenseChk1">${license_name}</label></span>
+															</li>
+															<li class="origin">${license_publisher} / ${license_year}년</li>
+														</ul>
+														<div class="applBtn">
+															<a href="#" class="btn whiteBtn" onclick="modLicense(1);return false;">수정</a>
+															<a href="#" class="btn whiteBtn" onclick="delLicense(1);return false;">삭제</a>
+														</div>
+														<input type="hidden" class="license_input" value="${row}">	
+														<input type="hidden" name="licensenm1" id="licensenm1" value="${license_name}">	
+														<input type="hidden" name="organ1" id="organ1" value="${license_publisher}">
+														<input type="hidden" name="certificateyyyy1" id="certificateyyyy1" value="${license_year}">
+														<input type="hidden" id="licensecd1" name="licensecd1" value="">
 													</div>
-													<input type="hidden" class="license_input" value="${row}">	
-													<input type="hidden" name="licensenm1" id="licensenm1" value="${license_name}">	
-													<input type="hidden" name="organ1" id="organ1" value="${license_publisher}">
-													<input type="hidden" name="certificateyyyy1" id="certificateyyyy1" value="${license_year}">
-													<input type="hidden" id="licensecd1" name="licensecd1" value="">
 												</div>
 											</div>
-										</div>
-									</c:forEach>
-					
+										</c:forEach>
+									</c:if>
 									<div id="RegistLicenseResult" class="resultForm2">
 										
 									</div>
