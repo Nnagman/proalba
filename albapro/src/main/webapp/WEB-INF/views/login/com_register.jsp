@@ -140,7 +140,7 @@
               <tr>
                 <th>사업주</th>
                 <td>
-                  <input type="text" class="tBox comNum" name="name" id="comNum" size="10" maxlength="20" value="">
+                  <input type="text" class="tBox comNum" name="name" id="ceoName" size="10" maxlength="20" value="">
                 </td>
               </tr>
 
