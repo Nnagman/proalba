@@ -41,7 +41,6 @@ public class CommunityController {
 		
 		List<PostVO> list = postService.listAll(start, end, searchOption, keyword);
 		
-		
 		// �곗�댄�곕�� 留듭�� ����
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("community/community"); // 酉곕�� list.jsp濡� �ㅼ��

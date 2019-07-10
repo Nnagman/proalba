@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.service.MemberService;
 
 @Controller
@@ -44,6 +45,10 @@ public class AdminController {
 	@RequestMapping(value = "/hourWageModify", method = RequestMethod.GET)
 	public String horeWageModify(Model model) {
 		model.addAttribute("hourWage",memberService.gethourWage());
+		model.addAttribute("ceoCount",memberService.ceoCount());
+		model.addAttribute("perCount",memberService.perCount());
+		model.addAttribute("contCount",memberService.contCount());
+
 		return "login/hourWageModify";
 	}
 	
@@ -58,5 +63,39 @@ public class AdminController {
 	public String mManage() {
     	return "login/mManage"; 			
 	}
+    
+    @ResponseBody
+    @RequestMapping(value = "/memDelete", method = RequestMethod.POST)
+	public String memDelete(String memId) throws Exception {
+    	String mcode = memberService.getMcode(memId);
+    	logger.info(mcode);
+    	
+    	if(mcode != null) {
+    		String sortCP = mcode.substring(0,1);
+    		logger.info(sortCP);
+    		if(sortCP.equals("p")) {
+    			return "personal";
+    		}else if(sortCP.equals("c")) {
+    			return "ceo";
+    		}
+    	}
+		return "none"; 			
+	}
 
+    @ResponseBody
+    @RequestMapping(value = "/withdrawalPersonal", method = RequestMethod.POST)
+	public String withdrawalPersonal(MemberVO memberVO) throws Exception {
+    	String mcode = memberVO.getM_code() + memberVO.getId();
+    	logger.info(mcode);
+    	memberService.withdraw(mcode);
+		return "success";		
+	}
+
+    @ResponseBody
+    @RequestMapping(value = "/withdrawMan", method = RequestMethod.POST)
+	public String withdrawMan(String mcode) throws Exception {
+    	logger.info(mcode);
+    	memberService.withdraw(mcode);
+		return "success";		
+	}
 }

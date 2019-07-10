@@ -11,19 +11,7 @@
 		<li class="menuLi">
 			<a class="menuLink" href="/">MAIN</a>
 		</li>
-		<li>|</li>
-		<li class="menuLi">
-			<a class="menuLink" href="#">기업서비스</a>
-<!-- 			Full Down Menu -->
-			<div class="fulldrop">
-				<div class="column">
-					<h3>지원 관리</h3>
-					<ul>
-						<li><a href="${path}/ecertifi">취업활동 증명서</a>
-					</ul>
-				</div>
-			</div>
-		</li>
+
 		
 		<li>|</li>
 		<li class="menuLi">
@@ -59,11 +47,8 @@
 			<div class="fulldrop">
 				<div class="column">
 					<ul>
-						<li><a href="${path}/hourWageModify">최저시급 수정</a>
-						<li><a href="${path}/yakModify">약관 수정</a>
-						<li><a href="${path}/mManage">회원 관리</a>
-						<li><a href="${path}/yakModify">계약서 관리</a>
-						
+						<li><a href="${path}/hourWageModify">최저시급 | 계약서 | 회원</a>
+						<li><a href="${path}/yakModify">약관 수정</a>						
 					</ul>
 				</div>
 			</div>

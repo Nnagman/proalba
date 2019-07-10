@@ -14,14 +14,6 @@
 </head>
 <body>
 <%@ include file = "../include/header.jsp" %>
-<div>
-<h1>사장 계정 수 </h1>
-</div>
-<div>
-<h1>직원 계정 수 </h1>
-</div>
-<div>
-<h1>총 계약서 수 </h1>
-</div>
+
 </body>
 </html>

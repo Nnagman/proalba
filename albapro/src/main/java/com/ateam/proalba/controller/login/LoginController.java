@@ -80,14 +80,26 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 
 	  }
 
-    // 占싸깍옙占쏙옙 처占쏙옙
-    @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
+	@SuppressWarnings("unused")
+	@RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
+        String is_withdraw = "";
+        
+        if(memberVO != null) {        	
+        	String mcode = memberVO.getM_code();
+        	is_withdraw = memberService.is_withdraw(mcode);
+        	logger.info("is_withdraw: "+is_withdraw);
+        }
+
         
         if (memberVO == null) {
             return;
+        }else if(is_withdraw != null) {
+        	if(is_withdraw.equals("y")) {
+        		return;
+        	}
         }
 
         model.addAttribute("member", memberVO);
@@ -126,11 +138,9 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
  // 미세먼지 측정값
     @RequestMapping(value = "/test", method = RequestMethod.POST, produces = {"application/json"})
     public @ResponseBody Map<String, Object> dustData(@RequestBody Map<String, Object> info) {
-
        Map<String, Object> retVal = new HashMap<String, Object>();
        
        System.out.println("loginID: " + info.get("loginID"));
-
 
        retVal.put("result", "success!!");
        System.out.println("retVal: " + retVal);
