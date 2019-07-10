@@ -45,7 +45,7 @@
     
       <div class="containermo">
 		<div  class=" header-logo">
-		<a href= "${path}">
+		<a href= "/">
 		
       <img src="${path}/resources/images/weblogo.png" class=" header-logo"  /> 
       </a>

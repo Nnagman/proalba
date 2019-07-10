@@ -40,6 +40,10 @@
   		.odd { background-color:#EAEAEA; }
 
 		.Even { background-color : white; }
+		
+		.row{
+		display:block !important;
+		}
 	</style>
 </head>
 <body>
@@ -98,8 +102,14 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
+
 						<form action="${path}/writeResume" id="form" method="post">
+<<<<<<< HEAD
+							<div class="col-md-12" style="margin-left: 30%">
+=======
 							<div class="col-md-12" style="margin-left: 350px">
+
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
 								<hr/>
@@ -402,7 +412,10 @@
 	   			for(var i=0 ; i<license_length-1; i++){
 	   				license +=  document.getElementsByClassName("license_input")[i].value + "+";
 	   			}
-	   			license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			
+	   			if(license_length != 0){
+	   				license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			}
 	   			
 	   			$("#license").val(license);
 	   			$("#address").val(address);
