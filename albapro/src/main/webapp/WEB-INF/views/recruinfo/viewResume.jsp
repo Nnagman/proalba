@@ -34,7 +34,8 @@
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  	<script src="resources/js/albamanage.js"></script>
 	<script src="resources/js/cal/albamanage.js"></script>
-	<script src="resources/js/cal/interaction.js"></script> 
+	<script src="resources/js/cal/interaction.js"></script>
+	 
 
 	<style>
 		.card{ width:100% !important; position:relative; margin-right:20px; }
@@ -88,7 +89,7 @@
 										<span class="photo" id="photo">
 											 <div id='inputed_img'>
 											 	<input type='hidden' class='file' name='file_name' value='${resume.file_name}'>
-											 	<img img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
+											 	<img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
 											 </div>
 										</span>
 									</div>
@@ -117,7 +118,7 @@
 													<td class="infoContents address">
 													<c:set var="address" value = "${fn:split(resume.address,'/')}"/>
 														<div class="contentsBox">
-															<sapn>
+															<span>
 																${address[0]}
 															</span>
 														</div>
@@ -219,32 +220,34 @@
 								<div id="RegistLicense" class="registArea" style="">
 									<h2>자격증</h2>
 									<c:set var="licenses" value = "${fn:split(resume.license,'+')}"/>
-									<c:forEach var="row" items="${licenses}" >
-										<c:set var="license_split" value = "${fn:split(row,'/')}"/>
-										<c:set var="license_name" value = "${license_split[0]}"/>
-										<c:set var="license_publisher" value = "${license_split[1]}"/>
-										<c:set var="license_year" value = "${license_split[2]}"/>
-										<div id="RegistLicenseResult" class="resultForm2">
-											<div id="divLicense1">
-												<div class="registResult">
-													<table style="width:100%">
-														<tbody>
-															<tr>
-																<td><p>자격증명</p></td>
-																<td><p>발행처</p></td>
-																<td><p>취득년도</p></td>
-															</tr>
-															<tr>
-																<td>${license_name}</td>
-																<td>${license_publisher}</td>
-																<td>${license_year}년</td>
-															</tr>
-														</tbody>
-													</table>
+									<c:if test="${licenses[0] != ''}">
+										<c:forEach var="row" items="${licenses}" >
+											<c:set var="license_split" value = "${fn:split(row,'/')}"/>
+											<c:set var="license_name" value = "${license_split[0]}"/>
+											<c:set var="license_publisher" value = "${license_split[1]}"/>
+											<c:set var="license_year" value = "${license_split[2]}"/>
+											<div id="RegistLicenseResult" class="resultForm2">
+												<div id="divLicense1">
+													<div class="registResult">
+														<table style="width:100%">
+															<tbody>
+																<tr>
+																	<td><p>자격증명</p></td>
+																	<td><p>발행처</p></td>
+																	<td><p>취득년도</p></td>
+																</tr>
+																<tr>
+																	<td>${license_name}</td>
+																	<td>${license_publisher}</td>
+																	<td>${license_year}년</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
 												</div>
 											</div>
-										</div>
-									</c:forEach>
+										</c:forEach>
+									</c:if>
 								</div>
 								
 								<div id="RegistIntroduce" class="registArea">

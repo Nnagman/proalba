@@ -290,7 +290,7 @@ font-weight: 550 !important;
 					<li class="way">
 						<span class="item">지원방법</span> ${list[0].way}
 						<c:if test="${list[0].way == '온라인접수' && login.id != null}">
-							<a class="btn btn-default" href="http://localhost:8080/proalba/apply?id=${login.id}&&n_code=${list[0].n_code}" role="button">지원하기</a>
+							<a class="btn btn-default" href="http://localhost:8080/apply?id=${login.id}&&n_code=${list[0].n_code}" role="button">지원하기</a>
 						</c:if>
 					</li>	
 				</ul>

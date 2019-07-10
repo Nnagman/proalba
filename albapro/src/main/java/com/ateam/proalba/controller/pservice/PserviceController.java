@@ -113,6 +113,7 @@ public class PserviceController {
 		model.addAttribute("careers", careerVO);
 		
 		ResumeVO resumeVO = resumeService.view_resume(r_code);
+		System.out.println(resumeVO);
 		
 		model.addAttribute("resume", resumeVO);
 		return "servicepage/pserResumeUpdate";

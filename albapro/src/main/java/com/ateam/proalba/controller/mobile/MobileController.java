@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.NoticeVO;
@@ -34,6 +35,7 @@ import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
 import com.ateam.proalba.service.SalaryService;
@@ -58,6 +60,7 @@ public class MobileController {
 	private WorkManageService workmanage;
 	private SalaryService salaryService;
 	private MemberService memberService;
+	private CareerService careerService;
 
 	private RecruinfoService recruinfoService;
 
@@ -224,8 +227,14 @@ public class MobileController {
 		
 	}
 	
-	
-	
+	@ResponseBody
+	@RequestMapping(value = "/m.Inqcareer", method = RequestMethod.POST)
+	public List inqcareerPOST(@RequestBody String m_code) throws Exception {
+		logger.info("ㅇㅇ");
+		List<CareerVO> list = careerService.selectCareers(m_code);
+		logger.info(list.toString());
+		return list;
+	}
 	
 	
 	/* 모바일 출근현황 */

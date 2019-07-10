@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -163,12 +165,12 @@
 		 				대표자:	<input class="tex8" name="b_name" type="text" value="${list[0].name}"/>
 		 						<br><br>
 		 						
-		 				주소:	 	<input type="text" id="sample6_postcode" placeholder="우편번호" />
-														<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/>
-														<br>
-														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address"/>
-														<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
-														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
+		 						<c:set var="address" value="${fn:split(list[0].address,'/')}"/>
+		 				주소:	 	<input type="text" id="sample6_postcode" placeholder="우편번호" value="${address[0]}"/>
+								<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/><br>
+								<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" value="${address[1]}"/>
+								<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
+								<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 		 						<br><br>
 		 						
 		 				연락처:	<input class="tex6" name="work_place_phone" value="${list[0].phone}" type="text" maxlength="11" onkeypress="onlyNumber();" />
@@ -325,19 +327,6 @@ function execDaumPostcode(){
         }
     }).open();
 }
-</script>
-
-<script>
-var oaddress0 = $('#sample6_postcode');
-var oaddress1 = $('#sample6_address');
-var paddress0 = "${list[0].address}";
-
-console.log(paddress0.substring(0,5));
-console.log(paddress0.substring(6,paddress0.lastIndexOf('/')));
-oaddress0.val(paddress0.substring(0,5));
-oaddress1.val(paddress0.substring(6,paddress0.lastIndexOf('/')));
-
-
 </script>
 </body>
 

@@ -15,4 +15,5 @@ public class ResumeVO {
 	private String education;
 	private String license;
 	private String n_code;
+	private String late_status;
 }
