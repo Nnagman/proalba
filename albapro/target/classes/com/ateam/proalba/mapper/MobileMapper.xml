@@ -58,9 +58,13 @@
 	
 	<select id="mo_attendance_check" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO">
 		<![CDATA[
-	  	SELECT member.name, vw.sa_start, vw.sa_end
-		FROM workrecord_view vw, member
+	SELECT member.name, vw.sa_start, vw.sa_end
+		FROM workrecord_view vw, member , employee e
 		WHERE member.id = vw.sa_c and
+            e.m_code = member.m_code and
+            
+              substr(e.em_code,2,INSTR(e.em_code,'/',-1)-2) = #{id} and
+				
       		  '20190401'  = substr(vw.w_code,INSTR(vw.w_code,'/',-1)+1,8)
 		]]>
 	</select>
