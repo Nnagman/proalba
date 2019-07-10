@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.SimpleDateFormat"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -375,13 +375,14 @@
 														
 													</div>
 													<div class="workcon-map">
+													<c:set var="address" value="${fn:split(login.address,'/')}"/>
 														근무지역* 
-														<input type="text" id="sample6_postcode" placeholder="우편번호"/>
+														<input type="text" id="sample6_postcode" placeholder="우편번호" value="${address[0]}"/>
 														<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn"/>
 														<br>
-														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" value="${login.address}"/>
+														<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" value="${address[1]}"/>
 														<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
-														<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
+														<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 														<input type="button" class="searchmap btn btn-light-green adr-btn" value="위치찾기"/>
 														<div id="map" style="width: 100%; height: 350px;" class="map"></div>
 														<input type="hidden" id="address" name="address" value=""/>
