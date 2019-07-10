@@ -183,8 +183,9 @@
 					<input type="text" id="sample6_postcode" class="addr" placeholder="우편번호"/>
 					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="btn btn-light-green adr-btn" id="address1" />
 					<br>
-					<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="address"/>
+					<input type="text" id="sample6_address" class="sample6_address" placeholder="주소"/>
 					<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
+					<input type="hidden" id="address" name="address"/>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 					<input type="button" class="searchmap btn btn-light-green adr-btn" id="address" value="위치찾기"/>
               </td>
@@ -457,6 +458,11 @@
 			console.log(pnum1);
 			console.log(pnum2);
             console.log(pnum3);
+            
+            var address = $("#sample6_postcode").val() + "/";
+            address += $("#sample6_address").val() + "/";
+            address += $("#sample6_detailAddress").val();
+            $("#address").val(address);
             
         	var jobchoice = $('.jobchoice').html();
         	$('.jobchoice').append('<textarea name="job_type">'+jobchoice+'</textarea>');

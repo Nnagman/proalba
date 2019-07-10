@@ -19,10 +19,16 @@
 	</select>
 	
 	<select id="view_resume" resultType="com.ateam.proalba.domain.ResumeVO">
-		SELECT *
+  		SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
 		FROM resume r, resume_file f
 		WHERE r.r_code = f.r_code
-		AND r.r_code = #{r_code}
+		AND r.r_code = #{r_code} 
+		<!--  홀리쉣~> -->
+<!-- 		SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name, w.late_status
+		FROM resume r, resume_file f, work_record w
+		WHERE r.r_code = f.r_code
+		AND r.r_code = #{r_code} and substr(r.r_code,1,INSTR(r.r_code,'/')-1) = substr(w.sa_code,1,INSTR(w.sa_code,'/')-1)
+         -->
 	</select>
 	
 	<delete id="delete_resume">

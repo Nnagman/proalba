@@ -18,4 +18,9 @@ public class WorkManageVO {
 	private String start_period;
 	private int finger_id;
 	private String end_period;
+<<<<<<< HEAD
+=======
+	private Date join_date;
+	private Date end_date;
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 }

@@ -46,9 +46,9 @@ public class UploadController {
 	 * 
 	 * @RequestMapping(value="upload/uploadForm", method=RequestMethod.POST) public
 	 * ModelAndView uploadForm(MultipartFile file, ModelAndView mav) throws
-	 * Exception { logger.info("파일이름: "+ file.getOriginalFilename()); String
-	 * savedName = file.getOriginalFilename(); logger.info("파일크기: "+
-	 * file.getSize()); logger.info("컨텐트 타입: "+ file.getContentType()); savedName =
+	 * Exception { logger.info("íŒŒì�¼ì�´ë¦„: "+ file.getOriginalFilename()); String
+	 * savedName = file.getOriginalFilename(); logger.info("íŒŒì�¼í�¬ê¸°: "+
+	 * file.getSize()); logger.info("ì»¨í…�íŠ¸ íƒ€ìž…: "+ file.getContentType()); savedName =
 	 * uploadFile(savedName, file.getBytes());
 	 * mav.setViewName("upload/uploadResult"); mav.addObject("savedName",
 	 * savedName); return mav; }
@@ -56,24 +56,24 @@ public class UploadController {
 	
 	/*
 	 * private String uploadFile(String originalName, byte[] fileData) throws
-	 * Exception { //uuid 생성 (Universal Unique IDentifier, 범용 고유 식별자) UUID uid =
+	 * Exception { //uuid ìƒ�ì„± (Universal Unique IDentifier, ë²”ìš© ê³ ìœ  ì‹�ë³„ìž�) UUID uid =
 	 * UUID.randomUUID(); String savedName = uid.toString() + "_" + originalName;
-	 * File target = new File(uploadPath, savedName); //파일을 실제로 저장 //임시 디렉토리에 저장된
-	 * 업로드 파일을 지정된 디렉토리로 복사 //FilecopyUtiles.copy(바이트배열, 파일객체)
+	 * File target = new File(uploadPath, savedName); //íŒŒì�¼ì�„ ì‹¤ì œë¡œ ì €ìž¥ //ìž„ì‹œ ë””ë ‰í† ë¦¬ì—� ì €ìž¥ë�œ
+	 * ì—…ë¡œë“œ íŒŒì�¼ì�„ ì§€ì •ë�œ ë””ë ‰í† ë¦¬ë¡œ ë³µì‚¬ //FilecopyUtiles.copy(ë°”ì�´íŠ¸ë°°ì—´, íŒŒì�¼ê°�ì²´)
 	 * FileCopyUtils.copy(fileData, target); return savedName; }
 	 */
 	
-	/****************************** # ajax 방식의 업로드 처리  *********************************/
+	/****************************** # ajax ë°©ì‹�ì�˜ ì—…ë¡œë“œ ì²˜ë¦¬  *********************************/
 	
-	// 4. Ajax업로드 페이지 매핑
+	// 4. Ajaxì—…ë¡œë“œ íŽ˜ì�´ì§€ ë§¤í•‘
 	@RequestMapping(value="/upload/uploadAjax", method=RequestMethod.GET)
 	public void uploadAjax(){
-		// uploadAjax.jsp로 포워딩
+		// uploadAjax.jspë¡œ í�¬ì›Œë”©
 	}
 
-	// 5. Ajax업로드 처리 매핑
-	// 파일의 한글처리 : produces="text/plain;charset=utf-8"
-	@ResponseBody // view가 아닌 data리턴
+	// 5. Ajaxì—…ë¡œë“œ ì²˜ë¦¬ ë§¤í•‘
+	// íŒŒì�¼ì�˜ í•œê¸€ì²˜ë¦¬ : produces="text/plain;charset=utf-8"
+	@ResponseBody // viewê°€ ì•„ë‹Œ dataë¦¬í„´
 	@RequestMapping(value="/upload/uploadAjax", method=RequestMethod.POST, produces="text/plain;charset=utf-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file, ServletRequest request) throws Exception {
 		logger.info("uploadAjax Cont");
@@ -89,39 +89,40 @@ public class UploadController {
 		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);
 	}
     
-    // 게시글 작성 시 이미지 삭제(서버) 
-    @ResponseBody // view가 아닌 데이터 리턴
+    // ê²Œì‹œê¸€ ìž‘ì„± ì‹œ ì�´ë¯¸ì§€ ì‚­ì œ(ì„œë²„) 
+    @ResponseBody // viewê°€ ì•„ë‹Œ ë�°ì�´í„° ë¦¬í„´
     @RequestMapping(value = "/upload/deleteWriteFile", method = RequestMethod.POST)
     public ResponseEntity<String> deleteWriteFile(String fileName, ServletRequest request) throws Exception {
+    	logger.info("deleteWriteFile");
     	String uploadPath = request.getServletContext().getRealPath("/resources");
     	
-        // 원본 파일 삭제
+        // ì›�ë³¸ íŒŒì�¼ ì‚­ì œ
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         
-        // 레코드 삭제
+        // ë ˆì½”ë“œ ì‚­ì œ
         postService.deleteFile(fileName);
         
-        // 데이터와 http 상태 코드 전송
+        // ë�°ì�´í„°ì™€ http ìƒ�íƒœ ì½”ë“œ ì „ì†¡
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
     
-    // 게시글 작성 시 이미지 삭제(서버, db) 
-    @ResponseBody // view가 아닌 데이터 리턴
+    // ê²Œì‹œê¸€ ìž‘ì„± ì‹œ ì�´ë¯¸ì§€ ì‚­ì œ(ì„œë²„, db) 
+    @ResponseBody // viewê°€ ì•„ë‹Œ ë�°ì�´í„° ë¦¬í„´
     @RequestMapping(value = "/upload/deleteUpdateFile", method = RequestMethod.POST)
     public ResponseEntity<String> deleteUpdateFile(String fileName, ServletRequest request) throws Exception {
     	logger.info("file: "+ fileName);
     	String uploadPath = request.getServletContext().getRealPath("/resources");
     	
-       // 원본 파일 삭제
+       // ì›�ë³¸ íŒŒì�¼ ì‚­ì œ
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
         
-        // 레코드 삭제
+        // ë ˆì½”ë“œ ì‚­ì œ
         postService.deleteFile(fileName);
         
-        // 데이터와 http 상태 코드 전송
+        // ë�°ì�´í„°ì™€ http ìƒ�íƒœ ì½”ë“œ ì „ì†¡
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
     
-    /****************************** # ajax 방식의 업로드 처리  *********************************/
+    /****************************** # ajax ë°©ì‹�ì�˜ ì—…ë¡œë“œ ì²˜ë¦¬  *********************************/
 
 }

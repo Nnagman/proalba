@@ -33,6 +33,7 @@
 								<col width="20%">
 								<col width="*">
 							</colgroup>
+							
 							<tbody id="dev_personal_info">
 								<tr>
 									<td rowspan="6">

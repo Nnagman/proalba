@@ -84,4 +84,6 @@ public class MobileAttendancdServiceImplement implements MobileAttendanceService
 		return mobileAttendanceDAO.fullcmobileattendance(id);
 	}
 
+
+
 }
