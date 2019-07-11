@@ -91,13 +91,14 @@ public class SignUpController {
     	
     	logger.info(memberVO.getPhone());
     	logger.info(memberVO.getB_number());
+    	logger.info(memberVO.toString());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);
         memberService.cregister(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REISTERED");
 
-        return "redirect:/login/login";
+        return "login/login";
     }
     
     @RequestMapping(value = "/idcheck", method = RequestMethod.POST)
