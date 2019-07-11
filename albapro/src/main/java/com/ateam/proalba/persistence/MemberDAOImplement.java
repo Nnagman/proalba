@@ -98,4 +98,30 @@ public class MemberDAOImplement implements MemberDAO {
 	public void hwModify(int hourWage) {
 		sqlSession.update(NAMESPACE + ".hwModify",hourWage);	
 	}
+
+	@Override
+	public String ceoCount() {
+		return sqlSession.selectOne(NAMESPACE + ".ceoCount");
+	}
+
+	@Override
+	public String perCount() {
+		return sqlSession.selectOne(NAMESPACE + ".perCount");
+	}
+
+	@Override
+	public String contCount() {
+		return sqlSession.selectOne(NAMESPACE + ".contCount");
+	}
+
+	@Override
+	public void withdraw(String mcode) {
+		sqlSession.update(NAMESPACE + ".withdraw", mcode);
+	}
+
+	@Override
+	public String is_withdraw(String mcode) {
+		return sqlSession.selectOne(NAMESPACE + ".is_withdraw", mcode);
+
+	}
 }

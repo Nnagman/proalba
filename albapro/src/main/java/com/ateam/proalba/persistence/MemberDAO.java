@@ -37,4 +37,14 @@ public interface MemberDAO {
 
 	public void hwModify(int hourWage);
 
+	public String ceoCount();
+
+	public String perCount();
+
+	public String contCount();
+
+	public void withdraw(String mcode);
+
+	public String is_withdraw(String mcode);
+
 }

@@ -81,7 +81,7 @@ public class SignUpController {
     public String cregisterModifyPOST(MemberVO memberVO, RedirectAttributes redirectAttributes) throws Exception {
     	logger.info(memberVO.getId());
     	memberService.cregisterModify(memberVO);
-    	
+    	 
     	return "login/cMyinfo";
     }
     
@@ -113,5 +113,6 @@ public class SignUpController {
     	map.put("cnt", count);
 		return map;		
 	}
+    
     
 }
