@@ -1,5 +1,6 @@
 package com.ateam.proalba.persistence.mobile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -69,5 +70,10 @@ public class MobileDAOImplement implements MobileDAO {
 	public List<MobileNoticeVO> mobile_recruinfo() throws Exception {
 		
 		return sqlSession.selectList(NAMESPACE+".mobile_recruinfo");
+	}
+
+	@Override
+	public List<CareerVO> mobile_inqcareer(String m_code) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".mobile_inqcareer", m_code);
 	}
 }
