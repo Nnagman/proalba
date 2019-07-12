@@ -108,7 +108,21 @@
 		
   	  	]]>
   	  	</select>
-	
+  	  	
+  	  	
+  	  			<select id="mobile_inqcareer" resultType="com.ateam.proalba.domain.CareerVO">
+		<![CDATA[
+			 	 	SELECT
+          c.join_date,c.work_place,c.end_date, m.name
+    	FROM career c, member m 
+    	WHERE c.m_code = 'ppersonal' AND c.m_code = m.m_code
+    	ORDER BY c.join_date desc
+		
+  	  	]]>
+  	  	</select>
+  	  	
+  	  	
+  	
 	
 	
 	

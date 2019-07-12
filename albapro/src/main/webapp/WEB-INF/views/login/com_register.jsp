@@ -52,8 +52,13 @@
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c2"
 								name="c2" /></label>
-								<a href="pdata">개인정보처리방침</a> 동의 (필수)<br />
+								<a href="pdata">개인정보처리방침</a> 동의 (필수)<br /> 
 							
+						</p>
+							<p>
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" />
+							</label>
+							이메일, SMS알림 수신 동의 (선택)<br /> 
 						</p>
 					</div>
 				</form>
@@ -335,19 +340,18 @@
       </div>
    </div>
 </body>
-<script>
+<!-- <script>
        //이용약관 동의
  var doc = document;
  var agree_form = doc.getElementById('agree_form');
  var inputs = agree_form.getElementsByTagName('INPUT');
  var agree_form_data = {
    "c1": false,
-   "c2": false,
-   "c3": false
+   "c2": false
  };
  var c1 = doc.getElementById('c1');
  var c2 = doc.getElementById('c2');
- var c3 = doc.getElementById('c3');
+
  function checkboxListener() {
    agree_form_data[this.name] = this.checked;
    if(this.checked) {
@@ -355,7 +359,7 @@
      this.parentNode.style.color = "#000";
    }
  }
-   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+   c1.onclick = c2.onclick = checkboxListener;
    var all = doc.getElementById('all');
    all.onclick = function() {
      if (this.checked) {
@@ -374,7 +378,7 @@
        }
      }
    }
-       </script>
+       </script> -->
        <script>
             $(document).ready(function(){
              $("#passwd_success").hide();
