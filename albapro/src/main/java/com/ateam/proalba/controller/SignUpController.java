@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 //import com.ateam.proalba.controller.login.Requestmapping;
@@ -85,13 +87,13 @@ public class SignUpController {
 		return "login/pdata";
 	}
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
-    public String pregisterPOST(MemberVO memberVO, HttpSession session) throws Exception {
+    public String pregisterPOST(MemberVO memberVO) throws Exception {
     	
     	logger.info(memberVO.getPhone());
     	logger.info(memberVO.getEmail());
         memberService.pregister(memberVO);
 
-        return "redirect:/login";  
+        return "/login/login";  
     }
     
     @RequestMapping(value = "/pregisterModify", method = RequestMethod.POST)
@@ -116,13 +118,14 @@ public class SignUpController {
     	
     	logger.info(memberVO.getPhone());
     	logger.info(memberVO.getB_number());
+    	logger.info(memberVO.toString());
 //        String hashedPassword = BCrypt.hashpw(memberVO.getPassword(), BCrypt.gensalt());
 //        memberVO.setPassword(hashedPassword);
 //        logger.info(hashedPassword);
         memberService.cregister(memberVO);
         redirectAttributes.addFlashAttribute("msg", "REISTERED");
 
-        return "redirect:/login/login";
+        return "login/login";
     }
     
     @RequestMapping(value = "/idcheck", method = RequestMethod.POST)
