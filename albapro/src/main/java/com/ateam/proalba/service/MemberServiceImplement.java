@@ -97,4 +97,29 @@ public class MemberServiceImplement implements MemberService {
 		memberDAO.hwModify(hourWage);		
 	}
 
+	@Override
+	public String ceoCount() {
+		return memberDAO.ceoCount();		
+	}
+
+	@Override
+	public String perCount() {
+		return memberDAO.perCount();		
+	}
+
+	@Override
+	public String contCount() {
+		return memberDAO.contCount();		
+	}
+
+	@Override
+	public void withdraw(String mcode) {
+		memberDAO.withdraw(mcode);
+	}
+
+	@Override
+	public String is_withdraw(String mcode) {
+		return memberDAO.is_withdraw(mcode);
+	}
+
 }

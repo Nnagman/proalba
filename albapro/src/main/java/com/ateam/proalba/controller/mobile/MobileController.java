@@ -62,7 +62,7 @@ public class MobileController {
 	private SalaryService salaryService;
 	private MemberService memberService;
 	private CareerService careerService;
-	
+
 	private RecruinfoService recruinfoService;
 
 	private ContractService contractService;
@@ -255,6 +255,18 @@ public class MobileController {
 		return list;
 
 	}
+
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.Inqcareer", method = RequestMethod.POST)
+	public List inqcareerPOST(@RequestBody String m_code) throws Exception {
+		logger.info("ㅇㅇ");
+		List<CareerVO> list = careerService.selectCareers(m_code);
+		logger.info(list.toString());
+		return list;
+	}
+	
+	
 
 	/* 모바일 출근현황 */
 	@ResponseBody

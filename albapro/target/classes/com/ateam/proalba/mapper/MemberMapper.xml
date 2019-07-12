@@ -57,6 +57,7 @@
 		SELECT m_code
 		FROM member
 		WHERE id = #{id}
+		AND is_withdraw is null
 	</select>
 
 	<select id="gbnum" resultType="String">
@@ -93,4 +94,32 @@
 		UPDATE choiyak 
 		SET choi = #{hourWage}
 	</update>
+	
+	<select id="ceoCount" resultType="String">
+		SELECT count(*)
+		FROM member
+		WHERE m_code like 'c%'
+		and is_withdraw is null
+	</select>
+	<select id="perCount" resultType="String">
+		SELECT count(*)
+		FROM member
+		WHERE m_code like 'p%'
+		and is_withdraw is null
+	</select>
+	<select id="contCount" resultType="String">
+		SELECT count(*)
+		FROM contract
+	</select>
+	<update id="withdraw">
+		UPDATE member
+		SET is_withdraw = 'y'
+		WHERE m_code = #{m_code}
+	</update>
+	
+	<select id="is_withdraw" resultType="String">
+		SELECT is_withdraw
+		FROM member
+		WHERE m_code = #{mcode}
+	</select>
 </mapper>

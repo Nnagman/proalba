@@ -81,5 +81,6 @@ public class MobileAttendanceDAOImplement implements MobileAttendanceDAO {
 		
 		return sqlSession.selectList(NAMESPACE +".fullcmobileattendance", id);
 	}
-	
+
+
 }
