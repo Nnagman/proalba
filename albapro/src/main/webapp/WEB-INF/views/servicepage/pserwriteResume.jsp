@@ -351,6 +351,7 @@
 	   					// div에 추가
 	   					$("#photo").append(html);
 	   					$("#RegistBaseInfo").append(del_btn);
+	   					console.log($('.file').val());
 	   				}
 	   			});
 	   		});
