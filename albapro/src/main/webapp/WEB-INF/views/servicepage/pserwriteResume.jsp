@@ -40,11 +40,7 @@
   		.odd { background-color:#EAEAEA; }
 
 		.Even { background-color : white; }
-<<<<<<< HEAD
-		
-		
-=======
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 	</style>
 </head>
 <body>
