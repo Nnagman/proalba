@@ -415,6 +415,7 @@
         }
         
         $("#submit2").click(function(){
+        	$("#submit2").attr("disabled", true);
         	var formData = $("#form").serialize();
         	var c_code = $("#c_code").val();
         	var blc, car;

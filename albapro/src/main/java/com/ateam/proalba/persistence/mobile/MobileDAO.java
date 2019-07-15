@@ -1,5 +1,6 @@
 package com.ateam.proalba.persistence.mobile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ateam.proalba.domain.CareerVO;
@@ -21,4 +22,5 @@ public interface MobileDAO {
 	List<MobileNoticeVO> mobile_addjobopening_free_manage_list(String id)throws Exception;
 	List<MobileNoticeVO> mobile_recruinfode(String n_code)throws Exception;
 	List<MobileNoticeVO> mobile_recruinfo()throws Exception;
+	List<CareerVO> mobile_inqcareer(String m_code)throws Exception;
 }

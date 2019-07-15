@@ -40,10 +40,7 @@
   		.odd { background-color:#EAEAEA; }
 
 		.Even { background-color : white; }
-		
-		.row{
-		display:block !important;
-		}
+
 	</style>
 </head>
 <body>
@@ -104,9 +101,15 @@
 					<div class="row">
 
 						<form action="${path}/writeResume" id="form" method="post">
+<<<<<<< HEAD
 
 							<div class="col-md-12" style="margin-left: 25%">
 
+=======
+							<div class="col-md-12">
+
+
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
 								<hr/>
@@ -380,25 +383,25 @@
 	   			address += "/" + $("#sample6_address").val();
 	   			address += "/" + $("#sample6_detailAddress").val();
 	   			
-	   			var high_school = document.getElementsByClassName("high_school")[0].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value;
+	   			var high_school = document.getElementsByClassName("high_school")[0].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value + " ";
 	   			
-	   			var college = document.getElementsByClassName("college")[0].value;
-	   			college += "+" + document.getElementsByClassName("college")[1].value;
-	   			college += "+" + document.getElementsByClassName("college")[2].value;
-	   			college += "+" + document.getElementsByClassName("college")[3].value;
+	   			var college = document.getElementsByClassName("college")[0].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[1].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[2].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[3].value + " ";
 	   			
-	   			var university = document.getElementsByClassName("university")[0].value;
-	   			university += "+" + document.getElementsByClassName("university")[1].value;
-	   			university += "+" + document.getElementsByClassName("university")[2].value;
-	   			university += "+" + document.getElementsByClassName("university")[3].value;
+	   			var university = document.getElementsByClassName("university")[0].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[1].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[2].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[3].value + " ";
 	   			
-	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value;
+	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value + " ";
 	   			
 	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
 	   			$("#education").val(education);

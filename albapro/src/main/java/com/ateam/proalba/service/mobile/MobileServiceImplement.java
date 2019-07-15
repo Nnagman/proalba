@@ -1,5 +1,6 @@
 package com.ateam.proalba.service.mobile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -75,6 +76,11 @@ public class MobileServiceImplement implements MobileService {
 	public List<MobileNoticeVO> mobile_recruinfo() throws Exception {
 		
 		return mobileDAO.mobile_recruinfo();
+	}
+
+	@Override
+	public List<CareerVO> mobile_inqcareer(String m_code) throws Exception {
+		return mobileDAO.mobile_inqcareer(m_code);
 	}
 
 
