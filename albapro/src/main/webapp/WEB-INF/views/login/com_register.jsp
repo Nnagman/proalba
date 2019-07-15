@@ -52,15 +52,20 @@
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c2"
 								name="c2" /></label>
-								<a href="pdata">개인정보처리방침</a> 동의 (필수)<br />
+								<a href="pdata">개인정보처리방침</a> 동의 (필수)<br /> 
 							
+						</p>
+							<p>
+							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" />
+							</label>
+							이메일, SMS알림 수신 동의 (선택)<br /> 
 						</p>
 					</div>
 				</form>
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" id="form">
+				<form name="signUpForm" id="form" onsubmit="return false;">
 				
 					<table>
 						<tbody>
@@ -140,7 +145,7 @@
               <tr>
                 <th>사업주</th>
                 <td>
-                  <input type="text" class="tBox comNum" name="name" id="comNum" size="10" maxlength="20" value="">
+                  <input type="text" class="tBox comNum" name="name" id="ceoName" size="10" maxlength="20" value="">
                 </td>
               </tr>
 
@@ -336,19 +341,18 @@
       </div>
    </div>
 </body>
-<script>
+<!-- <script>
        //이용약관 동의
  var doc = document;
  var agree_form = doc.getElementById('agree_form');
  var inputs = agree_form.getElementsByTagName('INPUT');
  var agree_form_data = {
    "c1": false,
-   "c2": false,
-   "c3": false
+   "c2": false
  };
  var c1 = doc.getElementById('c1');
  var c2 = doc.getElementById('c2');
- var c3 = doc.getElementById('c3');
+
  function checkboxListener() {
    agree_form_data[this.name] = this.checked;
    if(this.checked) {
@@ -356,7 +360,7 @@
      this.parentNode.style.color = "#000";
    }
  }
-   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+   c1.onclick = c2.onclick = checkboxListener;
    var all = doc.getElementById('all');
    all.onclick = function() {
      if (this.checked) {
@@ -375,7 +379,7 @@
        }
      }
    }
-       </script>
+       </script> -->
        <script>
             $(document).ready(function(){
              $("#passwd_success").hide();
@@ -475,6 +479,7 @@
 				url: '${path}/cregister',
 				success: function(data){
                     alert("회원가입성공!");
+                    $(location).attr("href", "http://localhost:8080/login");
 	            },
 	            error : function(error) {
 	                alert("error : " + error);

@@ -147,6 +147,7 @@
 					</table>
 					<div class="btnfield">
 						<button class="btn btn-dark" id="btn_signup" value="수정">수정</button>
+						<button class="btn btn-dark" id="withdrawal" value="탈퇴">탈퇴</button>						
 					</div>
 					
 				</form>
@@ -267,6 +268,27 @@
 			});
 
 		});
+        
+        $("#withdrawal").click(function(){
+        	if(confirm(" 모든 정보는 영구삭제되며 복구할 수 없습니다. 정말로 회원 탈퇴하시겠습니까?? ") == true){
+        		
+                var formData = $("#form").serialize(); 
+        		$.ajax({
+    				async: false,
+    				type: 'POST',
+    				data: formData,
+    				url: '${path}/withdrawalPersonal',
+    				success: function(data){
+    					if(data == 'success'){
+                        	alert("삭제완료하였습니다.!");    					
+    					}	
+    	            },
+    	            error : function(error) {
+    	                alert("error : " + error);
+    	            }
+    			});
+        	}
+        });
     });      
             </script>
 

@@ -1,5 +1,6 @@
 	package com.ateam.proalba.controller.login;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -80,14 +83,26 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 
 	  }
 
-    // 占싸깍옙占쏙옙 처占쏙옙
-    @RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
+	@SuppressWarnings("unused")
+	@RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
+        String is_withdraw = "";
+        
+        if(memberVO != null) {        	
+        	String mcode = memberVO.getM_code();
+        	is_withdraw = memberService.is_withdraw(mcode);
+        	logger.info("is_withdraw: "+is_withdraw);
+        }
+
         
         if (memberVO == null) {
             return;
+        }else if(is_withdraw != null) {
+        	if(is_withdraw.equals("y")) {
+        		return;
+        	}
         }
 
         model.addAttribute("member", memberVO);
@@ -123,18 +138,24 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 		return JSONObject.fromObject(vo).toString();
     }
     
- // 미세먼지 측정값
-    @RequestMapping(value = "/test", method = RequestMethod.POST, produces = {"application/json"})
-    public @ResponseBody Map<String, Object> dustData(@RequestBody Map<String, Object> info) {
+    @RequestMapping(value = "/naverLogin", method = RequestMethod.GET)
+    public String naverLogin(HttpServletRequest request, HttpServletResponse response) {
+    	return "login/naverLogin";
+    }
+    
+    @RequestMapping(value = "/naverLogin/login", method = RequestMethod.GET)
+    public String naverLoginPost(@RequestParam("email") String email, HttpServletRequest request, Model model) throws Exception {
+    	HttpSession httpSession = request.getSession();
+    	
+    	MemberVO memberVO = memberService.apiIdcheck(email);
+    	
+    	if(memberVO != null) {
+    		httpSession.setAttribute("login", memberVO);
+    	}else {
+    		model.addAttribute("status", "0");
+    		return "redirect:/login";
+    	}
 
-       Map<String, Object> retVal = new HashMap<String, Object>();
-       
-       System.out.println("loginID: " + info.get("loginID"));
-
-
-       retVal.put("result", "success!!");
-       System.out.println("retVal: " + retVal);
-       
-       return retVal;
+    	return "redirect:/";
     }
 }
