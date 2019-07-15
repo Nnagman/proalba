@@ -53,6 +53,11 @@
       WHERE id = #{id}
 	</select>
 	
+	<select id="apiIdcheck" resultType="com.ateam.proalba.domain.MemberVO">
+		SELECT * FROM member
+		WHERE email = #{email}
+	</select>
+	
 	<select id="checkM" resultType="String">
 		SELECT m_code
 		FROM member

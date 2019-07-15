@@ -25,6 +25,7 @@ import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
@@ -37,6 +38,7 @@ import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
+import com.ateam.proalba.service.ResumeService;
 import com.ateam.proalba.service.SalaryService;
 import com.ateam.proalba.service.WorkManageService;
 import com.ateam.proalba.service.mobile.MobileAttendanceService;
@@ -62,6 +64,9 @@ public class MobileController {
 	private SalaryService salaryService;
 	private MemberService memberService;
 	private CareerService careerService;
+
+	private ResumeService resumeService;
+
 
 
 	private ContractService contractService;
@@ -422,5 +427,30 @@ public class MobileController {
 		map.put("check", "success");
 		return map;
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.writeResume", method = RequestMethod.POST)
+	public String wresumePOST(ResumeVO resumeVO) throws Exception {
+		logger.info("Welcome wresumePage");
+		System.out.println(resumeVO.getTitle());
+		
+		String id = resumeVO.getId();
+		
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date = new Date();
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("r_code", id + "/" + fmt.format(date));
+		map.put("m_code", "p" + id);
+		map.put("title", resumeVO.getTitle());
+		map.put("address", resumeVO.getAddress());
+		map.put("content", resumeVO.getContent());
+		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
+		map.put("license", resumeVO.getLicense());
+		
+		resumeService.write_resume(map);
+//		model.addAttribute("message", "wresumePage");
+		return "redirect:/listResume?id="+id;
+	}
 }

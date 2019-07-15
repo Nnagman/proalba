@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 //import com.ateam.proalba.controller.login.Requestmapping;
@@ -39,9 +43,32 @@ public class SignUpController {
 		return "login/sel_register";
 	}
 	
+	@RequestMapping(value = "/selNaverRegister", method = RequestMethod.GET)
+	public String selNaverRegister() {
+		
+		return "login/naverRegister";
+	}
+	
+	@RequestMapping(value = "/naverRegister", method = RequestMethod.GET)
+	public String naverRegisterGET(@RequestParam("email") String email, HttpSession httpSession, Model model) throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setEmail(email);
+		
+		MemberVO emailChk = memberService.apiIdcheck(email);
+		
+		if(emailChk != null) {
+			model.addAttribute("status", "1");
+    		return "redirect:/login";
+		}
+		
+		httpSession.setAttribute("memberVO", memberVO);
+		
+		return "login/register";
+	}
+	
 	@RequestMapping(value = "/pregister", method = RequestMethod.GET)
 	public String pregisterGET() {
-		return "login/register";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value = "/cregister", method = RequestMethod.GET)
@@ -61,12 +88,12 @@ public class SignUpController {
 	}
     @RequestMapping(value = "/pregister", method = RequestMethod.POST)
     public String pregisterPOST(MemberVO memberVO) throws Exception {
- 
+    	
     	logger.info(memberVO.getPhone());
     	logger.info(memberVO.getEmail());
         memberService.pregister(memberVO);
 
-        return "redirect:/";  
+        return "/login/login";  
     }
     
     @RequestMapping(value = "/pregisterModify", method = RequestMethod.POST)

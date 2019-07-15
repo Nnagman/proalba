@@ -65,7 +65,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" id="form">
+				<form name="signUpForm" id="form" onsubmit="return false;">
 				
 					<table>
 						<tbody>
@@ -479,6 +479,7 @@
 				url: '${path}/cregister',
 				success: function(data){
                     alert("회원가입성공!");
+                    $(location).attr("href", "http://localhost:8080/login");
 	            },
 	            error : function(error) {
 	                alert("error : " + error);

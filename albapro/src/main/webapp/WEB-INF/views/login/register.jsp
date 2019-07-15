@@ -52,7 +52,7 @@
 
 				<!-- 회원 정보 입력 폼 -->
 
-				<form name="signUpForm" id="form">
+				<form name="signUpForm" id="form" onsubmit="return false;">
 					<table>
 						<tbody>
 
@@ -119,30 +119,35 @@
 								</td>
 							</tr>
 
-							<tr>
-								<th>이메일</th>
-								<td>
-									<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
-										<span> @</span> 
-									<input type="text" name="EmailDomain" class="tBox tEmail email2" id="dev_mail_etc" maxlength="25" title="이메일계정">
-							        <select class="sel2 tEmail" name="email_select" id="email_select">
-							          <option value="1">직접입력</option>
-							          <option value="naver.com">네이버</option>
-							          <option value="daum.net">다음</option>
-							          <option value="gmail.com">구글</option>
-							          <option value="hanmail.net">한메일</option>
-							          <option value="nate.com">네이트</option>
-							        </select>
-							        <input id="email" name="email" value="" type="hidden"/>
-								</td>
-							</tr>
-
+							<c:if test="${memberVO.email != null}">
+								<input type="hidden" name="email" value="${memberVO.email}"/>
+							</c:if>
+							
+							<c:if test="${memberVO.email == null}">
+								<tr>
+									<th>이메일</th>
+									<td>
+											<input type="text" class="tBox tEmail" id="dev_M_Email" maxlength="25" title="이메일계정" autocomplete="off"> 
+												<span> @</span> 
+											<input type="text" name="EmailDomain" class="tBox tEmail email2" id="dev_mail_etc" maxlength="25" title="이메일계정">
+									        <select class="sel2 tEmail" name="email_select" id="email_select">
+									          <option value="1">직접입력</option>
+									          <option value="naver.com">네이버</option>
+									          <option value="daum.net">다음</option>
+									          <option value="gmail.com">구글</option>
+									          <option value="hanmail.net">한메일</option>
+									          <option value="nate.com">네이트</option>
+									        </select>
+									        <input id="email" name="email" value="" type="hidden"/>
+									</td>
+								</tr>
+							</c:if>
+							
 							<tr>
 								<td colspan="2" class="tLine">
 									<hr />
 								</td>
 							</tr>
-
 
 							<tr>
 								<th>휴대폰 번호</th>
@@ -316,8 +321,8 @@
 				data: formData,
 				url: '${path}/pregister',
 				success: function(data){
-                    alert("회원가입성공!");  
-
+                    alert("회원가입성공!");
+                    $(location).attr("href", "http://localhost:8080/login");
 				},
 	            error : function(error) {
 	                alert("error : " + error);
@@ -331,6 +336,6 @@
 
 		});
     });      
-            </script>
+       </script>
 
 </html>

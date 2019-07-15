@@ -122,4 +122,9 @@ public class MemberServiceImplement implements MemberService {
 		return memberDAO.is_withdraw(mcode);
 	}
 
+	@Override
+	public MemberVO apiIdcheck(String email) throws Exception {
+		return memberDAO.apiIdcheck(email);
+	}
+
 }

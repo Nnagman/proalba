@@ -15,7 +15,9 @@
 			</div>
 			<div class="replyName">
 				<h6><fmt:formatDate value="${row.r_date}" pattern="yyyy-MM-dd a HH:mm:ss" /></h6>
-				<input type="button" id="${row.r_code}" class="reply_delete" value="댓글 삭제"/>
+				<c:if test="${row.id == login.id}">
+					<input type="button" id="${row.r_code}" class="reply_delete" value="댓글 삭제"/>
+				</c:if>
 			</div>
 			<br>
 			${row.r_content}

@@ -124,4 +124,9 @@ public class MemberDAOImplement implements MemberDAO {
 		return sqlSession.selectOne(NAMESPACE + ".is_withdraw", mcode);
 
 	}
+
+	@Override
+	public MemberVO apiIdcheck(String email) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".apiIdcheck", email);
+	}
 }
