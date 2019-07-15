@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>프로알바</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <style>

@@ -15,9 +15,12 @@ body{
 .menucontainer{
     width:100%;
     margin: 0 auto;
-    padding: 20px 0 22px 0; 
+    padding: 20px 0 22px 50px; 
 
 }
+
+
+
 
 .nav{
     /* font-family: '�������彺����'; */
@@ -263,10 +266,7 @@ body{
   margin-top: 2px;
 }
 
-    .manubar{
-	left:20% !important; 
-	
-}
+
  
 .manuli{
 	color:white !important;
@@ -289,3 +289,4 @@ th{
 	text-align:center;
 	font-weight:bold !important;
 }
+

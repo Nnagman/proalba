@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
 <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
  
- 
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
  
   <link href="resources/css/bootstrap.min.css" rel="stylesheet">

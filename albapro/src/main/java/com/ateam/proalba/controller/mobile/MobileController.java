@@ -63,7 +63,6 @@ public class MobileController {
 	private MemberService memberService;
 	private CareerService careerService;
 
-	private RecruinfoService recruinfoService;
 
 	private ContractService contractService;
 

@@ -143,9 +143,46 @@ margin-left:500px !important;
 }
 
 .containermo{
-	width:90%;
+	width:65%;
 }
   
-  
+ .subnavbar1{
+ width:300px !important;
+ padding-top:45px;
+ height:120px;
+ 	color:white;
+ 	display:block;
+ 	margin:0 20px 0 0;
+ }
 
+
+.writeResume_li,.addjobopning_li{
+	display:inline-block;
+	font-size:11px;
+	margin:0 0 0 20px;
+
+	
+}
+
+.menuLink{
+	color:white !important;
+}
+
+.writeResume_li .material-icons{
+  vertical-align: middle;
+    font-size: 20px;
+	
+	
+	
+}
+
+.addjobopning_li .fa-bullhorn{
+	  vertical-align: middle;
+    font-size: 15px;
+	
+}
+.flex-center ul {
+	text-align:right !important;
+
+}
  
