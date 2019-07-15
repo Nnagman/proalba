@@ -184,11 +184,8 @@
 														<h3>${row.name}</h3>
 													</div>
 													<div class="card-body">
-<<<<<<< HEAD
 														<%-- <fmt:parseNumber var="end_time" value="${row.end_period.time / (1000*60*60*24)}" integerOnly="true"/> --%>
-=======
-														<fmt:parseNumber var="end_time" value="${row.end_period}" integerOnly="true"/>
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
+
 														<h5 class="card-title">휴대번호: ${row.phone}</h5>
 														<br>
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
