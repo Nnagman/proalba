@@ -344,13 +344,19 @@ public class WorkmanageController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/m.cworkmanage", method = RequestMethod.GET)
-	public JSON mcworkmanageGET(Model model, String id) throws Exception {
+	@RequestMapping(value = "/m.cworkmanage", method = RequestMethod.POST)
+	public JSON mcworkmanageGET(@RequestBody String id) throws Exception {
 
 		logger.info("c id:  " + id);
-		logger.info("Welcome CserviceController");
+	
 		List<WorkManageVO> list = workManage.listAll(id);
-		logger.info(list.toString());
+		for (WorkManageVO workManageVO : list) {
+			if (workManageVO.getEnd_date() == null) {
+				Date date = workManageVO.getJoin_date();
+				workManageVO.setEnd_date(date);
+			}
+		}
+		logger.info("fdfd"+list.toString());
 		JSONArray pJson = JSONArray.fromObject(list);
 		return pJson;
 	}

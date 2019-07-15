@@ -65,8 +65,10 @@ public class MobileController {
 	private SalaryService salaryService;
 	private MemberService memberService;
 	private CareerService careerService;
+
 	private ResumeService resumeService;
-	private RecruinfoService recruinfoService;
+
+
 
 	private ContractService contractService;
 

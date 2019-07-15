@@ -439,8 +439,11 @@ top:300px;
 			      }
 
 			 });
-				  	console.log(chV);
-			 
+				  	//console.log(chV);
+				if( !chV.length ){
+					return; 
+				}
+
  			  	if(confirm("선택한 공고를 삭제하시겠습니까??") == true){
 			  		
 				  	jQuery.ajaxSettings.traditional = true;
@@ -455,12 +458,13 @@ top:300px;
 				  	        alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
 				  	    },
 				  	    success: function(msg) {
-				  	        alert(msg);        
+				  	        if(msg =='s'){
+				  	       		alert("공고를 삭제하였습니다.");
+				  	       		window.location.href = "${path}/recruinfoManage"
+				  	        }      
 				  	    }					  	 
 				  	});
-			  	
 			  	} 
-			  	
 		});
 	});
 	

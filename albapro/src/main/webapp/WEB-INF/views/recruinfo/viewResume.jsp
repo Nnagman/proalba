@@ -50,13 +50,12 @@
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+    	var late_status =${resume.late_status};
+    	var c_late_status =${resume.c_late_status};
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['정상 출근',   c_late_status],
+          ['지각',  late_status]
         ]);
 
         var options = {

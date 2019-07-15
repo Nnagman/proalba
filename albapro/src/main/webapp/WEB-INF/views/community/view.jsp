@@ -11,6 +11,7 @@
 
 <%@ include file = "../include/header.jsp" %>
 <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 	.attImg{
 		width : 400px;

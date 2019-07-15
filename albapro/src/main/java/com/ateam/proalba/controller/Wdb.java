@@ -128,9 +128,9 @@ class ClientClone implements Runnable {
       ResultSet rs = null;
       try {
          Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-         String url = "jdbc:log4jdbc:oracle:thin:@39.127.7.85:1521/AteamDB";
-         String id = "proalba";
-         String password = "pro123";
+         String url = "jdbc:log4jdbc:oracle:thin:@mydbinstance.c7pungzjxhk2.ap-northeast-2.rds.amazonaws.com:1521/ORCL";
+         String id = "awsproalba";
+         String password = "7895admin";
          String query = "";
          String query1 = "";
          conn = DriverManager.getConnection(url, id, password);
@@ -156,7 +156,7 @@ class ClientClone implements Runnable {
             	 System.out.print(" 출근 : ");
              }else {
             	 
-            	 query1 = "INSERT INTO salary (sa_code,em_code)  select SUBSTR(e.m_code,2,INSTR(e.em_code,'/',1)-2)||'/'||to_char(sysdate,'yyyymm')||'/'||SUBSTR(em_code,2,INSTR(em_code,'/',1)-2) as sa_code, e.em_code " + 
+            	 query1 = "INSERT INTO salary (sa_code,em_code)  select substr(e.m_code,2,instr(e.em_code,'/',1)+1)||'/'||to_char(sysdate,'yyyymm')||'/'||substr(em_code,2,instr(em_code,'/',1)-2) as sa_code, e.em_code " + 
             	 		"        from member m, employee e" + 
             	 		"        where " + 
             	 		"        m.m_code = SUBSTR(em_code,1,INSTR(em_code,'/',1)-1) and " + 
@@ -171,9 +171,17 @@ class ClientClone implements Runnable {
             			 " and SUBSTR(sa_code,INSTR(sa_code,'/',1)+1,6) = to_char(sysdate, 'yyyymm') ";
                  stmt1 = conn.createStatement();
                  rs = stmt1.executeQuery(query);
+                 System.out.print(" salary 코드 생성 출근 : ");
              }
          }else if(typeID==3) {
-         query = "UPDATE work_record w SET w.work_end_time = TO_CHAR(SYSDATE,'hh24:mi')" + 
+         query = "UPDATE work_record w SET w.late_status = (select case when(c.start_work_time>=w.work_start_time) then 0 else 1 end " + 
+         		"from contract c, work_record w " + 
+         		"where rownum=1 and " + 
+         		"w.work_start_time = ( select max(work_start_time) " + 
+         		"from work_record  " + 
+         		"where work_end_time IS NULL) " + 
+         		"and 'p'||SUBSTR(w_code,1,INSTR(w_code,'/',1)-1) = (select m_code from employee where finger_id="+fingerID+")) , "+ 
+        		 "w.work_end_time = TO_CHAR(SYSDATE,'hh24:mi') " + 
          		"    where  " + 
          		"    rownum=1 and    " + 
          		"    w.work_start_time = ( select max(work_start_time) " + 
