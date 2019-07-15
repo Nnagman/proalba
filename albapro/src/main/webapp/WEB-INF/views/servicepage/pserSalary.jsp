@@ -36,7 +36,37 @@
 <script src="resources/js/cal/interaction.js"></script>
 
 
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+var salarydata = ${salarys};
+console.log(salarydata.length);
+console.log(salarydata);
+var graph = new Array();
+graph.push([ 'year', salarydata[0].work_place ]);
+function drawChart() {
+ 
+	  for (var i = 0; i < salarydata.length; i++) {
+			
+			console.log(salarydata[0].year_month);
+			graph.push([salarydata[i].year_month,
+					parseInt(salarydata[i].actual_salary) ]);
+		}
+ 
+	  var data = google.visualization.arrayToDataTable(graph);
+  var options = {
+    title: '',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  };
 
+  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+  chart.draw(data, options);
+}
+</script>
 </head>
 
 
@@ -145,6 +175,8 @@
                            </div>
                         </div>
                      </div>
+                     	<!--  그래프 -->
+                  <div id="curve_chart" style="width: 900px; height: 500px"></div>
                   </div>
 
                </div>
