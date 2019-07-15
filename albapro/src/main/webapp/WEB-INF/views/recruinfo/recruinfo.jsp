@@ -103,10 +103,16 @@ p {
 	height: 34px !important;
 	padding-top: 5px !important;
 	vertical-align: middle !important;
+	margin: 0;
+	
 }
 
 .jobSearch dl .content .value span {
 	height: 23px !important;
+}
+
+.placho-line1{
+	margin: 0 !important;	
 }
 
 .recruinfo-list{
@@ -245,8 +251,9 @@ top:300px;
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">채용 공고</h2>
 		</div>
+		<br><br>
 
-		<div id="JobCount">
+<!-- 		<div id="JobCount">
 			<div class="all">
 				<p class="title1">전체 채용공고</p>
 				<p class="count">
@@ -255,7 +262,7 @@ top:300px;
 
 
 		</div>
-
+ -->
 		<div id="SubContents">
 
 			<!-- Job Count -->
@@ -289,7 +296,8 @@ top:300px;
 
 				<!-- 기본검색 -->
 
-				<div class="base">
+
+				<!-- <div class="base">
 
 
 					<!-- 지역 -->
@@ -347,10 +355,10 @@ top:300px;
 						</dd>
 					</dl> -->
 
-					<!-- 지역 -->
-				</div>
+					<!-- 지역 
+				</div>	-->
 
-
+<!-- 	작동 x 
 				<div class="jobcho-line1">
 					직종/업무:
 					<div class="jobchoice"></div>
@@ -359,7 +367,7 @@ top:300px;
 					전체카테고리
 					</button>
 				</div>
-					
+					 -->
 				<div class="placho-line1">
 					지역:
 					<input type="text" class="plachoice" id="plachoice" onchange="plasearch(this.value)" />
@@ -419,8 +427,8 @@ top:300px;
 
 
 
-
-<!-- Modal 직종 -->
+<!-- 작동 x 
+Modal 직종 
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -436,8 +444,8 @@ top:300px;
 					<div class="jobcho2"></div>
 					<div class="jobcho3-title">선택된 직종</div>
 					<div class="jobcho3"></div>
-					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button> -->
+					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
@@ -446,8 +454,7 @@ top:300px;
     </div>
   </div>
 </div>
-
-<!-- Modal 직종 -->
+ -->
 
 
 <!-- Modal 지역 -->
