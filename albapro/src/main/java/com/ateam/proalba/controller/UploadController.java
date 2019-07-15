@@ -1,15 +1,15 @@
 package com.ateam.proalba.controller;
 
-import java.io.File;
+ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.UUID;
 
-import javax.annotation.Resource;
+ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.ServletRequest;
 
-import org.apache.commons.io.IOUtils;
+ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,103 +26,102 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ateam.proalba.service.post.PostService;
+ import com.ateam.proalba.service.post.PostService;
 import com.ateam.proalba.util.UploadFileUtils;
 
-@Controller
+ @Controller
 public class UploadController {
 
-	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
-	
-	@Autowired
+ 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
+
+ 	@Autowired
 	PostService postService;
-	
-	@RequestMapping(value="upload/uploadForm", method=RequestMethod.GET)
+
+ 	@RequestMapping(value="upload/uploadForm", method=RequestMethod.GET)
 	public void uploadForm(Model model) {
 	}
-	
-	/*
+
+ 	/*
 	 * @ResponseBody
 	 * 
 	 * @RequestMapping(value="upload/uploadForm", method=RequestMethod.POST) public
 	 * ModelAndView uploadForm(MultipartFile file, ModelAndView mav) throws
-	 * Exception { logger.info("Ã­Å’Å’Ã¬ï¿½Â¼Ã¬ï¿½Â´Ã«Â¦â€: "+ file.getOriginalFilename()); String
-	 * savedName = file.getOriginalFilename(); logger.info("Ã­Å’Å’Ã¬ï¿½Â¼Ã­ï¿½Â¬ÃªÂ¸Â°: "+
-	 * file.getSize()); logger.info("Ã¬Â»Â¨Ã­â€¦ï¿½Ã­Å Â¸ Ã­Æ’â‚¬Ã¬Å¾â€¦: "+ file.getContentType()); savedName =
+	 * Exception { logger.info("ÆÄÀÏÀÌ¸§: "+ file.getOriginalFilename()); String
+	 * savedName = file.getOriginalFilename(); logger.info("ÆÄÀÏÅ©±â: "+
+	 * file.getSize()); logger.info("ÄÁÅÙÆ® Å¸ÀÔ: "+ file.getContentType()); savedName =
 	 * uploadFile(savedName, file.getBytes());
 	 * mav.setViewName("upload/uploadResult"); mav.addObject("savedName",
 	 * savedName); return mav; }
 	 */
-	
-	/*
+
+ 	/*
 	 * private String uploadFile(String originalName, byte[] fileData) throws
-	 * Exception { //uuid Ã¬Æ’ï¿½Ã¬â€Â± (Universal Unique IDentifier, Ã«Â²â€Ã¬Å¡Â© ÃªÂ³Â Ã¬Å“Â  Ã¬â€¹ï¿½Ã«Â³â€Ã¬Å¾ï¿½) UUID uid =
+	 * Exception { //uuid »ı¼º (Universal Unique IDentifier, ¹ü¿ë °íÀ¯ ½Äº°ÀÚ) UUID uid =
 	 * UUID.randomUUID(); String savedName = uid.toString() + "_" + originalName;
-	 * File target = new File(uploadPath, savedName); //Ã­Å’Å’Ã¬ï¿½Â¼Ã¬ï¿½â€ Ã¬â€¹Â¤Ã¬Â Å“Ã«Â¡Å“ Ã¬Â â‚¬Ã¬Å¾Â¥ //Ã¬Å¾â€Ã¬â€¹Å“ Ã«â€â€Ã«Â â€°Ã­â€ Â Ã«Â¦Â¬Ã¬â€”ï¿½ Ã¬Â â‚¬Ã¬Å¾Â¥Ã«ï¿½Å“
-	 * Ã¬â€”â€¦Ã«Â¡Å“Ã«â€œÅ“ Ã­Å’Å’Ã¬ï¿½Â¼Ã¬ï¿½â€ Ã¬Â§â‚¬Ã¬Â â€¢Ã«ï¿½Å“ Ã«â€â€Ã«Â â€°Ã­â€ Â Ã«Â¦Â¬Ã«Â¡Å“ Ã«Â³ÂµÃ¬â€šÂ¬ //FilecopyUtiles.copy(Ã«Â°â€Ã¬ï¿½Â´Ã­Å Â¸Ã«Â°Â°Ã¬â€”Â´, Ã­Å’Å’Ã¬ï¿½Â¼ÃªÂ°ï¿½Ã¬Â²Â´)
+	 * File target = new File(uploadPath, savedName); //ÆÄÀÏÀ» ½ÇÁ¦·Î ÀúÀå //ÀÓ½Ã µğ·ºÅä¸®¿¡ ÀúÀåµÈ
+	 * ¾÷·Îµå ÆÄÀÏÀ» ÁöÁ¤µÈ µğ·ºÅä¸®·Î º¹»ç //FilecopyUtiles.copy(¹ÙÀÌÆ®¹è¿­, ÆÄÀÏ°´Ã¼)
 	 * FileCopyUtils.copy(fileData, target); return savedName; }
 	 */
-	
-	/****************************** # ajax Ã«Â°Â©Ã¬â€¹ï¿½Ã¬ï¿½Ëœ Ã¬â€”â€¦Ã«Â¡Å“Ã«â€œÅ“ Ã¬Â²ËœÃ«Â¦Â¬  *********************************/
-	
-	// 4. AjaxÃ¬â€”â€¦Ã«Â¡Å“Ã«â€œÅ“ Ã­Å½ËœÃ¬ï¿½Â´Ã¬Â§â‚¬ Ã«Â§Â¤Ã­â€¢â€˜
+
+ 	/****************************** # ajax ¹æ½ÄÀÇ ¾÷·Îµå Ã³¸®  *********************************/
+
+ 	// 4. Ajax¾÷·Îµå ÆäÀÌÁö ¸ÅÇÎ
 	@RequestMapping(value="/upload/uploadAjax", method=RequestMethod.GET)
 	public void uploadAjax(){
-		// uploadAjax.jspÃ«Â¡Å“ Ã­ï¿½Â¬Ã¬â€ºÅ’Ã«â€Â©
+		// uploadAjax.jsp·Î Æ÷¿öµù
 	}
 
-	// 5. AjaxÃ¬â€”â€¦Ã«Â¡Å“Ã«â€œÅ“ Ã¬Â²ËœÃ«Â¦Â¬ Ã«Â§Â¤Ã­â€¢â€˜
-	// Ã­Å’Å’Ã¬ï¿½Â¼Ã¬ï¿½Ëœ Ã­â€¢Å“ÃªÂ¸â‚¬Ã¬Â²ËœÃ«Â¦Â¬ : produces="text/plain;charset=utf-8"
-	@ResponseBody // viewÃªÂ°â‚¬ Ã¬â€¢â€Ã«â€¹Å’ dataÃ«Â¦Â¬Ã­â€Â´
+ 	// 5. Ajax¾÷·Îµå Ã³¸® ¸ÅÇÎ
+	// ÆÄÀÏÀÇ ÇÑ±ÛÃ³¸® : produces="text/plain;charset=utf-8"
+	@ResponseBody // view°¡ ¾Æ´Ñ data¸®ÅÏ
 	@RequestMapping(value="/upload/uploadAjax", method=RequestMethod.POST, produces="text/plain;charset=utf-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file, ServletRequest request) throws Exception {
 		logger.info("uploadAjax Cont");
 		logger.info("originalName : "+file.getOriginalFilename());
 		logger.info("size : "+file.getSize());
 		logger.info("contentType : "+file.getContentType());
-		
-		
-		String uploadPath = request.getServletContext().getRealPath("/resources");
+
+
+ 		String uploadPath = request.getServletContext().getRealPath("/resources");
 		String folderName = "community";
 		logger.info("uploadFolder : "+uploadPath);
-		
-		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);
+
+ 		return new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes(), folderName), HttpStatus.OK);
 	}
-    
-    // ÃªÂ²Å’Ã¬â€¹Å“ÃªÂ¸â‚¬ Ã¬Å¾â€˜Ã¬â€Â± Ã¬â€¹Å“ Ã¬ï¿½Â´Ã«Â¯Â¸Ã¬Â§â‚¬ Ã¬â€šÂ­Ã¬Â Å“(Ã¬â€Å“Ã«Â²â€) 
-    @ResponseBody // viewÃªÂ°â‚¬ Ã¬â€¢â€Ã«â€¹Å’ Ã«ï¿½Â°Ã¬ï¿½Â´Ã­â€Â° Ã«Â¦Â¬Ã­â€Â´
+
+     // °Ô½Ã±Û ÀÛ¼º ½Ã ÀÌ¹ÌÁö »èÁ¦(¼­¹ö) 
+    @ResponseBody // view°¡ ¾Æ´Ñ µ¥ÀÌÅÍ ¸®ÅÏ
     @RequestMapping(value = "/upload/deleteWriteFile", method = RequestMethod.POST)
     public ResponseEntity<String> deleteWriteFile(String fileName, ServletRequest request) throws Exception {
-    	logger.info("deleteWriteFile");
     	String uploadPath = request.getServletContext().getRealPath("/resources");
-    	
-        // Ã¬â€ºï¿½Ã«Â³Â¸ Ã­Å’Å’Ã¬ï¿½Â¼ Ã¬â€šÂ­Ã¬Â Å“
+
+         // ¿øº» ÆÄÀÏ »èÁ¦
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
-        
-        // Ã«Â Ë†Ã¬Â½â€Ã«â€œÅ“ Ã¬â€šÂ­Ã¬Â Å“
+
+         // ·¹ÄÚµå »èÁ¦
         postService.deleteFile(fileName);
-        
-        // Ã«ï¿½Â°Ã¬ï¿½Â´Ã­â€Â°Ã¬â„¢â‚¬ http Ã¬Æ’ï¿½Ã­Æ’Å“ Ã¬Â½â€Ã«â€œÅ“ Ã¬Â â€Ã¬â€ Â¡
+
+         // µ¥ÀÌÅÍ¿Í http »óÅÂ ÄÚµå Àü¼Û
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
-    
-    // ÃªÂ²Å’Ã¬â€¹Å“ÃªÂ¸â‚¬ Ã¬Å¾â€˜Ã¬â€Â± Ã¬â€¹Å“ Ã¬ï¿½Â´Ã«Â¯Â¸Ã¬Â§â‚¬ Ã¬â€šÂ­Ã¬Â Å“(Ã¬â€Å“Ã«Â²â€, db) 
-    @ResponseBody // viewÃªÂ°â‚¬ Ã¬â€¢â€Ã«â€¹Å’ Ã«ï¿½Â°Ã¬ï¿½Â´Ã­â€Â° Ã«Â¦Â¬Ã­â€Â´
+
+     // °Ô½Ã±Û ÀÛ¼º ½Ã ÀÌ¹ÌÁö »èÁ¦(¼­¹ö, db) 
+    @ResponseBody // view°¡ ¾Æ´Ñ µ¥ÀÌÅÍ ¸®ÅÏ
     @RequestMapping(value = "/upload/deleteUpdateFile", method = RequestMethod.POST)
     public ResponseEntity<String> deleteUpdateFile(String fileName, ServletRequest request) throws Exception {
     	logger.info("file: "+ fileName);
     	String uploadPath = request.getServletContext().getRealPath("/resources");
-    	
-       // Ã¬â€ºï¿½Ã«Â³Â¸ Ã­Å’Å’Ã¬ï¿½Â¼ Ã¬â€šÂ­Ã¬Â Å“
+
+        // ¿øº» ÆÄÀÏ »èÁ¦
         new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
-        
-        // Ã«Â Ë†Ã¬Â½â€Ã«â€œÅ“ Ã¬â€šÂ­Ã¬Â Å“
+
+         // ·¹ÄÚµå »èÁ¦
         postService.deleteFile(fileName);
-        
-        // Ã«ï¿½Â°Ã¬ï¿½Â´Ã­â€Â°Ã¬â„¢â‚¬ http Ã¬Æ’ï¿½Ã­Æ’Å“ Ã¬Â½â€Ã«â€œÅ“ Ã¬Â â€Ã¬â€ Â¡
+
+         // µ¥ÀÌÅÍ¿Í http »óÅÂ ÄÚµå Àü¼Û
         return new ResponseEntity<String>("deleted", HttpStatus.OK);
     }
-    
-    /****************************** # ajax Ã«Â°Â©Ã¬â€¹ï¿½Ã¬ï¿½Ëœ Ã¬â€”â€¦Ã«Â¡Å“Ã«â€œÅ“ Ã¬Â²ËœÃ«Â¦Â¬  *********************************/
 
-}
+     /****************************** # ajax ¹æ½ÄÀÇ ¾÷·Îµå Ã³¸®  *********************************/
+
+ }

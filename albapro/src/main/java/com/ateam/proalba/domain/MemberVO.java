@@ -17,4 +17,5 @@ public class MemberVO {
 	private String work_place_name;
 	private String introduction;
 	private String job_type;
+	private String restApiEmail;
 }

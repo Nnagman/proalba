@@ -27,12 +27,34 @@
         <div class="indi_member">
           <i class="fas fa-user"></i><br/>
           <a href="pregister"><input type="button" class="reg_btn" id="indi_reg_btn" name="indi_reg" value="개인회원가입"></a>
+          <div id="naverIdLogin" style="margin-top: 40px;"></div>
       </div>
         <div class="corp_member">
           <i class="fas fa-user-tie"></i><br/>
           <a href="cregister"><input type="button" class="reg_btn" id="corp_reg_btn" name="indi_reg" value="기업회원가입"></a>
         </div>
       </div>
-
   </div>
 </div>
+
+    <!-- (1) LoginWithNaverId Javscript SDK -->
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+
+
+	<!-- (2) LoginWithNaverId Javscript 설정 정보 및 초기화 -->
+	<script>
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "hkaRQixriKsVgNq3XfqU",
+				callbackUrl: "http://localhost:8080/selNaverRegister",
+				isPopup: false,
+				callbackHandle: true,
+				loginButton: {color: "green", type: 1, height: 60}
+				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
+			}
+		);
+
+		/* (3) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
+		naverLogin.init();
+	</script>
+</body>
