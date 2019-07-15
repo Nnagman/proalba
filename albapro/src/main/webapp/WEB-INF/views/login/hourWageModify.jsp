@@ -77,6 +77,7 @@
     /* flex-direction: column; */
     /* flex-wrap: wrap; */
    	 	justify-content: space-between;
+   	 	margin-top: 40px !important;
 		
 	}
 	.hourWageDiv{
@@ -97,6 +98,9 @@
 	.inputMem, .inputMem>#memInfo{
 		margin-top: 30px; margin-left:10px;
 	}
+	#memInfo{
+		margin-left: 10px;
+	}
 </style>
 </head>
 <body>
@@ -107,17 +111,17 @@
 		<h2>시급 수정:</h2>
 		<input id="mh" type="text" /> <input type="button" id="hourWageM" value="수정" />
 	</div>
-	<div class="dataCount">
-		<h2>사장 계정 수 : ${ceoCount}</h2>
-		<h2>직원 계정 수 : ${perCount}</h2>
-		<h2>총 계약서 수 : ${contCount}</h2>
-	</div>
 	<div class="memManage">
 		<div class="inputMem">
 			<input type="text" id="memId" value=""/>
 			<input type="button" id="memIdButton" value="회원정보 조회" />
 		</div>
 		<div id="memInfo"></div>
+	</div>
+	<div class="dataCount">
+		<h2>사장 계정 수 : ${ceoCount}</h2>
+		<h2>직원 계정 수 : ${perCount}</h2>
+		<h2>총 계약서 수 : ${contCount}</h2>
 	</div>
 	</div>
 </body>

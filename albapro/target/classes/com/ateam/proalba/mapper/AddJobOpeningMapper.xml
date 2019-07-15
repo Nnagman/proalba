@@ -33,6 +33,7 @@
 		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
 		        assigned_task, education_etc, major, preferential_conditions, salary
 		FROM notice
+		WHERE is_delete IS NULL
   	  	]]>
 	</select>
 	
@@ -83,8 +84,9 @@
 	</select>
 	
 	<delete id="deleteNotice" parameterType="Map">
-		delete from notice
-		where n_code in 
+			UPDATE notice
+			SET is_delete = 'y'
+			WHERE n_code IN
 		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">			
 			#{item}
 		</foreach>
