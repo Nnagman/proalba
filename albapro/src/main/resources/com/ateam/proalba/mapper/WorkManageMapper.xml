@@ -5,7 +5,10 @@
 <mapper namespace="workManage">
 	<select id="listAll" resultType="com.ateam.proalba.domain.WorkManageVO">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 		SELECT e.em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period,finger_id, SUBSTR(end_period,1,8)as end_period, ca.join_date, ca.end_date
 		FROM employee e, member m, contract c, career ca
 		WHERE e.m_code = m.m_code 
