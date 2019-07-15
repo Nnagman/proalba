@@ -243,6 +243,8 @@ function drawChart() {
 									</div>
 								</div>
 							</div>
+							<div id="curve_chart" style="width: 900px; height: 500px"></div>
+							
 						</div>
 
 
@@ -252,8 +254,7 @@ function drawChart() {
 
 			</div>
 			<!--  그래프 -->
-			<div id="curve_chart" style="width: 900px; height: 500px"></div>
-
+			
 
 			<div class="pser-footer"><%@ include
 					file="../servicepage/pserfooter.jsp"%></div>
@@ -605,22 +606,13 @@ function drawChart() {
 
 	<script src="resources/js/servicepage2/demo.js"></script>
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$(".searchIcon")
-									.click(
-											function(e) {
-												var sa_code = e.currentTarget.id;
-												var salarys = $
-												{
-													salarys
-												}
-												;
-												salarys
-														.forEach(function(
-																salary) {
-															if (salary.sa_code == sa_code) {
+		$(document).ready(function() {
+			$(".searchIcon").click(
+				function(e) {
+					var sa_code = e.currentTarget.id;
+					var salarys = ${salarys};
+					salarys.forEach(function(salary) {
+						if (salary.sa_code == sa_code) {
 																$(
 																		"#basic_salary")
 																		.text(

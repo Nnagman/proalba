@@ -50,13 +50,12 @@
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+    	var late_status =${resume.late_status};
+    	var c_late_status =${resume.c_late_status};
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['정상 출근',   c_late_status],
+          ['지각',  late_status]
         ]);
 
         var options = {
@@ -80,7 +79,7 @@
 					<div class="row">
 						<form action="${path}/proalba/updateResume" id="form" method="post">
 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
-							<div class="col-md-12" style="margin-left: 350px">
+							<div class="col-md-12" style="margin-left: 30%">
 								<div id="RegistTitle" class="registArea" style="padding:0px 72px 20px;">
 									<h1>${resume.title}</h1>
 								</div>

@@ -78,6 +78,9 @@ public class PserviceController {
 		map.put("title", resumeVO.getTitle());
 		map.put("address", resumeVO.getAddress());
 		map.put("content", resumeVO.getContent());
+		if(resumeVO.getFile_name() == null) {
+			resumeVO.setFile_name("");
+		}
 		map.put("file_name", resumeVO.getFile_name());
 		map.put("education", resumeVO.getEducation());
 		map.put("license", resumeVO.getLicense());
@@ -131,7 +134,8 @@ public class PserviceController {
 		map.put("content", resumeVO.getContent());
 		map.put("file_name", resumeVO.getFile_name());
 		map.put("education", resumeVO.getEducation());
-		
+		map.put("late_status", resumeVO.getLate_status());
+		System.out.println(resumeVO.getLate_status());
 		resumeService.update_resume(map);
 		model.addAttribute("message", "wresumePage");
 		return "redirect:/listResume?id="+id;

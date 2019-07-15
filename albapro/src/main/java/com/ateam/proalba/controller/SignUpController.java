@@ -41,7 +41,7 @@ public class SignUpController {
 	
 	@RequestMapping(value = "/pregister", method = RequestMethod.GET)
 	public String pregisterGET() {
-		return "login/register";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value = "/cregister", method = RequestMethod.GET)

@@ -41,9 +41,7 @@
 
 		.Even { background-color : white; }
 		
-		.row{
-		display:block !important;
-		}
+		
 	</style>
 </head>
 <body>
