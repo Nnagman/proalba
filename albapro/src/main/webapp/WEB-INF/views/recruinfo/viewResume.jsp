@@ -69,7 +69,67 @@
     </script>
 </head>
 <body>
-	<div class="wrapper">
+	<div class="wrapper"><div class="div-sidebar">
+	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="/" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+<li class="nav-item  ">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고 
+            </a>
+          </li>
+		
+		
+		
+		    <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
+		<li class="nav-item active">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 목록
+            </a>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+              <i class="material-icons">person</i>
+              직원 관리
+            </a>
+          </li>
+        <%--   <li class="nav-item">
+            <a class="nav-link" href="pserSalary?id=${login.id}">
+              <i class="material-icons">content_paste</i>
+              급여 관리
+            </a>
+          </li> --%>
+          <%-- <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li> --%>
+        
+        </ul>
+      </div>
+    </div>
+<!-- End of Sidebar -->
+	  </div>
 		<div class="content">
 			<div class="pser-con"><div class="container-fluid"><div class="row"><div class="col-md-12"><div class="card">
 				<div class="card-header card-header-primary">
@@ -79,7 +139,7 @@
 					<div class="row">
 						<form action="${path}/proalba/updateResume" id="form" method="post">
 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
-							<div class="col-md-12" style="margin-left: 30%">
+							<div class="col-md-12">
 								<div id="RegistTitle" class="registArea" style="padding:0px 72px 20px;">
 									<h1>${resume.title}</h1>
 								</div>
@@ -263,7 +323,14 @@
 										<!-- //자유양식 -->
 									</div>
 								</div>
+								
+							<div id="RegistIntroduce" class="registArea">
+									<h2>통계차트</h2>
+								
+								<!-- 차트 -->
 								<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
+								</div>
+								<!-- 차트 -->
 							</div>
 						</form>
 					</div>

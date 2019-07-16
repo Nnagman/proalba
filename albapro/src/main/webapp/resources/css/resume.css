@@ -105,7 +105,7 @@
 #RegistBaseInfo .baseInfo table td #sample6_address {font-weight:normal;color:#07a195}
 
 /* 입력영역 */
-.registArea {position:relative;padding:0 72px 20px;margin-top:37px; }
+.registArea {position:relative;padding:0 72px 20px;margin-top:37px; margin:0 auto;}
 .registArea h2 {position:relative;padding-bottom:10px;margin-bottom:20px;font-size:20px;font-weight:bold;letter-spacing:-2px;border-bottom:2px solid #444}
 .registArea h2 .necessary {display:inline-block;margin:6px 7px 0 0;width:6px;height:21px;font-size:0;vertical-align:top;color:transparent;background:url('//image.alba.kr/person/newRegist_bg.png') no-repeat -262px -134px}
 .registArea h2 .smallText {margin-left:10px;position:static;font-size:14px}
@@ -251,3 +251,4 @@ span.input.disabled input[type="checkbox"] + label {background-position:0 -114px
 span.input input[type="radio"] + label {background-position:0 -57px}
 span.input input[type="radio"]:checked + label {background-position:0 -87px}
 span.input.on input[type="radio"] + label {background-position:0 -87px}
+
