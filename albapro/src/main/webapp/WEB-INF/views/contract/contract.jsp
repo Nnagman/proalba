@@ -47,90 +47,107 @@
 <body>
 
    <div class="wrapper">
-<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo">
-        <a href="/" class="simple-text logo-normal">
-        proalba
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
       <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
-        <ul class="nav">
-         <li class="nav-item">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-      
-        
-        </ul>
+		<div class="div-sidebar">
+			 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+		      <!--
+		        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+		
+		        Tip 2: you can also add an image using data-image tag
+		    -->
+		      <div class="logo">
+		        <a href="/" class="simple-text logo-normal">
+		        proalba
+		        </a>
+		      </div>
+		      <div class="sidebar-wrapper">
+		        <ul class="nav">
+					<li class="nav-item">
+		          		<a class="nav-link" href="pserworkList?id=${login.id}">
+							<i class="material-icons">dashboard</i>
+							알바목록
+						</a>
+					</li>
+					<li class="nav-item active">
+		            	<a class="nav-link" href="contract?id=${login.id}">
+							<i class="material-icons">dashboard</i>
+		            	 	전자근로 계약서
+						</a>
+					</li>
+					<li class="nav-item ">
+		            	<a class="nav-link" href="inqcareer?id=${login.id}">
+						<i class="material-icons">library_books</i>
+						경력 관리
+						</a>
+					</li>
+					<li class="nav-item  ">
+						<a class="nav-link" href="listResume?id=${login.id}">
+						<i class="material-icons">library_books</i>
+						이력서 관리
+		            	</a>
+		            </li>
+		        </ul>
+		      </div>
+		    </div>
+		</div>
       </c:if>
       
       <c:if test="${fn:substring(login.m_code,0,1)=='c'}">
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-
-<li class="nav-item">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 등록
-            </a>
-          </li>
-		<li class="nav-item active">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 작성
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
-              <i class="material-icons">person</i>
-              직원 관리
-            </a>
-          </li>
-
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/proalba/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
-        </ul>
-      </div>
+		<div class="div-sidebar">
+			 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+		      <!--
+		        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+		        Tip 2: you can also add an image using data-image tag
+		    -->
+		      <div class="logo">
+		        <a href="/" class="simple-text logo-normal">
+		        proalba
+		        </a>
+		      </div>
+		      <div class="sidebar-wrapper">
+		        <ul class="nav">
+		        <li class="nav-item	">
+		            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+		              <i class="material-icons">dashboard</i>
+		              채용공고
+		            </a>
+		          </li>
+		         
+		         
+		             <li class="nav-item ">
+		            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
+		              <i class="material-icons">dashboard</i>
+		             전자근로 계약서 작성
+		            </a>
+		          </li>
+		         
+		         
+		           <li class="nav-item active">
+		            <a class="nav-link" href="ccontract?id=${login.id}">
+		              <i class="material-icons">dashboard</i>
+		             전자근로 계약서 목록
+		            </a>
+		          </li>
+		       
+		          <li class="nav-item">
+		            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+		              <i class="material-icons">person</i>
+		             직원 관리
+		            </a>
+		          </li>
+		     
+		     <%--      <li class="nav-item ">
+		            <a class="nav-link" href="${path}/comm">
+		              <i class="material-icons">bubble_chart</i>
+		              커뮤니티
+		              </a>
+		          </li> --%>
+		        
+		        </ul>
+		      </div>
+		    </div>
+		</div>
       </c:if>
-
-      </div>
-    </div>
-         <!-- End of Sidebar -->
-    </div>
 <div class="content">
 		<form>
             <div id="createPdf" class="div_createPdf">
