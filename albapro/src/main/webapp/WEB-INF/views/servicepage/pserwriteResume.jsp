@@ -101,15 +101,9 @@
 					<div class="row">
 
 						<form action="${path}/writeResume" id="form" method="post">
-<<<<<<< HEAD
 
-							<div class="col-md-12" style="margin-left: 25%">
-
-=======
 							<div class="col-md-12">
 
-
->>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
 								<hr/>
@@ -358,6 +352,7 @@
 	   					// div에 추가
 	   					$("#photo").append(html);
 	   					$("#RegistBaseInfo").append(del_btn);
+	   					console.log($('.file').val());
 	   				}
 	   			});
 	   		});

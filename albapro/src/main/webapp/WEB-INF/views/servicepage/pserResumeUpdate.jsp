@@ -49,13 +49,12 @@
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+      	var late_status =${resume.late_status};
+    	var c_late_status =${resume.c_late_status};
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',   4],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+            ['Task', 'Hours per Day'],
+            ['정상 출근',   c_late_status],
+            ['지각',  late_status]
         ]);
 
         var options = {
@@ -122,8 +121,7 @@
 				<div class="card-body">
 					<div class="row">
 						<form id="form" action="${path}/updateResume" method="post">
- 						<input type="hidden" name="r_code" value="${resume.r_code}"/>=======
-
+ 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
 							<div class="col-md-12" style="margin-left: 30%">
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>

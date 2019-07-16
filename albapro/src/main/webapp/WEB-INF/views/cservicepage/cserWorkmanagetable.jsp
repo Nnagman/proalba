@@ -116,7 +116,7 @@ margin: 0 0 0 20px;
         Tip 2: you can also add an image using data-image tag
     -->
 				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+					<a href="/" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
         <ul class="nav">
@@ -206,7 +206,7 @@ margin: 0 0 0 20px;
 													<th class="th-sm">퇴근 시간	</th>
 													<jsp:useBean id="now" class="java.util.Date" />
 													<fmt:parseNumber var="now_date" value="${now.time / (1000*60*60*24)}" integerOnly="true"/>
-													<c:if test="${end_date > now_date}">
+													<c:if test="${end_date > now_date || end_Date == ''}">
 														<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
 													</c:if>
 												</tr>

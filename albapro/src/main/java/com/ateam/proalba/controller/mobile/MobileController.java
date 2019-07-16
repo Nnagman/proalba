@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ateam.proalba.domain.CareerVO;
@@ -432,7 +433,7 @@ public class MobileController {
 	@RequestMapping(value = "/m.writeResume", method = RequestMethod.POST)
 	public String wresumePOST(ResumeVO resumeVO) throws Exception {
 		logger.info("Welcome wresumePage");
-		System.out.println(resumeVO.getTitle());
+		System.out.println(resumeVO);
 		
 		String id = resumeVO.getId();
 		
