@@ -49,7 +49,7 @@ public class SignUpController {
 		return "login/naverRegister";
 	}
 	
-	@RequestMapping(value = "/naverRegister", method = RequestMethod.GET)
+	@RequestMapping(value = "/apiRegister", method = RequestMethod.GET)
 	public String naverRegisterGET(@RequestParam("email") String email, HttpSession httpSession, Model model) throws Exception {
 		MemberVO memberVO = new MemberVO();
 		memberVO.setEmail(email);
