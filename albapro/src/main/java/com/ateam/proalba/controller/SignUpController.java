@@ -49,7 +49,7 @@ public class SignUpController {
 		return "login/naverRegister";
 	}
 	
-	@RequestMapping(value = "/naverRegister", method = RequestMethod.GET)
+	@RequestMapping(value = "/apiRegister", method = RequestMethod.GET)
 	public String naverRegisterGET(@RequestParam("email") String email, HttpSession httpSession, Model model) throws Exception {
 		MemberVO memberVO = new MemberVO();
 		memberVO.setEmail(email);
@@ -68,7 +68,7 @@ public class SignUpController {
 	
 	@RequestMapping(value = "/pregister", method = RequestMethod.GET)
 	public String pregisterGET() {
-		return "login/register";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping(value = "/cregister", method = RequestMethod.GET)

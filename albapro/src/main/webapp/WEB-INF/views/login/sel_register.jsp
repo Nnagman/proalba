@@ -10,6 +10,57 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/sel_register.css">
+<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+	          <script>
+	          	var email;
+	            
+	          	function onSuccess(googleUser) {
+	            	console.log('Logged in as: ' + googleUser.getBasicProfile().getEmail());
+	            	email = googleUser.getBasicProfile().getEmail();
+	            }
+	          	
+	          	function googleRegister(){
+	          		$(location).attr("href", "http://localhost:8080/apiRegister?email="+email);
+	          	}
+	          	
+	             $("#my-signin2").click(function(){
+	            	 $.ajax({
+	            		 async: false,
+	            		 type: 'POST',
+	            		 data: email,
+	            		 url: '${path}/googleLogin',
+	            		 success: function(data){
+	            			 $(location).attr("href", "http://localhost:8080"+data);
+	            		 },
+	            		 error: function(data){}
+					 }); 
+	             });
+	             
+	             function onFailure(error) {
+	                console.log(error);
+	             }
+	             function renderButton() {
+	                gapi.signin2.render('my-signin2', {
+	                   'scope': 'email',
+	                   'width': 160,
+	                   'height': 60,
+	                   'longtitle': false,
+	                   'theme': 'dark',
+	                   'onsuccess': onSuccess,
+	                   'onfailure': onFailure
+	                });
+	             }
+	             var msg = "${msg}";
+	            if (msg === "REGISTERED") {
+	                alert("회원가입이 완료되었습니다. 로그인해주세요~");
+	            } else if (msg == "FAILURE") {
+	                alert("아이디와 비밀번호를 확인해주세요.");
+	            }
+	  		  </script>
+
 </head>
 
 <body>
@@ -28,6 +79,7 @@
           <i class="fas fa-user"></i><br/>
           <a href="pregister"><input type="button" class="reg_btn" id="indi_reg_btn" name="indi_reg" value="개인회원가입"></a>
           <div id="naverIdLogin" style="margin-top: 40px;"></div>
+          <div id="my-signin2" onClick="googleRegister()" style="margin-top: 40px; margin-left: 0px;"></div>
       </div>
         <div class="corp_member">
           <i class="fas fa-user-tie"></i><br/>

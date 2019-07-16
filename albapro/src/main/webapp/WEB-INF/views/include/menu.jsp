@@ -23,6 +23,8 @@
 		<c:if test="${login.id == null}">
 			<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>
 		</c:if>
+		</li>
+	
 <!--	Full Down Menu -->
 			<%-- <div class="fulldrop scrolling-navbar Asize">
 
@@ -58,7 +60,7 @@
 					</ul>
 				</div>
 			</div> --%>
-		</li>
+
 		
 
 		
@@ -88,6 +90,22 @@
 
 			</ul>
 		</li>
+		
+		
+	
+	
+	
+		
 	</ul>
+	
+
+	
+	
+
+
+	
+	
 </div>
+
+
 

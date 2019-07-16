@@ -76,7 +76,11 @@
 								test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
 								<%@ include file="amenu.jsp" %>
 							</c:if>
-						</ul>
+							
+							
+	
+		</ul>
+		
 
           <!-- Right -->
 
@@ -90,12 +94,11 @@
               	
 
       </div>
-      
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
               <a href="${path}/login" class="nav-link border border-light rounded ">
-                <i class="fab fa-github mr-2"></i>sign in 
+            sign in 
               </a>
               </c:if>
             </div>

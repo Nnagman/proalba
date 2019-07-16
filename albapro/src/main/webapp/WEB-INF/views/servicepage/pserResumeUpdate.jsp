@@ -49,13 +49,12 @@
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+      	var late_status =${resume.late_status};
+    	var c_late_status =${resume.c_late_status};
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+            ['Task', 'Hours per Day'],
+            ['정상 출근',   c_late_status],
+            ['지각',  late_status]
         ]);
 
         var options = {
@@ -121,8 +120,8 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<form action="${path}/updateResume" id="form" method="post">
-						<input type="hidden" name="r_code" value="${resume.r_code}"/>
+						<form id="form" action="${path}/updateResume" method="post">
+ 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
 							<div class="col-md-12" style="margin-left: 30%">
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
@@ -133,7 +132,7 @@
 										<span class="photo" id="photo">
 											 <div id='inputed_img'>
 											 	<input type='hidden' class='file' name='file_name' value='${resume.file_name}'>
-											 	<img img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
+											 	<img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
 											 </div>
 										</span>
 									</div>
@@ -367,7 +366,7 @@
    	<script type="text/javascript" src="resources/js/common.js"></script>
    	<script>
 	   	$(document).ready(function(){
-	   		
+			
 	   		// 파일 업로드 영역에서 기본효과를 제한
 	   		$(".photoArea").on("dragenter dragover", function(e){
 	   			e.preventDefault(); // 기본효과 제한
@@ -441,24 +440,65 @@
 	   			address += "/" + $("#sample6_detailAddress").val();
 	   			
 	   			var high_school = document.getElementsByClassName("high_school")[0].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value;
-	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value;
-	   			
+	   			if(document.getElementsByClassName("high_school")[0].value == ''){
+	   				for(var i =0; i<4; i++){
+	   					
+	   					high_school += "+ ";
+	   				}
+	   			}else{
+	   			for(var i =1; i<4; i++){
+	   				if(document.getElementsByClassName("high_school")[i].value == ''){
+	   					document.getElementsByClassName("high_school")[i].value = " ";
+	   				}
+	   				high_school += "+" + document.getElementsByClassName("high_school")[i].value;
+	   			}
+	   			}
 	   			var college = document.getElementsByClassName("college")[0].value;
-	   			college += "+" + document.getElementsByClassName("college")[1].value;
-	   			college += "+" + document.getElementsByClassName("college")[2].value;
-	   			college += "+" + document.getElementsByClassName("college")[3].value;
+	   			if(document.getElementsByClassName("college")[0].value == ''){
+	   				for(var i =0; i<4; i++){
+	   					
+	   					college += "+ ";
+	   				}
+	   			}else{
+	   			for(var i =1; i<4; i++){
+	   				if(document.getElementsByClassName("college")[i].value == ''){
+	   					document.getElementsByClassName("college")[i].value = " ";
+	   				}
+	   				college += "+" + document.getElementsByClassName("college")[i].value; 
+	   			}
+	   			}
 	   			
 	   			var university = document.getElementsByClassName("university")[0].value;
-	   			university += "+" + document.getElementsByClassName("university")[1].value;
-	   			university += "+" + document.getElementsByClassName("university")[2].value;
-	   			university += "+" + document.getElementsByClassName("university")[3].value;
+	   			if(document.getElementsByClassName("university")[0].value == ''){
+	   				for(var i =0; i<4; i++){
+	   					
+	   					university += "+ ";
+	   				}
+	   			}else{
+	   			for(var i =1; i<4; i++){
+	   				if(document.getElementsByClassName("university")[i].value ==''){
+	   					document.getElementsByClassName("university")[i].value = " "
+	   				}
+	   				university += "+" + document.getElementsByClassName("university")[i].value;
+	   			}
+	   			}
+
 	   			
 	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value;
-	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value;
+	   			if(document.getElementsByClassName("graduate_school")[0].value == ''){
+	   				for(var i =0; i<4; i++){
+	   					
+	   					graduate_school += "+ ";
+	   				}
+	   			}else{
+	   			for(var i=1; i<4; i++){
+	   				if(document.getElementsByClassName("graduate_school")[i].value == ''){
+	   					document.getElementsByClassName("graduate_school")[i].value = " ";
+	   				}
+	   				graduate_school += "+" + document.getElementsByClassName("graduate_school")[i].value;
+	   			}
+	   			}
+
 	   			
 	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
 	   			$("#education").val(education);
@@ -469,7 +509,9 @@
 	   			for(var i=0 ; i<license_length-1; i++){
 	   				license +=  document.getElementsByClassName("license_input")[i].value + "+";
 	   			}
-	   			license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			if(license_length != 0){
+	   				license +=  document.getElementsByClassName("license_input")[license_length-1].value;
+	   			}
 	   			
 	   			$("#license").val(license);
 	   			$("#address").val(address);

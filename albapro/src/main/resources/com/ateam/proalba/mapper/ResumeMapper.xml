@@ -19,16 +19,20 @@
 	</select>
 	
 	<select id="view_resume" resultType="com.ateam.proalba.domain.ResumeVO">
-  		SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
-		FROM resume r, resume_file f
-		WHERE r.r_code = f.r_code
-		AND r.r_code = #{r_code} 
-		<!--  홀리쉣~> -->
-<!-- 		SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name, w.late_status
+        SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
 		FROM resume r, resume_file f, work_record w
 		WHERE r.r_code = f.r_code
-		AND r.r_code = #{r_code} and substr(r.r_code,1,INSTR(r.r_code,'/')-1) = substr(w.sa_code,1,INSTR(w.sa_code,'/')-1)
-         -->
+		AND r.r_code = #{r_code}
+        group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
+        
+	</select>
+	
+	<select id="late_status" resultType="com.ateam.proalba.domain.ResumeVO">
+		SELECT sum(w.late_status) as late_status, count(w.late_status)-sum(w.late_status) as c_late_status
+		FROM resume r, work_record w
+		WHERE r.r_code = #{r_code}
+		AND substr(r.r_code,1,INSTR(r.r_code,'/')-1) = substr(w.sa_code,1,INSTR(w.sa_code,'/')-1)
+        group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
 	</select>
 	
 	<delete id="delete_resume">
@@ -38,7 +42,7 @@
 	
 	<update id="update_resume1">
 		UPDATE resume
-		SET title = #{title}, content = #{content}, address = #{address}
+		SET title = #{title}, content = #{content}, address = #{address}, education = #{education}
 		WHERE r_code = #{r_code}
 	</update>
 	
@@ -49,7 +53,7 @@
 	</update>
 	
 	<insert id="apply_resume">
-		INSERT INTO notice_apply VALUES(#{n_code}, #{r_code})
+		INSERT INTO notice_apply VALUES(#{n_code}, #{r_code},#{n_code}||'+'||#{r_code})
 	</insert>
 	
 	<select id="checkResume" resultType="com.ateam.proalba.domain.ResumeVO">
