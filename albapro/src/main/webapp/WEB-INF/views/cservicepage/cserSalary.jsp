@@ -56,7 +56,7 @@ function drawChart() {
  
 	  var data = google.visualization.arrayToDataTable(graph);
   var options = {
-    title: 'Company Performance',
+    title: '',
     curveType: 'function',
     legend: { position: 'bottom' }
   };
@@ -243,6 +243,7 @@ function drawChart() {
 									</div>
 								</div>
 							</div>
+								<!--  그래프 -->
 							<div id="curve_chart" style="width: 900px; height: 500px"></div>
 							
 						</div>
@@ -253,7 +254,7 @@ function drawChart() {
 				</div>
 
 			</div>
-			<!--  그래프 -->
+		
 			
 
 			<div class="pser-footer"><%@ include
