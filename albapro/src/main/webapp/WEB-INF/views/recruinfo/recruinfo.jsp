@@ -502,7 +502,8 @@ Modal 직종
  
 	$(document).ready(function () {
 		$('#Example').DataTable({
-			"paging": true // false to disable pagination (or any other option)
+			"paging": true, // false to disable pagination (or any other option)
+			"order": [[ 4, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});
