@@ -39,7 +39,7 @@
 							return;
 						}
 	
-						window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/apiRegister?email="+email);
+						opener.window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/apiRegister?email="+email);
 					} else {
 						console.log("가입에 실패하였습니다. 다시 시도해주세요.");
 					}

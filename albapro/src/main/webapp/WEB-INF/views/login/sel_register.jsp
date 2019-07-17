@@ -105,7 +105,7 @@
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
 				callbackUrl: "http://39.127.7.84:8080/selNaverRegister",
-				isPopup: false,
+				isPopup: true,
 				callbackHandle: true,
 				loginButton: {color: "green", type: 1, height: 60}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
