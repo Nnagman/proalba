@@ -3,7 +3,6 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +28,6 @@
     <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
  
 
-	<!-- 구글 차트 스크립트 -->
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  	<script src="resources/js/albamanage.js"></script>
@@ -42,30 +40,8 @@
   		.odd { background-color:#EAEAEA; }
 
 		.Even { background-color : white; }
+
 	</style>
-	
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-      	var late_status =${resume.late_status};
-    	var c_late_status =${resume.c_late_status};
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['정상 출근',   c_late_status],
-            ['지각',  late_status]
-        ]);
-
-        var options = {
-          title: '근태통계',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
 </head>
 <body>
 	<div class="wrapper">
@@ -113,28 +89,28 @@
 			</div> <!-- End of Sidebar -->
 		</div>
 		<div class="content">
-			<div class="pser-header"> <%@ include file="pserNavHeader.jsp"%> </div>
+		<%-- 	<div class="pser-header"> <%@ include file="pserNavHeader.jsp"%> </div> --%>
 			<div class="pser-con"><div class="container-fluid"><div class="row"><div class="col-md-12"><div class="card">
 				<div class="card-header card-header-primary">
-					<h4 class="card-title ">이력서 수정</h4>
+					<h4 class="card-title ">이력서 작성</h4>
+					<p class="card-category">
+						${login.name} 님만의 이력서를 작성해보세요.
+					</p>
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<form id="form" action="${path}/updateResume" method="post">
- 						<input type="hidden" name="r_code" value="${resume.r_code}"/>
-							<div class="col-md-12" style="margin-left: 30%">
+
+						<form action="${path}/writeResume" id="form" method="post">
+
+							<div class="col-md-12">
+
 								<h2><span class="necessary">필수</span>개인정보</h2>
 								<span class="comment">개인정보는 비공개로 설정하셔도 입사지원시 지원업체에 공개됩니다.</span>
 								<hr/>
 								<div id="RegistBaseInfo" class="registArea">
 									<div class="guide">사진을 드래그해서 올려주세요.</div>
 									<div class="photoArea">
-										<span class="photo" id="photo">
-											 <div id='inputed_img'>
-											 	<input type='hidden' class='file' name='file_name' value='${resume.file_name}'>
-											 	<img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
-											 </div>
-										</span>
+										<span class="photo" id="photo"></span>
 									</div>
 									<div class="baseInfo">
 										<table cellpadding="0" cellspacing="0" summary="개인정보인 휴대폰,유선전화,안심번호,이메일,주소,홈페이지 항목의 표입니다.">
@@ -161,10 +137,9 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
-																<c:set var="address" value = "${fn:split(resume.address,'/')}"/>
 																<input type="hidden" id="hidaddress1" value="">
 																<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
-																<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:100px" value="${address[0]}"/>
+																<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:100px"/>
 																<input type="button" onclick="execDaumPostcode()" value="주소 찾기" class="adr-btn"/>
 															</span>
 														</div>
@@ -175,7 +150,7 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
-																<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" value="${address[1]}"/>
+																<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address"/>
 															</span>
 														</div>
 													</td>
@@ -185,7 +160,7 @@
 													<td class="infoContents address">
 														<div class="contentsBox">
 															<span class="shortText">
-																<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
+																<input type="text" id="sample6_detailAddress" placeholder="상세주소"/>
 																<input type="hidden" id="address" name="address" value=""/>
 															</span>
 														</div>
@@ -194,23 +169,17 @@
 											</tbody>
 										</table>
 									</div>
-									<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 								</div>
 								
 								<div id="RegistTitle" class="registArea" style="padding:250px 72px 20px;">
 									<h2><span class="necessary">필수</span>이력서 제목</h2>
 									<div class="registForm registForm--title">
-										<input type="text" id="title" name="title" maxlength="25" value="${resume.title}"/>
+										<input type="text" id="title" name="title" maxlength="25"/>
 										<label for="title">이력서 제목 (최대 25자)</label>
 									</div>
 								</div>
 								
 								<div id="RegistEducation" class="registArea" style="">
-								<c:set var="education" value = "${fn:split(resume.education,'/')}"/>
-								<c:set var="high_school" value = "${fn:split(education[0],'+')}"/>
-								<c:set var="college" value = "${fn:split(education[1],'+')}"/>
-								<c:set var="university" value = "${fn:split(education[2],'+')}"/>
-								<c:set var="graduate_school" value = "${fn:split(education[3],'+')}"/>
 									<h2>학력</h2>
 									<table style="width:100%">
 										<tbody>
@@ -223,37 +192,37 @@
 											</tr>
 											<tr id="high_school">
 												<td><p>고등학교</p></td>
-												<td><input type="text" value="${high_school[0]}" class="high_school"/></td>
-												<td><input type="text" value="${high_school[1]}" class="high_school"/></td>
-												<td><input type="text" value="${high_school[2]}" class="high_school"/></td>
-												<td><input type="text" value="${high_school[3]}" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
+												<td><input type="text" class="high_school"/></td>
 											</tr>
 											<tr id="college">
 												<td><p>대 학(2,3년제)</p></td>
-												<td><input type="text" value="${college[0]}" class="college"/></td>
-												<td><input type="text" value="${college[1]}" class="college"/></td>
-												<td><input type="text" value="${college[2]}" class="college"/></td>
-												<td><input type="text" value="${college[3]}" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
+												<td><input type="text" class="college"/></td>
 											</tr>
 											<tr id="university">
 												<td><p>대학교(4년제)</p></td>
-												<td><input type="text" value="${university[0]}" class="university"/></td>
-												<td><input type="text" value="${university[1]}" class="university"/></td>
-												<td><input type="text" value="${university[2]}" class="university"/></td>
-												<td><input type="text" value="${university[3]}" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
+												<td><input type="text" class="university"/></td>
 											</tr>
 											<tr id="graduate_school">
 												<td><p>대학원</p></td>
-												<td><input type="text" value="${graduate_school[0]}" class="graduate_school"/></td>
-												<td><input type="text" value="${graduate_school[1]}" class="graduate_school"/></td>
-												<td><input type="text" value="${graduate_school[2]}" class="graduate_school"/></td>
-												<td><input type="text" value="${graduate_school[3]}" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
+												<td><input type="text" class="graduate_school"/></td>
 											</tr>
 										</tbody>
 									</table>
 									<div id="RegistEduResult" class="resultForm1">						
 										<!-- // 일반이력서 셀렉트 -->
-										<input type="hidden" id="education" name="education" value="${resume.education}"/>
+										<input type="hidden" id="education" name="education" value=" "/>									
 									</div>
 								</div>
 								
@@ -279,36 +248,7 @@
 								
 								<div id="RegistLicense" class="registArea" style="">
 									<h2>자격증</h2>
-									<c:set var="licenses" value = "${fn:split(resume.license,'+')}"/>
-									<c:if test="${licenses[0] != ''}">
-										<c:forEach var="row" items="${licenses}" >
-											<c:set var="license_split" value = "${fn:split(row,'/')}"/>
-											<c:set var="license_name" value = "${license_split[0]}"/>
-											<c:set var="license_publisher" value = "${license_split[1]}"/>
-											<c:set var="license_year" value = "${license_split[2]}"/>
-											<div id="RegistLicenseResult" class="resultForm2">
-												<div id="divLicense1">
-													<div class="registResult">
-														<ul class="textCnt">
-															<li class="name">
-																<span class="input on"><label for="licenseChk1">${license_name}</label></span>
-															</li>
-															<li class="origin">${license_publisher} / ${license_year}년</li>
-														</ul>
-														<div class="applBtn">
-															<a href="#" class="btn whiteBtn" onclick="modLicense(1);return false;">수정</a>
-															<a href="#" class="btn whiteBtn" onclick="delLicense(1);return false;">삭제</a>
-														</div>
-														<input type="hidden" class="license_input" value="${row}">	
-														<input type="hidden" name="licensenm1" id="licensenm1" value="${license_name}">	
-														<input type="hidden" name="organ1" id="organ1" value="${license_publisher}">
-														<input type="hidden" name="certificateyyyy1" id="certificateyyyy1" value="${license_year}">
-														<input type="hidden" id="licensecd1" name="licensecd1" value="">
-													</div>
-												</div>
-											</div>
-										</c:forEach>
-									</c:if>
+					
 									<div id="RegistLicenseResult" class="resultForm2">
 										
 									</div>
@@ -340,22 +280,20 @@
 										<div id="FreeDoc" class="introduceWrap">
 											<div class="resizable-textarea">
 												<span>
-													<textarea id="resumeContents" name="content" cols="30" rows="10" class="processed">${resume.content}</textarea>
+													<textarea id="resumeContents" name="content" cols="30" rows="10" class="processed"></textarea>
 												</span>
 											</div>
 										</div>
 										<!-- //자유양식 -->
 									</div>
 								</div>
-								
-								<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
-								<input type='button' class="submitbtn" value="수정완료" id="submit2"/>
+								<input type='button' class="submitbtn" value="작성완료" id="submit2"/>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div></div></div></div></div>
-			<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div>
+		<%-- 	<div class="pser-footer"><%@ include file="pserfooter.jsp"%></div> --%>
 		</div>
 	</div>
   	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
@@ -366,7 +304,7 @@
    	<script type="text/javascript" src="resources/js/common.js"></script>
    	<script>
 	   	$(document).ready(function(){
-			
+	   		
 	   		// 파일 업로드 영역에서 기본효과를 제한
 	   		$(".photoArea").on("dragenter dragover", function(e){
 	   			e.preventDefault(); // 기본효과 제한
@@ -414,6 +352,7 @@
 	   					// div에 추가
 	   					$("#photo").append(html);
 	   					$("#RegistBaseInfo").append(del_btn);
+	   					console.log($('.file').val());
 	   				}
 	   			});
 	   		});
@@ -439,66 +378,25 @@
 	   			address += "/" + $("#sample6_address").val();
 	   			address += "/" + $("#sample6_detailAddress").val();
 	   			
-	   			var high_school = document.getElementsByClassName("high_school")[0].value;
-	   			if(document.getElementsByClassName("high_school")[0].value == ''){
-	   				for(var i =0; i<4; i++){
-	   					
-	   					high_school += "+ ";
-	   				}
-	   			}else{
-	   			for(var i =1; i<4; i++){
-	   				if(document.getElementsByClassName("high_school")[i].value == ''){
-	   					document.getElementsByClassName("high_school")[i].value = " ";
-	   				}
-	   				high_school += "+" + document.getElementsByClassName("high_school")[i].value;
-	   			}
-	   			}
-	   			var college = document.getElementsByClassName("college")[0].value;
-	   			if(document.getElementsByClassName("college")[0].value == ''){
-	   				for(var i =0; i<4; i++){
-	   					
-	   					college += "+ ";
-	   				}
-	   			}else{
-	   			for(var i =1; i<4; i++){
-	   				if(document.getElementsByClassName("college")[i].value == ''){
-	   					document.getElementsByClassName("college")[i].value = " ";
-	   				}
-	   				college += "+" + document.getElementsByClassName("college")[i].value; 
-	   			}
-	   			}
+	   			var high_school = document.getElementsByClassName("high_school")[0].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[1].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[2].value + " ";
+	   			high_school += "+" + document.getElementsByClassName("high_school")[3].value + " ";
 	   			
-	   			var university = document.getElementsByClassName("university")[0].value;
-	   			if(document.getElementsByClassName("university")[0].value == ''){
-	   				for(var i =0; i<4; i++){
-	   					
-	   					university += "+ ";
-	   				}
-	   			}else{
-	   			for(var i =1; i<4; i++){
-	   				if(document.getElementsByClassName("university")[i].value ==''){
-	   					document.getElementsByClassName("university")[i].value = " "
-	   				}
-	   				university += "+" + document.getElementsByClassName("university")[i].value;
-	   			}
-	   			}
-
+	   			var college = document.getElementsByClassName("college")[0].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[1].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[2].value + " ";
+	   			college += "+" + document.getElementsByClassName("college")[3].value + " ";
 	   			
-	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value;
-	   			if(document.getElementsByClassName("graduate_school")[0].value == ''){
-	   				for(var i =0; i<4; i++){
-	   					
-	   					graduate_school += "+ ";
-	   				}
-	   			}else{
-	   			for(var i=1; i<4; i++){
-	   				if(document.getElementsByClassName("graduate_school")[i].value == ''){
-	   					document.getElementsByClassName("graduate_school")[i].value = " ";
-	   				}
-	   				graduate_school += "+" + document.getElementsByClassName("graduate_school")[i].value;
-	   			}
-	   			}
-
+	   			var university = document.getElementsByClassName("university")[0].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[1].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[2].value + " ";
+	   			university += "+" + document.getElementsByClassName("university")[3].value + " ";
+	   			
+	   			var graduate_school = document.getElementsByClassName("graduate_school")[0].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[1].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[2].value + " ";
+	   			graduate_school += "+" + document.getElementsByClassName("graduate_school")[3].value + " ";
 	   			
 	   			var education = high_school + "/" + college + "/" + university + "/" + graduate_school;
 	   			$("#education").val(education);
@@ -509,6 +407,7 @@
 	   			for(var i=0 ; i<license_length-1; i++){
 	   				license +=  document.getElementsByClassName("license_input")[i].value + "+";
 	   			}
+	   			
 	   			if(license_length != 0){
 	   				license +=  document.getElementsByClassName("license_input")[license_length-1].value;
 	   			}

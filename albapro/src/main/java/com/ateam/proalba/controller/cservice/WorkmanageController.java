@@ -128,6 +128,26 @@ public class WorkmanageController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserWorkmanagetable");
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+		//기업직원근태기록
+		int size = list.size();
+		String[] date = new String[size];
+		String[] start_time = new String[size];
+		String[] end_time = new String[size];
+		int i=0;
+		
+		for(MobileAttendanceVO vo : list) {
+			System.out.println(vo);
+			date[i] = vo.getSa_date();
+			start_time[i] = vo.getSa_start();
+			end_time[i] = vo.getSa_end();
+			i++;
+		}
+	
+		System.out.println(date[0]);
+		System.out.println(start_time[0]);
+		System.out.println(end_time[0]);
+		//기업직원근태기록끝
 		map.put("list", list);
 		map.put("id", id);
 		map.put("em_code", em_code);
@@ -135,6 +155,9 @@ public class WorkmanageController {
 
 		mav.addObject("map", map);
 		mav.addObject("end_date", end_date);
+		mav.addObject("date", date);
+		mav.addObject("start_time", start_time);
+		mav.addObject("end_time", end_time);
 		return mav;
 	}
 

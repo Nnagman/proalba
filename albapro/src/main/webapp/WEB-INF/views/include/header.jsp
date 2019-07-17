@@ -92,11 +92,7 @@
             
           </div>
               	
-
-      </div>
-      
-      
-      	<div class="subnavbar1">
+<div class="subnavbar1">
       	<ul>
 	<li class="menuLi writeResume_li">
 
@@ -123,8 +119,7 @@
 		</li>
 		</ul>
 		</div>
-   
-      
+      </div>
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>

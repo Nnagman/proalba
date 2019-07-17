@@ -40,6 +40,16 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
+<style>
+	.gg {
+		margin-bottom:0px;
+		margin-top: 0px;
+	}
+	
+	.contButton{
+		margin: 0px 0 50px 20%;
+	}
+</style>
 
 </head>
 
@@ -47,114 +57,130 @@
 <body>
 
    <div class="wrapper">
-<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo">
-        <a href="/" class="simple-text logo-normal">
-        proalba
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
       <c:if test="${fn:substring(login.m_code,0,1)=='p'}">
-        <ul class="nav">
-         <li class="nav-item">
-            <a class="nav-link" href="pserworkList?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              알바목록
-            </a>
-          </li>
-          
-          
-           <li class="nav-item active">
-            <a class="nav-link" href="contract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="inqcareer?id=${login.id}">
-              <i class="material-icons">library_books</i>
-              경력 관리
-            </a>
-          </li>
-      
-        
-        </ul>
+		<div class="div-sidebar">
+			 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+		      <!--
+		        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+		
+		        Tip 2: you can also add an image using data-image tag
+		    -->
+		      <div class="logo">
+		        <a href="/" class="simple-text logo-normal">
+		        proalba
+		        </a>
+		      </div>
+		      <div class="sidebar-wrapper">
+		        <ul class="nav">
+					<li class="nav-item">
+		          		<a class="nav-link" href="pserworkList?id=${login.id}">
+							<i class="material-icons">dashboard</i>
+							알바목록
+						</a>
+					</li>
+					<li class="nav-item active">
+		            	<a class="nav-link" href="contract?id=${login.id}">
+							<i class="material-icons">dashboard</i>
+		            	 	전자근로 계약서
+						</a>
+					</li>
+					<li class="nav-item ">
+		            	<a class="nav-link" href="inqcareer?id=${login.id}">
+						<i class="material-icons">library_books</i>
+						경력 관리
+						</a>
+					</li>
+					<li class="nav-item  ">
+						<a class="nav-link" href="listResume?id=${login.id}">
+							<i class="material-icons">library_books</i>
+							이력서 관리
+		            	</a>
+		            </li>
+		        </ul>
+		      </div>
+		    </div>
+		</div>
       </c:if>
       
       <c:if test="${fn:substring(login.m_code,0,1)=='c'}">
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-
-<li class="nav-item">
-            <a class="nav-link" href="cserAddJobopening_free?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 등록
-            </a>
-          </li>
-		<li class="nav-item active">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 작성
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
-              <i class="material-icons">person</i>
-              직원 관리
-            </a>
-          </li>
-
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/proalba/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
-        </ul>
-      </div>
+		<div class="div-sidebar">
+			 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+		      <!--
+		        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+		        Tip 2: you can also add an image using data-image tag
+		    -->
+		      <div class="logo">
+		        <a href="/" class="simple-text logo-normal">
+		        proalba
+		        </a>
+		      </div>
+		      <div class="sidebar-wrapper">
+		        <ul class="nav">
+		        <li class="nav-item	">
+		            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+		              <i class="material-icons">dashboard</i>
+		              채용공고
+		            </a>
+		          </li>
+		         
+		         
+		             <li class="nav-item ">
+		            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
+		              <i class="material-icons">dashboard</i>
+		             전자근로 계약서 작성
+		            </a>
+		          </li>
+		         
+		         
+		           <li class="nav-item active">
+		            <a class="nav-link" href="ccontract?id=${login.id}">
+		              <i class="material-icons">dashboard</i>
+		             전자근로 계약서 목록
+		            </a>
+		          </li>
+		       
+		          <li class="nav-item">
+		            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+		              <i class="material-icons">person</i>
+		             직원 관리
+		            </a>
+		          </li>
+		     
+		     <%--      <li class="nav-item ">
+		            <a class="nav-link" href="${path}/comm">
+		              <i class="material-icons">bubble_chart</i>
+		              커뮤니티
+		              </a>
+		          </li> --%>
+		        
+		        </ul>
+		      </div>
+		    </div>
+		</div>
       </c:if>
-
-      </div>
-    </div>
-         <!-- End of Sidebar -->
-    </div>
 <div class="content">
 		<form>
             <div id="createPdf" class="div_createPdf">
                 <div class="box">
                    
             <h3 class="contract_title">전자 근로 계약서</h3>
-                    <br>
-                    <h4 class="gg">1. 근로 계약기간</h4><br>
+                    <h4 class="gg">1. 근로 계약기간</h4>
                     <input type="hidden" name="c_id" value="${login.id}" />
                     <input type="hidden" name="c_code" value="${contract.c_code}" />
                     <div class="worktime_div">
                     	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
                     </div>
 
-                    <h4 class="gg">2. 근무장소</h4><br>
+                    <h4 class="gg">2. 근무장소</h4>
                     <div class="worktime_div">
                     	<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
                     </div>
 
-                    <h4 class="gg">3. 업무의 내용</h4><br>
+                    <h4 class="gg">3. 업무의 내용</h4>
                     <div class="worktime_div">
                     	<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
                     </div>
-                    <h4 class="gg">4. 소정근로시간</h4><br>
+                    <h4 class="gg">4. 소정근로시간</h4>
                     <div class="worktime_div">
                         <span class="timepiker_txt_title">ㅡ 근로시간</span>
                             ${contract.start_work_time}
@@ -163,11 +189,10 @@
                         <span class="timepiker_txt">까지</span>
                     </div>
 
-                    <h4 class="gg">5. 임금</h4><br>
+                    <h4 class="gg">5. 임금</h4>
                     <span class="t1">ㅡ 월(일, 시간)급 : </span>
                     ${contract.hour_wage}
-                    <span>원</span><br><br>
-                    
+                    <span>원</span><br>
                     <span class="t1">ㅡ 기타 급여(재수당 등) </span>
                     <c:if test="${contract.additional_wage == '0'}">없음</c:if>
                     <c:if test="${contract.additional_wage =='1'}">있음</c:if>
@@ -177,16 +202,16 @@
                     ${contract.payday}
                     <span>일(휴일의 경우는 전일 지급)</span><br>
 
-                    <h4 class="gg">6. 연차유급휴가</h4><br>
+                    <h4 class="gg">6. 연차유급휴가</h4>
                     <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
 
-                    <h4 class="gg">7. 사회보험 적용여부</h4><br>
+                    <h4 class="gg">7. 사회보험 적용여부</h4>
                     <input class="che2" type="checkbox" id="고용보험" checked disabled/><span>고용보험</span>
                     <input class="che2" type="checkbox" id="국민보험" checked disabled/><span>국민연금</span>
                     <input class="che2" type="checkbox" id="건강보험" checked disabled/><span>건강보험</span>
                     <input class="che2" type="checkbox" id="산재보험" checked disabled/><span>산재보험</span>
 
-                    <h4 class="gg">8. 근로계약서 교부</h4><br>
+                    <h4 class="gg">8. 근로계약서 교부</h4>
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
                     <div class="worktime_div">
@@ -216,7 +241,7 @@
                     
                     <hr><br>
                     
-                    <h2 class="hh">근로자</h2><br>
+                    <h2 class="hh">근로자</h2>
                     <div id="sign" style="width: 40%; display: inline-block; float:right;">
                     	<img class="can1" id="myImage" src="${contract.p_sign}" style="margin:1px;">
                 	</div>

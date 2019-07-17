@@ -53,4 +53,9 @@ public class ResumeDAOImplement implements ResumeDAO {
 		return sqlSession.selectList(NAMESPACE + ".checkResume", n_code);
 	}
 
+	@Override
+	public ResumeVO late_status(String r_code) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".late_status", r_code);
+	}
+
 }

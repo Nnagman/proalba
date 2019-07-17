@@ -50,6 +50,32 @@
 <script src="resources/js/cal/albamanage.js"></script>
 <script src="resources/js/cal/interaction.js"></script>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      var record = '${start_time}';
+     console.log(record);
+       function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     2],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
 </head>
 <style>
 .odd {
@@ -116,7 +142,7 @@ margin: 0 0 0 20px;
         Tip 2: you can also add an image using data-image tag
     -->
 				<div class="logo">
-					<a href="/proalba" class="simple-text logo-normal"> proalba </a>
+					<a href="/" class="simple-text logo-normal"> proalba </a>
 				</div>
 				<div class="sidebar-wrapper">
         <ul class="nav">
@@ -206,7 +232,7 @@ margin: 0 0 0 20px;
 													<th class="th-sm">퇴근 시간	</th>
 													<jsp:useBean id="now" class="java.util.Date" />
 													<fmt:parseNumber var="now_date" value="${now.time / (1000*60*60*24)}" integerOnly="true"/>
-													<c:if test="${end_date > now_date}">
+													<c:if test="${end_date > now_date || end_Date == ''}">
 														<th class="th-sm">edit <i class="fas fa-plus" id="Binsert"></i> 추가</th>
 													</c:if>
 												</tr>
@@ -230,6 +256,7 @@ margin: 0 0 0 20px;
 										</table>
 									</div>
 								</div>
+								 <div id="donutchart" style="width: 900px; height: 500px;"></div>
 							</div>
 						</div>
 

@@ -47,6 +47,30 @@
 <script src="resources/js/bootstrap.js"></script>
 
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
 
 </head>
 <style>
@@ -184,7 +208,13 @@
 														<h3>${row.name}</h3>
 													</div>
 													<div class="card-body">
+
 														<fmt:parseNumber var="end_time" value="${row.end_period}" integerOnly="true"/>
+
+
+														<fmt:parseNumber var="end_time" value="${row.end_date.time / (1000*60*60*24)}" integerOnly="true"/>
+
+
 														<h5 class="card-title">휴대번호: ${row.phone}</h5>
 														<br>
 														<h5 class="card-title">생년 월일: ${row.birthday}</h5>
@@ -209,6 +239,7 @@
 												</c:forEach>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 

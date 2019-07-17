@@ -16,7 +16,7 @@
 			var naverLogin = new naver.LoginWithNaverId(
 				{
 					clientId: "hkaRQixriKsVgNq3XfqU",
-					callbackUrl: "http://localhost:8080/selNaverRegister",
+					callbackUrl: "http://39.127.7.84:8080/selNaverRegister",
 					isPopup: true,
 					callbackHandle: false
 					/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
@@ -39,7 +39,7 @@
 							return;
 						}
 	
-						window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/naverRegister?email="+email);
+						opener.window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/apiRegister?email="+email);
 					} else {
 						console.log("가입에 실패하였습니다. 다시 시도해주세요.");
 					}

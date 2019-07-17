@@ -118,6 +118,9 @@ p {
 .recruinfo-list{
 width:100%;
 }
+header{
+height:80px !important;
+}
 
 .recruinfo-table{
 
@@ -380,8 +383,7 @@ top:300px;
 			</div>
 
 
-
-
+<!-- 수정할곳 -->
 <div class="recruinfo-list">
 <input type="hidden" class="form-control form-control-sm" placeholder="" id="job_type_search" aria-controls="Example">
 <table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
@@ -413,7 +415,7 @@ top:300px;
 </table>
 
 </div>
-
+<!-- 수정할곳 -->
    
 
 
@@ -502,7 +504,8 @@ Modal 직종
  
 	$(document).ready(function () {
 		$('#Example').DataTable({
-			"paging": true // false to disable pagination (or any other option)
+			"paging": true, // false to disable pagination (or any other option)
+			"order": [[ 4, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});
