@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
-<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
 <link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
 <c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
@@ -11,7 +11,7 @@
    	<meta charset="UTF-8">
    	<title>프로알바</title>
    	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
-   	<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
+   	<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
 	<script>
 		$(document).ready(function(){
 			var url = location.href;
@@ -108,7 +108,7 @@
 	             function renderButton() {
 	                gapi.signin2.render('my-signin2', {
 	                   'scope': 'email',
-	                   'width': 160,
+	                   'width': 60,
 	                   'height': 60,
 	                   'longtitle': false,
 	                   'theme': 'dark',
@@ -140,14 +140,13 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
-				callbackUrl: "http://localhost:8080/naverLogin",
-				isPopup: false,
-				callbackHandle: true,
+				callbackUrl: "http://39.127.7.84:8080/naverLogin",
+				isPopup: true,
+				callbackHandle: false,
 				loginButton: {color: "green", type: 1, height: 60}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}
 		);
-
 		/* (3) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
 		naverLogin.init();
 	</script>

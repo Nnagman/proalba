@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/sel_register.css">
-<meta name="google-signin-client_id" content="645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
@@ -45,7 +45,7 @@
 	             function renderButton() {
 	                gapi.signin2.render('my-signin2', {
 	                   'scope': 'email',
-	                   'width': 160,
+	                   'width': 60,
 	                   'height': 60,
 	                   'longtitle': false,
 	                   'theme': 'dark',
@@ -60,6 +60,12 @@
 	                alert("아이디와 비밀번호를 확인해주세요.");
 	            }
 	  		  </script>
+	  		  
+	  		  <style>
+	  		  	#naverIdLogin_loginButton img {
+	  		  		margin: 0px 5px 0px 0px;
+	  		  	}
+	  		  </style>
 
 </head>
 
@@ -98,7 +104,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
-				callbackUrl: "http://localhost:8080/selNaverRegister",
+				callbackUrl: "http://39.127.7.84:8080/selNaverRegister",
 				isPopup: false,
 				callbackHandle: true,
 				loginButton: {color: "green", type: 1, height: 60}
