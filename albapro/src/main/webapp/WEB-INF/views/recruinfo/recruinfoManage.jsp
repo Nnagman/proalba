@@ -233,6 +233,7 @@ top:300px;
     position: relative;
 }
 
+
 </style>
 
 <body>
@@ -246,15 +247,6 @@ top:300px;
 			<h2 class="recruinfo-title-p">채용 공고</h2>
 		</div>
 
-		<div id="JobCount">
-			<div class="all">
-				<p class="title1">전체 채용공고</p>
-				<p class="count">
-				</p>
-			</div>
-
-
-		</div>
 
 		<div id="SubContents">
 
@@ -285,70 +277,6 @@ top:300px;
 			<input type="hidden" id="schtext" name="schtext" value="">
 
 			<div class="jobSearch" id="JobSearch">
-
-
-				<!-- 기본검색 -->
-
-				<div class="base">
-
-
-					<!-- 지역 -->
-			<!--		<dl class="area">
-						<dt class="item">지역</dt>
-						 <dd class="content">
-							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
-						</dd>
-						<dd class="data" style="display: block;">
-							<ul id="ulAreacd" class="tabForm">
-								<li id="02" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('02', '서울');">서울</a></li>
-								<li id="051"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('051', '부산');">부산</a></li>
-								<li id="053" class="odd on"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
-								<li id="032"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('032', '인천');">인천</a></li>
-								<li id="062" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('062', '광주');">광주</a></li>
-								<li id="042"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('042', '대전');">대전</a></li>
-								<li id="052" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('052', '울산');">울산</a></li>
-								<li id="044"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('044', '세종');">세종</a></li>
-								<li id="031" class="odd last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('031', '경기');">경기</a></li>
-								<li id="055"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('055', '경남');">경남</a></li>
-								<li id="054" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('054', '경북');">경북</a></li>
-								<li id="041"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('041', '충남');">충남</a></li>
-								<li id="043" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('043', '충북');">충북</a></li>
-								<li id="061"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('061', '전남');">전남</a></li>
-								<li id="063" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('063', '전북');">전북</a></li>
-								<li id="033"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('033', '강원');">강원</a></li>
-								<li id="064" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('064', '제주');">제주</a></li>
-								<li id="99" class="last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('99', '전국');">전국</a></li>
-							</ul>
-							<ul id="ulGugun" class="inputWrap">
-								<li></li>
-							</ul>
-							<ul id="ulDong" class="inputWrap dongWrap" style="display: none;">
-								<li></li>
-							</ul>
-							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
-						</dd>
-					</dl> -->
-
-					<!-- 지역 -->
-				</div>
 
 
 				<div class="jobcho-line1">

@@ -16,7 +16,7 @@
 	
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
-<!-- 			Full Down Menu --> 
+<!-- Full Down Menu --> 
 			
 		
 		<li class="menuLi">
@@ -37,7 +37,6 @@
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/comm" >커뮤니티</a>
 			<ul class="subMenu">
-
 			</ul>
 		</li>
 	</ul>
