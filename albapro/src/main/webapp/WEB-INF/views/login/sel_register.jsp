@@ -84,13 +84,13 @@
         <div class="indi_member">
           <i class="fas fa-user"></i><br/>
           <a href="pregister"><input type="button" class="reg_btn" id="indi_reg_btn" name="indi_reg" value="개인회원가입"></a>
-          <div id="naverIdLogin" style="margin-top: 40px;"></div>
-          <div id="my-signin2" onClick="googleRegister()" style="margin-top: 40px; margin-left: 0px;"></div>
       </div>
         <div class="corp_member">
           <i class="fas fa-user-tie"></i><br/>
           <a href="cregister"><input type="button" class="reg_btn" id="corp_reg_btn" name="indi_reg" value="기업회원가입"></a>
         </div>
+        <div id="naverIdLogin" style="margin-left: 110px;"></div>
+      	<div id="my-signin2" onClick="googleRegister()" style="margin-left: 0px;"></div>
       </div>
   </div>
 </div>
@@ -106,7 +106,7 @@
 				clientId: "hkaRQixriKsVgNq3XfqU",
 				callbackUrl: "http://39.127.7.84:8080/selNaverRegister",
 				isPopup: true,
-				callbackHandle: true,
+				callbackHandle: false,
 				loginButton: {color: "green", type: 1, height: 60}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}

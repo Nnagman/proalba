@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
-<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
-<link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
-<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
 
 <!doctype html>
 <html lang="kr">
   	<head>   
+  	<script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
+	<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
+	<link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
+	<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
    	<meta charset="UTF-8">
    	<title>프로알바</title>
    	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
