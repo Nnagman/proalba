@@ -1,268 +1,581 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
+
+
+
+<script type="text/javascript"
+	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<title>프로알바</title>
 
-  <title>프로알바</title>
-  <link href="resources/css/resume.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template-->
+<link rel="stylesheet" href="resources/css/recruinfo/job.css">
+<link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
+<link rel="stylesheet" href="resources/css/recruinfo/sub.css">
+<link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
+ 
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+ 
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/css/mdb.min.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+     <link href="resources/css/datatables.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-  <!-- Custom styles for this template-->
- <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
-  <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
-  <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-    <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+ 
  
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
 
- 
- <link rel="stylesheet" href="resources/css/albamanage.css" />
-<link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <script src="resources/js/albamanage.js"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script> 
+<script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test11.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test12.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test13.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test14.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test15.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test16.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test17.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test18.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
+
+
+
+
 
 
 
 </head>
-<style>
- .odd { background-color:#EAEAEA; }
 
-        .Even { background-color : white; }
+<style>
+html, body, header, .carousel {
+	height: 9vh !important;
+}
+
+.he-title {
+	display: none !important;
+}
+
+.carousel-inner {
+	display: none !important;
+}
+
+header {
+	background-image: url("#") !important;
+	background-color: #5D5D5D !important;
+}
+
+.recruinfo-title {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.recruinfo-title-p {
+	font-weight: 800;
+}
+
+.p.count {
+	margin-top: 0px !important;
+}
+
+p {
+	margin-bottom: 0px !important;
+}
+
+#JobCount div p.count {
+	margin: 0 0 0 0 !important;
+}
+
+.jobSearch dl .data .tabForm li a {
+	height: 34px !important;
+	padding-top: 5px !important;
+	vertical-align: middle !important;
+	margin: 0;
+	
+}
+
+.jobSearch dl .content .value span {
+	height: 23px !important;
+}
+
+.placho-line1{
+	margin: 0 !important;	
+}
+
+.recruinfo-list{
+width:100%;
+}
+header{
+height:80px !important;
+}
+
+.recruinfo-table{
+
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Malgun Gothic';
+    letter-spacing: -1px;
+    border-top: 1px solid #aaa;
+}
+
+.recruinfo-table th{
+
+text-align:left !important;
+    font-weight: bold;
+    text-align: -internal-center;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.recruinfo-list table tr th {
+    padding: 9px 0 10px;
+    padding: 11px 0 8px\0;
+      padding-left: 15px;
+    line-height: 1;
+    color: #666a5b;
+    background-color: #f2f2f2;
+    border: 0px solid !important;
+    border-bottom: 1px solid #b5b5b5 !important;
+}
+
+.recruinfo-list table tr td {
+    padding: 12px 0;
+    line-height: 1;
+    text-align: left;
+    color: #474747;
+     border: 0px solid !important;
+    border-bottom: 1px solid #e4e4e4 !important;
+        padding-left: 15px;
+       
+}
+
+.recruinfo-list table tr td.local {
+    width: 13rem;
+    padding-left: 15px;
+    
+}
+
+div.dataTables_filter label{
+float: right;
+margin-right: 40px;
+}
+
+.jobcho-line1{
+text-align: center;
+}
+
+.company{
+    display: block;
+    height: auto;
+    padding: 2px 0 6px !important;
+    font-size: 13px;
+
+    background: none !important;
+    color: #0075ab;
+}
+
+.recruinfo-list .title a span {
+    position: relative;
+    overflow: hidden;
+  
+    
+ 
+    font-family: tahoma;
+    line-height: 12px;
+    vertical-align: top;
+    white-space: nowrap;
+    cursor: pointer;
+    text-align: left;
+
+}
+
+
+#Example_info{
+display:none;
+}
+
+#Example_paginate{
+float:left;
+}
+
+.navbar{
+padding-right:0 !important;
+}
+
+footer{
+top:300px;
+    position: relative;
+}
+
 </style>
 
 <body>
-	<div class="wrapper">
-	<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+	<%@ include file="../include/header.jsp"%>
 
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo">
-        <a href="/" class="simple-text logo-normal">
-        proalba
-        </a>
+
+
+
+	<div class="container">
+		<div class="recruinfo-title">
+			<h2 class="recruinfo-title-p">이력서 목록</h2>
+		</div>
+		<br><br>
+
+<!-- 		<div id="JobCount">
+			<div class="all">
+				<p class="title1">전체 채용공고</p>
+				<p class="count">
+				</p>
+			</div>
+
+
+		</div>
+ -->
+		<div id="SubContents">
+
+			<!-- Job Count -->
+
+			<!-- //Job Count -->
+
+			<!-- 상단검색 S//-->
+
+
+			<input type="hidden" id="WsSrchKeywordWord" name="WsSrchKeywordWord"
+				value=""> <input type="hidden" id="hidschContainText"
+				name="hidschContainText" value=""> <input type="hidden"
+				id="hidWsearchInOut" name="hidWsearchInOut" value="">
+			<!-- base hidden parameter -->
+			<input type="hidden" id="hidSort" name="hidSort" value=""> <input
+				type="hidden" id="hidSortOrder" name="hidSortOrder" value="">
+			<input type="hidden" id="hidSortDate" name="hidSortDate" value="">
+			<input type="hidden" id="hidListView" name="hidListView" value="LIST">
+			<input type="hidden" id="hidSortCnt" name="hidSortCnt" value="50">
+			<input type="hidden" id="hidSortFilter" name="hidSortFilter"
+				value="Y"> <input type="hidden" id="hidJobKind"
+				name="hidJobKind" value=""> <input type="hidden"
+				id="hidJobKindMulti" name="hidJobKindMulti" value=""> <input
+				type="hidden" id="page" name="page" value="1"> <input
+				type="hidden" id="hidSearchyn" name="hidSearchyn" value="N">
+			<input type="hidden" id="strAreaMulti" name="strAreaMulti" value="">
+			<input type="hidden" id="schtext" name="schtext" value="">
+
+			<div class="jobSearch" id="JobSearch">
+
+
+				<!-- 기본검색 -->
+
+
+				<!-- <div class="base">
+
+
+					<!-- 지역 -->
+			<!--		<dl class="area">
+						<dt class="item">지역</dt>
+						 <dd class="content">
+							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
+						</dd>
+						<dd class="data" style="display: block;">
+							<ul id="ulAreacd" class="tabForm">
+								<li id="02" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('02', '서울');">서울</a></li>
+								<li id="051"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('051', '부산');">부산</a></li>
+								<li id="053" class="odd on"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
+								<li id="032"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('032', '인천');">인천</a></li>
+								<li id="062" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('062', '광주');">광주</a></li>
+								<li id="042"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('042', '대전');">대전</a></li>
+								<li id="052" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('052', '울산');">울산</a></li>
+								<li id="044"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('044', '세종');">세종</a></li>
+								<li id="031" class="odd last"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('031', '경기');">경기</a></li>
+								<li id="055"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('055', '경남');">경남</a></li>
+								<li id="054" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('054', '경북');">경북</a></li>
+								<li id="041"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('041', '충남');">충남</a></li>
+								<li id="043" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('043', '충북');">충북</a></li>
+								<li id="061"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('061', '전남');">전남</a></li>
+								<li id="063" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('063', '전북');">전북</a></li>
+								<li id="033"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('033', '강원');">강원</a></li>
+								<li id="064" class="odd"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('064', '제주');">제주</a></li>
+								<li id="99" class="last"><a href="#"
+									onclick="JOBSEARCH.fnsetGugun('99', '전국');">전국</a></li>
+							</ul>
+							<ul id="ulGugun" class="inputWrap">
+								<li></li>
+							</ul>
+							<ul id="ulDong" class="inputWrap dongWrap" style="display: none;">
+								<li></li>
+							</ul>
+							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
+						</dd>
+					</dl> -->
+
+					<!-- 지역 
+				</div>	-->
+
+<!-- 	작동 x 
+				<div class="jobcho-line1">
+					직종/업무:
+					<div class="jobchoice"></div>
+
+					<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
+					전체카테고리
+					</button>
+				</div>
+					 -->
+			
+					
+			</div>
+
+
+<!-- 바꿀곳 -->
+
+<div class="recruinfo-list">
+<input type="hidden" class="form-control form-control-sm" placeholder="" id="job_type_search" aria-controls="Example">
+<table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
+	<thead>
+		<tr>
+			<th class="local">이력서 제목</th>
+			<th class="title">공고제목</th>
+			<th class="data">근무시간</th>
+		
+		</tr>
+	</thead>
+	<tbody>
+
+		<c:forEach var="row" items="${map.list}">
+			<tr>
+				
+				<td class="title"><a href="recruinfoDetail?n_code=#">
+								
+										<span> ${row.title} </span>
+											<span> ${row.r_date} </span> 
+									</a></td>
+				<td class="data">${row.r_date}</td>
+				<td class="salary">${row.r_date}</td>
+			
+			</tr>
+		</c:forEach>
+	
+	</tbody>	
+</table>
+
+</div>
+
+   
+<!-- 바꿀곳 -->
+
+
+   </div>
+   
+   </div>
+   
+   
+
+
+
+
+<!-- 작동 x 
+Modal 직종 
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-			<li class="nav-item">
-          		<a class="nav-link" href="pserworkList?id=${login.id}">
-					<i class="material-icons">dashboard</i>
-					알바목록
-				</a>
-			</li>
-			<li class="nav-item ">
-            	<a class="nav-link" href="contract?id=${login.id}">
-					<i class="material-icons">dashboard</i>
-            	 	전자근로 계약서
-				</a>
-			</li>
-			<li class="nav-item ">
-            	<a class="nav-link" href="inqcareer?id=${login.id}">
-				<i class="material-icons">library_books</i>
-				경력 관리
-				</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="listResume?id=${login.id}">
-				<i class="material-icons">library_books</i>
-				이력서 관리
-            	</a>
-            </li>
-        </ul>
-        <div class="nav-itemsub">
-        	<ul>
-        		<li><a class="nav-link" href="listResume?id=${login.id}"> 이력서 목록 </a></li>
-        		<li><a class="nav-link" href="writeResume?id=${login.id}"> 이력서 작성 </a></li>
-        	</ul>
-        </div>
+      <div class="modal-body">
+       	<div class="jobcho1"></div>
+					<div class="jobcho2"></div>
+					<div class="jobcho3-title">선택된 직종</div>
+					<div class="jobcho3"></div>
+					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
+        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
       </div>
     </div>
-			<!-- End of Sidebar -->
-		</div>
-		<div class="content">
-			<div class="pser-header"><%@ include file="pserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">나의 이력서 조회</h4>
-									<p class="card-category">
-										${login.name} 님의 이력서목록을 볼 수 있습니다.
-									</p>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<c:forEach var="row" items="${map.list}" >
-										<c:set var = "idx" value = "${fn:indexOf(row.r_code, '/')}" />
-										<c:set var = "length" value = "${fn:length(row.r_code)}" />
-										<c:set var = "r_date" value = "${fn:substring(row.r_code, idx+1, length)}" />
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">
-														작성일: ${row.r_date}
-													</h5>
-													<br>
-													<h5 class="card-title">
-														이력서 제목: ${row.title}
-													</h5>
-													<br>
-													<a href="viewResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
-													<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" class="btn btn-primary card-btn">이력서 삭제</a>
-												</div>
-											</div>
-										</c:forEach>							
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
-		</div>
+  </div>
+</div>
+ -->
 
-	</div> 
-	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-	<script src="resources/js/servicepage2/popper.min.js"></script>
-	<script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-	<script src="resources/js/servicepage2/demo.js"></script>
-                                            
-                                            
-                                            
-                                
-                                            
-   <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
 
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
+<!-- Modal 지역 -->
+<div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       		<div class="placho1"></div>
+		<div class="placho2"></div>		
+			<div class="jobcho3-title">선택된 지역</div>
+			<div class="placho3"></div>
+		
+					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
+        <button type="button" class="btn btn-primary btn-plremove">모두지우기</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        $full_page = $('.full-page');
+<!-- Modal 지역 -->
 
-        $sidebar_responsive = $('body > .navbar-collapse');
+ <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
+   
 
-        window_width = $(window).width();
 
-        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
 
-        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-            $('.fixed-plugin .dropdown').addClass('open');
-          }
+  <script type="text/javascript" src="resources/js/popper.min.js"></script>
+  <script type="text/javascript" src="resources/js/mdb.min.js"></script>
+  <script type="text/javascript" src="resources/js/datatables.min.js"></script>
+  
+   <script type="text/javascript">
+ 
+	$(document).ready(function () {
+		$('#Example').DataTable({
+			"paging": true, // false to disable pagination (or any other option)
+			"order": [[ 4, "desc" ]]
+		});
+		$('.dataTables_length').addClass('bs-select');
+	});
+	
+	$('#ulGugun').on('click',function(){
+		console.log($('.value > span').text());
+	});
 
-        }
-        
-        
-     
-            $('#example').DataTable( {
-                columnDefs: [
-                    {
-                        targets: [ 0, 1, 2 ],
-                        className: 'mdl-data-table__cell--non-numeric'
-                    }
-                ]
-            } );
-            
-            $('table.mdl-data-table tbody tr:odd').addClass('odd');
-
-            $('table.mdl-data-table tbody tr:even').addClass('Even');
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      }); 
-    });
   </script>
   
   
+  
+  
+<script>
+
+
+
+ function plasearch() {
+	
+	var search =$('#plachoice').val();
+
+
+	console.log(search); 
+
+	var table =$('#Example').dataTable();
+	table.fnFilter(search);
+	
+
+};  
+
+</script>
+  
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+   
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+   
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+      </a>
+     
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  
+			
 
  
+
 </body>
+
+
 </html>
+
+
+
+
+
+
+
+
+

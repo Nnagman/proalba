@@ -108,6 +108,10 @@ margin: 0 0 0 20px;
 	font-size: 0.8rem;
 }
 
+.Bcontract_send{
+margin:0 0 0 15px;
+font-size:20px;
+}
 </style>
 
 <body>
@@ -229,7 +233,7 @@ margin: 0 0 0 20px;
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 													<td>
 														<c:if test="${row.way eq '온라인접수'}">
-														 <a href="checkResume?n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a>
+														 <a href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
 														</c:if>
 													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a></td>

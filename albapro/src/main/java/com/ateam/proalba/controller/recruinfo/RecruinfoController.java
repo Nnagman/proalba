@@ -152,8 +152,10 @@ public class RecruinfoController {
 		model.addAttribute("careers", careerVO);
 		
 		ResumeVO resumeVO = resumeService.view_resume(r_code);
+		ResumeVO late_status = resumeService.view_resume(r_code);
 		
 		model.addAttribute("resume", resumeVO);
+		model.addAttribute("late_status", late_status);
 		return "recruinfo/viewResume";
 	}
 }

@@ -143,6 +143,22 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     	return "login/naverLogin";
     }
     
+    @RequestMapping(value = "/googleLogin", method = RequestMethod.GET)
+    public String googleLogin(@RequestParam("email") String email, HttpServletRequest request, Model model) throws Exception {
+    	HttpSession httpSession = request.getSession();
+    	
+    	MemberVO memberVO = memberService.apiIdcheck(email);
+    	
+    	if(memberVO != null) {
+    		httpSession.setAttribute("login", memberVO);
+    	}else {
+    		model.addAttribute("status", "0");
+    		return "redirect:/login";
+    	}
+    	
+    	return "redirect:/";
+    }
+    
     @RequestMapping(value = "/naverLogin/login", method = RequestMethod.GET)
     public String naverLoginPost(@RequestParam("email") String email, HttpServletRequest request, Model model) throws Exception {
     	HttpSession httpSession = request.getSession();

@@ -74,7 +74,7 @@ i{font-size: 200px;}
 
 .indi_member, .corp_member{
   display: inline-block;
-  padding: 90px;
+  padding: 90px 90px 0px 90px;
 }
 
 .corp_member{

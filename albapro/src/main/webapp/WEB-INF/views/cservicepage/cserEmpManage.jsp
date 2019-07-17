@@ -209,7 +209,11 @@
 													</div>
 													<div class="card-body">
 
+														<fmt:parseNumber var="end_time" value="${row.end_period}" integerOnly="true"/>
+
+
 														<fmt:parseNumber var="end_time" value="${row.end_date.time / (1000*60*60*24)}" integerOnly="true"/>
+
 
 														<h5 class="card-title">휴대번호: ${row.phone}</h5>
 														<br>

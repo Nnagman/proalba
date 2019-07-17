@@ -50,4 +50,9 @@ public class ResumeServiceImplement implements ResumeService {
 		return resumeDAO.checkResume(n_code);
 	}
 
+	@Override
+	public ResumeVO late_status(String r_code) throws Exception {
+		return resumeDAO.late_status(r_code);
+	}
+
 }
