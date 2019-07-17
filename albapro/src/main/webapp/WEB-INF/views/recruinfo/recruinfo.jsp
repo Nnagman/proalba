@@ -118,6 +118,9 @@ p {
 .recruinfo-list{
 width:100%;
 }
+header{
+height:80px !important;
+}
 
 .recruinfo-table{
 
