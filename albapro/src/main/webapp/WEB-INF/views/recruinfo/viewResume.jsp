@@ -48,7 +48,8 @@
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-	<div class="wrapper"><div class="div-sidebar">
+	<div class="wrapper">
+	<div class="div-sidebar">
 	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -63,7 +64,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
 
-<li class="nav-item  ">
+<li class="nav-item active  ">
             <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
               채용공고 
@@ -78,7 +79,7 @@
              전자근로 계약서 작성
             </a>
           </li>
-		<li class="nav-item active">
+		<li class="nav-item ">
             <a class="nav-link" href="ccontract?id=${login.id}">
               <i class="material-icons">dashboard</i>
              전자근로 계약서 목록

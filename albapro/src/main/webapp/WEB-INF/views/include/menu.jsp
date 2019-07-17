@@ -26,7 +26,7 @@
 		</li>
 	
 <!--	Full Down Menu -->
-			<%-- <div class="fulldrop scrolling-navbar Asize">
+			<%--  <div class="fulldrop scrolling-navbar Asize">
 
 				<div class="column">
 					<h3 class="menu-drop-title">지원 관리</h3>
@@ -59,7 +59,9 @@
 						<li><a href="${path}/inqcareer?id=${login.id}" class="manuli">경력 조회</a></li>
 					</ul>
 				</div>
-			</div> --%>
+			</div>  --%>
+			
+			
 
 		
 

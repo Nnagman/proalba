@@ -92,7 +92,33 @@
             
           </div>
               	
+<div class="subnavbar1">
+      	<ul>
+	<li class="menuLi writeResume_li">
 
+		<c:if 	test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
+			<a id="pservice" class="menuLink" href="${path}/writeResume?id=${login.id}" target="blank">
+			<i class="material-icons">portrait</i>&nbsp 이력서 작성</a>
+		</c:if>
+		<c:if test="${login.id == null}">
+			<a id="pservice" class="menuLink" href="${path}/login">
+			
+				<i class="material-icons">portrait</i>&nbsp이력서 작성</a>
+		</c:if>
+		</li>
+		
+			<li class="menuLi addjobopning_li">
+		<c:if 	test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+			<a id="pservice" class="menuLink" href="${path}/cserAddJobopening_free?id=${login.id}" target="blank">
+			<i class="fas fa-plus"></i>&nbsp 채용공고 등록</a>
+		</c:if>
+		<c:if test="${login.id == null}">
+			<a id="pservice" class="menuLink" href="${path}/login">
+			<i class="fas fa-plus"></i>&nbsp 채용공고 등록</a>
+		</c:if>
+		</li>
+		</ul>
+		</div>
       </div>
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">

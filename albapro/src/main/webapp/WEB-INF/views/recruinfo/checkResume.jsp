@@ -51,6 +51,67 @@
 
 <body>
 	<div class="wrapper">
+	<div class="div-sidebar">
+	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="/" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+<li class="nav-item active ">
+            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+              채용공고 
+            </a>
+          </li>
+		
+		
+		
+		    <li class="nav-item">
+            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 작성
+            </a>
+          </li>
+		<li class="nav-item ">
+            <a class="nav-link" href="ccontract?id=${login.id}">
+              <i class="material-icons">dashboard</i>
+             전자근로 계약서 목록
+            </a>
+          </li>
+       
+          <li class="nav-item">
+            <a class="nav-link" href="cserEmpManage?id=${login.id}">
+              <i class="material-icons">person</i>
+              직원 관리
+            </a>
+          </li>
+        <%--   <li class="nav-item">
+            <a class="nav-link" href="pserSalary?id=${login.id}">
+              <i class="material-icons">content_paste</i>
+              급여 관리
+            </a>
+          </li> --%>
+          <%-- <li class="nav-item ">
+            <a class="nav-link" href="${path}/comm">
+              <i class="material-icons">bubble_chart</i>
+              커뮤니티
+              </a>
+          </li> --%>
+        
+        </ul>
+      </div>
+    </div>
+<!-- End of Sidebar -->
+	  </div>
 		<div class="content">
 			<div class="pser-con">
 				<div class="container-fluid">
