@@ -76,6 +76,7 @@ html, body, header, .carousel {
 header {
 	background-image: url("#") !important;
 	background-color: #5D5D5D !important;
+	height:80px !important;
 }
 
 .recruinfo-title {
@@ -118,9 +119,7 @@ p {
 .recruinfo-list{
 width:100%;
 }
-header{
-height:80px !important;
-}
+
 
 .recruinfo-table{
 
@@ -238,7 +237,7 @@ padding-right:0 !important;
 }
 
 footer{
-top:300px;
+top:400px;
     position: relative;
 }
 
