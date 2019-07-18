@@ -318,9 +318,8 @@ td{
 										<h4 class="card-title ">직원 관리</h4>
 										<p class="card-category">사업장내 직원을 관리할 수 있습니다.</p>
 									</div>
-									<div class="card-body">
-										<div class="table-responsive">
-									<table class="table">
+
+									<table id="example" class="table">
 										  <thead class="thead-dark">
 										    <tr>
 										      <th scope="col">이름</th>
@@ -347,8 +346,7 @@ td{
 												</tbody>
 										</table>
 												
-										</div>
-									</div>
+
 								
 
 <!-- 수정할곳 -->
@@ -449,6 +447,17 @@ Modal 직종
 	$('#ulGugun').on('click',function(){
 		console.log($('.value > span').text());
 	});
+    $('#example').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+    
+    $('table.mdl-data-table tbody tr:odd').addClass('odd');
+    $('table.mdl-data-table tbody tr:even').addClass('Even');
 
   </script>
   

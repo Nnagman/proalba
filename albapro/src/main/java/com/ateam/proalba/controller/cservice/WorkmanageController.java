@@ -396,20 +396,29 @@ public class WorkmanageController {
 		return pJson;
 	}
 
+	/* 이전 경력 조회 컨트롤러
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET) public
+	 * ModelAndView inqcareerGET(Model model, @RequestParam("id") String
+	 * id, @RequestParam("name") String name) throws Exception {
+	 * model.addAttribute("message", ""); model.addAttribute("name", name);
+	 * List<CareerVO> list = careerService.selectCareers("p" + id);
+	 * logger.info(list.toString()); ModelAndView mav = new ModelAndView();
+	 * mav.setViewName("cservicepage/cserInqcareer"); Map<String, Object> map = new
+	 * HashMap<String, Object>(); map.put("list", list);
+	 * 
+	 * mav.addObject("map", map); return mav; }
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET)
-	public ModelAndView inqcareerGET(Model model, @RequestParam("id") String id, @RequestParam("name") String name)
+	public ModelAndView inqcareerGET(Model model, @RequestParam("id") String id)
 			throws Exception {
-		model.addAttribute("message", "");
-		model.addAttribute("name", name);
-		List<CareerVO> list = careerService.selectCareers("p" + id);
+		List<CareerVO> list = careerService.selectCareers(id);
 		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserInqcareer");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list);
-
-		mav.addObject("map", map);
+		mav.addObject("list", list);
 		return mav;
 	}
 	
