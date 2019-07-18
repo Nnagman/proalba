@@ -65,13 +65,13 @@
           <ul class="navbar-nav mr-auto">
 
 							<c:if
-								test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
+								test='${fn:substring(login.m_code,0,1) == "p"||fn:substring(login.m_code,0,1) == "c"|| login.m_code == null}'>
 								<%@ include file="menu.jsp"%>
 							</c:if>
 
-							<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%-- 							<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 								<%@ include file="cmenu.jsp"%>
-							</c:if>
+							</c:if> --%>
 							<c:if
 								test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
 								<%@ include file="amenu.jsp" %>

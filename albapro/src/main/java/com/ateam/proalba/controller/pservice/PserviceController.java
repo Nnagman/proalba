@@ -193,6 +193,7 @@ public class PserviceController {
 		map.put("list",list);
 		
 		mav.addObject("map", map);
+		System.out.println("pserworkList : " + mav);
 		return mav;
 	}
 		

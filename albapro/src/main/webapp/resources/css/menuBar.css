@@ -15,7 +15,7 @@ body{
 .menucontainer{
     width:100%;
     margin: 0 auto;
-    padding: 20px 0 22px 50px; 
+    padding: 0 0 0 50px; 
 
 }
 
@@ -26,9 +26,9 @@ body{
      background-color:!important;
     font-weight:400;
     font-size: 13px;
-    line-height:20px;
+/*     line-height:20px; */
     position: relative;
-    padding: 15px 0 0px 0px;
+/*     padding: 15px 0 0px 0px; */
 	display:block !important;
 
 }
@@ -44,15 +44,19 @@ body{
     text-align:center;
     margin-left: 4px;
     font-size: 20px;
+    height: 80px;
 }
 
 .nav > li > a {
-    padding:20px 18px;
+    padding: 0 18px;
     display: block;
+    height: 80px;
+    line-height: 80px;
 }
 
 .nav > li:hover > a{
     color: black !important;
+        background-color: white !important;
 }
 
 /* .column > ul > li:hover{
@@ -112,7 +116,7 @@ body{
 	visibility: hidden;
 	position: absolute;
 	list-style: none;
-	top:60px;
+	top:80px;
 	float:left;
 	min-height: 100px;
 	text-align: left;
@@ -127,55 +131,53 @@ body{
 
 .Asize{
 	width: 1230px;
- 	height: 300px;
+ 	height: 230px;
 }
 
 .qnaSize{
 	width: 200px !important;
     height: 190px !important;
-
 }
+
 .nav > li:hover > .fulldrop {
+	background-color: white;
+	border: 1px solid gray;
 	opacity: 1;
 	visibility: visible;
-	width: 600px;
+	width: 690px;
 	position: absolute;
 	list-style: none;
-	top:60px;
+	top:80px;
 	float:left;  	
 	min-height: 100px;
 	text-align: left;
 	margin-top: 0;
 	margin-bottom: 20px;
 	padding: 0;
- 	padding-top: 20px;
 	z-index: 99;
 	overflow: hidden;
-	margin-left: -30px;
+	margin-left: -1px;
 }
 
 .nav ul li:hover:after {
 	color: black;
 }
 
-.nav .c_column{
-	width: 180px !important;
-}
 .nav .column {
 	
 	width: 210px;
-  	height: 160px;
+  	height: 189px;
 	float: left;
 	color: black;
-	margin: 0 20px 0 0;
-	margin-right:-30px;
+	margin: 20px 20px 0 0;
+	padding-left: 20px;
   	padding-right: 10px;
-	
+  	border-right: 1px solid #C5C5C5;
 }
 
 .nav .column:first-child{
 	
-    margin-left: 50px; 
+    margin-left: 10px; 
   /*padding-right: 40px; */
 }
 
@@ -187,6 +189,7 @@ body{
  
 .nav .column ul {
 	padding: 0;
+	padding-left: 10px;
 	margin: 0;
 }
 
@@ -198,16 +201,18 @@ body{
 
 .nav .column h3 {
 	font-size: 20px;
-	padding: 14px 0;
+	padding-bottom: 14px;
 	font-weight: 600;
 	margin: 5px 0 5px 0;
-	color: white;
+	color: black;
 }
 
 .nav .column ul li a {
 	display: block;
 	padding: 0;
 	text-align: left;
+	color: black !important;
+	padding-bottom: 10px;
 }
 
 .nav > li.dropdown > a:after {
@@ -284,6 +289,7 @@ body{
   
 .collapse{
 	overflow:visible !important;
+	height: 80px;
 }
 
 .menuLink{
