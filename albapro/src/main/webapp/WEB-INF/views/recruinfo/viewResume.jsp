@@ -67,7 +67,7 @@
 <li class="nav-item active  ">
             <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
               <i class="material-icons">dashboard</i>
-              채용공고 
+              채용공고
             </a>
           </li>
 		
@@ -329,8 +329,8 @@
       google.charts.setOnLoadCallback(drawChart);
       
       function drawChart() {
-    	var late_status =${late_status.late_status};
-    	var c_late_status =${late_status.c_late_status};
+    	var late_status =${resume.late_status};
+    	var c_late_status =${resume.c_late_status};
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['정상 출근',   c_late_status],
