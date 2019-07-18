@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
@@ -31,6 +32,9 @@ public class WorkManageServiceImpl implements WorkManageService {
 		return workManage.workRecord(map);
 	}
 
-
+	@Override
+	public List<CareerVO> workPlace(String m_code) throws Exception {
+		return workManage.workPlace(m_code);
+	}
 
 }
