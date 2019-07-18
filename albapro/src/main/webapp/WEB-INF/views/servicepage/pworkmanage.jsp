@@ -121,25 +121,7 @@ width:100%;
 }
 
 
-.recruinfo-table{
 
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Malgun Gothic';
-    letter-spacing: -1px;
-    border-top: 1px solid #aaa;
-}
-
-.recruinfo-table th{
-
-text-align:left !important;
-    font-weight: bold;
-    text-align: -internal-center;
-    display: table-cell;
-    vertical-align: inherit;
-}
 
 thead {
     display: table-header-group;
@@ -241,9 +223,16 @@ top:400px;
     position: relative;
 }
 
-
 .table-responsive{
 margin:10px 0 0 0;
+}
+.cho_woPlace{
+margin:0 0 10px 0;
+cursor:pointer;
+}
+
+.cho_woPlace:hover{
+font-size:20px;
 }
 </style>
 
@@ -304,12 +293,13 @@ margin:10px 0 0 0;
 
 
 				<div class="placho-line1">
-					지역:
+					검색:
 					<input type="text" class="plachoice" id="plachoice" onchange="plasearch(this.value)" />
+					<i class="fas fa-search"></i>
 
 				 	<button type="button" class="btn btn-primary placho-btn" data-toggle="modal" onclick="placho()"  data-target="#ExampleModal">
-					전체카테고리
-					</button>
+					사업장 선택
+					</button> 
 				</div>
 					
 			</div>
@@ -324,7 +314,10 @@ margin:10px 0 0 0;
 									<h4 class="card-title ">근태 관리</h4>
 									<p class="card-category">
 										${login.name} 님의 근태를 볼수 있습니다.
-										<i class="material-icons calicon" data-toggle="modal" data-target="#myModal">달력보기 calendar_today</i> 
+										
+										<!-- 
+										달력보기 버튼
+										<i class="material-icons calicon" data-toggle="modal" data-target="#myModal">달력보기 calendar_today</i>  -->
 									</p>
 								</div>
 							
@@ -332,7 +325,9 @@ margin:10px 0 0 0;
 										<table id="Example" class="mdl-data-table table" style="width: 100%">
 											<thead  class="thead-dark">
 												<tr>
+													
 													<th class="th-sm">날짜</th>
+													<th class="th-sm">사업 장</th>
 													<th class="th-sm">출근시간</th>
 													<th class="th-sm">퇴근 시간</th>
 													<th class="th-sm">근로 시간</th>
@@ -341,7 +336,9 @@ margin:10px 0 0 0;
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
+													
 														<td>${row.sa_date}</td>
+															<td>${row.work_place}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
 														<td>${row.working_hours}시간</td>
@@ -364,38 +361,40 @@ margin:10px 0 0 0;
    </div>
    
    
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 
+    <!--Call to action-->
+   
+    <!--/.Call to action-->
 
+    <hr class="my-4">
 
-
-<!-- 작동 x 
-Modal 직종 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       	<div class="jobcho1"></div>
-					<div class="jobcho2"></div>
-					<div class="jobcho3-title">선택된 직종</div>
-					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
-        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
-      </div>
+    <!-- Social icons -->
+    <div class="pb-4">
+   
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
     </div>
-  </div>
-</div>
- -->
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+      </a>
+     
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+
+
+
+
+
 
 
 <!-- Modal 지역 -->
@@ -404,27 +403,25 @@ Modal 직종
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <h5 class="modal-title" id="exampleModalLabel">사업장 선택</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-       		<div class="placho1"></div>
-		<div class="placho2"></div>		
-			<div class="jobcho3-title">선택된 지역</div>
-			<div class="placho3"></div>
-		
-					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button> -->
+       		<c:forEach var="row" items="${map.list2}">
+					<tr>
+				<td><p class="cho_woPlace" data-dismiss="modal">${row.work_place}</p></td>
+					</tr>
+			</c:forEach>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
-        <button type="button" class="btn btn-primary btn-plremove">모두지우기</button>
-      </div>
+    
     </div>
   </div>
 </div>
+
+
+
 
 <!-- Modal 지역 -->
 
@@ -444,7 +441,7 @@ Modal 직종
 	$(document).ready(function () {
 		$('#Example').DataTable({
 			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 1, "desc" ]]
+			"order": [[ 0, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});
@@ -477,36 +474,14 @@ Modal 직종
 
 </script>
   
-    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-
-    <!--Call to action-->
-   
-    <!--/.Call to action-->
-
-    <hr class="my-4">
-
-    <!-- Social icons -->
-    <div class="pb-4">
-   
-     	<i class="fab fa-html5 footer-icon"></i>
-     	<i class="fab fa-js-square footer-icon"></i>
-        <i class="fab fa-css3-alt footer-icon"></i>
-      <i class="fab fa-aws footer-icon"></i>
-      <i class="fas fa-leaf footer-icon"></i>
-        <i class="fab fa-android footer-icon"></i>
-    </div>
-    <!-- Social icons -->
-
-    <!--Copyright-->
-    <div class="footer-copyright py-3">
-       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
-      </a>
-     
-    </div>
-    <!--/.Copyright-->
-
-  </footer>
   
+  <script>
+  
+  $(document).on("click",".cho_woPlace",function(){
+	 var woPlace = $('.cho_woPlace').text();
+	 $('#plachoice').val(woPlace).trigger('change');
+  });
+  </script>
 			
 
  

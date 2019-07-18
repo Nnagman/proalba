@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.ateam.proalba.domain.CareerVO;
+import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
+import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.WorkManageService;
 
 import java.util.HashMap;
@@ -24,6 +26,7 @@ public class PworkmanageController {
 
 	@Autowired
 	WorkManageService workManageService;
+	CareerService careerService;
 	private static final Logger logger = LoggerFactory.getLogger(PworkmanageController.class);
 	
 	@RequestMapping(value = "/pworkmanage", method = RequestMethod.GET)
@@ -35,15 +38,25 @@ public class PworkmanageController {
 		
 		model.addAttribute("message", "");
 		List<MobileAttendanceVO> list = workManageService.workRecord(id_work_place);
+		//List<CareerVO> list2 = careerService.selectCareers("p"+id);
+		List<CareerVO> list2 = workManageService.workPlace("p"+id);
+
 		logger.info("workManager:  "+list.toString());
+		logger.info("workPlace:  "+list2.toString());
+
 		logger.info(id);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("servicepage/pworkmanage"); // 酉곕�� list.jsp濡� �ㅼ��
 		Map<String, Object> map = new HashMap<String, Object>();
+	
 		map.put("list",list);
+		map.put("list2",list2);
+		
+	
 		
 		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
+	
 		return mav; // list.jsp濡� List媛� ���щ����.
 	}
 }
