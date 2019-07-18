@@ -15,7 +15,7 @@
 		</li>
 	
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
+			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}">기업서비스</a>
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
 					<h3>직원 관리</h3>
