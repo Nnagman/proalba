@@ -414,7 +414,7 @@ public class WorkmanageController {
 	@RequestMapping(value = "/cserInqcareer", method = RequestMethod.GET)
 	public ModelAndView inqcareerGET(Model model, @RequestParam("id") String id)
 			throws Exception {
-		List<CareerVO> list = careerService.selectCareers(id);
+		List<CareerVO> list = careerService.selectCareers("c"+id);
 		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserInqcareer");

@@ -51,8 +51,9 @@
     	FROM career c, member m ,contract t, employee e
     	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code AND e.em_code = c.em_code AND e.c_code = t.c_code
     	ORDER BY c.join_date desc
-    	]]> -->
-    	<![CDATA[
+    	]]>  -->
+    	<!-- 기업회원 직원 경력 조회 -->
+   		<![CDATA[
     	SELECT
 	        c.join_date,
             c.work_place,
@@ -61,10 +62,10 @@
             t.work_place_name
     	FROM career c, member m ,contract t, employee e
     	WHERE c.m_code = m.m_code AND e.em_code = c.em_code AND e.c_code = t.c_code and
-        substr(c.em_code,1,instr(c.em_code,'/',1,1)-1) = 'c'||#{id} and
+        substr(c.em_code,1,instr(c.em_code,'/',1,1)-1) = #{id} and
         c.end_date is not null
     	ORDER BY c.join_date desc
-    	]]>
+    	]]> 
 	</select>
     
     <select id="countCareers" resultType="int">
