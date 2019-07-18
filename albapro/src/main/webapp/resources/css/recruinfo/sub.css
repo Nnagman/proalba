@@ -101,7 +101,7 @@ body.story .paging span.page a.now {color:#ff4500;border:1px solid #77787c}
 /* layout */
 #SubWrap {width:1070px;margin:0 auto}
 #SubSide {display:none;position:absolute;top:0;left:-999em;width:0;height:0}
-#SubContents {width:1070px;padding-bottom:20px}
+#SubContents {width:100%;padding-bottom:20px}
 
 /* skipNav */
 .skipNav {z-index:999;position:absolute}

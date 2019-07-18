@@ -23,49 +23,32 @@
 		<c:if test="${login.id == null}">
 			<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>
 		</c:if>
+			<div class="fulldrop scrolling-navbar Asize">
+				<div class="c_column column">
+					<h3 class="menu-drop-title">알바 관리</h3>
+					<ul>
+						<li><a href="pserworkList?id=${login.id}" class="manuli">나의 알바 목록</a></li>
+					</ul>
+				</div>
+
+				<div class="column">
+					<h3 class="menu-drop-title">이력서 등록/관리</h3>
+					<ul>
+						<li><a href="writeResume?id=${login.id}" class="manuli">새 이력서 작성</a></li>
+						<li><a href="listResume?id=${login.id}" class="manuli">이력서 관리</a></li>
+					</ul>
+				</div>
+
+				<div class="column">
+					<h3 class="menu-drop-title">전자근로계약서</h3>
+					<ul>
+						<li><a href="contract?id=${login.id}" class="manuli">전자근로계약서 목록</a></li>
+					</ul>
+				</div>
+
+			</div> 
 		</li>
-	
-<!--	Full Down Menu -->
-			<%--  <div class="fulldrop scrolling-navbar Asize">
 
-				<div class="column">
-					<h3 class="menu-drop-title">지원 관리</h3>
-					<ul>
-						<li><a href="${path}/pserSalary?id=${login.id}" class="manuli">전자 근로계약서</a></li>
-					</ul>
-					<ul>
-						<li><a href="${path}/ecertifi" class="manuli">취업활동 증명서</a></li>
-					</ul> 
-				</div>
-
-				<div class="column">
-					<h3 class="menu-drop-title">근태 기록</h3>
-					<ul>
-						<li><a href="${path}/pworkmanage?id=${login.id}" class="manuli">근태 기록 관리/조회</a></li>
-
-					</ul>
-				</div>
-
-				<div class="column">
-					<h3 class="menu-drop-title">급여 관리</h3>
-					<ul>
-						<li><a href="${path}/inqsalary?id=${login.id}" class="manuli">급여 조회</a></li>
-					</ul>
-				</div>
-
-				<div class="column">
-					<h3 class="menu-drop-title">경력 관리</h3>
-					<ul>
-						<li><a href="${path}/inqcareer?id=${login.id}" class="manuli">경력 조회</a></li>
-					</ul>
-				</div>
-			</div>  --%>
-			
-			
-
-		
-
-		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli ">고객센터</a>
 			<div class="fulldrop scrolling-navbar">

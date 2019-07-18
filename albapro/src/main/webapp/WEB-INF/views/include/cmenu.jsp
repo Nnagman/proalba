@@ -16,7 +16,32 @@
 	
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
-<!-- 			Full Down Menu --> 
+			<div class="fulldrop scrolling-navbar Asize">
+				<div class="column">
+					<h3>직원 관리</h3>
+					<ul>
+						<li><a href="cserEmpManage?id=${login.id}">직원 목록</a></li>
+						<li><a href="cserFullWorkmanagetable?id=${login.id}">일별 근태 관리</a></li>
+						<li><a href="cserEmpManage?id=${login.id}">급여 관리</a></li>
+						<li><a href="cserfingerIdmanage?id=${login.id}">지문 관리</a></li>
+					</ul>
+				</div>
+
+				<div class="column">
+					<h3>채용공고</h3>
+					<ul>
+						<li><a href="cserAddJobopening_free?id=${login.id}">채용공고 등록</a></li>
+						<li><a href="cserAddJobopening_free_manage?id=${login.id}">채용공고 관리</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3>전자근로계약서</h3>
+					<ul>
+						<li><a href="ccserWcontractForm?id=${login.id}&n_code=${list[0].n_code}">근로계약서 작성</a></li>
+						<li><a href="ccontract?id=${login.id}">근로계약서 목록</a></li>
+					</ul>
+				</div>
+			</div>
 			
 		
 		<li class="menuLi">
@@ -26,8 +51,6 @@
 					<h3>온라인 문의</h3>
 					<ul>
 						<li><a href="${path}/onlineQnA" class="manuli">문의하기</a></li>
-					</ul>
-					<ul>
 						<li><a href="${path}/qnalist?m_code=${login.m_code}" class="manuli">나의 문의 내역</a></li>
 					</ul>
 				</div>
