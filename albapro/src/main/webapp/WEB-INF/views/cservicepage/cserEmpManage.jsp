@@ -318,9 +318,9 @@ td{
 										<h4 class="card-title ">직원 관리</h4>
 										<p class="card-category">사업장내 직원을 관리할 수 있습니다.</p>
 									</div>
-									
-										
-									<table id="example" class="table">
+									<div class="card-body">
+										<div class="table-responsive">
+									<table class="table">
 										  <thead class="thead-dark">
 										    <tr>
 										      <th scope="col">이름</th>
@@ -347,8 +347,8 @@ td{
 												</tbody>
 										</table>
 												
-										
-									
+										</div>
+									</div>
 								
 
 <!-- 수정할곳 -->
@@ -473,41 +473,7 @@ Modal 직종
 };  
 
 </script>
-     <script type="text/javascript">
- 
-	$(document).ready(function () {
-		$('#Example').DataTable({
-			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 4, "desc" ]]
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
-	
-	$('#ulGugun').on('click',function(){
-		console.log($('.value > span').text());
-	});
-
-	
-    $('#example').DataTable( {
-        columnDefs: [
-            {
-                targets: [ 0, 1, 2 ],
-                className: 'mdl-data-table__cell--non-numeric'
-            }
-        ]
-    } );
-
-	$(document).ready(function () {
-		$('#Example').DataTable({
-			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 4, "desc" ]]
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
-	$('#ulGugun').on('click',function(){
-		console.log($('.value > span').text());
-	});
-  </script>
+  
 <%--     <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 
     <!--Call to action-->
@@ -530,7 +496,7 @@ Modal 직종
 
     <!--Copyright-->
      <div class="footer-copyright py-3">
-       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+       ⓒ 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
       </a>
      
     </div> 
