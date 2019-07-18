@@ -1,198 +1,351 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-<!DOCTYPE html>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
+
+
+
+<script type="text/javascript"
+	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<title>프로알바</title>
 
-  <title>프로알바</title>
-  <link href="resources/css/resume.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template-->
+<link rel="stylesheet" href="resources/css/recruinfo/job.css">
+<link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
+<link rel="stylesheet" href="resources/css/recruinfo/sub.css">
+<link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-  <!-- Custom styles for this template-->
- <!--  <link rel="stylesheet" href="resources/css/bootstrap.css" /> -->
-  <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
-  <link href="resources/css/servicepage/demo.css" rel="stylesheet">
-    <link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
- 
-
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> 
-
- 
- <link rel="stylesheet" href="resources/css/albamanage.css" />
-<link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" /> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <script src="resources/js/albamanage.js"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script> 
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/mdb.min.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
+<link href="resources/css/datatables.min.css" rel="stylesheet">
 
 
 
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<style>
- .odd { background-color:#EAEAEA; }
 
-        .Even { background-color : white; }
+<style>
+html, body, header, .carousel {
+	height: 9vh !important;
+}
+
+.he-title {
+	display: none !important;
+}
+
+.carousel-inner {
+	display: none !important;
+}
+
+header {
+	background-image: url("#") !important;
+	background-color: #5D5D5D !important;
+	height: 80px !important;
+}
+
+.p.count {
+	margin-top: 0px !important;
+}
+
+p {
+	margin-bottom: 0px !important;
+}
+
+.placho-line1 {
+	margin: 0 !important;
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+div.dataTables_filter label {
+	float: right;
+	margin-right: 40px;
+}
+
+.jobcho-line1 {
+	text-align: center;
+}
+
+.company {
+	display: block;
+	height: auto;
+	padding: 2px 0 6px !important;
+	font-size: 13px;
+	background: none !important;
+	color: #0075ab;
+}
+
+
+#Example_info {
+	display: none;
+}
+
+#Example_paginate {
+	float: left;
+}
+
+.navbar {
+	padding-right: 0 !important;
+}
+
+table.table td{
+vertical-align: middle;
+padding: 0.5rem 0 0.5rem 1rem !important;
+}
+
+footer {
+	top: 400px;
+	position: relative;
+}
 </style>
 
 <body>
-	<div class="wrapper">
-	<div class="div-sidebar">
-	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+	<%@ include file="../include/header.jsp"%>
 
-        Tip 2: you can also add an image using data-image tag
-    -->
-      <div class="logo">
-        <a href="/" class="simple-text logo-normal">
-        proalba
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
 
-<li class="nav-item active ">
-            <a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-              채용공고 
-            </a>
-          </li>
-		
-		
-		
-		    <li class="nav-item">
-            <a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 작성
-            </a>
-          </li>
-		<li class="nav-item ">
-            <a class="nav-link" href="ccontract?id=${login.id}">
-              <i class="material-icons">dashboard</i>
-             전자근로 계약서 목록
-            </a>
-          </li>
-       
-          <li class="nav-item">
-            <a class="nav-link" href="cserEmpManage?id=${login.id}">
-              <i class="material-icons">person</i>
-              직원 관리
-            </a>
-          </li>
-        <%--   <li class="nav-item">
-            <a class="nav-link" href="pserSalary?id=${login.id}">
-              <i class="material-icons">content_paste</i>
-              급여 관리
-            </a>
-          </li> --%>
-          <%-- <li class="nav-item ">
-            <a class="nav-link" href="${path}/comm">
-              <i class="material-icons">bubble_chart</i>
-              커뮤니티
-              </a>
-          </li> --%>
-        
-        </ul>
-      </div>
-    </div>
-<!-- End of Sidebar -->
-	  </div>
-		<div class="content">
-			<div class="pser-con">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header card-header-primary">
-									<h4 class="card-title ">지원현황</h4>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<c:forEach var="row" items="${list}" varStatus="status">
-											<c:set var = "idx" value = "${fn:indexOf(row.r_code, '/')}" />
-											<c:set var = "length" value = "${fn:length(row.r_code)}" />
-											<c:set var = "r_date" value = "${fn:substring(row.r_code, idx+1, length)}" />
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">
-														작성일: ${row.r_date}
-													</h5>
-													<br>
-													<h5 class="card-title">
-														이력서 제목: ${row.title}
-													</h5>
-													<h5 class="card-title">
-														경력:<c:forEach var="row2" items="${careerList[status.index]}">
+
+
+	<div class="container">
+		<div class="recruinfo-title">
+			<h2 class="recruinfo-title-p" style="margin-top: 2.38rem;">채용 공고</h2>
+		</div>
+		<br>
+		<br>
+		<div id="SubContents">
+			<!-- 수정할곳 -->
+			<div class="card-header card-header-primary">
+				<h4 class="card-title ">지원현황</h4>
+			</div>
+			<table id="example" class="table" >
+				<thead class="thead-dark">
+					<tr>
+						<th class="th-sm" scope="col">제출일</th>
+						<th class="th-sm" scope="col" style="width:200px">제목</th>
+						<th class="th-sm" scope="col" style="width:420px padding-left:0;">경력</th>	
+						<th class="th-sm" scope="col" colspan="2" >선택</th>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+					<c:forEach var="row" items="${list}" varStatus="status">
+						<c:set var="idx" value="${fn:indexOf(row.r_code, '/')}" />
+						<c:set var="length" value="${fn:length(row.r_code)}" />
+						<c:set var="r_date" value="${fn:substring(row.r_code, idx+1, length)}" />
+								<tr>
+									<td>${row.r_date}</td>
+									<td class="card-title">${row.title}</td>
+									<td class="card-title">
+										<c:forEach var="row2" items="${careerList[status.index]}">
 																(근무지 :${row2.work_place}
-																<fmt:parseNumber var="join_date" value="${row2.join_date.time / (1000*60*60*24)}" integerOnly="true"/>
+																<fmt:parseNumber var="join_date"
+											value="${row2.join_date.time / (1000*60*60*24)}"
+											integerOnly="true" />
 																${join_date}
 																<c:if test="${row2.end_date eq null}">
-																	<jsp:useBean id="now" class="java.util.Date" />
-																	<fmt:parseNumber var="end_date" value="${now.time / (1000*60*60*24)}" integerOnly="true"/>
-																</c:if>
-																
-																<c:if test="${row2.end_date != null}">
-																	<fmt:parseNumber var="end_date" value="${row2.end_date.time / (1000*60*60*24*1000)}" integerOnly="true"/>
-																</c:if>
-																<c:set var="date" value="${end_date - join_date}"/>
-																
-																<c:if test="${date > 365}">
-																	<c:set var="date_year" value="${join_date / 365}"/>
-																	<fmt:parseNumber var="year" value="${date_year}" integerOnly="true"/>
-																	
-																	<c:set var="date_month" value="${(join_date - year*365) / 30}"/>
-																	<fmt:parseNumber var="month" value="${date_month}" integerOnly="true"/>
+											<jsp:useBean id="now" class="java.util.Date" />
+											<fmt:parseNumber var="end_date"
+												value="${now.time / (1000*60*60*24)}" integerOnly="true" />
+										</c:if>
+
+										<c:if test="${row2.end_date != null}">
+											<fmt:parseNumber var="end_date"
+												value="${row2.end_date.time / (1000*60*60*24*1000)}"
+												integerOnly="true" />
+										</c:if>
+										<c:set var="date" value="${end_date - join_date}" />
+
+										<c:if test="${date > 365}">
+											<c:set var="date_year" value="${join_date / 365}" />
+											<fmt:parseNumber var="year" value="${date_year}"
+												integerOnly="true" />
+
+											<c:set var="date_month"
+												value="${(join_date - year*365) / 30}" />
+											<fmt:parseNumber var="month" value="${date_month}"
+												integerOnly="true" />
 
 																	근무연수 :${year}년 ${month}개월)
 																</c:if>
-																
-																<c:if test="${date < 365 && date > 30}">
-																	<c:set var="date_month" value="${(join_date - year*365) / 30}"/>
-																	<fmt:parseNumber var="month" value="${date_month}" integerOnly="true"/>
+
+										<c:if test="${date < 365 && date > 30}">
+											<c:set var="date_month"
+												value="${(join_date - year*365) / 30}" />
+											<fmt:parseNumber var="month" value="${date_month}"
+												integerOnly="true" />
 																	
 																	근무연수 :${month}개월)
 																</c:if>
-																
-																<c:if test="${date < 30}">
-																	<c:set var="month" value="1"/>
+
+										<c:if test="${date < 30}">
+											<c:set var="month" value="1" />
 																	
 																	근무연수 :${month}개월 미만)
 																</c:if>
-															</c:forEach>
-													</h5>
-													<br>
-													<a href="viewApplyResume?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}" target="_blank" class="btn btn-primary card-btn">이력서 보기</a>
-													<a href="applyContractForm?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}&&n_code=${row.n_code}" class="btn btn-primary card-btn">근로계약서 작성</a>
-												</div>
-											</div>
-										</c:forEach>							
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+									</c:forEach>
+								</td>
+								<td style="text-align: right;-">
+									<a href="viewApplyResume?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}"
+									target="_blank" class="btn btn-primary card-btn">이력서 보기</a>
+								</td>
+								<td>
+									<a href="applyContractForm?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}&&n_code=${row.n_code}"
+									class="btn btn-primary card-btn">근로계약서 작성</a>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			<!-- 수정할곳 -->
 		</div>
-	</div> 
-	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-	<script src="resources/js/servicepage2/popper.min.js"></script>
-	<script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
-	<script src="resources/js/servicepage2/demo.js"></script>
+
+	</div>
+
+
+
+
+
+
+	<!-- 작동 x 
+Modal 직종 
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       	<div class="jobcho1"></div>
+					<div class="jobcho2"></div>
+					<div class="jobcho3-title">선택된 직종</div>
+					<div class="jobcho3"></div>
+					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
+        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+	<!-- Modal 지역 -->
+
+	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
+
+
+
+	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+
+	<script type="text/javascript" src="resources/js/popper.min.js"></script>
+	<script type="text/javascript" src="resources/js/mdb.min.js"></script>
+	<script type="text/javascript" src="resources/js/datatables.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#Example').DataTable({
+				"paging" : true, // false to disable pagination (or any other option)
+				"order" : [ [ 2, "desc" ] ]
+			});
+			$('.dataTables_length').addClass('bs-select');
+		});
+
+		$('#ulGugun').on('click', function() {
+			console.log($('.value > span').text());
+		});
+	</script>
+
+
+
+
+	<script>
+		function plasearch() {
+
+			var search = $('#plachoice').val();
+
+			console.log(search);
+
+			var table = $('#Example').dataTable();
+			table.fnFilter(search);
+
+		};
+	</script>
+
+	<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+		<!--Call to action-->
+
+		<!--/.Call to action-->
+
+		<hr class="my-4">
+
+		<!-- Social icons -->
+		<div class="pb-4">
+
+			<i class="fab fa-html5 footer-icon"></i> 
+			<i class="fab fa-js-square footer-icon"></i> 
+			<i class="fab fa-css3-alt footer-icon"></i> 
+			<i class="fab fa-aws footer-icon"></i> 
+			<i class="fas fa-leaf footer-icon"></i> 
+			<i class="fab fa-android footer-icon"></i>
+		</div>
+		<!-- Social icons -->
+
+		<!--Copyright-->
+		<div class="footer-copyright py-3">
+			© 2019 Copyright:<a href="${path}"> <img
+				src="${path}/resources/images/weblogo.png" class="footer-logo" />
+			</a>
+
+		</div>
+		<!--/.Copyright-->
+
+	</footer>
+
+
+
+
+
 </body>
+
+
 </html>
+
+
+
+
+
+
+
+
+
