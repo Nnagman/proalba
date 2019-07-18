@@ -22,6 +22,6 @@
 	<select id="workPlace" resultType="com.ateam.proalba.domain.CareerVO">
 			SELECT	work_place
 			FROM	career c
-			WHERE	m_code = #{m_code}
+			WHERE	m_code = #{m_code} 
 	</select>
 </mapper>
