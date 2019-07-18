@@ -139,12 +139,12 @@
                	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" 
                	  data-content=
                	   "
-               	   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-               	   		<div><h6><span>${login.id}</span>님</h6></div><hr/>
+               	 <%--   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+               	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
                	   	</c:if>
                	   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
                	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
-               	   	</c:if>
+               	   	</c:if> --%>
                   	<p>Phone : ${login.phone}</p><hr/>
                   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
               	  	<p>E-mail : ${login.email}</p><hr />
@@ -155,7 +155,7 @@
                 	</div>
                 	"
                 >
-                                ${login.id}
+                                ${login.name}<span>님</span>
 				</button>
 
 					
