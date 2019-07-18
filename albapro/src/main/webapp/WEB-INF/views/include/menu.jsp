@@ -51,7 +51,7 @@
 		</li>
 		<li class="menuLi">
 			<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-				<a id="cservice" class="menuLink" href="${path}/login">기업서비스</a>
+				<a id="cservice" class="menuLink" href="cserEmpManage?id=${login.id}">기업서비스</a>
 			</c:if> 
 			<c:if test="${login.id == null}">
 				<a id="cservice" class="menuLink" href="${path}/login">기업서비스</a>
@@ -77,7 +77,7 @@
 					<h3>전자근로계약서</h3>
 					<ul>
 						<li><a
-							href="ccserWcontractForm?id=${login.id}&n_code=${list[0].n_code}">근로계약서 작성</a></li>
+							href="ccserWcontractForm?id=${login.id}">근로계약서 작성</a></li>
 						<li><a href="ccontract?id=${login.id}">근로계약서 목록</a></li>
 					</ul>
 				</div>
