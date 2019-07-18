@@ -198,15 +198,11 @@ public class PserviceController {
 		
 	@RequestMapping(value = "/inqcareer", method = RequestMethod.GET)
 	public ModelAndView inqcareerGET(Model model,@RequestParam("id") String id) throws Exception {
-		model.addAttribute("message", "");
-		List<CareerVO> list = careerService.selectCareers("p"+id);
+		List<CareerVO> list = careerService.pselectCareers("p"+id);
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("servicepage/pserInqcareer");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list",list);
-		
-		mav.addObject("map", map);
+		mav.setViewName("servicepage/pserInqcareer");	
+		mav.addObject("list",list);
 		return mav;
 	}
 	

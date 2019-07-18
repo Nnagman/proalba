@@ -77,4 +77,10 @@ public class CareerDAOImplement implements CareerDAO {
 		sqlSession.update(NAMESPACE + ".career_leave", em_code);
 	}
 
+	@Override
+	public List<CareerVO> pselectCareers(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NAMESPACE + ".pselectCareers", id);
+	}
+
 }
