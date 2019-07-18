@@ -23,25 +23,14 @@ body{
 
 
 .nav{
-    /* font-family: '�������彺����'; */
-    
-   
-   
-
-      background-color:!important;
+     background-color:!important;
     font-weight:400;
     font-size: 13px;
     line-height:20px;
-	
-	
     position: relative;
     padding: 15px 0 0px 0px;
-   
 	display:block !important;
-	
- 
 
-  
 }
 
 .nav .nav a, .nav a:link, .nav a:visited, .nav a:hover, .nav a:focus{
@@ -140,6 +129,12 @@ body{
 	width: 1230px;
  	height: 300px;
 }
+
+.qnaSize{
+	width: 200px !important;
+    height: 190px !important;
+
+}
 .nav > li:hover > .fulldrop {
 	opacity: 1;
 	visibility: visible;
@@ -212,6 +207,7 @@ body{
 .nav .column ul li a {
 	display: block;
 	padding: 0;
+	text-align: left;
 }
 
 .nav > li.dropdown > a:after {

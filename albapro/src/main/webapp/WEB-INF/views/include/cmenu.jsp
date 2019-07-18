@@ -46,7 +46,7 @@
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>
-			<div class="fulldrop scrolling-navbar Asize">
+			<div class="fulldrop scrolling-navbar Asize qnaSize">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>
