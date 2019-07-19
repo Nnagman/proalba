@@ -181,9 +181,10 @@
 				           			<c:set var="address" value="${fn:split(login.address,'/')}"/>
 				           			<span style="width: 110px; display: inline-block;">주소:</span>
 				           			<input type="text" id="sample6_postcode" placeholder="우편번호" value="${address[0]}"/>
-									<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/><br>
+				           			<button type="button" class="btn btn-dark" onclick="execDaumPostcode()" value="우편번호 찾기" style="background-color: #d7d7d7; width: 130px; height: 30px; padding: 0;">우편번호 찾기</button><br>
+									<!-- <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/><br> -->
 									<span style="width: 110px; display: inline-block;"></span>
-									<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" value="${address[1]}"/>
+									<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" style="width: 190px;" value="${address[1]}"/>
 									<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 									<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 						 			<br><br>
@@ -205,26 +206,30 @@
 							</div>
 						 	<hr/>
 						</div>
-						<div style="padding-left: 20%; padding-bottom: 4%;">
-							<div id="sign" style="width: 40%; padding-left: 45px;">
-								<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+						<div style="padding-left: 27%; padding-bottom: 1%;">
+							<div id="sign" style="width: 40%; padding-left: 75px;">
+								<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px; margin-bottom: 20px;" width="360" height="150"></canvas>
 								<img class="can1" id="myImage" style="margin:1px;">
 							 	<div id="sign2"></div>
 							</div>
 							<div class="btn_line1" style=" padding-left: 45px;">
-								<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-							 	<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
-							 	<input type='submit' class="submitbtn" value="작성완료" id="submit2"/>
+								<button type="button" class="bt1 btn btn-dark" value="근로계약서 작성완료" id="signAgain" style="width: 130px; height: 30px; padding: 0; box-shadow: none;">다시 서명하기</button>
+							 	<button type="button" class="bt1 btn btn-dark" id="save-sign" onclick="toDataURL();" value="서명 저장" style="background-color: #d7d7d7; width: 130px; height: 30px; padding: 0; box-shadow: none;">서명 저장</button>
+							 	<input type='submit' class="submitbtn btn btn-primary" value="작성완료" id="submit2" style="width: 130px; height: 30px; padding: 0;"/>
 							</div>
 						</div>
 					</form>
 				</c:if>
 				
 				<c:if test="${list[0] != null}">
-					<form action="${path}/cserWcontract" method="post">
+					<form action="${path}/cserWcontract" method="post" style="border: 1px solid black;">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12" style="padding-left: 20%;"> 
+<<<<<<< HEAD
+=======
+									<h2>전자근로계약서 작성 </h2>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 			          				<div class="addjob-1" style="margin-top: 4%;">
 			          					<input type="hidden" name="c_id" value="c${login.id}" />
 			          					<span style="width: 110px; display: inline-block;">근로 계약기간:</span>
@@ -267,7 +272,11 @@
 							</div>
 							<div class="row">
 				           		<div class="col-md-12" style="padding-left: 20%;">
+<<<<<<< HEAD
 				           			<span style="width: 110px; display: inline-block;"> 사업체명: </span>
+=======
+				           			<span style="width: 110px; display: inline-block;">사업체명:</span>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 				           			<input type="text"  name="work_place_name" value="${list[0].work_place_name}" readonly/>
 				           			<br><br>
 				           			
@@ -282,9 +291,10 @@
 				           			<c:set var="address" value="${fn:split(list[0].address,'/')}"/>
 				           			<span style="width: 110px; display: inline-block;">주소:</span>
 				           			<input type="text" id="sample6_postcode" placeholder="우편번호" value="${address[0]}"/>
-									<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/><br>
+				           			<button type="button" class="btn btn-dark" onclick="execDaumPostcode()" value="우편번호 찾기" style="background-color: #d7d7d7; width: 130px; height: 30px; padding: 0;">우편번호 찾기</button><br>
+									<!-- <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="adr-btn"/><br> -->
 									<span style="width: 110px; display: inline-block;"></span>
-									<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" value="${address[1]}"/>
+									<input type="text" id="sample6_address" class="sample6_address" placeholder="주소" name="c_address" style="width: 190px;" value="${address[1]}"/>
 									<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 									<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 						 			<br><br>
@@ -306,6 +316,7 @@
 							</div>
 						 	<hr/>
 						</div>
+<<<<<<< HEAD
 						<div style="padding-left: 20%; padding-bottom: 4%;">
 							<div id="sign" style="width: 40%; padding-left: 45px;">
 								<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
@@ -317,6 +328,17 @@
 							 	<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
 							 	<input type='submit' class="submitbtn" value="작성완료" id="submit2"/>
 							</div>
+=======
+						<div id="sign" style="width: 40%; padding-left: 75px;">
+							<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px; margin-bottom: 20px;" width="360" height="150"></canvas>
+							<img class="can1" id="myImage" style="margin:1px;">
+						 	<div id="sign2"></div>
+						</div>
+						<div class="btn_line1" style=" padding-left: 45px; padding-bottom: 4%">
+							<button type="button" class="bt1 btn btn-dark" value="근로계약서 작성완료" id="signAgain" style="width: 130px; height: 30px; padding: 0;">다시 서명하기</button>
+						 	<button type="button" class="bt1btn btn-dark" id="save-sign" onclick="toDataURL();" value="서명 저장" style="width: 130px; height: 30px; padding: 0;">서명 저장</button><br/>
+						 	<input type='submit' class="submitbtn btn btn-primary" value="작성완료" id="submit2" style="width: 130px; height: 30px; padding: 0;"/>
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 						</div>
 					</form>
 				</c:if>
