@@ -224,9 +224,8 @@
 					<form action="${path}/cserWcontract" method="post">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-md-12"> 
-									<h2>전자근로계약서 작성 </h2>
-			          				<div class="addjob-1">
+								<div class="col-md-12" style="padding-left: 20%;"> 
+			          				<div class="addjob-1" style="margin-top: 4%;">
 			          					<input type="hidden" name="c_id" value="c${login.id}" />
 			          					<span style="width: 110px; display: inline-block;">근로 계약기간:</span>
 			          					<input class="tex" name="start_period" type="text" value="${list[0].p_date}" id="startSearchDate" />
@@ -240,7 +239,7 @@
 			          					<br><br>
 			          				
 			          					<span style="width: 110px; display: inline-block;">업무의 내용:</span>
-			          					 <input class="tex3" name="work_detail" type="text" value="${list[0].assigned_task}" />
+			          					<input class="tex3" name="work_detail" type="text" value="${list[0].assigned_task}" />
 			          					<br><br>
 			          				
 			          					<span style="width: 110px; display: inline-block;">소정근로시간:</span>
@@ -267,12 +266,12 @@
 								</div>
 							</div>
 							<div class="row">
-				           		<div class="col-md-12">
-				           			<span style="width: 110px; display: inline-block;">사업체명:</span>
+				           		<div class="col-md-12" style="padding-left: 20%;">
+				           			<span style="width: 110px; display: inline-block;"> 사업체명: </span>
 				           			<input type="text"  name="work_place_name" value="${list[0].work_place_name}" readonly/>
 				           			<br><br>
 				           			
-				           			<span style="width: 110px; display: inline-block;">사업자번호: ${login.b_number}</span>
+				           			<span style="width: 110px; display: inline-block;">사업자번호:</span> ${login.b_number}
 				           			<input type="hidden" value="${login.b_number}" name="b_number"/>
 				           			<br><br>
 				           			
@@ -296,26 +295,28 @@
 						 			
 						 			<span style="width: 110px; display: inline-block;">근로자 연락처:</span>
 						 			<c:if test="${memberVO.phone != null}">
-						 				<input id="p_phone" name="p_phone" type="text" value="${memberVO.phone}" maxlength="11"/>전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외)<br/>
+						 				<input id="p_phone" name="p_phone" type="text" value="${memberVO.phone}" maxlength="11"/><br/>전송할 근로자의 휴대폰번호를 입력해주세요 ('-' 제외)
 						 			</c:if>
 						 			
 						 			<c:if test="${memberVO.phone == null}">
-						 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/>전송할 근로자 휴대폰번호를 입력해주세요 ('-' 제외)<br/>
+						 				<input id="p_phone" name="p_phone" type="text" maxlength="11"/><br/>전송할 근로자의 휴대폰번호를 입력해주세요 ('-' 제외)
 						 			</c:if>
 						 			<input type="hidden" name="p_id" value=" "/>
 						 		</div>
 							</div>
 						 	<hr/>
 						</div>
-						<div id="sign" style="width: 40%; padding-left: 45px;">
-							<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
-							<img class="can1" id="myImage" style="margin:1px;">
-						 	<div id="sign2"></div>
-						</div>
-						<div class="btn_line1" style=" padding-left: 45px; padding-bottom: 4%">
-							<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
-						 	<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장"><br/>
-						 	<input type='submit' class="submitbtn" value="작성완료" id="submit2"/>
+						<div style="padding-left: 20%; padding-bottom: 4%;">
+							<div id="sign" style="width: 40%; padding-left: 45px;">
+								<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+								<img class="can1" id="myImage" style="margin:1px;">
+							 	<div id="sign2"></div>
+							</div>
+							<div class="btn_line1" style=" padding-left: 45px;">
+								<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+							 	<input type="button" class="bt1" id="save-sign" onclick="toDataURL();" value="서명 저장">
+							 	<input type='submit' class="submitbtn" value="작성완료" id="submit2"/>
+							</div>
 						</div>
 					</form>
 				</c:if>

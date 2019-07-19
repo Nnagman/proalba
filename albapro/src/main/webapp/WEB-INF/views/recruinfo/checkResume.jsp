@@ -210,7 +210,7 @@ footer {
 								</td>
 								<td style="text-align: right;-">
 									<a href="viewApplyResume?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}"
-									target="_blank" class="btn btn-primary card-btn">이력서 보기</a>
+									class="btn btn-primary card-btn">이력서 보기</a>
 								</td>
 								<td>
 									<a href="applyContractForm?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}&&n_code=${row.n_code}"
