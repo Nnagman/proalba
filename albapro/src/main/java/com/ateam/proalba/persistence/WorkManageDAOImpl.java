@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
@@ -34,6 +35,9 @@ public class WorkManageDAOImpl implements WorkManageDAO {
 		return sqlSession.selectList("workManage.workRecord", map);
 	}
 
-
+	@Override
+	public List<CareerVO> workPlace(String m_code) throws Exception {
+		return sqlSession.selectList("workManage.workPlace", m_code);
+	}
 
 }

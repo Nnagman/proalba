@@ -15,7 +15,7 @@
 		</li>
 	
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
+			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}">기업서비스</a>
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
 					<h3>직원 관리</h3>
@@ -24,6 +24,7 @@
 						<li><a href="cserFullWorkmanagetable?id=${login.id}">일별 근태 관리</a></li>
 						<li><a href="cserEmpManage?id=${login.id}">급여 관리</a></li>
 						<li><a href="cserfingerIdmanage?id=${login.id}">지문 관리</a></li>
+						<li><a href="cserInqcareer?id=${login.id}">경력 관리</a></li>
 					</ul>
 				</div>
 
@@ -46,7 +47,7 @@
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>
-			<div class="fulldrop scrolling-navbar Asize">
+			<div class="fulldrop scrolling-navbar Asize qnaSize">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>

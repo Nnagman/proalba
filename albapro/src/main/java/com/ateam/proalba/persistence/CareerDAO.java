@@ -14,6 +14,7 @@ public interface CareerDAO {
 	List<CareerVO> listCriteria(Criteria criteria) throws Exception;
 	int countCareers(LoginDTO loginDTO) throws Exception;
 	List<CareerVO> selectCareers(String id) throws Exception;
+	List<CareerVO> pselectCareers(String id) throws Exception;
 	void insert_career(Map<String, Object> map) throws Exception;
 	void add_storeCTXid(Map<String, Object> cmap) throws Exception;
 	void career_leave(String em_code) throws Exception;

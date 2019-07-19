@@ -40,8 +40,8 @@
     	]]>
 	</select>
 	
-	<select id="selectCareers" resultType="com.ateam.proalba.domain.CareerVO">
-	    <![CDATA[
+	<select id="selectCareers"  resultType="com.ateam.proalba.domain.CareerVO">
+<!-- 	    <![CDATA[
 	    SELECT
 	        c.join_date,
             c.work_place,
@@ -51,7 +51,29 @@
     	FROM career c, member m ,contract t, employee e
     	WHERE c.m_code = #{m_code} AND c.m_code = m.m_code AND e.em_code = c.em_code AND e.c_code = t.c_code
     	ORDER BY c.join_date desc
-    	]]>
+    	]]>  -->
+    	<!-- 기업회원 직원 경력 조회 -->
+   		<![CDATA[
+    	SELECT
+	        c.join_date,
+            c.work_place,
+            c.end_date,
+            m.name,
+            t.work_place_name
+    	FROM career c, member m ,contract t, employee e
+    	WHERE c.m_code = m.m_code AND e.em_code = c.em_code AND e.c_code = t.c_code and
+        substr(c.em_code,1,instr(c.em_code,'/',1,1)-1) = #{id} and
+        c.end_date is not null
+    	ORDER BY c.join_date desc
+    	]]> 
+	</select>
+	<!-- 개인회원 경력 조회 -->
+	<select id="pselectCareers" resultType="com.ateam.proalba.domain.CareerVO">
+	<![CDATA[
+     	select em_code, m_code , work_place, join_date, end_date
+        from career
+        where m_code = #{id} and end_date is not null
+    	]]> 
 	</select>
     
     <select id="countCareers" resultType="int">
