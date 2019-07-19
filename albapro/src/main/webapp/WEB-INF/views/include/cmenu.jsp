@@ -37,7 +37,7 @@
 				<div class="column">
 					<h3>전자근로계약서</h3>
 					<ul>
-						<li><a href="ccserWcontractForm?id=${login.id}&n_code=${list[0].n_code}">근로계약서 작성</a></li>
+						<li><a href="cserWcontractForm?id=${login.id}">근로계약서 작성</a></li>
 						<li><a href="ccontract?id=${login.id}">근로계약서 목록</a></li>
 					</ul>
 				</div>

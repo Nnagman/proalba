@@ -27,16 +27,15 @@ font-family: 'Noto Sans KR', sans-serif !important;
 .div_createPdf
 {
 	text-align:center;
-	height:2150px;
+	height:1200px;
 }
 
 .box{
-	width:1576px;
-margin:auto;
+	width:100%;
+	margin:auto;
 	text-align:left;
-
-	padding:0 270px 0 270px;
-	 font-family: 'Noto Sans KR', sans-serif !important;
+	font-family: 'Noto Sans KR', sans-serif !important;
+	padding-left: 10%;
 }
 
 .boxcover{
