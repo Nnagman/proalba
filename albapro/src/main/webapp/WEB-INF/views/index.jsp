@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
+  <script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
 <%@ include file = "include/header.jsp" %>	
 
 </head>
