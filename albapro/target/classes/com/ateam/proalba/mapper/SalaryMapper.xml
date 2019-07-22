@@ -14,10 +14,10 @@
 		 ]]>
 	</select>
 	
-	<select id="pserSalary" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
+	<select id="pserSalary" resultType="com.ateam.proalba.domain.SalaryVO">
 	    <![CDATA[
         select * from  salary_view	
-       	WHERE m_code='p'||#{id} and work_place = #{work_place}
+       	WHERE m_code='p'||#{id}
 		 ]]>
 	</select>
 	

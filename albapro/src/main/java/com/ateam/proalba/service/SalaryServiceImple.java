@@ -37,7 +37,7 @@ public class SalaryServiceImple implements SalaryService{
 		salaryDAO.insert_salary(map);
 	}
 	@Override
-	public List<SalaryVO> pserSalary(Map<String, String> map) {
-		return salaryDAO.pserSalary(map);
+	public List<SalaryVO> pserSalary(String id) {
+		return salaryDAO.pserSalary(id);
 	}
 }
