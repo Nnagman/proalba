@@ -115,8 +115,12 @@ div.dataTables_filter label {
 }
 
 table.table td{
-vertical-align: middle;
-padding: 0.5rem 0 0.5rem 1rem !important;
+	vertical-align: middle;
+	padding: 0.5rem 0 0.5rem 0rem !important;
+}
+
+.center{
+	text-align: center;
 }
 
 footer {
@@ -147,7 +151,7 @@ footer {
 					<tr>
 						<th class="th-sm" scope="col">제출일</th>
 						<th class="th-sm" scope="col" style="width:200px">제목</th>
-						<th class="th-sm" scope="col" style="width:420px padding-left:0;">경력</th>	
+						<th class="th-sm" scope="col" style="width:420px; padding-left:0;">경력</th>	
 						<th class="th-sm" scope="col" colspan="2" >선택</th>
 					</tr>
 				</thead>
@@ -157,8 +161,8 @@ footer {
 						<c:set var="length" value="${fn:length(row.r_code)}" />
 						<c:set var="r_date" value="${fn:substring(row.r_code, idx+1, length)}" />
 								<tr>
-									<td>${row.r_date}</td>
-									<td class="card-title">${row.title}</td>
+									<td class="center">${row.r_date}</td>
+									<td class="card-title center">${row.title}</td>
 									<td class="card-title">
 										<c:forEach var="row2" items="${careerList[status.index]}">
 																(근무지 :${row2.work_place}
@@ -208,13 +212,13 @@ footer {
 																</c:if>
 									</c:forEach>
 								</td>
-								<td style="text-align: right;-">
+								<td style="text-align: right;">
 									<a href="viewApplyResume?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}"
-									class="btn btn-primary card-btn">이력서 보기</a>
+									class="btn btn-primary card-btn" style="width: 154.5px">이력서 보기</a>
 								</td>
-								<td>
+								<td style="padding-left: 20px !important; width: 200px;">
 									<a href="applyContractForm?r_code=${row.r_code}&&id=${fn:substring(row.r_code, 0, idx)}&&n_code=${row.n_code}"
-									class="btn btn-primary card-btn">근로계약서 작성</a>
+									class="btn btn-primary card-btn"  style="width: 154.5px">근로계약서 작성</a>
 								</td>
 							</tr>
 						</c:forEach>
