@@ -4,7 +4,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
-
+<%@ include file="../include/loginCheck.jsp"%>
 <head>
     <meta charset="UTF-8">
     <title>프로알바</title>

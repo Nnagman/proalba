@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="../include/loginCheck.jsp"%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"

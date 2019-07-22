@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<%@ include file="../include/loginCheck.jsp"%>
 <head>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/onlineQnA.css?ver=2">
