@@ -21,7 +21,6 @@
       header{
       background-image: url("${path}/resources/images/배경2.jpg");
       background-size: 100% 100%;
-      
       }
   
   </style> 
@@ -198,8 +197,8 @@
   </a>
 </div>
 <!--/.Carousel Wrapper-->
-	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
-	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
+<%-- 	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
+ --%>	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/mdb.min.js"></script>
    </div>

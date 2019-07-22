@@ -77,7 +77,7 @@
 					<h3>전자근로계약서</h3>
 					<ul>
 						<li><a
-							href="ccserWcontractForm?id=${login.id}">근로계약서 작성</a></li>
+							href="cserWcontractForm?id=${login.id}">근로계약서 작성</a></li>
 						<li><a href="ccontract?id=${login.id}">근로계약서 목록</a></li>
 					</ul>
 				</div>

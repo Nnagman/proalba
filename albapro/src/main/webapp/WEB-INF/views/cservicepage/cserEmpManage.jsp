@@ -39,34 +39,6 @@
 
 <!--  -->
 
- 
- 
-
-
-<script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test11.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test12.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test13.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test14.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test15.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test16.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test17.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test18.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
-
-
-
-
-
-
-
 </head>
 
 <style>
