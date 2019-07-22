@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-
+<%@ include file="../include/loginCheck.jsp"%>
 
 
 <script type="text/javascript"
@@ -454,8 +454,12 @@ Modal 직종
 };  
 
 </script>
+
   
-<%--     <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+			
+
+ 
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 
     <!--Call to action-->
    
@@ -476,19 +480,14 @@ Modal 직종
     <!-- Social icons -->
 
     <!--Copyright-->
-     <div class="footer-copyright py-3">
-       ⓒ 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+    <div class="footer-copyright py-3">
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
       </a>
      
-    </div> 
+    </div>
     <!--/.Copyright-->
 
-  </footer> --%>
-  
-			
-
- 
-
+  </footer>
 </body>
 
 

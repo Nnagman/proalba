@@ -6,7 +6,7 @@
 
 <script src="resources/js/cal/googlecal.js"></script> 
 <html>
-
+<%@ include file="../include/loginCheck.jsp"%>
 <style>
 
 .fc-content{

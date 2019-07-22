@@ -48,7 +48,7 @@ public class SalaryDAOImple implements SalaryDAO {
 	}
 
 	@Override
-	public List<SalaryVO> pserSalary(Map<String, String> map) {
-		return sqlSession.selectList(NAMESPACE + ".pserSalary", map);
+	public List<SalaryVO> pserSalary(String id) {
+		return sqlSession.selectList(NAMESPACE + ".pserSalary", id);
 	}
 }

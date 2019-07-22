@@ -11,7 +11,7 @@
 
 <head>
 <title>프로알바</title>
-
+<%@ include file="../include/loginCheck.jsp"%>
 
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">

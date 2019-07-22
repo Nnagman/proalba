@@ -4,6 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
    <head>
+   <%@ include file="../include/loginCheck.jsp"%>
    	  <!-- Custom fonts for this template-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 		<!-- Custom styles for this template-->
@@ -166,6 +167,9 @@ font-size:20px;
       header{
       height:80px !important;
       }
+      .card-body{
+      padding: 0px !important;
+      }
   	  .title{
   	  width: 320px !important;
   	  }
@@ -180,7 +184,11 @@ font-size:20px;
           vertical-align: inherit;
           border-color: inherit;
       }
-      
+      .col-sm-12{
+      width: 1110px !important;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+      }
       .a1{
       text-align: center;
       }
@@ -247,6 +255,27 @@ width: 130px !important;
       .p_date{
       width: 110px !important;
       }
+      .thea{
+      color: white;
+      background-color: #343a40;
+      border-color: #454d55;
+      height: 50px;
+      }
+      .row{
+      padding-left: 0px !important;
+      width: 1110px;
+      margin: 0px !important;      }
+      th, td{
+      height: 50px !important;
+      }
+      td{
+      text-align: center !important;
+      }
+      .recruinfo-title, .recruinfo-title-p{
+      font-family:'NanumSquareRound', sans-serif !important;
+      font-weight: 800;
+      text-align: center;
+      }
    </style>
 <body>
    <%@ include file="../include/header.jsp"%>
@@ -255,16 +284,18 @@ width: 130px !important;
      <div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">채용 공고</h2>
 		</div>
+		<br>
+		<br>
 			<div class="card-header card-header-primary">
-									<h4 class="card-title ">채용공고 관리</h4>
-									<p class="card-category">
+									<h4 class="card-title " style="color: #474747;">채용공고 관리</h4>
+									<p class="card-category" style="color: #474747;">
 										자신이 작성한 채용공고를 관리하는 페이지 입니다.
 									</p>
 								</div>
 								<div class="card-body">
 									
 										<table id="example" class="mdl-data-table" style="width: 100%">
-											<thead>
+											<thead class="thea">
 												<tr>
 														<th class="local">근무지</th>
 														<th class="title">공고제목</th>
@@ -291,11 +322,11 @@ width: 130px !important;
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 													<td class="a1">
 														<c:if test="${row.way eq '온라인접수'}">
-														 <a class="a1" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
+														 <a class="a1" style="margin-right: 35%;" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
 														</c:if>
 													</td>
-													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a></td>
-													<td><i class="fas fa-trash-alt Bdelete"></i></td>
+													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
+													<td><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
 												
 													</tr>
 

@@ -353,12 +353,20 @@ public class WorkmanageController {
 		return json;
 	}
 
+	/*
+	 * @RequestMapping(value = "/cserSalary", method = RequestMethod.GET) public
+	 * String inqsalaryGET(Model model, String id, String name) throws Exception {
+	 * 
+	 * String p_id = id.substring(0, id.indexOf("/")); logger.info(id);
+	 * model.addAttribute("name", name); model.addAttribute("message",
+	 * "inqsalaryPage"); JSONArray pJson =
+	 * JSONArray.fromObject(salaryService.listCriteria(id));
+	 * model.addAttribute("salarys", pJson); logger.info(pJson.toString()); return
+	 * "cservicepage/cserSalary"; }
+	 */
+	
 	@RequestMapping(value = "/cserSalary", method = RequestMethod.GET)
-	public String inqsalaryGET(Model model, String id, String name) throws Exception {
-
-		String p_id = id.substring(0, id.indexOf("/"));
-		logger.info(id);
-		model.addAttribute("name", name);
+	public String inqsalaryGET(Model model, String id) throws Exception {
 		model.addAttribute("message", "inqsalaryPage");
 		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(id));
 		model.addAttribute("salarys", pJson);

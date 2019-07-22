@@ -28,6 +28,7 @@
 					<h3 class="menu-drop-title">알바 관리</h3>
 					<ul>
 						<li><a href="pserworkList?id=${login.id}" class="manuli">나의 알바 목록</a></li>
+						<li><a href="pserSalary?id=${login.id}">급여 조회</a></li>
 						<li><a href="pworkmanage?id=${login.id}">근태 조회</a></li>
 						<li><a href="">급여 조회</a></li>
 					</ul>
@@ -63,7 +64,7 @@
 					<ul>
 						<li><a href="cserEmpManage?id=${login.id}">직원 목록</a></li>
 						<li><a href="cserFullWorkmanagetable?id=${login.id}">일별 근태 관리</a></li>
-						<li><a href="cserEmpManage?id=${login.id}">급여 관리</a></li>
+						<li><a href="cserSalary?id=${login.id}">급여 관리</a></li>
 						<li><a href="cserfingerIdmanage?id=${login.id}">지문 관리</a></li>
 					</ul>
 				</div>
