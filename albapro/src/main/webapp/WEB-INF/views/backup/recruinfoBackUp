@@ -247,6 +247,9 @@ top:300px;
 <body>
 	<%@ include file="../include/header.jsp"%>
 
+
+
+
 	<div class="container">
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">채용 공고</h2>
