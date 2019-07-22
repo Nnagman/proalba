@@ -54,6 +54,12 @@
 
 	</script>
    <style>
+   .th-sm{
+   width: 127px !important;
+   }
+   .recruinfo-title-p{
+   margin-top: 61px;
+   }
    	  .odd {
 	background-color: #EAEAEA;
 }
@@ -80,6 +86,9 @@
 margin: 0 0 0 20px;
 	color:#B7F0B1;
 	    font-size: 1.2rem;
+}
+.sorting_1{
+width: 125px !important;
 }
 
 #recordupdate{
@@ -152,12 +161,14 @@ font-size:20px;
       display: inline-block !important;
       }
       .salary{
-      width: 0px !important;
+      width: 59px !important;
       }
       header{
       height:80px !important;
       }
-      
+  	  .title{
+  	  width: 320px !important;
+  	  }
       thead {
           display: table-header-group;
           vertical-align: middle;
@@ -168,6 +179,10 @@ font-size:20px;
           display: table-row;
           vertical-align: inherit;
           border-color: inherit;
+      }
+      
+      .a1{
+      text-align: center;
       }
       
       tbody {
@@ -209,7 +224,10 @@ font-size:20px;
 .addjob-title{
 text-align: center;
 }
+.data{
+width: 130px !important;
 
+}
 .nav-itemsub li a {
 	color: white !important;
 	padding: 8px 0 0 0 !important;
@@ -227,7 +245,7 @@ text-align: center;
 }
 .sss{font-size: 12px; color: red; font-weight:lighter;}
       .p_date{
-      width: 103px !important;
+      width: 110px !important;
       }
    </style>
 <body>
@@ -271,9 +289,9 @@ text-align: center;
 													<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
 													<td class="salary">${row.hour_wage}</td>
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
-													<td>
+													<td class="a1">
 														<c:if test="${row.way eq '온라인접수'}">
-														 <a href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
+														 <a class="a1" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
 														</c:if>
 													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i class="far fa-clipboard Bcontract"></i></a></td>
