@@ -144,7 +144,7 @@ public class WorkmanageController {
 			i++;
 		}
 	
-		System.out.println(date[0]);
+		System.out.println(date[0]);	
 		System.out.println(start_time[0]);
 		System.out.println(end_time[0]);
 		//기업직원근태기록끝

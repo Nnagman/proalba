@@ -15,34 +15,8 @@
 		</li>
 	
 		<li class="menuLi">
-			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}">기업서비스</a>
-			<div class="fulldrop scrolling-navbar Asize">
-				<div class="column">
-					<h3>직원 관리</h3>
-					<ul>
-						<li><a href="cserEmpManage?id=${login.id}">직원 목록</a></li>
-						<li><a href="cserFullWorkmanagetable?id=${login.id}">일별 근태 관리</a></li>
-						<li><a href="cserEmpManage?id=${login.id}">급여 관리</a></li>
-						<li><a href="cserfingerIdmanage?id=${login.id}">지문 관리</a></li>
-						<li><a href="cserInqcareer?id=${login.id}">경력 관리</a></li>
-					</ul>
-				</div>
-
-				<div class="column">
-					<h3>채용공고</h3>
-					<ul>
-						<li><a href="cserAddJobopening_free?id=${login.id}">채용공고 등록</a></li>
-						<li><a href="cserAddJobopening_free_manage?id=${login.id}">채용공고 관리</a></li>
-					</ul>
-				</div>
-				<div class="column">
-					<h3>전자근로계약서</h3>
-					<ul>
-						<li><a href="ccserWcontractForm?id=${login.id}">근로계약서 작성</a></li>
-						<li><a href="ccontract?id=${login.id}">근로계약서 목록</a></li>
-					</ul>
-				</div>
-			</div>
+			<a class="menuLink" href="${path}/cserEmpManage?id=${login.id}" target="blank">기업서비스</a>
+<!-- Full Down Menu --> 
 			
 		
 		<li class="menuLi">
@@ -61,7 +35,6 @@
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/comm" >커뮤니티</a>
 			<ul class="subMenu">
-
 			</ul>
 		</li>
 	</ul>
