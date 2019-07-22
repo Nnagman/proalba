@@ -64,13 +64,13 @@
           <ul class="navbar-nav mr-auto">
 
 							<c:if
-								test='${fn:substring(login.m_code,0,1) == "p"|| login.m_code == null}'>
+								test='${fn:substring(login.m_code,0,1) == "p"||fn:substring(login.m_code,0,1) == "c"|| login.m_code == null}'>
 								<%@ include file="menu.jsp"%>
 							</c:if>
 
-							<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+<%-- 							<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
 								<%@ include file="cmenu.jsp"%>
-							</c:if>
+							</c:if> --%>
 							<c:if
 								test='${fn:substring(login.m_code,0,1) == "a" && login.m_code != null}'>
 								<%@ include file="amenu.jsp" %>
@@ -138,12 +138,12 @@
                	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" 
                	  data-content=
                	   "
-               	   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-               	   		<div><h6><span>${login.id}</span>님</h6></div><hr/>
+               	 <%--   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+               	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
                	   	</c:if>
                	   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
                	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
-               	   	</c:if>
+               	   	</c:if> --%>
                   	<p>Phone : ${login.phone}</p><hr/>
                   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
               	  	<p>E-mail : ${login.email}</p><hr />
@@ -154,7 +154,7 @@
                 	</div>
                 	"
                 >
-                                ${login.id}
+                                ${login.name}<span>님</span>
 				</button>
 
 					

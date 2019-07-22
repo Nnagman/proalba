@@ -21,13 +21,11 @@
 		
 		<li class="menuLi">
 			<a class="menuLink" href="${path}/onlineQnA" class="manuli">고객센터</a>
-			<div class="fulldrop scrolling-navbar Asize">
+			<div class="fulldrop scrolling-navbar Asize qnaSize">
 				<div class="column">
 					<h3>온라인 문의</h3>
 					<ul>
 						<li><a href="${path}/onlineQnA" class="manuli">문의하기</a></li>
-					</ul>
-					<ul>
 						<li><a href="${path}/qnalist?m_code=${login.m_code}" class="manuli">나의 문의 내역</a></li>
 					</ul>
 				</div>

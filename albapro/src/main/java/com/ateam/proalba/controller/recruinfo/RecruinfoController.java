@@ -146,16 +146,17 @@ public class RecruinfoController {
 	@RequestMapping("viewApplyResume")
 	public String viewApplyResume(Model model, @RequestParam("r_code") String r_code, @RequestParam("id") String id) throws Exception {
 		logger.info("Welcome wresumePage");
-		
+		logger.info(r_code + "id : " + id);
 		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
-		
+		System.out.println(careerVO);
 		model.addAttribute("careers", careerVO);
 		
 		ResumeVO resumeVO = resumeService.view_resume(r_code);
-		ResumeVO late_status = resumeService.view_resume(r_code);
-		
+		/* ResumeVO late_status = resumeService.late_status(r_code); */
+		System.out.println("resumeVO:"+resumeVO);
+		/* System.out.println("late_status:"+late_status); */
 		model.addAttribute("resume", resumeVO);
-		model.addAttribute("late_status", late_status);
+		/* model.addAttribute("late_status", late_status); */
 		return "recruinfo/viewResume";
 	}
 }

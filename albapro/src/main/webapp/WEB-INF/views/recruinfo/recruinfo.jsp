@@ -76,6 +76,7 @@ html, body, header, .carousel {
 header {
 	background-image: url("#") !important;
 	background-color: #5D5D5D !important;
+	height:80px !important;
 }
 
 .recruinfo-title {
@@ -118,9 +119,7 @@ p {
 .recruinfo-list{
 width:100%;
 }
-header{
-height:80px !important;
-}
+
 
 .recruinfo-table{
 
@@ -238,7 +237,7 @@ padding-right:0 !important;
 }
 
 footer{
-top:300px;
+top:400px;
     position: relative;
 }
 
@@ -272,102 +271,10 @@ top:300px;
 			<!-- 상단검색 S//-->
 
 
-			<input type="hidden" id="WsSrchKeywordWord" name="WsSrchKeywordWord"
-				value=""> <input type="hidden" id="hidschContainText"
-				name="hidschContainText" value=""> <input type="hidden"
-				id="hidWsearchInOut" name="hidWsearchInOut" value="">
-			<!-- base hidden parameter -->
-			<input type="hidden" id="hidSort" name="hidSort" value=""> <input
-				type="hidden" id="hidSortOrder" name="hidSortOrder" value="">
-			<input type="hidden" id="hidSortDate" name="hidSortDate" value="">
-			<input type="hidden" id="hidListView" name="hidListView" value="LIST">
-			<input type="hidden" id="hidSortCnt" name="hidSortCnt" value="50">
-			<input type="hidden" id="hidSortFilter" name="hidSortFilter"
-				value="Y"> <input type="hidden" id="hidJobKind"
-				name="hidJobKind" value=""> <input type="hidden"
-				id="hidJobKindMulti" name="hidJobKindMulti" value=""> <input
-				type="hidden" id="page" name="page" value="1"> <input
-				type="hidden" id="hidSearchyn" name="hidSearchyn" value="N">
-			<input type="hidden" id="strAreaMulti" name="strAreaMulti" value="">
-			<input type="hidden" id="schtext" name="schtext" value="">
-
-			<div class="jobSearch" id="JobSearch">
-
 
 				<!-- 기본검색 -->
 
 
-				<!-- <div class="base">
-
-
-					<!-- 지역 -->
-			<!--		<dl class="area">
-						<dt class="item">지역</dt>
-						 <dd class="content">
-							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
-						</dd>
-						<dd class="data" style="display: block;">
-							<ul id="ulAreacd" class="tabForm">
-								<li id="02" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('02', '서울');">서울</a></li>
-								<li id="051"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('051', '부산');">부산</a></li>
-								<li id="053" class="odd on"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
-								<li id="032"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('032', '인천');">인천</a></li>
-								<li id="062" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('062', '광주');">광주</a></li>
-								<li id="042"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('042', '대전');">대전</a></li>
-								<li id="052" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('052', '울산');">울산</a></li>
-								<li id="044"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('044', '세종');">세종</a></li>
-								<li id="031" class="odd last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('031', '경기');">경기</a></li>
-								<li id="055"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('055', '경남');">경남</a></li>
-								<li id="054" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('054', '경북');">경북</a></li>
-								<li id="041"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('041', '충남');">충남</a></li>
-								<li id="043" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('043', '충북');">충북</a></li>
-								<li id="061"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('061', '전남');">전남</a></li>
-								<li id="063" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('063', '전북');">전북</a></li>
-								<li id="033"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('033', '강원');">강원</a></li>
-								<li id="064" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('064', '제주');">제주</a></li>
-								<li id="99" class="last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('99', '전국');">전국</a></li>
-							</ul>
-							<ul id="ulGugun" class="inputWrap">
-								<li></li>
-							</ul>
-							<ul id="ulDong" class="inputWrap dongWrap" style="display: none;">
-								<li></li>
-							</ul>
-							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
-						</dd>
-					</dl> -->
-
-					<!-- 지역 
-				</div>	-->
-
-<!-- 	작동 x 
-				<div class="jobcho-line1">
-					직종/업무:
-					<div class="jobchoice"></div>
-
-					<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
-					전체카테고리
-					</button>
-				</div>
-					 -->
 				<div class="placho-line1">
 					지역:
 					<input type="text" class="plachoice" id="plachoice" onchange="plasearch(this.value)" />
@@ -377,7 +284,7 @@ top:300px;
 					</button>
 				</div>
 					
-			</div>
+
 
 
 <!-- 수정할곳 -->
@@ -502,7 +409,7 @@ Modal 직종
 	$(document).ready(function () {
 		$('#Example').DataTable({
 			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 4, "desc" ]]
+			"order": [[ 2, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});

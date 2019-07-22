@@ -236,11 +236,22 @@ float:left;
 .navbar{
 padding-right:0 !important;
 }
-
+ 
 footer{
-top:300px;
+top:400px !important;
     position: relative;
 }
+
+.resumetitle{
+font-size:18px;
+}
+
+.fa-trash-alt{
+font-size:18px;
+color:red;
+}
+
+
 
 </style>
 
@@ -294,86 +305,16 @@ top:300px;
 			<input type="hidden" id="strAreaMulti" name="strAreaMulti" value="">
 			<input type="hidden" id="schtext" name="schtext" value="">
 
-			<div class="jobSearch" id="JobSearch">
+	
 
 
 				<!-- 기본검색 -->
 
 
-				<!-- <div class="base">
-
-
-					<!-- 지역 -->
-			<!--		<dl class="area">
-						<dt class="item">지역</dt>
-						 <dd class="content">
-							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
-						</dd>
-						<dd class="data" style="display: block;">
-							<ul id="ulAreacd" class="tabForm">
-								<li id="02" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('02', '서울');">서울</a></li>
-								<li id="051"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('051', '부산');">부산</a></li>
-								<li id="053" class="odd on"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
-								<li id="032"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('032', '인천');">인천</a></li>
-								<li id="062" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('062', '광주');">광주</a></li>
-								<li id="042"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('042', '대전');">대전</a></li>
-								<li id="052" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('052', '울산');">울산</a></li>
-								<li id="044"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('044', '세종');">세종</a></li>
-								<li id="031" class="odd last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('031', '경기');">경기</a></li>
-								<li id="055"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('055', '경남');">경남</a></li>
-								<li id="054" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('054', '경북');">경북</a></li>
-								<li id="041"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('041', '충남');">충남</a></li>
-								<li id="043" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('043', '충북');">충북</a></li>
-								<li id="061"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('061', '전남');">전남</a></li>
-								<li id="063" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('063', '전북');">전북</a></li>
-								<li id="033"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('033', '강원');">강원</a></li>
-								<li id="064" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('064', '제주');">제주</a></li>
-								<li id="99" class="last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('99', '전국');">전국</a></li>
-							</ul>
-							<ul id="ulGugun" class="inputWrap">
-								<li></li>
-							</ul>
-							<ul id="ulDong" class="inputWrap dongWrap" style="display: none;">
-								<li></li>
-							</ul>
-							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
-						</dd>
-					</dl> -->
-
-					<!-- 지역 
-				</div>	-->
-
-<!-- 	작동 x 
-				<div class="jobcho-line1">
-					직종/업무:
-					<div class="jobchoice"></div>
-
-					<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
-					전체카테고리
-					</button>
-				</div>
-					 -->
+			
 			
 					
-			</div>
+	
 
 
 <!-- 바꿀곳 -->
@@ -383,9 +324,10 @@ top:300px;
 <table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
 	<thead>
 		<tr>
-			<th class="local">이력서 제목</th>
-			<th class="title">공고제목</th>
-			<th class="data">근무시간</th>
+			<th class="local" style="width:60% !important;">이력서 제목</th>
+		
+			<th class="data">이력서 등록일</th>
+			<th></th>
 		
 		</tr>
 	</thead>
@@ -394,13 +336,16 @@ top:300px;
 		<c:forEach var="row" items="${map.list}">
 			<tr>
 				
-				<td class="title"><a href="recruinfoDetail?n_code=#">
-								
-										<span> ${row.title} </span>
-											<span> ${row.r_date} </span> 
-									</a></td>
-				<td class="data">${row.r_date}</td>
-				<td class="salary">${row.r_date}</td>
+				<td class="title" style="height:50px !important; vertical-align:middle;">
+				<a href="viewResume?r_code=${row.r_code}&&id=${login.id}">
+					<span class="resumetitle"> ${row.title} </span> </a>
+				
+					
+					</td>
+					
+			
+				<Td style="height:50px !important; vertical-align:middle; "><span class="makeday">작성일: ${row.r_date} </span></Td>
+				<td class="salary" style="height:50px !important; vertical-align:middle; ">	<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" ><i class="fas fa-trash-alt"></i></a></td>
 			
 			</tr>
 		</c:forEach>
@@ -499,7 +444,7 @@ Modal 직종
 	$(document).ready(function () {
 		$('#Example').DataTable({
 			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 4, "desc" ]]
+			"order": [[ 1, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});

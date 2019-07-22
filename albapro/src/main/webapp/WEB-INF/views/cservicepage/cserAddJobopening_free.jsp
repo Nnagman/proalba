@@ -1,55 +1,144 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page import="java.util.Date"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+   <head>
+   	  <!-- Custom fonts for this template-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+		<!-- Custom styles for this template-->
+		<!-- <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet"> -->
+		<link href="resources/css/servicepage/demo.css" rel="stylesheet">
+		<link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
+		<!--   <link rel="stylesheet" href="resources/css/bootstrap.css" />  -->
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
+		<link rel="stylesheet" href="resources/css/albamanage.css" />
+		<link rel="stylesheet" href="resources/css/albamanagecus.css" />
+		<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+		<link rel="stylesheet" href="resources/css/cserAddjobOpningCS.css" />
+		
+		
+		<script src="resources/js/albamanage.js"></script>
+		<script src="resources/js/cal/albamanage.js"></script>
+		<script src="resources/js/cal/interaction.js"></script>
+		<script src="resources/js/recruinfo/test13.js"></script>
+		<script src="resources/js/recruinfo/majorjson.js"></script>
+		<script src="resources/js/cserAddjobopening_freeSC.js?ver=2"></script>
+		<script src="resources/js/addjobopening.js?ver=3"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="resources/js/bootstrap.js"></script>
 
-<title>프로알바</title>
-<!-- Custom fonts for this template-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-<!-- Custom styles for this template-->
-<link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
-<link href="resources/css/servicepage/demo.css" rel="stylesheet">
-<link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
-<!--   <link rel="stylesheet" href="resources/css/bootstrap.css" />  -->
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
-<link rel="stylesheet" href="resources/css/albamanage.css" />
-<link rel="stylesheet" href="resources/css/albamanagecus.css" />
-<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet" href="resources/css/cserAddjobOpningCS.css" />
-<script src="resources/js/albamanage.js"></script>
-<script src="resources/js/cal/albamanage.js"></script>
-<script src="resources/js/cal/interaction.js"></script>
-<script src="resources/js/recruinfo/test13.js"></script>
-<script src="resources/js/recruinfo/majorjson.js"></script>
-<script src="resources/js/cserAddjobopening_freeSC.js?ver=2"></script>
-<script src="resources/js/addjobopening.js?ver=3"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="resources/js/bootstrap.js"></script>
-</head>
-<script>
+      <script type="text/javascript" src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
+      <title>프로알바</title>
+      <link href="resources/css/index.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+      <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+      <link href="resources/css/mdb.min.css" rel="stylesheet">
+      <link href="resources/css/style.css" rel="stylesheet">
+      <link href="resources/css/datatables.min.css" rel="stylesheet">
+   
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+   </head>
+	<script>
 
 		$(document).ready(function(){
 			console.log(arrJobCodeWide);			
 		});
 
-</script>
-<style>
-.nav-itemsub li {
+	</script>
+   <style>
+      html, body, header, .carousel {
+         height: 9vh !important;
+      }
+      
+      .he-title {
+         display: none !important;
+      }
+      
+      .carousel-inner {
+         display: none !important;
+      }
+      
+      header {
+         background-image: url("#") !important;
+         background-color: #5D5D5D !important;
+      }
+      
+      .p.count {
+         margin-top: 0px !important;
+      }
+      
+      p {
+         margin-bottom: 0px !important;
+      }
+      
+      .custom-control{
+      vertical-align:top;
+      }
+      
+      .placho-line1{
+         margin: 0 !important;   
+      }
+      .custom-control{
+      display: inline-block !important;
+      }
+      header{
+      height:80px !important;
+      }
+      
+      thead {
+          display: table-header-group;
+          vertical-align: middle;
+          border-color: inherit;
+      }
+      
+      tr {
+          display: table-row;
+          vertical-align: inherit;
+          border-color: inherit;
+      }
+      
+      tbody {
+          display: table-row-group;
+          vertical-align: middle;
+          border-color: inherit;
+      }
+      
+      .div-cont{
+      font-family: 'Noto Sans KR', sans-serif !important;
+	  weight: 300; 
+      }
+      
+      div.dataTables_filter label{
+      float: right;
+      margin-right: 40px;
+      }
+      
+      #Example_info{
+         display:none;
+      }
+      
+      #Example_paginate{
+         float:left;
+      }
+      
+      .navbar{
+         padding-right:0 !important;
+      }
+      
+      footer{
+         top:300px;
+          position: relative;
+      }
+      .nav-itemsub li {
 	list-style: none;
 	color: white !important;
+}
+.addjob-title{
+text-align: center;
 }
 
 .nav-itemsub li a {
@@ -68,93 +157,14 @@
 	font-size: 0.8rem;
 }
 .sss{font-size: 12px; color: red; font-weight:lighter;}
-
-</style>
+      
+   </style>
 <body>
+   <%@ include file="../include/header.jsp"%>
 
-	<div class="wrapper">
-		<div class="div-sidebar">
-			<div class="sidebar" data-color="purple"
-				data-background-color="white"
-				data-image="../assets/img/sidebar-1.jpg">
-				<!--
-        			Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-        			Tip 2: you can also add an image using data-image tag
-        		-->
-				<div class="logo">
-					<a href="/" class="simple-text logo-normal"> proalba </a>
-				</div>
-				<div class="sidebar-wrapper">
-					<ul class="nav">
-						<li class="nav-item active">
-							<a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}">
-								<i class="material-icons">dashboard</i> 채용공고 
-							</a>
-						</li>
-									
-								 <!-- 채용공고 등록 하위 메뉴 -->
-								<div class="nav-itemsub">
-							<ul>
-
-								<li><a class="nav-link" href="cserAddJobopening_free?id=${login.id}">채용공고 등록 </a></li>
-								
-								<li><a class="nav-link" href="cserAddJobopening_free_manage?id=${login.id}"> 채용공고  관리 </a></li>
-
-							
-
-							</ul>
-
-						</div>
-
-				
-									<!-- 채용공고 등록 하위 메뉴 -->
-						
-						<li class="nav-item ">
-							<a class="nav-link" href="cserWcontractForm?id=${login.id}&n_code=">
-								<i class="material-icons">dashboard</i> 전자근로 계약서 작성
-							</a>
-						</li>
-						
-						<li class="nav-item">
-							<a class="nav-link" href="ccontract?id=${login.id}">
-								<i class="material-icons">dashboard</i> 전자근로 계약서 목록
-							</a>
-						</li>
-					
-						<li class="nav-item dropdown">
-							<a class="nav-link" href="cserEmpManage?id=${login.id}">
-								<i class="material-icons">person</i> 직원 관리
-							</a>
-						</li>
-						<%-- <li class="nav-item "><a class="nav-link"
-							href="${path}/proalba/comm"> <i class="material-icons">bubble_chart</i>
-								커뮤니티
-						</a></li> --%>
-					</ul>
-					
-				
-					
-
-					
-					
-				
-				</div>
-			</div>
-			<!-- End of Sidebar -->
-		</div>
-		<!-- 컨테이너 시작 -->
-		<div class="content">
-			<div class="pser-header"><%@ include file="cserNavHeader.jsp"%>
-			</div>
-			<div class="pser-con">
+     
 			<form id="form">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-md-12">
+			
 											<div class="addjob-1">
 												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
 												<div class="div-cont">
@@ -433,19 +443,32 @@
 													<input type="button" class="regaddjob btn btn-light-green adr-btn" value="등록" id="submit1"/>
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+											</div>
+											</div>
+						
 				</form>
-			</div>
-			<div class="pser-footer"><%@ include file="../servicepage/pserfooter.jsp"%></div>
-		</div>
-	</div>
-
+	
+   <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+       <!--Call to action-->
+       <!--/.Call to action-->
+       <hr class="my-4">
+          <!-- Social icons -->
+          <div class="pb-4">
+             <i class="fab fa-html5 footer-icon"></i>
+            <i class="fab fa-js-square footer-icon"></i>
+              <i class="fab fa-css3-alt footer-icon"></i>
+               <i class="fab fa-aws footer-icon"></i>
+               <i class="fas fa-leaf footer-icon"></i>
+              <i class="fab fa-android footer-icon"></i>
+          </div>
+          <!-- Social icons -->
+          <!--Copyright-->
+          <div class="footer-copyright py-3">
+                © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> </a>
+        
+          </div>
+          <!--/.Copyright-->
+    </footer>
 
    <!-- 부트스트랩 -->
    <!-- 부트스트랩 modal -->
@@ -472,17 +495,16 @@
             </div>
          </div>
       </div>
+      </div>
    </div>
-   
 
-   
-   
-   
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
+   <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
    <script src="resources/js/servicepage2/popper.min.js"></script>
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
    <script src="resources/js/servicepage2/demo.js"></script>
-   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+   
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
    <!-- 주소검색  -->
    <script>
@@ -645,5 +667,8 @@
 
 	        	
 </script>
+
+   
+
 </body>
 </html>

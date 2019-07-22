@@ -66,7 +66,9 @@ body{
 
 .navbar{
   width:100%;
-    height:80px;
+  height:80px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
  }
 
 
@@ -118,8 +120,7 @@ margin-left:500px !important;
     float:left !important;
     margin-left:50px!important;
     width:200px !important;
-    height:50px !important;
-
+    height:80px !important;
     }
     
     .he-title{
@@ -127,11 +128,12 @@ margin-left:500px !important;
     left:20%;
     color:white;
     text-align:center;
-    margin-top: 80px;
+    margin-top: 90px;
     
     }
     
     .he-title h1{
+
     font-weight: 750;
     }
 
@@ -144,12 +146,13 @@ margin-left:500px !important;
 
 .containermo{
 	width:90%;
+	height: 80px;
 }
   
  .subnavbar1{
  width:240px !important;
- padding-top:45px;
- height:120px;
+ padding-top:25px;
+ height:80px;
  	color:white;
  	display:block;
  	margin:0 20px 0 0;
@@ -183,6 +186,15 @@ margin-left:500px !important;
 }
 .flex-center ul {
 	text-align:right !important;
+	height: 80px;
 
 }
- 
+
+.flex-center ul li {
+	margin-bottom: 0 !important;
+
+}
+
+.popover-body p:first-child{
+	margin-top: 5px;
+}

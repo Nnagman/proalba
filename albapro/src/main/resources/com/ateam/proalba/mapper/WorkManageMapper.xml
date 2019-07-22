@@ -14,8 +14,14 @@
 	</select>
 	
 	<select id="workRecord" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" parameterType="hashmap">
-			SELECT	w_code, sa_c, sa_start, sa_date, sa_end, working_hours
+			SELECT	w_code, sa_c, sa_start, sa_date, sa_end, working_hours, work_place
 			FROM	workrecord_view
-			WHERE	sa_c=#{id} AND work_place = #{work_place}
+			WHERE	sa_c=#{id} 
+	</select>
+	
+	<select id="workPlace" resultType="com.ateam.proalba.domain.CareerVO">
+			SELECT	work_place
+			FROM	career c
+			WHERE	m_code = #{m_code} 
 	</select>
 </mapper>

@@ -3,6 +3,7 @@ package com.ateam.proalba.persistence;
 import java.util.List;
 import java.util.Map;
 
+import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
@@ -16,4 +17,5 @@ public interface WorkManageDAO {
 
 	List<MobileAttendanceVO> workRecord(Map<String, String> map) throws Exception;
 	
+	List<CareerVO> workPlace(String m_code) throws Exception;
 }

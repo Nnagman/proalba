@@ -58,4 +58,10 @@ public class CareerServiceImplement implements CareerService {
 		careerDAO.career_leave(em_code);
 	}
 
+	@Override
+	public List<CareerVO> pselectCareers(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return careerDAO.pselectCareers(id);
+	}
+
 }
