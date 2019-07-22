@@ -352,7 +352,7 @@ public class WorkmanageController {
 		json.put("message", "추가 성공");
 		return json;
 	}
-
+	/* 이전 기업 급여조회 컨트롤러 */
 	/*
 	 * @RequestMapping(value = "/cserSalary", method = RequestMethod.GET) public
 	 * String inqsalaryGET(Model model, String id, String name) throws Exception {
@@ -371,6 +371,8 @@ public class WorkmanageController {
 		JSONArray pJson = JSONArray.fromObject(salaryService.listCriteria(id));
 		model.addAttribute("salarys", pJson);
 		logger.info(pJson.toString());
+		
+		logger.info("salarys");
 		return "cservicepage/cserSalary";
 	}
 

@@ -5,13 +5,18 @@
 
 <mapper namespace="com.ateam.proalba.mapper.SalaryMapper">
 	<select id="listCriteria" resultType="com.ateam.proalba.domain.SalaryVO">
-	    <![CDATA[
+	    <!-- <![CDATA[
         SELECT 	* 
         FROM 	salary_view	
        	WHERE	m_code='p'||SUBSTR(#{id},0,INSTR(#{id},'/')-1)
        	AND		em_code = SUBSTR(#{id},INSTR(#{id},'/')+1)
        	order by year_month asc
-		 ]]>
+		 ]]> -->
+		 <![CDATA[
+		select *
+        from salary_view
+        where substr(sa_code,instr(sa_code,'/',-1)+1)=#{id}
+         ]]>
 	</select>
 	
 	<select id="pserSalary" resultType="com.ateam.proalba.domain.SalaryVO" parameterType="hashmap">
