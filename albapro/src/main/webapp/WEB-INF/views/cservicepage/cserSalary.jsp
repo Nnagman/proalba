@@ -266,12 +266,11 @@ top:300px;
             box-shadow: 1px 1px 1px 1px #999;
     border-radius: 5px;
 }
-td{
-	text-align: center;
-	white-space: nowrap;
+td th{
+	text-align: center !important;
 }
 .container1{
-max-width: 1400px !important;
+max-width: 1700px !important;
 
 }
 </style>
@@ -284,7 +283,7 @@ max-width: 1400px !important;
 
 	<div class="container container1">
 		<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p">급여조회1</h2>
+			<h2 class="recruinfo-title-p">급여조회</h2>
 		</div>
 		<br><br>
 		<div id="SubContents">
@@ -299,7 +298,7 @@ max-width: 1400px !important;
 									<table id="example" class="table">
 										  <thead>
 										  <tr>
-										  <th  colspan="5" class="table-info">월별 급여내역</th>
+										  <th scope="col" colspan="5" class="table-info">월별 급여내역</th>
 										  <th scope="col" colspan="3" bgcolor="E2FBF7">4대보험</th>
 										  <th scope="col" colspan="4" bgcolor="FFE3E3">추가수당</th>
 										  <th scope="col" class="table-active">근무시간(분)</th>
