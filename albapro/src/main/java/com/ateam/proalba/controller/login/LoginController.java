@@ -1,7 +1,4 @@
 	package com.ateam.proalba.controller.login;
-
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -16,12 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -45,7 +40,12 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 		return "login/login";
 	}
 	
-	
+	@RequestMapping(value = "/loginBtn", method = RequestMethod.GET)
+	public String loginBtnGET(@ModelAttribute("loginDTO") LoginDTO loginDTO, HttpSession httpSession) {
+		httpSession.removeAttribute("destination");
+		httpSession.removeAttribute("query");
+		return "login/login";
+	}
 	
 	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.GET)
 	  public String loginGET (HttpSession httpSession, Model model) { 

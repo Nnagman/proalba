@@ -4,6 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
    <head>
+   <%@ include file="../include/loginCheck.jsp"%>
    	  <!-- Custom fonts for this template-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 		<!-- Custom styles for this template-->

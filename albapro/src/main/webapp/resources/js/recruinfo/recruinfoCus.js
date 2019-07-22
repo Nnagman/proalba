@@ -111,7 +111,7 @@ ss(function(){
 	}else*/
 
  
-		if (divcnt < 5) {
+		if (divcnt < 3) {
 
 			$('<p></p>').addClass('placho-de3').text(text).attr('id',
 					textid).appendTo(plmodal3);
@@ -120,13 +120,41 @@ ss(function(){
 			pljobchotext.push(text);
 
 		}  else {
-			alert("5개이상 선택 불가능 합니다.");
+			alert("1개이상 선택 불가능 합니다.");
 		}
 
 		
 	});
 
 });
+
+
+
+ss(function(){ 
+	jQuery(document).on('click','.placho-de',function() {
+		 pljobchoid = [];
+		 pljobchotext = [];
+		
+		 var plmodal3 = $('.placho3');
+		var text = $(this).text();
+		var textid = $(this).attr('id');
+		var textlen = $('.placho-de3').text();
+
+		var divcnt = $('.placho-de3').length
+		$(".placho-de3").remove();
+		
+		$('<p></p>').addClass('placho-de3').text(text).attr('id',
+				textid).appendTo(plmodal3);
+
+		pljobchoid.push($(this).attr('id'));
+		pljobchotext.push(text);
+
+
+	
+});
+
+});
+
 
 ss(function(){
 	jQuery(document).on('click','.btn-plsejob',function() {
@@ -142,8 +170,7 @@ ss(function(){
 			
 	
 		
-			 
-			$('#plachoice').val(textarr[0]).trigger('change');
+			$('#plachoice').val(textarr[0]+' '+textarr[1]).trigger('change');
 			
 		});
 		
