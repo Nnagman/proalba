@@ -122,8 +122,8 @@
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
-              <a href="${path}/login" class="nav-link border border-light rounded ">
-            sign in 
+              <a href="${path}/loginBtn" class="nav-link border border-light rounded ">
+				sign in 
               </a>
               </c:if>
             </div>
