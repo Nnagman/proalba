@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/inqcareer.css?ver=1">
 <link rel="stylesheet" type="text/css" href="resources/css/myqna.css?ver=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <%@ include file = "../include/header.jsp" %>
 <!-- <link rel="stylesheet" href="resources/Semantic-UI-CSS-master/semantic.min.css?ver=1" />
 <script src="resources/Semantic-UI-CSS-master/semantic.min.js?ver=1"></script> -->
