@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>프로알바</title>
 <%@ include file="../include/header.jsp"%>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript" src="${path}/resources/js/common.js"></script>
  <script src="${path}/resources/ckeditor/ckeditor.js"></script>
  <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
