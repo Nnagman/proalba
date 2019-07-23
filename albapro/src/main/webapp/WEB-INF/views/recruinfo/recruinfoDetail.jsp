@@ -295,7 +295,7 @@ font-weight: 550 !important;
 					<li class="way">
 						<span class="item">지원방법</span> ${list[0].way}
 						<c:if test="${list[0].way == '온라인접수' && login.id != null}">
-							<a class="btn btn-default" href="http://localhost:8080/apply?id=${login.id}&&n_code=${list[0].n_code}" onclick="window.open(this.href, '_blank', 'width=500px,height=800px,toolbars=no,scrollbars=no'); return false;" role="button">지원하기</a>
+							<a class="btn btn-default" href="${path}/apply?id=${login.id}&&n_code=${list[0].n_code}" onclick="window.open(this.href, '_blank', 'width=500px,height=800px,toolbars=no,scrollbars=no'); return false;" role="button">지원하기</a>
 						</c:if>
 					</li>	
 				</ul>
@@ -375,14 +375,6 @@ font-weight: 550 !important;
           } 
       });
    });
-</script>
-
-<script>
-$('.btn-default').click(function(){
-	
-	alert('전송완료');
-	});
-
 </script>
 
 </body>

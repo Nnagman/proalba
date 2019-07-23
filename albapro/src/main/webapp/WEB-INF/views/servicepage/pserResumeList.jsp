@@ -472,14 +472,7 @@ color:red;
     <!--/.Copyright-->
 
   </footer>
-  
-			
-
- 
-
 </body>
-
-
 </html>
 
 
