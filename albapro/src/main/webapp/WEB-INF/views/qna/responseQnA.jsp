@@ -10,7 +10,6 @@
 <title>프로알바</title>
 </head>
 <body>
-<%@ include file="../include/loginCheck.jsp"%>
 <%@ include file = "../include/header.jsp" %>
 	<form action="" method="POST">
 	<div class="contents">

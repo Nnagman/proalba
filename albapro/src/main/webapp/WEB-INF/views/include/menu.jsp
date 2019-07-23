@@ -21,7 +21,7 @@
 				<a id="pservice" class="menuLink" href="${path}/pserworkList?id=${login.id}">개인서비스</a>
 			</c:if> 
 			<c:if test="${login.id == null}">
-				<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>
+				<a id="pservice" class="menuLink" href="login">개인서비스</a>
 			</c:if>
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">

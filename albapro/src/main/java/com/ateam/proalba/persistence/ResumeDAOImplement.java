@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.ResumeVO;
 
 @Repository
@@ -56,6 +57,11 @@ public class ResumeDAOImplement implements ResumeDAO {
 	@Override
 	public ResumeVO late_status(String r_code) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".late_status", r_code);
+	}
+
+	@Override
+	public List<NoticeVO> applyResumeList(String id) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".applyResumeList", id);
 	}
 
 }

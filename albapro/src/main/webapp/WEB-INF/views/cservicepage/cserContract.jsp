@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-<%@ include file="../include/loginCheck.jsp"%>
 	<head>
 		<script type="text/javascript" src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 		<title>프로알바</title>
@@ -91,13 +90,19 @@
 			top:300px;
 		    position: relative;
 		}
+		.container{
+		text-align: center;
+		font-family:'NanumSquareRound', sans-serif !important;
+		}
 	
 	</style>
 	<body>
 		<%@ include file="../include/header.jsp"%>
 		<div class="container">
 			<div id="SubContents">
-				<h2>근로계약서 목록</h2>
+				<h2 style="margin-top: 61px; font-family:'NanumSquareRound', sans-serif !important; font-weight: 800;">근로계약서 목록</h2>
+				<br>
+				<br>
 				<table id="example" class="table" style="width: 100%">
 					<thead class="thead-dark">
 						<tr>
