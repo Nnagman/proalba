@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="../include/loginCheck.jsp"%>
 <meta charset="UTF-8">
 <title>프로알바</title>
 <link rel="stylesheet" href="resources/css/bootstrap.css" />

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%@ include file="../include/loginCheck.jsp"%>
 <meta charset="UTF-8">
 <title>프로알바</title>
 <link rel="stylesheet" href="resources/css/jobopeningmanage.css">

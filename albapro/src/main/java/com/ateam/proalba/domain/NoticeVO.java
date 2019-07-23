@@ -45,7 +45,5 @@ public class NoticeVO {
 	private String name;
 	private String phone;
 	private String email;
-
-
-	
+	private String r_code;
 }
