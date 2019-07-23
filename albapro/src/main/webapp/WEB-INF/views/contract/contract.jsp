@@ -110,7 +110,10 @@
 		<%@ include file="../include/header.jsp"%>
 		<div class="container">
 			<div id="SubContents">
-				<h2>근로계약서 조회</h2>
+			<div class="recruinfo-title">
+			<h2 class="recruinfo-title-p">근로계약서 조회</h2>
+		</div>
+				
 					<form>
 						<div id="createPdf" class="div_createPdf">
 							<h3 class="contract_title">근로 계약서</h3>

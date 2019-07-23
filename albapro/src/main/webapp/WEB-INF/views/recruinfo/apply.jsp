@@ -52,11 +52,11 @@
 
 <body>
 	<div class="wrapper">
-		<div class="content">
+	
 			<div class="pser-con">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
+				
 							<div class="card">
 								<div class="card-header card-header-primary">
 									<h4 class="card-title ">제출 이력서 선택</h4>
@@ -78,14 +78,13 @@
 													</h5>
 													<br>
 													<a href="viewResume?r_code=${row.r_code}&&id=${login.id}" target="_blank" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
-													<a href="applyResume?r_code=${row.r_code}&&id=${login.id}&&n_code=${map.n_code}" class="btn btn-primary card-btn">이력서 제출</a>
+													<a href="applyResume?r_code=${row.r_code}&&id=${login.id}&&n_code=${map.n_code}" onClick='window.close()' class="btn btn-primary card-btn">이력서 제출</a>
 												</div>
 											</div>
 										</c:forEach>							
 									</div>
 								</div>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
