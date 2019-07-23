@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>프로알바</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
     <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">

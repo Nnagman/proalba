@@ -108,7 +108,9 @@ p {
 	margin: 0;
 	
 }
-
+.card-body{
+padding: 0 !important;
+}
 .jobSearch dl .value span {
 	height: 23px !important;
 }
@@ -144,10 +146,12 @@ text-align:left !important;
     vertical-align: inherit;
 }
 
-
-
+.th-sm{
+	text-align: center;
+}
 
 tr {
+	text-align: center;
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
@@ -157,6 +161,11 @@ tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+}
+
+td{
+padding-right: 30px;
+height: 50px;
 }
 
 .recruinfo-list table tr th {
@@ -267,7 +276,7 @@ top: 150px;
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">일별 근태 관리</h2>
 		</div>
-		<br><br><br><br>
+		<br><br>
 
 		<div id="SubContents">
 
@@ -357,13 +366,7 @@ top: 150px;
 									</div>
 								</div>
 		</div>
-	
-	
 
-   
-
-   
-   
 	<!-- 부트스트랩 -->
 	<!-- 부트스트랩 modal -->
 	<!-- Modal -->
