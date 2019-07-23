@@ -449,7 +449,6 @@ public class WorkmanageController {
 
 	@ResponseBody
 	@RequestMapping("/m.cInqcareer")
-
 	public JSON mcInqcareerPOST(@RequestBody String m_code) throws Exception {
 
 		logger.info("m_code:  " + m_code);
