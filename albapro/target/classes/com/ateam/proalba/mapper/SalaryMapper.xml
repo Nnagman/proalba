@@ -13,9 +13,11 @@
        	order by year_month asc
 		 ]]> -->
 		 <![CDATA[
-		select *
-        from salary_view
+		select s.sa_code, m.name, s.basic_salary, s.additional_extended, s.additional_night, s.food_expenses, s.transportation_fee, s.total_deduction_amount, s.whether_to_pay, s.year_month, s.em_code,
+        s.work_place, s.actual_salary, s.national_pension_cost, s.health_insurance_cost, s.employment_insurance_cost, s.m_code, s.work_hours, s.work_minute
+        from salary_view s, member m
         where substr(sa_code,instr(sa_code,'/',-1)+1)=#{id}
+        and m.m_code = s.m_code
          ]]>
 	</select>
 	

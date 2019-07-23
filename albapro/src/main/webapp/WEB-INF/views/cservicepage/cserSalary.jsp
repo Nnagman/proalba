@@ -176,6 +176,9 @@ float: right;
 margin-right: 40px;
 }
 
+.dataTables_filter{
+display: block;
+}
 .jobcho-line1{
 text-align: center;
 }
@@ -273,6 +276,10 @@ max-width: 1700px !important;
 }
 .table > tbody > tr > td {
 text-align: center;
+
+}
+.table > thead > tr > th {
+white-space: nowrap;
 }
 </style>
 
@@ -302,7 +309,7 @@ text-align: center;
 										  <th scope="col" colspan="5" class="table-info">월별 급여내역</th>
 										  <th scope="col" colspan="3" bgcolor="E2FBF7">4대보험</th>
 										  <th scope="col" colspan="4" bgcolor="FFE3E3">추가수당</th>
-										  <th scope="col" class="table-active">근무시간(분)</th>
+										  <th scope="col" colspan="2" class="table-active">기타</th>
 										  </tr>
 										    <tr>
 										      <th scope="col">지급일자</th>
@@ -321,6 +328,7 @@ text-align: center;
 										      <th scope="col">교통비</th>
 										      
 										      <th scope="col">총 근로시간</th>
+										      <th scope="col">이름</th>
 										      
 										      
 										    </tr>
@@ -347,6 +355,8 @@ text-align: center;
 												<td scope="col">${salary.transportation_fee}</td>
 												
 												<td scope="col">${salary.work_hours }시간${salary.work_minute }분</td>
+												<td scope="col">${salary.name}</td>
+												
 												</tr>
 												
 												</c:forEach>
