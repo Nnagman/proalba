@@ -266,12 +266,13 @@ top:300px;
             box-shadow: 1px 1px 1px 1px #999;
     border-radius: 5px;
 }
-td th{
-	text-align: center !important;
-}
+
 .container1{
 max-width: 1700px !important;
 
+}
+.table > tbody > tr > td {
+text-align: center;
 }
 </style>
 

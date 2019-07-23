@@ -45,9 +45,9 @@
 
 </head>
 <style>
- .odd { background-color:#EAEAEA; }
+	.odd { background-color:#EAEAEA; }
 
-        .Even { background-color : white; }
+	.Even { background-color : white; }  
 </style>
 
 <body>

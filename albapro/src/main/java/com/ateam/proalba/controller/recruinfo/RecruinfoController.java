@@ -136,6 +136,7 @@ public class RecruinfoController {
 			careerList.add(careerVO);
 		}
 		
+		logger.info("list: " + careerList);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("careerList", careerList);
