@@ -12,7 +12,6 @@
 <head>
 <title>프로알바</title>
 
-
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
@@ -232,6 +231,9 @@ display:none;
 float:left;
 }
 
+#Example td{
+ text-align:center;
+}
 .navbar{
 padding-right:0 !important;
 }
@@ -251,7 +253,7 @@ top:400px;
 
 	<div class="container">
 		<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p">채용 공고</h2>
+			<h2 class="recruinfo-title-p">알바 목록</h2>
 		</div>
 		<br><br>
 
@@ -279,12 +281,10 @@ top:400px;
 
 
 				<div class="placho-line1">
-					지역:
+					검색:
 					<input type="text" class="plachoice" id="plachoice" onchange="plasearch(this.value)" />
 
-				 	<button type="button" class="btn btn-primary placho-btn" data-toggle="modal" onclick="placho()"  data-target="#ExampleModal">
-					전체카테고리
-					</button>
+				
 				</div>
 					
 
@@ -298,44 +298,34 @@ top:400px;
 									</p>
 								</div>
 							
-								
-									
-										
-										<c:forEach var="row" items="${map.list}" >
+											<table id="Example" class="mdl-data-table table" style="width: 100%">
+											<thead  class="thead-dark">
+												<tr>
+													
+													<th class="th-sm">입사일</th>
+													<th class="th-sm">퇴사일</th>
 												
-												<div class="card">
-													<div class="card-header">
-														<h3>${row.work_place}</h3>
-													</div>
-												<div class="card-body">
-														<h5 class="card-title">입사일: <fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></h5>
-														<br>
-														
-														<c:if test="${row.end_date != null}">
-															<h5 class="card-title">
-																퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
-															</h5>
-														</c:if>
-														<c:if test="${row.end_date == null}">
+												
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="row" items="${map.list}">
+													<tr>
+													
+														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
+															<td>		<c:if test="${row.end_date != null}"> 
+															퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
+															</c:if>
+															<c:if test="${row.end_date == null}">
 															<p>퇴사일 : 아직 근무 중입니다.</p>
 														</c:if>
-												
-												
-														
+															</td>
 													
-														<a href="pserSalary?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn">급여내역</a>
-														<a href="pworkmanage?id=${login.id}&&work_place=${row.work_place}" class="btn btn-primary card-btn ">근태내역</a>
-														
-													</div>
 													
-														
-														
-												</div>
-												
-												
-								
+													</tr>
 												</c:forEach>
-										
+											</tbody>
+										</table>
 										
 										
 										
@@ -434,7 +424,7 @@ top:400px;
 	$(document).ready(function () {
 		$('#Example').DataTable({
 			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 2, "desc" ]]
+			"order": [[ 0, "desc" ]]
 		});
 		$('.dataTables_length').addClass('bs-select');
 	});

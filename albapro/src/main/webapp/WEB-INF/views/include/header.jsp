@@ -122,8 +122,8 @@
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
-              <a href="${path}/login" class="nav-link border border-light rounded ">
-            sign in 
+              <a href="${path}/loginBtn" class="nav-link border border-light rounded ">
+				sign in 
               </a>
               </c:if>
             </div>
@@ -131,34 +131,34 @@
       
    
         
-        <div class="nav-item loginicon2">
+    <div class="nav-item loginicon2">
          
                
                 <c:if test='${login.m_code!=null}'>
-               	 <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" 
-               	  data-content=
-               	   "
-               	 <%--   	<c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
-               	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
-               	   	</c:if>
-               	   	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
-               	   		<div><h6><span>${login.name}</span>님</h6></div><hr/>
-               	   	</c:if> --%>
-                  	<p>Phone : ${login.phone}</p><hr/>
-                  	<c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
-              	  	<p>E-mail : ${login.email}</p><hr />
-              	  	</c:if>
-                	<div class='popoverFoot'>
-                		<span class='modifyLink'><a href='${path}/MyinfoModify'>정보 수정</a></span>
-                		<a href='${path}/logout'>로그아웃</a>
-                	</div>
-                	"
+                   <button type="button" class="btn btn-secondary " data-container="body" data-toggle="popover"  data-placement="bottom" data-html="true" 
+                    data-content=
+                     "
+                   <%--      <c:if test='${fn:substring(login.m_code,0,1) == "c" && login.m_code != null}'>
+                           <div><h6><span>${login.name}</span>님</h6></div><hr/>
+                        </c:if>
+                        <c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
+                           <div><h6><span>${login.name}</span>님</h6></div><hr/>
+                        </c:if> --%>
+                     <p>Phone : ${login.phone}</p><hr/>
+                     <c:if test='${fn:substring(login.m_code,0,1) == "p" && login.m_code != null}'>
+                      <p>E-mail : ${login.email}</p><hr />
+                      </c:if>
+                   <div class='popoverFoot'>
+                      <span class='modifyLink'><a href='${path}/MyinfoModify'>정보 수정</a></span>
+                      <a href='${path}/logout'>로그아웃</a>
+                   </div>
+                   "
                 >
                                 ${login.name}<span>님</span>
-				</button>
+            </button>
 
-					
-				</c:if>
+               
+            </c:if>
                
           
             </div> 
@@ -191,14 +191,15 @@
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-s
+  lide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 <!--/.Carousel Wrapper-->
-<%-- 	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
- --%>	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
+	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
+	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/mdb.min.js"></script>
    </div>

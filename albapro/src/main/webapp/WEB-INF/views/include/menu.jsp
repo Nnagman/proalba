@@ -21,7 +21,7 @@
 				<a id="pservice" class="menuLink" href="${path}/pserworkList?id=${login.id}">개인서비스</a>
 			</c:if> 
 			<c:if test="${login.id == null}">
-				<a id="pservice" class="menuLink" href="${path}/login">개인서비스</a>
+				<a id="pservice" class="menuLink" href="login">개인서비스</a>
 			</c:if>
 			<div class="fulldrop scrolling-navbar Asize">
 				<div class="column">
@@ -30,6 +30,7 @@
 						<li><a href="pserworkList?id=${login.id}" class="manuli">나의 알바 목록</a></li>
 						<li><a href="pserSalary?id=${login.id}">급여 조회</a></li>
 						<li><a href="pworkmanage?id=${login.id}">근태 조회</a></li>
+						<li><a href="">급여 조회</a></li>
 					</ul>
 				</div>
 

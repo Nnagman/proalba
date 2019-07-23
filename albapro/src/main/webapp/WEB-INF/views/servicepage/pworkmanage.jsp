@@ -12,7 +12,6 @@
 <head>
 <title>프로알바</title>
 
-
 <link rel="stylesheet" href="resources/css/recruinfo/job.css">
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">

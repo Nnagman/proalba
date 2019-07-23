@@ -4,8 +4,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 
-
-
 <script type="text/javascript"
 	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 

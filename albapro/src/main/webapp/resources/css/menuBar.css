@@ -44,7 +44,7 @@ body{
     text-align:center;
     margin-left: 4px;
     font-size: 20px;
-    height: 80px;
+   /*  height: 80px; */
 }
 
 .nav > li > a {
@@ -164,8 +164,8 @@ body{
 }
 
 .nav .column {
-/* 	width: 210px;
- */  	height: 160px;
+ 	width: 210px;
+   	height: 160px;
 	float: left;
 	color: black;
 	margin: 20px 20px 0 0;
@@ -177,7 +177,9 @@ body{
 .nav .column:first-child{
 	
     margin-left: 10px; 
-  /*padding-right: 40px; */
+
+    padding-right: 40px;
+
 }
 
 

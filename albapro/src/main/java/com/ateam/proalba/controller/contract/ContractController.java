@@ -172,8 +172,6 @@ public class ContractController {
 		id[0] = wcontractVO.getC_id();
 		
 		
-		
-		
 		Map<String, String[]> id_map = new HashMap<String, String[]>();
 		id_map.put("id", id);
 		
@@ -197,7 +195,7 @@ public class ContractController {
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 		logger.info(list.toString());
 
-		mav.setViewName("cservicepage/cserContract");
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
 		

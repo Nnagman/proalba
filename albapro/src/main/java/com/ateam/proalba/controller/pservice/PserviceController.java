@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.LoginDTO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.SalaryVO;
@@ -98,12 +99,18 @@ public class PserviceController {
 		
 		List<ResumeVO> list = resumeService.list_resume(id);
 		
+		System.out.println(list);
+		
+		List<NoticeVO> list2 = resumeService.applyResumeList(id);
+		JSONArray pJson = JSONArray.fromObject(list2);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("servicepage/pserResumeList");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
 		
 		mav.addObject("map", map);
+		mav.addObject("list2", pJson);
 		return mav;
 	}
 	

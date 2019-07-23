@@ -31,18 +31,70 @@
    
    <beans:bean id="authInterceptor" class="com.ateam.proalba.interceptor.AuthInterceptor"/>
 
-   <interceptors>
-      <interceptor>
-         <mapping path="/write"/>
-         <mapping path="/modify"/>
-         <mapping path="/remove"/>
-         <mapping path="/info"/>
-         <mapping path="/pmypage"/>  
-         <mapping path="/writeResume"/>
-         <mapping path="/maresume"/>   
-            <beans:ref bean="authInterceptor"/>
-         </interceptor>
-   </interceptors>
+	<interceptors>
+		<interceptor>
+	        <mapping path="/write"/>
+	        <mapping path="/modify"/>
+	        <mapping path="/remove"/>
+	        <mapping path="/info"/>
+	        <mapping path="/pmypage"/>  
+	        <mapping path="/writeResume"/>
+	        <mapping path="/pworkmanage"/>
+	        <mapping path="/listResume"/>
+	        <mapping path="/viewResume"/>
+	        <mapping path="/updateResume"/>
+	        <mapping path="/deleteResume"/>
+	        <mapping path="/pserSalary"/>
+	        <mapping path="/pserworkList"/>
+	        <mapping path="/inqcareer"/>
+	        <mapping path="/pserworkList"/>
+	        <mapping path="/qnalist"/>
+	        <mapping path="/adminQnalist"/>
+	        <mapping path="/viewQnA"/>
+	        <mapping path="/onlineQnA"/>
+	        <mapping path="/recruinfoManage"/>
+	        <mapping path="/apply"/>
+	        <mapping path="/applyResume"/>
+	        <mapping path="/checkResume"/>
+	        <mapping path="/viewApplyResume"/>
+	        <mapping path="/contract"/>
+	        <mapping path="/ccontract"/>
+	        <mapping path="/cserWcontract"/>
+	        <mapping path="/sendWcontract"/>
+	        <mapping path="/cserWcontractForm"/>
+	        <mapping path="/applyContractForm"/>
+	        <mapping path="/psercheckContract"/>
+	        <mapping path="/vcontract"/>
+	        <mapping path="/wcontract/checkContract"/>
+	        <mapping path="/removeFile"/>
+	        <mapping path="/downloadContract"/>
+	        <mapping path="/displayContract"/>
+	        <mapping path="/cserAddJobopening_free"/>
+	        <mapping path="/cserAddJobopening_free_manage"/>
+	        <mapping path="/jobopeningmanage"/>
+	        <mapping path="/addjob/upload"/>
+	        <mapping path="/cserEmpManage"/>
+	        <mapping path="/cserfingerIdmanage"/>
+	        <mapping path="/cserfingerIdupdate"/>
+	        <mapping path="/cserfingerIdremove"/>
+	        <mapping path="/cserWorkmanagetable"/>
+	        <mapping path="/cserFullWorkmanagetable"/>
+	        <mapping path="/cserWorkmanagetableUpdate"/>
+	        <mapping path="/empfingeridUpdate"/>
+	        <mapping path="/cserWorkmanagetableDelete"/>
+	        <mapping path="/cserAddJobopeningfreemanageDelete"/>
+	        <mapping path="/cserWorkmanagetableInsert"/>
+	        <mapping path="/cserSalary"/>
+	        <mapping path="/cserInqcareer"/>
+	        <mapping path="/cserCareerLeave"/>
+	        <mapping path="/commwrite"/>
+	        <mapping path="/commupdate"/>
+	        <mapping path="/commdelete.do"/>
+	        <mapping path="/reply/insert.do"/>
+	        <mapping path="/reply/reply_delete.do"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+	</interceptors>
    
     <!-- 파일업로드에 필요한 bean -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -6,7 +6,6 @@
 
 <script src="resources/js/cal/googlecal.js"></script> 
 <html>
-
 <style>
 
 .fc-content{

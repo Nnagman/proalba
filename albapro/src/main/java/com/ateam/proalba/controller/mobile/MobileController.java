@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
@@ -325,6 +326,22 @@ public class MobileController {
 		logger.info("salaryInfo:  " + pJson.toString());
 		return pJson;
 	}
+	
+	/* 모바일 개인 계약서 목록 */
+	@ResponseBody
+	@RequestMapping(value = "/m.contract", method = RequestMethod.POST)
+	public JSON pcontractPOST(@RequestBody String id) throws Exception {
+	
+		List<WcontractVO> wcontractVO;  
+		wcontractVO = contractService.select_contract("p"+id);
+	
+		
+		JSONArray pJson = JSONArray.fromObject(wcontractVO);
+		logger.info("WcontractVO:  " + pJson.toString());
+		return pJson;
+	
+	}
+	/* 모바일 개인 계약서 목록 */
 
 	@ResponseBody
 	@RequestMapping(value = "m.qnalist", method = RequestMethod.POST)
@@ -357,6 +374,10 @@ public class MobileController {
 
 		return pJson;
 	}
+	
+	
+
+	
 
 	@ResponseBody
 	@RequestMapping(value = "/m.getContList", method = RequestMethod.POST)
@@ -454,4 +475,9 @@ public class MobileController {
 //		model.addAttribute("message", "wresumePage");
 		return "redirect:/listResume?id="+id;
 	}
+	
+	
+	
+	
+
 }

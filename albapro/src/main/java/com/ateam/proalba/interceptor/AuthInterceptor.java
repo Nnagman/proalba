@@ -14,7 +14,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthInterceptor.class);
     
-    // ������ ��û ���� ����
     private void saveDestination(HttpServletRequest request) {
         String uri = request.getRequestURI();
         String query = request.getQueryString();
@@ -38,7 +37,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         if (httpSession.getAttribute("login") == null) {
             logger.info("current user is not logged");
             saveDestination(request);
-            response.sendRedirect("/proalba/login");
+            response.sendRedirect("/login");
             return false;
         }
 
