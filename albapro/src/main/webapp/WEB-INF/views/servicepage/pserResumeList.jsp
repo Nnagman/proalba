@@ -3,62 +3,43 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-<%@ include file="../include/loginCheck.jsp"%>
-
-
-<script type="text/javascript"
-	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
-
-<head>
-<title>프로알바</title>
-
-
-<link rel="stylesheet" href="resources/css/recruinfo/job.css">
-<link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
-<link rel="stylesheet" href="resources/css/recruinfo/sub.css">
-<link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
- 
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
- 
-  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="resources/css/mdb.min.css" rel="stylesheet">
-    <link href="resources/css/style.css" rel="stylesheet">
-     <link href="resources/css/datatables.min.css" rel="stylesheet">
-
-
-
-
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
- 
- 
-
-
-<script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test11.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test12.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test13.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test14.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test15.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test16.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test17.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test18.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
-
-
-
-
-
-
-
-</head>
+	<head>
+		<title>프로알바</title>
+		
+		<script type="text/javascript" src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
+		<link rel="stylesheet" href="resources/css/recruinfo/job.css">
+		<link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
+		<link rel="stylesheet" href="resources/css/recruinfo/sub.css">
+		<link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
+		 
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+		 
+		<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+		<link href="resources/css/mdb.min.css" rel="stylesheet">
+		<link href="resources/css/style.css" rel="stylesheet">
+		<link href="resources/css/datatables.min.css" rel="stylesheet">
+		
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+		
+		<script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test11.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test12.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test13.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test14.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test15.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test16.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test17.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test18.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
+		<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
+	</head>
 
 <style>
 html, body, header, .carousel {
@@ -251,7 +232,10 @@ font-size:18px;
 color:red;
 }
 
-
+.cho_woPlace {
+	margin: 0 0 10px 0;
+	cursor: pointer;
+}
 
 </style>
 
@@ -325,28 +309,34 @@ color:red;
 	<thead>
 		<tr>
 			<th class="local" style="width:60% !important;">이력서 제목</th>
-		
-			<th class="data">이력서 등록일</th>
-			<th></th>
+			<th class="data">이력서등록일</th>
+			<th>지원현황</th>
+			<th style="width:10% !important;"></th>
 		
 		</tr>
 	</thead>
 	<tbody>
-
 		<c:forEach var="row" items="${map.list}">
 			<tr>
-				
 				<td class="title" style="height:50px !important; vertical-align:middle;">
-				<a href="viewResume?r_code=${row.r_code}&&id=${login.id}">
+					<a href="viewResume?r_code=${row.r_code}&&id=${login.id}">
 					<span class="resumetitle"> ${row.title} </span> </a>
+				</td>
+
+				<td style="height:50px !important; vertical-align:middle; ">
+					<span class="makeday">${row.r_date} </span>
+				</td>
 				
-					
-					</td>
-					
-			
-				<Td style="height:50px !important; vertical-align:middle; "><span class="makeday">작성일: ${row.r_date} </span></Td>
-				<td class="salary" style="height:50px !important; vertical-align:middle; ">	<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" ><i class="fas fa-trash-alt"></i></a></td>
-			
+				<td style="height:50px !important; vertical-align:middle; ">
+					<input type="hidden" value="${status.index}" />
+					<i class="material-icons searchIcon" data-toggle="modal" data-target="#myModal" id="${row.r_code}">search</i>
+				</td>
+				
+				<td class="salary" style="height:50px !important; vertical-align:middle; ">
+					<a href="deleteResume?r_code=${row.r_code}&&id=${login.id}" >
+						<i class="fas fa-trash-alt"></i>
+					</a>
+				</td>
 			</tr>
 		</c:forEach>
 	
@@ -362,71 +352,38 @@ color:red;
    </div>
    
    </div>
-   
-   
 
 
-
-
-<!-- 작동 x 
-Modal 직종 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<!-- 부트스트랩 -->
+<!-- 부트스트랩 modal -->
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content  -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">지원현황</h4>
+        </div>
+        <div class="modal-body">
+   			<table class="ui single line table">
+      			<thead>
+         			<tr>
+            			<th>공고명</th>
+            			<th>공고보기</th>
+         			</tr>
+      			</thead>
+      			<tbody id="apply_list">
+      			</tbody>
+      		</table >
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-      <div class="modal-body">
-       	<div class="jobcho1"></div>
-					<div class="jobcho2"></div>
-					<div class="jobcho3-title">선택된 직종</div>
-					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
-        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
-      </div>
+      
     </div>
   </div>
-</div>
- -->
 
-
-<!-- Modal 지역 -->
-<div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       		<div class="placho1"></div>
-		<div class="placho2"></div>		
-			<div class="jobcho3-title">선택된 지역</div>
-			<div class="placho3"></div>
-		
-					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button> -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
-        <button type="button" class="btn btn-primary btn-plremove">모두지우기</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 지역 -->
 
  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
    
@@ -438,26 +395,6 @@ Modal 직종
   <script type="text/javascript" src="resources/js/popper.min.js"></script>
   <script type="text/javascript" src="resources/js/mdb.min.js"></script>
   <script type="text/javascript" src="resources/js/datatables.min.js"></script>
-  
-   <script type="text/javascript">
- 
-	$(document).ready(function () {
-		$('#Example').DataTable({
-			"paging": true, // false to disable pagination (or any other option)
-			"order": [[ 1, "desc" ]]
-		});
-		$('.dataTables_length').addClass('bs-select');
-	});
-	
-	$('#ulGugun').on('click',function(){
-		console.log($('.value > span').text());
-	});
-
-  </script>
-  
-  
-  
-  
 <script>
 
 
@@ -476,6 +413,35 @@ Modal 직종
 };  
 
 </script>
+
+<!-- 부트스트랩 -->
+<!-- 부트스트랩 modal -->
+<!-- Modal -->
+
+	<script>
+	$(document).ready(function(){
+		$(".searchIcon").on("click",function(e){
+			var str = $("#apply_list").html();
+			
+			if(str != ""){
+				$("#apply_list").html("");
+			}
+			var r_code = e.currentTarget.id;
+			console.log(r_code);
+			var list2 = ${list2};
+			list2.forEach(function (item) {
+				if(item.r_code == r_code){
+					var html = "<tr>";
+					html += "<td>"+item.title+"</td>";
+					html += "<td><a href='http://localhost:8080/recruinfoDetail?n_code="+item.n_code+"'>공고보기</a></td>";
+					html += "</tr>";
+					console.log(html);
+					$("#apply_list").append(html);
+				}
+			});
+		});
+	})
+	</script>
   
     <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 

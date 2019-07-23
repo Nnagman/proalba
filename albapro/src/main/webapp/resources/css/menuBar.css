@@ -177,7 +177,9 @@ body{
 .nav .column:first-child{
 	
     margin-left: 10px; 
-  padding-right: 40px; 
+
+    padding-right: 40px;
+
 }
 
 

@@ -1,7 +1,4 @@
 	package com.ateam.proalba.controller.login;
-
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -16,12 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ateam.proalba.domain.LoginDTO;
 import com.ateam.proalba.domain.MemberVO;
@@ -45,7 +40,12 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 		return "login/login";
 	}
 	
-	
+	@RequestMapping(value = "/loginBtn", method = RequestMethod.GET)
+	public String loginBtnGET(@ModelAttribute("loginDTO") LoginDTO loginDTO, HttpSession httpSession) {
+		httpSession.removeAttribute("destination");
+		httpSession.removeAttribute("query");
+		return "login/login";
+	}
 	
 	  @RequestMapping(value = "/MyinfoModify", method = RequestMethod.GET)
 	  public String loginGET (HttpSession httpSession, Model model) { 
@@ -88,7 +88,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
-        String is_withdraw = "";
+        String is_withdraw = ""; 
         
         if(memberVO != null) {        	
         	String mcode = memberVO.getM_code();
@@ -144,34 +144,52 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     }
     
     @RequestMapping(value = "/googleLogin", method = RequestMethod.GET)
-    public String googleLogin(@RequestParam("email") String email, HttpServletRequest request, Model model) throws Exception {
+    public String googleLogin(@RequestParam("email") String email, HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
     	HttpSession httpSession = request.getSession();
     	
     	MemberVO memberVO = memberService.apiIdcheck(email);
+        String is_withdraw = "";
     	
     	if(memberVO != null) {
-    		httpSession.setAttribute("login", memberVO);
-    	}else {
+    		String mcode = memberVO.getM_code(); 
+    		is_withdraw = memberService.is_withdraw(mcode);
+    	} else {
     		model.addAttribute("status", "0");
     		return "redirect:/login";
     	}
     	
-    	return "redirect:/";
+    	if(is_withdraw != null && is_withdraw.equals("y")) {
+    		return "redirect:/login";
+    	} else {
+    		httpSession.setAttribute("login", memberVO);
+            Object destination = httpSession.getAttribute("destination");
+            response.sendRedirect(destination != null ? (String) destination : "/");
+            return destination != null ? (String) destination : "/";
+    	}
     }
     
     @RequestMapping(value = "/naverLogin/login", method = RequestMethod.GET)
-    public String naverLoginPost(@RequestParam("email") String email, HttpServletRequest request, Model model) throws Exception {
+    public String naverLoginPost(@RequestParam("email") String email, HttpServletRequest request, Model model, HttpServletResponse response) throws Exception {
     	HttpSession httpSession = request.getSession();
     	
     	MemberVO memberVO = memberService.apiIdcheck(email);
+        String is_withdraw = "";
     	
     	if(memberVO != null) {
-    		httpSession.setAttribute("login", memberVO);
-    	}else {
+    		String mcode = memberVO.getM_code(); 
+    		is_withdraw = memberService.is_withdraw(mcode);
+    	} else {
     		model.addAttribute("status", "0");
     		return "redirect:/login";
     	}
-
-    	return "redirect:/";
+    	
+    	if(is_withdraw != null && is_withdraw.equals("y")) {
+    		return "redirect:/login";
+    	} else {
+    		httpSession.setAttribute("login", memberVO);
+            Object destination = httpSession.getAttribute("destination");
+            response.sendRedirect(destination != null ? (String) destination : "/");
+            return destination != null ? (String) destination : "/";
+    	}
     }
 }

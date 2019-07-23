@@ -3,14 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-<%@ include file="../include/loginCheck.jsp"%>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 
 
 
@@ -274,12 +266,13 @@ top:300px;
             box-shadow: 1px 1px 1px 1px #999;
     border-radius: 5px;
 }
-td{
-	text-align: center;
-}
 
 .container1{
-max-width:1700px !important;
+max-width: 1700px !important;
+
+}
+.table > tbody > tr > td {
+text-align: center;
 }
 </style>
 
@@ -304,18 +297,23 @@ max-width:1700px !important;
 									</div>
 
 									<table id="example" class="table">
-										  <thead class="thead-dark">
+										  <thead>
+										  <tr>
+										  <th scope="col" colspan="5" class="table-info">월별 급여내역</th>
+										  <th scope="col" colspan="3" bgcolor="E2FBF7">4대보험</th>
+										  <th scope="col" colspan="4" bgcolor="FFE3E3">추가수당</th>
+										  <th scope="col" class="table-active">근무시간(분)</th>
+										  </tr>
 										    <tr>
 										      <th scope="col">지급일자</th>
 										      <th scope="col">기본급</th>
 										      <th scope="col">지급총액</th>
 										      <th scope="col">공제총액</th>
 										      <th scope="col">실지급액</th>
-										      
+										  
 										      <th scope="col">국민연금</th>
 										      <th scope="col">건강보험</th>
 										      <th scope="col">고용보험</th>
-										      <th scope="col">국민연금</th>
 										      
 										      <th scope="col">초과근로수당</th>
 										      <th scope="col">야간수당</th>
@@ -331,9 +329,26 @@ max-width:1700px !important;
 											<c:forEach var="salary" items="${salarys}">
 												
 												<tr>
-												<td>${salary.work_place}</td>
+												<c:set var="sa_code"
+															value="${fn:split(salary.sa_code, '/')}" />
+														<td scope="col" id="sal_year_month">${sa_code[1]}</td>
+												<td scope="col">${salary.basic_salary}</td>
+												<td scope="col">${salary.basic_salary+salary.food_expenses+salary.transportation_fee+salary.additional_extended+salary.additional_night}</td>
+												<td scope="col">${salary.total_deduction_amount}</td>
+												<td scope="col">${salary.actual_salary}</td>
 												
+												<td scope="col">${salary.national_pension_cost}</td>
+												<td scope="col">${salary.health_insurance_cost}</td>
+												<td scope="col">${salary.employment_insurance_cost}</td>
+												
+												<td scope="col">${salary.additional_extended}</td>
+												<td scope="col">${salary.additional_night}</td>
+												<td scope="col">${salary.food_expenses}</td>
+												<td scope="col">${salary.transportation_fee}</td>
+												
+												<td scope="col">${salary.work_hours }시간${salary.work_minute }분</td>
 												</tr>
+												
 												</c:forEach>
 												</tbody>
 										</table>

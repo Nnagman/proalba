@@ -122,8 +122,8 @@
            <div class="navbar-nav nav-flex-icons loginicon">
              <div class="nav-item ">
               <c:if test='${login.m_code==null}'>
-              <a href="${path}/login" class="nav-link border border-light rounded ">
-            sign in 
+              <a href="${path}/loginBtn" class="nav-link border border-light rounded ">
+				sign in 
               </a>
               </c:if>
             </div>
@@ -198,8 +198,8 @@
   </a>
 </div>
 <!--/.Carousel Wrapper-->
-<%-- 	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
- --%>	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
+	<script type="text/javascript" src="${path}/resources/js/jquery-3.4.0.min.js"></script> 
+	<script type="text/javascript" src="${path}/resources/js/popper.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${path}/resources/js/mdb.min.js"></script>
    </div>

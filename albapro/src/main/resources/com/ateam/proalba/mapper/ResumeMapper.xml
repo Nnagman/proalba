@@ -63,4 +63,11 @@
 		WHERE r.r_code = n.r_code
 		AND n.n_code = #{n_code}
 	</select>
+	
+	<select id="applyResumeList" resultType="com.ateam.proalba.domain.NoticeVO">
+		SELECT n.title, n.n_code, na.r_code
+		FROM notice_apply na, notice n
+		WHERE na.n_code = n.n_code
+		AND SUBSTR(na.r_code,0, INSTR(na.r_code, '/')-1) = #{id}
+	</select>
 </mapper>

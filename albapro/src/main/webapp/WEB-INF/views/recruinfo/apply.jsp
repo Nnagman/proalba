@@ -7,7 +7,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="../include/loginCheck.jsp"%>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,9 +44,9 @@
 
 </head>
 <style>
- .odd { background-color:#EAEAEA; }
+	.odd { background-color:#EAEAEA; }
 
-        .Even { background-color : white; }
+	.Even { background-color : white; }  
 </style>
 
 <body>

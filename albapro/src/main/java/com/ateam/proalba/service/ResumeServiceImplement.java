@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.persistence.ResumeDAO;
 
@@ -53,6 +54,11 @@ public class ResumeServiceImplement implements ResumeService {
 	@Override
 	public ResumeVO late_status(String r_code) throws Exception {
 		return resumeDAO.late_status(r_code);
+	}
+
+	@Override
+	public List<NoticeVO> applyResumeList(String id) throws Exception {
+		return resumeDAO.applyResumeList(id);
 	}
 
 }
