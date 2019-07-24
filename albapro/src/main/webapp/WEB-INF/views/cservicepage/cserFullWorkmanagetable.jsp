@@ -157,6 +157,11 @@ tr {
     border-color: inherit;
 }
 
+.form-control{
+width: 250px !important;
+display: inline !important;
+}
+
 tbody {
     display: table-row-group;
     vertical-align: middle;
@@ -203,6 +208,13 @@ margin-right: 40px;
 
 .jobcho-line1{
 text-align: center;
+}
+
+.datediv{
+	width: 300px;
+	position: relative;
+	left: 823px;
+	top: 40px;
 }
 
 .company{
@@ -319,7 +331,7 @@ top: 150px;
 			
 										<!--날짜 선택기  -->
 										<div class="datediv">
-										날짜: <input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
+										<span>날짜: </span><input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
 									
 													<script>
 													
@@ -367,28 +379,7 @@ top: 150px;
 								</div>
 		</div>
 
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<script src="resources/js/bootstrap.js"></script>
-			<!-- Modal content  -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
-				</div>
-				<div class="modal-body">
-					<%@ include file="../cservice/calendar.jsp"%>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
+	
 
 <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
    
@@ -406,7 +397,7 @@ top: 150px;
 
 
 	<script>
-
+	
     $(document).ready(function() {
       $().ready(function() {
           
@@ -440,11 +431,17 @@ top: 150px;
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
     });
+      
+     
   });
 
     
 </script>
-
+<script type="text/javascript">
+$(document).ready(function() {
+	 $('.datediv').appendTo('.col-sm-12');
+});
+</script>
 
 <!-- 날짜별 조회 버튼 없이 -->
 <script>
