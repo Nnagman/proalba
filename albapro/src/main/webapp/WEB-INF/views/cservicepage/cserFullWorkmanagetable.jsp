@@ -3,11 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-
-
 <script type="text/javascript"
 	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -17,10 +16,9 @@
 
 <title>프로알바</title>
 
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">  
 <!-- Custom fonts for this template-->
-
-
+  
 
 <!-- Custom styles for this template-->
  <link rel="stylesheet" href="resources/css/bootstrap.css" />
@@ -390,9 +388,9 @@ top: 150px;
 		</div>
 	</div>
 
-<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
    
 
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
