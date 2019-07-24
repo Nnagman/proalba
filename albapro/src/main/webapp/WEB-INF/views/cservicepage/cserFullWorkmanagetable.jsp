@@ -274,7 +274,7 @@ top: 150px;
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">일별 근태 관리</h2>
 		</div>
-		<br><br><br><br>
+		<br><br>
 
 		<div id="SubContents">
 

@@ -23,7 +23,7 @@
 	            }
 	          	
 	          	function googleRegister(){
-	          		$(location).attr("href", "http://localhost:8080/apiRegister?email="+email);
+	          		$(location).attr("href", "${path}/apiRegister?email="+email);
 	          	}
 	          	
 	             $("#my-signin2").click(function(){
@@ -33,7 +33,7 @@
 	            		 data: email,
 	            		 url: '${path}/googleLogin',
 	            		 success: function(data){
-	            			 $(location).attr("href", "http://localhost:8080"+data);
+	            			 $(location).attr("href", "${path}"+data);
 	            		 },
 	            		 error: function(data){}
 					 }); 
@@ -104,7 +104,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
-				callbackUrl: "http://39.127.7.84:8080/selNaverRegister",
+				callbackUrl: "${path}/selNaverRegister",
 				isPopup: true,
 				callbackHandle: false,
 				loginButton: {color: "green", type: 1, height: 60}
