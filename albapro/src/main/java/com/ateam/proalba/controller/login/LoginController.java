@@ -44,6 +44,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 	public String loginBtnGET(@ModelAttribute("loginDTO") LoginDTO loginDTO, HttpSession httpSession) {
 		httpSession.removeAttribute("destination");
 		httpSession.removeAttribute("query");
+		
 		return "login/login";
 	}
 	
@@ -161,10 +162,16 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     	if(is_withdraw != null && is_withdraw.equals("y")) {
     		return "redirect:/login";
     	} else {
+    		String id = memberVO.getId();
+    		
     		httpSession.setAttribute("login", memberVO);
             Object destination = httpSession.getAttribute("destination");
-            response.sendRedirect(destination != null ? (String) destination : "/");
-            return destination != null ? (String) destination : "/";
+            System.out.println(destination);
+            
+            if(destination != null) {
+            	response.sendRedirect((String) destination + id);
+            }
+            return "redirect:/";
     	}
     }
     
@@ -186,10 +193,16 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     	if(is_withdraw != null && is_withdraw.equals("y")) {
     		return "redirect:/login";
     	} else {
+    		String id = memberVO.getId();
+    		
     		httpSession.setAttribute("login", memberVO);
             Object destination = httpSession.getAttribute("destination");
-            response.sendRedirect(destination != null ? (String) destination : "/");
-            return destination != null ? (String) destination : "/";
+            System.out.println(destination);
+            
+            if(destination != null) {
+            	response.sendRedirect((String) destination + id);
+            }
+            return "redirect:/";
     	}
     }
 }
