@@ -219,7 +219,7 @@ padding-right:0 !important;
 }
  
 footer{
-top:400px !important;
+top:550px !important;
     position: relative;
 }
 

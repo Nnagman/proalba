@@ -254,7 +254,7 @@ padding-right:0 !important;
 }
 
 footer{
-top:260px;
+top:400px;
     position: relative;
 }
 .content {
@@ -263,9 +263,6 @@ height: 80%;
 top: 150px;
 }
 
-.page-footer{
-	top: 800px !important;
-}
 
 .container{
 }
