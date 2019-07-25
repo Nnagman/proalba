@@ -301,7 +301,7 @@ top:400px;
 											<table id="Example" class="mdl-data-table table" style="width: 100%">
 											<thead  class="thead-dark">
 												<tr>
-													
+													<th class="th-sm">근무지명</th>
 													<th class="th-sm">입사일</th>
 													<th class="th-sm">퇴사일</th>
 												
@@ -311,7 +311,7 @@ top:400px;
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
-													
+														<td>${row.work_place_name}</td>
 														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 															<td>		<c:if test="${row.end_date != null}"> 
 															퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>

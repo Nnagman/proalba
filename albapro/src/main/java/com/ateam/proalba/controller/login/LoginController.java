@@ -84,30 +84,35 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 
 	  }
 
-	@SuppressWarnings("unused")
 	@RequestMapping(value = "/login/loginPost", method = RequestMethod.POST)
-    public void loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
+    public String loginPOST(LoginDTO loginDTO, HttpSession httpSession, Model model) throws Exception {
 		logger.info("loginPOST");
         MemberVO memberVO = memberService.login(loginDTO);
         String is_withdraw = ""; 
         
-        if(memberVO != null) {        	
-        	String mcode = memberVO.getM_code();
-        	is_withdraw = memberService.is_withdraw(mcode);
-        	logger.info("is_withdraw: "+is_withdraw);
-        }
+    	if(memberVO != null) {
+    		String mcode = memberVO.getM_code(); 
+    		is_withdraw = memberService.is_withdraw(mcode);
+    	} else {
+    		model.addAttribute("status", "0");
+    		return "redirect:/login";
+    	}
 
         
-        if (memberVO == null) {
-            return;
-        }else if(is_withdraw != null) {
-        	if(is_withdraw.equals("y")) {
-        		return;
-        	}
-        }
-
-        model.addAttribute("member", memberVO);
-        
+    	if(is_withdraw != null && is_withdraw.equals("y")) {
+    		return "redirect:/login";
+    	} else {
+    		String id = memberVO.getId();
+    		
+    		httpSession.setAttribute("login", memberVO);
+            Object destination = httpSession.getAttribute("destination");
+            System.out.println(destination);
+            
+            if(destination != null) {
+            	return "redirect:"+((String) destination + id);
+            }
+            return "redirect:/";
+    	} 
     }
     
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -169,7 +174,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
             System.out.println(destination);
             
             if(destination != null) {
-            	response.sendRedirect((String) destination + id);
+            	return "redirect:"+((String) destination + id);
             }
             return "redirect:/";
     	}
@@ -200,7 +205,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
             System.out.println(destination);
             
             if(destination != null) {
-            	response.sendRedirect((String) destination + id);
+            	return "redirect:"+((String) destination + id);
             }
             return "redirect:/";
     	}
