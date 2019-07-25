@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -50,9 +50,6 @@
 <script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
-
-
-
 
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

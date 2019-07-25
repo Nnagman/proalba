@@ -433,8 +433,7 @@
 		    	<!-- Social icons -->
 		    	<!--Copyright-->
 		    	<div class="footer-copyright py-3">
-		       		© 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> </a>
-		     
+		       		© 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> </a>	     
 		    	</div>
 		    	<!--/.Copyright-->
 	    </footer>

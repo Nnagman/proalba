@@ -91,6 +91,9 @@ header {
 	margin-top: 0px !important;
 }
 
+#datepicker{
+z-index:10;
+}
 p {
 	margin-bottom: 0px !important;
 }

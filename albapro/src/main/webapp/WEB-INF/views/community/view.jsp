@@ -102,7 +102,7 @@
     <div class="row">
 
       <!-- Post Content Column -->
-      <div class="col-lg-8">
+      <div class="col-lg-12">
  	<form name="form1" id="form1" method="post">
         <!-- Title -->
         <h1 class="mt-4">${vo.title}</h1>
