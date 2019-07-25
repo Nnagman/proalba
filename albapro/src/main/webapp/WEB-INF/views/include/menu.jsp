@@ -30,7 +30,7 @@
 						<li><a href="pserworkList?id=${login.id}" class="manuli">나의 알바 목록</a></li>
 						<li><a href="pserSalary?id=${login.id}">급여 조회</a></li>
 						<li><a href="pworkmanage?id=${login.id}">근태 조회</a></li>
-						<li><a href="">급여 조회</a></li>
+					
 					</ul>
 				</div>
 
