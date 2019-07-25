@@ -14,7 +14,7 @@
 	 	<li class="menuLi"><a class="menuLink" href="/">MAIN</a></li>
 
 		<li class="menuLi">
-				<a class="menuLink" href="${path}/recruinfo">채용공고</a>
+				<a class="menuLink" href="${path}/recruinfoManage">채용공고</a>
 		</li>
 		
 		
