@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>프로알바</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
     <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
@@ -294,6 +296,7 @@ font-weight: 550 !important;
 				<ul class="infotop-ul">
 					<li class="way">
 						<span class="item">지원방법</span> ${list[0].way}
+
 				
 						
 						<c:if test="${fn:substring(login.m_code,0,1) == 'p' && login.m_code != null && list[0].way == '온라인접수'}">
@@ -377,14 +380,6 @@ font-weight: 550 !important;
           } 
       });
    });
-</script>
-
-<script>
-$('.btn-default').click(function(){
-	
-	alert('전송완료');
-	});
-
 </script>
 
 </body>

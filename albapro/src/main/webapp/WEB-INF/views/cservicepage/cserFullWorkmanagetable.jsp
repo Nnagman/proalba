@@ -3,11 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-
-
 <script type="text/javascript"
 	src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -17,10 +16,9 @@
 
 <title>프로알바</title>
 
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">  
 <!-- Custom fonts for this template-->
-
-
+  
 
 <!-- Custom styles for this template-->
  <link rel="stylesheet" href="resources/css/bootstrap.css" />
@@ -108,7 +106,9 @@ p {
 	margin: 0;
 	
 }
-
+.card-body{
+padding: 0 !important;
+}
 .jobSearch dl .value span {
 	height: 23px !important;
 }
@@ -144,19 +144,31 @@ text-align:left !important;
     vertical-align: inherit;
 }
 
-
-
+.th-sm{
+	text-align: center;
+}
 
 tr {
+	text-align: center;
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
+}
+
+.form-control{
+width: 250px !important;
+display: inline !important;
 }
 
 tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+}
+
+td{
+padding-right: 30px;
+height: 50px;
 }
 
 .recruinfo-list table tr th {
@@ -194,6 +206,13 @@ margin-right: 40px;
 
 .jobcho-line1{
 text-align: center;
+}
+
+.datediv{
+	width: 300px;
+	position: relative;
+	left: 823px;
+	top: 40px;
 }
 
 .company{
@@ -235,7 +254,7 @@ padding-right:0 !important;
 }
 
 footer{
-top:260px;
+top:400px;
     position: relative;
 }
 .content {
@@ -244,9 +263,6 @@ height: 80%;
 top: 150px;
 }
 
-.page-footer{
-	top: 800px !important;
-}
 
 .container{
 }
@@ -267,7 +283,7 @@ top: 150px;
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">일별 근태 관리</h2>
 		</div>
-		<br><br><br><br>
+		<br><br>
 
 		<div id="SubContents">
 
@@ -310,7 +326,7 @@ top: 150px;
 			
 										<!--날짜 선택기  -->
 										<div class="datediv">
-										날짜: <input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
+										<span>날짜: </span><input type="text" id="datepicker" class="form-control datesel" onchange="changedate()"/>
 									
 													<script>
 													
@@ -357,39 +373,12 @@ top: 150px;
 									</div>
 								</div>
 		</div>
+
 	
-	
 
    
 
-   
-   
-	<!-- 부트스트랩 -->
-	<!-- 부트스트랩 modal -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<script src="resources/js/bootstrap.js"></script>
-			<!-- Modal content  -->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">출근 시간</h4>
-				</div>
-				<div class="modal-body">
-					<%@ include file="../cservice/calendar.jsp"%>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
-   
-
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
@@ -403,7 +392,7 @@ top: 150px;
 
 
 	<script>
-
+	
     $(document).ready(function() {
       $().ready(function() {
           
@@ -437,11 +426,17 @@ top: 150px;
             $('table.mdl-data-table tbody tr:odd').addClass('odd');
             $('table.mdl-data-table tbody tr:even').addClass('Even');
     });
+      
+     
   });
 
     
 </script>
-
+<script type="text/javascript">
+$(document).ready(function() {
+	 $('.datediv').appendTo('.col-sm-12');
+});
+</script>
 
 <!-- 날짜별 조회 버튼 없이 -->
 <script>

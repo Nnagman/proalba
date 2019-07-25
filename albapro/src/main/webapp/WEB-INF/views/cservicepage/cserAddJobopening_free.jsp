@@ -54,6 +54,9 @@
          height: 9vh !important;
       }
       
+      body{
+      	padding: 0 !important;
+      }
       .he-title {
          display: none !important;
       }

@@ -91,7 +91,9 @@ header {
 .p.count {
 	margin-top: 0px !important;
 }
-
+body{
+padding: 0 !important;
+}
 p {
 	margin-bottom: 0px !important;
 }

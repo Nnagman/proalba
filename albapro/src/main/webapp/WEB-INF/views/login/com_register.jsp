@@ -480,7 +480,7 @@
 				url: '${path}/cregister',
 				success: function(data){
                     alert("회원가입성공!");
-                    $(location).attr("href", "http://localhost:8080/login");
+                    $(location).attr("href", "${path}/login");
 	            },
 	            error : function(error) {
 	                alert("error : " + error);
