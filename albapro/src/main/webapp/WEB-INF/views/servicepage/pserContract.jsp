@@ -87,16 +87,27 @@
 		}
 		
 		footer{
-			top:300px;
+			top:380px;
 		    position: relative;
 		}
-	
+	.stitle{
+	color:#474747;
+	margin-top: 50px;
+	text-align: center;
+	font-family: 'NanumSquareRound', sans-serif !important;
+	}
+	h2{
+	font-weight: 800 !important;
+	}
 	</style>
 	<body>
 		<%@ include file="../include/header.jsp"%>
 		<div class="container">
 			<div id="SubContents">
+			<div class="stitle">
 				<h2>근로계약서 목록</h2>
+				</div>
+				<br><br>
 				<table id="example" class="table" style="width: 100%;">
 					<thead class="thead-dark">
 						<tr>

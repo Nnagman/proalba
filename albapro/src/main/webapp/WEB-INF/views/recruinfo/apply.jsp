@@ -77,7 +77,7 @@
 													</h5>
 													<br>
 													<a href="viewResume?r_code=${row.r_code}&&id=${login.id}" target="_blank" class="btn btn-primary card-btn">이력서 수정 및 보기</a>
-													<a href="applyResume?r_code=${row.r_code}&&id=${login.id}&&n_code=${map.n_code}" onClick='window.close()' class="btn btn-primary card-btn">이력서 제출</a>
+													<a href="applyResume?r_code=${row.r_code}&&id=${login.id}&&n_code=${map.n_code}" onClick='window.close()' class="btn btn-primary card-btn apply">이력서 제출</a>
 												</div>
 											</div>
 										</c:forEach>							
@@ -89,6 +89,14 @@
 			</div>
 		</div>
 	</div> 
+	
+	<script>
+		$(document).ready(function(){
+			$(".apply").click(function(){
+				alert("제출완료");
+			});
+		});
+	</script>
 	<script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
 	<script src="resources/js/servicepage2/popper.min.js"></script>
 	<script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>

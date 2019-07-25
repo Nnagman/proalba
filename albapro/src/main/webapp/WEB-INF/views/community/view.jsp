@@ -10,6 +10,8 @@
 <title>프로알바</title>
 
 <%@ include file = "../include/header.jsp" %>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>

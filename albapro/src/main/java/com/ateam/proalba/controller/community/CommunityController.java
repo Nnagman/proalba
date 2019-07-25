@@ -33,7 +33,6 @@ public class CommunityController {
 	public ModelAndView list(@RequestParam(defaultValue = "title") String searchOption,
 			@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "1") int curPage)
 			throws Exception {
-		logger.info("this is listController....");
 		int count = postService.countArticle(searchOption, keyword);	
 		Pager Pager = new Pager(count, curPage);
 		int start = Pager.getPageBegin();
@@ -41,17 +40,16 @@ public class CommunityController {
 		
 		List<PostVO> list = postService.listAll(start, end, searchOption, keyword);
 		
-		// �곗�댄�곕�� 留듭�� ����
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("community/community"); // 酉곕�� list.jsp濡� �ㅼ��
+		mav.setViewName("community/community"); 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list",list);
 		map.put("count",count);
-		map.put("searchOption", searchOption); // 寃����듭��
-		map.put("keyword", keyword); // 寃����ㅼ����
+		map.put("searchOption", searchOption); 
+		map.put("keyword", keyword); 
 		map.put("boardPager", Pager);
-		mav.addObject("map", map); // 留듭�� ���λ�� �곗�댄�곕�� mav�� ����
-		return mav; // list.jsp濡� List媛� ���щ����.
+		mav.addObject("map", map); 
+		return mav; 
 	}
 	
 	@RequestMapping(value="commview", method=RequestMethod.GET)
@@ -119,11 +117,9 @@ public class CommunityController {
 			//logger.info("paths : "+uploadPath + path.replace('/', File.separatorChar));
 			String filePath = uploadPath + path.replace('/', File.separatorChar);
 			if(new File(filePath).exists()) {
-				logger.info("���� 議댁�� ��");
 				new File(filePath).delete();
-				logger.info("���� ���� ");
 			}else
-				logger.info("���쇱����");
+				logger.info("x");
 		}
 		}
 		return "redirect:/comm";
