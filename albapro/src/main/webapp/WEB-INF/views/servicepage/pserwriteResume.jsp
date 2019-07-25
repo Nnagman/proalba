@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -802,7 +802,6 @@ Modal 직종
     <div class="footer-copyright py-3">
        © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
       </a>
-     
     </div>
     <!--/.Copyright-->
 
@@ -855,7 +854,7 @@ Modal 직종
 	   					// hidden 태그 추가
 	   					var html = "<div id='inputed_img'><input type='hidden' class='file' name='file_name' value='"+fileInfo.fullName+"'>";
 	   					// 미리보기 추가
-	   					html += "<img class='attImg' style='width:180px; height:235px;' src='<spring:url value='/resources" + fileInfo.fullName+ "'/></div>";
+	   					html += "<img class='attImg' style='width:180px; height:235px;' src='<spring:url value='/resources" + fileInfo.fullName+ "'/>'/></div>";
 	   					//삭제 태그 추가 
 	   					var del_btn = "<a href='#' class='file_del' data-src='"+fileInfo.fullName+"'>[삭제]</a>";
 	   					// div에 추가
