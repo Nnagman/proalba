@@ -236,6 +236,7 @@ cursor:pointer;
 .cho_woPlace:hover{
 font-size:20px;
 }
+
 </style>
 
 <body>
