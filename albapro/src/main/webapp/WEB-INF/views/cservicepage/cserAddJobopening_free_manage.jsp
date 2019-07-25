@@ -187,6 +187,10 @@ font-size:20px;
       width: 1110px !important;
       padding-left: 0px !important;
       padding-right: 0px !important;
+      
+      }
+      .row{
+      text-align: left !important;
       }
       .a1{
       text-align: center;

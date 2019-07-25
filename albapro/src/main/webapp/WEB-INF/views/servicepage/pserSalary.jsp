@@ -233,6 +233,11 @@ footer {
 .cho_woPlace:hover {
 	font-size: 20px;
 }
+
+
+table > tbody > tr > td {
+text-align: center;
+}
 </style>
 
 <body>

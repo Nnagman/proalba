@@ -738,6 +738,7 @@ Modal 직종
   <script type="text/javascript" src="resources/js/mdb.min.js"></script>
   <script type="text/javascript" src="resources/js/datatables.min.js"></script>
      	<script type="text/javascript" src="resources/js/common.js"></script>
+     	  <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   
    <script type="text/javascript">
  
