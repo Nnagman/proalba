@@ -140,7 +140,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
-				callbackUrl: "${path}/naverLogin",
+				callbackUrl: "http://proalba.shop/naverLogin",
 				isPopup: true,
 				callbackHandle: false,
 				loginButton: {color: "green", type: 1, height: 60}
