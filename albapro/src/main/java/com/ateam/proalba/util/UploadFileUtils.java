@@ -11,94 +11,85 @@ import org.springframework.util.FileCopyUtils;
 public class UploadFileUtils {
 
 	public static String uploadFile(String uploadPath, String originalName, byte[] fileData, String folderName) throws Exception {
-		// UUID ë°œê¸‰
+		// UUID ¹ß±Ş
 		UUID uuid = UUID.randomUUID();
-		// ì €ì¥í•  íŒŒì¼ëª… = UUID + ì›ë³¸ì´ë¦„
+		// ÀúÀåÇÒ ÆÄÀÏ¸í = UUID + ¿øº»ÀÌ¸§
 		String savedName = uuid.toString() + "_" + originalName;
 		
 		System.out.println("savedName : "+savedName);
 		System.out.println("uploadPath : "+uploadPath);
-		// ì—…ë¡œë“œí•  ë””ë ‰í† ë¦¬(ë‚ ì§œë³„ í´ë”) ìƒì„± 
+		// ¾÷·ÎµåÇÒ µğ·ºÅä¸®(³¯Â¥º° Æú´õ) »ı¼º 
 		String savedPath = calcPath(uploadPath, folderName);
-		// íŒŒì¼ ê²½ë¡œ(ê¸°ì¡´ì˜ ì—…ë¡œë“œê²½ë¡œ+ë‚ ì§œë³„ê²½ë¡œ), íŒŒì¼ëª…ì„ ë°›ì•„ íŒŒì¼ ê°ì²´ ìƒì„±
+		// ÆÄÀÏ °æ·Î(±âÁ¸ÀÇ ¾÷·Îµå°æ·Î+³¯Â¥º°°æ·Î), ÆÄÀÏ¸íÀ» ¹Ş¾Æ ÆÄÀÏ °´Ã¼ »ı¼º
 		File target = new File(uploadPath + savedPath, savedName);
 		System.out.println("savedPath : "+savedPath);
 		
-		// ì„ì‹œ ë””ë ‰í† ë¦¬ì— ì—…ë¡œë“œëœ íŒŒì¼ì„ ì§€ì •ëœ ë””ë ‰í† ë¦¬ë¡œ ë³µì‚¬
+		// ÀÓ½Ã µğ·ºÅä¸®¿¡ ¾÷·ÎµåµÈ ÆÄÀÏÀ» ÁöÁ¤µÈ µğ·ºÅä¸®·Î º¹»ç
 		FileCopyUtils.copy(fileData, target);
 		System.out.println("fileData, target : "+fileData+", "+target);
 	
 		System.out.println("path??"+uploadPath + savedPath + File.separator + savedName);
 		
-		//ë””ë¹„ì— ì €ì¥ë  íŒŒì¼ ì´ë¦„ 
+		//ÀÌ¹ÌÁö ÆÄÀÏÀº ½æ³×ÀÏ »ç¿ë
 		String FileName = uploadPath + savedPath + File.separator + savedName;
 		String dbFileName = FileName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 		System.out.println("dbFileName: "+dbFileName);
-		// ì¸ë„¤ì¼ì„ ìƒì„±í•˜ê¸° ìœ„í•œ íŒŒì¼ì˜ í™•ì¥ì ê²€ì‚¬
-		// íŒŒì¼ëª…ì´ aaa.bbb.ccc.jpgì¼ ê²½ìš° ë§ˆì§€ë§‰ ë§ˆì¹¨í‘œë¥¼ ì°¾ê¸° ìœ„í•´
-		/*
-		 * String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
-		 * String uploadedFileName = null; System.out.println("uploadFileName :: "+
-		 * uploadedFileName ); // ì´ë¯¸ì§€ íŒŒì¼ì´ë©´ ì¸ë„¤ì¼ ìƒì„± if
-		 * (MediaUtils.getMediaType(formatName) != null) { // ì¸ë„¤ì¼ ìƒì„± uploadedFileName =
-		 * makeThumbnail(uploadPath, savedPath, savedName);
-		 * System.out.println("uploadedFileName"+uploadedFileName); // ì´ë¯¸ì§€ íŒŒì¼ì´ ì•„ë‹ˆë©´ ì•„ì´ì½˜ì„
-		 * ìƒì„± } else { // ì•„ì´ì½˜ ìƒì„± uploadedFileName = makeIcon(uploadPath, savedPath,
-		 * savedName); }
-		 */
+        // ½æ³×ÀÏÀ» »ı¼ºÇÏ±â À§ÇÑ ÆÄÀÏÀÇ È®ÀåÀÚ °Ë»ç
+        // ÆÄÀÏ¸íÀÌ aaa.bbb.ccc.jpgÀÏ °æ¿ì ¸¶Áö¸· ¸¶Ä§Ç¥¸¦ Ã£±â À§ÇØ
+
 		return dbFileName;
 	}
 	
-	// ë‚ ì§œë³„ ë””ë ‰í† ë¦¬ ì¶”ì¶œ
+	// ³¯Â¥º° µğ·ºÅä¸® ÃßÃâ
 	private static String calcPath(String uploadPath, String folderName) {
 		Calendar cal = Calendar.getInstance();
-		// File.separator : ë””ë ‰í† ë¦¬ êµ¬ë¶„ì(\\)
+        // File.separator : µğ·ºÅä¸® ±¸ºĞÀÚ(\\)
 		String ImgUpload = File.separator + folderName;
 		System.out.println(ImgUpload);
-		// ì—°ë„, ex) \\2017 
-		String yearPath =  ImgUpload + File.separator + cal.get(Calendar.YEAR);
+        // ¿¬µµ, ex) \\2017 
+		String yearPath=  ImgUpload + File.separator + cal.get(Calendar.YEAR);
 		System.out.println(yearPath);
-		// ì›”, ex) \\2017\\03
+        // ¿ù, ex) \\2017\\03
 		String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
 		System.out.println(monthPath);
-		// ë‚ ì§œ, ex) \\2017\\03\\01
+		// ³¯Â¥, ex) \\2017\\03\\01
 		String datePath = monthPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
 		System.out.println(datePath);
-		// ë””ë ‰í† ë¦¬ ìƒì„± ë©”ì„œë“œ í˜¸ì¶œ
+        // µğ·ºÅä¸® »ı¼º ¸Ş¼­µå È£Ãâ
 		makeDir(uploadPath, ImgUpload, yearPath, monthPath, datePath);
 		return datePath;
 	}
 	
-	// ë””ë ‰í† ë¦¬ ìƒì„±
+	   // µğ·ºÅä¸® »ı¼º
 	private static void makeDir(String uploadPath, String... paths) {
 		
 
 		
-		// ë””ë ‰í† ë¦¬ê°€ ì¡´ì¬í•˜ë©´
+        // µğ·ºÅä¸®°¡ Á¸ÀçÇÏ¸é
 		if (new File(paths[paths.length - 1]).exists()){
 			System.out.println("paths: " + paths + ", paths.length - 1: " + paths[paths.length - 1]);
 			return;
 		}
-		// ë””ë ‰í† ë¦¬ê°€ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´
+        // µğ·ºÅä¸®°¡ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é
 		for (String path : paths) {
 			System.out.println("uploadPath 22: "+uploadPath);
 			System.out.println("path : " + path);
 			File dirPath = new File(uploadPath + path);
 			System.out.println("dirPath : " + dirPath);
-			// ë””ë ‰í† ë¦¬ê°€ ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´
+            // µğ·ºÅä¸®°¡ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é
 			if (!dirPath.exists()) {
-				dirPath.mkdir(); //ë””ë ‰í† ë¦¬ ìƒì„±
+				dirPath.mkdir(); //µğ·ºÅä¸® »ı¼º
 			}
 		}
 	}	
 		
-	// ì•„ì´ì½˜ ìƒì„±
+	// ¾ÆÀÌÄÜ »ı¼º
 	private static String makeIcon(String uploadPath, String path, String fileName) throws Exception {
-		// ì•„ì´ì½˜ì˜ ì´ë¦„
+		// ¾ÆÀÌÄÜÀÇ ÀÌ¸§
 		String iconName = uploadPath + path + File.separator + fileName;
-		// ì•„ì´ì½˜ ì´ë¦„ì„ ë¦¬í„´
-		// File.separatorChar : ë””ë ‰í† ë¦¬ êµ¬ë¶„ì
-		// ìœˆë„ìš° \ , ìœ ë‹‰ìŠ¤(ë¦¬ëˆ…ìŠ¤) / 		
+		// ¾ÆÀÌÄÜ ÀÌ¸§À» ¸®ÅÏ
+		// File.separatorChar : µğ·ºÅä¸® ±¸ºĞÀÚ
+		// À©µµ¿ì \ , À¯´Ğ½º(¸®´ª½º) / 		
 		return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 	}
 }

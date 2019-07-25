@@ -47,7 +47,7 @@
 					var checkImg = checkImageType(data);
 					console.log("checkIMG : "+checkImg);
 					if(checkImg == null){
-						console.log("이미지가 아님");
+
 						alert("이미지를 등록해주세요.");
 						return;
 					}
