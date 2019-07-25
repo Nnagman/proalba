@@ -359,8 +359,7 @@ display:block !important;
 	</tbody>	
 </table>
 
-<!-- </div>
- -->
+<!-- </div> -->
    
 <!-- 바꿀곳 -->
 
