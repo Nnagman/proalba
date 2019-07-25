@@ -481,7 +481,7 @@
 
     			    	   	console.log(start_period);
     			    	   
-    			    	   	window.open("http://39.127.7.53:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
+    			    	   	window.open("http://13.124.175.148:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
     				    			  "popup",'width=600, height=350, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
     					    
     					},

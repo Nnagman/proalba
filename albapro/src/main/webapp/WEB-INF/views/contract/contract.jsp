@@ -340,7 +340,7 @@
 					var cid = ${contract.c_code};
 					
 					$.ajax({
-		 				url: "http://54.180.145.99:3000/getCont",
+		 				url: "http://13.124.175.148:3000/getCont",
 		 				type: "post",
 		 				data : {"c_code" : cid},
 		 				dataType : 'json',
