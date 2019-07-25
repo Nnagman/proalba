@@ -122,8 +122,13 @@ table.table td{
 	text-align: center;
 }
 
+.recruinfo-title{
+	text-align: center;
+	margin-top: 50px;
+}
+
 footer {
-	top: 400px;
+	top: 555px;
 	position: relative;
 }
 </style>
@@ -136,14 +141,15 @@ footer {
 
 	<div class="container">
 		<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p" style="margin-top: 2.38rem;">채용 공고</h2>
+			<h2 class="recruinfo-title-p" style="font-weight: 800;">지원 현황</h2>
 		</div>
 		<br>
 		<br>
 		<div id="SubContents">
 			<!-- 수정할곳 -->
 			<div class="card-header card-header-primary">
-				<h4 class="card-title ">지원현황</h4>
+				<h4 class="card-title ">지원 현황</h4>
+				<p class="card-category">채용공고에 대한 지원 현황을 볼 수 있습니다.</p>
 			</div>
 			<table id="example" class="table" >
 				<thead class="thead-dark">
