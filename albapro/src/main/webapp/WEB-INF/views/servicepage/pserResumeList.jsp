@@ -319,7 +319,7 @@ display:block !important;
 
 <!-- 바꿀곳 -->
 
-<!-- <div class="recruinfo-list"> -->
+
 <input type="hidden" class="form-control form-control-sm" placeholder="" id="job_type_search" aria-controls="Example">
 <table class="mdl-data-table table " id="Example" style="width: 100%">
 	<thead class="thead-dark">
@@ -359,7 +359,7 @@ display:block !important;
 	</tbody>	
 </table>
 
-<!-- </div> -->
+
    
 <!-- 바꿀곳 -->
 
