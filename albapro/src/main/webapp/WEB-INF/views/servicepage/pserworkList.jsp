@@ -304,6 +304,8 @@ top:400px;
 													
 													<th class="th-sm">입사일</th>
 													<th class="th-sm">퇴사일</th>
+													<th class="th-sm">가게 이름</th>
+													
 												
 												
 												</tr>
@@ -311,15 +313,16 @@ top:400px;
 											<tbody>
 												<c:forEach var="row" items="${map.list}">
 													<tr>
-													
+														
 														<td><fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd"/></td>
 															<td>		<c:if test="${row.end_date != null}"> 
-															퇴사일: <fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
+															<fmt:formatDate value="${row.end_date}" pattern="yyyy-MM-dd"/>
 															</c:if>
 															<c:if test="${row.end_date == null}">
-															<p>퇴사일 : 아직 근무 중입니다.</p>
+															<p>아직 근무 중입니다.</p>
 														</c:if>
-															</td>
+														<td>${row.work_place_name}</td>
+															
 													
 													
 													</tr>

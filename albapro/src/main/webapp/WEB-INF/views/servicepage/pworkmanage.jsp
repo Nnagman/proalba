@@ -60,6 +60,9 @@
 </head>
 
 <style>
+body{
+padding: 0 !important;
+}
 html, body, header, .carousel {
 	height: 9vh !important;
 }
@@ -233,6 +236,7 @@ cursor:pointer;
 .cho_woPlace:hover{
 font-size:20px;
 }
+
 </style>
 
 <body>

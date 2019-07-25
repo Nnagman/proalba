@@ -91,7 +91,9 @@ header {
 .p.count {
 	margin-top: 0px !important;
 }
-
+body{
+padding: 0 !important;
+}
 p {
 	margin-bottom: 0px !important;
 }
@@ -333,34 +335,7 @@ top:400px;
 
 
 
-<!-- 작동 x 
-Modal 직종 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       	<div class="jobcho1"></div>
-					<div class="jobcho2"></div>
-					<div class="jobcho3-title">선택된 직종</div>
-					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
-        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
+
 
 
 <!-- Modal 지역 -->

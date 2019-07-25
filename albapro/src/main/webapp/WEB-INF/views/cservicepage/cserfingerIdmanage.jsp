@@ -305,7 +305,7 @@ td{
 
 	<div class="container">
 		<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p">직원관리</h2>
+			<h2 class="recruinfo-title-p">지문 관리</h2>
 		</div>
 		<br><br>
 		<div id="SubContents">

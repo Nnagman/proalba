@@ -70,6 +70,9 @@
 </head>
 
 <style>
+body{
+padding: 0 !important;
+}
 html, body, header, .carousel {
 	height: 9vh !important;
 }
@@ -229,6 +232,11 @@ footer {
 
 .cho_woPlace:hover {
 	font-size: 20px;
+}
+
+
+table > tbody > tr > td {
+text-align: center;
 }
 </style>
 

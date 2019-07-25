@@ -98,7 +98,7 @@
 	            }
 	          	
 	          	function googleLogin(){
-	          		$(location).attr("href", "http://localhost:8080/googleLogin?email="+email);
+	          		$(location).attr("href", "${path}/googleLogin?email="+email);
 	          	}
 	             
 	          function onFailure(error) {
@@ -140,7 +140,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 			{
 				clientId: "hkaRQixriKsVgNq3XfqU",
-				callbackUrl: "http://39.127.7.84:8080/naverLogin",
+				callbackUrl: "http://proalba.shop/naverLogin",
 				isPopup: true,
 				callbackHandle: false,
 				loginButton: {color: "green", type: 1, height: 60}
