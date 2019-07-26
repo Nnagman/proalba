@@ -296,9 +296,6 @@ font-weight: 550 !important;
 				<ul class="infotop-ul">
 					<li class="way">
 						<span class="item">지원방법</span> ${list[0].way}
-
-				
-						
 						<c:if test="${fn:substring(login.m_code,0,1) == 'p' && login.m_code != null && list[0].way == '온라인접수'}">
 							<a class="btn btn-default btnn" href="http://localhost:8080/apply?id=${login.id}&&n_code=${list[0].n_code}" onclick="window.open(this.href, '_blank', 'width=500px,height=800px,toolbars=no,scrollbars=no'); return false;" role="button" style="padding:10px; font-weight:600;">지원하기</a>
 						</c:if>
@@ -309,10 +306,6 @@ font-weight: 550 !important;
 		</div>
 	
 	</div>
-	
-
-	
-	
 </div>
 
 
@@ -347,8 +340,8 @@ font-weight: 550 !important;
 
   </footer>
 
-
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=LIBRARY"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
