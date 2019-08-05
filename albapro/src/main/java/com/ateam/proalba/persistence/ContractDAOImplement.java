@@ -31,13 +31,15 @@ public class ContractDAOImplement implements ContractDAO {
 	}
 
 	@Override
-	public void add_contract(WcontractVO wcontractVO) {
+	public int add_contract(WcontractVO wcontractVO) {
 		try {
-			sqlSession.insert(NAMESPACE + ".add_contract", wcontractVO);
+			int result = sqlSession.insert(NAMESPACE + ".add_contract", wcontractVO);
+			return result;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 
 	@Override

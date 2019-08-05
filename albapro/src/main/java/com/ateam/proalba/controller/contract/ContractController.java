@@ -168,7 +168,15 @@ public class ContractController {
 		logger.info(wcontractVO.toString());
 		
 		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
-		contractService.add_contract(wcontractVO);
+		int result = contractService.add_contract(wcontractVO);
+		if (result == 0) {
+			mav.setViewName("cservicepage/cserWcontractForm");
+			
+			mav.addObject("hourWage", memberService.gethourWage());
+			mav.addObject("wcontractVO", wcontractVO);
+			
+			return mav;
+		}
 		
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 		logger.info(list.toString());

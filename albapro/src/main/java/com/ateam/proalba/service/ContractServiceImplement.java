@@ -24,8 +24,8 @@ public class ContractServiceImplement implements ContractService {
 		this.contractDAO = contractDAO;
 	}
 	@Override
-	public void add_contract(WcontractVO wcontractVO) throws Exception {
-		contractDAO.add_contract(wcontractVO);
+	public int add_contract(WcontractVO wcontractVO) throws Exception {
+		return contractDAO.add_contract(wcontractVO);
 	}
 
 	@Override
