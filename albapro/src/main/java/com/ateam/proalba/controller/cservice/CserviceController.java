@@ -69,10 +69,18 @@ public class CserviceController {
 	 
 
 	@RequestMapping(value = "/cserAddJobopening_free", method = RequestMethod.POST)
-	public String addjobopeningfreePOST(Model model, NoticeVO noticeVO) throws Exception {
+	public ModelAndView addjobopeningfreePOST(Model model, NoticeVO noticeVO) throws Exception {
 		logger.info(noticeVO.toString());
 		addJobOpeningService.addJobOpening(noticeVO);
-		return "cservicepage/cserAddJobopening_free";
+		String m_code = noticeVO.getM_code();
+		String id = m_code.substring(1);
+		List<NoticeVO> list=recruinfoService.get_addjobopening_free_manage_list(id);
+		
+		logger.info(list.toString());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserAddJobopening_free_manage");
+		mav.addObject("list", list);
+		return mav;
 
 	}
 	

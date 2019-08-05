@@ -166,7 +166,7 @@ text-align: center;
    <%@ include file="../include/header.jsp"%>
 
      
-			<form id="form">
+			<form id="form" action="/cserAddJobopening_free" method="post">
 			
 											<div class="addjob-1">
 												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
@@ -654,16 +654,21 @@ text-align: center;
               console.log($('#hour_wage').val());
               console.log($('#workcon-Period-txt').val());
               
-              var form = $("#form").serialize();
+              //var form = $("#form").serialize();
               
-            $.ajax({
+              $("#submit1").after('<button type="submit" id="bt2"></button>');
+              document.getElementById("bt2").click();
+              
+/*             $.ajax({
                async: false,
                type: 'POST',
                data: form,
                url: '${path}/cserAddJobopening_free',
-               success: function(data){ alert("등록완료."); location.reload(); },
+               success: function(data){
+            	   alert("등록완료.");
+               },
                   error : function(error) { alert("error : " + error); }
-            });
+            }); */
            });
       }); 
    });
