@@ -120,7 +120,7 @@
 			<div id="SubContents">
 			<h1 style="margin: 40px 0;">근로계약서 작성</h1>
 				<c:if test="${list[0] == null}">
-					<form action="${path}/cserWcontract" method="post" style="border: 1px solid black;">
+					<form action="/cserWcontract" method="post" style="border: 1px solid black;">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12" style="padding-left: 20%;"> 
@@ -222,7 +222,7 @@
 				</c:if>
 				
 				<c:if test="${list[0] != null}">
-					<form action="${path}/cserWcontract" method="post" style="border: 1px solid black;">
+					<form action="/cserWcontract" method="post" style="border: 1px solid black;">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12" style="padding-left: 20%;"> 
