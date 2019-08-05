@@ -82,6 +82,35 @@
 			</form>
 		</div>
 	</div>
+	<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+   
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+   
+     	<i class="fab fa-html5 footer-icon"></i>
+     	<i class="fab fa-js-square footer-icon"></i>
+        <i class="fab fa-css3-alt footer-icon"></i>
+      <i class="fab fa-aws footer-icon"></i>
+      <i class="fas fa-leaf footer-icon"></i>
+        <i class="fab fa-android footer-icon"></i>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+       © 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> 
+      </a>
+     
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
 	<script>
 		$(document).ready(function() {
 		var table_w = $("#tablebox").width();
