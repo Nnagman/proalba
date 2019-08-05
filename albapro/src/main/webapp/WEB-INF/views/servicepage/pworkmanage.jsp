@@ -216,6 +216,10 @@ display:none;
 float:left;
 }
 
+#Example td{
+text-align:center;
+}
+
 .navbar{
 padding-right:0 !important;
 }

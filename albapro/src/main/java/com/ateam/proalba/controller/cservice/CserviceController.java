@@ -72,7 +72,8 @@ public class CserviceController {
 	public String addjobopeningfreePOST(Model model, NoticeVO noticeVO) throws Exception {
 		logger.info(noticeVO.toString());
 		addJobOpeningService.addJobOpening(noticeVO);
-		return "cservicepage/cserAddJobopening_free";
+		 return "cservicepage/cserAddJobopening_free"; 
+	
 
 	}
 	
