@@ -10,12 +10,15 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script type="text/javascript" src="${path}/resources/js/common.js"></script>
- <script src="${path}/resources/ckeditor/ckeditor.js"></script>
- <link rel="stylesheet" type="text/css" href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
-<link rel="stylesheet" type="text/css" href="${path}/resources/viewCss/blog-post.css"  />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- 
-    <script>
+<script src="${path}/resources/ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${path}/resources/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/resources/viewCss/blog-post.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<script>
     window.onload = function(){
        ck = CKEDITOR.replace("p_content");
     };
@@ -125,9 +128,8 @@
 	
 </script>
 <style>
- 
 #dbUplodedImg {
-	display : inline;
+	display: inline;
 }
 
 .attImg {
@@ -136,16 +138,20 @@
 }
 /* 첨부파일을 드래그할 영역의 스타일 */
 .fileDrop {
-		width: 1180px;
-		height: 100px;
-		border: 2px dotted gray;
-		background-color: gray;
-	}
-	
-	
+	width: 1180px;
+	height: 100px;
+	border: 2px dotted gray;
+	background-color: gray;
+}
+
 .content, input#title {
-		width: 1180px;
-	}
+	width: 1180px;
+}
+
+.footer-logo {
+	left: 500px;
+	width: 80px;
+}
 </style>
 <script>
 	$(function() {
@@ -189,82 +195,117 @@
 </script>
 </head>
 <body>
-	<br><br><br>
-	  <div class="container">
+	<br>
+	<br>
+	<br>
+	<div class="container">
 
-    <div class="row">
+		<div class="row">
 
-      <!-- Post Content Column -->
-      <div class="col-lg-8">
- 	<form name="updateForm" id="updateForm" method="post" action="${path}/commupdate.do">
-        
-        <div>
-			<!-- 원하는 날짜형식으로 출력하기 위해 fmt태그 사용 -->
-			작성일자 :
-			<fmt:formatDate value="${vo.p_date}" pattern="yyyy-MM-dd a HH:mm:ss" />
-			<!-- 날짜 형식 => yyyy 4자리연도, MM 월, dd 일, a 오전/오후, HH 24시간제, hh 12시간제, mm 분, ss 초 -->
+			<!-- Post Content Column -->
+			<div class="col-lg-8">
+				<form name="updateForm" id="updateForm" method="post"
+					action="${path}/commupdate.do">
+
+					<div>
+						<!-- 원하는 날짜형식으로 출력하기 위해 fmt태그 사용 -->
+						작성일자 :
+						<fmt:formatDate value="${vo.p_date}"
+							pattern="yyyy-MM-dd a HH:mm:ss" />
+						<!-- 날짜 형식 => yyyy 4자리연도, MM 월, dd 일, a 오전/오후, HH 24시간제, hh 12시간제, mm 분, ss 초 -->
+					</div>
+					<div>조회수 : ${vo.viewcnt}</div>
+					<h3>
+						제목 <input name="title" id="title" size="80" value="${vo.title}"
+							placeholder="제목을 입력해주세요">
+					</h3>
+
+					<!-- Author -->
+					<p class="lead">by ${vo.id}</p>
+
+					<hr>
+
+					<div id="dbUplodedImg">
+						<c:forEach var="att" items="${attvo }">
+							<span> <img class="attImg"
+								src="<spring:url value='/resources${att.fullname}' />" /> <a
+								href="#" class="btnFileDelete" data-src="${att.fullname }">삭제</a>
+							</span>
+						</c:forEach>
+					</div>
+
+					<div>
+						<h3>첨부파일 등록</h3>
+						<div class="fileDrop"></div>
+						<div id="uploadedList"></div>
+					</div>
+
+					<hr>
+
+					<div class="content">
+						<h3>내용</h3>
+						<textarea name="p_content" id="p_content" rows="4" cols="80"
+							placeholder="내용을 입력해주세요">${vo.p_content}</textarea>
+					</div>
+
+					<br>
+					<br>
+					<br>
+
+					<div style="width: 1180px; text-align: center;">
+						<!-- 게시물번호를 hidden으로 처리 -->
+						<input type="hidden" name="p_code" value="${vo.p_code}">
+						<!-- 본인이 쓴 게시물만 수정, 삭제가 가능하도록 처리 -->
+						<button type="button" id="btnUpdete">수정</button>
+						<!-- 상세보기 화면에서 게시글 목록화면으로 이동 -->
+						<button type="button" id="btnList">목록</button>
+					</div>
+				</form>
+
+			</div>
+
+
 		</div>
-		<div>조회수 : ${vo.viewcnt}</div>
-		<h3>
-			제목 <input name="title" id="title" size="80" value="${vo.title}" placeholder="제목을 입력해주세요">
-		</h3>
-        
-        <!-- Author -->
-        <p class="lead">
-          by
-           ${vo.id} 
-        </p>
+		<!-- /.row -->
 
-        <hr>
+	</div>
 
-        <div id="dbUplodedImg">
-			<c:forEach var="att" items="${attvo }">
-				<span>
-					<img class="attImg" src="<spring:url value='/resources${att.fullname}' />" />
-					<a href="#" class="btnFileDelete" data-src="${att.fullname }">삭제</a>
-				</span>
-			</c:forEach>
+
+
+
+
+	<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+		<!--Call to action-->
+
+		<!--/.Call to action-->
+
+		<hr class="my-4">
+
+		<!-- Social icons -->
+		<div class="pb-4">
+
+			<i class="fab fa-html5 footer-icon"></i> <i
+				class="fab fa-js-square footer-icon"></i> <i
+				class="fab fa-css3-alt footer-icon"></i> <i
+				class="fab fa-aws footer-icon"></i> <i
+				class="fas fa-leaf footer-icon"></i> <i
+				class="fab fa-android footer-icon"></i>
 		</div>
+		<!-- Social icons -->
 
-       <div>
-			<h3>첨부파일 등록</h3>
-			<div class="fileDrop"></div>
-			<div id="uploadedList"></div>
+		<!--Copyright-->
+		<div class="footer-copyright py-3">
+			© 2019 Copyright:<a href="${path}"> <img
+				src="${path}/resources/images/weblogo.png" class="footer-logo" />
+			</a>
+
 		</div>
-        
-        <hr>
-        
-       <div class="content">
-			<h3>내용</h3>
-			<textarea name="p_content" id="p_content" rows="4" cols="80" placeholder="내용을 입력해주세요">${vo.p_content}</textarea>
-		</div>
-		
-        	<br><br><br>
-        
-        <div style="width: 1180px; text-align: center;">
-			<!-- 게시물번호를 hidden으로 처리 -->
-			<input type="hidden" name="p_code" value="${vo.p_code}">
-			<!-- 본인이 쓴 게시물만 수정, 삭제가 가능하도록 처리 -->
-				<button type="button" id="btnUpdete">수정</button>
-			<!-- 상세보기 화면에서 게시글 목록화면으로 이동 -->
-			<button type="button" id="btnList">목록</button>
-		</div>
-	</form>
+		<!--/.Copyright-->
 
-      </div>
+	</footer>
 
 
-    </div>
-    <!-- /.row -->
-
-  </div>
-	
-	
-	
-	
-	
-	
-	
 </body>
 
 

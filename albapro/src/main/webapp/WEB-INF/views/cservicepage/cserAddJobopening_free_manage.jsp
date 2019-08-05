@@ -4,13 +4,11 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
    <head>
-   	  <!-- Custom fonts for this template-->
+   	  	<!-- Custom fonts for this template-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 		<!-- Custom styles for this template-->
-		<!-- <link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet"> -->
 		<link href="resources/css/servicepage/demo.css" rel="stylesheet">
 		<link href="resources/css/servicepage/pservicepagecus.css" rel="stylesheet">
-		<!--   <link rel="stylesheet" href="resources/css/bootstrap.css" />  -->
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
 		<link rel="stylesheet" href="resources/css/albamanage.css" />
@@ -330,9 +328,7 @@ width: 130px !important;
 													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
 													<td><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
-												
 													</tr>
-
 												</c:forEach>
 											</tbody>
 
@@ -387,6 +383,7 @@ width: 130px !important;
             </div>
          </div>
       </div>
+	</div>
 
 
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
