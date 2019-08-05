@@ -166,7 +166,7 @@ text-align: center;
    <%@ include file="../include/header.jsp"%>
 
      
-			<form id="form">
+			<form id="form" action="/cserAddJobopening_free" method="post">
 			
 											<div class="addjob-1">
 												<h2 class="addjob-title">어떤알바생을 원하세요?</h2>
@@ -483,12 +483,12 @@ text-align: center;
          <div class="modal-content">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal">&times;</button>
-               <h4 class="modal-title">직종 선택</h4>
+               <h4 class="modal-title">업종 선택</h4>
             </div>
             <div class="modal-body">
                <div class="jobcho1"></div>
                <div class="jobcho2"></div>
-               <div class="jobcho3-title">선택된 직종</div>
+               <div class="jobcho3-title">선택된 업종</div>
                <div class="jobcho3"></div>
                <button class="btn btn-default btn-sejob" data-dismiss="modal">선택 완료</button>
                <button class="btn btn-default btn-remove">모두지우기</button>
@@ -499,7 +499,7 @@ text-align: center;
          </div>
       </div>
       </div>
-   </div>
+  
 
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
    <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
@@ -654,16 +654,21 @@ text-align: center;
               console.log($('#hour_wage').val());
               console.log($('#workcon-Period-txt').val());
               
-              var form = $("#form").serialize();
+              //var form = $("#form").serialize();
               
-            $.ajax({
+              $("#submit1").after('<button type="submit" id="bt2"></button>');
+              document.getElementById("bt2").click();
+              
+/*             $.ajax({
                async: false,
                type: 'POST',
                data: form,
                url: '${path}/cserAddJobopening_free',
-               success: function(data){ alert("등록완료."); location.reload(); },
+               success: function(data){
+            	   alert("등록완료.");
+               },
                   error : function(error) { alert("error : " + error); }
-            });
+            }); */
            });
       }); 
    });

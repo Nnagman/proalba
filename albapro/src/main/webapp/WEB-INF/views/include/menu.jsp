@@ -36,7 +36,7 @@
 				<div class="column">
 					<h3 class="menu-drop-title">이력서 등록/관리</h3>
 					<ul>
-						<li><a href="writeResume?id=${login.id}" class="manuli">새 이력서 작성</a></li>
+						<li><a href="writeResume?id=${login.id}" class="manuli">이력서 작성</a></li>
 						<li><a href="listResume?id=${login.id}" class="manuli">이력서	관리</a></li>
 					</ul>
 				</div>
