@@ -29,3 +29,7 @@ table{
 .title:link{
 	color: black;
 }
+.footer-logo{
+	left:500px !important;
+	width:80px !important;
+}
