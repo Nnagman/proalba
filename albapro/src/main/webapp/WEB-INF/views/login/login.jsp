@@ -72,8 +72,70 @@
 	
    </style>
 </head>
+<style>
+#table1{
+margin:auto;
+display:inline-block;
+margin: 0 5% 15% 15%;
+
+border-bottom:1px solid #DCDCDC;
+}
+th {
+font-size:1.6rem;
+
+padding:5px;
+border-bottom:1px solid #DCDCDC;
+}
+td {
+ height: 100px;
+ text-align: left;
+ padding-left:20px;
+
+}
+.timg{
+width:50px; 
+height:50px;
+
+}
+.form {
+display:inline-block;
+}
+.cth{
+border-top:3px solid orange;
+color:orange !important;
+border-right:1px solid #DCDCDC;
+
+}
+.pth{
+border-top:3px solid skyblue;
+color:skyblue !important;
+
+}
+.tdth{
+border-right:1px solid #DCDCDC;
+}
+</style>
 <body>
+	
+		        <table id="table1" >
+	        <tr>
+	        <th colspan="2" class="cth" >기업회원 서비스</th><th colspan="2"class="pth" >개인회원 서비스</th>
+	        </tr>
+	        <tr>
+	        <td ><img src="resources/images/calculator_3534.png" class="timg"></td><td class="tdth">급여산정 서비스</td>
+	        <td><img src="resources/images/bagofmoney_dollar_4399.png"class="timg"></td><td>월급내역 확인</td>
+	        </tr>
+	         <tr>
+	        <td ><img src="resources/images/edit_icon-icons.com_66118.png" class="timg"></td><td class="tdth">채용공고 등록 서비스</td>
+	        <td><img src="resources/images/-fingerprint_90738.png"class="timg"></td><td>지문으로 출퇴근 기능 제공</td>
+	        </tr>
+	        <tr>
+	        <td><img src="resources/images/contract_icon-icons.com_64662.png" class="timg"></td><td class="tdth">전자근로계약서 작성 서비스</td>
+	        <td><img src="resources/images/2140-handshake_102438.png"class="timg"></td><td>구직 서비스 제공</td>
+	        </tr>
+	        </table>
 	<!-- Form-->
+	
 	<div class="form">
 	  <div class="form-panel one">
 	    <div class="form-header">
@@ -101,6 +163,10 @@
 	        
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
+	        
+
+>
+	        
 	        <div class="footer-copyright">
 	        <span>© 2019 Copyright:</span>
 	         <a href="${path}/" class="sp1" style="text-decoration:none">Proalba</a>
@@ -145,6 +211,7 @@
 	  </div>
 	
 	</div>
+
 	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
