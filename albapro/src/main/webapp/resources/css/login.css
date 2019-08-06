@@ -112,7 +112,7 @@ body {
   line-height: inherit;
   /* text-transform: uppercase; */
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1px;
   margin-left: 50px;
   
 }
@@ -180,7 +180,7 @@ a{
    height: 130px;
 }
 .footer-copyright{
-   margin-top: 180px;
+   margin-top: 160px;
    margin-left:110px;
 }
 .sp1{

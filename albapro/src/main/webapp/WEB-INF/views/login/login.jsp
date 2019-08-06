@@ -59,6 +59,18 @@
        });
      });
    </script>
+   <style>
+   	.abcRioButton{
+   		border-radius: 5px 5px 5px 5px !important;
+   	}
+   	.googleid{
+   		margin-left: 7px !important;
+   	}
+	.abcRioButtonIcon > span{
+	display: inline-block !important;
+	}
+	
+   </style>
 </head>
 <body>
 	<!-- Form-->
@@ -78,11 +90,15 @@
 	          <label for="password">Password</label>
 	          <input type="password" id="password" class="inp" name="password" required="required"/>
 	        </div>
+	        
 	        <div class="form-group">
 	          <button type="submit">로그인</button>
+	          <div style="width: 300px; margin-left: 50px; text-align: right;">
+	        <div id="naverIdLogin" style="margin-left: 50px; margin-top: 5px; display: inline-block;"></div>
+	        <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block; "></div>
 	        </div>
-	        <div id="naverIdLogin" style="margin-left: 50px; display: inline-block;"></div>
-	        <div id="my-signin2" onClick="googleLogin()" style="display: inline-block; margin-left: 0px;"></div>
+	        </div>
+	        
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
 	        <div class="footer-copyright">
@@ -108,8 +124,8 @@
 	             function renderButton() {
 	                gapi.signin2.render('my-signin2', {
 	                   'scope': 'email',
-	                   'width': 60,
-	                   'height': 60,
+	                   'width': 70,
+	                   'height': 27,
 	                   'longtitle': false,
 	                   'theme': 'dark',
 	                   'onsuccess': onSuccess,
@@ -143,12 +159,19 @@
 				callbackUrl: "http://proalba1.shop/naverLogin",
 				isPopup: true,
 				callbackHandle: false,
-				loginButton: {color: "green", type: 1, height: 60}
+				loginButton: {color: "green", type: 2, height: 27}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}
 		);
 		/* (3) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
 		naverLogin.init();
 	</script>
+	<script>
+		$(".abcRioButtonContentWrapper").append('<span>로그인<span>');
+	</script>
+	<!-- <script>
+	 var el = document.getElementById("not_signed_ins10y4yv7e6l");
+	 el.style.display = 'inline-block';
+	 </script> -->
 </body>
 </html>
