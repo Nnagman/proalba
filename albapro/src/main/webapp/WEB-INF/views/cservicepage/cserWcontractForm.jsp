@@ -114,13 +114,17 @@
 		
 		.btn-secondary{/* background-color:#a6c!important; */ background-color:transparent; color:#fff; border: 1px solid;}
 	</style>
+	
 	<body>
 		<%@ include file="../include/header.jsp"%>
 		<div class="container">
 			<div id="SubContents">
+			<c:if test="${wcontractVO != null}">
+				${wcontractVO}
+			</c:if>
 			<h1 style="margin: 40px 0;">근로계약서 작성</h1>
 				<c:if test="${list[0] == null}">
-					<form action="${path}/cserWcontract" method="post" style="border: 1px solid black;">
+					<form action="/cserWcontract" method="post" style="border: 1px solid black;">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12" style="padding-left: 20%;"> 
@@ -222,7 +226,7 @@
 				</c:if>
 				
 				<c:if test="${list[0] != null}">
-					<form action="${path}/cserWcontract" method="post" style="border: 1px solid black;">
+					<form action="/cserWcontract" method="post" style="border: 1px solid black;">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-12" style="padding-left: 20%;"> 

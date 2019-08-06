@@ -165,7 +165,7 @@ public class PserviceController {
 	
 	@RequestMapping(value = "/pserSalary", method = RequestMethod.GET)
 	public ModelAndView inqsalaryGET(Model model,@RequestParam("id") String id) throws Exception {
-		logger.info("Welcome inqsalaryPage");
+		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("servicepage/pserSalary");

@@ -42,6 +42,9 @@
 	</head>
 
 <style>
+body{
+padding: 0 !important;
+}
 html, body, header, .carousel {
 	height: 9vh !important;
 }
@@ -102,7 +105,11 @@ width:100%;
 header{
 height:80px !important;
 }
-
+/* 제목 왼쪽정렬 개별로임 */
+/* .title_td{
+text-align:left !important;
+} */
+/* 제목 왼쪽정렬 개별로임 */
 .recruinfo-table{
 
     position: relative;
@@ -209,6 +216,10 @@ text-align: center;
 #Example_info{
 display:none;
 }
+/* 제목 왼쪽정렬 개별로임 */
+ #Example td{
+text-align:center;
+} 
 
 #Example_paginate{
 float:left;
@@ -236,6 +247,12 @@ color:red;
 	margin: 0 0 10px 0;
 	cursor: pointer;
 }
+
+#Example_filter{
+display:block !important;
+}
+
+
 
 </style>
 
@@ -295,18 +312,27 @@ color:red;
 				<!-- 기본검색 -->
 
 
+		
 			
 			
+				<div class="card-header card-header-primary">
+				<h4 class="card-title ">나의이력서 관리</h4>
+				<p class="card-category">
+					${login.name} 님의 이력서를 볼수 있습니다.
+
+				
+				</p>
+			</div>
 					
-	
+	    
 
 
 <!-- 바꿀곳 -->
 
-<div class="recruinfo-list">
+
 <input type="hidden" class="form-control form-control-sm" placeholder="" id="job_type_search" aria-controls="Example">
-<table class="table table-striped table-bordered table-sm recruinfo-table " id="Example" style="width: 100%">
-	<thead>
+<table class="mdl-data-table table " id="Example" style="width: 100%">
+	<thead class="thead-dark">
 		<tr>
 			<th class="local" style="width:60% !important;">이력서 제목</th>
 			<th class="data">이력서등록일</th>
@@ -318,7 +344,7 @@ color:red;
 	<tbody>
 		<c:forEach var="row" items="${map.list}">
 			<tr>
-				<td class="title" style="height:50px !important; vertical-align:middle;">
+				<td class="title title_td" style="height:50px !important; vertical-align:middle;">
 					<a href="viewResume?r_code=${row.r_code}&&id=${login.id}">
 					<span class="resumetitle"> ${row.title} </span> </a>
 				</td>
@@ -343,7 +369,6 @@ color:red;
 	</tbody>	
 </table>
 
-</div>
 
    
 <!-- 바꿀곳 -->
@@ -411,6 +436,19 @@ color:red;
 	
 
 };  
+
+$(document).ready(function () {
+	$('#Example').DataTable({
+		"paging": true, // false to disable pagination (or any other option)
+		"order": [[ 0, "desc" ]]
+	});
+	$('.dataTables_length').addClass('bs-select');
+});
+
+$('#ulGugun').on('click',function(){
+	console.log($('.value > span').text());
+});
+
 
 </script>
 

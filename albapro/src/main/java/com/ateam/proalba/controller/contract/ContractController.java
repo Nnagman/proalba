@@ -167,30 +167,17 @@ public class ContractController {
 		
 		logger.info(wcontractVO.toString());
 		
-		String[] id = new String[2];
-		id[1] = wcontractVO.getP_phone();
-		id[0] = wcontractVO.getC_id();
-		
-		
-		Map<String, String[]> id_map = new HashMap<String, String[]>();
-		id_map.put("id", id);
-		
-		WcontractVO check_wcontractVO = contractService.select_contract2(id_map);
-		
-		if(check_wcontractVO != null && (transFormat.parse(check_wcontractVO.getEnd_period()).compareTo(date) != -1)){
-			List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
-		
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("list",list);
+		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
+		int result = contractService.add_contract(wcontractVO);
+		System.out.println(result);
+		if (result == 0) {
+			mav.setViewName("cservicepage/cserWcontractForm");
 			
-				
-			mav.addObject("map", map);
-			mav.addObject("message", "등록 실패. 기존의 계약서와 새로운 계약서의 기간이 중복됩니다.");
+			mav.addObject("hourWage", memberService.gethourWage());
+			mav.addObject("wcontractVO", wcontractVO);
+			
 			return mav;
 		}
-		
-		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
-		contractService.add_contract(wcontractVO);
 		
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
 		logger.info(list.toString());

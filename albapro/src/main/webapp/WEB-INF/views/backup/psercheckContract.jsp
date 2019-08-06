@@ -1,219 +1,209 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>프로알바</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+<meta name="description" content="">
+<meta name="author" content="">
 
-		<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=2">
-		<link href="resources/css/servicepage/psercheckContractcus.css?ver=2" rel="stylesheet">
+<title>프로알바</title>
+<!-- Custom fonts for this template-->
 
-		<link href="resources/css/index.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-		<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-		<link href="resources/css/mdb.min.css" rel="stylesheet">
-		<link href="resources/css/style.css" rel="stylesheet">
-		<link href="resources/css/datatables.min.css" rel="stylesheet">
-		
-		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-	</head>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/contract.css?ver=1">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link href="resources/css/servicepage/material-dashboard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:700&display=swap&subset=korean" rel="stylesheet">
+<link href="resources/css/servicepage/demo.css" rel="stylesheet">
+<link href="resources/css/servicepage/psercheckContractcus.css" rel="stylesheet">
 
-	<style>
-		html, body, header, .carousel {
-			height: 9vh !important;
-		}
+<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
+
+   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<link rel="stylesheet" href="resources/css/albamanage.css" />
+<link rel="stylesheet" href="resources/css/albamanagecus.css" />
+<link rel="stylesheet" href="resources/css/cal/albamanage.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+
+
+<body>
+
+   <div class="wrapper">
+<div class="div-sidebar">
+	 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="/" class="simple-text logo-normal">
+        proalba
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+			<li class="nav-item">
+          		<a class="nav-link" href="pserworkList?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+					알바목록
+				</a>
+			</li>
+			<li class="nav-item active">
+            	<a class="nav-link" href="contract?id=${login.id}">
+					<i class="material-icons">dashboard</i>
+            	 	전자근로 계약서
+				</a>
+			</li>
+			<li class="nav-item ">
+            	<a class="nav-link" href="inqcareer?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				경력 관리
+				</a>
+			</li>
+			<li class="nav-item  ">
+				<a class="nav-link" href="listResume?id=${login.id}">
+				<i class="material-icons">library_books</i>
+				이력서 관리
+            	</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+         <!-- End of Sidebar -->
+    </div>
+<div class="content">
+		<form id="form">
+            <div id="createPdf" class="div_createPdf">
+                <div class="box">
+                   
+            <h3 class="contract_title">전자 근로 계약서</h3>
+                    <br>
+                    <h4 class="gg">1. 근로 계약기간</h4><br>
+                    <input type="hidden" id="c_code" name="c_code" value="${contract.c_code}" />
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
+                    </div>
+
+                    <h4 class="gg">2. 근무장소</h4><br>
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
+                    </div>
+
+                    <h4 class="gg">3. 업무의 내용</h4><br>
+                    <div class="worktime_div">
+                    	<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
+                    </div>
+
+                    <h4 class="gg">4. 소정근로시간</h4><br>
+                    <div class="worktime_div">
+                        <span class="timepiker_txt_title">ㅡ근로시간</span>
+                            ${contract.start_work_time}
+                        <span class="timepiker_txt">부터</span>
+                            ${contract.end_work_time}
+                        <span class="timepiker_txt">까지</span>
+                    </div>
+
+                    <h4 class="gg">5. 임금</h4><br>
+                    <span class="t1">ㅡ 월(일, 시간)급 : </span>
+                    ${contract.hour_wage}
+                    <span>원</span><br><br>
+                    
+                    <span class="t1">ㅡ 기타 급여(재수당 등) </span>
+                    <c:if test="${contract.additional_wage == '0'}">없음</c:if>
+                    <c:if test="${contract.additional_wage =='1'}">있음</c:if>
+                    <br>
+                    
+                    <span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
+                    ${contract.payday}
+                    <span>일(휴일의 경우는 전일 지급)</span><br>
+
+                    <h4 class="gg">6. 연차유급휴가</h4><br>
+                    <span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
+
+                    <h4 class="gg">7. 사회보험 적용여부(해당란에 체크)</h4><br>
+                    <input class="che2" type="checkbox" id="고용보험" checked/><span>고용보험</span>
+                    <input class="che2" type="checkbox" id="국민보험" checked /><span>국민연금</span>
+                    <input class="che2" type="checkbox" id="건강보험" checked /><span>건강보험</span>
+                    <input class="che2" type="checkbox" id="산재보험" checked /><span>산재보험</span>
+
+                    <h4 class="gg">8. 근로계약서 교부</h4><br>
+                    <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
+                    <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
+                    <div class="worktime_div">
+                    <span class="sp1">
+                    	20${fn:substring(contract.c_date,2,4)}년
+                    	${fn:substring(contract.c_date,5,7)}월
+                    	${fn:substring(contract.c_date,8,10)}일
+                    </span>
+                    </div>
+
+                    <hr><br>
+
+                    <h4 class="hh">사업주</h4>
+                    <div id="" style="width: 40%; display: inline-block; float:right;">
+                    	<img class="can1" id="" src="${contract.c_sign}" style="margin:1px;">
+                    	<div id="sign2"></div>
+                	</div>	
+                    <span class="t3">사업체명: </span>
+                    ${contract.work_place_name}<br>
+                    <span class="t3">사업자등록번호: </span>
+                    ${contract.b_number}<br>
+                    <span class="t3" id="mySign">대표자: </span>
+                    ${contract.b_name}<br>
+                    <span class="t3">주소: </span>
+                    ${contract.c_address}<br>
+                    <span class="t3">연락처: </span>
+                    ${contract.work_place_phone}<br><br>
+                    
+                    <hr><br>
+                    
+                    <h2 class="hh">근로자</h2><br>
+                    <div id="sign" style="width: 40%; display: inline-block; float:right;">
+                    	<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px;" width="240" height="90"></canvas>
+                    	<img class="can1" id="myImage" style="margin:1px;">
+                    	<div id="sign2"></div>
+                	
+                	    <div class="canvas_btn">
 		
-		.he-title {
-			display: none !important;
-		}
+            	<button type="button" class="bt1" value="근로계약서 작성완료" id="signAgain">다시 서명하기</button>
+				<input type="button" class="bt1" onclick="toDataURL2();"value="서명 저장">
+				<!-- 시연 안할거라 숨겨 둡니다. -->
+				<div class="hiddenbtn">
+				<button  class="bt1" id="moveSign">서명란이동</button>
+				<button  class="bt1" id="moveSignEnd">이동완료</button>
+				</div>
+					<!-- 시연 안할거라 숨겨 둡니다. -->
 		
-		.carousel-inner {
-			display: none !important;
-		}
-		
-		header {
-			background-image: url("#") !important;
-			background-color: #5D5D5D !important;
-		}
-		
-		.p.count {
-			margin-top: 0px !important;
-		}
-		
-		p {
-			margin-bottom: 0px !important;
-		}
-		
-		.placho-line1{
-			margin: 0 !important;	
-		}
-		
-		header{
-		height:80px !important;
-		}
-		
-		thead {
-		    display: table-header-group;
-		    vertical-align: middle;
-		    border-color: inherit;
-		}
-		
-		tr {
-		    display: table-row;
-		    vertical-align: inherit;
-		    border-color: inherit;
-		}
-		
-		tbody {
-		    display: table-row-group;
-		    vertical-align: middle;
-		    border-color: inherit;
-		}
-		
-		div.dataTables_filter label{
-		float: right;
-		margin-right: 40px;
-		}
-		
-		#Example_info{
-			display:none;
-		}
-		
-		#Example_paginate{
-			float:left;
-		}
-		
-		.navbar{
-			padding-right:0 !important;
-		}
-		
-		footer{
-			top:300px;
-		    position: relative;
-		}
-	
-		.gg {
-			margin-bottom:0px;
-			margin-top: 0px;
-		}
-	
-		.contButton{
-			margin: 0px 0 50px 20%;
-		}
-	</style>
-	<body>
-		<%@ include file="../include/header.jsp"%>
-		<div class="container">
-			<div id="SubContents">
-			<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p">근로계약서 조회</h2>
-		</div>
-				
-					<form id="form">
-						<div id="createPdf" class="div_createPdf">
-							<h3 class="contract_title">근로 계약서</h3>
-							<div class="box">
-								<h4 class="gg">1. 근로 계약기간</h4>
-								<input type="hidden" name="c_id" value="${login.id}" />
-								<input type="hidden" name="c_code" value="${contract.c_code}" />
-								<div class="worktime_div">
-									<span class="timepiker_txt_title">ㅡ ${fn:substring(contract.start_period,0,10)}부터 ${fn:substring(contract.end_period,0,10)}까지</span>
-								</div>
-								
-								<h4 class="gg">2. 근무장소</h4>
-								<div class="worktime_div">
-									<span class="timepiker_txt_title">ㅡ ${contract.work_place_name}</span>
-								</div>
-								
-								<h4 class="gg">3. 업무의 내용</h4>
-								<div class="worktime_div">
-									<span class="timepiker_txt_title">ㅡ ${contract.work_detail}</span>
-								</div>
-								
-								<h4 class="gg">4. 소정근로시간</h4>
-								<div class="worktime_div">
-									<span class="timepiker_txt_title">ㅡ 근로시간</span>
-									${contract.start_work_time}
-									
-									<span class="timepiker_txt">부터</span>
-									${contract.end_work_time}
-									<span class="timepiker_txt">까지</span>
-								</div>
-								
-								<h4 class="gg">5. 임금</h4>
-								<span class="t1">ㅡ 월(일, 시간)급 : </span>
-								${contract.hour_wage}
-								<span>원</span><br>
-								
-								<span class="t1">ㅡ 기타 급여(재수당 등) </span>
-								<c:if test="${contract.additional_wage == '0'}">없음</c:if>
-								<c:if test="${contract.additional_wage =='1'}">있음</c:if>
-								<br>
-								
-								<span class="t1">ㅡ 임금지급일 : 매월(매주 또는 매일) </span>
-								${contract.payday}
-								<span>일(휴일의 경우는 전일 지급)</span><br>
-								
-								<h4 class="gg">6. 연차유급휴가</h4>
-								<span class="t1">ㅡ 연차유급휴가는 근로기준법에서 정하는 바에 따라 부여함</span>
-								
-								<h4 class="gg">7. 사회보험 적용여부</h4>
-								<input class="che2" type="checkbox" id="고용보험" style="margin-left: 13%;" checked disabled/><span>고용보험</span>
-								<input class="che2" type="checkbox" id="국민보험" checked disabled/><span>국민연금</span>
-								<input class="che2" type="checkbox" id="건강보험" checked disabled/><span>건강보험</span>
-								<input class="che2" type="checkbox" id="산재보험" checked disabled/><span>산재보험</span>
-								
-								<h4 class="gg">8. 근로계약서 교부</h4>
-								<span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
-								<span class="sp1">(근로기준법 제17조 이행)</span><br><br>
-								<div class="worktime_div">
-									<span class="sp1">
-										20${fn:substring(contract.c_date,2,4)}년
-				                    	${fn:substring(contract.c_date,5,7)}월
-				                    	${fn:substring(contract.c_date,8,10)}일
-				                    </span>
-								</div>
-								
-								<hr><br>
-								
-								<h4 class="hh">사업주</h4>
-								<div id="" style="width: 40%; display: inline-block; float:right;">
-									<img class="can1" id="" src="${contract.c_sign}" style="margin:1px;">
-								</div>	
-								
-								<span class="t3">사업체명: </span>
-								${contract.work_place_name}<br>
-								
-								<span class="t3">사업자등록번호: </span>
-								${contract.b_number}<br>
-								
-								<span class="t3" id="mySign">대표자: </span>
-								${contract.b_name}<br>
-								
-								<span class="t3">주소: </span>
-								${contract.c_address}<br>
-								
-								<span class="t3">연락처: </span>
-								${contract.work_place_phone}<br><br>
-								
-								<hr><br>
-								
-								<h2 class="hh">근로자</h2>
-								
-								<div id="sign" style="width: 40%; display: inline-block; float:right;">
-									<canvas class="can1" id="myCanvas" style="background-color:#f0f0f0; margin:1px; margin-bottom: 20px;" width="360" height="150"></canvas>
-									<img class="can1" id="myImage" style="margin:1px;">
-								</div>
-								
-								<span class="t3">근로자: </span>
-                    			<input class="tex6" name="p_name" type="text" maxlength="11" value="${login.name}"/><br><br> 
+			</div>
+                	
+                	</div>
+                	
+                	
+                    <span class="t3">근로자: </span>
+                    <input class="tex6" name="p_name" type="text" maxlength="11" value="${login.name}"/><br><br> 
                      
-                     			<span class="t3">연락처: </span>
-                    			<input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" value="${login.phone}" /><br><br>
+
+                    <span class="t3">연락처: </span>
+                    <input class="tex6" name="p_phone" type="text" maxlength="11" onkeypress="onlyNumber();" value="${login.phone}" /><br><br>
                     
                     <span class="t3">&nbsp주소:  &nbsp&nbsp </span>
                     <input class="tex10" name="p_address" type="text" /> <Br>
@@ -491,7 +481,7 @@
 
     			    	   	console.log(start_period);
     			    	   
-    			    	   	window.open("http://13.124.175.148:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
+    			    	   	window.open("http://39.127.7.53:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
     				    			  "popup",'width=600, height=350, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
     					    
     					},

@@ -216,7 +216,8 @@
 	
 	
 	<!-- 다음 지도 api  -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=LIBRARY"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<!-- 다음 지도 api  -->
 	
@@ -325,12 +326,12 @@
          <div class="modal-content">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal">&times;</button>
-               <h4 class="modal-title">직종 선택</h4>
+               <h4 class="modal-title">업종 선택</h4>
             </div>
             <div class="modal-body">
                <div class="jobcho1"></div>
                <div class="jobcho2"></div>
-               <div class="jobcho3-title">선택된 직종</div>
+               <div class="jobcho3-title">선택된 업종</div>
                <div class="jobcho3"></div>
                <button class="btn btn-default btn-sejob" data-dismiss="modal">선택 완료</button>
                <button class="btn btn-default btn-remove">모두지우기</button>

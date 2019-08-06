@@ -340,7 +340,7 @@
 					var cid = ${contract.c_code};
 					
 					$.ajax({
-		 				url: "http://54.180.145.99:3000/getCont",
+		 				url: "http://13.124.175.148:3000/getCont",
 		 				type: "post",
 		 				data : {"c_code" : cid},
 		 				dataType : 'json',
@@ -433,8 +433,7 @@
 		    	<!-- Social icons -->
 		    	<!--Copyright-->
 		    	<div class="footer-copyright py-3">
-		       		© 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> </a>
-		     
+		       		© 2019 Copyright:<a href= "${path}"> <img src="${path}/resources/images/weblogo.png" class="footer-logo"  /> </a>	     
 		    	</div>
 		    	<!--/.Copyright-->
 	    </footer>
