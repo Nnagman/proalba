@@ -18,7 +18,7 @@
 <body>
 	<div class="contents">
 		<div class="listForm" align="center">
-			<h1 class="hh">나의 문의내역</h1>
+			<h2 class="hh">나의 문의내역</h1>
         	<img src="resources/images/상태.png" class="status_img" id="status_img">
 		</div>
 		<div class="listForm">

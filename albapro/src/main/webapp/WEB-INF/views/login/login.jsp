@@ -43,7 +43,7 @@
 	.abcRioButtonIcon > span{
 	display: inline-block !important;
 	}
-	
+
    </style>
 </head>
 <style>
@@ -139,7 +139,7 @@ border-right:1px solid #DCDCDC;
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
 	        
-	        <div class="footer-copyright" style="margin-top: 0px;">
+	        <div class="footer-copyright" style="margin-top: 10px;">
 	        <span>© 2019 Copyright</span>
 	         <a href="${path}/" class="sp1" style="text-decoration:none">Proalba</a>
 	        </div>
