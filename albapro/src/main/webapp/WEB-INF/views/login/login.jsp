@@ -6,7 +6,7 @@
   	<head>   
   	<script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
 	<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
-	<link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/login.css?ver=2"/>
 	<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
    	<meta charset="UTF-8">
    	<title>프로알바</title>
@@ -129,17 +129,18 @@ border-right:1px solid #DCDCDC;
 	        
 	        <div class="form-group">
 	          <button type="submit">로그인</button>
+	          <div style="margin-left: 72px;">SNS 계정으로 쉽고 빠르게 로그인하세요!</div>
 	          <div style="width: 300px; margin-left: 50px; text-align: right;">
-	          <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block;"></div>
-	          <div id="naverIdLogin" style="margin-top: 5px; display: inline-block; margin-right: 15px;"></div>
-	        </div>
+	            <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block;"></div>
+	            <div id="naverIdLogin" style="margin-top: 5px; display: inline-block; margin-right: 15px;"></div>
+	          </div>
 	        </div>
 	        
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
 	        
-	        <div class="footer-copyright">
-	        <span>© 2019 Copyright:</span>
+	        <div class="footer-copyright" style="margin-top: 0px;">
+	        <span>© 2019 Copyright</span>
 	         <a href="${path}/" class="sp1" style="text-decoration:none">Proalba</a>
 	        </div>
 	          <script>
