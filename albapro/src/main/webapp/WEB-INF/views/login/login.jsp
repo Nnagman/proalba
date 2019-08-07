@@ -25,33 +25,7 @@
 			}
 		});
 	</script>
-   	<!--
-    <script>
-       function init(){
-          console.log('init');
-          gapi.load('auth2', function() { // Ready. });
-              console.log('auth2');
-              var gauth = gapi.auth2.init({
-                 client_id:'645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com'
-                })
-              gauth.then(function(){
-                 console.log('googleAuth success');
-              }, function(){
-                 console.log('googleAuth fail');
-              });
-           });
-       }
-    </script>
-    <script>
-    function onSignIn(googleUser) {
-       var profile = googleUser.getBasicProfile();
-       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-       console.log('Name: ' + profile.getName());
-       console.log('Image URL: ' + profile.getImageUrl());
-       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-   </script>
-   -->
+
    <script>
      $(document).ready(function(){
        $(".btn-regist").on("click", function(){
@@ -156,16 +130,13 @@ border-right:1px solid #DCDCDC;
 	        <div class="form-group">
 	          <button type="submit">로그인</button>
 	          <div style="width: 300px; margin-left: 50px; text-align: right;">
-	        <div id="naverIdLogin" style="margin-left: 50px; margin-top: 5px; display: inline-block;"></div>
-	        <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block; "></div>
+	          <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block;"></div>
+	          <div id="naverIdLogin" style="margin-top: 5px; display: inline-block; margin-right: 15px;"></div>
 	        </div>
 	        </div>
 	        
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
-	        
-
->
 	        
 	        <div class="footer-copyright">
 	        <span>© 2019 Copyright:</span>
@@ -190,8 +161,8 @@ border-right:1px solid #DCDCDC;
 	             function renderButton() {
 	                gapi.signin2.render('my-signin2', {
 	                   'scope': 'email',
-	                   'width': 70,
-	                   'height': 27,
+	                   'width': 130,
+	                   'height': 50,
 	                   'longtitle': false,
 	                   'theme': 'dark',
 	                   'onsuccess': onSuccess,
@@ -226,19 +197,16 @@ border-right:1px solid #DCDCDC;
 				callbackUrl: "http://proalba1.shop/naverLogin",
 				isPopup: true,
 				callbackHandle: false,
-				loginButton: {color: "green", type: 2, height: 27}
+				loginButton: {color: "green", type: 2, height: 50}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}
 		);
 		/* (3) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
 		naverLogin.init();
 	</script>
+	
 	<script>
 		$(".abcRioButtonContentWrapper").append('<span>로그인<span>');
 	</script>
-	<!-- <script>
-	 var el = document.getElementById("not_signed_ins10y4yv7e6l");
-	 el.style.display = 'inline-block';
-	 </script> -->
 </body>
 </html>

@@ -35,12 +35,12 @@
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c1" name="c1" />
 							</label>
-							 프로알바 <a href="articles">이용약관</a> 동의 (필수)<br />
+							 프로알바 <a href="articles" target="_blank">이용약관</a> 동의 (필수)<br />
 						</p>
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c2" name="c2" /> 
 							</label>
-							<a href="pdata">개인정보처리방침</a> 동의 (필수)<br />
+							<a href="pdata" target="_blank">개인정보처리방침</a> 동의 (필수)<br />
 						</p>
 						<p>
 							<label> &nbsp;&nbsp;<input type="checkbox" id="c3" name="c3" />
@@ -167,19 +167,7 @@
                                     <input id="phone" name="phone" value="" type="hidden"/>
                                    <input id="m_code" name="m_code" type="hidden" value="p">
 								</td>
-							</tr>
-
-							<!--<tr>
-								<th>주소</th>
-								<td>
-									<input type="text" class="tBox tAddr" id="sample6_postcode" name="Address1" placeholder="우편번호"> 
-									<input type="button" id="find_addr" onclick="execDaumPostcode()" value="우편번호 찾기"><br> 
-									<input type="text" class="tBox tAddr" id="sample6_address" name="Address2" placeholder="주소"><br>
-									<input type="text" class="tBox tAddr" id="sample6_detailAddress" name="Address3" placeholder="상세주소">
-									<input type="text" class="tBox tAddr" id="sample6_extraAddress" name="Address4" placeholder="참고항목">
-								</td>
-							</tr> -->
-							
+							</tr>						
 						</tbody>
 					</table>
 					<div class="btnfield">
@@ -193,68 +181,72 @@
 </body>
 
 <script>
-       //이용약관 동의
- var doc = document;
- var agree_form = doc.getElementById('agree_form');
- var inputs = agree_form.getElementsByTagName('INPUT');
- var agree_form_data = {
-   "c1": false,
-   "c2": false,
-   "c3": false
- };
- var c1 = doc.getElementById('c1');
- var c2 = doc.getElementById('c2');
- var c3 = doc.getElementById('c3');
- function checkboxListener() {
-   agree_form_data[this.name] = this.checked;
-   if(this.checked) {
-     // submit 할때 체크하지 않아 색이 변한 font 를 다시 원래 색으로 바꾸는 부분.
-     this.parentNode.style.color = "#000";
-   }
- }
-   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
-   var all = doc.getElementById('all');
-   all.onclick = function() {
-     if (this.checked) {
-       setCheckbox(agree_form_data, true);
-     } else {
-       setCheckbox(agree_form_data, false);
-     }
-   };
-   function setCheckbox(obj, state) {
-     for (var x in obj) {
-       obj[x] = state;
-       for(var i = 0; i < inputs.length; i++) {
-         if(inputs[i].type == "checkbox") {
-           inputs[i].checked = state;
-         }
-       }
-     }
-   }
-       </script>
-       <script>
-            $(document).ready(function(){
-             $("#passwd_success").hide();
-             $("#passwd_danger").hide();
-             $("#dev_pwdconfirm").keyup(function(){
-                     var pwd1=$("#dev_pwd1").val();
-                     var pwd2=$("#dev_pwdconfirm").val();
-                     if(pwd1 != "" || pwd2 != ""){
-                             if(pwd1 == pwd2){
-                                     $("#passwd_success").show();
-                                     $("#passwd_danger").hide();
-                                     $("#submit").removeAttr("disabled");
-                             }else{
-                                     $("#passwd_success").hide();
-                                     $("#passwd_danger").show();
-                                     $("#submit").attr("disabled", "disabled");
-                             }
-                     }
-             });
+	//이용약관 동의
+	var doc = document;
+	var agree_form = doc.getElementById('agree_form');
+	var inputs = agree_form.getElementsByTagName('INPUT');
+	var agree_form_data = {
+		"c1": false,
+		"c2": false,
+		"c3": false
+	};
+	
+	var c1 = doc.getElementById('c1');
+	var c2 = doc.getElementById('c2');
+	var c3 = doc.getElementById('c3');
+	
+	function checkboxListener() {
+   		agree_form_data[this.name] = this.checked;
+   		if(this.checked) {
+     		// submit 할때 체크하지 않아 색이 변한 font 를 다시 원래 색으로 바꾸는 부분.
+     		this.parentNode.style.color = "#000";
+   		}
+ 	}
+	
+   	c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+   	var all = doc.getElementById('all');
+   	all.onclick = function() {
+    	if (this.checked) {
+       		setCheckbox(agree_form_data, true);
+     	} else {
+       		setCheckbox(agree_form_data, false);
+     	}
+   	};
+   
+   	function setCheckbox(obj, state) {
+    	for (var x in obj) {
+       		obj[x] = state;
+       		for(var i = 0; i < inputs.length; i++) {
+         		if(inputs[i].type == "checkbox") {
+           		inputs[i].checked = state;
+         		}
+       		}
+     	}
+   	}
+   	
+	$(document).ready(function(){
+		var id_check = 0;
+		var pass_check = 0;
 		
+		$("#passwd_success").hide();
+		$("#passwd_danger").hide();
+		$("#dev_pwdconfirm").keyup(function(){
+			var pwd1=$("#dev_pwd1").val();
+			var pwd2=$("#dev_pwdconfirm").val();
+			if(pwd1 != "" || pwd2 != ""){
+				if(pwd1 == pwd2){
+					$("#passwd_success").show();
+					$("#passwd_danger").hide();
+					pass_check = 1;
+				}else{
+					$("#passwd_success").hide();
+					$("#passwd_danger").show();
+					pass_check = 0;
+				}
+			}
+		});
 
-
-        $("#double_check").click(function(){
+		$("#double_check").click(function(){
 			var id = $("#id").val();
 			
 			$.ajax({
@@ -265,16 +257,16 @@
 				dataType: 'json',
 				contentType: 'application/json; charset=UTF-8',
 				success: function(data){
-	                if (data.cnt > 0) {
+					if (data.cnt > 0) {
 	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
 	                    $("#dev_idchk").focus();
 	                } else {
 	                    alert("사용가능한 아이디입니다.");
 	                    $("#dev_pwd1").focus();
-	                    $("#btn_signup").removeAttr("disabled");
+	                    id_check = 1;
+	                    $("#btn_signup").prop("disabled", false);
 	                    $("#dev_idchk").attr("disabled");
 	            		var m_code = 'p'+$('#id').val();
-	            		console.log(m_code);
 	            		$("#m_code").val(m_code);
 	                }
 	            },
@@ -285,17 +277,17 @@
 		});
         
 		$("#email_select").change(function () {
-		    if ($("#email_select").val() != "1") {
-		      $("#dev_mail_etc").val($("#email_select").val());
-		      $("#dev_mail_etc").attr("disabled", true);
+			if ($("#email_select").val() != "1") {
+				$("#dev_mail_etc").val($("#email_select").val());
+		      	$("#dev_mail_etc").attr("disabled", true);
 		    }
 		    if ($("#email_select").val() == "1") {
-		      $("#dev_mail_etc").attr("disabled", false);
+		      	$("#dev_mail_etc").attr("disabled", false);
 		    }
-		  });
+		});
 
         $("#btn_signup").click(function(){
-            var email1,email2,email;
+			var email1,email2,email;
             email1 = $("#dev_M_Email").val();
 			email2 = $("#dev_mail_etc").val();
 			email = email1 + '@' + email2;
@@ -307,15 +299,44 @@
             pnum2 = $("#dev_hphone2").val();
 			pnum3 = $("#dev_hphone3").val();
 			p_Number = pnum1+pnum2+pnum3;
-			$( "#phone" ).val("");
+			
+			$("#phone").val("");
 			$("#phone").val(p_Number);
-			console.log($("#phone").val());
-			console.log(pnum1);
-			console.log(pnum2);
-            console.log(pnum3);
+			
+			if($("#c1").is(":checked") == false || $("#c2").is(":checked") == false){
+				alert("약관동의를 해주세요."); return;
+			}
+			
+			if(id_check == 0){
+				alert("아이디 중복확인을 해주세요."); return;
+			}
+			
+			if(pass_check == 0){
+				alert("비밀번호가 일치하지 않습니다."); return;
+			}
+			
+			if($("#dev_u_Name").val() == ''){
+				alert("이름을 입력해주세요."); return;
+			}
+			
+			if($("#dev_born").val() == ''){
+				alert("생년월일을 입력해주세요."); return;
+			}
+			
+			if($("#sex1").is(":checked") == false || $("#sex2").is(":checked") == false){
+				alert("성별을 선택해주세요."); return;
+			}
+			
+			if($("#dev_M_Email").val() == '' || $("#dev_mail_etc").val() == ''){
+				alert("이메일을 입력해주세요."); return;
+			}
        
+			if($("#dev_hphone1").val() == '' || $("#dev_hphone2").val() == '' || $("#dev_hphone3").val() == ''){
+				alert("휴대폰 번호를 입력해주세요."); return;
+			}
+			
             var formData = $("#form").serialize(); 
-			 $.ajax({
+			$.ajax({
 				async: false,
 				type: 'POST',
 				data: formData,
@@ -333,9 +354,8 @@
 			$(".tPhone").on("keyup", function(){
 				 $(this).val($(this).val().replace(/[^0-9]/g,""));
 			});
-
 		});
-    });      
-       </script>
+	});      
+</script>
 
 </html>

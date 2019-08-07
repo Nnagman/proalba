@@ -89,7 +89,8 @@
           <i class="fas fa-user-tie"></i><br/>
           <a href="cregister"><input type="button" class="reg_btn" id="corp_reg_btn" name="indi_reg" value="기업회원가입"></a>
         </div>
-        <div id="naverIdLogin" style="margin-left: 110px;"></div>
+        <div style="text-align:left; margin-left: 70px;">SNS 계정으로 쉽고 빠르게 가입하세요!</div>
+        <div id="naverIdLogin" style="margin-left: 147px;"></div>
       	<div id="my-signin2" onClick="googleRegister()" style="margin-left: 0px;"></div>
       </div>
   </div>
