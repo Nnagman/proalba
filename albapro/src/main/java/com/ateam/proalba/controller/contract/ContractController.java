@@ -157,37 +157,21 @@ public class ContractController {
 	}
 	
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
-	public ModelAndView wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
+	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		date = transFormat.parse(transFormat.format(date));
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cservicepage/cserContract");
+//		mav.setViewName("cservicepage/cserContract");
 		
-		logger.info(wcontractVO.toString());
-		
-		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		int result = contractService.add_contract(wcontractVO);
-		System.out.println(result);
-		if (result == 0) {
-			mav.setViewName("cservicepage/cserWcontractForm");
-			
-			mav.addObject("hourWage", memberService.gethourWage());
-			mav.addObject("wcontractVO", wcontractVO);
-			
-			return mav;
-		}
 		
 		List<WcontractVO> list = contractService.select_contract(wcontractVO.getC_id());
-		logger.info(list.toString());
-
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list",list);
-		
-		mav.addObject("map", map);
-		return mav;
+		String c_id = wcontractVO.getC_id();
+		String id = c_id.substring(1);
+		return "redirect:/ccontract?id="+id+"&&result="+result;
 	}
 	
 	@RequestMapping(value = "/sendWcontract", method = RequestMethod.GET)

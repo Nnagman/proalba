@@ -24,7 +24,7 @@
   <link href="resources/css/mdb.min.css" rel="stylesheet">
     <link href="resources/css/style.css" rel="stylesheet">
      <link href="resources/css/datatables.min.css" rel="stylesheet">
-     <link href="resources/css/resume.css" rel="stylesheet">
+     <link href="resources/css/resume.css?ver=1" rel="stylesheet">
 
 
 
@@ -389,7 +389,7 @@ height:80px !important;
 								<hr/>
 								<div id="RegistBaseInfo" class="registArea">
 									<div class="guide">사진을 드래그해서 올려주세요.</div>
-									<div class="photoArea">
+									<div class="photoArea" id="photoArea">
 										<span class="photo" id="photo"></span>
 									</div>
 									<div class="baseInfo">
@@ -859,13 +859,13 @@ Modal 직종
 	   					var del_btn = "<a href='#' class='file_del' data-src='"+fileInfo.fullName+"'>[삭제]</a>";
 	   					// div에 추가
 	   					$("#photo").append(html);
-	   					$("#RegistBaseInfo").append(del_btn);
+	   					$("#photoArea").append(del_btn);
 	   					console.log($('.file').val());
 	   				}
 	   			});
 	   		});
 	   		
-	   		$("#RegistBaseInfo").on("click", ".file_del" , function(e){
+	   		$("#photoArea").on("click", ".file_del" , function(e){
 	   			var that = $(this);
 	   			$.ajax({
 	   				type: "post",

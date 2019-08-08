@@ -131,9 +131,9 @@
 			          				<div class="addjob-1" style="margin-top: 4%;">
 			          					<input type="hidden" name="c_id" value="c${login.id}" />
 			          					<span style="width: 110px; display: inline-block;">근로 계약기간:</span>
-			          					<input class="tex" name="start_period" type="text" value="" id="startSearchDate" />
+			          					<input class="tex" name="start_period" type="date" value="" id="startSearchDate" />
 			          					<span>부터</span>
-			          					<input class="tex1" style="width:15%;" name="end_period" type="text" value="" id="endSearchDate"  />
+			          					<input class="tex1" style="width:20%;" name="end_period" type="date" value="" id="endSearchDate"  />
 			          					<span>까지</span>
 			          					<br><br>
 			          				
