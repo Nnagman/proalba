@@ -60,6 +60,10 @@
 </head>
 
 <style>
+.placho-line1{
+	margin-bottom: 25px !important;
+	margin-left: 0 !important;
+}
 html, body, header, .carousel {
 	height: 9vh !important;
 }
@@ -109,10 +113,6 @@ p {
 
 .jobSearch dl .content .value span {
 	height: 23px !important;
-}
-
-.placho-line1{
-	margin: 0 !important;	
 }
 
 .recruinfo-list{

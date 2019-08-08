@@ -23,6 +23,11 @@
 <link rel="stylesheet" type="text/css" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
 
 <link rel="stylesheet" href="resources/css/signUp.css">
+<style>
+	.close{
+		margin-top: 0 !important;
+	}
+</style>
 </head>
 <body>
 	<div id="wrap">
