@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
 <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
- <link href="resources/css/resume.css" rel="stylesheet">
+ <link href="resources/css/resume.css?ver=1" rel="stylesheet">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
  
@@ -340,6 +340,7 @@ top:400px;
 											 	<img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
 											 </div>
 										</span>
+										<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 									</div>
 									<div class="baseInfo">
 										<table cellpadding="0" cellspacing="0" summary="개인정보인 휴대폰,유선전화,안심번호,이메일,주소,홈페이지 항목의 표입니다.">
@@ -399,7 +400,6 @@ top:400px;
 											</tbody>
 										</table>
 									</div>
-									<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 								</div>
 								
 								<div id="RegistTitle" class="registArea" style="padding:250px 72px 20px;">
@@ -496,13 +496,13 @@ top:400px;
 													<div class="registResult">
 														<ul class="textCnt">
 															<li class="name">
-																<span class="input on"><label for="licenseChk1">${license_name}</label></span>
+																<span class="input on">${license_name}</span>
 															</li>
 															<li class="origin">${license_publisher} / ${license_year}년</li>
 														</ul>
 														<div class="applBtn">
-															<a href="#" class="btn whiteBtn" onclick="modLicense(1);return false;">수정</a>
-															<a href="#" class="btn whiteBtn" onclick="delLicense(1);return false;">삭제</a>
+															<input type='button' value='수정' class="btn whiteBtn" onclick="modLicense(1);return false;">
+															<input type='button' value='삭제' class="btn whiteBtn" onclick="delLicense(1);return false;">
 														</div>
 														<input type="hidden" class="license_input" value="${row}">	
 														<input type="hidden" name="licensenm1" id="licensenm1" value="${license_name}">	
@@ -530,12 +530,12 @@ top:400px;
 											</li>
 										</ul>
 										<p class="formBtn">
-											<a href="#" class="btn whiteBtn" onclick="hideLicense(); return false;">취소</a>
-											<a href="#" class="btn grayBtn" onclick="addLicense(0); return false;">자격증저장</a>
+											<input type='button' class="btn whiteBtn" value="취소" class="btn whiteBtn" onclick="hideLicense(); return false;">
+											<input type='button' class="btn grayBtn" value="자격증저장" class="btn grayBtn" onclick="addLicense(0); return false;">
 											<span class="saveAlert"></span>
 										</p>
 									</div>
-									<span class="bottomBtn"><a href="#" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"><em></em>자격증 추가</a></span>
+									<span class="bottomBtn"><input type='button' value="자격증 추가" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"></span>
 								</div>
 								
 								<div id="RegistIntroduce" class="registArea">
@@ -559,21 +559,10 @@ top:400px;
 						</form>
 <!-- 수정할곳 -->
    
-
-
-
    </div>
    
    </div>
-   
-   
-
-
-
-
-
-
-
+  
 <!-- Modal 지역 -->
 <div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -703,12 +692,12 @@ top:400px;
 	   					var del_btn = "<a href='#' class='file_del' data-src='"+fileInfo.fullName+"'>[삭제]</a>";
 	   					// div에 추가
 	   					$("#photo").append(html);
-	   					$("#RegistBaseInfo").append(del_btn);
+	   					$("#photoArea").append(del_btn);
 	   				}
 	   			});
 	   		});
 	   		
-	   		$("#RegistBaseInfo").on("click", ".file_del" , function(e){
+	   		$("#photoArea").on("click", ".file_del" , function(e){
 	   			var that = $(this);
 	   			$.ajax({
 	   				type: "post",
@@ -1055,8 +1044,8 @@ top:400px;
 		strLicense = strLicense + "		</li> ";
 		strLicense = strLicense + "	</ul> ";
 		strLicense = strLicense + "	<p class='formBtn'> ";		
-		strLicense = strLicense + "		<a href='#' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">취소</a> ";
-		strLicense = strLicense + "		<a href='#' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\">수정완료</a> ";
+		strLicense = strLicense + "		<input type='button' value='취소' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">";
+		strLicense = strLicense + "		<input type='button' value='수정완료' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\"> ";
 		strLicense = strLicense + "	</p> ";
 		strLicense = strLicense + "</div> ";
 
@@ -1156,8 +1145,8 @@ top:400px;
 			strLicense = strLicense + "			<li class='origin'>" + $('#organ' + modidx).val() + " / " + $('#certificateyyyy' + modidx).val() + "년</li>";
 			strLicense = strLicense + "		</ul>";
 			strLicense = strLicense + "		<div class='applBtn'>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>수정</a>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>삭제</a>";
+			strLicense = strLicense + "			<input type='button' value='수정' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>";
+			strLicense = strLicense + "			<input type='button' value='삭제' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>";
 			strLicense = strLicense + "		</div>";
 			strLicense = strLicense + "		<input type='hidden' class='license_input' value='" + $('#licensenm' + modidx).val() + "/" + $('#organ' + modidx).val() + "/" + $('#certificateyyyy' + modidx).val() + "'>";
 			strLicense = strLicense + "		<input type='hidden' name='licensenm" + objidx + "' id='licensenm" + objidx + "' value='" + $("#licensenm" + modidx).val() + "' />";

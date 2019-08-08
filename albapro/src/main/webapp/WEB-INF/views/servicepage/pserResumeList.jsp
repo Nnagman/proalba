@@ -105,7 +105,11 @@ width:100%;
 header{
 height:80px !important;
 }
-
+/* 제목 왼쪽정렬 개별로임 */
+/* .title_td{
+text-align:left !important;
+} */
+/* 제목 왼쪽정렬 개별로임 */
 .recruinfo-table{
 
     position: relative;
@@ -212,10 +216,11 @@ text-align: center;
 #Example_info{
 display:none;
 }
-
-#Example td{
+/* 제목 왼쪽정렬 개별로임 */
+ #Example td{
 text-align:center;
-}
+} 
+
 #Example_paginate{
 float:left;
 }
@@ -246,6 +251,8 @@ color:red;
 #Example_filter{
 display:block !important;
 }
+
+
 
 </style>
 
@@ -337,7 +344,7 @@ display:block !important;
 	<tbody>
 		<c:forEach var="row" items="${map.list}">
 			<tr>
-				<td class="title" style="height:50px !important; vertical-align:middle;">
+				<td class="title title_td" style="height:50px !important; vertical-align:middle;">
 					<a href="viewResume?r_code=${row.r_code}&&id=${login.id}">
 					<span class="resumetitle"> ${row.title} </span> </a>
 				</td>

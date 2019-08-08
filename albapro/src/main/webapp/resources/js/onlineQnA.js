@@ -95,7 +95,6 @@ function fnOnlineSubmit(){
   $("#bt1").append('<input type="hidden" name="service_type"value="'+service_type+'"></input>');
   $("#bt1").append('<input type="hidden" name="cs_code"value="'+cs_code+'"></input>');
   p_Number = $("#tel1").val()+$("#tel2").val()+$("#tel3").val();
-  alert(p_Number);
   $("#tel3").append('<input id="phone" name="phone" value="'+p_Number+'" type="text"/>');
   email = $("#email1").val()+'@'+$("#email2").val();
   $("#email2").append('<input id="email" name="email" value="'+email+'" type="hidden"/>');

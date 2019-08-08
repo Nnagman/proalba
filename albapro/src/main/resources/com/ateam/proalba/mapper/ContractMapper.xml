@@ -6,16 +6,14 @@
 <mapper namespace="com.ateam.proalba.mapper.ContractMapper">
     
 	<insert id="add_contract">
-		<![CDATA[
 			insert into contract
-			(c_code, start_period, end_period, c_date, work_place_name, c_id, email_check, hour_wage,
+			(c_code, start_period, end_period, work_place_name, c_id, email_check, hour_wage,
 			work_place, work_detail, start_work_time, end_work_time, additional_wage, payday, b_number, 
 			b_name, c_address, work_place_phone, c_sign, p_id)
 			values( c_code_seq.NEXTVAL, to_date(#{start_period},'yy/mm/dd'), to_date(#{end_period},'yy/mm/dd'), 
-			#{c_date} , #{work_place_name}, #{c_id}, '0', #{hour_wage},
+			#{work_place_name}, #{c_id}, '0', #{hour_wage},
 			#{work_place}, #{work_detail}, #{start_work_time}, #{end_work_time}, #{additional_wage},
 			#{payday}, #{b_number}, #{b_name}, #{c_address}, #{work_place_phone}, #{c_sign}, (select m_code from member where phone = #{p_phone}))
-		]]>
 	</insert>
 	
 	<update id="send_contract">

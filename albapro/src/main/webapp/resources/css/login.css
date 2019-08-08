@@ -112,9 +112,9 @@ body {
   line-height: inherit;
   /* text-transform: uppercase; */
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1px;
   margin-left: 50px;
-  
+  margin-bottom: 18px;
 }
 .sps{
    color: rgba(0, 0, 0, 0.6);
@@ -151,9 +151,6 @@ body {
   visibility: visible;
 }
 
-.form-header {
-  margin: 0 0 40px;
-}
 .form-header h1 {
   padding: 4px 0;
   color: #616161;
@@ -174,13 +171,12 @@ a{
 
 .logo{
    margin-bottom: 30px;
-   margin-top: 40px;
+   margin-top: 80px;
    margin-left: 43px;
    width: 300px;
    height: 130px;
 }
 .footer-copyright{
-   margin-top: 180px;
    margin-left:110px;
 }
 .sp1{

@@ -23,6 +23,11 @@
 <link rel="stylesheet" type="text/css" href="resources/bootstrap-4.3.1-dist/css/bootstrap.min.css"  />
 
 <link rel="stylesheet" href="resources/css/signUp.css">
+<style>
+	.close{
+		margin-top: 0 !important;
+	}
+</style>
 </head>
 <body>
 	<div id="wrap">
@@ -326,12 +331,12 @@
          <div class="modal-content">
             <div class="modal-header">
                <button type="button" class="close" data-dismiss="modal">&times;</button>
-               <h4 class="modal-title">직종 선택</h4>
+               <h4 class="modal-title">업종 선택</h4>
             </div>
             <div class="modal-body">
                <div class="jobcho1"></div>
                <div class="jobcho2"></div>
-               <div class="jobcho3-title">선택된 직종</div>
+               <div class="jobcho3-title">선택된 업종</div>
                <div class="jobcho3"></div>
                <button class="btn btn-default btn-sejob" data-dismiss="modal">선택 완료</button>
                <button class="btn btn-default btn-remove">모두지우기</button>
@@ -460,10 +465,6 @@
 			p_Number = pnum1+pnum2+pnum3;
 			$( "#phone" ).val("");
 			$("#phone").val(p_Number);
-			console.log($("#phone").val());
-			console.log(pnum1);
-			console.log(pnum2);
-            console.log(pnum3);
             
             var address = $("#sample6_postcode").val() + "/";
             address += $("#sample6_address").val() + "/";
@@ -473,6 +474,47 @@
         	var jobchoice = $('.jobchoice').html();
         	$('.jobchoice').append('<textarea name="job_type">'+jobchoice+'</textarea>');
 			
+			if($("#c1").is(":checked") == false || $("#c2").is(":checked") == false){
+				alert("약관동의를 해주세요."); return;
+			}
+			
+			if(id_check == 0){
+				alert("아이디 중복확인을 해주세요."); return;
+			}
+			
+			if(pass_check == 0){
+				alert("비밀번호가 일치하지 않습니다."); return;
+			}
+			
+			if($("#dev_u_Name").val() == ''){
+				alert("이름을 입력해주세요."); return;
+			}
+			
+			if($("#dev_hphone1").val() == '' || $("#dev_hphone2").val() == '' || $("#dev_hphone3").val() == ''){
+				alert("휴대폰 번호를 입력해주세요."); return;
+			}
+			
+			if($("#dev_M_Email").val() == '' || $("#dev_mail_etc").val() == ''){
+				alert("이메일을 입력해주세요."); return;
+			}
+			
+			if($("#ceoName").val() == ''){
+				alert("사업주명을 입력해주세요."); return;
+			}
+			
+			if($("#comNum").val() == ''){
+				alert("사업주 번호를 입력해주세요."); return;
+			}
+			
+			if($("#comName").val() == ''){
+				alert("사업체명을 입력해주세요."); return;
+			}
+			
+			if($("#sample6_address").val() ==  '' || $("#sample6_postcode").val() ==  ''){
+				alert("주세를 입력해주세요."); return;
+			}
+			
+        	
             var formData = $("#form").serialize(); 
 			$.ajax({
 				async: false,

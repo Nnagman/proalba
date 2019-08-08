@@ -23,6 +23,18 @@
 	</head>
 
 	<style>
+		.t11{
+		margin-left: 270px;
+		}
+		.sp2{
+		margin-left: 500px;
+		}
+		.sp1{
+		margin-left: 470px;
+		}
+		.box{
+		padding: 0 !important;
+		}
 		html, body, header, .carousel {
 			height: 9vh !important;
 		}
@@ -115,9 +127,10 @@
 				
 				 <form id="form">
             <div id="createPdf" class="div_createPdf">
-                <div class="box">
+                
                    
             <h3 class="contract_title">전자 근로 계약서</h3>
+            <div class="box">
                     <br>
                     <h4 class="gg">1. 근로 계약기간</h4><br>
                     <input type="hidden" name="c_id" value="c${login.id}" />
@@ -172,7 +185,7 @@
                     <span class="t11">ㅡ 사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자에게 교부함</span><br>
                     <span class="sp1">(근로기준법 제17조 이행)</span><br><br>
                     <div class="worktime_div">
-                    <span class="sp1">
+                    <span class="sp2">
                     	20${fn:substring(contract.c_date,2,4)}년
                     	${fn:substring(contract.c_date,5,7)}월
                     	${fn:substring(contract.c_date,8,10)}일
