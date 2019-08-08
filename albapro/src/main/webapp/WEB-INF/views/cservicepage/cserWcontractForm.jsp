@@ -327,7 +327,7 @@
 						</div>
 						<div class="btn_line1" style=" padding-left: 45px; padding-bottom: 4%">
 							<button type="button" class="bt1 btn btn-dark" value="근로계약서 작성완료" id="signAgain" style="width: 130px; height: 30px; padding: 0;">다시 서명하기</button>
-						 	<button type="button" class="bt1btn btn-dark" id="save-sign" onclick="toDataURL();" value="서명 저장" style="width: 130px; height: 30px; padding: 0;">서명 저장</button><br/>
+						 	<button type="button" class="bt1btn btn-dark" id="save-sign" onclick="toDataURL();" value="서명 저장" style="width: 130px; height: 30px; padding: 0;">서명 저장</button>
 						 	<input type='submit' class="submitbtn btn btn-primary" value="작성완료" id="submit2" style="width: 130px; height: 30px; padding: 0;"/>
 
 						</div>

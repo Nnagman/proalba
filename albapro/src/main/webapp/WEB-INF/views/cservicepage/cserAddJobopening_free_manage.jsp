@@ -528,7 +528,7 @@ width: 130px !important;
 				}
 				alert(data.message); location.reload();
 			},
-			error : function(error) {alert("error : " + error);}
+			error : function(error) {alert("지원한 이력서가 있어 삭제가 되지 않습니다.");}
     	  });  
       });
       
