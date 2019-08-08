@@ -163,7 +163,7 @@ public class ContractController {
 		date = transFormat.parse(transFormat.format(date));
 		
 		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("cservicepage/cserContract");
+		//mav.setViewName("cservicepage/cserContract");
 		
 		int result = contractService.add_contract(wcontractVO);
 		

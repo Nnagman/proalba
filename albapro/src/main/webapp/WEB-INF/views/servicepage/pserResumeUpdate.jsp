@@ -496,13 +496,13 @@ top:400px;
 													<div class="registResult">
 														<ul class="textCnt">
 															<li class="name">
-																<span class="input on"><label for="licenseChk1">${license_name}</label></span>
+																<span class="input on">${license_name}</span>
 															</li>
 															<li class="origin">${license_publisher} / ${license_year}년</li>
 														</ul>
 														<div class="applBtn">
-															<a href="#" class="btn whiteBtn" onclick="modLicense(1);return false;">수정</a>
-															<a href="#" class="btn whiteBtn" onclick="delLicense(1);return false;">삭제</a>
+															<input type='button' value='수정' class="btn whiteBtn" onclick="modLicense(1);return false;">
+															<input type='button' value='삭제' class="btn whiteBtn" onclick="delLicense(1);return false;">
 														</div>
 														<input type="hidden" class="license_input" value="${row}">	
 														<input type="hidden" name="licensenm1" id="licensenm1" value="${license_name}">	
@@ -530,12 +530,12 @@ top:400px;
 											</li>
 										</ul>
 										<p class="formBtn">
-											<a href="#" class="btn whiteBtn" onclick="hideLicense(); return false;">취소</a>
-											<a href="#" class="btn grayBtn" onclick="addLicense(0); return false;">자격증저장</a>
+											<input type='button' class="btn whiteBtn" value="취소" class="btn whiteBtn" onclick="hideLicense(); return false;">
+											<input type='button' class="btn grayBtn" value="자격증저장" class="btn grayBtn" onclick="addLicense(0); return false;">
 											<span class="saveAlert"></span>
 										</p>
 									</div>
-									<span class="bottomBtn"><a href="#" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"><em></em>자격증 추가</a></span>
+									<span class="bottomBtn"><input type='button' value="자격증 추가" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"></span>
 								</div>
 								
 								<div id="RegistIntroduce" class="registArea">
@@ -559,21 +559,10 @@ top:400px;
 						</form>
 <!-- 수정할곳 -->
    
-
-
-
    </div>
    
    </div>
-   
-   
-
-
-
-
-
-
-
+  
 <!-- Modal 지역 -->
 <div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -1055,8 +1044,8 @@ top:400px;
 		strLicense = strLicense + "		</li> ";
 		strLicense = strLicense + "	</ul> ";
 		strLicense = strLicense + "	<p class='formBtn'> ";		
-		strLicense = strLicense + "		<a href='#' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">취소</a> ";
-		strLicense = strLicense + "		<a href='#' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\">수정완료</a> ";
+		strLicense = strLicense + "		<input type='button' value='취소' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">";
+		strLicense = strLicense + "		<input type='button' value='수정완료' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\"> ";
 		strLicense = strLicense + "	</p> ";
 		strLicense = strLicense + "</div> ";
 
@@ -1156,8 +1145,8 @@ top:400px;
 			strLicense = strLicense + "			<li class='origin'>" + $('#organ' + modidx).val() + " / " + $('#certificateyyyy' + modidx).val() + "년</li>";
 			strLicense = strLicense + "		</ul>";
 			strLicense = strLicense + "		<div class='applBtn'>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>수정</a>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>삭제</a>";
+			strLicense = strLicense + "			<input type='button' value='수정' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>";
+			strLicense = strLicense + "			<input type='button' value='삭제' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>";
 			strLicense = strLicense + "		</div>";
 			strLicense = strLicense + "		<input type='hidden' class='license_input' value='" + $('#licensenm' + modidx).val() + "/" + $('#organ' + modidx).val() + "/" + $('#certificateyyyy' + modidx).val() + "'>";
 			strLicense = strLicense + "		<input type='hidden' name='licensenm" + objidx + "' id='licensenm" + objidx + "' value='" + $("#licensenm" + modidx).val() + "' />";

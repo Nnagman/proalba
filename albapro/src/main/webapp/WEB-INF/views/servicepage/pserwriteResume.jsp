@@ -250,134 +250,12 @@ height:80px !important;
 
 <body>
 	<%@ include file="../include/header.jsp"%>
-
-
-
-
 	<div class="container">
 		<div class="recruinfo-title">
 			<h2 class="recruinfo-title-p">이력서 등록</h2>
 		</div>
 		<br><br>
-
-<!-- 		<div id="JobCount">
-			<div class="all">
-				<p class="title1">전체 채용공고</p>
-				<p class="count">
-				</p>
-			</div>
-
-
-		</div>
- -->
 		<div id="SubContents">
-
-			<!-- Job Count -->
-
-			<!-- //Job Count -->
-
-			<!-- 상단검색 S//-->
-
-
-			<input type="hidden" id="WsSrchKeywordWord" name="WsSrchKeywordWord"
-				value=""> <input type="hidden" id="hidschContainText"
-				name="hidschContainText" value=""> <input type="hidden"
-				id="hidWsearchInOut" name="hidWsearchInOut" value="">
-			<!-- base hidden parameter -->
-			<input type="hidden" id="hidSort" name="hidSort" value=""> <input
-				type="hidden" id="hidSortOrder" name="hidSortOrder" value="">
-			<input type="hidden" id="hidSortDate" name="hidSortDate" value="">
-			<input type="hidden" id="hidListView" name="hidListView" value="LIST">
-			<input type="hidden" id="hidSortCnt" name="hidSortCnt" value="50">
-			<input type="hidden" id="hidSortFilter" name="hidSortFilter"
-				value="Y"> <input type="hidden" id="hidJobKind"
-				name="hidJobKind" value=""> <input type="hidden"
-				id="hidJobKindMulti" name="hidJobKindMulti" value=""> <input
-				type="hidden" id="page" name="page" value="1"> <input
-				type="hidden" id="hidSearchyn" name="hidSearchyn" value="N">
-			<input type="hidden" id="strAreaMulti" name="strAreaMulti" value="">
-			<input type="hidden" id="schtext" name="schtext" value="">
-
-			<div class="jobSearch" id="JobSearch">
-
-
-				<!-- 기본검색 -->
-
-
-				<!-- <div class="base">
-
-
-					<!-- 지역 -->
-			<!--		<dl class="area">
-						<dt class="item">지역</dt>
-						 <dd class="content">
-							<a href="#" class="blank">지역을 선택하세요 (최대 5개 선택가능)</a>
-						</dd>
-						<dd class="data" style="display: block;">
-							<ul id="ulAreacd" class="tabForm">
-								<li id="02" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('02', '서울');">서울</a></li>
-								<li id="051"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('051', '부산');">부산</a></li>
-								<li id="053" class="odd on"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('053', '대구');">대구</a></li>
-								<li id="032"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('032', '인천');">인천</a></li>
-								<li id="062" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('062', '광주');">광주</a></li>
-								<li id="042"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('042', '대전');">대전</a></li>
-								<li id="052" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('052', '울산');">울산</a></li>
-								<li id="044"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('044', '세종');">세종</a></li>
-								<li id="031" class="odd last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('031', '경기');">경기</a></li>
-								<li id="055"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('055', '경남');">경남</a></li>
-								<li id="054" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('054', '경북');">경북</a></li>
-								<li id="041"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('041', '충남');">충남</a></li>
-								<li id="043" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('043', '충북');">충북</a></li>
-								<li id="061"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('061', '전남');">전남</a></li>
-								<li id="063" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('063', '전북');">전북</a></li>
-								<li id="033"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('033', '강원');">강원</a></li>
-								<li id="064" class="odd"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('064', '제주');">제주</a></li>
-								<li id="99" class="last"><a href="#"
-									onclick="JOBSEARCH.fnsetGugun('99', '전국');">전국</a></li>
-							</ul>
-							<ul id="ulGugun" class="inputWrap">
-								<li></li>
-							</ul>
-							<ul id="ulDong" class="inputWrap dongWrap" style="display: none;">
-								<li></li>
-							</ul>
-							<a href="#" class="dataCloseBtn">선택영역 닫기</a>
-						</dd>
-					</dl> -->
-
-					<!-- 지역 
-				</div>	-->
-
-<!-- 	작동 x 
-				<div class="jobcho-line1">
-					직종/업무:
-					<div class="jobchoice"></div>
-
-					<button type="button" class="btn btn-primary jobchoice-btn" data-toggle="modal" onclick="jsonout()" data-target="#basicExampleModal">
-					전체카테고리
-					</button>
-				</div>
-					 -->
-		
-					
-			</div>
 
 
 <form action="${path}/writeResume" id="form" method="post">
@@ -545,12 +423,12 @@ height:80px !important;
 											</li>
 										</ul>
 										<p class="formBtn">
-											<a href="#" class="btn whiteBtn" onclick="hideLicense(); return false;">취소</a>
-											<a href="#" class="btn grayBtn" onclick="addLicense(0); return false;">자격증저장</a>
+											<input type='button' class="btn whiteBtn" onclick="hideLicense(); return false;" value="취소">
+											<input type='button' class="btn grayBtn" onclick="addLicense(0); return false;" value="자격증저장">
 											<span class="saveAlert"></span>
 										</p>
 									</div>
-									<span class="bottomBtn"><a href="#" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"><em></em>자격증 추가</a></span>
+									<span class="bottomBtn"><input type='button' value="자격증 추가" class="btn blueBtn addInfoBtn" onclick="showLicense(); return false;" style="display: none;"></span>
 								</div>
 								
 								<div id="RegistIntroduce" class="registArea">
@@ -661,41 +539,6 @@ height:80px !important;
    </div>
    
    </div>
-   
-   
-
-
-
-
-<!-- 작동 x 
-Modal 직종 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       	<div class="jobcho1"></div>
-					<div class="jobcho2"></div>
-					<div class="jobcho3-title">선택된 직종</div>
-					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
-        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
 
 <!-- Modal 지역 -->
 <div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -1172,8 +1015,8 @@ Modal 직종
 		strLicense = strLicense + "		</li> ";
 		strLicense = strLicense + "	</ul> ";
 		strLicense = strLicense + "	<p class='formBtn'> ";		
-		strLicense = strLicense + "		<a href='#' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\">취소</a> ";
-		strLicense = strLicense + "		<a href='#' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\">수정완료</a> ";
+		strLicense = strLicense + "		<input type='button' value='취소' class='btn whiteBtn' onclick=\"cancelModLicense("+idx+"); return false;\"> ";
+		strLicense = strLicense + "		<input type='button' value='수정완료' class='btn grayBtn' onclick=\"addLicense("+idx+"); return false;\">";
 		strLicense = strLicense + "	</p> ";
 		strLicense = strLicense + "</div> ";
 
@@ -1269,12 +1112,12 @@ Modal 직종
 			
 			strLicense = strLicense + "	 <div class='registResult'>";
 			strLicense = strLicense + "		<ul class='textCnt'>";
-			strLicense = strLicense + "			<li class='name'><span class='input" + (radiochk ? " on" : "") + "'><label for='licenseChk" + objidx + "'>" + $('#licensenm' + modidx).val() + "</label></span></li>";
+			strLicense = strLicense + "			<li class='name'><span class='input" + (radiochk ? " on" : "") + "'>" + $('#licensenm' + modidx).val() + "</span></li>";
 			strLicense = strLicense + "			<li class='origin'>" + $('#organ' + modidx).val() + " / " + $('#certificateyyyy' + modidx).val() + "년</li>";
 			strLicense = strLicense + "		</ul>";
 			strLicense = strLicense + "		<div class='applBtn'>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>수정</a>";
-			strLicense = strLicense + "			<a href='#' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>삭제</a>";
+			strLicense = strLicense + "			<input type='button' value='수정' class='btn whiteBtn' onclick='modLicense(" + objidx + ");return false;'>수정</a>";
+			strLicense = strLicense + "			<input type='button' value='삭제' class='btn whiteBtn' onclick='delLicense(" + objidx + ");return false;'>삭제</a>";
 			strLicense = strLicense + "		</div>";
 			strLicense = strLicense + "		<input type='hidden' class='license_input' value='" + $('#licensenm' + modidx).val() + "/" + $('#organ' + modidx).val() + "/" + $('#certificateyyyy' + modidx).val() + "'>";
 			strLicense = strLicense + "		<input type='hidden' name='licensenm" + objidx + "' id='licensenm" + objidx + "' value='" + $("#licensenm" + modidx).val() + "' />";
@@ -1294,6 +1137,7 @@ Modal 직종
 			chkSpecEss();
 		}
 	}
+	
 	</script>
 </body>
 
