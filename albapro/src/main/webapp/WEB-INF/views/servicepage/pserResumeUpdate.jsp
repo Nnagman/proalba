@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="resources/css/recruinfo/jobgoods.css">
 <link rel="stylesheet" href="resources/css/recruinfo/sub.css">
 <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
- <link href="resources/css/resume.css" rel="stylesheet">
+ <link href="resources/css/resume.css?ver=1" rel="stylesheet">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
  
@@ -340,6 +340,7 @@ top:400px;
 											 	<img class='attImg' style='width:180px; height:235px;' src="<spring:url value='/resources${resume.file_name}' />" />
 											 </div>
 										</span>
+										<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 									</div>
 									<div class="baseInfo">
 										<table cellpadding="0" cellspacing="0" summary="개인정보인 휴대폰,유선전화,안심번호,이메일,주소,홈페이지 항목의 표입니다.">
@@ -399,7 +400,6 @@ top:400px;
 											</tbody>
 										</table>
 									</div>
-									<a href='#' class='file_del' data-src='${file_name}'>[삭제]</a>
 								</div>
 								
 								<div id="RegistTitle" class="registArea" style="padding:250px 72px 20px;">
@@ -703,12 +703,12 @@ top:400px;
 	   					var del_btn = "<a href='#' class='file_del' data-src='"+fileInfo.fullName+"'>[삭제]</a>";
 	   					// div에 추가
 	   					$("#photo").append(html);
-	   					$("#RegistBaseInfo").append(del_btn);
+	   					$("#photoArea").append(del_btn);
 	   				}
 	   			});
 	   		});
 	   		
-	   		$("#RegistBaseInfo").on("click", ".file_del" , function(e){
+	   		$("#photoArea").on("click", ".file_del" , function(e){
 	   			var that = $(this);
 	   			$.ajax({
 	   				type: "post",

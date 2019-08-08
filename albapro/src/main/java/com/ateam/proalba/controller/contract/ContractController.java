@@ -165,9 +165,6 @@ public class ContractController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("cservicepage/cserContract");
 		
-		logger.info(wcontractVO.toString());
-		
-		wcontractVO.setC_date(transFormat.format(new java.util.Date()));
 		int result = contractService.add_contract(wcontractVO);
 		System.out.println(result);
 		if (result == 0) {

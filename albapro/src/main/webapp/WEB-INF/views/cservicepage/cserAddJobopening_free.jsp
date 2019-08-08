@@ -384,8 +384,7 @@ text-align: center;
 												
 													<div class="hour_wage">
 														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="0"/>원
-														<span class="sss">　(2019년 최저시급: ${hourWage}원)</span>
-														
+														<span class="sss">　(2019년 최저시급: ${hourWage}원)</span>	
 													</div>
 													<div class="workcon-map">
 													<c:set var="address" value="${fn:split(login.address,'/')}"/>
@@ -397,7 +396,7 @@ text-align: center;
 														<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"/>
 														<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="${address[2]}"/>
 														<input type="button" class="searchmap btn btn-light-green adr-btn" value="위치찾기"/>
-														<div id="map" style="width: 100%; height: 350px;" class="map"></div>
+														<div id="map" style="width: 100%; height: 350px; margin-top: 0px;" class="map"></div>
 														<input type="hidden" id="address" name="address" value=""/>
 													</div>
 												</div>
@@ -506,8 +505,7 @@ text-align: center;
    <script src="resources/js/servicepage2/popper.min.js"></script>
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
    <script src="resources/js/servicepage2/demo.js"></script>
-   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=LIBRARY"></script>
-   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services"></script>
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services,clusterer,drawing"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
    <!-- 주소검색  -->
    <script>
