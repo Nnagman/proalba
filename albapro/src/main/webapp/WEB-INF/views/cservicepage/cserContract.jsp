@@ -101,18 +101,13 @@
 		<%@ include file="../include/header.jsp"%>
 		<div class="container">
 			<div id="SubContents">
-				<h2 style="margin-top: 61px; font-family:'NanumSquareRound', sans-serif !important; font-weight: 800;
-				
-				
-				
-				
-				
-				">근로계약서 목록</h2>
+				<h2 style="margin-top: 61px; font-family:'NanumSquareRound', sans-serif !important; font-weight: 800;">근로계약서 목록</h2>
 				<br>
 				<br>
 				<table id="example" class="table" style="width: 100%">
 					<thead class="thead-dark">
 						<tr>
+							<th class="c_date" scope="col">작성일</th>
 							<th class="appDate" scope="col">회사명</th>
 							<th class="endDate" scope="col">계약시작일</th>
 							<th class="resume" scope="col">계약종료일</th>
@@ -122,6 +117,7 @@
 					<tbody style="text-align: center;">
 						<c:forEach var="contract" varStatus="i" items="${map.list}">
 							<tr>
+								<td><a href="${path}/vcontract?c_code=${contract.c_code}">${fn:substring(contract.c_date,2,10)}</a></td>
 								<td>${contract.work_place}</td>
 								<td>${fn:substring(contract.start_period,2,10)}</td>
 								<td>${fn:substring(contract.end_period,2,10)}</td>
@@ -163,7 +159,8 @@
 		        	$('#example').DataTable( {
 		        		columnDefs: [
 		        			{
-		        				targets: [ 0, 1, 2 ],
+		        				targets: [ 0, 1, 2, 3 ],
+		        				order: [ 0, "asc" ]
 		        				className: 'mdl-data-table__cell--non-numeric'
 		        			}
 		        		]
