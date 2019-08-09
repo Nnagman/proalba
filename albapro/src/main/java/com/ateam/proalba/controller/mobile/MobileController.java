@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
+import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
 import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.WcontractVO;
@@ -476,7 +477,66 @@ public class MobileController {
 		return "redirect:/listResume?id="+id;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/m.listResume", method = RequestMethod.POST)
+	public  List<ResumeVO> listResumeGET(@RequestBody String id) throws Exception {
+		logger.info("listResumeGET's id : " + id);
+		logger.info("Welcome wresumePage");
+		
+		List<ResumeVO> list = resumeService.list_resume(id);
+		
+		System.out.println(list);
+
+		return list;
+	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/m.deleteResume", method = RequestMethod.POST)
+	public String deleteResumePOST(@RequestBody String r_code) throws Exception {
+		
+		logger.info("r_code: " + r_code);
+		resumeService.delete_resume(r_code);
+		System.out.println("이력서 삭제");
+
+		return "redirect:/listResume";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.viewResume", method = RequestMethod.POST)
+	public JSON viewResumePOST(String r_code, String id) throws Exception {
+		logger.info("Welcome resumePage");
+		logger.info(r_code +" "+ id);
+		
+		List<CareerVO> careerVO = careerService.selectCareers("p"+id);
+	
+		List<ResumeVO> list = mobileService.mobile_view_resume(r_code);
+		JSONArray pJson = JSONArray.fromObject(list);
+		System.out.println(list);
+		
+		System.out.println("이력서 출력");
+		
+		return pJson;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/m.updateResume", method = RequestMethod.POST)
+	public String updateResumePOST(Model model, ResumeVO resumeVO) throws Exception {
+		logger.info("Welcome wresumePage");
+		String id = resumeVO.getId();
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("r_code", resumeVO.getR_code());
+		map.put("title", resumeVO.getTitle());
+		map.put("address", resumeVO.getAddress());
+		map.put("content", resumeVO.getContent());
+		map.put("file_name", resumeVO.getFile_name());
+		map.put("education", resumeVO.getEducation());
+		map.put("late_status", resumeVO.getLate_status());
+		System.out.println(resumeVO.getLate_status());
+		resumeService.update_resume(map);
+		model.addAttribute("message", "wresumePage");
+		return "redirect:/listResume?id="+id;
+	}
 	
 	
 

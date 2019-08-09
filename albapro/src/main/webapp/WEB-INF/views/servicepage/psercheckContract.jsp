@@ -232,7 +232,8 @@
 </div>
    
    <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script>
-   <script src="resources/js/servicepage2/popper.min.js"></script> 
+   <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+   <script src="resources/js/servicepage2/popper.min.js"></script>
    <script src="resources/js/servicepage2/jquery.dataTables.min.js"></script>
    <script src="resources/js/servicepage2/demo.js"></script>
    								

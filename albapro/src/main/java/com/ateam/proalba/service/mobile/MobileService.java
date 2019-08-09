@@ -7,6 +7,7 @@ import java.util.List;
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
@@ -23,4 +24,5 @@ public interface MobileService {
 	List<MobileNoticeVO> mobile_recruinfode(String n_code)throws Exception;
 	List<MobileNoticeVO> mobile_recruinfo()throws Exception;
 	List<CareerVO> mobile_inqcareer(String m_code)throws Exception;
+	List<ResumeVO> mobile_view_resume(String r_code)throws Exception;
 }

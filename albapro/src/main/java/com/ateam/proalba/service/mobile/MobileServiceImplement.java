@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.NoticeVO;
+import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
@@ -81,6 +82,11 @@ public class MobileServiceImplement implements MobileService {
 	@Override
 	public List<CareerVO> mobile_inqcareer(String m_code) throws Exception {
 		return mobileDAO.mobile_inqcareer(m_code);
+	}
+	
+	@Override
+	public List<ResumeVO> mobile_view_resume(String r_code) throws Exception {
+		return mobileDAO.mobile_view_resume(r_code);
 	}
 
 

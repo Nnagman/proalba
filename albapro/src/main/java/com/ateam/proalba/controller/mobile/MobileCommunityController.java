@@ -115,7 +115,7 @@ public class MobileCommunityController {
 		vo.setM_code(mCode);
 		logger.info(vo.toString());
 		postService.create(vo);
-		return "redirect:/comm.html";
+		return "redirect:/comm.html?1&&";
 	}
 	
 	@ResponseBody
