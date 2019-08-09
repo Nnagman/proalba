@@ -251,7 +251,7 @@ font-size:20px;
 
 	<div class="container">
 		<div class="recruinfo-title">
-			<h2 class="recruinfo-title-p">개인 근태 관리</h2>
+			<h2 class="recruinfo-title-p">개인 근태 조회</h2>
 		</div>
 		<br><br>
 
@@ -318,7 +318,7 @@ font-size:20px;
 					
 							
 								<div class="card-header card-header-primary">
-									<h4 class="card-title ">근태 관리</h4>
+									<h4 class="card-title ">근태 조회</h4>
 									<p class="card-category">
 										${login.name} 님의 근태를 볼수 있습니다.
 										
