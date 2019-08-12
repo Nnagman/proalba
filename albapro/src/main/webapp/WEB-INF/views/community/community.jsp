@@ -35,6 +35,9 @@ $(function(){
 <style>
 	.btn10{
 		float: right;
+		color: #fff;
+		background-color: #007bff;
+		border: 1px solid #007bff;
 	}
 	form{
 		margin-bottom: 5px;
@@ -46,7 +49,18 @@ $(function(){
 	left:500px;
 	width:80px;
 }
-	
+	.sel{
+	height: 30px;
+	}
+	.subm{
+	color: #fff;
+	background-color: #626a70;
+	border: 1px solid #383e52;
+	position: relative;
+    right: 5px;
+    height: 30px;
+    width: 45px;
+	}
 </style>
 </head>
 
@@ -58,7 +72,7 @@ $(function(){
 	
 ${map.count}개의 게시물이 있습니다. <br>
 <form name="form1" method="post" action="${path}/comm">
-		<select name="searchOption">
+		<select name="searchOption" class="sel">
 			<!-- 검색조건을 검색처리후 결과화면에 보여주기위해  c:out 출력태그 사용, 삼항연산자 -->
 			<option value="all" <c:out value="${map.searchOption == 'all'?'selected':''}"/> >제목+아이디+내용</option>
 			<option value="id" <c:out value="${map.searchOption == 'name'?'selected':''}"/> >아이디</option>
@@ -66,7 +80,7 @@ ${map.count}개의 게시물이 있습니다. <br>
 			<option value="title" <c:out value="${map.searchOption == 'title'?'selected':''}"/> >제목</option>
 		</select>
 		<input name="keyword" value="${map.keyword}">
-		<input type="submit" value="조회">
+		<input type="submit" value="조회" class="subm">
 		<c:if test="${login.id != null}">
 	</c:if>
 	<!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
