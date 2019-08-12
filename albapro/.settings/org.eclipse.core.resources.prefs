@@ -21,6 +21,7 @@ encoding//src/main/java/com/ateam/proalba/persistence/post/PostDAOImpl.java=UTF-
 encoding//src/main/java/com/ateam/proalba/service/post/PostServiceImpl.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/cservice/calendar.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/cservicepage/cserEmpManage.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/login/mobileGoogleLogin.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/login/naverLogin.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/login/naverRegister.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/recruinfo/recruinfo.jsp=UTF-8

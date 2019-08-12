@@ -210,4 +210,41 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
             return "redirect:/";
     	}
     }
+    
+	@RequestMapping(value = "/m.APIlogin", method = {RequestMethod.POST, RequestMethod.GET}, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	@CrossOrigin(origins = "*")
+	public String mobileAPILogin(@RequestBody String email) throws Exception { 
+    	System.out.println("login called");
+    	MemberVO memberVO = memberService.apiIdcheck(email);
+    	String is_withdraw = "";
+    	
+    	if(memberVO != null) {
+    		String mcode = memberVO.getM_code(); 
+    		is_withdraw = memberService.is_withdraw(mcode);
+    	}else {
+    		MemberVO vo = new MemberVO();
+    		vo.setM_code("0");
+    		vo.setEmail(email);
+    		return JSONObject.fromObject(vo).toString();
+    	}
+    	
+    	if(is_withdraw != null && is_withdraw.equals("y")) {
+    		return "";
+    	} else {            
+    		return JSONObject.fromObject(memberVO).toString();
+    	}
+    }
+	
+	@RequestMapping(value = "/mobileGoogleLogin", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
+	public String mobileGoogleLogin() throws Exception {
+		return "login/mobileGoogleLogin";
+	}
+	
+	@RequestMapping(value = "/mobileGoogleLoginPOST", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*")
+	public String mobileGoogleLoginPOST(@RequestBody String email) throws Exception {
+		return "redirect:http://39.127.7.84:3000/googleLogin.html?"+email;
+	}
 }
