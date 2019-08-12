@@ -393,7 +393,7 @@ width: 130px !important;
    <script src="resources/js/servicepage2/demo.js"></script>
    <script src="resources/js/cserWorkmanagetableSC.js"></script>
    
-      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a746e8d90125d9464009ac37f598586f&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services,clusterer,drawing"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
    <!-- 주소검색  -->
 <script>
@@ -528,7 +528,7 @@ width: 130px !important;
 				}
 				alert(data.message); location.reload();
 			},
-			error : function(error) {alert("error : " + error);}
+			error : function(error) {alert("지원한 이력서가 있어 삭제가 되지 않습니다.");}
     	  });  
       });
       

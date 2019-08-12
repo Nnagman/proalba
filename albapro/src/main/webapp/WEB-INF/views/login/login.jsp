@@ -6,7 +6,7 @@
   	<head>   
   	<script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
 	<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
-	<link rel="stylesheet" type="text/css" href="resources/css/login.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/login.css?ver=2"/>
 	<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
    	<meta charset="UTF-8">
    	<title>프로알바</title>
@@ -25,33 +25,7 @@
 			}
 		});
 	</script>
-   	<!--
-    <script>
-       function init(){
-          console.log('init');
-          gapi.load('auth2', function() { // Ready. });
-              console.log('auth2');
-              var gauth = gapi.auth2.init({
-                 client_id:'645553480843-ubo3jrtifnf4ldbl813amb8c8eqooqd5.apps.googleusercontent.com'
-                })
-              gauth.then(function(){
-                 console.log('googleAuth success');
-              }, function(){
-                 console.log('googleAuth fail');
-              });
-           });
-       }
-    </script>
-    <script>
-    function onSignIn(googleUser) {
-       var profile = googleUser.getBasicProfile();
-       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-       console.log('Name: ' + profile.getName());
-       console.log('Image URL: ' + profile.getImageUrl());
-       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
-   </script>
-   -->
+
    <script>
      $(document).ready(function(){
        $(".btn-regist").on("click", function(){
@@ -59,6 +33,18 @@
        });
      });
    </script>
+   <style>
+   	.abcRioButton{
+   		border-radius: 5px 5px 5px 5px !important;
+   	}
+   	.googleid{
+   		margin-left: 7px !important;
+   	}
+	.abcRioButtonIcon > span{
+	display: inline-block !important;
+	}
+
+   </style>
 </head>
 <style>
 #table1{
@@ -140,19 +126,21 @@ border-right:1px solid #DCDCDC;
 	          <label for="password">Password</label>
 	          <input type="password" id="password" class="inp" name="password" required="required"/>
 	        </div>
+	        
 	        <div class="form-group">
 	          <button type="submit">로그인</button>
+	          <div style="margin-left: 72px;">SNS 계정으로 쉽고 빠르게 로그인하세요!</div>
+	          <div style="width: 300px; margin-left: 50px; text-align: right;">
+	            <div id="my-signin2" class="googleid" onClick="googleLogin()" style="display: inline-block;"></div>
+	            <div id="naverIdLogin" style="margin-top: 5px; display: inline-block; margin-right: 15px;"></div>
+	          </div>
 	        </div>
-	        <div id="naverIdLogin" style="margin-left: 50px; display: inline-block;"></div>
-	        <div id="my-signin2" onClick="googleLogin()" style="display: inline-block; margin-left: 0px;"></div>
+	        
 	        <hr>
 	        <span class="sps">계정이 없다면 바로 가입하세요! </span><a href="${path}/register" class="btn-regist">무료 회원가입 하기</a>
 	        
-
->
-	        
-	        <div class="footer-copyright">
-	        <span>© 2019 Copyright:</span>
+	        <div class="footer-copyright" style="margin-top: 10px;">
+	        <span>© 2019 Copyright</span>
 	         <a href="${path}/" class="sp1" style="text-decoration:none">Proalba</a>
 	        </div>
 	          <script>
@@ -174,8 +162,8 @@ border-right:1px solid #DCDCDC;
 	             function renderButton() {
 	                gapi.signin2.render('my-signin2', {
 	                   'scope': 'email',
-	                   'width': 60,
-	                   'height': 60,
+	                   'width': 130,
+	                   'height': 50,
 	                   'longtitle': false,
 	                   'theme': 'dark',
 	                   'onsuccess': onSuccess,
@@ -210,12 +198,16 @@ border-right:1px solid #DCDCDC;
 				callbackUrl: "http://proalba1.shop/naverLogin",
 				isPopup: true,
 				callbackHandle: false,
-				loginButton: {color: "green", type: 1, height: 60}
+				loginButton: {color: "green", type: 2, height: 50}
 				/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
 			}
 		);
 		/* (3) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
 		naverLogin.init();
+	</script>
+	
+	<script>
+		$(".abcRioButtonContentWrapper").append('<span>로그인<span>');
 	</script>
 </body>
 </html>

@@ -216,6 +216,7 @@ text-align: center;
 	position: relative;
 	left: 823px;
 	top: 40px;
+	z-index: 1000;
 }
 
 .company{

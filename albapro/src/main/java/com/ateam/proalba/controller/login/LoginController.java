@@ -161,7 +161,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     		is_withdraw = memberService.is_withdraw(mcode);
     	} else {
     		model.addAttribute("status", "0");
-    		return "redirect:/login";
+    		return "redirect:/apiRegister?email="+email;
     	}
     	
     	if(is_withdraw != null && is_withdraw.equals("y")) {
@@ -192,7 +192,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
     		is_withdraw = memberService.is_withdraw(mcode);
     	} else {
     		model.addAttribute("status", "0");
-    		return "redirect:/login";
+    		return "redirect:/apiRegister?email="+email;
     	}
     	
     	if(is_withdraw != null && is_withdraw.equals("y")) {

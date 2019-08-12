@@ -121,7 +121,15 @@
   	  	]]>
   	  	</select>
   	  	
-  	  	
+  	  		<select id="mobile_view_resume" resultType="com.ateam.proalba.domain.ResumeVO">
+        SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name,
+        sum(w.late_status) as late_status, count(w.late_status)-sum(w.late_status) as c_late_status
+		FROM resume r, resume_file f, work_record w
+		WHERE r.r_code = f.r_code
+		AND r.r_code = #{r_code}
+        group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
+        
+	</select>
   	
 	
 	
