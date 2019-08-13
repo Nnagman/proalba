@@ -88,11 +88,11 @@ ${map.count}개의 게시물이 있습니다. <br>
 </form>
 <table class="table table-striped table-bordered table-hover">
 	<tr>
-		<th>번호</th>
+		<th style="width: 80px !important;">번호</th>
 		<th>제목</th>
-		<th>아이디</th>
-		<th>날짜</th>
-		<th>조회수</th>		
+		<th style="width: 150px !important;">아이디</th>
+		<th style="width: 270px !important;">날짜</th>
+		<th style="width: 110px !important;">조회수</th>		
 	</tr>
 <c:forEach var="row" items="${map.list }" >
 	<tr>
