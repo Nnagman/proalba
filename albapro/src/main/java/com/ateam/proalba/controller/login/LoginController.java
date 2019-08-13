@@ -241,10 +241,4 @@ private static final Logger logger = LoggerFactory.getLogger(MemberService.class
 	public String mobileGoogleLogin() throws Exception {
 		return "login/mobileGoogleLogin";
 	}
-	
-	@RequestMapping(value = "/mobileGoogleLoginPOST", method = RequestMethod.GET)
-	@CrossOrigin(origins = "*")
-	public String mobileGoogleLoginPOST(@RequestBody String email) throws Exception {
-		return "redirect:http://39.127.7.84:3000/googleLogin.html?"+email;
-	}
 }
