@@ -5,7 +5,6 @@
 <html lang="kr">
   	<head>   
   	<script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
-	<meta name="google-signin-client_id" content="491501877876-cr50begaaku2720m2ku42ci28dh2uaj5.apps.googleusercontent.com">
 	<link rel="stylesheet" type="text/css" href="resources/css/login.css?ver=2"/>
 	<c:set var="path" value = "${pageContext.request.contextPath}"></c:set>
    	<meta charset="UTF-8">

@@ -323,7 +323,7 @@
 				alert("생년월일을 입력해주세요."); return;
 			}
 			
-			if($("#sex1").is(":checked") == false || $("#sex2").is(":checked") == false){
+			if($("#sex1").is(":checked") == false && $("#sex2").is(":checked") == false){
 				alert("성별을 선택해주세요."); return;
 			}
 			

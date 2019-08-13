@@ -29,7 +29,27 @@
 		left:500px;
 		width:80px;
 	}
-	
+	.btnList{
+		color: #333;
+    	background-color: #fff;
+    	border: 1px solid #a0a0a0;
+    	float: right;
+    	margin-bottom: 20px;
+	}
+	.btnList2{
+		color: #333;
+    	background-color: #fff;
+    	border: 1px solid #a0a0a0;
+	}
+	.nov{
+	float: right;
+	}
+	.lead{
+	margin-bottom: 5px !important;
+	}
+	.reply_delete{
+	float: right;
+	}
 </style>
 <script>
 	$(function(){
@@ -112,12 +132,12 @@
           by ${vo.id}
         </p>
 
-        <hr>
+        
 
         <!-- Date/Time -->
-        <p>Posted on <fmt:formatDate value="${vo.p_date}" pattern="yyyy-MM-dd a HH:mm:ss"/></p>
-		<p>조회수 ${vo.viewcnt} </p>
-        <hr>
+        <span style="margin: 0; color: #212529; font-size: 14px;"><fmt:formatDate value="${vo.p_date}" pattern="yyyy-MM-dd a HH:mm:ss"/></span>
+		<span class="nov" style="color: #212529; font-size: 14px;">조회수 ${vo.viewcnt} </span>
+        
 
         <!-- Preview Image -->
         
@@ -127,7 +147,7 @@
 	                <input type="hidden" name="fullname" value="${att.fullname}">			
 			</span>
 	        </c:forEach>
-        <hr>
+        <hr style="border: 1px solid #ebeef1; margin-bottom: 40px;">
         
         <!-- Post Content -->
         ${vo.p_content}
@@ -136,22 +156,22 @@
 	</form>
 	
         <hr>
-        <div style="width:650px; text-align: center;">
+        <div style="width:100%;">
 					<!-- 게시물번호를 hidden으로 처리 -->
 				<!-- 본인이 쓴 게시물만 수정, 삭제가 가능하도록 처리 -->
 				<c:if test="${login.id == vo.id || login.id == 'admin'}">
-					<button type="button" id="btnUpdate">수정</button>
-					<button type="button" id="btnDelete">삭제</button>
+					<button type="button" id="btnUpdate" class="btnList2">수정</button>
+					<button type="button" id="btnDelete" class="btnList2">삭제</button>
 				</c:if>
 					<!-- 상세보기 화면에서 게시글 목록화면으로 이동 -->
-					<button type="button" id="btnList">목록</button>
+					<button type="button" id="btnList" class="btnList">목록</button>
          </div>
          
 	<!-- 로그인 한 회원에게만 댓글 작성폼이 보이게 처리 -->
 	<c:if test="${login.id != null}">
         <!-- Comments Form -->
-        <div class="card my-4">
-          <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card my-4" style="width: 100%; height: 230px; margin-bottom: 50px !important; margin-top: 0 !important;">
+          <h5 class="card-header">댓글</h5>
           <div class="card-body">
             <form>
               <div class="form-group">
@@ -159,7 +179,7 @@
               </div>
               <input type="hidden" id="reId" value="${login.id}">
               <input type="hidden" id="p_code" value="${vo.p_code}">      
-              <button type="button" id="btnReply" class="btn btn-primary">Submit</button>
+              <button type="button" id="btnReply" class="btn btn-primary" style="float: right; width: 70px;">게시</button>
             </form>
           </div>
         </div>
