@@ -337,12 +337,19 @@
 								<!-- //자유양식 -->
 							</div>
 						</div>
+						${resume.late_status };
+						<c:choose>
+						<c:when test="${null ne resume.late_status }">
 						<div id="RegistIntroduce" class="registArea">
 							<h2>통계차트</h2>
 							<!-- 차트 -->
 							<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
 							<!-- 차트 -->
 						</div>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+						</c:choose>
 					</div>
 				</form>
 			</div>
