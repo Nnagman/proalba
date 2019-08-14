@@ -16,7 +16,6 @@ public class AddjobOpeningVO {
 	private int hour_wage;
 	private String gender;
 	private String age;
-	private String way;
 	private int term;
 	private String work_day;
 	private String work_time1;
