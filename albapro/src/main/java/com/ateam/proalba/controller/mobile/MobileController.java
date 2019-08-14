@@ -38,6 +38,7 @@ import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
+import com.ateam.proalba.service.AddJobOpeningService;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.ContractService;
 import com.ateam.proalba.service.MemberService;
@@ -67,9 +68,9 @@ public class MobileController {
 	private SalaryService salaryService;
 	private MemberService memberService;
 	private CareerService careerService;
-
+	private AddJobOpeningService addJobOpeningService;
 	private ResumeService resumeService;
-
+	private RecruinfoService recruinfoService;
 
 
 	private ContractService contractService;
@@ -287,6 +288,25 @@ public class MobileController {
 		return pJson;
 	}
 	/* 모바일 출근현황 */
+	
+	/* 모바일 채용공고 작성 */
+	@ResponseBody
+	@RequestMapping(value = "/m.cserAddJobopening_free", method = RequestMethod.POST)
+	public String addjobopeningfreePOST(NoticeVO noticeVO) throws Exception {
+		logger.info("채용공고 작성");
+		logger.info(noticeVO.toString());
+		addJobOpeningService.addJobOpening(noticeVO);
+
+		String m_code = noticeVO.getM_code();
+		String id = m_code.substring(1);
+		List<NoticeVO> list=recruinfoService.get_addjobopening_free_manage_list(id);
+		
+		logger.info(list.toString());
+
+		return "redirect:/recruinfo";
+
+
+	}
 
 	/* 모바일 채용공고 관리 */
 	@ResponseBody

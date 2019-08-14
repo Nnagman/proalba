@@ -109,6 +109,7 @@ p {
 	margin: 0;
 	
 }
+
 .card-body{
 padding: 0 !important;
 }
@@ -267,7 +268,9 @@ height: 80%;
 top: 150px;
 }
 
-
+table td{
+border-top: 1px solid #dee2e6;
+}
 .container{
 }
 
@@ -352,6 +355,7 @@ top: 150px;
 													<th class="th-sm">이름</th>
 													<th class="th-sm">출근 시간</th>
 													<th class="th-sm">퇴근 시간</th>
+													<th class="th-sm">근로 시간</th>
 
 
 
@@ -366,7 +370,7 @@ top: 150px;
 														<td>${row.name}</td>
 														<td>${row.sa_start}</td>
 														<td>${row.sa_end}</td>
-
+														<td>${row.working_hours}</td>
 
 													</tr>
 

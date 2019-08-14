@@ -305,13 +305,13 @@ white-space: nowrap;
 
 									<table id="example" class="table">
 										  <thead>
-										  <tr>
-										  <th scope="col" colspan="5" class="table-info">월별 급여내역</th>
-										  <th scope="col" colspan="3" bgcolor="E2FBF7">4대보험</th>
-										  <th scope="col" colspan="4" bgcolor="FFE3E3">추가수당</th>
-										  <th scope="col" colspan="2" class="table-active">기타</th>
+										  <tr style="color: white;">
+										  <th scope="col" colspan="5" bgcolor="343a40">월별 급여내역</th>
+										  <th scope="col" colspan="3" bgcolor="444b52">4대보험</th>
+										  <th scope="col" colspan="4" bgcolor="343a40">추가수당</th>
+										  <th scope="col" colspan="2" bgcolor="444b52">기타</th>
 										  </tr>
-										    <tr>
+										    <tr class="rowr">
 										      <th scope="col">지급일자</th>
 										      <th scope="col">기본급</th>
 										      <th scope="col">지급총액</th>
