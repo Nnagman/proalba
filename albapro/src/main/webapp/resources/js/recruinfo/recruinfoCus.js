@@ -87,7 +87,7 @@ function placho(){
 
 
 ss(function(){ 
-	jQuery(document).on('click','.placho-de2',function() {
+	$(document).on('click','.placho-de2',function() {
 
 
 		

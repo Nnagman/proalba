@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 
 <script type="text/javascript"
@@ -41,7 +42,7 @@
  
 
 
-<script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
+<!-- <script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
@@ -56,8 +57,8 @@
 <script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
 <script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
+<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script> -->
+<!-- <script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script> -->
 
 
 
@@ -66,7 +67,7 @@
 
 
 </head>
-
+<%@ include file="../include/redirect_p.jsp"%>
 <style>
 html, body, header, .carousel {
 	height: 9vh !important;
@@ -187,9 +188,15 @@ tbody {
     color: #474747;
      border: 0px solid !important;
     border-bottom: 1px solid #e4e4e4 !important;
-        padding-left: 15px;
-       
+        padding-left: 15px;      
 }
+
+table.table td {
+
+    padding-right: 2.1rem;
+}
+
+
 
 .recruinfo-list table tr td.local {
     width: 13rem;
@@ -330,7 +337,8 @@ td{
 												<c:forEach var="row" items="${list}" varStatus="status">
 													<tr id="${status.count}" class="${row.em_code}">
 														<td>${row.name}</td>
-														<td>${row.start_period}</td>
+														<td><fmt:parseDate value='${row.start_period}' var='start_period' pattern='yy/MM/dd'/>
+															<fmt:formatDate value="${start_period}" pattern="yyyy/MM/dd"/></td>
 														<c:if test='${row.finger_id == 0}'> <td> 등록된 지문이 없습니다. </td> </c:if>
 														<c:if test='${row.finger_id != 0}'> <td> ${row.finger_id} </td> </c:if>
 														<td> <i class="fas fa-pencil-alt Bupdate"></i> <i class="fas fa-trash-alt Bdelete"></i> </td>
@@ -385,7 +393,7 @@ Modal 직종
 
 
 <!-- Modal 지역 -->
-<div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- <div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -401,8 +409,8 @@ Modal 직종
 			<div class="jobcho3-title">선택된 지역</div>
 			<div class="placho3"></div>
 		
-					<!-- <button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button> -->
+					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
+					<button class="btn-remove">모두지우기</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
@@ -410,7 +418,7 @@ Modal 직종
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Modal 지역 -->
 

@@ -39,7 +39,7 @@
 <!--  -->
 
 </head>
-
+<%@ include file="../include/redirect_p.jsp"%>
 <style>
 html, body, header, .carousel {
 	height: 9vh !important;
@@ -294,7 +294,7 @@ td{
 										  <thead class="thead-dark">
 										    <tr>
 										      <th scope="col">이름</th>
-										      <th scope="col">휴대번호</th>
+										      <th scope="col">휴대폰번호</th>
 										      <th scope="col">생년월일</th>
 										      <th scope="col">계약 시작일</th>
 										      <th scope="col">계약 종료일</th>

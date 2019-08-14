@@ -42,6 +42,7 @@
    
       <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
    </head>
+<%@ include file="../include/redirect_p.jsp"%>
 	<script>
 
 		$(document).ready(function(){
