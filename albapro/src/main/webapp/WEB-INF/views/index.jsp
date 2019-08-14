@@ -34,7 +34,7 @@
               alt="">  --%>
               
                  <video width="400" controls class="img-fluid z-depth-1-half video1" autoplay>
-  <source src="${path}/resources/images/contractimg/서명예제.mp4" type="video/mp4">
+  <source src="${path}/resources/images/contractimg/비디오1.mp4" type="video/mp4">
 
 </video>
             

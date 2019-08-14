@@ -109,6 +109,7 @@ p {
 	margin: 0;
 	
 }
+
 .card-body{
 padding: 0 !important;
 }
@@ -267,7 +268,9 @@ height: 80%;
 top: 150px;
 }
 
-
+table td{
+border-top: 1px solid #dee2e6;
+}
 .container{
 }
 
