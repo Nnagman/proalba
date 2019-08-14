@@ -49,13 +49,6 @@ public class CserviceController {
 	// PDF파일 업로드할때 쓰임
 	MappingJackson2JsonView jsonView;
 
-	@RequestMapping(value = "/cservice", method = RequestMethod.GET)
-	public String cserviceGET(Model model) throws Exception {
-		logger.info("Welcome CserviceController");
-		model.addAttribute("message", "");
-		return "cservice/cservice";
-	}
-
 	
 	  @RequestMapping(value ="/cserAddJobopening_free", method = RequestMethod.GET)
 	  public String addjobopeningfreeGET(Model model) throws Exception {
@@ -100,16 +93,14 @@ public class CserviceController {
 		return mav;
 	}
 	
-	 /* 채용공고 관리 */
-	
-	
-	@RequestMapping(value = "/jobopeningmanage", method = RequestMethod.GET)
-	public String jobopeningmanageGET(HttpServletRequest request, LoginDTO loginDTO, Model model) throws Exception {
-		loginDTO.setId('c' + loginDTO.getId());
-		HttpSession httpSession = request.getSession();
-		logger.info("Welcome CserviceController");
-		httpSession.setAttribute(NOTICE, addJobOpeningService.jobOpeningManage(loginDTO));
-		return "cservice/jobopeningmanage";
+	@RequestMapping("/cserAddJobopening_free_update")
+	public ModelAndView cserAddJobopening_free_update(String n_code, Model model) throws Exception {
+		List<NoticeVO> list=recruinfoService.get_noticeDe_list(n_code);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("cservicepage/cserAddJobopening_free_update");
+		mav.addObject("list", list); 
+		return mav;
 	}
 
 	@ResponseBody
@@ -144,12 +135,6 @@ public class CserviceController {
 
 		// 데이터와 http 상태 코드 전송
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/kakao", method = RequestMethod.GET)
-	public String kakaoGET(Model model) throws Exception {
-
-		return "cservice/kakao";
 	}
 
 }

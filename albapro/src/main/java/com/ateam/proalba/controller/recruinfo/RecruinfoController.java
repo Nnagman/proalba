@@ -75,9 +75,9 @@ public class RecruinfoController {
 	public ModelAndView recruinfoDetail(Model model, String n_code)throws Exception  {
 		
 		logger.info("n_code:"+ n_code);
-		 List<NoticeVO> list=recruinfoService.get_noticeDe_list(n_code); 
+		List<NoticeVO> list=recruinfoService.get_noticeDe_list(n_code); 
 		 
-			logger.info(list.toString());
+		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("recruinfo/recruinfoDetail");
 		mav.addObject("list", list); 
