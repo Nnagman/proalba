@@ -649,15 +649,16 @@ text-align: center;
 		work_day = work_day.split(',');
 		
 		work_day.forEach(function(data){
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
-			if(data == "월"){};
+			if(data == "월"){ $("#work-day1").trigger('click'); };
+			if(data == "화"){ $("#work-day2").trigger('click'); };
+			if(data == "수"){ $("#work-day3").trigger('click'); };
+			if(data == "목"){ $("#work-day4").trigger('click'); };
+			if(data == "금"){ $("#work-day5").trigger('click'); };
+			if(data == "토"){ $("#work-day6").trigger('click'); };
+			if(data == "일"){ $("#work-day7").trigger('click'); };
+			if(data == "평일"){ $("#work-day8").trigger('click'); };
+			if(data == "주말"){ $("#work-day9").trigger('click'); };
+			if(data == "요일협의"){ $("#work-day10").trigger('click'); };
 		});
 		
 		if(gender == "무관"){ $("#gender3").trigger('click'); };
@@ -674,8 +675,7 @@ text-align: center;
 		
 		if(age == "40대"){ $("#agechecked3").trigger('click'); };
 		
-		if(age == "무관"){ $("#agechecked4").trigger('click'); };
-		
+		if(age == "무관"){ $("#agechecked4").trigger('click'); };		
 	</script>
 
 </body>
