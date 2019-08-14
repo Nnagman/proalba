@@ -215,24 +215,22 @@ font-weight: 550 !important;
 		<div class="infoSub-div">
 		<div class="infoSub infoJob">
 			<div class="infoQualify">
-			<h5>지원자격</h5>
+				<h5>지원자격</h5>
+					<ul class="infotop-ul">
+						<li class="career"><span class="item">경력</span> ${list[0].career}</li>
+						<li class="age"><span class="item">연령</span> ${list[0].age}</li>
+						<li class="education"><span class="item">학력</span> ${list[0].education}</li>
+						<li class="education"><span class="item">성별</span> ${list[0].gender}</li>
+					</ul>
+				</div>
+				<div class="infoContent divide">
+				<h5>모집내용</h5>
 				<ul class="infotop-ul">
-					<li class="career"><span class="item">경력</span> ${list[0].career}</li>
-					<li class="age"><span class="item">연령</span> ${list[0].age}</li>
-					<li class="education"><span class="item">학력</span> ${list[0].education}</li>
-					<li class="education"><span class="item">성별</span> ${list[0].gender}</li>
+						<li class="job_type"><span class="item">모집직종</span> ${list[0].job_type}</li>
+						<li class="employment_type"><span class="item">고용형태</span> ${list[0].employment_type}</li>
+						<li class="personnel"><span class="item">모집인원</span> ${list[0].personnel}명</li>
 				</ul>
 			</div>
-			<div class="infoContent divide">
-			<h5>모집내용</h5>
-			<ul class="infotop-ul">
-					<li class="job_type"><span class="item">모집직종</span> ${list[0].job_type}</li>
-					<li class="employment_type"><span class="item">고용형태</span> ${list[0].employment_type}</li>
-					<li class="personnel"><span class="item">모집인원</span> ${list[0].personnel}명</li>
-				
-				</ul>
-			</div>
-			
 		</div>
 		
 		<div class="infoSub infoJob">

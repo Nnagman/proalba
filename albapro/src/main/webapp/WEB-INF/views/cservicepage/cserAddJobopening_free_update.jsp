@@ -648,6 +648,18 @@ text-align: center;
 		
 		work_day = work_day.split(',');
 		
+		work_day.forEach(function(data){
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+		});
+		
 		if(gender == "무관"){ $("#gender3").trigger('click'); };
 		
 		if(gender == "남"){ $("#gender1").trigger('click'); };
