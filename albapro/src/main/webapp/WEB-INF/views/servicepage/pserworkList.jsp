@@ -58,7 +58,7 @@
 
 
 </head>
-
+<%@ include file="../include/redirect_c.jsp"%>
 <style>
 .placho-line1{
 	margin-bottom: 25px !important;

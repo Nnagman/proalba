@@ -7,17 +7,12 @@
 <script src="resources/js/cal/googlecal.js"></script> 
 <html>
 <style>
-
 .fc-content{
 margin-bottom:2px;
 }
-
 .fc-title{
 font-size:11px !important; 
-
-
 }
-
 .fc-sat  { 
    color:#0000FF !important; 
   text-align:left;
@@ -27,35 +22,26 @@ font-size:11px !important;
 color:#FF0000 !important; 
  text-align:left;
 }   
-
 .fc-day-number{
 float:left !important;
 font-size:13px;
 }
-
-
-
 .fc-bg table tbody .fc-sat{
 	background-color:#D9E5FF !important;
 	height:50px !important;
 }
-
 .fc-bg table tbody .fc-sun {
 background-color:#FAE0D4 !important;
 }
-
 .fc-row {
 height:100%;
 }
-
 .fc-widget-header{
 height:25px !important;
 }
-
 .fc-toolbar h2{
 margin-right:100px
 }
-
 </style>
    
       <script type="text/javascript">
@@ -63,8 +49,6 @@ margin-right:100px
       
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
-
-
     
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	/*   schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source', */ 
@@ -124,7 +108,6 @@ margin-right:100px
  		],
   		
   	}
-
            
         ]
       

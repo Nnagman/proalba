@@ -175,17 +175,7 @@ h5{
 font-weight: 550 !important;
 }
 
-.card-columns { @include media-breakpoint-only(lg) { column-count:4;
-	
-}
-
-
-
-  
-
-
-
-
+.card-columns { @include media-breakpoint-only(lg) { column-count:4; }
 </style>
 <body>
 	<%@ include file="../include/header.jsp"%>
@@ -225,24 +215,22 @@ font-weight: 550 !important;
 		<div class="infoSub-div">
 		<div class="infoSub infoJob">
 			<div class="infoQualify">
-			<h5>지원자격</h5>
+				<h5>지원자격</h5>
+					<ul class="infotop-ul">
+						<li class="career"><span class="item">경력</span> ${list[0].career}</li>
+						<li class="age"><span class="item">연령</span> ${list[0].age}</li>
+						<li class="education"><span class="item">학력</span> ${list[0].education}</li>
+						<li class="education"><span class="item">성별</span> ${list[0].gender}</li>
+					</ul>
+				</div>
+				<div class="infoContent divide">
+				<h5>모집내용</h5>
 				<ul class="infotop-ul">
-					<li class="career"><span class="item">경력</span> ${list[0].career}</li>
-					<li class="age"><span class="item">연령</span> ${list[0].age}</li>
-					<li class="education"><span class="item">학력</span> ${list[0].education}</li>
-				
+						<li class="job_type"><span class="item">모집직종</span> ${list[0].job_type}</li>
+						<li class="employment_type"><span class="item">고용형태</span> ${list[0].employment_type}</li>
+						<li class="personnel"><span class="item">모집인원</span> ${list[0].personnel}명</li>
 				</ul>
 			</div>
-			<div class="infoContent divide">
-			<h5>모집내용</h5>
-			<ul class="infotop-ul">
-					<li class="job_type"><span class="item">모집직종</span> ${list[0].job_type}</li>
-					<li class="employment_type"><span class="item">고용형태</span> ${list[0].employment_type}</li>
-					<li class="personnel"><span class="item">모집인원</span> ${list[0].personnel}명</li>
-				
-				</ul>
-			</div>
-			
 		</div>
 		
 		<div class="infoSub infoJob">
@@ -295,7 +283,7 @@ font-weight: 550 !important;
 					<h5>지원</h5>
 				<ul class="infotop-ul">
 					<li class="way">
-						<span class="item">지원방법</span> ${list[0].way}
+						<span class="item">온라인지원</span>
 						<c:if test="${fn:substring(login.m_code,0,1) == 'p' && login.m_code != null && list[0].way == '온라인접수'}">
 							<a class="btn btn-default btnn" href="http://proalba1.shop/apply?id=${login.id}&&n_code=${list[0].n_code}" onclick="window.open(this.href, '_blank', 'width=500px,height=800px,toolbars=no,scrollbars=no'); return false;" role="button" style="padding:10px; font-weight:600;">지원하기</a>
 						</c:if>

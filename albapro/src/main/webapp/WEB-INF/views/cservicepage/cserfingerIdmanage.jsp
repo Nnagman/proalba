@@ -67,7 +67,7 @@
 
 
 </head>
-
+<%@ include file="../include/redirect_p.jsp"%>
 <style>
 html, body, header, .carousel {
 	height: 9vh !important;

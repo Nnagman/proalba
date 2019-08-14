@@ -42,13 +42,10 @@
    
       <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
    </head>
-<%@ include file="../include/redirect_p.jsp"%>
 	<script>
-
 		$(document).ready(function(){
 			console.log(arrJobCodeWide);			
 		});
-
 	</script>
    <style>
       html, body, header, .carousel {
@@ -253,7 +250,7 @@ text-align: center;
 															<label class="custom-control-label" for="agechecked3">40대</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice5 custom-control-input custom-radio" id="agechecked4" name="age" value="무관" checked/>
+															<input type="radio" class="preconditionschoice5 custom-control-input custom-radio" id="agechecked4" name="age" value="무관"/>
 															<label class="custom-control-label" for="agechecked4">무관</label>
 														</div>
 													</div>
@@ -268,7 +265,7 @@ text-align: center;
 															<label class="custom-control-label" for="gender2">여</label>
 														</div>
 														<div class="custom-control custom-radio">
-															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="gender3" name="gender" value="무관" checked/>
+															<input type="radio" class="preconditionschoice1 custom-control-input custom-radio" id="gender3" name="gender" value="무관"/>
 															<label class="custom-control-label" for="gender3">무관</label>
 														</div>
 													</div>
@@ -282,12 +279,12 @@ text-align: center;
 														모집종료일* : <input type="date" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value=""/>
 													</div>
 													<div class="workcon-Period">
-														근무기간*:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="0"/>개월
+														근무기간*:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="${list[0].term}"/>개월
 													</div>
 													<div class="workcon-time">
 														근무시간*:
-														<input type="time" name="work_time1" id="work_time1" value=" "/>부터
-														<input type="time" name="work_time2" id="work_time2" value=" "/>까지
+														<input type="time" name="work_time1" id="work_time1" value="${list[0].work_time1}"/>부터
+														<input type="time" name="work_time2" id="work_time2" value="${list[0].work_time2}"/>까지
 													</div>
 													<div class="dayline">
 														요일*:<br>
@@ -380,11 +377,11 @@ text-align: center;
 												<h5 class="div-cont-title">사업체 정보</h5>
 												<div class="workcon">
 													<div class="work_place_name">
-														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value="${login.work_place_name}"/>
+														사업체 명*:<input type="text" class="work_place_name" id="work_place_name" name="work_place_name" value="${list[0].work_place_name}"/>
 													</div>
 												
 													<div class="hour_wage">
-														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="0"/>원
+														시급: <input type="text" class="hour_wage" id="hour_wage" name="hour_wage" value="${list[0].hour_wage}"/>원
 														<span class="sss">　(2019년 최저시급: ${hourWage}원)</span>	
 													</div>
 													<div class="workcon-map">
@@ -405,36 +402,6 @@ text-align: center;
 											<hr>
 										</div>
 									</div>
-									<!--  ------------------------------------------------- -->
-									<div class="col-md-12">
-										<div class="addjob-5">
-											<div class="div-cont">
-												<h5 class="div-cont-title">접수 방법*</h5>
-												<div class="appperiod">
-													<div class="appperiod-how">
-														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-online custom-control-input" id="appperiod-online" value="온라인접수" name="radio" onclick="hiddendiv2()"/>
-															<label class=" custom-control-label" for="appperiod-online"> 온라인접수</label>
-															<input type="hidden" id="documents" name="documents" value="0"/>
-															<input type="hidden" id="interview" name="interview" value="0"/>
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-tel custom-control-input" id="appperiod-tel" value="전화접수" name="radio" onclick="hiddendiv2()"/>
-															<label class=" custom-control-label" for="appperiod-tel"> 전화접수</label>
-															<!-- <input type="hidden" id="contact_number" name="contact_number" value="0"/> -->
-														</div>
-														<div class="custom-control custom-radio">
-															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>
-															<label class=" custom-control-label" for="appperiod-Visit">방문접수</label>
-														</div>
-														<input type="hidden" id="way" name="way" value=""/>
-													</div>
-												</div>
-											</div>
-											<hr>
-										</div>
-									</div>
-									<!--  ------------------------------------------------- -->
 									<div class="col-md-12">
 										<div class="addjob-6">
 											<div class="div-cont">
@@ -442,13 +409,12 @@ text-align: center;
 													<div class="workplace-info-title">
 														<h5 class="div-cont-title">채용제목*</h5>
 													</div>
-													<input type="text" class="Recruitment-title" id="Recruitment-title" name="title" />
+													<input type="text" class="Recruitment-title" id="Recruitment-title" name="title" value="${list[0].title}" />
 													<input type="button" class="regaddjob btn btn-light-green adr-btn" value="등록" id="submit1"/>
 												</div>
 											</div>
-											</div>
-											</div>
-						
+										</div>
+									</div>
 				</form>
 	
    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
@@ -675,7 +641,42 @@ text-align: center;
 	        	
 </script>
 
-   
+   	<script>
+		var gender = ${list[0].gender};
+		var age = ${list[0].age};
+		var work_day = ${list[0].work_day};
+		
+		work_day = work_day.split(',');
+		
+		work_day.forEach(function(data){
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+			if(data == "월"){};
+		});
+		
+		if(gender == "무관"){ $("#gender3").trigger('click'); };
+		
+		if(gender == "남"){ $("#gender1").trigger('click'); };
+		
+		if(gender == "여"){ $("#gender2").trigger('click'); };
+		
+		if(age == "10대"){ $("#agechecked").trigger('click'); };
+		
+		if(age == "20대"){ $("#agechecked1").trigger('click'); };
+		
+		if(age == "30대"){ $("#agechecked2").trigger('click'); };
+		
+		if(age == "40대"){ $("#agechecked3").trigger('click'); };
+		
+		if(age == "무관"){ $("#agechecked4").trigger('click'); };
+		
+	</script>
 
 </body>
 </html>

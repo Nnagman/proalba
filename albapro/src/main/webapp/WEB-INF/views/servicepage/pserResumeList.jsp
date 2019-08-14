@@ -40,7 +40,7 @@
 		<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
 		<script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script>
 	</head>
-
+<%@ include file="../include/redirect_c.jsp"%>
 <style>
 body{
 padding: 0 !important;

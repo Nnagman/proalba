@@ -58,7 +58,7 @@
 
 
 </head>
-
+<%@ include file="../include/redirect_c.jsp"%>
 <style>
 body{
 padding: 0 !important;

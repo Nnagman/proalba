@@ -16,7 +16,7 @@
 		
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
-
+	<%@ include file="../include/redirect_c.jsp"%>
 	<style>
 		html, body, header, .carousel {
 			height: 9vh !important;
