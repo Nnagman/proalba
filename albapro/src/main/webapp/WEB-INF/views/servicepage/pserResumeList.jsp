@@ -252,7 +252,9 @@ color:red;
 display:block !important;
 }
 
-
+.apply_list tr{
+text-align: center !important;
+}
 
 </style>
 
@@ -397,7 +399,7 @@ display:block !important;
             			<th>공고보기</th>
          			</tr>
       			</thead>
-      			<tbody id="apply_list">
+      			<tbody id="apply_list" class="apply_list">
       			</tbody>
       		</table >
         </div>
