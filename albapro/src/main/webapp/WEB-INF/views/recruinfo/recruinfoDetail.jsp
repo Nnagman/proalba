@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="resources/css/recruinfo/recruinfoCus.css">
     
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8x6keo1mc1&submodules=geocoder"></script>
 </head>
 
 <style>
@@ -253,8 +255,7 @@ font-weight: 550 !important;
 				<h5>근무지위치</h5>
 				<ul class="infotop-ul">
 					<li class="address" ><span class="item">근무지주소</span> <span id="address">${list[0].address}</span> </li>
-					<li><div id="map" style="width: 100%; height: 350px;" class="map"></div></li>
-				
+					<li><div id="map" style="width: 100%; height: 350px;" class="map"></div></li>		
 				</ul>
 			
 			
@@ -332,34 +333,163 @@ font-weight: 550 !important;
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
-   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-   mapOption = {
-       center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-       level: 3 // 지도의 확대 레벨
-   };  
-   //지도를 생성합니다    
-   var map = new daum.maps.Map(mapContainer, mapOption); 
-</script>
-<script>
-   $(document).ready(function(){
-      var address1 = $('#address').text();   
-      console.log(address1);
-      // 주소-좌표 변환 객체를 생성합니다
-      var geocoder = new daum.maps.services.Geocoder();
-      // 주소로 좌표를 검색합니다
-      geocoder.addressSearch(address1, function(result, status) {
-          // 정상적으로 검색이 완료됐으면 
-          if (status === daum.maps.services.Status.OK) {
-             var coords = new daum.maps.LatLng(result[0].y, result[0].x);   
-              // 결과값으로 받은 위치를 마커로 표시합니다
-              var marker = new daum.maps.Marker({ map: map, position: coords });
-              // 인포윈도우로 장소에 대한 설명을 표시합니다
-              var infowindow = new daum.maps.InfoWindow({ content: '<div style="width:150px;text-align:center;padding:6px 0;">매장위치</div>' });
-              infowindow.open(map, marker);
-              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-              map.setCenter(coords);
-          } 
-      });
+	$(document).ready(function(){
+		var de_address = '${list[0].address}';
+	   
+		var map = new naver.maps.Map("map", {
+			center: new naver.maps.LatLng(37.3595316, 127.1052133),
+		   	zoom: 10,
+		   	mapTypeControl: false
+		});
+		
+		searchAddressToCoordinate(de_address);
+		
+		var infoWindow = new naver.maps.InfoWindow({
+			anchorSkew: true
+		});
+
+		map.setCursor('pointer');
+
+			function searchAddressToCoordinate(address) {
+			    naver.maps.Service.geocode({
+			        query: address
+			    }, function(status, response) {
+			        if (status === naver.maps.Service.Status.ERROR) {
+			            return alert('Something Wrong!');
+			        }
+
+			        if (response.v2.meta.totalCount === 0) {
+			            return alert('totalCount' + response.v2.meta.totalCount);
+			        }
+
+			        var htmlAddresses = [],
+			            item = response.v2.addresses[0],
+			            point = new naver.maps.Point(item.x, item.y);
+
+			        if (item.roadAddress) {
+			            htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+			        }
+
+			        // if (item.jibunAddress) {
+			        //     htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+			        // }
+
+			        // if (item.englishAddress) {
+			        //     htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+			        // }
+
+			        infoWindow.setContent([
+			            '<div style="padding:10px;min-width:200px;line-height:150%;">',
+			            '<h5 style="margin-top:5px;">검색 주소 : '+ address +'</h4>',
+			            htmlAddresses.join('<br />'),
+			            '</div>'
+			        ].join('\n'));
+
+			        map.setCenter(point);
+			        infoWindow.open(map, point);
+			    });
+			}
+
+			function initGeocoder() {
+
+			   
+			 
+			    map.addListener('click', function(e) {
+			        searchCoordinateToAddress(e.coord);
+			    });
+
+			    $('#address').on('keydown', function(e) {
+			        var keyCode = e.which;
+
+			        if (keyCode === 13) { // Enter Key
+			            searchAddressToCoordinate($('#address').val());
+			        }
+			    });
+
+			    $('#submit').on('click', function(e) {
+			        e.preventDefault();
+
+			        searchAddressToCoordinate($('#address').val());
+			    });
+
+
+			}
+
+			function makeAddress(item) {
+			    if (!item) {
+			        return;
+			    }
+
+			    var name = item.name,
+			        region = item.region,
+			        land = item.land,
+			        isRoadAddress = name === 'roadaddr';
+
+			    var sido = '', sigugun = '', dongmyun = '', ri = '', rest = '';
+
+			    if (hasArea(region.area1)) {
+			        sido = region.area1.name;
+			    }
+
+			    if (hasArea(region.area2)) {
+			        sigugun = region.area2.name;
+			    }
+
+			    if (hasArea(region.area3)) {
+			        dongmyun = region.area3.name;
+			    }
+
+			    if (hasArea(region.area4)) {
+			        ri = region.area4.name;
+			    }
+
+			    if (land) {
+			        if (hasData(land.number1)) {
+			            if (hasData(land.type) && land.type === '2') {
+			                rest += '산';
+			            }
+
+			            rest += land.number1;
+
+			            if (hasData(land.number2)) {
+			                rest += ('-' + land.number2);
+			            }
+			        }
+
+			        if (isRoadAddress === true) {
+			            if (checkLastString(dongmyun, '면')) {
+			                ri = land.name;
+			            } else {
+			                dongmyun = land.name;
+			                ri = '';
+			            }
+
+			            if (hasAddition(land.addition0)) {
+			                rest += ' ' + land.addition0.value;
+			            }
+			        }
+			    }
+
+			    return [sido, sigugun, dongmyun, ri, rest].join(' ');
+			}
+
+			function hasArea(area) {
+			    return !!(area && area.name && area.name !== '');
+			}
+
+			function hasData(data) {
+			    return !!(data && data !== '');
+			}
+
+			function checkLastString (word, lastString) {
+			    return new RegExp(lastString + '$').test(word);
+			}
+
+			function hasAddition (addition) {
+			    return !!(addition && addition.value);
+			}
+
+			naver.maps.onJSContentLoaded = initGeocoder;
    });
 </script>
 

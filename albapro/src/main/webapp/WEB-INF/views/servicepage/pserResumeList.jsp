@@ -473,7 +473,7 @@ $('#ulGugun').on('click',function(){
 				if(item.r_code == r_code){
 					var html = "<tr>";
 					html += "<td>"+item.title+"</td>";
-					html += "<td><a href='http://localhost:8080/recruinfoDetail?n_code="+item.n_code+"'>공고보기</a></td>";
+					html += "<td><a href='http://proalba1.shop/recruinfoDetail?n_code="+item.n_code+"'>공고보기</a></td>";
 					html += "</tr>";
 					console.log(html);
 					$("#apply_list").append(html);
