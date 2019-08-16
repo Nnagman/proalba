@@ -426,6 +426,11 @@
         }
         
         $("#submit2").click(function(){
+        	var myImage = document.getElementById('myImage');
+        	myImage.src = myCanvas.toDataURL();
+        	$("#myImage").append('<input type="hidden" id="p_sign" name="p_sign" value="'+myImage.src+'"/>');
+        	$("#myCanvas").hide();
+        	
         	$("#submit2").attr("disabled", true);
         	var formData = $("#form").serialize();
         	var c_code = $("#c_code").val();
