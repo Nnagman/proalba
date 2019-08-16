@@ -102,7 +102,7 @@
 		}
 	
 		.contButton{
-			margin: 0px 0 50px 20%;
+			margin: 0px 0 50px 15%;
 		}
 	</style>
 	<body>
