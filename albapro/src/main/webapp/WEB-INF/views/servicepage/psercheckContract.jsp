@@ -510,7 +510,7 @@
     				
     				
     			},
-                error : function(error) { alert("error : " + error); }
+                error : function(error) { alert("error : " + error); console.log(error); }
         	});
         });
     }); 

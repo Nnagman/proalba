@@ -87,7 +87,8 @@
 	</select>
 	
 	<insert id="insert_career">
-		INSERT INTO career(em_code, m_code, join_date, work_place) VALUES (#{em_code}, #{m_code}, #{join_date}, #{work_place})
+		INSERT INTO career(em_code, m_code, join_date, work_place)
+		VALUES (#{em_code}, #{m_code}, to_date(#{join_date},'yy/mm/dd'), #{work_place})
 	</insert>
 	
 	<insert id="careerTXid">
