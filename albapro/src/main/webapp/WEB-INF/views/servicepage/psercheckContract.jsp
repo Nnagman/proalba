@@ -426,6 +426,11 @@
         }
         
         $("#submit2").click(function(){
+        	var myImage = document.getElementById('myImage');
+        	myImage.src = myCanvas.toDataURL();
+        	$("#myImage").append('<input type="hidden" id="p_sign" name="p_sign" value="'+myImage.src+'"/>');
+        	$("#myCanvas").hide();
+        	
         	$("#submit2").attr("disabled", true);
         	var formData = $("#form").serialize();
         	var c_code = $("#c_code").val();
@@ -445,6 +450,8 @@
 				    var careeJ = JSON.parse(caree);
 				    car = careeJ;
 				    console.log(car);
+				    
+				    var c_code = car.c_code;
     				
     				alert("계약서작성성공!"); 
     				console.log("aaa: "+data);
@@ -457,7 +464,6 @@
     					    var myContJson = JSON.parse(myCont);
     					    blc = myContJson;
     					    console.log(blc);
-    						window.location.href = "${path}/contract?id=${login.id}";
 
     					    console.log("dd   "+blc);
     					  	var c_code = blc.c_code;
@@ -494,7 +500,8 @@
     			    	   
     			    	   	window.open("http://13.124.175.148:3000?c_code="+c_code+"&start_period="+start_period+"&end_period="+end_period+"&c_date="+c_date+"&c_id="+c_id+"&p_id="+p_id+"&work_place_name="+work_place_name+"&email_check="+email_check+"&hour_wage="+hour_wage+"&dedicated_work="+dedicated_work+"&work_place="+work_place+"&work_detail="+work_detail+"&start_work_time="+start_work_time+"&end_work_time="+end_work_time+"&additional_wage="+additional_wage+"&payday="+payday+"&b_number="+b_number+"&b_name="+b_name+"&c_address="+c_address+"&work_place_phone="+work_place_phone+"&p_name="+p_name+"&p_phone="+p_phone+"&p_address="+p_address+"&em_code="+em_code+"&m_code="+m_code+"&join_date="+join_date+"&end_date="+end_date+"&work_place="+work_place,
     				    			  "popup",'width=600, height=350, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
-    					    
+    			    	   	
+    			    	   	window.location.href = "${path}/contract?id=${login.id}";
     					},
     					error : function(){
     						alert("?");
@@ -503,7 +510,7 @@
     				
     				
     			},
-                error : function(error) { alert("error : " + error); }
+                error : function(error) { alert("error : " + error); console.log(error); }
         	});
         });
     }); 

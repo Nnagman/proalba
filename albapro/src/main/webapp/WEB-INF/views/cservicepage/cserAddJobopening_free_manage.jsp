@@ -323,9 +323,7 @@ width: 130px !important;
 													<td class="salary">${row.hour_wage}</td>
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 													<td class="a1">
-														<c:if test="${row.way eq '온라인접수'}">
-														 <a class="a1" style="margin-right: 35%;" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
-														</c:if>
+														<a class="a1" style="margin-right: 35%;" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
 													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
 													<td><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
