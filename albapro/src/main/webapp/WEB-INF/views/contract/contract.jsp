@@ -185,20 +185,20 @@
 									<img class="can1" id="" src="${contract.c_sign}" style="margin:1px;">
 								</div>	
 								
-								<span class="t3">사업체명: </span>
-								${contract.work_place_name}<br>
+								<span class="t3">사업체명: ${contract.work_place_name}</span>
+								<br>
 								
-								<span class="t3">사업자등록번호: </span>
-								${contract.b_number}<br>
+								<span class="t3">사업자등록번호: ${contract.b_number}</span>
+								<br>
 								
-								<span class="t3" id="mySign">대표자: </span>
-								${contract.b_name}<br>
+								<span class="t3" id="mySign">대표자: ${contract.b_name}</span>
+								<br>
 								
-								<span class="t3">주소: </span>
-								${contract.c_address}<br>
+								<span class="t3">주소: ${contract.c_address}</span>
+								<br>
 								
-								<span class="t3">연락처: </span>
-								${contract.work_place_phone}<br><br>
+								<span class="t3">연락처: ${contract.work_place_phone}</span>
+								<br><br>
 								
 								<hr><br>
 								
@@ -208,16 +208,13 @@
 									<img class="can1" id="myImage" src="${contract.p_sign}" style="margin:1px;">
 								</div>
 								
-								<span class="t3">근로자: </span>
-								${contract.p_name}
+								<span class="t3">근로자: ${contract.p_name}</span>
 								<br><br> 
 				                     
-								<span class="t3">연락처: </span>
-								${contract.p_phone}
+								<span class="t3">연락처: ${contract.p_phone}</span>
 								<br><br>
 								
-								<span class="t3">&nbsp주소:  &nbsp&nbsp </span>
-								${contract.p_address}
+								<span class="t3">주소: ${contract.p_address}</span>
 								<Br><Br>
 								
 								<div class="contButton">
@@ -345,7 +342,7 @@
 		 				data : {"c_code" : cid},
 		 				dataType : 'json',
 		 				success : function(data){
-		 					var dbhsCont = data;
+		 					var dbhsCont = data.blockHsCont;
 		 				
 		 		  		 	$.ajax({
 		 		 				url: "${path}/getHsCont",
