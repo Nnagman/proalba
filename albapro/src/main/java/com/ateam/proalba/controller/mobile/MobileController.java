@@ -28,6 +28,7 @@ import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.MemberVO;
 import com.ateam.proalba.domain.NoticeVO;
 import com.ateam.proalba.domain.PageMaker;
+import com.ateam.proalba.domain.QnAVO;
 import com.ateam.proalba.domain.ResumeVO;
 import com.ateam.proalba.domain.WcontractVO;
 import com.ateam.proalba.domain.WorkManageVO;
@@ -364,6 +365,17 @@ public class MobileController {
 	}
 	/* 모바일 개인 계약서 목록 */
 
+//	고객센터	
+	@ResponseBody
+	@RequestMapping(value = "/m.onlineQnA", method = RequestMethod.POST)
+	public String add_qnaPOST(HttpServletRequest request, QnAVO qnaVO) throws Exception {
+		logger.info(qnaVO.toString());
+		qnaService.add_qna(qnaVO);
+		
+		return "redirect:/onlineQnA";
+	}
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "m.qnalist", method = RequestMethod.POST)
 	public JSON qnaListPOST(@ModelAttribute("criteria") Criteria criteria, @RequestBody String m_code)
