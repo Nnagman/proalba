@@ -279,7 +279,7 @@ text-align: center;
 														<div class="startime">
 															모집시작일: <input type="date" class="today1" placeholder="ex)2019-05-08" name="start_date" value=""/>
 														</div>
-														모집종료일* : <input type="date" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value=""/>
+														모집종료일* : <input type="date" class="today1" placeholder="ex)2019-05-08" name="end_date" value=""/>
 													</div>
 													<div class="workcon-Period">
 														근무기간*:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="0"/>개월
