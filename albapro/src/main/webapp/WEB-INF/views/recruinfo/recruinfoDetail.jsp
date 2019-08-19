@@ -285,7 +285,7 @@ font-weight: 550 !important;
 				<ul class="infotop-ul">
 					<li class="way">
 						<span class="item">온라인지원</span>
-						<c:if test="${fn:substring(login.m_code,0,1) == 'p' && login.m_code != null}">
+						<c:if test="${fn:substring(login.m_code,0,1) == 'p' && login.m_code != null && list[0].way == '온라인접수'}">
 							<a class="btn btn-default btnn" href="http://proalba1.shop/apply?id=${login.id}&&n_code=${list[0].n_code}" onclick="window.open(this.href, '_blank', 'width=500px,height=800px,toolbars=no,scrollbars=no'); return false;" role="button" style="padding:10px; font-weight:600;">지원하기</a>
 						</c:if>
 					</li>	

@@ -558,6 +558,21 @@ public class MobileController {
 		return "redirect:/listResume?id="+id;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/m.applyResume", method=RequestMethod.POST)
+	public String applyResume(String r_code, String n_code) throws Exception {
+		logger.info(r_code +" "+ n_code);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("r_code", r_code);
+		map.put("n_code", n_code);
+
+		
+		resumeService.apply_resume(map);
+
+
+		return "redirect:/recruinfoDe";
+	}
+	
 	
 
 }
