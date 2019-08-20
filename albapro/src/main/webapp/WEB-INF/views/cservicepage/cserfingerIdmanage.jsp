@@ -36,36 +36,6 @@
 <script src="resources/js/cal/interaction.js"></script>
 <script src="resources/js/bootstrap.js"></script>
 
-<!--  -->
-
- 
- 
-
-
-<!-- <script type="text/javascript" src="resources/js/recruinfo/test7.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test8.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test9.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test10.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test11.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test12.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test13.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test14.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test15.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test16.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test17.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test18.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test19.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test20.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script>
-<script type="text/javascript" src="resources/js/recruinfo/test21.js"></script> -->
-<!-- <script type="text/javascript" src="resources/js/recruinfo/recruinfoCus.js"></script> -->
-
-
-
-
-
-
-
 </head>
 <%@ include file="../include/redirect_p.jsp"%>
 <style>
@@ -356,71 +326,6 @@ td{
    </div>
    
    </div>
-   
-   
-
-
-
-
-<!-- 작동 x 
-Modal 직종 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       	<div class="jobcho1"></div>
-					<div class="jobcho2"></div>
-					<div class="jobcho3-title">선택된 직종</div>
-					<div class="jobcho3"></div>
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sejob" data-dismiss="modal">선택완료</button>
-        <button type="button" class="btn btn-primary btn-remove">모두지우기</button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
-
-<!-- Modal 지역 -->
-<!-- <div class="modal fade" id="ExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">직종선택</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       		<div class="placho1"></div>
-		<div class="placho2"></div>		
-			<div class="jobcho3-title">선택된 지역</div>
-			<div class="placho3"></div>
-		
-					<button class="btn-sejob" data-dismiss="modal">선택 완료</button>
-					<button class="btn-remove">모두지우기</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-plsejob" data-dismiss="modal" >선택완료</button>
-        <button type="button" class="btn btn-primary btn-plremove">모두지우기</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Modal 지역 -->
 
  <script type="text/javascript" src="resources/js/jquery-3.4.0.min.js"></script> 
    

@@ -276,7 +276,11 @@ font-size:20px;
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
+<<<<<<< HEAD
 					<%-- <%@ include file="../cservice/calendar.jsp"%>  --%>
+=======
+					<%@ include file="../cservicepage/calendar.jsp"%> 
+>>>>>>> branch 'master' of https://github.com/Nnagman/proalba.git
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

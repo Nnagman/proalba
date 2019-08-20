@@ -87,7 +87,14 @@ function fnOnlineSubmit(){
   
   var d = new Date();
   var month = d.getMonth()+1;
-  var s = d.getFullYear() + '-' + month + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  var day = d.getDate();
+  if(month < 10){
+	  month = "0" + month;
+  }
+  if(day < 10){
+	  day = "0"+day;
+  }
+  var s = d.getFullYear() + '-' + month + '-' + day + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
 
   var service_type = $("#type_of_inquiry option:selected").text()+'/'+$("#detail_of_inquiry option:selected").text();
   var service_type_val = $("select[name=type_of_inquiry]").val()+'/'+$("select[name=detail_of_inquiry]").val();

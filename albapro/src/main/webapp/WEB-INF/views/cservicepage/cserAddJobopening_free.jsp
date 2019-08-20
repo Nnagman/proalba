@@ -279,7 +279,7 @@ text-align: center;
 														<div class="startime">
 															모집시작일: <input type="date" class="today1" placeholder="ex)2019-05-08" name="start_date" value=""/>
 														</div>
-														모집종료일* : <input type="date" class="Recruitment-endtime" placeholder="ex)2019-05-08" name="end_date" value=""/>
+														모집종료일* : <input type="date" class="today1" placeholder="ex)2019-05-08" name="end_date" value=""/>
 													</div>
 													<div class="workcon-Period">
 														근무기간*:<input type="text" class="workcon-Period-txt" id="workcon-Period-txt" maxlength="2" name="term" value="0"/>개월
@@ -406,7 +406,7 @@ text-align: center;
 										</div>
 									</div>
 									<!--  ------------------------------------------------- -->
-									<div class="col-md-12">
+									<div class="col-md-12" style="display: none;">
 										<div class="addjob-5">
 											<div class="div-cont">
 												<h5 class="div-cont-title">접수 방법*</h5>
@@ -427,7 +427,6 @@ text-align: center;
 															<input type="radio" class="appperiod-Visit custom-control-input" id="appperiod-Visit" value="방문접수" name="radio" checked onclick="hiddendiv2()"/>
 															<label class=" custom-control-label" for="appperiod-Visit">방문접수</label>
 														</div>
-														<input type="hidden" id="way" name="way" value=""/>
 													</div>
 												</div>
 											</div>

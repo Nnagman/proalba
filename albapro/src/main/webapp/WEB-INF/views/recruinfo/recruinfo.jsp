@@ -297,8 +297,8 @@ top:400px;
 		<tr>
 			<th class="local">근무지</th>
 			<th class="title">공고제목</th>
-			<th class="data">근무시간</th>
-			<th class="salary">급여</th>
+			<th class="data" style="width: 10%;">근무시간</th>
+			<th class="salary" style="width: 8%;">급여</th>
 			<th class="p_date">공고등록일</th>	
 		</tr>
 	</thead>
@@ -311,8 +311,8 @@ top:400px;
 										<span class="company">${row.work_place_name}</span>
 										<span>${row.title} </span>
 									</a></td>
-				<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
-				<td class="salary">${row.hour_wage}</td>
+				<td class="data" style="width: 10%;" >${row.work_time1} ~ ${row.work_time2}</td>
+				<td class="salary" style="width: 8%;">${row.hour_wage}</td>
 				<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 		</c:forEach>
