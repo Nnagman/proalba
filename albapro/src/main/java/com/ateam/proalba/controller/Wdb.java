@@ -194,7 +194,8 @@ class ClientClone implements Runnable {
          query = "SELECT w.work_end_time work_end_time, w.work_start_time work_start_time " +
                  "FROM work_record w " +
                  "where rownum=1 " +
-                 "and 'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+") ";
+                 "and 'p'||SUBSTR(w.w_code,1,INSTR(w.w_code,'/',1)-1) =(select m_code from employee where finger_id="+fingerID+") " +
+                 " and working_hours is null";
          rs = stmt1.executeQuery(query);
          
          int working_hours = 0;

@@ -554,6 +554,7 @@ top:400px;
 								</div>
 								<c:choose>
 								<c:when test="${null ne resume.late_status }">
+								
 								<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
 								</c:when>
 								</c:choose>
