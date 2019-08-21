@@ -305,7 +305,7 @@ width: 130px !important;
 														<th class="salary">급여</th>
 														<th class="p_date">공고등록일</th>	
 														<th class="th-sm">지원현황</th>
-														<th class="th-sm">빠른 근로계약서</th>
+														<th class="th-sm">빠른 근로계약</th>
 														<th class="th-sm">삭제 </th>
 														<th class="th-sm">삭제여부</th>
 												</tr>
@@ -323,16 +323,16 @@ width: 130px !important;
 													<td class="data">${row.work_time1} ~ ${row.work_time2}</td>
 													<td class="salary">${row.hour_wage}</td>
 													<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
-													<td class="a1">
+													<td class="a1" style="width: 2%">
 														<a class="a1" style="margin-right: 35%;" href="checkResume?n_code=${row.n_code}"><i class="fas fa-file-import Bcontract_send"></i></a>
 													</td>
-													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
-													<td><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
+													<td style="width: 12%"><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
+													<td style="width: 2%"><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
 													<c:if test="${row.is_delete == '1'}">
-														<td>삭제됨</td>
+														<td style="width: 2%">삭제됨</td>
 													</c:if>
 													<c:if test="${row.is_delete == '0'}">
-														<td>개재중</td>
+														<td style="width: 2%">개재중</td>
 													</c:if>
 													</tr>
 												</c:forEach>
