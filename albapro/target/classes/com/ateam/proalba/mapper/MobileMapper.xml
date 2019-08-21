@@ -74,7 +74,7 @@
 			SELECT n_code, m_code, title, job_type, personnel, TO_CHAR(TO_DATE(end_date,'yy/mm/dd')) end_date, hour_wage, gender, age, term, 
 		        work_day, work_time1, work_time2, TO_CHAR(TO_DATE(p_date,'yy/mm/dd')) p_date, viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),INSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),'/')+1) address, 
 		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
-		        assigned_task, education_etc, major, preferential_conditions, salary
+		        assigned_task, education_etc, major, preferential_conditions, salary, is_delete
 		FROM notice
 		where m_code = 'c'||#{id}
 		order by p_date desc

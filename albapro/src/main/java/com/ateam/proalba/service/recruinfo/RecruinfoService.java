@@ -14,6 +14,4 @@ public interface RecruinfoService {
 	public List<NoticeVO> get_addjobopening_free_manage_delete(String delete_n_code) throws Exception;
 
 	public int nCount();
-
-	public void deleteNotice(String[] deleteChedNo) throws Exception;
 }

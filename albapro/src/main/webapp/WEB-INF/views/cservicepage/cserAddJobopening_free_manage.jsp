@@ -307,6 +307,7 @@ width: 130px !important;
 														<th class="th-sm">지원현황</th>
 														<th class="th-sm">빠른 근로계약서</th>
 														<th class="th-sm">삭제 </th>
+														<th class="th-sm">삭제여부</th>
 												</tr>
 											</thead>
 											<tbody id="tbody">
@@ -327,6 +328,12 @@ width: 130px !important;
 													</td>
 													<td><a href="cserWcontractForm?id=${login.id}&n_code=${row.n_code}"><i style="margin: 0px;" class="far fa-clipboard Bcontract"></i></a></td>
 													<td><i style="margin-left: 0px; margin-right: 22px;" class="fas fa-trash-alt Bdelete"></i></td>
+													<c:if test="${row.is_delete == '1'}">
+														<td>삭제됨</td>
+													</c:if>
+													<c:if test="${row.is_delete == '0'}">
+														<td>개재중</td>
+													</c:if>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -527,7 +534,7 @@ width: 130px !important;
 				}
 				alert(data.message); location.reload();
 			},
-			error : function(error) {alert("지원한 이력서가 있어 삭제가 되지 않습니다.");}
+			error : function(error) {alert("삭제실패");}
     	  });  
       });
       

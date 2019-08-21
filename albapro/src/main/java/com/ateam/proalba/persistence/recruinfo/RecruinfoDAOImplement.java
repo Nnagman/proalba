@@ -47,15 +47,4 @@ public class RecruinfoDAOImplement implements RecruinfoDAO {
 		return sqlSession.selectOne(NAMESPACE + ".nCount");
 	}
 
-	@Override
-	public void deleteChedNo(String[] deleteChedNo) throws Exception {
-		logger.info("NoticeArrayDAO:  " +deleteChedNo);
-		List<String> list = new ArrayList<String>();
-		for(String notice : deleteChedNo) {
-			list.add(notice);
-		}
-		logger.info(list.toString());
-		sqlSession.delete(NAMESPACE + ".deleteNotice", list);
-	}
-
 }

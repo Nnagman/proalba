@@ -305,6 +305,7 @@ top:400px;
 	<tbody>
 
 		<c:forEach var="row" items="${list}">
+		<c:if test="${row.is_null == '0'}">
 			<tr>
 				<td class="local">${row.address}</td>
 				<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">
@@ -315,6 +316,7 @@ top:400px;
 				<td class="salary" style="width: 8%;">${row.hour_wage}</td>
 				<td class="p_date"><fmt:formatDate value="${row.p_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
+		</c:if>
 		</c:forEach>
 	
 	</tbody>	

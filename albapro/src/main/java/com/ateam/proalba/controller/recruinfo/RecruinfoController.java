@@ -62,14 +62,6 @@ public class RecruinfoController {
 		return mav;
 	}
 	
-	@ResponseBody
-	@RequestMapping("/recruinfoDelete")
-	public String recruinfoDelete(String[] deleteChedNo) throws Exception {
-		logger.info("checked Notice : "+deleteChedNo);
-		recruinfoService.deleteNotice(deleteChedNo);
-		return "s";
-	}
-	
 	
 	@RequestMapping("/recruinfoDetail")
 	public ModelAndView recruinfoDetail(Model model, String n_code)throws Exception  {
