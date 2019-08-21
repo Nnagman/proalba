@@ -552,8 +552,12 @@ top:400px;
 										<!-- //자유양식 -->
 									</div>
 								</div>
+								<c:choose>
+								<c:when test="${null ne resume.late_status }">
 								
 								<div id="piechart_3d" class="registArea" style="width: 900px; height: 500px;"></div>
+								</c:when>
+								</c:choose>
 								<input type='button' class="submitbtn" value="수정완료" id="submit2"/>
 							</div>
 						</form>
