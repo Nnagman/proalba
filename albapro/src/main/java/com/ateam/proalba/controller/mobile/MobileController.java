@@ -37,6 +37,7 @@ import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
 import com.ateam.proalba.domain.mobile.MobileNoticeVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
 import com.ateam.proalba.domain.mobile.MobileWorkInfoVO;
+import com.ateam.proalba.domain.mobile.MobileWorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 import com.ateam.proalba.service.AddJobOpeningService;
@@ -116,6 +117,25 @@ public class MobileController {
 		return pJson;
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/m.cworkmanage", method = RequestMethod.POST)
+	public JSON mcworkmanageGET(@RequestBody String id) throws Exception {
+
+		logger.info("c id:  " + id);
+	
+		List<MobileWorkManageVO> list = mobileAttendanceService.mobileCWorkManage(id);
+		for (MobileWorkManageVO MobileWorkManageVO : list) {
+			if (MobileWorkManageVO.getEnd_date() == null) {
+				Date date = MobileWorkManageVO.getJoin_date();
+				MobileWorkManageVO.setEnd_date(date);
+			}
+		}
+		logger.info("fdfd"+list.toString());
+		JSONArray pJson = JSONArray.fromObject(list);
+		return pJson;
+	}
+
+	
 	@ResponseBody
 	@RequestMapping(value = "/m.cworkManage", method = RequestMethod.GET)
 	public JSON mobilecworkManagePOST(@RequestBody String id) throws Exception {

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.ateam.proalba.domain.Criteria;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileCWorkRecordVO;
+import com.ateam.proalba.domain.mobile.MobileWorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileWorkPlaceVO;
 import com.ateam.proalba.domain.mobile.MobileWorkRecordVO;
 
@@ -23,4 +24,5 @@ public interface MobileAttendanceService {
 	void mobileStartWork(Map<String, String> map) throws Exception;
 	void mobileEndWork(Map<String, String> map) throws Exception;
 //	void mobileCFoundWorkRecord(Map<String, String> map) throws Exception;
+	List<MobileWorkManageVO> mobileCWorkManage(String id) throws Exception;
 }

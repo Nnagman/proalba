@@ -24,6 +24,7 @@ import com.ateam.proalba.domain.CareerVO;
 import com.ateam.proalba.domain.WorkManageVO;
 import com.ateam.proalba.domain.mobile.MobileAttendanceVO;
 import com.ateam.proalba.domain.mobile.MobileSalaryInfoVO;
+import com.ateam.proalba.domain.mobile.MobileWorkManageVO;
 import com.ateam.proalba.service.CareerService;
 import com.ateam.proalba.service.EmployeeService;
 import com.ateam.proalba.service.SalaryService;
@@ -374,24 +375,6 @@ public class WorkmanageController {
 		
 		logger.info("salarys");
 		return "cservicepage/cserSalary";
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "/m.cworkmanage", method = RequestMethod.POST)
-	public JSON mcworkmanageGET(@RequestBody String id) throws Exception {
-
-		logger.info("c id:  " + id);
-	
-		List<WorkManageVO> list = workManage.listAll(id);
-		for (WorkManageVO workManageVO : list) {
-			if (workManageVO.getEnd_date() == null) {
-				Date date = workManageVO.getJoin_date();
-				workManageVO.setEnd_date(date);
-			}
-		}
-		logger.info("fdfd"+list.toString());
-		JSONArray pJson = JSONArray.fromObject(list);
-		return pJson;
 	}
 
 	@ResponseBody
