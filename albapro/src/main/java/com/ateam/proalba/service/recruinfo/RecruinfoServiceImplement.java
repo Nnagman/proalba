@@ -50,14 +50,5 @@ public class RecruinfoServiceImplement implements RecruinfoService {
 	@Override
 	public int nCount() {
 		return recruinfoDAO.nCount();
-	}
-
-
-
-	@Override
-	public void deleteNotice(String[] deleteChedNo) throws Exception {
-		logger.info("NoticeArrayService:  " +deleteChedNo);
-		recruinfoDAO.deleteChedNo(deleteChedNo);		
-	}
-	 
+	} 
 }

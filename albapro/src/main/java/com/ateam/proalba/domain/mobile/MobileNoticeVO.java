@@ -44,4 +44,5 @@ public class MobileNoticeVO {
 	private String phone;
 	private String email;
 	private String end_date;
+	private String is_delete;
 }

@@ -60,6 +60,13 @@ public class CserviceController {
 	  
 	 }
 	 
+	  @ResponseBody
+	  @RequestMapping(value = "/get_addjobopening_free_manage_delete", method = RequestMethod.POST)
+	  public String get_addjobopening_free_manage_delete(String delete_n_code) throws Exception {
+		  recruinfoService.get_addjobopening_free_manage_delete(delete_n_code);
+		  return " ";
+	  }
+	 
 
 	@RequestMapping(value = "/cserAddJobopening_free", method = RequestMethod.POST)
 	public ModelAndView addjobopeningfreePOST(Model model, NoticeVO noticeVO) throws Exception {

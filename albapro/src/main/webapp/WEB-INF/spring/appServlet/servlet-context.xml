@@ -74,7 +74,6 @@
 	        <mapping path="/cserWorkmanagetableUpdate"/>
 	        <mapping path="/empfingeridUpdate"/>
 	        <mapping path="/cserWorkmanagetableDelete"/>
-	        <mapping path="/cserAddJobopeningfreemanageDelete"/>
 	        <mapping path="/cserWorkmanagetableInsert"/>
 	        <mapping path="/cserSalary"/>
 	        <mapping path="/cserInqcareer"/>

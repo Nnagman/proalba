@@ -9,11 +9,11 @@
 			insert into notice
 			(n_code, m_code, title, job_type, personnel, end_date, hour_wage, gender, age, term, 
 			work_day, work_time1, work_time2, p_date, viewcnt, address, content, work_place_name, education, 
-			documents, interview, career, employment_type, assigned_task, education_etc, major,
+			career, employment_type, assigned_task, education_etc, major,
 			preferential_conditions)
 			values( #{n_code}, #{m_code}, #{title}, #{job_type}, #{personnel}, #{end_date}, #{hour_wage}, #{gender}, 
 			#{age}, #{term}, #{work_day}, #{work_time1}, #{work_time2}, #{p_date}, #{viewcnt}, #{address}, 
-			#{content}, #{work_place_name}, #{education}, #{documents}, #{interview}, #{career},
+			#{content}, #{work_place_name}, #{education}, #{career},
 			#{employment_type}, #{assigned_task}, #{education_etc}, #{major}, #{preferential_conditions})
 		]]>
 	</insert>
@@ -31,9 +31,8 @@
 		SELECT n_code, m_code, title, job_type, personnel, end_date, hour_wage, gender, age, term, 
 		        work_day, work_time1, work_time2, p_date, viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),INSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),'/')+1) address, 
 		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
-		        assigned_task, education_etc, major, preferential_conditions, salary
+		        assigned_task, education_etc, major, preferential_conditions, salary, is_delete
 		FROM notice
-		WHERE is_delete IS NULL
   	  	]]>
 	</select>
 	
@@ -57,11 +56,11 @@
 				SELECT n_code, m_code, title, job_type, personnel, end_date, hour_wage, gender, age, term, 
 		        work_day, work_time1, work_time2, p_date, viewcnt, SUBSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),INSTR(SUBSTR(address,0,INSTR(address,' ',1,3)),'/')+1) address, 
 		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
-		        assigned_task, education_etc, major, preferential_conditions, salary
+		        assigned_task, education_etc, major, preferential_conditions, salary, is_delete
 		FROM notice
 		where m_code = 'c'||#{id}
   	  	]]>
-	</select>
+		</select>
 	
 	<insert id="addAttach">
 		insert into notice_file 
@@ -69,7 +68,7 @@
 	</insert>
 	
 	<update id="get_addjobopening_free_manage_delete">
-		DELETE notice
+		UPDATE notice SET is_delete = '1'
 		WHERE n_code = #{delete_n_code}
 	</update>
 	
@@ -77,13 +76,4 @@
 		select count(*)
 		from notice
 	</select>
-	
-	<delete id="deleteNotice" parameterType="Map">
-			UPDATE notice
-			SET is_delete = 'y'
-			WHERE n_code IN
-		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">			
-			#{item}
-		</foreach>
-	</delete>
 </mapper>

@@ -30,7 +30,6 @@ public class NoticeVO {
 	private String content;
 	private String work_place_name;
 	private String education;
-	private String documents;
 	private String interview;
 	private String contact_number;
 	private String career;
@@ -46,4 +45,5 @@ public class NoticeVO {
 	private String phone;
 	private String email;
 	private String r_code;
+	private String is_delete;
 }

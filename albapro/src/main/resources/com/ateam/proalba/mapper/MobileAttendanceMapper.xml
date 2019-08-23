@@ -21,6 +21,16 @@
 					SUBSTR(em_code,0,INSTR(em_code,'/')-1)='c'||#{cid}
 	</select>
 	
+	<select id="mobilecworkmanage" resultType="com.ateam.proalba.domain.mobile.MobileWorkManageVO">
+
+		SELECT e.em_code,m.m_code, e.c_code, id, phone, name, birthday, sex, email, SUBSTR(start_period,1,8)as start_period, finger_id, SUBSTR(end_period,1,8)as end_period, ca.join_date, ca.end_date
+		FROM employee e, member m, contract c, career ca
+		WHERE e.m_code = m.m_code 
+		AND e.c_code = c.c_code
+		 AND e.em_code = ca.em_code 
+		AND e.em_code LIKE '%'||#{id}||'%'
+	</select>
+	
 		<select id="fullcmobileattendance" resultType="com.ateam.proalba.domain.mobile.MobileAttendanceVO" >
        select DISTINCT w.w_code, w.sa_code sa_c, work_start_time sa_start, 
        SUBSTR(w_code, INSTR(w_code,'/')+1,9) sa_date, c.c_ID, work_end_time sa_end, w.sa_code,  e.m_code, w.work_start_time, w.work_end_time, w.working_hours, m.name
