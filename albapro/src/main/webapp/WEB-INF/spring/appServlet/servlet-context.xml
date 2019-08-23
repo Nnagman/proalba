@@ -55,7 +55,6 @@
 	        <mapping path="/sendWcontract"/>
 	        <mapping path="/cserWcontractForm"/>
 	        <mapping path="/applyContractForm"/>
-	        <mapping path="/psercheckContract"/>
 	        <mapping path="/vcontract"/>
 	        <mapping path="/wcontract/checkContract"/>
 	        <mapping path="/removeFile"/>
