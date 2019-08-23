@@ -103,7 +103,7 @@ public class RecruinfoController {
 		
 		logger.info(list.toString());
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("recruinfo/recruinfo");
+		mav.setViewName("recruinfo/applyComplete");
 		mav.addObject("list", list);
 		return mav;
 	}
