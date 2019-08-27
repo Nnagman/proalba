@@ -106,7 +106,7 @@ public class ContractController {
     	map.put("name","ok");
     	map.put("age", "22");
        
-	return map;
+    	return map;
 	}  
     
     
@@ -156,6 +156,7 @@ public class ContractController {
 		return "cservicepage/cserWcontract";
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/cserWcontract", method = RequestMethod.POST)
 	public String wcontractPOST(ServletRequest request, WcontractVO wcontractVO, Model model) throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");

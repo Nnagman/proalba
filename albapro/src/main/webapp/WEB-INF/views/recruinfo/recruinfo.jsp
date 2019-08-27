@@ -303,9 +303,8 @@ top:400px;
 		</tr>
 	</thead>
 	<tbody>
-
 		<c:forEach var="row" items="${list}">
-		<c:if test="${row.is_null == '0'}">
+		<c:if test="${row.is_delete == '0'}">
 			<tr>
 				<td class="local">${row.address}</td>
 				<td class="title"><a href="recruinfoDetail?n_code=${row.n_code}">

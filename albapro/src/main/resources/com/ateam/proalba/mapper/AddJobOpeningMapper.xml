@@ -33,7 +33,6 @@
 		        content, work_place_name, education, documents, interview, contact_number, career, employment_type,
 		        assigned_task, education_etc, major, preferential_conditions, salary, is_delete
 		FROM notice
-		WHERE is_delete IS NULL
   	  	]]>
 	</select>
 	
