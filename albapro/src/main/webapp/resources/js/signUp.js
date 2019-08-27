@@ -1,7 +1,7 @@
       //이용약관 동의
  var doc = document;
  var agree_form = doc.getElementById('agree_form');
- var inputs = agree_form.getElementsByTagName('INPUT');
+ var inputs = agree_form.getElementsByTagName('input');
  var agree_form_data = {
    "c1": false,
    "c2": false,
