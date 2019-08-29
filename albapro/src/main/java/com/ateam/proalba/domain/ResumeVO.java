@@ -17,4 +17,6 @@ public class ResumeVO {
 	private String n_code;
 	private String late_status;
 	private String c_late_status;
+	private String email;
+	private String phone;
 }

@@ -190,7 +190,7 @@ public class PserviceController {
 	@RequestMapping(value = "/pserworkList", method = RequestMethod.GET)
 	public ModelAndView pworkListGET(Model model,@RequestParam("id") String id) throws Exception {
 		model.addAttribute("message", "");
-		List<CareerVO> list = careerService.selectCareers("p"+id);
+		List<CareerVO> list = careerService.pselectCareers("p"+id);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("servicepage/pserworkList");

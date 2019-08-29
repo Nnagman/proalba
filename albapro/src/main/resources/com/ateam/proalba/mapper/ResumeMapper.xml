@@ -25,19 +25,20 @@
 		WHERE r.r_code = f.r_code
 		AND r.r_code = #{r_code}
         group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name -->
-                SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name,
-        (select sum(w.late_status)
+        SELECT r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name, m.email, m.phone,
+        NVL((select sum(w.late_status)
         from work_record w, resume r
         where (substr(w.w_code,1,instr(w.w_code,'/',1,1)-1))=(substr(r.r_code,1,instr(r.r_code,'/',1,1)-1))
         AND r.r_code = #{r_code}
-        ) as late_status, ( select count(w.late_status)-sum(w.late_status)
+        ),'0') as late_status, NVL(( select count(w.late_status)-sum(w.late_status)
                             from work_record w, resume r
                             where (substr(w.w_code,1,instr(w.w_code,'/',1,1)-1))=(substr(r.r_code,1,instr(r.r_code,'/',1,1)-1))
-                            AND r.r_code = #{r_code} ) as c_late_status
-        FROM resume r, resume_file f, work_record w
+                            AND r.r_code = #{r_code} ),'0') as c_late_status
+        FROM resume r, resume_file f, member m
 		WHERE r.r_code = f.r_code
 		AND r.r_code = #{r_code}
-        group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name
+        AND r.m_code = m.m_code
+        group by r.r_code, r.m_code, r.title, r.content, r.address, r.education, r.license, f.r_code, f.file_name, m.email, m.phone
 	</select>
 	
 	<select id="late_status" resultType="com.ateam.proalba.domain.ResumeVO">
