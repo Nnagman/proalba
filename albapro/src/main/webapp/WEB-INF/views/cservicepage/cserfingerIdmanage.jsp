@@ -307,8 +307,7 @@ td{
 												<c:forEach var="row" items="${list}" varStatus="status">
 													<tr id="${status.count}" class="${row.em_code}">
 														<td>${row.name}</td>
-														<td><fmt:parseDate value='${row.start_period}' var='start_period' pattern='yy/MM/dd'/>
-															<fmt:formatDate value="${start_period}" pattern="yyyy/MM/dd"/></td>
+														<td>${fn:substring(row.start_period,0,10)}</td>
 														<c:if test='${row.finger_id == 0}'> <td> 등록된 지문이 없습니다. </td> </c:if>
 														<c:if test='${row.finger_id != 0}'> <td> ${row.finger_id} </td> </c:if>
 														<td> <i class="fas fa-pencil-alt Bupdate"></i> <i class="fas fa-trash-alt Bdelete"></i> </td>

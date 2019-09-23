@@ -593,9 +593,14 @@ public class MobileController {
 	@ResponseBody
 	@RequestMapping(value="/m.applyResume", method=RequestMethod.POST)
 	public String applyResume(String r_code, String n_code) throws Exception {
+		String r_code2 = new String();
+		
+		int length = r_code.length();
+		r_code2 = r_code.substring(0, length-9) + " " + r_code.substring(length-8);
+		
 		logger.info(r_code +" "+ n_code);
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("r_code", r_code);
+		map.put("r_code", r_code2);
 		map.put("n_code", n_code);
 
 		

@@ -46,6 +46,7 @@
       		function drawChart() {
       			var late_status =${resume.late_status};
     			var c_late_status =${resume.c_late_status};
+
         		var data = google.visualization.arrayToDataTable([
             		['Task', 'Hours per Day'],
             		['정상 출근',   c_late_status],
@@ -173,7 +174,7 @@
 											<td class="item">휴대폰</td>
 											<td class="infoContents hpNumber">
 												<div class="contentsBox">
-													<span class="number" id="idResumeHtel">${login.phone}</span>
+													<span class="number" id="idResumeHtel">${resume.phone}</span>
 													<input type="hidden" name="id" value="${login.id}"/>
 												</div>
 											</td>
@@ -182,7 +183,7 @@
 											<td class="item">이메일</td>
 											<td class="infoContents userEmail">
 												<div class="contentsBox">
-													${login.email}
+													${resume.email}
 												</div>
 											</td>
 										</tr>
@@ -337,7 +338,6 @@
 								<!-- //자유양식 -->
 							</div>
 						</div>
-						${resume.late_status };
 						<c:choose>
 						<c:when test="${null ne resume.late_status }">
 						<div id="RegistIntroduce" class="registArea">
@@ -394,7 +394,8 @@
       
       		function drawChart() {
     			var late_status =${resume.late_status};
-    			var c_late_status =${resume.c_late_status};
+    			var c_late_status =${resume.c_late_status};   			
+    			
         		var data = google.visualization.arrayToDataTable([
           			['Task', 'Hours per Day'],
          	 		['정상 출근',   c_late_status],

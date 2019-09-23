@@ -221,12 +221,10 @@
 	
 	
 	<!-- 다음 지도 api  -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=LIBRARY"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30778415e99d74364ec3cdbc2fd242bf&libraries=services,clusterer,drawing"></script>
    <script src="//dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<!-- 다음 지도 api  -->
 	
-	<!-- 다음지도 script -->
 <script>
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
    mapOption = {
@@ -236,11 +234,7 @@
    //지도를 생성합니다    
    var map = new daum.maps.Map(mapContainer, mapOption); 
 </script>
-	<!-- 다음지도 script -->
-	
-	
-	<!--주소대로 맵에 표시하기 -->
-	<script>
+<script>
    $(document).on('click','.searchmap',function(){
       var address1 = $('.sample6_address').val();   
       // 주소-좌표 변환 객체를 생성합니다
@@ -250,11 +244,7 @@
           // 정상적으로 검색이 완료됐으면 
           if (status === daum.maps.services.Status.OK) {
              var coords = new daum.maps.LatLng(result[0].y, result[0].x);   
-             var pricoordsx = new daum.maps.LatLng(result[0].y);   
-             var pricoordsy = new daum.maps.LatLng(result[0].x); 
-             console.log(pricoordsx.jb);
-             console.log(pricoordsy.jb);
-             $('#coordinate').val(pricoordsx.jb+','+pricoordsy.jb);
+         
               // 결과값으로 받은 위치를 마커로 표시합니다
               var marker = new daum.maps.Marker({ map: map, position: coords });
               // 인포윈도우로 장소에 대한 설명을 표시합니다
@@ -389,6 +379,9 @@
        </script> -->
        <script>
             $(document).ready(function(){
+            	var id_check = 0;
+            	var pass_check = 0;
+            	
              $("#passwd_success").hide();
              $("#passwd_danger").hide();
              $("#dev_pwdconfirm").keyup(function(){
@@ -399,10 +392,12 @@
                                      $("#passwd_success").show();
                                      $("#passwd_danger").hide();
                                      $("#submit").removeAttr("disabled");
+                                     pass_check = 1;
                              }else{
                                      $("#passwd_success").hide();
                                      $("#passwd_danger").show();
                                      $("#submit").attr("disabled", "disabled");
+                                     pass_check = 0;
                              }
                      }
              });
@@ -423,6 +418,7 @@
 	                if (data.cnt > 0) {
 	                    alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
 	                    $("#dev_idchk").focus();
+	                    id_check = 0;
 	                } else {
 	                    alert("사용가능한 아이디입니다.");
 	                    $("#dev_pwd1").focus();
@@ -431,6 +427,7 @@
 	            		var m_code = 'c'+$('#id').val();
 	            		console.log(m_code);
 	            		$("#m_code").val(m_code);
+	            		id_check = 1;
 	                }
 	            },
 	            error : function(error) {
@@ -539,12 +536,6 @@
     });      
             </script>
             
-            
-            
-    
-
-<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6"></script>
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=uxsff7i3b6&submodules=geocoder"></script>
-<script src="resources/js/map.js?ver=5"></script> -->
+<!-- <script src="resources/js/map.js?ver=5"></script> -->
 <script src="resources/js/signUp_agree.js?ver=2"></script>
 </html>

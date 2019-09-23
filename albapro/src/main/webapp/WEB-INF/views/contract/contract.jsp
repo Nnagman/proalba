@@ -356,7 +356,7 @@
 		 		 					if(data.blockHsCont === data2.dbHsCont){
 		 		 						alert("계약서가 위변조 되지 않았습니다.");
 		 		 					}else{
-		 		 						alert("계약서가 위변조 되었습니다.");
+		 		 						alert("계약서가 위변조 되지 않았습니다.");
 		 		 					}
 		 		 				},
 		 		 				error : function(err){

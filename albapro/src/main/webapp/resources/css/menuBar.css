@@ -55,8 +55,7 @@ body{
 }
 
 .nav > li:hover > a{
-    color: black !important;
-        background-color: white !important;
+       background-color: black !important;
 }
 
 /* .column > ul > li:hover{
@@ -67,7 +66,7 @@ body{
     background-color: #E0ECF8;
 }
 
-.nav > li > ul {
+/* .nav > ul > li {
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -79,7 +78,7 @@ body{
     margin-top: 30px;
     padding: 0px;
     z-index: 99px;
-}
+} */
 
 .nav > li:hover > ul{
     opacity: 1;
@@ -94,28 +93,28 @@ body{
     padding: 0 10px;
 }
 
-.nav > li > ul li:hover{
+/* .nav > li > ul li:hover{
     background-color: #fff;
-}
+} */
 
 .nav ul li:hover > a{
     color: #000;
 }
 
-.nav > li > ul li ul li:hover{
+/* .nav > li > ul li ul li:hover{
     background-color :#fff;
-}
+} */
 
-.nav > li > ul li ul li ul {
+/* .nav > li > ul li ul li ul {
 	background-color: #fff;
-}
+} */
 
 
 .nav > li > .fulldrop {
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
-	list-style: none;
+	list-style: square;
 	top:80px;
 	float:left;
 	min-height: 100px;
@@ -130,7 +129,6 @@ body{
 }
 
 .Asize{
-	width: 1230px;
  	height: 230px;
 }
 
@@ -140,13 +138,13 @@ body{
 }
 
 .nav > li:hover > .fulldrop {
-	background-color: white;
-	border: 1px solid gray;
-	opacity: 1;
+	background-color: black;
+	/* border: 1px solid gray; */
+	opacity: 0.7;
 	visibility: visible;
-	width: 690px;
+	width: 660px;
 	position: absolute;
-	list-style: none;
+ 	list-style: square; 
 	top:80px;
 	float:left;  	
 	min-height: 100px;
@@ -156,18 +154,18 @@ body{
 	padding: 0;
 	z-index: 99;
 	overflow: hidden;
-	margin-left: -1px;
+/* 	margin-left: -1px; */
 }
 
 .nav ul li:hover:after {
-	color: black;
+	color: white;
 }
 
 .nav .column {
- 	width: 210px;
-   	height: 160px;
+ 	width: 200px;
+   	height: 180px;
 	float: left;
-	color: black;
+	color: white !important;
 	margin: 20px 20px 0 0;
 	padding-left: 20px;
   	padding-right: 10px;
@@ -196,7 +194,8 @@ body{
 
 .nav .column ul li {
 	padding: 0;
-	list-style: none;
+	list-style: square;
+	color: white;
 	font-size: 14px;
 }
 
@@ -205,14 +204,14 @@ body{
 	padding-bottom: 14px;
 	font-weight: 600;
 	margin: 5px 0 5px 0;
-	color: black;
+	color: white;
 }
 
 .nav .column ul li a {
 	display: block;
 	padding: 0;
 	text-align: left;
-	color: black !important;
+	color: white !important;
 	padding-bottom: 10px;
 }
 
@@ -294,7 +293,7 @@ body{
 }
 
 .menuLink{
-	/*  color:white !important; */ 
+	 color:white !important;
      text-decoration: none !important; 
      text-shadow: 0 0px 0 !important; 
 }
